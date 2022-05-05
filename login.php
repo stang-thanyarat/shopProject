@@ -15,7 +15,7 @@
     <div class="row min-vh-100">
         <div class="BgLeft col-md-6">
             <div class="wrap d-md-flex inLeft no-gutter">
-                <img src="./src/images/icon-head.png" class="icon" style="" />
+                <img src="./src/images/icon-head.png" class="icon"/>
                 <h3 class="head">ร้านวรเชษฐ์เกษตรภัณฑ์</h3>
             </div>
         </div>

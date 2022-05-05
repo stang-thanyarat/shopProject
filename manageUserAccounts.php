@@ -9,14 +9,15 @@
     <link rel="stylesheet" href="./src/css/manageUserAccounts.css" />
     <title>Document</title>
 </head>
+<?php include('nav.php'); ?>
 
 <body>
     <form>
-        <div class="row">
-            <div class="col-lg-4">
+        <div class="row main">
+            <div class="col-lg-6">
                 <h1>จัดการดูแลบัญชีผู้ใช้งาน</h1>
             </div>
-            <div class="col-lg-2">
+            <div class="col-lg-6">
                 <label for="position">ตำแหน่ง :</label>
                 <select name="position" id="position">
                     <option value="volvo" selected>ตำแหน่ง</option>
@@ -24,6 +25,18 @@
                     <option value="opel">ผู้ดูแลระบบ</option>
                 </select>
             </div>
+            <div>
+                
+            </div>
         </div>
-        </div>
+        <table class="main ">
+            <tr>
+                <th>ลำดับ</th>
+                <th>ชื่อ</th>
+                <th>นามสกุล</th>
+                <th>ตำแหน่ง</th>
+                <th>สถานะการใช้งาน</th>
+                <th></th>
+            </tr>
+        </table>
 </body>
