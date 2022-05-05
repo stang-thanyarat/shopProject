@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./src/css/contract.css" />
     <title>Document</title>
 </head>
-
+<?php include('nav.php');?>
 <body>
     <form class="content">
         <div class="row">
