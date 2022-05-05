@@ -2,7 +2,7 @@
 
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
-    --bs-gutter-x:0;
+    --bs-gutter-x: 0;
 }
 
 .switch {
@@ -72,7 +72,9 @@ input:checked+.slider:before {
     margin-left: 10rem;
 }
 
-table,td,th {
+table,
+td,
+th {
     border: 1px solid black;
 }
 
@@ -84,4 +86,20 @@ table {
 th {
     height: 50px;
     width: 20%;
+}
+
+select {
+    background-color: #ABBE99;
+    border: 0ch;
+}
+
+option {
+    background-color: #D4DDC6;
+    border: 0ch;
+}
+
+.button {
+    background-color: #7C904E ;
+    border: 0ch;
+    color: white;
 }

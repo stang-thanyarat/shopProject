@@ -14,10 +14,10 @@
 <body>
     <form>
         <div class="row main">
-            <div class="col-lg-6">
+            <div class="col-lg-5">
                 <h1>จัดการดูแลบัญชีผู้ใช้งาน</h1>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-2">
                 <label for="position">ตำแหน่ง :</label>
                 <select name="position" id="position">
                     <option value="volvo" selected>ตำแหน่ง</option>
@@ -25,8 +25,11 @@
                     <option value="opel">ผู้ดูแลระบบ</option>
                 </select>
             </div>
-            <div>
-                
+            <div class="col-lg-3">
+                <input type="text" placeholder="ชื่อ-นามสกุล">
+            </div>
+            <div class="col-lg-1">
+                <input class="button" type="submit" value="เพิ่มบัญชีผู้ใช้งาน" />
             </div>
         </div>
         <table class="main ">
