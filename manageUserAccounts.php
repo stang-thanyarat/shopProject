@@ -26,7 +26,7 @@
                 </select>
             </div>
             <div class="col-lg-3">
-                <input type="text" placeholder="ชื่อ-นามสกุล">
+                <input type="text btn-c" placeholder="ชื่อ-นามสกุล">
             </div>
             <div class="col-lg-1">
                 <input class="submit btn-c" type="submit" value="เพิ่มบัญชีผู้ใช้งาน" />
