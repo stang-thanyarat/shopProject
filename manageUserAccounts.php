@@ -29,7 +29,7 @@
                 <input type="text" placeholder="ชื่อ-นามสกุล">
             </div>
             <div class="col-lg-1">
-                <input class="button" type="submit" value="เพิ่มบัญชีผู้ใช้งาน" />
+                <input class="submit btn-c" type="submit" value="เพิ่มบัญชีผู้ใช้งาน" />
             </div>
         </div>
         <table class="main ">

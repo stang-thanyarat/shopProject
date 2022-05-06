@@ -98,8 +98,15 @@ option {
     border: 0ch;
 }
 
-.button {
-    background-color: #7C904E ;
+.btn-c {
+    border-radius: 25px 25px 25px 25px;
+    font-size: 16pt;
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+    width: 120%;
+}
+
+.submit {
+    background-color: #7C904E;
     border: 0ch;
     color: white;
 }
