@@ -68,7 +68,12 @@ input:checked+.slider:before {
 }
 
 .main {
-    margin-top: 1rem;
+    margin-top: 4rem;
+    margin-left: 10rem;
+}
+
+.ma {
+    margin-top: 2rem;
     margin-left: 10rem;
 }
 
@@ -76,6 +81,7 @@ table,
 td,
 th {
     border: 1px solid black;
+    text-align: center;
 }
 
 table {
@@ -101,11 +107,48 @@ option {
 .btn-c {
     border-radius: 25px 25px 25px 25px;
     font-size: 16pt;
-    width: auto;
+    display: inline-block;
+    width: 120%;
+    text-decoration: none;
+    margin-left: -3rem;
+}
+
+.btn-c:hover {
+    color: white;
 }
 
 .submit {
     background-color: #7C904E;
     border: 0ch;
     color: white;
+}
+
+.btn-d {
+    border-radius: 25px 25px 25px 25px;
+    background-color: #F8E4C8;
+}
+
+.s {
+    background: transparent;
+    border: 0px;
+    margin-left: -2rem;
+}
+
+.add {
+    margin-left: 2rem;
+}
+
+@media only screen and (max-width: 888px) {
+    #position {
+        margin-right: -3rem;
+    } 
+    .btn-d{
+        margin-left: -3rem;
+        margin-right: 3rem;
+    }
+    .s {
+        background: transparent;
+        border: 0px;
+        margin-left: -5rem;
+    }
 }

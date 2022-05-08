@@ -14,14 +14,14 @@
 <body>
     <form>
         <div class="row main">
-            <div class="col-lg-10">
+            <div class="col-10">
                 <h1>สถิติการค้นหาโดยประเภทสินค้า</h1>
             </div>
-            <div class="col-lg-1">
+            <div class="col-1">
                 <input class="buttom re" type="submit" value="รีเซต"/>
             </div>
         </div>
-        <table class="main">
+        <table class="main col-10">
             <tr>
                 <th>ลำดับ</th>
                 <th>ประเภทสินค้า</th>
