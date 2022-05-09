@@ -1,0 +1,25 @@
+h5 {
+    margin: 0px 0px 0px 10px;
+    color: #470000;
+}
+
+hr {
+    margin-top: 3px;
+}
+
+.bar-link {
+    font-size: 10pt;
+    margin-top: -0.5rem;
+    color: white;
+}
+
+.bar-link:visited {
+    color: #ABBE99;
+}
+
+
+.bar {
+    width: 7rem;
+    min-height: 100%;
+    background: #A36627;
+}
