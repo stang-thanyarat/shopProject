@@ -13,19 +13,25 @@
 
 <body>
     <form>
-        <div class="row main">
-            <div class="col-10">
-                <h1>สถิติการค้นหาโดยคำค้นหา</h1>
-            </div>
-            <div class="col-1">
-                <input class="buttom re" type="submit" value="รีเซต"/>
+        <div class="row">
+            <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
+            <div class="col-11">
+                <div class="row main">
+                    <div class="col-10">
+                        <h1>สถิติการค้นหาโดยคำค้นหา</h1>
+                    </div>
+                    <div class="col-1">
+                        <button class="buttom re" type="reset">รีเซต</button>
+                    </div>
+                </div>
+                <table class="main col-10">
+                    <tr>
+                        <th>ลำดับ</th>
+                        <th>คำค้น</th>
+                        <th>จำนวนครั้งค้นหา</th>
+                    </tr>
+                </table>
             </div>
         </div>
-        <table class="main col-10">
-            <tr>
-                <th>ลำดับ</th>
-                <th>คำค้น</th>
-                <th>จำนวนครั้งค้นหา</th>
-            </tr>
-        </table>
+    </form>
 </body>

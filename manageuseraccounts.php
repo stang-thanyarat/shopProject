@@ -12,43 +12,45 @@
 <?php include('nav.php'); ?>
 
 <body>
-    <form>
-        <div class="row main">
-            <div class="col">
-                <h1>จัดการดูแลบัญชีผู้ใช้งาน</h1>
+    <div class="row">
+        <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
+        <div class="col-11">
+            <div class="row main">
+                <div class="col">
+                    <h1>จัดการดูแลบัญชีผู้ใช้งาน</h1>
+                </div>
             </div>
+            <div class="row min-vw-100">
+                <div class="col">
+                    <label for="position">ตำแหน่ง :</label>
+                    <select name="position" id="position">
+                        <option value="volvo" selected>ตำแหน่ง</option>
+                        <option value="saab">เจ้าของร้าน</option>
+                        <option value="opel">ผู้ดูแลระบบ</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <form>
+                        <input type="text " class="btn-d" placeholder="&nbsp ชื่อ-นามสกุล">
+                        <button type="submit" class="s">
+                            <img src="./src/images/search.png" width="15" alt="">
+                        </button>
+                    </form>
+                </div>
+                <div class="col">
+                    <a class="submit btn-c" href="#"><img class='add' src="./src/images/plus.png" width="25" alt=""> เพิ่มบัญชีผู้ใช้งาน</a>
+                </div>
+            </div>
+            <table class="main ">
+                <tr>
+                    <th>ลำดับ</th>
+                    <th>ชื่อ</th>
+                    <th>นามสกุล</th>
+                    <th>ตำแหน่ง</th>
+                    <th>สถานะการใช้งาน</th>
+                    <th></th>
+                </tr>
+            </table>
         </div>
-        <div class="row min-vw-100">
-            <div class="col-4 ">
-                <label for="position">ตำแหน่ง :</label>
-                <select name="position" id="position">
-                    <option value="volvo" selected>ตำแหน่ง</option>
-                    <option value="saab">เจ้าของร้าน</option>
-                    <option value="opel">ผู้ดูแลระบบ</option>
-                </select>
-            </div>
-            <div class="col-4">
-                <form>
-                    <input type="text " class="btn-d" placeholder="&nbsp ชื่อ-นามสกุล">
-                    <button type="submit" class="s">
-                        <img src="./src/images/search.png" width="15" alt="">
-                    </button>
-                </form>
-
-            </div>
-            <div class="col-3">
-                <a class="submit btn-c" href="#"><img class='add' src="./src/images/plus.png" width="25" alt=""> เพิ่มบัญชีผู้ใช้งาน</a>
-            </div>
-        </div>
-        </div>
-        <table class="main ">
-            <tr>
-                <th>ลำดับ</th>
-                <th>ชื่อ</th>
-                <th>นามสกุล</th>
-                <th>ตำแหน่ง</th>
-                <th>สถานะการใช้งาน</th>
-                <th></th>
-            </tr>
-        </table>
+    </div>
 </body>

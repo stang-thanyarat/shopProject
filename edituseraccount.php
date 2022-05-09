@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./src/css/edituseraccount.css" />
     <title>Document</title>
 </head>
-
+<?php include('nav.php'); ?>
 <body>
     <div class="row main">
         <form>

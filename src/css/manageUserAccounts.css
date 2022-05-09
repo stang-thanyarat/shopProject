@@ -69,7 +69,11 @@ input:checked+.slider:before {
 
 .main {
     margin-top: 4rem;
-    margin-left: 10rem;
+    margin-left: 3rem;
+}
+
+.Nbar{
+    margin-top: 3.5rem;
 }
 
 .ma {

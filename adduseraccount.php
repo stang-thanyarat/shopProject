@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="./src/css/adduseraccount.css" />
     <title>Document</title>
 </head>
+<?php include('nav.php'); ?>
 
 <body>
-    <div class="row main">
-        <form>
+    <form>
+        <div class="row main">
             <div class="row">
                 <h1>เพิ่มบัญชีผู้ใช้งาน</h1>
             </div>
@@ -33,7 +34,7 @@
                 <div class="col-lg-4 col-md-12">
                     <label for="lastname">นามสกุล :</label>
                     <input name="lastname" type="text" />
-                </div>  
+                </div>
             </div>
             <div class="row">
                 <div class="col-lg-4 login">
@@ -69,9 +70,7 @@
                     <input type="submit" class="btn-c submit" value="บันทึก" />
                 </div>
             </div>
-    </div>
     </form>
-    </div>
 </body>
 
 </html>
