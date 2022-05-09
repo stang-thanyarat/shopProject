@@ -20,7 +20,7 @@
             <div class="col-3">
                 <input type="text" class="btn-d" placeholder="&nbsp ชื่อผู้ขาย">
                 <button type="submit" class="s">
-                    <img src="./src/images/search.png" width="15" alt="">
+                        <img src="./src/images/search.png" width="15" alt="">
             </div>
             <div class="col-1">
                 <a class="submit btn" href="#"><img class='add' src="./src/images/plus.png" width="25" alt="">&nbsp เพิ่มผู้ขาย</a>
