@@ -14,6 +14,30 @@
     margin-top: 3.5rem;
 }
 
+.mai{
+    margin-top: 1rem;
+    margin-left: 3rem;
+}
+
+.submit {
+    background-color: #7C904E;
+    color: white;
+    border: 0ch;
+}
+
+.reset {
+    background-color: #E0B87E;
+    color: white;
+    border: 0ch;
+}
+
+.btn-c {
+    border-radius: 25px 25px 25px 25px;
+    font-size: 20pt;
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+    width: 60%;
+}
+
 table,
 td,
 th {

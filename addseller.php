@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col">
+                <div class="col-12">
                     <label for="seller type">ประเภทผู้ขาย :</label>
                     <input type="radio" name="seller type" class="seller type" value="บริษัท / ห้างร้าน" checked>
                     <label for="seller type">บริษัท / ห้างร้าน </label>
@@ -91,9 +91,9 @@
                 </div>
             </div>
             <div class="row">
-                <h5>เพิ่มเติมอื่นๆ</h5>
+                <h5 style="color: #A36627">เพิ่มเติมอื่นๆ</h5>
             </div>
-            <div class="row-5">
+            <div class="row">
                 <div class="col">
                     บัตรประชาชน : <input type='file' name='ID card' />
                     <input type='submit' value="ยืนยัน" />
@@ -107,7 +107,7 @@
                     <h5>บัญชีรับเงินของผู้ขาย</h5>
                 </div>
                 <div class="col">
-                    <h5>เพิ่มบัญชีใหม่</h5>
+                    <h5 style="color: #A36627">เพิ่มบัญชีใหม่</h5>
                 </div>
             </div>
             <table class="mai">
@@ -151,7 +151,7 @@
                 <label for="note">หมายเหตุ :&nbsp;</label>
                 <textarea name="detail" cols="50" rows="5" style="vertical-align: middle;"></textarea>
             </div>
-            <div class="row ">
+            <div class="row">
                 <div class="col-2">
                     <button type="reset" class="btn-c reset">ยกเลิก</button>
                 </div>
