@@ -94,8 +94,13 @@
                 <h5>เพิ่มเติมอื่นๆ</h5>
             </div>
             <div class="row-5">
-                บัตรประชาชน : <input type='file' name='ID card' />
-                <input type='submit' value="ยืนยัน" />
+                <div class="col">
+                    บัตรประชาชน : <input type='file' name='ID card' />
+                    <input type='submit' value="ยืนยัน" />
+                </div>
+                <div class="col">
+                    <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
+                </div>
             </div>
             <div class="row">
                 <div class="col">
@@ -125,12 +130,22 @@
                 </tr>
             </table>
             <div class="row-5">
-                นามบัตร : <input type='file' name='card' />
-                <input type='submit' value="ยืนยัน" />
+                <div class="col">
+                    นามบัตร : <input type='file' name='card' />
+                    <input type='submit' value="ยืนยัน" />
+                </div>
+                <div class="col">
+                    <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
+                </div>
             </div>
             <div class="row-5">
-                เอกสารอื่นๆ : <input type='file' name='other documents' />
-                <input type='submit' value="ยืนยัน" />
+                <div class="col">
+                    เอกสารอื่นๆ : <input type='file' name='other documents' />
+                    <input type='submit' value="ยืนยัน" />
+                </div>
+                <div class="col">
+                    <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
+                </div>
             </div>
             <div class="col">
                 <label for="note">หมายเหตุ :&nbsp;</label>
