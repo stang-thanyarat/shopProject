@@ -16,7 +16,7 @@
             <div class="row">
                 <h1>แก้ไขบัญชีผู้ใช้งาน</h1>
             </div>
-            <div class="row top">
+            <div class="row">
                 <div class="col-lg-4 col-md-12">
                     <label for="prefix">คำนำหน้าชื่อ:</label>
                     <select name="prefix" id="prefix">

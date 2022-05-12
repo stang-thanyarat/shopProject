@@ -38,6 +38,12 @@
     width: 60%;
 }
 
+.btn-g {
+    width: 100%;
+    justify-content: end;
+    display: flex;
+}
+
 table,
 td,
 th {

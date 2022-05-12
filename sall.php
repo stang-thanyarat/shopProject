@@ -36,6 +36,21 @@
                         <th>นามบัตร</th>
                         <th></th>
                     </tr>
+                    <tr>
+                        <th>อาร์เอส อินเตอร์เทรด (2017) จำกัด</th>
+                        <th>0745560004191</th>
+                        <th><img src="./src/images/1.png" width="100"></th>
+                        <th><img src="./src/images/icon-pencil.png" width="25">
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>ซีดไลน์ จำกัด</th>
+                        <th>-</th>
+                        <th><img src="./src/images/2.png" width="100"></th>
+                        <th><img src="./src/images/icon-delete.png" width="25">
+                            <img src="./src/images/icon-pencil.png" width="25">
+                        </th>
+                    </tr>
                 </table>
             </div>
 </body>

@@ -151,7 +151,7 @@
                 <label for="note">หมายเหตุ :&nbsp;</label>
                 <textarea name="detail" cols="50" rows="5" style="vertical-align: middle;"></textarea>
             </div>
-            <div class="row">
+            <div class="row btn-g">
                 <div class="col-2">
                     <button type="reset" class="btn-c reset">ยกเลิก</button>
                 </div>

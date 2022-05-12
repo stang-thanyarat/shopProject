@@ -37,6 +37,34 @@
                         <th>สถานะการใช้งาน</th>
                         <th></th>
                     </tr>
+                    <tr>
+                        <th>นางสายสมร ใจดี</th>
+                        <th>1235698745656</th>
+                        <th>061-4398626</th>
+                        <th>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </th>
+                        <th><img src="./src/images/icon-delete.png" width="25">
+                            <img src="./src/images/icon-pencil.png" width="25">
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>นายสมศักดิ์ ดีใจ</th>
+                        <th>1235684849752</th>
+                        <th>061-9785136</th>
+                        <th>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </th>
+                        <th><img src="./src/images/icon-delete.png" width="25">
+                            <img src="./src/images/icon-pencil.png" width="25">
+                        </th>
+                    </tr>
                 </table>
             </div>
         </div>
