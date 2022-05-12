@@ -18,7 +18,7 @@
             <div class="col-11">
                 <div class="row main">
                     <div class="col">
-                        <h1>เพิ่มผู้ขาย</h1>
+                        <h1>เพิ่มพนักงานใหม่</h1>
                     </div>
                 </div>
             </div>
