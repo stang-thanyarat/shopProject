@@ -20,28 +20,28 @@
                     <h1>จัดการดูแลบัญชีผู้ใช้งาน</h1>
                 </div>
             </div>
-            <div class="row min-vw-100">
-                <div class="col">
+            <div class="row min-vw-100 ma">
+                <div class="col-2">
                     <label for="position">ตำแหน่ง :</label>
                     <select name="position" id="position">
-                        <option value="volvo" selected>ตำแหน่ง</option>
-                        <option value="saab">เจ้าของร้าน</option>
-                        <option value="opel">ผู้ดูแลระบบ</option>
+                        <option value="position" selected>ตำแหน่ง</option>
+                        <option value="shopkeeper">เจ้าของร้าน</option>
+                        <option value="admin">ผู้ดูแลระบบ</option>
                     </select>
                 </div>
-                <div class="col">
+                <div class="col-3">
                     <form>
-                        <input type="text " class="btn-d" placeholder="&nbsp ชื่อ-นามสกุล">
+                        <input type="text" class="btn-d" placeholder="&nbsp ชื่อ-นามสกุล">
                         <button type="submit" class="s">
                             <img src="./src/images/search.png" width="15" alt="">
                         </button>
                     </form>
                 </div>
-                <div class="col">
-                    <a class="submit btn-c" href="#"><img class='add' src="./src/images/plus.png" width="25" alt=""> เพิ่มบัญชีผู้ใช้งาน</a>
+                <div class="col-3">
+                    <a class="submit btn-c" href="#"><img class='add' src="./src/images/plus.png" width="25"> เพิ่มบัญชีผู้ใช้งาน</a>
                 </div>
             </div>
-            <table class="main ">
+            <table class="mai">
                 <tr>
                     <th>ลำดับ</th>
                     <th>ชื่อ</th>
@@ -49,6 +49,37 @@
                     <th>ตำแหน่ง</th>
                     <th>สถานะการใช้งาน</th>
                     <th></th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <th>สมหญิง</th>
+                    <th>ถึงที่หมาย</th>
+                    <th>เจ้าของร้าน</th>
+                    <th><label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </th>
+                    <th>
+                        <img src="./src/images/icon-delete.png" width="25">
+                        <img src="./src/images/icon-pencil.png" width="25">
+                    </th>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <th>สมชาย</th>
+                    <th>ถึงที่หมาย</th>
+                    <th>เจ้าของร้าน</th>
+                    <th>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </th>
+                    <th>
+                        <img src="./src/images/icon-delete.png" width="25">
+                        <img src="./src/images/icon-pencil.png" width="25">
+                    </th>
                 </tr>
             </table>
         </div>
