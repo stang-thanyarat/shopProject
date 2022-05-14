@@ -14,7 +14,7 @@
     margin-top: 3.5rem;
 }
 
-.mai{
+.mai {
     margin-top: 1rem;
     margin-left: 3rem;
 }
@@ -31,6 +31,12 @@
     border: 0ch;
 }
 
+.btn-g {
+    width: 100%;
+    justify-content:end;
+    display: flex;
+}
+
 .btn-c {
     border-radius: 25px 25px 25px 25px;
     font-size: 20pt;
@@ -38,11 +44,6 @@
     width: 60%;
 }
 
-.btn-g {
-    width: 100%;
-    justify-content: end;
-    display: flex;
-}
 
 table,
 td,
