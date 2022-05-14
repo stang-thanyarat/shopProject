@@ -43,7 +43,9 @@ th {
 }
 
 .s{
-    border-radius: 25px;
+    background: transparent;
+    border: 0px;
+    margin-left: -2rem;
 }
 
 .BTNP{

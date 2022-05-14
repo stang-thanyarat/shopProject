@@ -22,7 +22,7 @@
                     <form>
                         <input type="text" class="btnd" placeholder="&nbsp ชื่อ-นามสกุล">
                         <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
-                    </form>&nbsp
+                    </form>&nbsp &nbsp
                     <div class="col-3">
                         <a class="submit BTNC" href="#"><img class='add' src="./src/images/arrow.png" width="50">กลับไปยังหน้าขาย</a>
                     </div>
