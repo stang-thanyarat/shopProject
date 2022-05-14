@@ -18,11 +18,15 @@
                 <h1>สัญญาซื้อขาย</h1>
             </div>
         </div>
-            <div class="col-12">
-                <input type="text btn-c" placeholder="ชื่อ-นามสกุล">
-                <input class="submit btn-c" type="submit" value="กลับไปยังหน้าขาย" />
-            </div>
-        </div>
+        <div class="col-12 d-flex justify-content-end signin">
+                    <form>
+                        <input type="text" class="btnd" placeholder="&nbsp ชื่อ-นามสกุล">
+                        <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
+                    </form>&nbsp
+                    <div class="col-3">
+                        <a class="submit BTNC" href="#"><img class='add' src="./src/images/arrow.png" width="50">กลับไปยังหน้าขาย</a>
+                    </div>
+                </div>
         <table class="main col-10">
             <tr>
                 <th>วันที่ทำสัญญา</th>
@@ -33,7 +37,22 @@
                 <th>ใบส่งของ</th>
                 <th>ไฟล์สัญญา</th>
                 <th>พิมพ์</th>
-                <th>xxxxxx</th>
+                <th></th>
             </tr>
+            <tr>
+                    <th>26/12/2021</th>
+                    <th>A01</th>
+                    <th>
+                        <div class="r">
+                        <a class="submit BTNP" href="#"><img class='confirm'>สมชาย พักดี</a>
+                        </div>
+                    </th>
+                    <th>220</th>
+                    <th>0</th>
+                    <th><img src="./src/images/pdf.png" width="25"></th>
+                    <th>แนบไฟล์ &nbsp<img src="./src/images/upload.png" width="25"></th>
+                    <th><img src="./src/images/print.png" width="25"></th>
+                    <th><img src="./src/images/icon-pencil.png" width="25"></th>
+                </tr>
         </table>
 </body>
