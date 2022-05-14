@@ -19,12 +19,13 @@
             </div>
             <div class="row m">
                 <div class="col-12 d-flex justify-content-end signin">
-                    <label for="date"></label>
-                    <input type="date" name="date"/>&nbsp
                     <form>
                         <input type="text" class="btnd" placeholder="&nbsp ชื่อผู้ขาย">
                         <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
-                    </form>
+                    </form>&nbsp
+                    <div class="col-3">
+                        <a class="submit BTNC" href="#"><img class='add' src="./src/images/plus.png" width="25"> เพิ่มใบสั่งซื้อ</a>
+                    </div>
                 </div>
 
         </div>
@@ -39,9 +40,9 @@
                     <th>14/12/2021</th>
                     <th> อาร์เอส อินเตอร์เทรด (2017) จำกัด</th>
                     <th>
-                        <div class="r">
-                        <input class="BTNP" type="submit" value="รับของ">
-                        </div>
+                    <div class="r">
+                        <a class="submit BTNP" href="#"><img class='confirm'>รับของ</a>
+                    </div>
                     </th>
                     <th>
                         <img src="./src/images/icon-delete.png" width="25">

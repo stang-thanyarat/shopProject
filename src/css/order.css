@@ -40,3 +40,19 @@ th {
     border: 0in;
     
 }
+
+.BTNC{
+    background-color: #7C904E;
+    color: #000;
+    border-radius: 25px;
+    font-size: 16pt;
+    display: inline-block;
+    width: 50%;
+    text-decoration: none;
+    text-align: center;
+
+}
+
+.s{
+    border-radius: 25px;
+}
