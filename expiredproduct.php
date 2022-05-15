@@ -28,9 +28,9 @@
                     </select>
                 </div>
                 <div class="col-3">
-                    <label for="contract">หมดอายุภายใน :</label>
-                    <label for="expire"></label>
-                    <input type="date" name="expire" />
+                    <label for="expires within">หมดอายุภายใน :</label>
+                    <label for="expires"></label>
+                    <input type="date" name="expires" />
                 </div>
                 <div class="col-4">
                     <form>

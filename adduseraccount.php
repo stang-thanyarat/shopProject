@@ -21,9 +21,10 @@
                 <div class="col-lg-4 col-md-12">
                     <label for="prefix">คำนำหน้าชื่อ:</label>
                     <select name="prefix" id="prefix">
-                        <option value="volvo" selected>นาย</option>
-                        <option value="saab">นาง</option>
-                        <option value="opel">นางสาว</option>
+                        <option value="Mr." selected>เลือกคำนำหน้า</option>
+                        <option value="Mr.">นาย</option>
+                        <option value="Mrs.">นาง</option>
+                        <option value="miss">นางสาว</option>
                     </select>
                 </div>
                 <div class="col-lg-4 col-md-12">

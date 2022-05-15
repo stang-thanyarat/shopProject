@@ -14,6 +14,23 @@
     margin-top: 3.5rem;
 }
 
+.mai {
+    margin-top: 1rem;
+    margin-left: 7rem;
+}
+
+.mm {
+    margin-top: 1rem;
+    margin-left: 7rem;
+    text-align: center;
+}
+
+
+.ma {
+    margin-top: 1rem;
+    margin-left: 7rem;
+}
+
 .btn-g {
     margin-top: 1rem;
     width: 100%;
@@ -43,7 +60,6 @@ table,
 td,
 th {
     border: 1px solid black;
-    text-align: center;
 }
 
 table {

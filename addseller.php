@@ -151,7 +151,7 @@
                 <div class="row mai">
                     <div class="col">
                         <label for="note">หมายเหตุ :&nbsp;</label>
-                        <textarea name="detail" cols="50" rows="5" style="vertical-align:top;"></textarea>
+                        <textarea name="address" cols="50" rows="5" style="vertical-align:top;"></textarea>
                     </div>
                 </div>
                 <div class="row btn-g">
