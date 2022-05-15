@@ -14,3 +14,68 @@
     margin-top: 3.5rem;
 }
 
+.btn-g {
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: end;
+    display: flex;
+}
+
+.btn-c {
+    border-radius: 25px 25px 25px 25px;
+    font-size: 20pt;
+    width: 60%;
+}
+
+.submit {
+    background-color: #7C904E;
+    color: white;
+    border: 0ch;
+}
+
+.reset {
+    background-color: #E0B87E;
+    color: white;
+    border: 0ch;
+}
+
+table,
+td,
+th {
+    border: 1px solid black;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 60%;
+}
+
+th {
+    height: 50px;
+    width: 20%;
+}
+
+.btn-g {
+    width: 100%;
+    justify-content: end;
+    display: flex;
+}
+
+.btn-c {
+    border-radius: 25px 25px 25px 25px;
+    font-size: 20pt;
+    width: 60%;
+}
+
+.submit {
+    background-color: #7C904E;
+    color: white;
+    border: 0ch;
+}
+
+.reset {
+    background-color: #E0B87E;
+    color: white;
+    border: 0ch;
+}

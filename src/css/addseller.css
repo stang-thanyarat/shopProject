@@ -19,6 +19,19 @@
     margin-left: 3rem;
 }
 
+.btn-g {
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: end;
+    display: flex;
+}
+
+.btn-c {
+    border-radius: 25px 25px 25px 25px;
+    font-size: 20pt;
+    width: 60%;
+}
+
 .submit {
     background-color: #7C904E;
     color: white;
@@ -30,20 +43,6 @@
     color: white;
     border: 0ch;
 }
-
-.btn-g {
-    width: 100%;
-    justify-content:end;
-    display: flex;
-}
-
-.btn-c {
-    border-radius: 25px 25px 25px 25px;
-    font-size: 20pt;
-    font-family: 'IBM Plex Sans Thai', sans-serif;
-    width: 60%;
-}
-
 
 table,
 td,
@@ -60,4 +59,28 @@ table {
 th {
     height: 50px;
     width: 20%;
+}
+
+.btn-g {
+    width: 100%;
+    justify-content: end;
+    display: flex;
+}
+
+.btn-c {
+    border-radius: 25px 25px 25px 25px;
+    font-size: 20pt;
+    width: 60%;
+}
+
+.submit {
+    background-color: #7C904E;
+    color: white;
+    border: 0ch;
+}
+
+.reset {
+    background-color: #E0B87E;
+    color: white;
+    border: 0ch;
 }

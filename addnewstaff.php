@@ -21,6 +21,14 @@
                         <h1>เพิ่มพนักงานใหม่</h1>
                     </div>
                 </div>
+                <div class="row btn-g">
+                <div class="col-2">
+                    <button type="reset" class="btn-c reset">ยกเลิก</button>
+                </div>
+                <div class="col-2">
+                    <input type="submit" class="btn-c submit" value="บันทึก" />
+                </div>
+            </div>
             </div>
         </div>
     </form>
