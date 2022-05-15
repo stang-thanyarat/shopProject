@@ -2,7 +2,7 @@
 
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
-    --bs-gutter-x:0;
+    --bs-gutter-x: 0;
 }
 
 
@@ -122,9 +122,11 @@ option {
         margin-top: 5rem;
         margin-left: 5rem;
     }
+
     .col-lg-10 {
         width: 90%;
     }
+
     .col-lg-2 {
         width: 90%;
     }
@@ -135,6 +137,7 @@ option {
         margin-top: 5rem;
         margin-left: 10rem;
     }
+
     .col-lg-10 {
         width: 17%;
     }
@@ -145,13 +148,16 @@ option {
     .col-lg-10 {
         width: 50%;
     }
+
     .col-lg-2 {
         width: 50%;
     }
 }
-.col-md-12{
+
+.col-md-12 {
     margin-bottom: 0.75rem;
 }
-.login{
+
+.login {
     margin-bottom: 0.75rem;
 }

@@ -10,7 +10,7 @@
     margin-left: 3rem;
 }
 
-.Nbar{
+.Nbar {
     margin-top: 3.5rem;
 }
 
@@ -19,7 +19,7 @@
     margin-left: 30rem;
 }
 
-.mai{
+.mai {
     margin-top: 2rem;
     margin-left: 3rem;
 }
@@ -51,19 +51,19 @@ option {
     border: 0ch;
 }
 
-.bnt{
+.bnt {
     border-radius: 25px 25px 25px 25px;
     background-color: #F8E4C8;
 }
 
-.btn-d{
+.btn-d {
     border-radius: 25px 25px 25px 25px;
     background-color: #F8E4C8;
 
 }
+
 .s {
     background: transparent;
     border: 0px;
     margin-left: -2rem;
 }
-

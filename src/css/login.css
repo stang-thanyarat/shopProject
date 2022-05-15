@@ -84,13 +84,15 @@ form {
     .inLeft {
         height: 80%;
     }
-    .button{
+
+    .button {
         width: 40%;
     }
-    .icon{
+
+    .icon {
         width: 75px;
         height: 75px;
-    } 
+    }
 }
 
 @media only screen and (max-width: 375px) {
@@ -103,10 +105,12 @@ form {
     .inLeft {
         height: 25%;
     }
-    .button{
+
+    .button {
         width: 20%;
     }
-    .icon{
+
+    .icon {
         width: 120px;
         height: 120px;
     }

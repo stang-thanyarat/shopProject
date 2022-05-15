@@ -10,6 +10,7 @@
     <title>Document</title>
 </head>
 <?php include('nav.php'); ?>
+
 <body>
     <div class="row main">
         <form>
@@ -33,7 +34,7 @@
                 <div class="col-lg-4 col-md-12">
                     <label for="lastname">นามสกุล :</label>
                     <input name="lastname" type="text" />
-                </div>  
+                </div>
             </div>
             <div class="row">
                 <div class="col-lg-4 login">
@@ -71,7 +72,6 @@
             </div>
     </div>
     </form>
-    </div>
 </body>
 
 </html>

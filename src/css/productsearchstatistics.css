@@ -10,7 +10,7 @@
     margin-left: 3rem;
 }
 
-.Nbar{
+.Nbar {
     margin-top: 3.5rem;
 }
 
@@ -41,17 +41,17 @@ th {
     background-color: #FF0000;
     color: white;
     border: 0ch;
-    
+
 }
 
 @media only screen and (max-width: 1020px) {
     .main {
         margin-left: 3rem;
-    } 
+    }
 }
 
 @media only screen and (max-width: 485px) {
-    h1{
+    h1 {
         font-size: 20px;
     }
 
