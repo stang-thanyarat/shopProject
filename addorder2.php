@@ -38,7 +38,10 @@
                 <input type="date" name="datepayment">
             </div>
             <div class="col-12">
-                สลิปธนาคาร: <input type="file" name="slip"> *ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB
+                สลิปธนาคาร: <input type="file" name="slip"> 
+            </div>
+            <div class="col-12">
+                *ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB
             </div>
             <div class="col-12">
                 <label for="contract">หมายเหตุ:</label>
@@ -86,6 +89,7 @@
             <tr>
                 <th>รายการ</th>
                 <th>ราคา</th>
+                <th></th>
             </tr>
             </table>
             </div>
