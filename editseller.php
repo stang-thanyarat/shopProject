@@ -96,18 +96,17 @@
                 </div>
                 <div class="row mai">
                     <div class="col-4">
-                        บัตรประชาชน : <input type='file' name='ID card' />
-                        <input type='submit' value="ยืนยัน" />
+                        บัตรประชาชน : <input type="file" name="ID card">
                     </div>
                     <div class="col">
                         <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
                     </div>
                 </div>
                 <div class="row mai">
-                    <div class="col">
+                    <div class="col-7">
                         <h5>บัญชีรับเงินของผู้ขาย</h5>
                     </div>
-                    <div class="col">
+                    <div class="col-1">
                         <h5 style="color: #A36627">เพิ่มบัญชีใหม่</h5>
                     </div>
                 </div>
@@ -132,8 +131,7 @@
                 </table>
                 <div class="row mai">
                     <div class="col-4">
-                        นามบัตร : <input type='file' name='card' />
-                        <input type='submit' value="ยืนยัน" />
+                        นามบัตร : <input type="file" name="card">
                     </div>
                     <div class="col">
                         <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
@@ -141,8 +139,7 @@
                 </div>
                 <div class="row mai">
                     <div class="col-4">
-                        เอกสารอื่นๆ : <input type='file' name='other documents' />
-                        <input type='submit' value="ยืนยัน" />
+                        เอกสารอื่นๆ : <input type="file" name="other documents">
                     </div>
                     <div class="col">
                         <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>

@@ -78,7 +78,7 @@ input:checked+.slider:before {
 
 .ma {
     margin-top: 1rem;
-    margin-left: 30rem;
+    margin-left: 55rem;
 }
 
 .mai {
@@ -95,7 +95,7 @@ th {
 
 table {
     border-collapse: collapse;
-    width: 60%;
+    width: 90%;
 }
 
 th {
@@ -120,6 +120,7 @@ option {
     width: 70%;
     text-decoration: none;
     margin-left: -5rem;
+    border: 0ch;
 }
 
 .btn-c:hover {
@@ -130,6 +131,7 @@ option {
     background-color: #7C904E;
     border: 0ch;
     color: white;
+
 }
 
 .btn-d {

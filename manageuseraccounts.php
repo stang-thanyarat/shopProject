@@ -30,15 +30,15 @@
                             <option value="admin">ผู้ดูแลระบบ</option>
                         </select>
                     </div>
-                    <div class="col-3">
+                    <div class="col-2">
                         <form>
                             <input type="text" class="btn-d" placeholder="&nbsp ชื่อ-นามสกุล">
                             <button type="submit" class="s">
-                                <img src="./src/images/search.png" width="15" alt="">
+                                <img src="./src/images/search.png" width="15">
                             </button>
                         </form>
                     </div>
-                    <div class="col-3">
+                    <div class="col-2">
                         <a class="submit btn-c" href="#"><img class='add' src="./src/images/plus.png" width="25"> เพิ่มบัญชีผู้ใช้งาน</a>
                     </div>
                 </div>

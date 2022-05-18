@@ -28,7 +28,7 @@
                     </select>
                 </div>
                 <div class="col-2">
-                    <label for="date"></label>
+                    <label for="date" class="btn-d"></label>
                     <input type="date" name="date" />
                 </div>
                 <div class="col-2">
