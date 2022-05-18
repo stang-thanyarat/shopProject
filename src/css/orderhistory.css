@@ -33,3 +33,8 @@ th {
 .Nbar{
     margin-top: 3.5rem;
 }
+.s{
+    background: transparent;
+    border: 0px;
+    margin-left: -2rem;
+}
