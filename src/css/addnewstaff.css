@@ -16,7 +16,7 @@
 
 .mai {
     margin-top: 1rem;
-    margin-left: 7rem;
+    margin-left: 3rem;
 }
 
 .mm {
@@ -34,7 +34,7 @@ th {
 
 table {
     border-collapse: collapse;
-    width: 85%;
+    width: 90%;
 }
 
 th {
@@ -71,5 +71,5 @@ th {
     background-color: #E0B87E;
     color: white;
     border: 0ch;
-    margin-left: 4rem;
+    margin-left: 7rem;
 }

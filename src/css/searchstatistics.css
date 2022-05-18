@@ -23,7 +23,7 @@ th {
 
 table {
     border-collapse: collapse;
-    width: 50%;
+    width: 80%;
 }
 
 th {
@@ -35,7 +35,9 @@ th {
     border-radius: 25px 25px 25px 25px;
     font-size: 16pt;
     width: 150%;
+    margin-left: 40;
 }
+
 
 .buttom {
     background-color: #FF0000;

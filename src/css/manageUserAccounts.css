@@ -2,7 +2,7 @@
 
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
-    --bs-gutter-x: 0;
+    --bs-gutter-x: 0
 }
 
 .switch {
@@ -67,6 +67,7 @@ input:checked+.slider:before {
     border-radius: 50%;
 }
 
+
 .main {
     margin-top: 4rem;
     margin-left: 3rem;
@@ -76,13 +77,12 @@ input:checked+.slider:before {
     margin-top: 3.5rem;
 }
 
-.ma {
-    margin-top: 1rem;
-    margin-left: 55rem;
+.mai {
+    margin-left: 70rem;
 }
 
-.mai {
-    margin-top: 2rem;
+.ma {
+    margin-top: 1rem;
     margin-left: 3rem;
 }
 
@@ -108,60 +108,34 @@ select {
     border: 0ch;
 }
 
-option {
-    background-color: #D4DDC6;
-    border: 0ch;
-}
-
-.btn-c {
-    border-radius: 25px 25px 25px 25px;
-    font-size: 16pt;
-    display: inline-block;
-    width: 70%;
-    text-decoration: none;
-    margin-left: -5rem;
-    border: 0ch;
-}
-
-.btn-c:hover {
-    color: white;
-}
-
 .submit {
     background-color: #7C904E;
     border: 0ch;
     color: white;
+}
 
+.btn:hover {
+    color: white;
+}
+
+.c{
+    margin-left: 55rem;
 }
 
 .btn-d {
     border-radius: 25px 25px 25px 25px;
     background-color: #F8E4C8;
+    border: 0ch;
+}
+
+.btn {
+    border-radius: 25px 25px 25px 25px;
+    font-size: 16pt;
+    width: 150%;
 }
 
 .s {
     background: transparent;
     border: 0px;
     margin-left: -2rem;
-}
-
-.add {
-    margin-left: 2rem;
-}
-
-@media only screen and (max-width: 888px) {
-    #position {
-        margin-right: -3rem;
-    }
-
-    .btn-d {
-        margin-left: -3rem;
-        margin-right: 3rem;
-    }
-
-    .s {
-        background: transparent;
-        border: 0px;
-        margin-left: -5rem;
-    }
 }

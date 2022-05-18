@@ -110,10 +110,10 @@
                                 </div>
                             </div>
                             <div class="row ma">
-                                <div class="col">
+                                <div class="col-10">
                                     <h5>บัญชีรับเงิน</h5>
                                 </div>
-                                <div class="col">
+                                <div class="col-1 m">
                                     <h5 style="color: #A36627">เพิ่มบัญชีใหม่</h5>
                                 </div>
                             </div>

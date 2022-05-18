@@ -21,17 +21,16 @@
                 </div>
             </div>
             <div class="row ma">
-                <div class="col-2">
+                <div class="col-3">
                     <label for="category"></label>
                     <select name="category" id="category">
                         <option value="category" selected>เลือกประเภทสินค้า</option>
                     </select>
                 </div>
-                <div class="col-2">
-                    <label for="date" class="btn-d"></label>
+                <div class="col-3">
                     <input type="date" name="date" />
                 </div>
-                <div class="col-2">
+                <div class="col-3">
                     <form>
                         <input type="text" class="btn-d" placeholder="&nbsp ชื่อสินค้า">
                         <button type="submit" class="s">
