@@ -21,13 +21,13 @@
                 </div>
             </div>
             <div class="row ma">
-                <div class="col-2">
+                <div class="col-3">
                     <label for="category"></label>
                     <select name="category" id="category">
                         <option value="category" selected>เลือกประเภทสินค้า</option>
                     </select>
                 </div>
-                <div class="col-3">
+                <div class="col-5">
                     <label for="expires within">หมดอายุภายใน :</label>
                     <label for="expires"></label>
                     <input type="date" name="expires" />

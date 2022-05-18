@@ -35,7 +35,7 @@
                                 <img src="./src/images/search.png" width="15">
                         </div>
                         <div class="col-1">
-                            <a class="submit btn" href="#"><img class='add' src="./src/images/plus.png" width="25" alt="">&nbsp เพิ่มบัญชีผู้ใช้งาน</a>
+                            <a class="submit btn" href="#"><img class='add' src="./src/images/plus.png" width="25">&nbsp เพิ่มบัญชีผู้ใช้งาน</a>
                         </div>
                     </div>
                 </div>

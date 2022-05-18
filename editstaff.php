@@ -93,8 +93,7 @@
                             </div>
                             <div class="row ma">
                                 <div class="col">
-                                    สำเนาบัตรประชาชน : <input type='file' name='Copy of ID card' />
-                                    <input type='submit' value="ยืนยัน" />
+                                    สำเนาบัตรประชาชน : <input type="file" name="Copy of ID card">
                                 </div>
                                 <div class="col">
                                     <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
@@ -102,8 +101,7 @@
                             </div>
                             <div class="row ma">
                                 <div class="col">
-                                    สำเนาทะเบียนบ้าน : <input type='file' name='Copy of house registration' />
-                                    <input type='submit' value="ยืนยัน" />
+                                    สำเนาทะเบียนบ้าน : <input type="file" name="Copy of house registration">
                                 </div>
                                 <div class="col">
                                     <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>

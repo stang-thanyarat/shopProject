@@ -2,7 +2,7 @@
 
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
-    --bs-gutter-x: 0;
+    --bs-gutter-x: 0
 }
 
 .switch {
@@ -69,7 +69,20 @@ input:checked+.slider:before {
 
 .main {
     margin-top: 4rem;
-    margin-left: 11rem;
+    margin-left: 3rem;
+}
+
+.Nbar {
+    margin-top: 3.5rem;
+}
+
+.mai {
+    margin-left: 70rem;
+}
+
+.ma {
+    margin-top: 1rem;
+    margin-left: 3rem;
 }
 
 table,
@@ -81,7 +94,7 @@ th {
 
 table {
     border-collapse: collapse;
-    width: 50%;
+    width: 90%;
 }
 
 th {
@@ -107,6 +120,8 @@ select {
 .btn-d {
     border-radius: 25px 25px 25px 25px;
     background-color: #F8E4C8;
+    border: 0ch;
+    margin-left: 5rem;
 }
 
 .btn {

@@ -20,7 +20,7 @@
                     <h1>สินค้าขายดีประจำวัน</h1>
                 </div>
             </div>
-            <div class="row ma">
+            <div class="row mai">
                 <div class="col-3">
                     <label for="category"></label>
                     <select name="category" id="category">
@@ -30,7 +30,7 @@
                 <div class="col-3">
                     <input type="date" name="date" />
                 </div>
-                <div class="col-3">
+                <div class="col-4">
                     <form>
                         <input type="text" class="btn-d" placeholder="&nbsp ชื่อสินค้า">
                         <button type="submit" class="s">
@@ -39,7 +39,7 @@
                     </form>
                 </div>
             </div>
-            <table class="mai">
+            <table class="ma">
                 <tr>
                     <th>ลำดับ</th>
                     <th>รูปภาพ</th>

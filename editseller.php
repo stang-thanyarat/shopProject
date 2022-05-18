@@ -88,7 +88,7 @@
                 <div class="row mai">
                     <div class="col">
                         <label for="telephone number2">เบอร์โทรศัพท์ :</label>
-                        <input type="text" name="telephone number2" />
+                        <input type=text name="telephone number2" />
                     </div>
                 </div>
                 <div class="row mai mc">
