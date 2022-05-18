@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="row min-vw-100 ma">
-                <div class="col-2">
+                <div class="col-1">
                     <label for="category"></label>
                     <select name="category" id="category">
                         <option value="category" selected>เลือกประเภทสินค้า</option>
@@ -37,7 +37,8 @@
                 </div>
             </div>
             <div class="row n">
-                <div class="col">ใบตัดหญ้า</div>
+                <div class="col-10">ใบตัดหญ้า</div>
+                <div class="col-2">จำนวน 1 รายการ</div>
             </div>
             <table class="mai">
                 <tr>

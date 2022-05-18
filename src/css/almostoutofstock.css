@@ -78,7 +78,7 @@ input:checked+.slider:before {
 
 .ma {
     margin-top: 1rem;
-    margin-left: 45rem;
+    margin-left: 85rem;
 }
 
 .mai {
@@ -95,7 +95,7 @@ th {
 
 table {
     border-collapse: collapse;
-    width: 60%;
+    width: 90%;
 }
 
 th {
@@ -121,6 +121,7 @@ option {
 .btn-d {
     border-radius: 25px 25px 25px 25px;
     background-color: #F8E4C8;
+    border: 0ch;
 
 }
 
@@ -131,6 +132,7 @@ option {
 }
 
 .n {
+    margin-top: 1rem;
     margin-left: 4rem;
 
 }

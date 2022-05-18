@@ -16,7 +16,7 @@
 
 .ma {
     margin-top: 1rem;
-    margin-left: 30rem;
+    margin-left: 50rem;
 }
 
 .mai {
@@ -33,7 +33,7 @@ th {
 
 table {
     border-collapse: collapse;
-    width: 60%;
+    width: 80%;
 }
 
 th {
@@ -51,14 +51,10 @@ option {
     border: 0ch;
 }
 
-.bnt {
-    border-radius: 25px 25px 25px 25px;
-    background-color: #F8E4C8;
-}
-
 .btn-d {
     border-radius: 25px 25px 25px 25px;
     background-color: #F8E4C8;
+    border: 0ch;
 
 }
 

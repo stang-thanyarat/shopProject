@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="./src/css/addnewstaff.css" />
+    <link rel="stylesheet" href="./src/css/editstaff.css" />
     <title>Document</title>
 </head>
 <?php include('nav.php'); ?>
@@ -18,7 +18,7 @@
             <div class="col-11">
                 <div class="row main">
                     <div class="col">
-                        <h1>เพิ่มพนักงาน</h1>
+                        <h1>แก้ไขพนักงาน</h1>
                     </div>
                 </div>
                 <table class="mai">
@@ -93,7 +93,8 @@
                             </div>
                             <div class="row ma">
                                 <div class="col">
-                                    สำเนาบัตรประชาชน : <input type="file" name="copy of ID card">
+                                    สำเนาบัตรประชาชน : <input type='file' name='Copy of ID card' />
+                                    <input type='submit' value="ยืนยัน" />
                                 </div>
                                 <div class="col">
                                     <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
@@ -101,17 +102,18 @@
                             </div>
                             <div class="row ma">
                                 <div class="col">
-                                    สำเนาทะเบียนบ้าน : <input type="file" name="Copy of house registration">
+                                    สำเนาทะเบียนบ้าน : <input type='file' name='Copy of house registration' />
+                                    <input type='submit' value="ยืนยัน" />
                                 </div>
                                 <div class="col">
                                     <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
                                 </div>
                             </div>
                             <div class="row ma">
-                                <div class="col-10">
+                                <div class="col">
                                     <h5>บัญชีรับเงิน</h5>
                                 </div>
-                                <div class="col-2">
+                                <div class="col">
                                     <h5 style="color: #A36627">เพิ่มบัญชีใหม่</h5>
                                 </div>
                             </div>
@@ -136,6 +138,7 @@
                             </table>
                             <br>
                 </table>
+
                 <div class="row btn-g">
                     <div class="col-2">
                         <button type="reset" class="btn-c reset">ยกเลิก</button>
