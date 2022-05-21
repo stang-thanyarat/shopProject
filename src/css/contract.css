@@ -32,15 +32,17 @@
     color: white;
     border: 0in;
 }
-
-/*.main{
-    margin-top: 4rem;
-    margin-left: 3rem;
+.row1{
+    margin-left: 4rem;
+}
+.main{
+    margin-top: 5rem;
+    margin-left: 4rem;
 }
 
 .Nbar{
     margin-top: 3.5rem;
-}*/
+}
 @media only screen and (min-width: 835px) {
     .col-xl-4{
         margin-bottom: 1.15rem;

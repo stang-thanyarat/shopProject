@@ -5,11 +5,14 @@
     --bs-gutter-x: 0;
 }
 
-.main {
-    margin-top: 4rem;
-    margin-left: 5rem;
+.main{
+    margin-top: 5rem;
+    margin-left: 4rem;
 }
 
+.Nbar{
+    margin-top: 3.5rem;
+}
 table,
 td,
 th {

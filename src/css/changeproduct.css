@@ -3,8 +3,8 @@
     font-family: 'IBM Plex Sans Thai', sans-serif;
 }
 .main {
-    margin-top: 4rem;
-    margin-left: 5rem;
+    margin-top: 5rem;
+    margin-left: 4rem;
 }
 
 table,
@@ -45,4 +45,8 @@ th {
     color: white;
     border: 0in;
     margin-top: 5rem;
+}
+
+.Nbar {
+    margin-top: 3.5rem;
 }

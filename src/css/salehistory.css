@@ -2,11 +2,14 @@
 *{
     font-family: 'IBM Plex Sans Thai', sans-serif;
 }
-.main {
-    margin-top: 4rem;
-    margin-left: 5rem;
+.main{
+    margin-top: 5rem;
+    margin-left: 4rem;
 }
 
+.Nbar{
+    margin-top: 3.5rem;
+}
 table,
 td,
 th {
@@ -33,4 +36,8 @@ th {
 .s{
     background-color: #fff;
     border: 0in;
+}
+
+.col-10{
+    margin-top: 1rem;
 }

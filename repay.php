@@ -12,46 +12,53 @@
 <?php include('nav.php'); ?>
 
 <body>
-    <form>
-        <div class="row main">
-            <div class="col-lg-5">
-                <h1>ชำระหนี้</h1>
+    <div class="row">
+        <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
+        <div class="col-11">
+            <div class="row main">
+                <div class="col-lg-5">
+                    <h1>ชำระหนี้</h1>
+                </div>
+            </div>
+            <div class="row c">
+                <div class="col-xl-6">ชื่อ-นามสกุล:xxxxxx xxxxxx </div>
+                <div class="col-xl-6">รหัสบัตรประชาชน:xxxxxxxxxxxxxxxx</div>
+            </div>
+            <div class="row c">
+                <div class="col-xl-6">วันที่ทำสัญญา:xx/xx/xxxx</div>
+                <div class="col-xl-6">วันที่ครบกำหนด:xx/xx/xxxx</div>
+            </div>
+            <div class="row c">
+                <div class="col-xl-6">เงินต้น:xxx บาท</div>
+            </div>
+            <div class="row c">
+                <div class="col-xl-6 ">คงค้าง:xxx บาท</div>
+                <div class="col-xl-6 ">ดอกเบี้ย:xxx บาท</div>
+            </div>
+            <div class="row B">
+                <div class=" col-12 d-flex justify-content-end signin">
+                    <input class="BTNP" type="submit" value="เพิ่ม">
+                </div>
+            </div>
+            <table class="main col-10">
+                <tr>
+                    <th>วันที่ชำระ</th>
+                    <th>วิธีการชำระ</th>
+                    <th>ชื่อ-นามสกุล</th>
+                    <th>ไฟล์แนบ</th>
+                    <th>ยอดที่ชำระ</th>
+                    <th>หักเงินต้น</th>
+                    <th>หักดอกเบี้ย</th>
+                    <th>คงค้าง</th>
+                </tr>
+            </table>
+            <p></p>
+            <div class="row B">
+                <div class=" col-12 d-flex justify-content-end signin">
+                    <input class="BTNC" type="submit" value="ยกเลิก">
+                    <input class="BTN" type="submit" value="บันทึก">
+                </div>
             </div>
         </div>
-        <div class="row c">
-            <div class="col-xl-6">ชื่อ-นามสกุล:xxxxxx xxxxxx </div>  <div class="col-xl-6">รหัสบัตรประชาชน:xxxxxxxxxxxxxxxx</div>
-        </div>
-        <div class="row c">
-            <div class="col-xl-6">วันที่ทำสัญญา:xx/xx/xxxx</div>  <div class="col-xl-6">วันที่ครบกำหนด:xx/xx/xxxx</div>
-        </div>
-        <div class="row c">
-            <div class="col-xl-6">เงินต้น:xxx บาท</div>
-        </div>
-        <div class="row c">
-            <div class="col-xl-6 ">คงค้าง:xxx บาท</div>  <div class="col-xl-6 ">ดอกเบี้ย:xxx บาท</div>
-        </div>
-        <div class="row B">
-            <div class=" col-12 d-flex justify-content-end signin">
-                <input class="BTNP" type="submit" value="เพิ่ม">
-            </div>
-        </div>
-        <table class="main col-10">
-            <tr>
-                <th>วันที่ชำระ</th>
-                <th>วิธีการชำระ</th>
-                <th>ชื่อ-นามสกุล</th>
-                <th>ไฟล์แนบ</th>
-                <th>ยอดที่ชำระ</th>
-                <th>หักเงินต้น</th>
-                <th>หักดอกเบี้ย</th>
-                <th>คงค้าง</th>
-            </tr>
-        </table>
-        <p></p>
-        <div class="row B">
-            <div class=" col-12 d-flex justify-content-end signin">
-                <input class="BTNC" type="submit" value="ยกเลิก">
-                <input class="BTN" type="submit" value="บันทึก">
-            </div>
-        </div>
+    </div>
 </body>

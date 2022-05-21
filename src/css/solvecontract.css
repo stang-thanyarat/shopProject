@@ -10,7 +10,7 @@
 }
 
 .content{
-    margin-top: 3rem;
+    margin-top: 5rem;
     margin-left: 5rem;
 }
 
@@ -31,6 +31,17 @@
     background-color: #7C904E;
     color: white;
     border: 0in;
+}
+.row1{
+    margin-left: 4rem;
+}
+.main{
+    margin-top: 5rem;
+    margin-left: 4rem;
+}
+
+.Nbar{
+    margin-top: 3.5rem;
 }
 @media only screen and (min-width: 835px) {
     .col-xl-4{
