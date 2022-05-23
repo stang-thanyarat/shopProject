@@ -12,49 +12,53 @@
 <?php include('nav.php'); ?>
 
 <body>
-    <div class="row">
-        <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
-        <div class="col-11">
-            <div class="row main">
-                <div class="col-lg-5">
-                    <h1>สัญญาซื้อขาย</h1>
+    <form>
+        <div class="row">
+            <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
+            <div class="col-11">
+                <div class="row main">
+                    <div class="col-lg-5">
+                        <h1>สัญญาซื้อขาย</h1>
+                    </div>
                 </div>
-            </div>
-            <div class="col-12 d-flex justify-content-end signin">
-                <input type="text" class="btnd" placeholder="&nbsp ชื่อ-นามสกุล">
-                <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>&nbsp &nbsp
-                <div class="col-3">
-                    <a class="submit BTNC" href="#"><img class='add' src="./src/images/arrow.png" width="50">กลับไปยังหน้าขาย</a>
+                <div class="col-12 d-flex justify-content-end signin">
+                    <input type="text" class="btnd" placeholder="&nbsp ชื่อ-นามสกุล">
+                    <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>&nbsp &nbsp
+                    <div class="col-3">
+                        <a class="submit BTNC" href="#"><img class='add' src="./src/images/arrow.png" width="50">กลับไปยังหน้าขาย</a>
+                    </div>
                 </div>
+                <table class="main col-10">
+                    <tr>
+                        <th>วันที่ทำสัญญา</th>
+                        <th>เลขที่สัญญา</th>
+                        <th>ชื่อ-นามสกุล</th>
+                        <th>มูลค่าสินค้าทั้งหมด</th>
+                        <th>ยอดคงเหลือ</th>
+                        <th>ใบส่งของ</th>
+                        <th>ไฟล์สัญญา</th>
+                        <th>พิมพ์</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <th>26/12/2021</th>
+                        <th>A01</th>
+                        <th>
+                            <div class="r">
+                                <a class="submit BTNP" href="#"><img class='confirm'>สมชาย พักดี</a>
+                            </div>
+                        </th>
+                        <th>220</th>
+                        <th>0</th>
+                        <th><img src="./src/images/pdf.png" width="25"></th>
+                        <th>แนบไฟล์ &nbsp<img src="./src/images/upload.png" width="25"></th>
+                        <th><img src="./src/images/print.png" width="25"></th>
+                        <th><img src="./src/images/icon-pencil.png" width="25"></th>
+                    </tr>
+                </table>
             </div>
-            <table class="main col-10">
-                <tr>
-                    <th>วันที่ทำสัญญา</th>
-                    <th>เลขที่สัญญา</th>
-                    <th>ชื่อ-นามสกุล</th>
-                    <th>มูลค่าสินค้าทั้งหมด</th>
-                    <th>ยอดคงเหลือ</th>
-                    <th>ใบส่งของ</th>
-                    <th>ไฟล์สัญญา</th>
-                    <th>พิมพ์</th>
-                    <th></th>
-                </tr>
-                <tr>
-                    <th>26/12/2021</th>
-                    <th>A01</th>
-                    <th>
-                        <div class="r">
-                            <a class="submit BTNP" href="#"><img class='confirm'>สมชาย พักดี</a>
-                        </div>
-                    </th>
-                    <th>220</th>
-                    <th>0</th>
-                    <th><img src="./src/images/pdf.png" width="25"></th>
-                    <th>แนบไฟล์ &nbsp<img src="./src/images/upload.png" width="25"></th>
-                    <th><img src="./src/images/print.png" width="25"></th>
-                    <th><img src="./src/images/icon-pencil.png" width="25"></th>
-                </tr>
-            </table>
         </div>
-    </div>
+    </form>
 </body>
+
+</html>

@@ -12,25 +12,27 @@
 <?php include('nav.php'); ?>
 
 <body>
-    <div class="row">
-        <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
-        <div class="col-11">
-            <div class="row main">
-                <h1>ตั้งค่าการเปลี่ยนสินค้า</h1>
-                <table class="main col-10">
-                    <tr>
-                        <th>ระยะเวลาที่รับเปลี่ยนสินค้า &nbsp<input type="text" name="vat"> &nbsp วัน</th>
-                    </tr>
-                </table>
-                <div class="row B">
-                    <div class=" col-12 d-flex justify-content-end signin">
-                        <input class="BTNC" type="submit" value="ยกเลิก">
-                        <input class="BTN" type="submit" value="บันทึก">
+    <form>
+        <div class="row">
+            <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
+            <div class="col-11">
+                <div class="row main">
+                    <h1>ตั้งค่าการเปลี่ยนสินค้า</h1>
+                    <table class="main col-10">
+                        <tr>
+                            <th>ระยะเวลาที่รับเปลี่ยนสินค้า &nbsp<input type="text" name="vat" id="vat"> &nbsp วัน</th>
+                        </tr>
+                    </table>
+                    <div class="row B">
+                        <div class=" col-12 d-flex justify-content-end signin">
+                            <input class="BTNC" type="submit" value="ยกเลิก">
+                            <input class="BTN" type="submit" value="บันทึก">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 </body>
 
 </html>
