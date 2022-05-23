@@ -21,19 +21,19 @@
                 </div>
             </div>
             <div class="row c">
-                <div class="col-xl-6">ชื่อ-นามสกุล:xxxxxx xxxxxx </div>
-                <div class="col-xl-6">รหัสบัตรประชาชน:xxxxxxxxxxxxxxxx</div>
+                <div class="col-xl-6">ชื่อ-นามสกุล:สมชาย พักดี </div>
+                <div class="col-xl-6">รหัสบัตรประชาชน:1234567890345</div>
             </div>
             <div class="row c">
-                <div class="col-xl-6">วันที่ทำสัญญา:xx/xx/xxxx</div>
-                <div class="col-xl-6">วันที่ครบกำหนด:xx/xx/xxxx</div>
+                <div class="col-xl-6">วันที่ทำสัญญา:26/12/2021</div>
+                <div class="col-xl-6">วันที่ครบกำหนด:26/03/2022</div>
             </div>
             <div class="row c">
-                <div class="col-xl-6">เงินต้น:xxx บาท</div>
+                <div class="col-xl-6">เงินต้น:220 บาท</div>
             </div>
             <div class="row c">
-                <div class="col-xl-6 ">คงค้าง:xxx บาท</div>
-                <div class="col-xl-6 ">ดอกเบี้ย:xxx บาท</div>
+                <div class="col-xl-6 ">คงค้าง:0 บาท</div>
+                <div class="col-xl-6 ">ดอกเบี้ย:0 บาท</div>
             </div>
             <div class="row B">
                 <div class=" col-12 d-flex justify-content-end signin">
@@ -44,18 +44,36 @@
                 <tr>
                     <th>วันที่ชำระ</th>
                     <th>วิธีการชำระ</th>
-                    <th>ชื่อ-นามสกุล</th>
                     <th>ไฟล์แนบ</th>
                     <th>ยอดที่ชำระ</th>
                     <th>หักเงินต้น</th>
                     <th>หักดอกเบี้ย</th>
                     <th>คงค้าง</th>
                 </tr>
+                <tr>
+                    <th>02/01/2022</th>
+                    <th>เงินสด</th>
+                    <th></th>
+                    <th>100</th>
+                    <th>100</th>
+                    <th></th>
+                    <th>120</th>
+                </tr>
+                <tr>
+                    <th>26/02/2022</th>
+                    <th>โอนเงิน</th>
+                    <th><img src="./src/images/picture.png" width="25"></th>
+                    <th>120</th>
+                    <th>120</th>
+                    <th></th>
+                    <th>0</th>
+                </tr>
             </table>
             <p></p>
             <div class="row B">
                 <div class=" col-12 d-flex justify-content-end signin">
                     <input class="BTNC" type="submit" value="ยกเลิก">
+                    <input class="BTNE" type="submit" value="หมดหนี้">
                     <input class="BTN" type="submit" value="บันทึก">
                 </div>
             </div>

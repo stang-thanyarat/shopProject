@@ -20,6 +20,7 @@ table,
 td,
 th {
     border: 1px solid black;
+    text-align: center;
 }
 
 .table {
@@ -53,6 +54,15 @@ th {
     border-radius: 25px;
     width: 15%;
     background-color: #E0B87E;
+    color: white;
+    border: 0in;
+    margin-top: 5rem;
+}
+
+.BTNE{
+    border-radius: 25px;
+    width: 15%;
+    background-color: #A36627;
     color: white;
     border: 0in;
     margin-top: 5rem;
