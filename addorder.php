@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./src/css/addorder.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
     <title>Document</title>
 </head>
 <?php include('nav.php'); ?>
@@ -26,7 +29,7 @@
                         วันที่วางบิล:
                         <input type="date" name="datebill" id="datebill" />
                         วันที่รับของ:
-                        <input type="date" name="datereceive" id="datereceive"/>
+                        <input type="date" name="datereceive" id="datereceive" />
                     </div>
                     <div class="col-12">
                         ชื่อผู้ขาย:
@@ -52,7 +55,7 @@
                     <div class="col-12 C">
                         รายการสินค้า
                         <div class=" col-12 d-flex justify-content-end signin">
-                            <input class="BTNP" type="submit" value="เพิ่มสินค้า">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-xl">เพิ่มสินค้า</button>
                         </div>
                         <table class="main col-10">
                             <tr>
@@ -83,7 +86,7 @@
                     <div class="col-12 C">
                         ค่าใช้จ่ายอื่นๆ
                         <div class=" col-12 d-flex justify-content-end signin">
-                            <input class="BTNP" type="submit" value="เพิ่ม">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">เพิ่ม</button>
                         </div>
                         <table class="main col-10">
                             <tr>
@@ -108,7 +111,102 @@
                 </div>
             </div>
         </div>
+
+        // modal เพิ่มสินค้า //
+        <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">เพิ่มสินค้า</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form name="addproduct" method="post" action="">
+                            <table class="col-8">
+                                <tr>
+                                    <th>ประเภทสินค้า</th>
+                                    <th>รายการสินค้า</th>
+                                    <th>ยี่ห้อ</th>
+                                    <th>รุ่น</th>
+                                    <th>จำนวน</th>
+                                    <th>ราคา</th>
+
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <div class="col-12 r">
+                                            <select name="typeproduct" style="background-color: #7C904E;">
+                                                <option value="เลือก" selected>เลือก</option>
+                                            </select>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="col-12 r">
+                                            <select name="typeproduct" style="background-color: #7C904E;">
+                                                <option value="เลือก" selected>เลือก</option>
+                                            </select>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="col-12 r">
+                                            <select name="typeproduct" style="background-color: #7C904E;">
+                                                <option value="เลือก" selected>เลือก</option>
+                                            </select>
+                                        </div>
+                                    </th>
+                                    <th>
+                                        <div class="col-12 r">
+                                            <select name="typeproduct" style="background-color: #7C904E;">
+                                                <option value="เลือก" selected>เลือก</option>
+                                            </select>
+                                        </div>
+                                    </th>
+                                    <th><input type="text" name="amount" id="amount" width="5px" /></th>
+                                    <th><input type="text" name="price" id="price" width="5px" /></th>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary1">ตกลง</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        // modal ค่าใช้จ่ายอื่นๆ //
+        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">เพิ่มค่าใช้จ่ายอื่นๆ</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form name="addproduct" method="post" action="">
+                            <table class="col-8">
+                                <tr>
+                                    <th>รายการ</th>
+                                    <th>ราคา</th>
+                                </tr>
+                                <tr>
+                                    <th><input type="text" name="list" id="list" /></th>
+                                    <th><input type="text" name="priceother" id="priceother" /></th>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary1">ตกลง</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </form>
+
 </body>
 
 </html>
