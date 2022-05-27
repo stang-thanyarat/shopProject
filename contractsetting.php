@@ -13,7 +13,7 @@
 
 <body>
     <form>
-        <form class="row">
+        <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
@@ -80,7 +80,7 @@
                     </div>
                 </div>
             </div>
-        </form>
+        </div>
 </body>
 
 </html>

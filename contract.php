@@ -12,7 +12,8 @@
 <?php include('nav.php'); ?>
 
 <body>
-    <form>
+<script src="contract.js"></script>
+    <form id="form" class="form">
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
@@ -27,7 +28,7 @@
                         <label for="contract">วันที่ทำสัญญา:</label>
                         <input type="date" name="dateContract" id="dateContract" />
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 ">
                         <label for="contract">นามผู้ขาย:</label>
                         <select name="owner" style="background-color: #7C904E;">
                             <option value="นาย" selected>เลือก</option>
@@ -35,7 +36,7 @@
                     </div>
                     <div class="col-12">
                         <label for="contract">จำนวนเงินที่ขาย:</label>
-                        <input type="number" name="amount" min="0.25" id="amount" />
+                        <input type="number" name="amount" id="amount" />
                     </div>
                     <div class="col-12">
                         <label for="contract">ทรัพย์ที่ขาย:</label>
@@ -48,16 +49,20 @@
                     <div class="col-12">ข้าพเจ้า xxxxxxxxx ซึ่งต่อไปในหนังสือสัญญานี้เรียกว่าผู้ขายฝ่ายหนึ่งกับ</div>
                 </div>
                 <div class="row1">
-                    <div class="col-xl-4 col-lg-12">ข้าพเจ้า:
+                    <div class="col-xl-4 ">ข้าพเจ้า:
                         <select name="customerPrefix" style="background-color: #7C904E;">
                             <option value="นาย" selected>นาย</option>
                             <option value="นาง">นาง</option>
                             <option value="นางสาว">นางสาว</option>
                         </select>
                     </div>
-                    <div class="col-xl-4 col-lg-12">ชื่อ:<input type="text"></div>
-                    <div class="col-xl-4 col-lg-12">นามสกุล:<input type="text"></div>
-                    <div class="col-xl-4 col-lg-12">รหัสบัตรประชาชน:<input type="text"></div>
+                    <div class="col-xl-4 ">ชื่อ:<input type="text" name="namecustomer" id="namecustomer" ><br>
+                    <small>กรุณากรอกข้อมูล</small>
+                </div>
+                    <div class="col-xl-4 ">นามสกุล:<input type="text" name="lastamecustomer" id="lastamecustomer"><br>
+                    <small>กรุณากรอกข้อมูล</small>
+                </div>
+                    <div class="col-xl-4 ">รหัสบัตรประชาชน:<input type="text" name="idcard" id="idcard"></div>
                 </div>
                 <div class="row1">
                     <div class="col-12">ซึ่งต่อไปในหนังสือสัญญานี้เรียกว่าผู้ซื้อฝ่ายหนึ่ง ทั้งสองฝ่ายตกลงทำสัญญาซื้อขายทรัพย์สินมีดังข้อความต่อไปนี้</div>

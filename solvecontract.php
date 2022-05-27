@@ -29,7 +29,9 @@
                     </div>
                     <div class="col-12">
                         <label for="contract">นามผู้ขาย:</label>
-                        <select name="owner" style="background-color: #7C904E;"></select>
+                        <select name="owner" style="background-color: #7C904E;">
+                            <option value="นาย" selected>เลือก</option>
+                        </select>
                     </div>
                     <div class="col-12">
                         <label for="contract">จำนวนเงินที่ขาย:</label>

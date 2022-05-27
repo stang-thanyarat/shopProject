@@ -15,6 +15,7 @@
 <?php include('nav.php'); ?>
 
 <body>
+    <script src="addorder.js"></script>
     <form>
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
