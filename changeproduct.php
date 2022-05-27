@@ -21,7 +21,6 @@
                     <table class="main col-10">
                         <tr>
                             <th>ระยะเวลาที่รับเปลี่ยนสินค้า &nbsp<input type="text" name="vat" id="vat"> &nbsp วัน</th>
-                            <small>กรุณากรอกข้อมูล</small>
                         </tr>
                     </table>
                     <div class="row B">
