@@ -13,7 +13,7 @@
 
 <body>
     <script src="./src/js/contract.js"></script>
-    <form name="form" action="demo_form.asp" onsubmit="return validateForm()" method="post">
+    <form name="form" action="" onsubmit="return validateForm()" method="post">
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
