@@ -44,22 +44,6 @@
     margin-top: 3.5rem;
 }
 
-.col-xl-4.erorr input{
-    border-color: red;
-}
-
-.col-xl-4.erorr small{
-    visibility: visible;
-}
-
-.col-xl-4.success input{
-    border-color: green;
-}
-.col-xl-4 small{
-    color: red;
-    position: absolute;
-    visibility: visible;
-}
 @media only screen and (min-width: 835px) {
     .col-xl-4{
         margin-bottom: 1.35rem;
