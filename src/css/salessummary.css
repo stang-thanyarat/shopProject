@@ -14,21 +14,6 @@
 .Nbar{
     margin-top: 3.5rem;
 }
-table,
-td,
-th {
-    border: 1px solid #ABBE99;
-    margin-left: -1rem;
-}
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th {
-    height: 50px;
-}
 
 .h{
     background-color: #ABBE99;
@@ -43,4 +28,21 @@ th {
     height: 120px;
     width: 30%;
     margin-top: 1.5rem;
+}
+
+h6{
+    background-color: #ABBE99;
+    margin-left: -2.15rem;
+    height: 50px;
+}
+.m{
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.g{
+    width: 130px;
+    border: 0in;
+    background-color: #ABBE99;
+    margin-top: -1rem;
 }

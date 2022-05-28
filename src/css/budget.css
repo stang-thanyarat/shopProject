@@ -14,21 +14,6 @@
 .Nbar{
     margin-top: 3.5rem;
 }
-table,
-td,
-th {
-    border: 1px solid #ABBE99;
-    margin-left: -1rem;
-}
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th {
-    height: 50px;
-}
 
 .h{
     background-color: #ABBE99;
@@ -38,8 +23,10 @@ th {
     border: 0in;
 }
 .g{
-    background-color: #ABBE99;
+    width: 130px;
     border: 0in;
+    background-color: #ABBE99;
+    margin-top: -1rem;
 }
 
 .col-12{
@@ -48,4 +35,14 @@ th {
 }
 .b{
     text-align: center;
+}
+
+h6{
+    background-color: #ABBE99;
+    margin-left: -2.15rem;
+    height: 50px;
+    
+}
+.m{
+    margin-top: 1rem;
 }

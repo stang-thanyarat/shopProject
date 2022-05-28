@@ -18,14 +18,13 @@
             <div class="col-11">
                 <div class="row main">
                     <h1>งบการเงิน</h1>
-                    <table class="main col-12">
-                        <tr class="h">
-                            <th colspan="3">งบแสดงฐานะการเงิน
-                                <button type="submit" class="g"><img src="./src/images/download.png " width="25">&nbsp ดาวน์โหลด</button>
-                                <button type="submit" class="g "><img src="./src/images/print.png" width="25">&nbsp print</button>
-                            </th>
-                        </tr>
-                    </table>
+                            <h6><div class="m">งบแสดงฐานะการเงิน</div>
+                            <div class="d-flex flex-row-reverse">
+                            <button type="submit" class="g "><img src="./src/images/download.png " width="15">&nbsp ดาวน์โหลด</button>
+                            <button type="submit" class="g"><img src="./src/images/print.png" width="15">&nbsp print</button>
+                            </div>
+                            </h6>
+                            
                     <div class="col-12 a">
                         <input type="date" name="firstdate">&nbsp ถึง &nbsp<input type="date" name="lastdate">
                         <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>

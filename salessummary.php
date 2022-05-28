@@ -18,13 +18,12 @@
             <div class="col-11">
                 <div class="row main">
                     <h1>การขาย</h1>
-                    <table class="main col-12">
-                        <tr class="h">
-                            <th>
-                                <h4>สรุปยอดขาย</h4>
-                            </th>
-                        </tr>
-                    </table>
+                        <h6><div class="m">สรุปยอดขาย</div>
+                            <div class="d-flex flex-row-reverse">
+                            <button type="submit" class="g "><img src="./src/images/download.png " width="15">&nbsp ดาวน์โหลด</button>
+                            <button type="submit" class="g"><img src="./src/images/print.png" width="15">&nbsp print</button>
+                            </div>
+                        </h6>
                     <h5>ภาพรวมการขายสินค้า</h5>
                     <button type="submit" class="btne"><img src="./src/images/sale.png " width="35">&nbsp <h3>ยอดขาย</h3></button> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     <button type="submit" class="btne"><img src="./src/images/list.png" width="35">&nbsp <h3>รายการขาย</h3></button>
