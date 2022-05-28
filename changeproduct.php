@@ -20,7 +20,7 @@
                     <h1>ตั้งค่าการเปลี่ยนสินค้า</h1>
                     <table class="main col-10">
                         <tr>
-                            <th>ระยะเวลาที่รับเปลี่ยนสินค้า &nbsp<input type="text" name="vat" id="vat"> &nbsp วัน</th>
+                            <th>ระยะเวลาที่รับเปลี่ยนสินค้า &nbsp<input type="text" name="vat" id="vat" required> &nbsp วัน</th>
                         </tr>
                     </table>
                     <div class="row B">

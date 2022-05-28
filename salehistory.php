@@ -19,7 +19,7 @@
                 <div class="row main">
                     <h1>ประวัติการขาย</h1>
                     <div class="col-12 d-flex justify-content-end signin">
-                        <input type="date" name="firstdate" id="firstdate">&nbsp ถึง &nbsp<input type="date" name="lastdate">
+                        <input type="date" name="firstdate" id="firstdate" required>&nbsp ถึง &nbsp<input type="date" name="lastdate" required>
                         <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
                     </div>
                     <table class="main col-10">

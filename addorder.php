@@ -13,7 +13,7 @@
 <?php include('nav.php'); ?>
 
 <body>
-    <script src="./src/js/addorder.js"></script>
+   
     <form>
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
@@ -26,9 +26,9 @@
                     <p></p>
                     <div class="col-12">
                         วันที่วางบิล:
-                        <input type="date" name="datebill" id="datebill" />
+                        <input type="date" name="datebill" id="datebill" required />
                         วันที่รับของ:
-                        <input type="date" name="datereceive" id="datereceive" />
+                        <input type="date" name="datereceive" id="datereceive" required />
                     </div>
                     <div class="col-12">
                         ชื่อผู้ขาย:
@@ -53,7 +53,7 @@
                     </div>
                     <div class="col-12 C">
                         รายการสินค้า
-                        <div class=" col-12 d-flex justify-content-end signin">
+                        <div class=" col-12 d-flex justify-content-end">
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl">เพิ่มสินค้า</button>
                         </div>
                         <table class="main col-10">
@@ -72,7 +72,7 @@
                     </div>
                     <div class="col-12 C">
                         ค่าใช้จ่ายอื่นๆ
-                        <div class=" col-12 d-flex justify-content-end signin">
+                        <div class=" col-12 d-flex justify-content-end">
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg">เพิ่ม</button>
                         </div>
                         <table class="main col-10">
@@ -158,7 +158,6 @@
                             </div>
                         </form>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -174,7 +173,7 @@
                     </div>
                     <div class="modal-body">
                         <form name="addproduct" method="post" action="">
-                            <table class="col-8">
+                            <table class="col">
                                 <tr>
                                     <th>รายการ</th>
                                     <th>ราคา</th>
@@ -184,10 +183,10 @@
                                     <th><input type="text" name="priceother" id="priceother" required /></th>
                                 </tr>
                             </table>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
+                            <div class="modal-footer">
                         <button type="submit" class="btn btn-primary1">ตกลง</button>
+                    </div>
+                        </form>
                     </div>
                 </div>
             </div>

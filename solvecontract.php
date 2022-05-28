@@ -47,14 +47,15 @@
                 </div>
                 <div class="row1">
                     <div class="col-xl-4 col-lg-12">ข้าพเจ้า:
-                        <select name="customerPrefix" style="background-color: #7C904E;">
+                        <select name="customerPrefix" style="background-color: #7C904E;" required>
                             <option value="นาย" selected>นาย</option>
                             <option value="นาง">นาง</option>
                             <option value="นางสาว">นางสาว</option>
                         </select>
                     </div>
-                    <div class="col-xl-4 col-lg-12">ชื่อ-นามสกุล:<input type="text"></div>
-                    <div class="col-xl-4 col-lg-12">รหัสบัตรประชาชน:<input type="text"></div>
+                    <div class="col-xl-4 col-lg-12">ชื่อ:<input type="text" required></div>
+                    <div class="col-xl-4 col-lg-12">นามสกุล:<input type="text" required></div>
+                    <div class="col-xl-4 col-lg-12">รหัสบัตรประชาชน:<input type="text" ></div>
                 </div>
                 <div class="row1">
                     <div class="col-12">ซึ่งต่อไปในหนังสือสัญญานี้เรียกว่าผู้ซื้อฝ่ายหนึ่ง ทั้งสองฝ่ายตกลงทำสัญญาซื้อขายทรัพย์สินมีดังข้อความต่อไปนี้</div>
@@ -63,8 +64,8 @@
                         <textarea name="detail" cols="50" rows="5" style="vertical-align: middle;"></textarea>
                     </div>
                     <div class="col-12">ให้แก่ผู้ซื้อเป็นจำนวนเงิน xxx บาท xxxx สตางค์ (xxxxxxxx)</div>
-                    <div class="col-12">และยอมส่งมอบทรัพย์สินที่ขายให้แก่ผู้ซื้อวันที่&nbsp;<span>&nbsp;<input type="date" name="saleDate"></span></div>
-                    <div class="col-12">และผู้ขายได้รับราคาดังกล่าวแล้วไปจากผู้ซื้อเสร็จแล้วตั้งแต่วันที่&nbsp;<span>&nbsp;<input type="date" name="payDate"></span></div>
+                    <div class="col-12">และยอมส่งมอบทรัพย์สินที่ขายให้แก่ผู้ซื้อวันที่&nbsp;<span>&nbsp;<input type="date" name="saleDate" required></span></div>
+                    <div class="col-12">และผู้ขายได้รับราคาดังกล่าวแล้วไปจากผู้ซื้อเสร็จแล้วตั้งแต่วันที่&nbsp;<span>&nbsp;<input type="date" name="payDate" required></span></div>
                     <div class="col-12">ข้อ ๒ ผู้ขายยอมสัญญาว่า ทรัพย์สินซ่งผู้ขายนำมาขายให้แก่ผู้ซื้อนี้เป็นทรัพย์สินของผู้ขายคนเดียว และไม่เคยนำไปขาย จำนำ หรือทำสัญญาผูกพันธ์ใด ๆ แก่ผู้ใดเลย</div>
                     <div class="col-12"><label for="contract"> ข้อ ๓ &nbsp;</label><textarea style="background-color: #7C904E; vertical-align: middle;" name="AnotherCondition" cols="50" rows="5"></textarea></div>
                     <div class="col-12">ข้อ ๔ ผู้ขายและผู้ซื้อได้ทราบข้อความในสัญญานี้ดีแล้ว จึงได้ลงลายมือชื่อไว้ในสัญญานี้เป็นหลักฐาน</div>

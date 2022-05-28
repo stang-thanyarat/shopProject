@@ -29,16 +29,16 @@
                             </tr>
                             <tr>
                                 <th>นายสมชาย ถึงที่หมาย</th>
-                                <th><label class="switch">
-                                        <input type="checkbox">
-                                        <span class="slider round"></span>
+                                <th><label class="switch" >
+                                        <input type="checkbox" required >
+                                        <span class="slider round"  ></span>
                                     </label>
                                 </th>
                             </tr>
                             <tr>
                                 <th>นางสมหญิง ถึงที่หมาย</th>
                                 <th><label class="switch">
-                                        <input type="checkbox">
+                                        <input type="checkbox" required>
                                         <span class="slider round"></span>
                                     </label>
                                 </th>
@@ -69,7 +69,7 @@
                         <p></p>
                         <div class="col-12">
                             ดอกเบี้ยสูงสุดต่อปี: &nbsp &nbsp
-                            <input type="text" name="interest"> &nbsp &nbsp ตามกฎหมาย
+                            <input type="text" name="interest" required> &nbsp &nbsp ตามกฎหมาย
                         </div>
                         <div class="row B">
                             <div class=" col-12 d-flex justify-content-end signin">

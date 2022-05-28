@@ -26,7 +26,7 @@
                     </div>
                     <div class="col-12">
                         <label for="contract">วันที่ทำสัญญา:</label>
-                        <input type="date" name="dateContract" id="dateContract" />
+                        <input type="date" name="dateContract" id="dateContract" required />
                     </div>
                     <div class="col-12 ">
                         <label for="contract">นามผู้ขาย:</label>
@@ -69,8 +69,8 @@
                         <textarea name="detail" cols="50" rows="5" style="vertical-align: middle;"></textarea>
                     </div>
                     <div class="col-12">ให้แก่ผู้ซื้อเป็นจำนวนเงิน xxx บาท xxxx สตางค์ (xxxxxxxx)</div>
-                    <div class="col-12">และยอมส่งมอบทรัพย์สินที่ขายให้แก่ผู้ซื้อวันที่&nbsp;<span>&nbsp;<input type="date" name="saleDate"></span></div>
-                    <div class="col-12">และผู้ขายได้รับราคาดังกล่าวแล้วไปจากผู้ซื้อเสร็จแล้วตั้งแต่วันที่&nbsp;<span>&nbsp;<input type="date" name="payDate"></span></div>
+                    <div class="col-12">และยอมส่งมอบทรัพย์สินที่ขายให้แก่ผู้ซื้อวันที่&nbsp;<span>&nbsp;<input type="date" name="saleDate" required></span></div>
+                    <div class="col-12">และผู้ขายได้รับราคาดังกล่าวแล้วไปจากผู้ซื้อเสร็จแล้วตั้งแต่วันที่&nbsp;<span>&nbsp;<input type="date" name="payDate" required></span></div>
                     <div class="col-12">ข้อ ๒ ผู้ขายยอมสัญญาว่า ทรัพย์สินซ่งผู้ขายนำมาขายให้แก่ผู้ซื้อนี้เป็นทรัพย์สินของผู้ขายคนเดียว และไม่เคยนำไปขาย จำนำ หรือทำสัญญาผูกพันธ์ใด ๆ แก่ผู้ใดเลย</div>
                     <div class="col-12"><label for="contract"> ข้อ ๓ &nbsp;</label></div>
                     <div class="col-12"><textarea style="background-color: #7C904E; vertical-align: middle;" name="AnotherCondition" cols="50" rows="5"></textarea></div>

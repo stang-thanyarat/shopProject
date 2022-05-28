@@ -23,7 +23,7 @@
                     <div class="row m">
                         <div class="col-12 d-flex justify-content-end signin">
                             <form>
-                                <input type="text" class="btnd" placeholder="&nbsp ชื่อผู้ขาย">
+                                <input type="text" class="btnd" placeholder="&nbsp ชื่อผู้ขาย" required>
                                 <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
                             </form>&nbsp &nbsp
                             <div class="col-3">

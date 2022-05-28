@@ -44,7 +44,8 @@
                         <input type="date" name="datepayment" id="datepayment">
                     </div>
                     <div class="col-12">
-                        ใบเสร็จ:<input type="file" name="slip">ใบส่งของ:<input type="file" name="invoice">
+                        ใบเสร็จ:<input type="file" accept="image/*" name="slip" required>
+                        ใบส่งของ:<input type="file" accept="image/*" name="invoice" required>
                     </div>
                     <div class="col-12">
                         *ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB
@@ -53,7 +54,7 @@
                         หมายเหตุ:
                     </div>
                     <div class="col-12">
-                        <textarea style="vertical-align: middle; background-color: #7C904E;" name="detail" cols="50" rows="5"></textarea>
+                        <textarea style="vertical-align: middle; background-color: #7C904E;" name="detail" cols="50" rows="5" ></textarea>
                     </div>
                     <div class="col-12 C">
                         รายการสินค้า

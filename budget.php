@@ -18,15 +18,16 @@
             <div class="col-11">
                 <div class="row main">
                     <h1>งบการเงิน</h1>
-                            <h6><div class="m">งบแสดงฐานะการเงิน</div>
+                    <div class="row m">
+                            <div class="d">งบแสดงฐานะการเงิน</div>
                             <div class="d-flex flex-row-reverse">
                             <button type="submit" class="g "><img src="./src/images/download.png " width="15">&nbsp ดาวน์โหลด</button>
                             <button type="submit" class="g"><img src="./src/images/print.png" width="15">&nbsp print</button>
                             </div>
-                            </h6>
+                    </div>      
                             
                     <div class="col-12 a">
-                        <input type="date" name="firstdate">&nbsp ถึง &nbsp<input type="date" name="lastdate">
+                        <input type="date" name="firstdate" required>&nbsp ถึง &nbsp<input type="date" name="lastdate" required>
                         <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
                     </div>
                     <div class="col-12 b">

@@ -24,9 +24,9 @@
                     <p></p>
                     <div class="col-12">
                         <label for="contract">วันที่วางบิล:</label>
-                        <input type="date" name="datebill" id="datebill"/>
+                        <input type="date" name="datebill" id="datebill" required/>
                         <label for="contract">วันที่รับของ:</label>
-                        <input type="date" name="datereceive" id="datereceive" />
+                        <input type="date" name="datereceive" id="datereceive" required/>
                     </div>
                     <div class="col-12">
                         <label for="contract">ชื่อผู้ขาย:</label>
@@ -44,7 +44,7 @@
                         <input type="date" name="datepayment">
                     </div>
                     <div class="col-12">
-                        สลิปธนาคาร: <input type="file" name="slip">
+                        สลิปธนาคาร: <input accept="image/*" type="file" name="slip" required>
                     </div>
                     <div class="col-12">
                         *ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB

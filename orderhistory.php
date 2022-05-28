@@ -23,9 +23,9 @@
                     <div class="row m">
                         <div class="col-12 d-flex justify-content-end signin">
                             <label for="date"></label>
-                            <input type="date" name="date" id="date" />&nbsp
+                            <input type="date" name="date" id="date" required />&nbsp
                             <form>
-                                <input type="text" class="btnd" placeholder="&nbsp ชื่อผู้ขาย">
+                                <input type="text" class="btnd" placeholder="&nbsp ชื่อผู้ขาย" required>
                                 <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
                             </form>
                         </div>

@@ -8,7 +8,7 @@
 .main{
     margin-top: 5rem;
     margin-left: 4rem;
-    margin-bottom: 1rem;
+    margin-right: 0rem;
 }
 
 .Nbar{
@@ -26,7 +26,7 @@
     width: 130px;
     border: 0in;
     background-color: #ABBE99;
-    margin-top: -1rem;
+    margin-top: -2rem;
 }
 
 .col-12{
@@ -37,12 +37,13 @@
     text-align: center;
 }
 
-h6{
+
+.m{
     background-color: #ABBE99;
     margin-left: -2.15rem;
-    height: 50px;
-    
+    height: 45px;
+    width: 100%;
 }
-.m{
-    margin-top: 1rem;
+.d{
+    margin-top: 0.5rem;
 }
