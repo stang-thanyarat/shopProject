@@ -97,6 +97,40 @@ th {
     margin-left: 7rem;
 }
 
-.m{
+.m {
     margin-left: 4rem;
+}
+
+/*modal เพิ่มบัญชีใหม่*/
+.mmm {
+    margin-top: 1rem;
+    margin-left: 3rem;
+    text-align: center;
+}
+
+.btn-primary1 {
+    color: #A36627;
+}
+
+.btn-primary1:hover {
+    color: #A36627;
+}
+
+.btn-primary3 {
+    background-color: #7C904E;
+    color: white;
+    border: 0ch;
+}
+
+
+.modal-header {
+    background-color: #688557;
+}
+
+.modal-body {
+    background-color: #D4DDC6;
+}
+
+.modal-footer {
+    background-color: #D4DDC6;
 }

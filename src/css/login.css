@@ -31,6 +31,12 @@
     color: #A36627;
 }
 
+.bi{
+    margin-left: -50px;
+    margin-top: -10px;
+    font-size: 25pt;
+}
+
 .text-login {
     margin-bottom: 5rem;
 }

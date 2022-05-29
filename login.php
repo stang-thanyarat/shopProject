@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link type="text/css" href="./src/css/login.css" rel='stylesheet' />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+
     <title>Document</title>
 </head>
 
@@ -23,9 +25,12 @@
             <form>
                 <h1 class="text-login">Login</h1>
                 <label class="label" for="email">E-mail</label>
-                <input class="field input" type="email" name="email" require>
+                <input class="field input" type="email" id="email" name="email" required>
                 <label class="label" for="password">Password</label>
-                <input class="field input" type="password" name="password" require>
+                <div class="d-flex">
+                    <input class="field input" type="password" id="password" name="password" required>
+                    <i class="bi bi-eye-slash" id="togglePassword"></i>
+                </div>
                 <div class="BTN">
                     <input class="field button" type="submit" value="Login" />
                 </div>
@@ -33,5 +38,5 @@
         </div>
     </div>
 </body>
-
+<script src="./src/js/login.js"></script>
 </html>

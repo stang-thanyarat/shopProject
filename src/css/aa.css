@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&display=swap');
+
+* {
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+    --bs-gutter-x: 0
+}
+
+.main {
+    margin-top: 4rem;
+    margin-left: 3rem;
+}
+
+.Nbar {
+    margin-top: 3.5rem;
+}
+
+.aa {
+    color: #688557;
+}
+
+.br {
+    margin-top: 2rem;
+}
+
+.box1 {
+    width: 600px;
+    height: 40px;
+    background-color: #C4C4C4;
+    border-radius: 25px 25px 25px 25px;
+    text-align: center;
+}
+
+.t {
+    margin-top: 0.6rem;
+}
+
+.box2 {
+    width: 120px;
+    height: 40px;
+    background-color: #7C904E;
+    border-radius: 25px 25px 25px 25px;
+    text-align: center;
+    margin-left: 48rem;
+}
+
+.n {
+    margin-top: 1rem;
+    margin-left: 13rem;
+}
+
+.nn {
+    margin-top: 1rem;
+    margin-left: 13rem;
+}
+
+.nnn {
+    margin-top: 1rem;
+}
+
+.line {
+    width: 1600px;
+    height: 10px;
+    background-color: #E0B87E;
+    border-radius: 25px 25px 25px 25px;
+}
+
+.submit {
+    background-color: #ABBE99;
+    border: 0ch;
+    color: black;
+}
+
+.a:hover .b:hover .c:hover {
+    color: white;
+}
+
+.a {
+    margin-left: 1rem;
+    font-size: 16pt;
+    width: 150px;
+    background-color: #ABBE99;
+    border: 0in;
+}
+
+.b {
+    margin-left: 1rem;
+    font-size: 16pt;
+    width: 150px;
+    background-color: #ABBE99;
+    border: 0in;
+}
+
+.c {
+    margin-left: 1rem;
+    font-size: 16pt;
+    width: 150px;
+    background-color: #ABBE99;
+    border: 0in;
+}

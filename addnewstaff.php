@@ -7,12 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./src/css/addnewstaff.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
     <title>Document</title>
 </head>
 <?php include('nav.php'); ?>
 
 <body>
-    <form>
+    <form name="addnewstaff" onsubmit="return validateForm()" id="form1" name="form1" method="post" action="">
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
@@ -29,7 +31,7 @@
                         <th>
                             <div class="row-4 ma">
                                 <label for="employee model">รูปแบบพนักงาน :</label>
-                                <select name="employee model" id="employee model">
+                                <select name="employee model" id="employee model" required>
                                     <option value="full time staff" selected>พนักงานประจำ</option>
                                     <option value="daily staff">พนักงานรายวัน</option>
                                     <option value="temporary worker">พนักงานชั่วคราว</option>
@@ -48,8 +50,7 @@
                         <th>
                             <div class="row-4 ma">
                                 <label for="prefix">คำนำหน้าชื่อ:</label>
-                                <select name="prefix" id="prefix">
-                                    <option value="Mr." selected>เลือกคำนำหน้า</option>
+                                <select name="prefix" id="prefix" required>
                                     <option value="Mr.">นาย</option>
                                     <option value="Mrs.">นาง</option>
                                     <option value="miss">นางสาว</option>
@@ -57,43 +58,43 @@
                             </div>
                             <div class="row-4 ma">
                                 <label for="name">ชื่อ :</label>
-                                <input name="name" type="text" />
+                                <input name="name" type="text" id="name" required />
                             </div>
                             <div class="row-4 ma">
                                 <label for="lastname">นามสกุล :</label>
-                                <input name="lastname" type="text" />
+                                <input name="lastname" type="text" id="lastname" required />
                             </div>
                             <div class="row-4 ma">
                                 <label for="address">ที่อยู่ :&nbsp;</label>
-                                <textarea name="address" cols="50" rows="5" style="vertical-align:top;"></textarea>
+                                <textarea name="address" id="address" cols="50" rows="5" style="vertical-align:top;" required></textarea>
                             </div>
                             <div class="row-4 ma">
                                 <label for="birthday">วันเกิด :</label>
                                 <label for="birthday"></label>
-                                <input type="date" name="birthday" />
+                                <input type="date" name="birthday" id="birthday" required />
                             </div>
                             <div class="row-4 ma">
                                 <label for="ID card numbe">เลขบัตรประชาชน :</label>
-                                <input name="ID card numbe" type="text" />
+                                <input name="idcardnumber" type="text" id=idcardnumber onkeyup="autoTab(this)" required />
                             </div>
                             <div class="row ma">
                                 <h5>ข้อมูลผู้ติดต่อ</h5>
                             </div>
                             <div class="row-4 ma">
                                 <label for="telephone">โทรศัพท :</label>
-                                <input name="telephone" type="text" />
+                                <input name="telephone" type="text" id=telephone onkeyup="autoTab2(this)" />
                             </div>
                             <div class="row-4 ma">
                                 <label for="email">อีเมล :</label>
-                                <input name="email" type="text" />
+                                <input name="email" type="email" id="email" required />
                             </div>
                             <div class="row-4 ma">
-                                <label for="email">รหัสผ่าน :</label>
-                                <input name="email" type="email" />
+                                <label for="password">รหัสผ่าน :</label>
+                                <input name="password" type="password" id="password" required />
                             </div>
                             <div class="row ma">
                                 <div class="col">
-                                    สำเนาบัตรประชาชน : <input type="file" name="copy of ID card">
+                                    สำเนาบัตรประชาชน : <input type="file" accept="image/*" name="copyofIDcard" required>
                                 </div>
                                 <div class="col">
                                     <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
@@ -101,7 +102,7 @@
                             </div>
                             <div class="row ma">
                                 <div class="col">
-                                    สำเนาทะเบียนบ้าน : <input type="file" name="Copy of house registration">
+                                    สำเนาทะเบียนบ้าน : <input type="file" accept="image/*" name="Copyofhouseregistration" required>
                                 </div>
                                 <div class="col">
                                     <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
@@ -111,8 +112,8 @@
                                 <div class="col-10">
                                     <h5>บัญชีรับเงิน</h5>
                                 </div>
-                                <div class="col-2">
-                                    <h5 style="color: #A36627">เพิ่มบัญชีใหม่</h5>
+                                <div class=" col-12 d-flex justify-content-end">
+                                    <button type="button" class="btn btn-primary1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl">เพิ่มบัญชีใหม่</button>
                                 </div>
                             </div>
                             <table class="mm">
@@ -146,5 +147,42 @@
                 </div>
             </div>
         </div>
+
+        <!---modal เพิ่มบัญชีใหม่-->
+        <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">เพิ่มบัญชีใหม่</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form name="addbankaccount" method="post" action="">
+                            <table class="mmm">
+                                <tr>
+                                    <th>#</th>
+                                    <th>ธนาคาร</th>
+                                    <th>เลขบัญชี</th>
+                                    <th>ชื่อบัญชี</th>
+                                </tr>
+                                <tr>
+                                    <th><input type="text" name="no" required></th>
+                                    <th><input type="text" name="bankname" required></th>
+                                    <th><input type="text" name="accountnumber" required></th>
+                                    <th><input type="text" name="accountname" required></th>
+                                </tr>
+                            </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary3">ตกลง</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </form>
 </body>
+<script src="./src/js/addnewstaff.js"></script>
+
+</html>

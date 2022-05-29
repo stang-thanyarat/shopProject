@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./src/css/addseller.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
     <title>Document</title>
 </head>
 <?php include('nav.php'); ?>
@@ -33,31 +35,31 @@
                 <div class="row mai">
                     <div class="col">
                         <label for="seller name">ชื่อผู้ขาย :</label>
-                        <input type="text" name="seller name" />
+                        <input type="text" name="sellername" id="sellername" required />
                     </div>
                 </div>
                 <div class="row mai">
                     <div class="col">
                         <label for="address">ที่อยู่ :</label>
-                        <input type="text" name="address" />
+                        <input type="text" name="address" id="address" required />
                     </div>
                 </div>
                 <div class="row mai">
                     <div class="col">
                         <label for="tax Identification Number">เลขประจำตัวผู้เสียภาษี :</label>
-                        <input type="text" name="tax Identification Number" />
+                        <input type="text" name="taxidentificationnumber" id="taxidentificationnumber" required />
                     </div>
                 </div>
                 <div class="row mai">
                     <div class="col">
                         <label for="website">เว็บไซต์ :</label>
-                        <input type="text" name="website" />
+                        <input type="text" name="website" id="website" required />
                     </div>
                 </div>
                 <div class="row mai">
                     <div class="col">
                         <label for="telephone number">เบอร์โทรศัพท์ :</label>
-                        <input type="text" name="telephone number" />
+                        <input type="text" name="telephonenumber" id="telephonenumber" onkeyup="autoTab2(this)" required />
                     </div>
                 </div>
                 <div class="row mai">
@@ -66,29 +68,29 @@
                 <div class="row mai">
                     <div class="col-2">
                         <label for="first name">ชื่อ :</label>
-                        <input type="text" name="first name" />
+                        <input type="text" name="firstname" id="firstname" required />
                     </div>
                     <div class="col-2">
                         <label for="last name">นามสกุล :</label>
-                        <input type="text" name="last name" />
+                        <input type="text" name="lastname" id="lastname" required />
                     </div>
                 </div>
                 <div class="row mai">
                     <div class="col">
                         <label for="nickname">ชื่อเล่น :</label>
-                        <input type="text" name="nickname" />
+                        <input type="text" name="nickname" id="nickname" required />
                     </div>
                 </div>
                 <div class="row mai">
                     <div class="col">
                         <label for="email">อีเมล :</label>
-                        <input type="text" name="email" />
+                        <input type="text" name="email" id="email" required />
                     </div>
                 </div>
                 <div class="row mai">
                     <div class="col">
                         <label for="telephone number2">เบอร์โทรศัพท์ :</label>
-                        <input type=text name="telephone number2" />
+                        <input type=text name="telephonenumber2" id="telephonenumber2" onkeyup="autoTab2(this)" required />
                     </div>
                 </div>
                 <div class="row mai mc">
@@ -96,18 +98,18 @@
                 </div>
                 <div class="row mai">
                     <div class="col-4">
-                        บัตรประชาชน : <input type="file" name="ID card">
+                        บัตรประชาชน : <input type="file" accept="image/*" name="idcard" required>
                     </div>
                     <div class="col">
                         <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
                     </div>
                 </div>
                 <div class="row mai">
-                    <div class="col-7">
+                    <div class="col-6">
                         <h5>บัญชีรับเงินของผู้ขาย</h5>
                     </div>
-                    <div class="col-1">
-                        <h5 style="color: #A36627">เพิ่มบัญชีใหม่</h5>
+                    <div class="col-6">
+                        <button type="button" class="btn btn-primary1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl">เพิ่มบัญชีใหม่</button>
                     </div>
                 </div>
                 <table class="mai">
@@ -131,7 +133,7 @@
                 </table>
                 <div class="row mai">
                     <div class="col-4">
-                        นามบัตร : <input type="file" name="card">
+                        นามบัตร : <input type="file" accept="image/*" name="card">
                     </div>
                     <div class="col">
                         <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
@@ -139,7 +141,7 @@
                 </div>
                 <div class="row mai">
                     <div class="col-4">
-                        เอกสารอื่นๆ : <input type="file" name="other documents">
+                        เอกสารอื่นๆ : <input type="file" accept="image/*" name="other documents">
                     </div>
                     <div class="col">
                         <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
@@ -161,5 +163,41 @@
                 </div>
             </div>
         </div>
+        <!---modal เพิ่มบัญชีใหม่-->
+        <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">เพิ่มบัญชีใหม่</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form name="addbankaccount" method="post" action="">
+                            <table class="mmm">
+                                <tr>
+                                    <th>#</th>
+                                    <th>ธนาคาร</th>
+                                    <th>เลขบัญชี</th>
+                                    <th>ชื่อบัญชี</th>
+                                </tr>
+                                <tr>
+                                    <th><input type="text" name="no" required></th>
+                                    <th><input type="text" name="bankname" required></th>
+                                    <th><input type="text" name="accountnumber" required></th>
+                                    <th><input type="text" name="accountname" required></th>
+                                </tr>
+                            </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary3">ตกลง</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </form>
 </body>
+<script src="./src/js/addseller.js"></script>
+
+</html>
