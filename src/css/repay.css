@@ -35,6 +35,7 @@ th {
 
 .col-12{
     margin-left: 1rem;
+    
 }
 
 .B{
@@ -77,4 +78,49 @@ th {
 
 .col-10{
     margin-top: 1rem;
+}
+
+.btn-primary{
+   
+    width: 15%;
+    background-color: #fff;
+    color: #A36627;
+    border: 0in;
+}
+
+.btn-primary:hover{
+    background-color: #7C904E;
+    color: #fff;
+}
+
+.btn-primary1{
+    
+    background-color: #7C904E;
+    color: #fff;
+    border: 0in;
+}
+
+.r{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 200px;
+}
+.u{
+    width: 100px;
+}
+.p{
+    width: 120px;
+}
+.t{
+    width: 120px;
+}
+.modal-header{
+    background-color: #7C904E;
+    height: 50px;
+}
+.modal-title{
+    color: #fff;
+}
+.modal-body{
+    background-color: #D4DDC6;
 }

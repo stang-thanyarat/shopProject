@@ -80,6 +80,7 @@ th {
 }
 
 .btn-primary{
+    margin-right: 5rem;
     width: 15%;
     background-color: #fff;
     color: #A36627;
@@ -101,4 +102,14 @@ th {
 .r{
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+.modal-header{
+    background-color: #7C904E;
+    height: 50px;
+}
+.modal-title{
+    color: #fff;
+}
+.modal-body{
+    background-color: #D4DDC6;
 }

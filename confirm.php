@@ -58,8 +58,8 @@
                     </div>
                     <div class="col-12 C">
                         รายการสินค้า
-                        <div class=" col-12 d-flex justify-content-end signin">
-                            <input class="BTNP" type="submit" value="เพิ่มสินค้า">
+                        <div class=" col-12 d-flex justify-content-end">
+                            <input class="BTNP" type="submit" value="เพิ่ม">
                         </div>
                         <table class="main col-10">
                             <tr>
@@ -104,11 +104,8 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="col-12 C">
+                    <div class="col">
                         ค่าใช้จ่ายอื่นๆ
-                        <div class=" col-12 d-flex justify-content-end signin">
-                            <input class="BTNP" type="submit" value="เพิ่ม">
-                        </div>
                         <table class="main col-10">
                             <tr>
                                 <th>รายการ</th>
