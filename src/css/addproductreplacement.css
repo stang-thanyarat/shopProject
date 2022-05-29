@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&display=swap');
+
+* {
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+    --bs-gutter-x: 0;
+}
+
+.main {
+    margin-top: 4rem;
+    margin-left: 3rem;
+}
+
+.Nbar {
+    margin-top: 3.5rem;
+}
+
+.mai {
+    margin-top: 1rem;
+    margin-left: 3rem;
+}
+
+.mm {
+    margin-top: 1rem;
+    margin-left: 7rem;
+    text-align: center;
+}
+
+table,
+td,
+th {
+    border: 1px solid black;
+
+}
+
+table {
+    border-collapse: collapse;
+    width: 90%;
+}
+
+th {
+    height: 50px;
+    width: 20%;
+}
+
+
+.ma {
+    margin-top: 1rem;
+    margin-left: 7rem;
+}
+
+.btn-g {
+    width: 100%;
+    justify-content: end;
+    display: flex;
+    margin-top: 1rem;
+}
+
+.btn-c {
+    border-radius: 25px 25px 25px 25px;
+    font-size: 20pt;
+    width: 60%;
+}
+
+.submit {
+    background-color: #7C904E;
+    color: white;
+    border: 0ch;
+}
+
+.reset {
+    background-color: #E0B87E;
+    color: white;
+    border: 0ch;
+    margin-left: 7rem;
+}
+
+/*modal เพิ่มบัญชีใหม่*/
+.mmm {
+    margin-top: 1rem;
+    margin-left: 3rem;
+    text-align: center;
+}
+
+.btn-primary1 {
+    color: #A36627;
+}
+
+.btn-primary1:hover {
+    color: #A36627;
+}
+
+.modal-title {
+    color: white;
+}
+
+.btn-primary3 {
+    background-color: #7C904E;
+    color: white;
+    border: 0ch;
+}
+
+.modal-header {
+    background-color: #688557;
+}
+
+.modal-body {
+    background-color: #D4DDC6;
+}
+
+.modal-footer {
+    background-color: #D4DDC6;
+}
