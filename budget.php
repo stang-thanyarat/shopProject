@@ -39,6 +39,40 @@
                     <div class="col-12 b">
                         <h5>14 ธันวาคม 2564</h5>
                     </div>
+                    <div class="row p">
+                            <div class="d-flex flex-row-reverse">
+                            จำนวน(บาท)
+                            </div>
+                    </div>  
+                    <p></p>
+                    <div class="row f">
+                            <div class="col">
+                            <h5>สินทรัพย์</h5>
+                            </div>
+                    </div>
+                    <p></p>
+                    <div class="row">
+                            <div class="col y">
+                            <h6>รวม สินทรัพย์</h6>
+                            </div>
+                            <div class="col">
+                            1,000,000
+                            </div>
+                    </div>
+                    <div class="row f">
+                            <div class="col">
+                            <h5>หนี้สิน+ทุน</h5>
+                            </div>
+                    </div>
+                    <p></p> 
+                    <div class="row">
+                            <div class="col y">
+                            <h6>รวม หนี้สิน+ทุน</h6>
+                            </div>
+                            <div class="col">
+                            250,000
+                            </div>
+                    </div>              
                 </div>
             </div>
         </div>

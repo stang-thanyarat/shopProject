@@ -13,7 +13,7 @@
 
 <body>
     <script src="./src/js/contract.js"></script>
-    <form name="form" action="" onsubmit="return validateForm()" method="post">
+    <form name="form1" action="" onsubmit="checkForm(); return false;">
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
@@ -50,15 +50,15 @@
                 </div>
                 <div class="row1">
                     <div class="col-xl-4 col-lg-12 ">ข้าพเจ้า:
-                        <select name="customerPrefix" style="background-color: #7C904E;">
+                        <select name="customerPrefix" style="background-color: #7C904E;" required>
                             <option value="นาย" selected>นาย</option>
                             <option value="นาง">นาง</option>
                             <option value="นางสาว">นางสาว</option>
                         </select>
                     </div>
-                    <div class="col-xl-4 col-lg-12 ">ชื่อ:<input type="text" name="namecustomer" id="namecustomer"></div>
-                    <div class="col-xl-4 col-lg-12 ">นามสกุล:<input type="text" name="lastamecustomer" id="lastamecustomer"></div>
-                    <div class="col-xl-4 col-lg-12 ">รหัสบัตรประชาชน:<input type="text" name="idcard" id="idcard"></div>
+                    <div class="col-xl-4 col-lg-12 ">ชื่อ:<input type="text" name="namecustomer" id="namecustomer" required/></div>
+                    <div class="col-xl-4 col-lg-12 ">นามสกุล:<input type="text" name="lastamecustomer" id="lastamecustomer" required /></div>
+                    <div class="col-xl-4 col-lg-12 ">รหัสบัตรประชาชน:<input type="text" name="idcard" id="idcard" required /></div>
                 </div>
                 <div class="row1">
                     <div class="col-12">ซึ่งต่อไปในหนังสือสัญญานี้เรียกว่าผู้ซื้อฝ่ายหนึ่ง ทั้งสองฝ่ายตกลงทำสัญญาซื้อขายทรัพย์สินมีดังข้อความต่อไปนี้</div>

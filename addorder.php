@@ -58,14 +58,14 @@
                         </div>
                         <table class="main col-10">
                             <tr>
-                                <th>ประเภทสินค้า</th>
-                                <th>รายการสินค้า</th>
-                                <th>ยี่ห้อ</th>
-                                <th>รุ่น</th>
-                                <th>ราคาต่อหน่วย</th>
-                                <th>จำนวน</th>
-                                <th>ราคา</th>
-                                <th></th>
+                                <th width="15%">ประเภทสินค้า</th>
+                                <th width="15%">รายการสินค้า</th>
+                                <th width="15%">ยี่ห้อ</th>
+                                <th width="15%">รุ่น</th>
+                                <th width="15%">ราคาต่อหน่วย</th>
+                                <th width="15%">จำนวน</th>
+                                <th width="15%">ราคา</th>
+                                <th width="15%"></th>
                             </tr>
                             <tbody id="list-product"></tbody>
                         </table>
