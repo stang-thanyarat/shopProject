@@ -26,9 +26,9 @@
                 <div class="row mai">
                     <div class="col-12">
                         <label for="seller type">ประเภทผู้ขาย :</label>
-                        <input type="radio" name="seller type" class="seller type" value="บริษัท / ห้างร้าน" checked>
+                        <input type="radio" name="company" id="company" class="seller type" value="บริษัท / ห้างร้าน" checked>
                         <label for="seller type">บริษัท / ห้างร้าน </label>
-                        <input type="radio" name="seller type" class="seller type" value="บุคคลทั่วไป">
+                        <input type="radio" name="guest" id="guest" class="seller type" value="บุคคลทั่วไป">
                         <label for="seller type">บุคคลทั่วไป</label>
                     </div>
                 </div>
@@ -36,30 +36,34 @@
                     <div class="col">
                         <label for="seller name">ชื่อผู้ขาย :</label>
                         <input type="text" name="sellername" id="sellername" required />
+                        <div class="a">*</div>
                     </div>
                 </div>
                 <div class="row mai">
                     <div class="col">
                         <label for="address">ที่อยู่ :</label>
                         <input type="text" name="address" id="address" required />
+                        <div class="b">*</div>
                     </div>
                 </div>
                 <div class="row mai">
                     <div class="col">
                         <label for="tax Identification Number">เลขประจำตัวผู้เสียภาษี :</label>
                         <input type="text" name="taxidentificationnumber" id="taxidentificationnumber" required />
+                        <div class="c">*</div>
                     </div>
                 </div>
                 <div class="row mai">
                     <div class="col">
                         <label for="website">เว็บไซต์ :</label>
-                        <input type="text" name="website" id="website" required />
+                        <input type="text" name="website" id="website" />
                     </div>
                 </div>
                 <div class="row mai">
                     <div class="col">
                         <label for="telephone number">เบอร์โทรศัพท์ :</label>
                         <input type="text" name="telephonenumber" id="telephonenumber" onkeyup="autoTab2(this)" required />
+                        <div class="e">*</div>
                     </div>
                 </div>
                 <div class="row mai">
@@ -69,36 +73,45 @@
                     <div class="col-2">
                         <label for="first name">ชื่อ :</label>
                         <input type="text" name="firstname" id="firstname" required />
+                        <div class="f">*</div>
                     </div>
                     <div class="col-2">
                         <label for="last name">นามสกุล :</label>
                         <input type="text" name="lastname" id="lastname" required />
+                        <div class="g">*</div>
                     </div>
                 </div>
                 <div class="row mai">
                     <div class="col">
                         <label for="nickname">ชื่อเล่น :</label>
                         <input type="text" name="nickname" id="nickname" required />
+                        <div class="h">*</div>
                     </div>
                 </div>
                 <div class="row mai">
                     <div class="col">
                         <label for="email">อีเมล :</label>
                         <input type="text" name="email" id="email" required />
+                        <div class="i">*</div>
                     </div>
                 </div>
                 <div class="row mai">
-                    <div class="col">
+                <div class="col">
                         <label for="telephone number2">เบอร์โทรศัพท์ :</label>
                         <input type="text" name="telephonenumber2" id="telephonenumber2" onkeyup="autoTab2(this)" required />
+                        <div class="j">*</div>
                     </div>
                 </div>
                 <div class="row mai">
-                    <h5 style="color: #A36627">เพิ่มเติมอื่นๆ</h5>
+                <div class="col">
+                        <label for="idline">ไอดีไลน์ :</label>
+                        <input type="text" name="idline" id="idline" />
+                    </div>
                 </div>
                 <div class="row mai">
                     <div class="col-4">
                         บัตรประชาชน : <input type="file" accept="image/*" name="slip" required>
+                        <div class="k">*</div>
                     </div>
                     <div class="col">
                         <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>

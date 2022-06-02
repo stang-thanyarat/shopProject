@@ -12,7 +12,7 @@
 <?php include('nav.php'); ?>
 
 <body>
-    <form>
+    <form name="form">
         <div class="row main">
             <div class="row">
                 <h1>เพิ่มบัญชีผู้ใช้งาน</h1>
@@ -20,39 +20,44 @@
             <div class="row top">
                 <div class="col-lg-4 col-md-12">
                     <label for="prefix">คำนำหน้าชื่อ:</label>
-                    <select name="prefix" id="prefix">
-                        <option value="Mr." selected>เลือกคำนำหน้า</option>
+                    <select name="prefix" id="prefix" onchange="show_title_other(this.form);"required>
+                        <option value="noun" selected>เลือกคำนำหน้า</option>
                         <option value="Mr.">นาย</option>
                         <option value="Mrs.">นาง</option>
-                        <option value="miss">นางสาว</option>
+                        <option value="missmiss">นางสาว</option>
                     </select>
+                    <div class="a">*</div>
                 </div>
                 <div class="col-lg-4 col-md-12">
-                    <label for="name">ชื่อ :</label>
-                    <input name="name" type="text" />
+                    <label for="firstname">ชื่อ :</label>
+                    <input name="firstname" id="firstname" type="text" required/>
+                    <div class="b">*</div>
                 </div>
                 <br>
                 <div class="col-lg-4 col-md-12">
                     <label for="lastname">นามสกุล :</label>
-                    <input name="lastname" type="text" />
+                    <input name="lastname" id="lastname" type="text" required/>
+                    <div class="c">*</div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-4 login">
                     <label for="email">อีเมล :</label>
-                    <input name="email" type="email" />
+                    <input name="email" id="email" type="email" onblur='check_email(this)' required />
+                    <div class="d">*</div>
                 </div>
                 <div class="col-lg-8 login">
                     <label for="password">รหัสผ่าน :</label>
-                    <input name="password" type="password" />
+                    <input name="password" id="password" type="password" onblur='check_num(this)' required />
+                    <div class="e">*</div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-4">
                     <label for="position">ตำแหน่ง :</label>
-                    <input type="radio" name="position" class="position" value="เจ้าของร้าน" checked>
+                    <input type="radio" name="shopkeeper" id="shopkeeper" type="radio" class="position" value="เจ้าของร้าน" checked>
                     <label for="position">เจ้าของร้าน</label>
-                    <input type="radio" name="position" class="position" value="ผู้ดูแลระบบ">
+                    <input type="radio" name="admin" id="admin" type="radio" class="position" value="ผู้ดูแลระบบ">
                     <label for="position">ผู้ดูแลระบบ</label>
                 </div>
                 <div class="col-lg-4">
@@ -72,6 +77,7 @@
                 </div>
             </div>
     </form>
-</body>
+    </body>
+<script src="./src/js/adduseraccount.js"></script>
 
 </html>

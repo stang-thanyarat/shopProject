@@ -1,11 +1,3 @@
-document.getElementById("togglePassword").addEventListener('click', function (e) {
-    // toggle the type attribute
-    const type = document.getElementById("password").getAttribute('type') === 'password' ? 'text' : 'password';
-    document.getElementById("password").setAttribute('type', type);
-    // toggle the eye / eye slash icon
-    this.classList.toggle('bi-eye');
-});
-
 //email
 function check_email(elm){
     var regex_email=/^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*\@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.([a-zA-Z]){2,4})$/
@@ -20,3 +12,13 @@ function check_num(elm){
 		alert("จำนวนตัวอักษรหรือตัวเลขอยู่ช่วง 6-15 ตัวเท่านั้น");
 	}
 }
+
+function on_change(id){
+    if(id=='1'|| id=='2'){
+    document.form.shopkeeper[0].checked=true;
+    }else{
+    document.form.admin[1].checked=true;
+    }
+    
+    }
+    on_change(0);

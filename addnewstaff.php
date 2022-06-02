@@ -14,7 +14,7 @@
 <?php include('nav.php'); ?>
 
 <body>
-    <form name="addnewstaff" onsubmit="return validateForm()" id="form1" name="form1" method="post" action="">
+    <form  action="" name="form1" onsubmit="checkForm(); return false;">
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
@@ -57,8 +57,8 @@
                                 </select>
                             </div>
                             <div class="row-4 ma">
-                                <label for="name">ชื่อ :</label>
-                                <input name="name" type="text" id="name" required />
+                                <label for="firstname">ชื่อ :</label>
+                                <input name="firstname" type="text" id="firstname" required />
                             </div>
                             <div class="row-4 ma">
                                 <label for="lastname">นามสกุล :</label>
@@ -74,23 +74,23 @@
                                 <input type="date" name="birthday" id="birthday" required />
                             </div>
                             <div class="row-4 ma">
-                                <label for="ID card numbe">เลขบัตรประชาชน :</label>
+                            <label for="idcardnumber">เลขบัตรประชาชน :</label>
                                 <input name="idcardnumber" type="text" id=idcardnumber onkeyup="autoTab(this)" required />
                             </div>
                             <div class="row ma">
                                 <h5>ข้อมูลผู้ติดต่อ</h5>
                             </div>
                             <div class="row-4 ma">
-                                <label for="telephone">โทรศัพท :</label>
-                                <input name="telephone" type="text" id=telephone onkeyup="autoTab2(this)" />
+                                <label for="telephone">โทรศัพท์ :</label>
+                                <input name="telephone" type="text" id=telephone onkeyup="autoTab2(this)" required />
                             </div>
                             <div class="row-4 ma">
                                 <label for="email">อีเมล :</label>
-                                <input name="email" type="email" id="email" required />
+                                <input name="email" type="email" id="email" onblur='check_email(this)' required />
                             </div>
                             <div class="row-4 ma">
                                 <label for="password">รหัสผ่าน :</label>
-                                <input name="password" type="password" id="password" required />
+                                <input name="password" type="password" id="password" onblur='check_num(this)' required />
                             </div>
                             <div class="row ma">
                                 <div class="col">
@@ -148,7 +148,7 @@
             </div>
         </div>
 
-        <!---modal เพิ่มบัญชีใหม่-->
+        <!---modal เพิ่มบัญชีใหม่
         <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
@@ -180,7 +180,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
     </form>
 </body>
 <script src="./src/js/addnewstaff.js"></script>

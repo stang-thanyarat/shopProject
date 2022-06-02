@@ -22,13 +22,13 @@
             </div>
         </div>
         <div class="BgRight col-md-6">
-            <form>
+            <form action="#" method="post" id="login1" onsubmit="return errorCheck1()">
                 <h1 class="text-login">Login</h1>
                 <label class="label" for="email">E-mail</label>
-                <input class="field input" type="email" id="email" name="email" required>
+                <input class="field input" type="email" id="email" name="email" onblur='check_email(this)' required>
                 <label class="label" for="password">Password</label>
                 <div class="d-flex">
-                    <input class="field input" type="password" id="password" name="password" required>
+                    <input class="field input" type="password" id="password" name="password" onblur='check_num(this)' required>
                     <i class="bi bi-eye-slash" id="togglePassword"></i>
                 </div>
                 <div class="BTN">

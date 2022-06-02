@@ -1,0 +1,7 @@
+aria-required=true] {
+    border: red thin solid;
+    }
+    [data-required=true]:after {
+    content: url('/iconStar.gif');
+    }
+    
