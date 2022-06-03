@@ -12,7 +12,7 @@ function check_num(elm){
 		alert("จำนวนตัวอักษรหรือตัวเลขอยู่ช่วง 6-15 ตัวเท่านั้น");
 	}
 }
-
+/*
 function on_change(id){
     if(id=='1'|| id=='2'){
     document.form.shopkeeper[0].checked=true;
@@ -21,4 +21,4 @@ function on_change(id){
     }
     
     }
-    on_change(0);
+    on_change(0);*/
