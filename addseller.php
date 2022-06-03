@@ -96,14 +96,14 @@
                     </div>
                 </div>
                 <div class="row mai">
-                <div class="col">
+                    <div class="col">
                         <label for="telephone number2">เบอร์โทรศัพท์ :</label>
                         <input type="text" name="telephonenumber2" id="telephonenumber2" onkeyup="autoTab2(this)" required />
                         <div class="j">*</div>
                     </div>
                 </div>
                 <div class="row mai">
-                <div class="col">
+                    <div class="col">
                         <label for="idline">ไอดีไลน์ :</label>
                         <input type="text" name="idline" id="idline" />
                     </div>

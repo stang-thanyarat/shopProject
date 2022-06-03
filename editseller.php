@@ -63,7 +63,7 @@
                     <div class="col">
                         <label for="telephone number">เบอร์โทรศัพท์ :</label>
                         <input type="text" name="telephonenumber" id="telephonenumber" onkeyup="autoTab2(this)" required />
-                        <div class="d">*</div>
+                        <div class="e">*</div>
                     </div>
                 </div>
                 <div class="row mai">
@@ -73,26 +73,26 @@
                     <div class="col-2">
                         <label for="first name">ชื่อ :</label>
                         <input type="text" name="firstname" id="firstname" required />
-                        <div class="e">*</div>
+                        <div class="f">*</div>
                     </div>
                     <div class="col-2">
                         <label for="last name">นามสกุล :</label>
                         <input type="text" name="lastname" id="lastname" required />
-                        <div class="f">*</div>
+                        <div class="g">*</div>
                     </div>
                 </div>
                 <div class="row mai">
                     <div class="col">
                         <label for="nickname">ชื่อเล่น :</label>
                         <input type="text" name="nickname" id="nickname" required />
-                        <div class="g">*</div>
+                        <div class="h">*</div>
                     </div>
                 </div>
                 <div class="row mai">
                     <div class="col">
                         <label for="email">อีเมล :</label>
                         <input type="text" name="email" id="email" required />
-                        <div class="h">*</div>
+                        <div class="i">*</div>
                     </div>
                 </div>
                 <div class="row mai">

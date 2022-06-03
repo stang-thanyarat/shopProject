@@ -32,10 +32,12 @@
                             <div class="row-4 ma">
                                 <label for="employee model">รูปแบบพนักงาน :</label>
                                 <select name="employee model" id="employee model" required>
-                                    <option value="full time staff" selected>พนักงานประจำ</option>
+                                    <option value="employee model" selected>เลือกรูปแบบพนักงาน</option>
+                                    <option value="full time staff">พนักงานประจำ</option>
                                     <option value="daily staff">พนักงานรายวัน</option>
                                     <option value="temporary worker">พนักงานชั่วคราว</option>
                                 </select>
+                                <div class="a">*</div>
                             </div>
                             <br>
                         </th>
@@ -51,32 +53,38 @@
                             <div class="row-4 ma">
                                 <label for="prefix">คำนำหน้าชื่อ:</label>
                                 <select name="prefix" id="prefix" required>
-                                    <option value="Mr." selected>เลือกคำนำหน้า</option>
+                                    <option value="noun" selected>เลือกคำนำหน้า</option>
                                     <option value="Mr.">นาย</option>
                                     <option value="Mrs.">นาง</option>
                                     <option value="miss">นางสาว</option>
                                 </select>
+                                <div class="b">*</div>
                             </div>
                             <div class="row-4 ma">
                                 <label for="firstname">ชื่อ :</label>
                                 <input name="firstname" type="text" id="firstname" required />
+                                <div class="c">*</div>
                             </div>
                             <div class="row-4 ma">
                                 <label for="lastname">นามสกุล :</label>
                                 <input name="lastname" type="text" id="lastname" required />
+                                <div class="d">*</div>
                             </div>
                             <div class="row-4 ma">
-                                <label for="address">ที่อยู่ :&nbsp;</label>
-                                <textarea name="address" id="address" cols="50" rows="5" style="vertical-align:top;" required></textarea>
+                                <label for="address">ที่อยู่ :</label>
+                                <input type="text" name="address" id="address" required />
+                                <div class="l">*</div>
                             </div>
                             <div class="row-4 ma">
                                 <label for="birthday">วันเกิด :</label>
                                 <label for="birthday"></label>
                                 <input type="date" name="birthday" id="birthday" required />
+                                <div class="f">*</div>
                             </div>
                             <div class="row-4 ma">
                                 <label for="ID card numbe">เลขบัตรประชาชน :</label>
                                 <input name="idcardnumber" type="text" id=idcardnumber onkeyup="autoTab(this)" required />
+                                <div class="e">*</div>
                             </div>
                             <div class="row ma">
                                 <h5>ข้อมูลผู้ติดต่อ</h5>
@@ -84,18 +92,22 @@
                             <div class="row-4 ma">
                                 <label for="telephone">โทรศัพท :</label>
                                 <input name="telephone" type="text" id=telephone onkeyup="autoTab2(this)" required />
+                                <div class="g">*</div>
                             </div>
                             <div class="row-4 ma">
                                 <label for="email">อีเมล :</label>
                                 <input name="email" type="email" id="email" onblur='check_email(this)' required />
+                                <div class="h">*</div>
                             </div>
                             <div class="row-4 ma">
                                 <label for="password">รหัสผ่าน :</label>
                                 <input name="password" type="password" id="password" onblur='check_num(this)' required />
+                                <div class="i">*</div>
                             </div>
                             <div class="row ma">
                                 <div class="col">
                                     สำเนาบัตรประชาชน : <input type="file" accept="image/*" name="copyofidcard" required>
+                                    <div class="j">*</div>
                                 </div>
                                 <div class="col">
                                     <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
@@ -104,6 +116,7 @@
                             <div class="row ma">
                                 <div class="col">
                                     สำเนาทะเบียนบ้าน : <input type="file" accept="image/*" name="copyofhouseregistration" required>
+                                    <div class="k">*</div>
                                 </div>
                                 <div class="col">
                                     <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
