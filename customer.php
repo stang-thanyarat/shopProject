@@ -13,10 +13,8 @@
 
 <body>
     <form>
-        <div class="row">
-            <div class="col-12 main">
-                    <h5>ประเภทสินค้า</h5>
+        <div class="main"><h6>ประเภทสินค้า</h6>
+                </div>
             <div class="col-1 Nbar min-vh-100"><?php include('bar2.php'); ?></div>
             <div class="col-11">
-                
-                </div>
+            </div>

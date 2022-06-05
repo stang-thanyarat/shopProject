@@ -20,7 +20,7 @@
             <div class="row top">
                 <div class="col-lg-4 col-md-12">
                     <label for="prefix">คำนำหน้าชื่อ:</label>
-                    <select name="prefix" id="prefix" onchange="show_title_other(this.form);"required>
+                    <select name="prefix" id="prefix" onchange="show_title_other(this.form);" required>
                         <option value="noun" selected>เลือกคำนำหน้า</option>
                         <option value="Mr.">นาย</option>
                         <option value="Mrs.">นาง</option>
@@ -30,13 +30,13 @@
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <label for="firstname">ชื่อ :</label>
-                    <input name="firstname" id="firstname" type="text" required/>
+                    <input name="firstname" id="firstname" type="text" required />
                     <div class="b">*</div>
                 </div>
                 <br>
                 <div class="col-lg-4 col-md-12">
                     <label for="lastname">นามสกุล :</label>
-                    <input name="lastname" id="lastname" type="text" required/>
+                    <input name="lastname" id="lastname" type="text" required />
                     <div class="c">*</div>
                 </div>
             </div>
@@ -54,11 +54,10 @@
             </div>
             <div class="row">
                 <div class="col-lg-4">
-                    <label for="position">ตำแหน่ง :</label>
-                    <input type="radio" name="shopkeeper" id="shopkeeper" value="เจ้าของร้าน" checked>
-                    <label for="position">เจ้าของร้าน</label>
-                    <input type="radio" name="admin" id="admin" value="ผู้ดูแลระบบ">
-                    <label for="position">ผู้ดูแลระบบ</label>
+                    <h5>ตำแหน่ง :</h5>
+                    <input type="radio" name="position" value="shopkeeper" checked>เจ้าของร้าน
+                    <input type="radio" name="position" value="admin" id="admin">
+                    <label for="admin">ผู้ดูแลระบบ</label>
                 </div>
                 <div class="col-lg-4">
                     <label for="position">สถานะการใช้งาน :</label>
@@ -77,7 +76,7 @@
                 </div>
             </div>
     </form>
-    </body>
+</body>
 <script src="./src/js/adduseraccount.js"></script>
 
 </html>

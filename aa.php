@@ -23,6 +23,14 @@
                     <div class="row br">
                         <h5>ยินดีตอนรับ ผู้ใช้งานระบบ</h5>
                     </div>
+                    <div class="row">
+                        <div class="col br">
+                            <label for="Summary">ข้อมูลสรุป :</label>
+                            <label for="Summary"></label>
+                            <input type="date" name="Summary" id="Summary" required> - <input type="date" name="Summary" id="Summary" required>
+                            <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
+                        </div>
+                    </div>
                     <div class="row br">
                         <div class="col-10 box1">
                             <h6 class="t">ยอดขาย&nbsp | &nbspต้นทุนขาย + ค่าใช้จ่าย</h6>
@@ -46,7 +54,7 @@
                         </div>
                         <div class="col-2">
                             <button type="stubmit" class="c" href="#">&nbsp สถิติการค้นหา</button>
-                        
+
                         </div>
                     </div>
                 </div>
