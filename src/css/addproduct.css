@@ -1,15 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&display=swap');
-
-* {
+*{
     font-family: 'IBM Plex Sans Thai', sans-serif;
-    --bs-gutter-x: 0
+}
+.main{
+    margin-top: 5rem;
+    margin-left: 4rem;
+}
+
+.Nbar{
+    margin-top: 3.5rem;
+}
+table,
+td,
+th {
+    text-align: center;
+    border: 1px solid black;
+
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+
+}
+
+.th {
+    height: 100px;
+    width: 50%;
+}
+.B{
+    margin-right: 5rem;
+}
+
+.BTN{
+    border-radius: 25px;
+    width: 10%;
+    background-color: #7C904E;
+    color: white;
+    border: 0in;
+    margin-top: 5rem;
+}
+
+.BTNC{
+    border-radius: 25px;
+    width: 10%;
+    background-color: #E0B87E;
+    color: white;
+    border: 0in;
+    margin-top: 5rem;
 }
 
 .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 45px;
+    height: 20px;
 }
 
 /* Hide default HTML checkbox */
@@ -35,10 +80,10 @@
 .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
+    height: 15px;
+    width: 15px;
+    left: 3px;
+    bottom: 3px;
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
@@ -67,71 +112,6 @@ input:checked+.slider:before {
     border-radius: 50%;
 }
 
-.main {
-    margin-top: 4rem;
-    margin-left: 3rem;
-}
-
-.Nbar {
-    margin-top: 3.5rem;
-}
-
-.mai {
-    margin-left: 70rem;
-}
-
-.ma {
+.col-10{
     margin-top: 1rem;
-    margin-left: 3rem;
-}
-
-table,
-td,
-th {
-    border: 1px solid black;
-    text-align: center;
-}
-
-table {
-    border-collapse: collapse;
-    width: 90%;
-}
-
-th {
-    height: 50px;
-    width: 20%;
-}
-
-select {
-    background-color: #ABBE99;
-    border: 0ch;
-}
-
-.submit {
-    background-color: #7C904E;
-    border: 0ch;
-    color: white;
-}
-
-.btn:hover {
-    color: white;
-}
-
-.btn-d {
-    border-radius: 25px 25px 25px 25px;
-    background-color: #F8E4C8;
-    border: 0ch;
-    margin-left: 5rem;
-}
-
-.btn {
-    border-radius: 25px 25px 25px 25px;
-    font-size: 16pt;
-    width: 150%;
-}
-
-.s {
-    background: transparent;
-    border: 0px;
-    margin-left: -2rem;
 }

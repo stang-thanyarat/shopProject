@@ -30,33 +30,38 @@
                             <div class="row-4 ma">
                                 <label for="sum">จำนวนที่เปลี่ยนสินค้า :</label>
                                 <input name="sum" type="text" id="sum" required />
-                                </div>
-                                <div class="row ma">
-                                <div class="col">
+                            </div>
+                            <div class="row ma">
+                            <div class="col">
                                 หลักฐานที่เสียหาย : <input type="file" accept="image/*" name="evidence" required>
-                                </div>
-                                 <div class="col">
+                            </div>
+                            <div class="col">
                                     <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
-                                </div>
-                                <br>
-                                <div class="row mai">
+                            </div>
+                            </div>
+                            <br>
+                             <div class="row-4 ma">
                                     <div class="col">
                                     <label for="note">หมายเหตุ :&nbsp;</label>
                                     <textarea name="note" cols="50" rows="5" style="vertical-align:top;"></textarea>
-                                </div>
+                            </div>
+                            </div>
                                 <br>
-                                <div class="row mai">
-                                    <div class="col-12">
-                                        <label for="status">สถานะการเปลี่ยนสินค้า :      </label> 
-                                        <input type="radio" name="complete" class="complete" value="สำเร็จแล้ว" >     
-                                        <label for="complete">  สำเร็จแล้ว </label>
-                                        <input type="radio" name="wait" class="wait" value="รอของ" checked >
-                                        <label for="wait">  รอของ </label>
+                            <div class="row-4 ma">
+                            <div class="col-12">
+                                    <label for="status">สถานะการเปลี่ยนสินค้า :      </label> 
+                                    <input type="radio" name="complete" class="complete" value="สำเร็จแล้ว" >     
+                                    <label for="complete">  สำเร็จแล้ว </label>
+                                    <input type="radio" name="wait" class="wait" value="รอของ"  >
+                                    <label for="wait">  รอของ </label>
+                                    </div>
+                                </div>
                                         <div class="row-4 ma">
                                         <div class="col-12">
                                         <label for="name">ชื่อ :</label>
                                                 <input name="name" type="text" id="name" required />
-                                                </div>
+                                </div>
+                                </div>
                                         <div class="row ma">
                                         <div class="col-12">
                                          <label for="tel">เบอร์โทรติดต่อ :</label>
