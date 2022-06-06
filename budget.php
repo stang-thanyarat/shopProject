@@ -18,14 +18,17 @@
             <div class="col-11">
                 <div class="row main">
                     <h1>งบการเงิน</h1>
-                    <div class="row m">
-                            <div class="d">งบแสดงฐานะการเงิน</div>
-                            <div class="d-flex flex-row-reverse">
-                            <button type="submit" class="g "><img src="./src/images/download.png " width="15">&nbsp ดาวน์โหลด</button>
-                            <button type="submit" class="g"><img src="./src/images/print.png" width="15">&nbsp print</button>
-                            </div>
-                    </div>      
-                            
+                </div>
+                <div class="t">
+                    <div class="m">
+                    <h6>งบแสดงฐานะการเงิน</h6>
+                    </div>
+                    <div class="d-flex flex-row-reverse">
+                        <button type="submit" class="g "><img src="./src/images/download.png " width="15">&nbsp ดาวน์โหลด</button>
+                        <button type="submit" class="g"><img src="./src/images/print.png" width="15">&nbsp print</button>
+                    </div>
+                </div>
+                <div class="row main q">
                     <div class="col-12 a">
                         <input type="date" name="firstdate" required>&nbsp ถึง &nbsp<input type="date" name="lastdate" required>
                         <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
@@ -40,39 +43,39 @@
                         <h5>14 ธันวาคม 2564</h5>
                     </div>
                     <div class="row p">
-                            <div class="d-flex flex-row-reverse">
+                        <div class="d-flex justify-content-end">
                             จำนวน(บาท)
-                            </div>
-                    </div>  
+                        </div>
+                    </div>
                     <p></p>
                     <div class="row f">
-                            <div class="col">
+                        <div class="col">
                             <h5>สินทรัพย์</h5>
-                            </div>
+                        </div>
+                    </div>
+                    <p></p>
+                    <div class="row ">
+                        <div class="col y">
+                            <h6>รวม สินทรัพย์</h6>
+                        </div>
+                        <div class="col">
+                            1,000,000
+                        </div>
+                    </div>
+                    <div class="row f">
+                        <div class="col">
+                            <h5>หนี้สิน+ทุน</h5>
+                        </div>
                     </div>
                     <p></p>
                     <div class="row">
-                            <div class="col y">
-                            <h6>รวม สินทรัพย์</h6>
-                            </div>
-                            <div class="col">
-                            1,000,000
-                            </div>
-                    </div>
-                    <div class="row f">
-                            <div class="col">
-                            <h5>หนี้สิน+ทุน</h5>
-                            </div>
-                    </div>
-                    <p></p> 
-                    <div class="row">
-                            <div class="col y">
+                        <div class="col y">
                             <h6>รวม หนี้สิน+ทุน</h6>
-                            </div>
-                            <div class="col">
+                        </div>
+                        <div class="col">
                             250,000
-                            </div>
-                    </div>              
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
