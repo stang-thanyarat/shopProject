@@ -93,6 +93,7 @@ th {
 }
 
 .btn-primary1{
+    
     background-color: #7C904E;
     color: #fff;
     border: 0in;
@@ -109,6 +110,27 @@ th {
 .modal-title{
     color: #fff;
 }
-.modal-body{
-    background-color: #D4DDC6;
+.modal-body1{
+   text-align: center;
+   height: 70px;
+   margin-top: 3rem;
+}
+
+.btn2{
+    margin-right: 8rem;
+    background-color: #7C904E;
+    color: #fff;
+    border: 0in;
+}
+
+.btn1{
+    background-color: #fff;
+    
+}
+
+.btn3{
+    background-color: #7C904E;
+    color: #fff;
+    border: 0in;
+    border-radius: 25px;
 }

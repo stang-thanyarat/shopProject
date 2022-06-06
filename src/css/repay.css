@@ -80,19 +80,6 @@ th {
     margin-top: 1rem;
 }
 
-.btn-primary{
-   
-    width: 15%;
-    background-color: #fff;
-    color: #A36627;
-    border: 0in;
-}
-
-.btn-primary:hover{
-    background-color: #7C904E;
-    color: #fff;
-}
-
 .btn-primary1{
     
     background-color: #7C904E;
@@ -123,4 +110,11 @@ th {
 }
 .modal-body{
     background-color: #D4DDC6;
+}
+
+.btn1{
+    background-color: #7C904E;
+    color: #fff;
+    border: 0in;
+    
 }

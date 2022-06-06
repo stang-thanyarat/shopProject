@@ -39,7 +39,7 @@
                 </div>
                 <div class="row B">
                 <div class=" col-12 d-flex justify-content-end">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl">เพิ่ม</button>
+                            <button type="button" class="btn1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm">เพิ่ม</button>
                 </div>
                 </div>
                 <table class="main col-10">
@@ -83,8 +83,8 @@
         </div>
 
         <!---modal เพิ่มการชำระหนี้-->
-        <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
+        <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">เพิ่มการชำระหนี้</h5>
@@ -94,42 +94,30 @@
                     </div>
                     <div class="modal-body">
                         <form id="addrepay" >
-                            <table class="col-12 r">
-                            <tr>
-                                <th>วันที่ชำระ</th>
-                                <th>วิธีการชำระ</th>
-                                <th>ไฟล์แนบ</th>
-                                <th>ยอดที่ชำระ</th>
-                                <th>หักเงินต้น</th>
-                                <th>หักดอกเบี้ย</th>
-                                <th>คงค้าง</th>
-                                </tr>
-                            <tr>
-                                    <th>
                                         <div class="col-12 p">
+                                        วันที่ชำระ: &nbsp;
                                             <input type="date" class="t" name="repaymentdate" id="repaymentdate" required/>
                                         </div>
-                                    </th>
-                                    <th>
+                                    
                                         <div class="col-12 p">
+                                        วิธีการชำระ: &nbsp;
                                             <select name="payment" style="background-color: #7C904E;" required>
                                                 <option value="เลือก" selected>เลือก</option>
                                                 <option value="เงินสด" >เงินสด</option>
                                                 <option value="โอนเงิน" >โอนเงิน</option>
                                             </select>
                                         </div>
-                                        <th>
+                                        
                                             <div class="col-12 r">
+                                            ไฟล์แนบ: &nbsp;
                                                 <input accept="image/*" type="file" name="slip" required/>
                                             </div>
-                                        </th>
-                                    </th>
-                                    <th> <div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="paymentamount" id="paymentamount" width="3px" required /></div></th>
-                                    <th> <div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="deduct" id="deduct"required /></div></th>
-                                    <th> <div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="lessinterest" id="lessinterest"required /></div></th>
-                                    <th> <div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="outstanding" id="outstanding"required /></div></th>
-                                </tr>
-                            </table>
+                                     
+                                     ยอดที่ชำระ: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="paymentamount" id="paymentamount" width="3px" required /></div>
+                                     หักเงินต้น: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="deduct" id="deduct"required /></div>
+                                     หักดอกเบี้ย: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="lessinterest" id="lessinterest"required /></div>
+                                     คงค้าง: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="outstanding" id="outstanding"required /></div>
+                              
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary1">ตกลง</button>
                             </div>
