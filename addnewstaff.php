@@ -162,7 +162,7 @@
             </div>
         </div>
 
-        <!---modal เพิ่มบัญชีใหม่
+        <!---modal เพิ่มบัญชีใหม่-->
         <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
@@ -194,7 +194,7 @@
                     </div>
                 </div>
             </div>
-        </div>-->
+        </div>
     </form>
 </body>
 <script src="./src/js/addnewstaff.js"></script>

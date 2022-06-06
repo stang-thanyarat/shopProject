@@ -5,6 +5,10 @@
 
 }
 
+.bar {
+    min-height: 100%;
+}
+
 .row {
     display: flex;
     width: 190px;
@@ -13,7 +17,8 @@
     box-sizing: border-box;
 
 }
-.ma{
+
+.ma {
     margin-left: 2em;
 }
 

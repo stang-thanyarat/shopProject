@@ -13,8 +13,12 @@
 
 <body>
     <form>
-        <div class="main"><h6>ประเภทสินค้า</h6>
-                </div>
-            <div class="col-1 Nbar min-vh-100"><?php include('bar2.php'); ?></div>
-            <div class="col-11">
+        <div class="col a">
+            <h5 class="b">ประเภทสินค้า</h5>
+        </div>
+        <div class="col-1 Nbar min-vh-100"><?php include('bar2.php'); ?></div>
+        <div class="col-11">
+            <div class="row">
+                <div class=""><a href="#" class="button">Link Button</a></div>
             </div>
+        </div>

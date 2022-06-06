@@ -26,9 +26,9 @@
                 <div class="row mai">
                     <div class="col-12">
                         <label for="seller type">ประเภทผู้ขาย :</label>
-                        <input type="radio" name="company" id="company" class="seller type" value="บริษัท / ห้างร้าน" checked>
+                        <input type="radio" name="seller type" class="seller type" value="บริษัท / ห้างร้าน" checked>
                         <label for="seller type">บริษัท / ห้างร้าน </label>
-                        <input type="radio" name="guest" id="guest" class="seller type" value="บุคคลทั่วไป">
+                        <input type="radio" name="seller type" class="seller type" value="บุคคลทั่วไป">
                         <label for="seller type">บุคคลทั่วไป</label>
                     </div>
                 </div>

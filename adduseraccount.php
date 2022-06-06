@@ -54,7 +54,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-4">
-                    <h5>ตำแหน่ง :</h5>
+                    <label for="position">ตำแหน่ง :</label>
                     <input type="radio" name="position" value="shopkeeper" checked>เจ้าของร้าน
                     <input type="radio" name="position" value="admin" id="admin">
                     <label for="admin">ผู้ดูแลระบบ</label>

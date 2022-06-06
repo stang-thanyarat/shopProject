@@ -55,13 +55,9 @@
             <div class="row">
                 <div class="col-lg-4">
                     <label for="position">ตำแหน่ง :</label>
-                    <input type="radio" name="shopkeeper" id="shopkeeper" class="position" value="เจ้าของร้าน" required>
-                    <label for="position">เจ้าของร้าน</label>
-                    <input type="radio" name="admin" id="admin" class="position" value="ผู้ดูแลระบบ" >
-                    <label for="position">ผู้ดูแลระบบ</label>
-                    <div class="invalid-feedback">
-            กรุณาเลือกตำแหน่ง
-          </div> 
+                    <input type="radio" name="position" value="shopkeeper" checked>เจ้าของร้าน
+                    <input type="radio" name="position" value="admin" id="admin">
+                    <label for="admin">ผู้ดูแลระบบ</label>
                 </div>
                 <div class="col-lg-4">
                     <label for="position">สถานะการใช้งาน :</label>

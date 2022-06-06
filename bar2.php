@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <div class="row">
+    <div class="row nav flex-column bar">
         <ul id="myMenu">
             <li><a href="#">ชุดเสื้อสูบ</a></li>
             <li><a href="#">หัวเกียร์</a></li>

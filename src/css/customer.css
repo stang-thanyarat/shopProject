@@ -5,9 +5,27 @@
     --bs-gutter-x: 0;
 }
 
-.main {
+.a {
     width: 100%;
-    background-color: #ABBE99;
     height: 50px;
+    background-color: #ABBE99;
 }
 
+.b{
+    margin-top: 0rem;
+    margin-left: 1rem;
+}
+
+.button{
+    margin-left: 2rem;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
