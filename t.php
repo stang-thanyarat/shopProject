@@ -1,82 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="./src/css/budget.css" />
-    <title>Document</title>
+	<title>Form FreeTemplate by.devtai.com</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<?php include('nav.php'); ?>
-
 <body>
-    <form>
-        <div class="row">
-            <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
-            <div class="col-11">
-                <div class="row main">
-                    <h1>งบการเงิน</h1>
-                    <div class="row m">
-                            <div class="d">งบแสดงฐานะการเงิน</div>
-                            <div class="d-flex flex-row-reverse">
-                            <button type="submit" class="g "><img src="./src/images/download.png " width="15">&nbsp ดาวน์โหลด</button>
-                            <button type="submit" class="g"><img src="./src/images/print.png" width="15">&nbsp print</button>
-                            </div>
-                    </div>      
-                            
-                    <div class="col-12 a">
-                        <input type="date" name="firstdate" required>&nbsp ถึง &nbsp<input type="date" name="lastdate" required>
-                        <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
-                    </div>
-                    <div class="col-12 b">
-                        <h3>งบแสดงฐานะการเงิน</h3>
-                    </div>
-                    <div class="col-12 b">
-                        <h4>ร้านวรเชษฐ์เกษตรภัณฑ์</h4>
-                    </div>
-                    <div class="col-12 b">
-                        <h5>14 ธันวาคม 2564</h5>
-                    </div>
-                    <div class="row p">
-                            <div class="d-flex flex-row-reverse">
-                            จำนวน(บาท)
-                            </div>
-                    </div>  
-                    <p></p>
-                    <div class="row f">
-                            <div class="col">
-                            <h5>สินทรัพย์</h5>
-                            </div>
-                    </div>
-                    <p></p>
-                    <div class="row">
-                            <div class="col y">
-                            <h6>รวม สินทรัพย์</h6>
-                            </div>
-                            <div class="col">
-                            1,000,000
-                            </div>
-                    </div>
-                    <div class="row f">
-                            <div class="col">
-                            <h5>หนี้สิน+ทุน</h5>
-                            </div>
-                    </div>
-                    <p></p> 
-                    <div class="row">
-                            <div class="col y">
-                            <h6>รวม หนี้สิน+ทุน</h6>
-                            </div>
-                            <div class="col">
-                            250,000
-                            </div>
-                    </div>              
-                </div>
-            </div>
-        </div>
-    </form>
-</body>
+	<form action="#" method="post" name="add" class="form-horizontal" id="add">
+		<h1>Form FreeTemplate by.devtai.com</h1>
+	<p></p>
+  <div class="form-group">
+  	 <div class="col-sm-2 control-label">
+	<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">คำนำหน้า</label>
+  </div>
+  <select class="custom-select" id="inputGroupSelect01" required>
+    <option selected>-เลือกข้อมูล-</option>
+    <option value="1">นาย</option>
+    <option value="2">นาง</option>
+    <option value="3">นางสาว</option>
+  </select>
+</div>
+  </div>
+    </div>
 
+	 <div class="form-group">
+    <div class="col-sm-2 control-label">
+      Username :
+    </div>
+    <div class="col-sm-2">
+      <input type="text" name="" required class="form-control" placeholder="ภาษาอังกฤษหรือตัวเลข">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-2 control-label" class="form-control" >
+      Password :
+    </div>
+    <div class="col-sm-2">
+      <input type="password" name="" required class="form-control" placeholder="อย่างน้อย 8 ตัว">     
+    </div>
+  </div>
+
+    <div class="form-group">
+  	 <div class="col-sm-2 control-label">
+	<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">สถานะ</label>
+  </div>
+  <select class="custom-select" id="inputGroupSelect01" required>
+    <option selected>-เลือกข้อมูล-</option>
+    <option value="1">admin</option>
+    <option value="2">member</option>
+  </select>
+</div>
+  </div>
+    </div>
+
+  <div class="form-group">
+    <div class="col-sm-2 control-label">
+      ชื่อ :
+    </div>
+    <div class="col-sm-3">
+      <input type="text" name="" required class="form-control" placeholder="ภาษาไทยหรืออังกฤษ">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-2 control-label">
+      นามสกุล :
+    </div>
+    <div class="col-sm-3">
+      <input type="text" name="" required class="form-control" placeholder="ภาษาไทยหรืออังกฤษ">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-2 control-label">
+      เบอร์โทร :
+    </div>
+    <div class="col-sm-3">
+      <input type="text" name="" required class="form-control" placeholder="เช่น 091 999 9999">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-2 control-label">
+      อีเมล์ :
+    </div>
+    <div class="col-sm-3">
+     <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+  </div>
+
+  	<div class="form-group">
+    <div class="col-sm-3">
+
+    <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+  </div>
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+    <label class="custom-file-label" for="inputGroupFile01">Choose file กรุณาใส่รูปภาพของคุณ</label>
+  </div>
+	</div>
+	 </div>
+	</div>
+
+	<div class="form-group">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-3">
+      <button type="submit" class="btn btn-primary">สมัครสมาชิก</button>
+       <button type="" class="btn btn-danger">ยกเลิก</button>
+    </div>
+  </div>
+
+	</form>
+</body>
 </html>
