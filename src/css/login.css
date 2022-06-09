@@ -16,7 +16,7 @@
 
 .inLeft {
     background-color: #E0B87E;
-    min-width: 100%;
+    min-width: 50%;
     display: flex;
     align-items: center;
     --bs-gutter-x: 0;
