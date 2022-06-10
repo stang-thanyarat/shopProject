@@ -180,7 +180,7 @@
                         <form name="addbankaccount" method="post" action="">
                             <table class="mmm">
                                 <tr>
-                                    <th>#</th>
+                                    <th>ลำดับ</th>
                                     <th>ธนาคาร</th>
                                     <th>เลขบัญชี</th>
                                     <th>ชื่อบัญชี</th>

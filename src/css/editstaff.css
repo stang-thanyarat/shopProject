@@ -2,7 +2,6 @@
 
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
-    --bs-gutter-x: 0;
 }
 
 .main {
@@ -20,46 +19,165 @@
 }
 
 .mm {
-    margin-top: 1rem;
-    margin-left: 7rem;
+    background-color: #F8E4C8;
+}
+
+.m {
     text-align: center;
 }
 
+.bb {
+    margin-left: 2rem;
+}
+
+.margin {
+    margin-left: 2rem;
+}
+
+.leftmodel {
+    margin-left: 5.4rem;
+    margin-top: 1rem;
+}
+
+.a {
+    color: red;
+    margin-left: 7.3rem;
+    margin-top: -1.8rem;
+}
 
 .ma {
     margin-top: 1rem;
     margin-left: 7rem;
 }
 
-.btn-g {
+.b {
+    color: red;
+    margin-left: 5.8rem;
+    margin-top: -1.8rem;
+}
+
+
+.leftname {
+    margin-left: 10.8rem;
     margin-top: 1rem;
-    width: 100%;
-    justify-content: end;
-    display: flex;
 }
 
-.btn-c {
-    border-radius: 25px 25px 25px 25px;
-    font-size: 20pt;
-    width: 60%;
+.c {
+    color: red;
+    margin-left: 2rem;
+    margin-top: -1.8rem;
 }
 
-.submit {
-    background-color: #7C904E;
-    color: white;
-    border: 0ch;
+.leftlastname {
+    margin-right: 3.8rem;
+    margin-top: 1rem;
 }
 
-.reset {
-    background-color: #E0B87E;
-    color: white;
-    border: 0ch;
+.d {
+    color: red;
+    margin-left: 4.2rem;
+    margin-top: -1.8rem;
+}
+
+.leftidcardnumber {
+    margin-left: 5rem;
+    margin-top: 1rem;
+}
+
+.e {
+    color: red;
+    margin-left: 7.8rem;
+    margin-top: -1.8rem;
+}
+
+.leftbirthday {
+    margin-left: 3.3rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.f {
+    color: red;
+    margin-left: 3.4rem;
+    margin-top: -1.8rem;
+}
+
+.leftaddress {
+    margin-left: 10.7rem;
+    margin-top: 1rem;
+}
+
+.l {
+    color: red;
+    margin-left: 2.6rem;
+    margin-top: -1.8rem;
+}
+
+.lefttelephone{
+    margin-right: 2.8rem;
+    margin-top: 1rem;
+}
+
+.g {
+    color: red;
+    margin-left: 4.2rem;
+    margin-top: -1.8rem;
+}
+
+.leftemail{
+    margin-left: 9.6rem;
+    margin-top: 1rem;
+}
+
+.h {
+    color: red;
+    margin-left: 2.9rem;
+    margin-top: -1.8rem;
+}
+
+.leftpassword{
+    margin-left: -2.5rem;
+}
+
+.i {
+    color: red;
+    margin-left: 4.2rem;
+    margin-top: -1.8rem;
+}
+
+.leftn{
+    margin-top: 1rem;
+    margin-left: 4.4rem;
+}
+
+.j {
+    color: red;
+    margin-left: 8.8rem;
+    margin-top: -1.8rem;
+}
+
+.leftnb{
+    margin-right: 4rem;
+    margin-top: 1rem;
+}
+
+.k {
+    color: red;
+    margin-left: 8rem;
+    margin-top: -1.8rem;
+}
+
+.leftpng{
+    margin-left: 2.8rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 table,
 td,
 th {
     border: 1px solid black;
+
 }
 
 table {
@@ -72,10 +190,22 @@ th {
     width: 20%;
 }
 
+.wh{
+    margin-top: 1rem;
+    margin-left: 5rem;
+}
+
+.d-flex{
+    margin-top: 1rem;
+    margin-right: 5rem;
+    
+}
+
 .btn-g {
     width: 100%;
     justify-content: end;
     display: flex;
+    margin-top: 1rem;
 }
 
 .btn-c {
@@ -97,10 +227,6 @@ th {
     margin-left: 7rem;
 }
 
-.m {
-    margin-left: 4rem;
-}
-
 /*modal เพิ่มบัญชีใหม่*/
 .mmm {
     margin-top: 1rem;
@@ -109,11 +235,16 @@ th {
 }
 
 .btn-primary1 {
-    color: #A36627;
+    color: white;
+    background-color: #A36627;
 }
 
 .btn-primary1:hover {
-    color: #A36627;
+    color: white;
+}
+
+.modal-title {
+    color: white;
 }
 
 .btn-primary3 {
@@ -122,87 +253,14 @@ th {
     border: 0ch;
 }
 
-
 .modal-header {
     background-color: #688557;
 }
-
+/*
 .modal-body {
     background-color: #D4DDC6;
-}
+}*/
 
 .modal-footer {
     background-color: #D4DDC6;
-}
-
-.a {
-    color: red;
-    margin-left: 18rem;
-    margin-top: -1.5rem;
-}
-
-.b {
-    color: red;
-    margin-left: 13.5rem;
-    margin-top: -1.5rem;
-}
-
-.c {
-    color: red;
-    margin-left: 14.5rem;
-    margin-top: -1.5rem;
-}
-
-.d {
-    color: red;
-    margin-left: 17rem;
-    margin-top: -1.5rem;
-}
-
-.e {
-    color: red;
-    margin-left: 20.5rem;
-    margin-top: -1.5rem;
-}
-
-.f {
-    color: red;
-    margin-left: 13rem;
-    margin-top: -1.5rem;
-}
-
-.g {
-    color: red;
-    margin-left: 17rem;
-    margin-top: -1.5rem;
-}
-
-.h {
-    color: red;
-    margin-left: 15.5rem;
-    margin-top: -1.5rem;
-}
-
-.i {
-    color: red;
-    margin-left: 17rem;
-    margin-top: -1.5rem;
-}
-
-.j {
-    color: red;
-    margin-left: 21rem;
-    margin-top: -1.5rem;
-}
-
-.k {
-    color: red;
-    margin-left: 20.5rem;
-    margin-top: -1.5rem;
-}
-
-.l {
-    color: red;
-    margin-left: 15.2rem;
-    margin-top: -1.5rem;
 }

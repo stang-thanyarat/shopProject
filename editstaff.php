@@ -25,13 +25,13 @@
                 </div>
                 <table class="mai">
                     <tr>
-                        <th>กำหนดรูปแบบพนักงาน</th>
+                        <th class="mm">กำหนดรูปแบบพนักงาน</th>
                     </tr>
                     <tr>
                         <th>
-                            <div class="row-4 ma">
+                            <div class="row-4 leftmodel">
                                 <label for="employee model">รูปแบบพนักงาน :</label>
-                                <select name="employee model" id="employee model" required>
+                                <select name="employee model" id="employee model" class="margin" required>
                                     <option value="employee model" selected>เลือกรูปแบบพนักงาน</option>
                                     <option value="full time staff">พนักงานประจำ</option>
                                     <option value="daily staff">พนักงานรายวัน</option>
@@ -42,17 +42,14 @@
                             <br>
                         </th>
                     </tr>
-                </table>
-                <br>
-                <table class="mai">
                     <tr>
-                        <th>ข้อมูลพนักงาน</th>
+                        <th class="mm">ข้อมูลพนักงาน</th>
                     </tr>
                     <tr>
                         <th>
                             <div class="row-4 ma">
-                                <label for="prefix">คำนำหน้าชื่อ:</label>
-                                <select name="prefix" id="prefix" required>
+                                <label for="prefix">คำนำหน้าชื่อ : </label>
+                                <select name="prefix" id="prefix" class="margin" required>
                                     <option value="noun" selected>เลือกคำนำหน้า</option>
                                     <option value="Mr.">นาย</option>
                                     <option value="Mrs.">นาง</option>
@@ -60,105 +57,111 @@
                                 </select>
                                 <div class="b">*</div>
                             </div>
-                            <div class="row-4 ma">
-                                <label for="firstname">ชื่อ :</label>
-                                <input name="firstname" type="text" id="firstname" required />
-                                <div class="c">*</div>
+                            <div class="row">
+                                <div class="col leftname">
+                                    <label for="firstname">ชื่อ :</label>
+                                    <input name="firstname" type="text" id="firstname" class="bb" required />
+                                    <div class="c">*</div>
+                                </div>
+                                <div class="col leftlastname">
+                                    <label for="lastname">นามสกุล :</label>
+                                    <input name="lastname" type="text" id="lastname" class="bb" class="bb" required />
+                                    <div class="d">*</div>
+                                </div>
                             </div>
-                            <div class="row-4 ma">
-                                <label for="lastname">นามสกุล :</label>
-                                <input name="lastname" type="text" id="lastname" required />
-                                <div class="d">*</div>
+                            <div class="row">
+                                <div class="col leftidcardnumber">
+                                    <label for="idcardnumber">เลขบัตรประชาชน :</label>
+                                    <input name="idcardnumber" type="text" id=idcardnumber onkeyup="autoTab(this)" class="bb" required />
+                                    <div class="e">*</div>
+                                </div>
+                                <div class="col leftbirthday">
+                                    <label for="birthday">วันเกิด :</label>
+                                    <label for="birthday"></label>
+                                    <input type="date" name="birthday" id="birthday" class="bb" required />
+                                    <div class="f">*</div><br>
+                                </div>
                             </div>
-                            <div class="row-4 ma">
-                                <label for="address">ที่อยู่ :</label>
-                                <input type="text" name="address" id="address" required />
-                                <div class="l">*</div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="mm">ข้อมูลผู้ติดต่อ</th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <div class="row">
+                                <div class="col leftaddress">
+                                    <label for="address">ที่อยู่ :</label>
+                                    <input type="text" name="address" id="address" class="bb" required />
+                                    <div class="l">*</div>
+                                </div>
+                                <div class="col lefttelephone">
+                                    <label for="telephone">โทรศัพท์ :</label>
+                                    <input name="telephone" type="text" id=telephone onkeyup="autoTab2(this)" class="bb" required />
+                                    <div class="g">*</div>
+                                </div>
                             </div>
-                            <div class="row-4 ma">
-                                <label for="birthday">วันเกิด :</label>
-                                <label for="birthday"></label>
-                                <input type="date" name="birthday" id="birthday" required />
-                                <div class="f">*</div>
-                            </div>
-                            <div class="row-4 ma">
-                                <label for="ID card numbe">เลขบัตรประชาชน :</label>
-                                <input name="idcardnumber" type="text" id=idcardnumber onkeyup="autoTab(this)" required />
-                                <div class="e">*</div>
-                            </div>
-                            <div class="row ma">
-                                <h5>ข้อมูลผู้ติดต่อ</h5>
-                            </div>
-                            <div class="row-4 ma">
-                                <label for="telephone">โทรศัพท :</label>
-                                <input name="telephone" type="text" id=telephone onkeyup="autoTab2(this)" required />
-                                <div class="g">*</div>
-                            </div>
-                            <div class="row-4 ma">
-                                <label for="email">อีเมล :</label>
-                                <input name="email" type="email" id="email" onblur='check_email(this)' required />
-                                <div class="h">*</div>
-                            </div>
-                            <div class="row-4 ma">
-                                <label for="password">รหัสผ่าน :</label>
-                                <input name="password" type="password" id="password" onblur='check_num(this)' required />
-                                <div class="i">*</div>
-                            </div>
-                            <div class="row ma">
+                            <div class="row leftemail">
                                 <div class="col">
-                                    สำเนาบัตรประชาชน : <input type="file" accept="image/*" name="copyofidcard" required>
+                                    <label for="email">อีเมล :</label>
+                                    <input name="email" type="email" id="email" onblur='check_email(this)' class="bb" required />
+                                    <div class="h">*</div>
+                                </div>
+                                <div class="col leftpassword">
+                                    <label for="password">รหัสผ่าน :</label>
+                                    <input name="password" type="password" id="password" onblur='check_num(this)' class="bb" required />
+                                    <div class="i">*</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col leftn">สำเนาบัตรประชาชน :
+                                    <input type="file" accept="image/*" name="copyofIDcard" class="bb" required>
                                     <div class="j">*</div>
                                 </div>
-                                <div class="col">
-                                    <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
-                                </div>
-                            </div>
-                            <div class="row ma">
-                                <div class="col">
-                                    สำเนาทะเบียนบ้าน : <input type="file" accept="image/*" name="copyofhouseregistration" required>
+                                <div class="col leftnb">สำเนาทะเบียนบ้าน :
+                                    <input type="file" accept="image/*" name="Copyofhouseregistration" class="bb" required>
                                     <div class="k">*</div>
                                 </div>
-                                <div class="col">
+                                <div class="row leftpng">
                                     <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
                                 </div>
+                    <tr>
+                        <th class="mm">บัญชีรับเงิน</th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <div class="col d-flex justify-content-end">
+                                <button type="button" class="btn btn-primary1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl">เพิ่มบัญชีใหม่</button>
                             </div>
-                            <div class="row ma">
-                                <div class="col-10">
-                                    <h5>บัญชีรับเงิน</h5>
-                                </div>
-                                <div class=" col-12 d-flex justify-content-end">
-                                    <button type="button" class="btn btn-primary1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl">เพิ่มบัญชีใหม่</button>
-                                </div>
-                            </div>
-                            <table class="mm">
-                                <tr>
-                                    <th>#</th>
-                                    <th>ธนาคาร</th>
-                                    <th>เลขบัญชี</th>
-                                    <th>ชื่อบัญชี</th>
-                                    <th></th>
-                                </tr>
-                                <tr>
-                                    <th>1</th>
-                                    <th>ธนาคารกรุงไทย</th>
-                                    <th>1234567089</th>
-                                    <th>ปณวัตร์ ศรีโชติ</th>
-                                    <th>
-                                        <img src="./src/images/icon-delete.png" width="25">
-                                        <img src="./src/images/icon-pencil.png" width="25">
-                                    </th>
-                                </tr>
-                            </table>
-                            <br>
-                </table>
-
-                <div class="row btn-g">
-                    <div class="col-2">
-                        <button type="reset" class="btn-c reset">ยกเลิก</button>
-                    </div>
-                    <div class="col-2">
-                        <input type="submit" class="btn-c submit" value="บันทึก" />
-                    </div>
+            </div>
+            <table class="wh m">
+                <tr>
+                    <th>ลำดับ</th>
+                    <th>ธนาคาร</th>
+                    <th>เลขบัญชี</th>
+                    <th>ชื่อบัญชี</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <th>ธนาคารกรุงไทย</th>
+                    <th>1234567089</th>
+                    <th>ปณวัตร์ ศรีโชติ</th>
+                    <th>
+                        <img src="./src/images/icon-delete.png" width="25">
+                        <img src="./src/images/icon-pencil.png" width="25">
+                    </th>
+                </tr>
+            </table><br>
+            </th>
+            </tr>
+            </table>
+            <div class="row btn-g">
+                <div class="col-2">
+                    <button type="reset" class="btn-c reset">ยกเลิก</button>
+                </div>
+                <div class="col-2">
+                    <input type="submit" class="btn-c submit" value="บันทึก" />
                 </div>
             </div>
         </div>
@@ -177,11 +180,10 @@
                         <form name="addbankaccount" method="post" action="">
                             <table class="mmm">
                                 <tr>
-                                    <th>#</th>
+                                    <th>ลำดับ</th>
                                     <th>ธนาคาร</th>
                                     <th>เลขบัญชี</th>
                                     <th>ชื่อบัญชี</th>
-
                                 </tr>
                                 <tr>
                                     <th><input type="text" name="no" required></th>

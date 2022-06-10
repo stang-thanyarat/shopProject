@@ -58,7 +58,7 @@
 
 
 .leftname {
-    margin-left: 11.6rem;
+    margin-left: 10.8rem;
     margin-top: 1rem;
 }
 
@@ -69,7 +69,7 @@
 }
 
 .leftlastname {
-    margin-right: 4.1rem;
+    margin-right: 3.8rem;
     margin-top: 1rem;
 }
 
@@ -80,7 +80,7 @@
 }
 
 .leftidcardnumber {
-    margin-left: 5.6rem;
+    margin-left: 5rem;
     margin-top: 1rem;
 }
 
@@ -256,10 +256,10 @@ th {
 .modal-header {
     background-color: #688557;
 }
-
+/*
 .modal-body {
     background-color: #D4DDC6;
-}
+}*/
 
 .modal-footer {
     background-color: #D4DDC6;

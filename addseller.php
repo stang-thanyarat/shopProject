@@ -23,105 +23,97 @@
                         <h1>เพิ่มผู้ขาย</h1>
                     </div>
                 </div>
-                <div class="row mai">
-                    <div class="col-12">
-                        <label for="seller type">ประเภทผู้ขาย :</label>
-                        <input type="radio" name="seller type" class="seller type" value="บริษัท / ห้างร้าน" checked>
-                        <label for="seller type">บริษัท / ห้างร้าน </label>
-                        <input type="radio" name="seller type" class="seller type" value="บุคคลทั่วไป">
-                        <label for="seller type">บุคคลทั่วไป</label>
-                    </div>
-                </div>
-                <div class="row mai">
+                <div class="row leftseller">
                     <div class="col">
+                        <label for="seller type">ประเภทผู้ขาย :</label>
+                        <input type="radio" name="seller type" value="บริษัท / ห้างร้าน" class="bb" checked>
+                        <label for="seller type">บริษัท / ห้างร้าน </label>
+                        <input type="radio" name="seller type" value="บุคคลทั่วไป">
+                        <label for="seller type">บุคคลทั่วไป</label>
+                        <div class="d">*</div>
+                    </div>
+                    <div class="col leftsellername">
                         <label for="seller name">ชื่อผู้ขาย :</label>
-                        <input type="text" name="sellername" id="sellername" required />
+                        <input type="text" name="sellername" id="sellername" class="bb" required />
                         <div class="a">*</div>
                     </div>
                 </div>
-                <div class="row mai">
-                    <div class="col">
+                <div class="row">
+                    <div class="col leftidentification">
+                        <label for="tax Identification Number">เลขประจำตัวผู้เสียภาษี :</label>
+                        <input type="text" name="taxidentificationnumber" id="taxidentificationnumber" class="bb" required />
+                        <div class="c">*</div>
+                    </div>
+                    <div class="col leftaddress">
                         <label for="address">ที่อยู่ :</label>
-                        <input type="text" name="address" id="address" required />
+                        <input type="text" name="address" id="address" class="bb" required />
                         <div class="b">*</div>
                     </div>
                 </div>
-                <div class="row mai">
-                    <div class="col">
-                        <label for="tax Identification Number">เลขประจำตัวผู้เสียภาษี :</label>
-                        <input type="text" name="taxidentificationnumber" id="taxidentificationnumber" required />
-                        <div class="c">*</div>
-                    </div>
-                </div>
-                <div class="row mai">
-                    <div class="col">
-                        <label for="website">เว็บไซต์ :</label>
-                        <input type="text" name="website" id="website" />
-                    </div>
-                </div>
-                <div class="row mai">
-                    <div class="col">
+                <div class="row">
+                    <div class="col lefttelephone">
                         <label for="telephone number">เบอร์โทรศัพท์ :</label>
-                        <input type="text" name="telephonenumber" id="telephonenumber" onkeyup="autoTab2(this)" required />
+                        <input type="text" name="telephonenumber" id="telephonenumber" onkeyup="autoTab2(this)" class="bb" required />
                         <div class="e">*</div>
                     </div>
+                    <div class="col leftwebsite">
+                        <label for="website">เว็บไซต์ :</label>
+                        <input type="text" name="website" id="website" class="bb" />
+                    </div>
                 </div>
-                <div class="row mai">
-                    <h5>ข้อมูลผู้ติดต่อ</h5>
+                <div class="row th">
+                    <h5 class="tt">ข้อมูลผู้ติดต่อ</h5>
                 </div>
-                <div class="row mai">
-                    <div class="col-2">
+                <div class="row">
+                    <div class="col leftfirst">
                         <label for="first name">ชื่อ :</label>
-                        <input type="text" name="firstname" id="firstname" required />
+                        <input type="text" name="firstname" id="firstname" class="bb" required />
                         <div class="f">*</div>
                     </div>
-                    <div class="col-2">
+                    <div class="col leftlast">
                         <label for="last name">นามสกุล :</label>
-                        <input type="text" name="lastname" id="lastname" required />
+                        <input type="text" name="lastname" id="lastname" class="bb" required />
                         <div class="g">*</div>
                     </div>
                 </div>
-                <div class="row mai">
+                <div class="row leftnick">
                     <div class="col">
                         <label for="nickname">ชื่อเล่น :</label>
-                        <input type="text" name="nickname" id="nickname" required />
+                        <input type="text" name="nickname" id="nickname" class="bb" required />
                         <div class="h">*</div>
                     </div>
-                </div>
-                <div class="row mai">
-                    <div class="col">
+                    <div class="col leftemail">
                         <label for="email">อีเมล :</label>
-                        <input type="text" name="email" id="email" required />
+                        <input type="text" name="email" id="email" class="bb" required />
                         <div class="i">*</div>
                     </div>
                 </div>
-                <div class="row mai">
-                    <div class="col">
+
+                <div class="row">
+                    <div class="col leftnumber2">
                         <label for="telephone number2">เบอร์โทรศัพท์ :</label>
-                        <input type="text" name="telephonenumber2" id="telephonenumber2" onkeyup="autoTab2(this)" required />
+                        <input type="text" name="telephonenumber2" id="telephonenumber2" onkeyup="autoTab2(this)" class="bb" required />
                         <div class="j">*</div>
                     </div>
-                </div>
-                <div class="row mai">
-                    <div class="col">
+                    <div class="col leftidline">
                         <label for="idline">ไอดีไลน์ :</label>
-                        <input type="text" name="idline" id="idline" />
+                        <input type="text" name="idline" id="idline" class="bb" />
                     </div>
                 </div>
-                <div class="row mai">
-                    <div class="col-4">
-                        บัตรประชาชน : <input type="file" accept="image/*" name="slip" required>
+                <div class="row">
+                    <div class="col leftfile">
+                        บัตรประชาชน : <input type="file" accept="image/*" name="slip" class="bb" required>
                         <div class="k">*</div>
                     </div>
-                    <div class="col">
+                    <div class="row leftpng">
                         <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
                     </div>
                 </div>
-                <div class="row mai">
-                    <div class="col-6">
-                        <h5>บัญชีรับเงินของผู้ขาย</h5>
+                <div class="row">
+                    <div class="col-3 tb">
+                        <h5 class="ttb">บัญชีรับเงินของผู้ขาย</h5>
                     </div>
-                    <div class="col-6">
+                    <div class="row-2 ma">
                         <button type="button" class="btn btn-primary1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl">เพิ่มบัญชีใหม่</button>
                     </div>
                 </div>
@@ -144,26 +136,21 @@
                         </th>
                     </tr>
                 </table>
-                <div class="row mai">
-                    <div class="col">
-                        นามบัตร : <input type="file" accept="image/*" name="card">
+                <div class="row">
+                    <div class="col leftfile2">
+                        นามบัตร : <input type="file" accept="image/*" name="card" class="bb">
                     </div>
-                    <div class="col">
+                    <div class="col leftfile3">
+                        เอกสารอื่นๆ : <input type="file" accept="image/*" name="other documents" class="bb">
+                    </div>
+                    <div class="row leftpng">
                         <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
                     </div>
                 </div>
-                <div class="row mai">
-                    <div class="col">
-                        เอกสารอื่นๆ : <input type="file" accept="image/*" name="other documents">
-                    </div>
-                    <div class="col">
-                        <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
-                    </div>
-                </div>
-                <div class="row mai">
-                    <div class="col">
+                <div class="row">
+                    <div class="col leftnote">
                         <label for="note">หมายเหตุ :&nbsp;</label>
-                        <textarea name="address" cols="50" rows="5" style="vertical-align:top;"></textarea>
+                        <textarea name="note" cols="50" rows="5" style="vertical-align:top;" class="bb"></textarea>
                     </div>
                 </div>
                 <div class="row btn-g">

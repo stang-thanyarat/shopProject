@@ -14,9 +14,180 @@
     margin-top: 3.5rem;
 }
 
+.th {
+    width: 150px;
+    height: 50px;
+    border: 2px solid brown;
+    box-sizing: border-box;
+    margin-left: 2rem;
+    margin-top: 2rem;
+}
+
+.tt {
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+}
+
+.bb {
+    margin-left: 2rem
+}
+
+.leftseller {
+    margin-left: 6rem;
+    margin-top: 2rem;
+}
+
+.d {
+    color: red;
+    margin-left: 6.1rem;
+    margin-top: -1.8rem;
+}
+
+.leftsellername {
+    margin-left: 6.7rem;
+    margin-top: 1rem;
+}
+
+.a {
+    color: red;
+    margin-left: 4.2rem;
+    margin-top: -1.8rem;
+}
+
+.leftidentification {
+    margin-left: 3rem;
+    margin-top: 1rem;
+}
+
+.c {
+    color: red;
+    margin-left: 10rem;
+    margin-top: -1.8rem;
+}
+
+.leftaddress {
+    margin-left: 14rem;
+    margin-top: 1rem;
+}
+
+.b {
+    color: red;
+    margin-left: 2.5rem;
+    margin-top: -1.8rem;
+}
+
+.lefttelephone {
+    margin-left: 6.5rem;
+    margin-top: 1rem;
+}
+
+.e {
+    color: red;
+    margin-left: 6.5rem;
+    margin-top: -1.8rem;
+}
+
+.leftwebsite {
+    margin-left: 8rem;
+    margin-top: 1rem;
+}
+
+.leftfirst {
+    margin-left: 11rem;
+    margin-top: 1rem;
+}
+
+.f {
+    color: red;
+    margin-left: 2rem;
+    margin-top: -1.8rem;
+}
+
+.leftlast {
+    margin-left: 3rem;
+    margin-top: 1rem;
+}
+
+.g {
+    color: red;
+    margin-left: 4.1rem;
+    margin-top: -1.8rem;
+}
+
+.leftnick {
+    margin-left: 8.8rem;
+    margin-top: 1rem;
+}
+
+.h {
+    color: red;
+    margin-left: 3.4rem;
+    margin-top: -1.8rem;
+}
+
+.leftemail {
+    margin-left: 7.2rem;
+
+}
+
+.i {
+    color: red;
+    margin-left: 2.8rem;
+    margin-top: -1.8rem;
+}
+
+.leftnumber2 {
+    margin-left: 6.5rem;
+    margin-top: 1rem;
+}
+
+.j {
+    color: red;
+    margin-left: 6.5rem;
+    margin-top: -1.8rem;
+}
+
+.leftidline {
+    margin-left: 8.3rem;
+    margin-top: 1rem;
+}
+
+.leftfile {
+    margin-left: 6.5rem;
+    margin-top: 1rem;
+}
+
+.k {
+    color: red;
+    margin-left: 6.3rem;
+    margin-top: -1.8rem;
+}
+
+.leftpng {
+    margin-left: 5rem;
+    margin-top: 1rem;
+}
+
+.tb {
+    width: 220px;
+    height: 50px;
+    border: 2px solid brown;
+    margin-left: 2rem;
+    margin-top: 2rem;
+}
+
+.ttb {
+    margin-top: 0.5rem;
+    margin-left: 1rem;
+}
+
+.ma {
+    margin-left: 74rem;
+}
+
 .mai {
     margin-top: 1rem;
-    margin-left: 3rem;
+    margin-left: 14.1rem;
 }
 
 .btn-g {
@@ -61,6 +232,21 @@ th {
     width: 20%;
 }
 
+.leftfile2 {
+    margin-left: 8.8rem;
+    margin-top: 1rem;
+}
+
+.leftfile3 {
+    margin-left: 4rem;
+    margin-top: 1rem;
+}
+
+.leftnote{
+    margin-left: 8rem;
+    margin-top: 1rem;
+}
+
 .btn-g {
     width: 100%;
     justify-content: end;
@@ -98,12 +284,12 @@ th {
 }
 
 .btn-primary1 {
-    color: #A36627;
-    margin-left: 5rem;
+    color: white;
+    background-color: #A36627;
 }
 
 .btn-primary1:hover {
-    color: #A36627;
+    color: white;
 }
 
 .modal-title {
@@ -120,76 +306,11 @@ th {
     background-color: #688557;
 }
 
+/*
 .modal-body {
     background-color: #D4DDC6;
-}
+}*/
 
 .modal-footer {
     background-color: #D4DDC6;
-}
-
-.a {
-    color: red;
-    margin-left: 17rem;
-    margin-top: -1.5rem;
-}
-
-.b {
-    color: red;
-    margin-left: 15.2rem;
-    margin-top: -1.5rem;
-}
-
-.c {
-    color: red;
-    margin-left: 22.5rem;
-    margin-top: -1.5rem;
-}
-
-.d {
-    color: red;
-    margin-left: 16.3rem;
-    margin-top: -1.5rem;
-}
-
-.e {
-    color: red;
-    margin-left: 19rem;
-    margin-top: -1.5rem;
-}
-
-.f {
-    color: red;
-    margin-left: 14.5rem;
-    margin-top: -1.5rem;
-}
-
-.g {
-    color: red;
-    margin-left: 17rem;
-    margin-top: -1.5rem;
-}
-
-.h {
-    color: red;
-    margin-left: 16rem;
-    margin-top: -1.5rem;
-}
-
-.i {
-    color: red;
-    margin-left: 15.5rem;
-    margin-top: -1.5rem;
-}
-
-.j {
-    color: red;
-    margin-left: 19rem;
-    margin-top: -1.5rem;
-}
-
-.k {
-    color: red;
-    margin-left: 18.5rem;
-    margin-top: -1.5rem;
 }
