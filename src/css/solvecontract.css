@@ -9,6 +9,9 @@
     margin-bottom: 2rem;
 }
 
+.col-xl-12{
+    margin-bottom: 2rem;
+}
 .content{
     margin-top: 5rem;
     margin-left: 5rem;
@@ -19,12 +22,14 @@
 }
 
 .line{
-    width: 20%;
+    width: 50%;
     height: 1px;
     background-color: black;
     margin-top: 20px;
 }
-
+.t{
+    margin-left: 5rem;
+}
 .BTN{
     border-radius: 25px;
     width: 15%;

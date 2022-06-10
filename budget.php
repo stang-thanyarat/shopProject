@@ -24,8 +24,8 @@
                     <h6>งบแสดงฐานะการเงิน</h6>
                     </div>
                     <div class="d-flex flex-row-reverse">
-                        <button type="submit" class="g "><img src="./src/images/download.png " width="15">&nbsp ดาวน์โหลด</button>
-                        <button type="submit" class="g"><img src="./src/images/print.png" width="15">&nbsp print</button>
+                        <button type="submit" class="g "><img src="./src/images/download.png " width="15">&nbsp; ดาวน์โหลด</button>
+                        <button type="submit" class="g"><img src="./src/images/print.png" width="15">&nbsp; print</button>
                     </div>
                 </div>
                 <div class="row main q">
