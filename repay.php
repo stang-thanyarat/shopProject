@@ -113,7 +113,7 @@
                                                 <input accept="image/*" type="file" name="slip" required/>
                                             </div>
                                      
-                                     ยอดที่ชำระ: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="paymentamount" id="paymentamount" width="3px" required /></div>
+                                     ยอดที่ชำระ: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="paymentamount" id="paymentamount"  required /></div>
                                      หักเงินต้น: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="deduct" id="deduct"required /></div>
                                      หักดอกเบี้ย: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="lessinterest" id="lessinterest"required /></div>
                                      คงค้าง: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="outstanding" id="outstanding"required /></div>

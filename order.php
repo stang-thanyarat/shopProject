@@ -21,7 +21,7 @@
                         <h1>ใบสั่งซื้อ</h1>
                     </div>
                     <div class="row m">
-                        <div class="col-12 d-flex justify-content-end signin">
+                        <div class="col-12 d-flex justify-content-end ">
                             <form>
                                 <input type="text" class="btnd" placeholder="&nbsp ชื่อผู้ขาย" required>
                                 <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
@@ -44,7 +44,7 @@
                             <th> อาร์เอส อินเตอร์เทรด (2017) จำกัด</th>
                             <th>
                                 <div class="r">
-                                    <a class="submit BTNP" href="#"><img class='confirm'>รับของ</a>
+                                    <a class="submit BTNP" href="confirm.php"><img class='confirm'>รับของ</a>
                                 </div>
                             </th>
                             <th>

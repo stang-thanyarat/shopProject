@@ -30,8 +30,8 @@
                 </div>
                 <div class="n">
                     <h5>ภาพรวมการขายสินค้า</h5>
-                    <button type="button" class="btne"><img src="./src/images/sale.png " width="35">&nbsp <h3>ยอดขาย</h3></button> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    <button type="button" class="btne"><img src="./src/images/list.png" width="35">&nbsp <h3>รายการขาย</h3></button>
+                    <button type="button" class="btne" onclick="javascript:window.location='salesgraph.php';"><img src="./src/images/sale.png " width="35">&nbsp <h3>ยอดขาย</h3></button> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <button type="button" class="btne" onclick="javascript:window.location='salehistory.php';"><img src="./src/images/list.png" width="35">&nbsp <h3>รายการขาย</h3></button>
                 </div>
             </div>
         </div>
