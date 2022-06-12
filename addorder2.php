@@ -13,6 +13,7 @@
 <?php include('nav.php'); ?>
 
 <body>
+<script src="./src/js/addorder.js"></script>
     <form>
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
@@ -37,8 +38,8 @@
                     </div>
                     <div class="col-12">
                         <label for="contract">วิธีการชำระเงิน:</label>
-                        <select name="payment" style="background-color: #7C904E;">
-                            <option value="เงินสด">เงินสด</option>
+                        <select name="payment" onchange="location = this.value;" style="background-color: #7C904E;">
+                            <option value="addorder.php">เงินสด</option>
                             <option value="เครดิต" selected>เครดิต</option>
                         </select>
                         <label for="contract">วันที่ชำระเงิน:</label>
@@ -63,14 +64,14 @@
                         </div>
                         <table class="main col-10">
                             <tr>
-                                <th width="12%">ประเภทสินค้า</th>
-                                <th width="15%">รายการสินค้า</th>
-                                <th width="8%">ยี่ห้อ</th>
-                                <th width="10%">รุ่น</th>
-                                <th width="15%">ราคาต่อหน่วย</th>
-                                <th width="15%">จำนวน</th>
-                                <th width="15%">ราคา</th>
-                                <th width="15%"></th>
+                                <th width="12%" id="typeproduct">ประเภทสินค้า</th>
+                                <th width="15%" id="listproduct">รายการสินค้า</th>
+                                <th width="8%" id="brand">ยี่ห้อ</th>
+                                <th width="10%" id="productmodel">รุ่น</th>
+                                <th width="15%" id="unitprice">ราคาต่อหน่วย</th>
+                                <th width="15%" id="amount">จำนวน</th>
+                                <th width="15%" id="price">ราคา</th>
+                                <th width="15%" id="deleteedit"></th>
                             </tr>
                             <tr>
 
@@ -129,7 +130,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form id="addproduct">
+                        <form id="addproduct" >
 
                             <div class="col-12 r">
                             ประเภทสินค้า: &nbsp;
@@ -140,31 +141,31 @@
                             
                             <div class="col-12 r">
                             รายการสินค้า: &nbsp;
-                                <select name="listproduct" style="background-color: #7C904E;" required>
+                                <select id="listproduct" style="background-color: #7C904E;" required>
                                     <option value="เลือก" selected>เลือก</option>
                                 </select>
                             </div>
 
                             <div class="col-12 r">
                             ยี่ห้อ: &nbsp;
-                                <select name="brand" style="background-color: #7C904E;" required>
+                                <select id="brand" style="background-color: #7C904E;" required>
                                     <option value="เลือก" selected>เลือก</option>
                                 </select>
                             </div>
 
                             <div class="col-12 r">
                             รุ่น: &nbsp;
-                                <select name="productmodel" style="background-color: #7C904E;" required>
+                                <select id="productmodel" style="background-color: #7C904E;" required>
                                     <option value="เลือก" selected>เลือก</option>
                                 </select>
                             </div>
 
-                            <center>ราคาต่อหน่วย: &nbsp;<input type="number" class="u" min="1" name="amountproduct" id="amountproduct" width="5%" required /><br><p></p></center>
-                            <center>จำนวน: &nbsp;<input type="number" class="u" min="0.25" step="0.25" name="priceproduct" id="priceproduct"  required /><p></p></center>
+                            <center>ราคาต่อหน่วย: &nbsp;<input type="number" class="u" min="0.25" step="0.25" name="unitprice" id="unitprice" required /><br><p></p></center>
+                            <center>จำนวน: &nbsp;<input type="number" class="u" min="1" name="amount" id="amount"  required /><p></p></center>
 
 
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary1">ตกลง</button>
+                                <button type="submit" class="btn btn-primary1" onclick="addproduct()" >ตกลง</button>
                             </div>
                         </form>
                     </div>
