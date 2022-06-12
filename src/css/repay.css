@@ -5,6 +5,7 @@
 .main{
     margin-top: 5rem;
     margin-left: 4rem;
+    width: 90%;
 }
 
 .Nbar{
@@ -68,7 +69,9 @@ th {
     border: 0in;
     margin-top: 5rem;
 }
-
+.row{
+    --bs-gutter-x: 0rem;
+}
 .BTNP{
     width: 15%;
     background-color: #fff;

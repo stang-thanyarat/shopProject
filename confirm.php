@@ -43,7 +43,7 @@
                         <label for="contract">วันที่ชำระเงิน:</label>
                         <input type="date" name="datepayment" id="datepayment">
                     </div>
-                    <div class="col-12">
+                    <div class="col-12 ">
                         ใบเสร็จ:<input type="file" accept="image/*" name="slip" required>
                         ใบส่งของ:<input type="file" accept="image/*" name="invoice" required>
                     </div>

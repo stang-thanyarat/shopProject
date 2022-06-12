@@ -5,6 +5,7 @@
 .main{
     margin-top: 5rem;
     margin-left: 4rem;
+    width: 90%;
 }
 
 .Nbar{
@@ -30,6 +31,10 @@ th {
 }
 .B{
     margin-right: 5rem;
+}
+
+.row{
+    --bs-gutter-x: 0rem;
 }
 
 .BTN{

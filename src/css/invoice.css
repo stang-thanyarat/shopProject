@@ -7,6 +7,7 @@
     margin-top: 5rem;
     margin-left: 4rem;
     text-align: center;
+    width: 90%;
 }
 
 table,
@@ -33,7 +34,9 @@ th{
     margin-right: 5rem;
     margin-bottom: 2rem;
 }
-
+.row{
+    --bs-gutter-x: 0rem;
+}
 .s{
     background-color: #fff;
     border: 0in;

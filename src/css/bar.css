@@ -1,6 +1,7 @@
 h5 {
     margin: 0px 0px 0px 10px;
     color: #470000;
+    
 }
 
 hr {
@@ -11,18 +12,22 @@ hr {
     font-size: 10pt;
     margin-top: -0.5rem;
     color: white;
+    
 }
 
 .bar-link:visited {
     color: #ABBE99;
+
 }
 
 .bar-link:hover {
     color: #ABBE99;
+    
 }
 
 .bar {
-    width: 9rem;
+    width: 10%;
     min-height: 100%;
     background: #A36627;
+    position: fixed;
 }

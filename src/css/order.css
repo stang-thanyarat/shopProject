@@ -8,12 +8,15 @@
 .main{
     margin-top: 5rem;
     margin-left: 4rem;
+    width: 90%;
 }
 
 .Nbar{
     margin-top: 3.5rem;
 }
-
+.row{
+    --bs-gutter-x: 0rem;
+}
 table,
 td,
 th {
@@ -51,7 +54,7 @@ th {
     border-radius: 25px;
     font-size: 16pt;
     display: inline-block;
-    width: 50%;
+    width: 55%;
     text-decoration: none;
     text-align: center;
 

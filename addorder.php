@@ -20,33 +20,33 @@
             <div class="col-11">
                 <div class="row main">
                     <h1>ใบสั่งซื้อ</h1>
-                    <div class="col-12 d-flex justify-content-end signin">
-                        <a class="submit BTNT" href="#"><img class='print' src="./src/images/print.png" width="25">&nbsp print</a>
+                    <div class="d-flex justify-content-end sign">
+                        <a class="submit BTNT" href="#"><img class='print' src="./src/images/print.png" width="25">&nbsp; print</a>
                     </div>
                     <p></p>
                     <div class="col-12">
-                        วันที่วางบิล:
+                        วันที่วางบิล:&nbsp;
                         <input type="date" name="datebill" id="datebill" required />
-                        วันที่รับของ:
+                        วันที่รับของ:&nbsp;
                         <input type="date" name="datereceive" id="datereceive" required />
                     </div>
                     <div class="col-12">
-                        ชื่อผู้ขาย:
+                        ชื่อผู้ขาย:&nbsp;
                         <select name="company" style="background-color: #7C904E;">
                             <option value="อาร์เอส อินเตอร์เทรด (2017) จำกัด" selected> อาร์เอส อินเตอร์เทรด (2017) จำกัด</option>
                         </select>
                     </div>
                     <div class="col-12">
-                        วิธีการชำระเงิน:
-                        <select name="payment" style="background-color: #7C904E;">
+                        วิธีการชำระเงิน:&nbsp;
+                        <select name="payment"  onchange="location = this.value;" style="background-color: #7C904E;">
                             <option value="เงินสด" selected>เงินสด</option>
-                            <option value="เครดิต">เครดิต</option>
+                            <option value="addorder2.php">เครดิต</option>
                         </select>
-                        วันที่ชำระเงิน:
+                        วันที่ชำระเงิน:&nbsp;
                         <input type="date" name="datepayment">
                     </div>
                     <div class="col-12">
-                        หมายเหตุ:
+                        หมายเหตุ:&nbsp;
                     </div>
                     <div class="col-12">
                         <textarea style="vertical-align: middle; background-color: #7C904E;" name="detail" cols="50" rows="5"></textarea>
@@ -99,7 +99,7 @@
                     </div>
                     <div class="row A">
                         <div class=" col-12 d-flex justify-content-end signin">
-                            ยอดสุทธิ:
+                            ยอดสุทธิ:&nbsp;
                             <input type="text" name="totalmoney">
                         </div>
                     </div>

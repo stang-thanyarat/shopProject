@@ -5,6 +5,11 @@
 .main {
     margin-top: 5rem;
     margin-left: 4rem;
+    width: 90%;
+    
+}
+.sign{
+    margin-right: 5rem;
 }
 
 .C{
@@ -27,6 +32,7 @@ th {
     height: 100px;
     width: 50%;
 }
+
 
 .col-12{
     text-align: center;
@@ -73,6 +79,7 @@ th {
 
 .Nbar {
     margin-top: 3.5rem;
+    
 }
 
 .col-10{
@@ -137,4 +144,8 @@ th {
 
 .u{
     width: 100px;
+}
+
+.row{
+    --bs-gutter-x: 0rem;
 }

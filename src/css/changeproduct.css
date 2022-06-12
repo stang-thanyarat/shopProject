@@ -5,6 +5,7 @@
 .main {
     margin-top: 5rem;
     margin-left: 4rem;
+    width: 90%;
 }
 
 table,
@@ -49,4 +50,7 @@ th {
 
 .Nbar {
     margin-top: 3.5rem;
+}
+.row{
+    --bs-gutter-x: 0rem;
 }

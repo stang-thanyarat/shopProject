@@ -8,8 +8,11 @@
 .main{
     margin-top: 5rem;
     margin-left: 4rem;
+    width: 90%;
 }
-
+.row{
+    --bs-gutter-x: 0rem;
+}
 .Nbar{
     margin-top: 3.5rem;
 }

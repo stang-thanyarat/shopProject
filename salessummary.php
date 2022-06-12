@@ -18,15 +18,20 @@
             <div class="col-11">
                 <div class="row main">
                     <h1>การขาย</h1>
-                        <h6><div class="m">สรุปยอดขาย</div>
-                            <div class="d-flex flex-row-reverse">
-                            <button type="submit" class="g "><img src="./src/images/download.png " width="15">&nbsp ดาวน์โหลด</button>
-                            <button type="submit" class="g"><img src="./src/images/print.png" width="15">&nbsp print</button>
-                            </div>
-                        </h6>
+                </div>
+                <div class="t">
+                    <div class="m">
+                        <h6>สรุปยอดขาย</h6>
+                    </div>
+                    <div class="d-flex flex-row-reverse">
+                        <button type="submit" class="g "><img src="./src/images/download.png " width="15">&nbsp; ดาวน์โหลด</button>
+                        <button type="submit" class="g"><img src="./src/images/print.png" width="15">&nbsp; print</button>
+                    </div>
+                </div>
+                <div class="n">
                     <h5>ภาพรวมการขายสินค้า</h5>
-                    <button type="submit" class="btne"><img src="./src/images/sale.png " width="35">&nbsp <h3>ยอดขาย</h3></button> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    <button type="submit" class="btne"><img src="./src/images/list.png" width="35">&nbsp <h3>รายการขาย</h3></button>
+                    <button type="button" class="btne"><img src="./src/images/sale.png " width="35">&nbsp <h3>ยอดขาย</h3></button> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <button type="button" class="btne"><img src="./src/images/list.png" width="35">&nbsp <h3>รายการขาย</h3></button>
                 </div>
             </div>
         </div>

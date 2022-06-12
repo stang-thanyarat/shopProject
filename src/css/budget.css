@@ -9,6 +9,7 @@
     margin-top: 5rem;
     margin-left: 4rem;
     margin-bottom: 1rem;
+    width: 90%;
 }
 
 .Nbar{
@@ -27,7 +28,7 @@
     background-color: #ABBE99;
     height: 45px;
     width: 100%;
-    margin-left: 1.8rem;
+   
 }
 
 .m{
@@ -62,3 +63,6 @@
     margin-top: 1rem;
 }
 
+.row{
+    --bs-gutter-x: 0rem;
+}

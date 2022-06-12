@@ -25,7 +25,7 @@
                     <input type="text" class="btnd" placeholder="&nbsp ชื่อ-นามสกุล">
                     <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>&nbsp &nbsp
                     <div class="col-3">
-                        <a class="submit BTNC" href="#"><img class='add' src="./src/images/arrow.png" width="50">กลับไปยังหน้าขาย</a>
+                        <a class="submit BTNC" href="#"><img class='add' src="./src/images/arrow.png" width="35">กลับไปยังหน้าขาย</a>
                     </div>
                 </div>
                 <table class="main col-10">
@@ -45,7 +45,7 @@
                         <th>A01</th>
                         <th>
                             <div class="r">
-                                <a class="submit BTNP" href="#"><img class='confirm'>สมชาย พักดี</a>
+                                <a class="submit BTNP" href="repay.php"><img class='confirm'>สมชาย พักดี</a>
                             </div>
                         </th>
                         <th>220</th>

@@ -9,8 +9,16 @@
     margin-top: 5rem;
     margin-left: 4rem;
     margin-bottom: 1rem;
+    width: 90%;
 }
-
+.n{
+    margin-top: 2rem;
+    margin-left: 4rem;
+    margin-bottom: 1rem;
+}
+.row{
+    --bs-gutter-x: 0rem;
+}
 .Nbar{
     margin-top: 3.5rem;
 }
@@ -23,19 +31,27 @@
     margin-top: 1.5rem;
 }
 
-.h6{
-    background-color: #ABBE99;
-    margin-left: -2.15rem;
-    height: 50px;
-}
-.m{
-    margin-top: 1rem;
-    margin-left: 1rem;
-}
 
 .g{
     width: 130px;
     border: 0in;
     background-color: #ABBE99;
     margin-top: -1rem;
+}
+.t{
+    background-color: #ABBE99;
+    height: 45px;
+    width: 100%;
+   
+}
+
+.m{
+    margin-left: 3rem;
+}
+.s{
+    background-color: #fff;
+    border: 0in;
+}
+.q{
+    margin-top: 1rem;
 }

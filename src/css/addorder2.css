@@ -5,6 +5,7 @@
 .main {
     margin-top: 5rem;
     margin-left: 4rem;
+    width: 90%;
 }
 
 .C{
@@ -133,4 +134,7 @@ th {
     color: #fff;
     border: 0in;
     border-radius: 25px;
+}
+.row{
+    --bs-gutter-x: 0rem;
 }

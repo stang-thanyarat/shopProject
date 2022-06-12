@@ -6,6 +6,7 @@
     margin-top: 5rem;
     margin-left: 4rem;
     text-align: center;
+    width: 90%;
 }
 
 table,
@@ -28,6 +29,7 @@ th {
 .col-12{
     margin-left: 1rem;
 }
+
 
 .B{
     margin-right: 5rem;
@@ -73,4 +75,6 @@ th {
 .col-10{
     margin-top: 1rem;
 }
-
+.row{
+    --bs-gutter-x: 0rem;
+}

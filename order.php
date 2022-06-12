@@ -27,7 +27,7 @@
                                 <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
                             </form>&nbsp &nbsp
                             <div class="col-3">
-                                <a class="submit BTNC" href="#"><img class='add' src="./src/images/plus.png" width="25"> เพิ่มใบสั่งซื้อ</a>
+                                <a class="submit BTNC" href="addorder.php"><img class='add' src="./src/images/plus.png" width="25"> เพิ่มใบสั่งซื้อ</a>
                             </div>
                         </div>
 

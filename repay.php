@@ -76,7 +76,7 @@
                     <div class=" col-12 d-flex justify-content-end signin">
                         <input class="BTNC" type="submit" value="ยกเลิก">
                         <input class="BTNE" type="submit" value="หมดหนี้">
-                        <input class="BTN" type="submit" value="บันทึก">
+                        <input class="BTN" type="submit" value="บันทึก" onclick="javascript:window.location='contracthistory.php';">
                     </div>
                 </div>
             </div>

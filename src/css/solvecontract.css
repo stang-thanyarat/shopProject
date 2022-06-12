@@ -16,7 +16,9 @@
     margin-top: 5rem;
     margin-left: 5rem;
 }
-
+.row{
+    --bs-gutter-x: 0rem;
+}
 .B{
     margin-right: 5rem;
 }
@@ -43,6 +45,7 @@
 .main{
     margin-top: 5rem;
     margin-left: 4rem;
+    width: 90%;
 }
 
 .Nbar{
