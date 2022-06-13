@@ -6,19 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="./src/css/editconfirm.css" />
+    <link rel="stylesheet" href="./src/css/confirm.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <?php include('nav.php'); ?>
 
 <body>
+<script src="./src/js/confirm.js"></script>
     <form>
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
-                    <h1>แก้ไขใบสั่งซื้อ เลขที่01</h1>
+                    <h1>แก้ใบสั่งซื้อ เลขที่01</h1>
                     <div class="col-12 d-flex justify-content-end signin">
                         <a class="submit BTNT" href="#"><img class='print' src="./src/images/print.png" width="25">&nbsp print</a>
                     </div>
@@ -35,21 +36,14 @@
                             <option value="อาร์เอส อินเตอร์เทรด (2017) จำกัด" selected> อาร์เอส อินเตอร์เทรด (2017) จำกัด</option>
                         </select>
                     </div>
-                    <div class="col-12">
+                    <div class="col-12" >
                         วิธีการชำระเงิน:&nbsp;
-                        <select name="payment" style="background-color: #7C904E;">
-                            <option value="เงินสด">เงินสด</option>
-                            <option value="เครดิต" selected>เครดิต</option>
+                        <select name="payment" onchange="location = this.value;" style="background-color: #7C904E;">
+                            <option value="cash"selected>เงินสด</option>
+                            <option value="confirm2.php" >เครดิต</option>
                         </select>
                         &nbsp;วันที่ชำระเงิน:&nbsp;
                         <input type="date" name="datepayment" id="datepayment">
-                    </div>
-                    <div class="col-12 ">
-                        ใบเสร็จ:&nbsp;<input type="file" accept="image/*" name="slip" required>
-                        ใบส่งของ:&nbsp;<input type="file" accept="image/*" name="invoice" required>
-                    </div>
-                    <div class="col-12">
-                        *ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB
                     </div>
                     <div class="col-12">
                         หมายเหตุ:
