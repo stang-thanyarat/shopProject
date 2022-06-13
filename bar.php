@@ -27,5 +27,4 @@
     <a class="nav-link bar-link" href="#13">สัญญาซื้อขาย</a>
     <a class="nav-link bar-link" href="#14">การจัดการ</a>
     <a class="nav-link bar-link" href="#15">ภาษีมูลค่าเพิ่ม</a>
-
 </nav>

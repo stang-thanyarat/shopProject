@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&display=swap');
+
+* {
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+    --bs-gutter-x: 0;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+
+.main{
+    margin-top: 5rem;
+    margin-left: 4rem;
+}
+
+.Nbar{
+    margin-top: 3.5rem;
+}
+table,
+td,
+th {
+    border: 1px solid black;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 10%;
+    margin-left: 10rem;
+}
+
+th {
+    height: 50px;
+}
+.btnd{
+    background-color: #F8E4C8;
+    border-radius: 25px;
+}
+.BTNC{
+    background-color: #7C904E;
+    color: #000;
+    border-radius: 25px;
+    font-size: 16pt;
+    display: inline-block;
+    width: 65%;
+    text-decoration: none;
+    text-align: center;
+
+}
+
+.s{
+    background: transparent;
+    border: 0px;
+    margin-left: -2rem;
+}
+
+.BTNP{
+    background-color: #fff;
+    color: #A36627;
+    border: 0in;
+    
+}
+.btn-d {
+    border-radius: 25px 25px 25px 25px;
+    background-color: #F8E4C8;
+    border: 0ch;
+    width: 65%;
+    margin-left: 5rem;
+}
+
+.btn {
+    border-radius: 25px 25px 25px 25px;
+    font-size: 20pt;
+    width: 65%;
+}
