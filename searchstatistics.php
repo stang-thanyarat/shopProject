@@ -20,15 +20,17 @@
                     <div class="col-10">
                         <h1>สถิติการค้นหาโดยคำค้นหา</h1>
                     </div>
-                    <div class="col-1">
+                </div>
+                <div class="row">
+                    <div class="col-1 left">
                         <button class="buttom re" type="reset">รีเซต</button>
                     </div>
                 </div>
-                <table class="main col-10">
+                <table class="table col-10">
                     <tr>
-                        <th>ลำดับ</th>
-                        <th>คำค้น</th>
-                        <th>จำนวนครั้งค้นหา</th>
+                        <th width="10%">ลำดับ</th>
+                        <th width="20%">คำค้น</th>
+                        <th width="20%">จำนวนครั้งค้นหา</th>
                     </tr>
                     <tr>
                         <th>1</th>

@@ -4,6 +4,10 @@
     font-family: 'IBM Plex Sans Thai', sans-serif;
 }
 
+.row {
+    --bs-gutter-x: 0rem;
+}
+
 .main {
     margin-top: 4rem;
     margin-left: 3rem;
@@ -35,7 +39,7 @@
 }
 
 .leftmodel {
-    margin-left: 5.4rem;
+    margin-left: 5.3rem;
     margin-top: 1rem;
 }
 
@@ -69,7 +73,7 @@
 }
 
 .leftlastname {
-    margin-right: 3.8rem;
+    margin-right: 3.7rem;
     margin-top: 1rem;
 }
 
@@ -103,7 +107,7 @@
 }
 
 .leftaddress {
-    margin-left: 10.7rem;
+    margin-left: 10.2rem;
     margin-top: 1rem;
 }
 
@@ -113,7 +117,7 @@
     margin-top: -1.8rem;
 }
 
-.lefttelephone{
+.lefttelephone {
     margin-right: 2.8rem;
     margin-top: 1rem;
 }
@@ -124,8 +128,8 @@
     margin-top: -1.8rem;
 }
 
-.leftemail{
-    margin-left: 9.6rem;
+.leftemail {
+    margin-left: 9.9rem;
     margin-top: 1rem;
 }
 
@@ -135,7 +139,7 @@
     margin-top: -1.8rem;
 }
 
-.leftpassword{
+.leftpassword {
     margin-left: -2.5rem;
 }
 
@@ -145,9 +149,9 @@
     margin-top: -1.8rem;
 }
 
-.leftn{
+.leftn {
     margin-top: 1rem;
-    margin-left: 4.4rem;
+    margin-left: 3.9rem;
 }
 
 .j {
@@ -156,7 +160,7 @@
     margin-top: -1.8rem;
 }
 
-.leftnb{
+.leftnb {
     margin-right: 4rem;
     margin-top: 1rem;
 }
@@ -167,7 +171,7 @@
     margin-top: -1.8rem;
 }
 
-.leftpng{
+.leftpng {
     margin-left: 2.8rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -190,15 +194,15 @@ th {
     width: 20%;
 }
 
-.wh{
+.wh {
     margin-top: 1rem;
     margin-left: 5rem;
 }
 
-.d-flex{
+.d-flex {
     margin-top: 1rem;
     margin-right: 5rem;
-    
+
 }
 
 .btn-g {
@@ -227,40 +231,19 @@ th {
     margin-left: 7rem;
 }
 
-/*modal เพิ่มบัญชีใหม่*/
-.mmm {
-    margin-top: 1rem;
-    margin-left: 3rem;
-    text-align: center;
+.bgs {
+    border: 0ch;
+    background-color: white;
 }
 
-.btn-primary1 {
-    color: white;
-    background-color: #A36627;
-}
+/*ลบ*/
 
-.btn-primary1:hover {
-    color: white;
-}
-
-.modal-title {
-    color: white;
-}
-
-.btn-primary3 {
+.btn-primary2 {
     background-color: #7C904E;
     color: white;
     border: 0ch;
 }
 
-.modal-header {
-    background-color: #688557;
-}
-/*
-.modal-body {
-    background-color: #D4DDC6;
-}*/
-
-.modal-footer {
-    background-color: #D4DDC6;
+.body {
+    margin-top: 2rem;
 }

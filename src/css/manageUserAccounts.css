@@ -2,7 +2,6 @@
 
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
-    --bs-gutter-x: 0
 }
 
 .switch {
@@ -67,6 +66,9 @@ input:checked+.slider:before {
     border-radius: 50%;
 }
 
+.row {
+    --bs-gutter-x: 0;
+}
 
 .main {
     margin-top: 4rem;
@@ -138,4 +140,9 @@ select {
     background: transparent;
     border: 0px;
     margin-left: -2rem;
+}
+
+.bgs{
+    border: 0ch;
+    background-color: white;
 }

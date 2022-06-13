@@ -2,12 +2,16 @@
 
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
+}
+
+.row{
     --bs-gutter-x: 0;
 }
 
 .main {
     margin-top: 4rem;
     margin-left: 3rem;
+    width: 70%;
 }
 
 .Nbar {
@@ -33,7 +37,7 @@
 }
 
 .leftseller {
-    margin-left: 6rem;
+    margin-left: 6.8rem;
     margin-top: 2rem;
 }
 
@@ -55,7 +59,7 @@
 }
 
 .leftidentification {
-    margin-left: 3rem;
+    margin-left: 2.9rem;
     margin-top: 1rem;
 }
 
@@ -115,7 +119,7 @@
 }
 
 .leftnick {
-    margin-left: 8.8rem;
+    margin-left: 9.5rem;
     margin-top: 1rem;
 }
 
@@ -182,7 +186,7 @@
 }
 
 .ma {
-    margin-left: 74rem;
+    margin-left: 62.1rem;
 }
 
 .mai {
@@ -215,6 +219,11 @@
     border: 0ch;
 }
 
+.bgs{
+    border: 0ch;
+    background-color: white;
+}
+
 table,
 td,
 th {
@@ -224,7 +233,7 @@ th {
 
 table {
     border-collapse: collapse;
-    width: 60%;
+    width: 50%;
 }
 
 th {
@@ -242,7 +251,7 @@ th {
     margin-top: 1rem;
 }
 
-.leftnote{
+.leftnote {
     margin-left: 8rem;
     margin-top: 1rem;
 }
@@ -277,10 +286,27 @@ th {
 }
 
 /*modal เพิ่มบัญชีใหม่*/
-.mmm {
+
+.leftnumber {
     margin-top: 1rem;
-    margin-left: 7.5rem;
-    text-align: center;
+    margin-left: 4rem;
+}
+
+.leftbank {
+    margin-top: 1rem;
+    margin-left: 3.1rem;
+}
+
+
+.leftanb {
+    margin-top: 1rem;
+    margin-left: 2.9rem;
+}
+
+.leftan {
+    margin-top: 1rem;
+    margin-left: 3.2rem;
+    margin-bottom: 1rem;
 }
 
 .btn-primary1 {
@@ -296,21 +322,22 @@ th {
     color: white;
 }
 
-.btn-primary3 {
+.modal-header {
+    background-color: #688557;
+}
+
+.modal-footer {
+    background-color: #D4DDC6;
+}
+
+/*ลบ*/
+
+.btn-primary2 {
     background-color: #7C904E;
     color: white;
     border: 0ch;
 }
 
-.modal-header {
-    background-color: #688557;
-}
-
-/*
-.modal-body {
-    background-color: #D4DDC6;
-}*/
-
-.modal-footer {
-    background-color: #D4DDC6;
+.body {
+    margin-top: 2rem;
 }

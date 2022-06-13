@@ -20,7 +20,7 @@
             <div class="row top">
                 <div class="col-lg-4 col-md-12">
                     <label for="prefix">คำนำหน้าชื่อ:</label>
-                    <select name="prefix" id="prefix" onchange="show_title_other(this.form);" required>
+                    <select name="prefix" id="prefix" onchange="show_title_other(this.form);" class="bb" required>
                         <option value="noun" selected>เลือกคำนำหน้า</option>
                         <option value="Mr.">นาย</option>
                         <option value="Mrs.">นาง</option>
@@ -28,43 +28,45 @@
                     </select>
                     <div class="a">*</div>
                 </div>
-                <div class="col-lg-4 col-md-12">
+                <div class="col-lg-4 col-md-12 leftfirst">
                     <label for="firstname">ชื่อ :</label>
-                    <input name="firstname" id="firstname" type="text" required />
+                    <input name="firstname" id="firstname" type="text" class="bb" required />
                     <div class="b">*</div>
                 </div>
                 <br>
                 <div class="col-lg-4 col-md-12">
                     <label for="lastname">นามสกุล :</label>
-                    <input name="lastname" id="lastname" type="text" required />
+                    <input name="lastname" id="lastname" type="text" class="bb" required />
                     <div class="c">*</div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 login">
+                <div class="col-lg-3 login leftemail">
                     <label for="email">อีเมล :</label>
-                    <input name="email" id="email" type="email" onblur='check_email(this)' required />
+                    <input name="email" id="email" type="email" onblur='check_email(this)' class="bb" required />
                     <div class="d">*</div>
                 </div>
-                <div class="col-lg-8 login">
+                <div class="col-lg-4 login leftpassword">
                     <label for="password">รหัสผ่าน :</label>
-                    <input name="password" id="password" type="password" onblur='check_num(this)' required />
+                    <input name="password" id="password" type="password" onblur='check_num(this)' class="bb" required />
                     <div class="e">*</div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-3 leftposition">
                     <label for="position">ตำแหน่ง :</label>
-                    <input type="radio" name="position" value="shopkeeper" checked>เจ้าของร้าน
+                    <input type="radio" name="position" value="shopkeeper" class="bb" checked>เจ้าของร้าน
                     <input type="radio" name="position" value="admin" id="admin">
                     <label for="admin">ผู้ดูแลระบบ</label>
+                    <div class="g">*</div>
                 </div>
-                <div class="col-lg-4">
-                    <label for="position">สถานะการใช้งาน :</label>
-                    <label class="switch">
+                <div class="col-lg-4 leftstatus">
+                    <label for="status">สถานะการใช้งาน :</label>
+                    <label class="switch bb">
                         <input type="checkbox">
                         <span class="slider round"></span>
                     </label>
+                    <div class="h">*</div>
                 </div>
             </div>
             <div class="row btn-g">

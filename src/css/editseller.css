@@ -2,12 +2,17 @@
 
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
-    --bs-gutter-x: 0;
+}
+
+.row {
+    --bs-gutter-x: 0rem;
 }
 
 .main {
     margin-top: 4rem;
     margin-left: 3rem;
+    width: 85%;
+
 }
 
 .Nbar {
@@ -33,7 +38,7 @@
 }
 
 .leftseller {
-    margin-left: 6rem;
+    margin-left: 6.9rem;
     margin-top: 2rem;
 }
 
@@ -115,7 +120,7 @@
 }
 
 .leftnick {
-    margin-left: 8.8rem;
+    margin-left: 9.4rem;
     margin-top: 1rem;
 }
 
@@ -182,7 +187,7 @@
 }
 
 .ma {
-    margin-left: 74rem;
+    margin-left: 62.1rem;
 }
 
 .mai {
@@ -224,7 +229,7 @@ th {
 
 table {
     border-collapse: collapse;
-    width: 60%;
+    width: 50%;
 }
 
 th {
@@ -242,7 +247,7 @@ th {
     margin-top: 1rem;
 }
 
-.leftnote{
+.leftnote {
     margin-left: 8rem;
     margin-top: 1rem;
 }
@@ -276,11 +281,33 @@ th {
     margin-left: 5rem;
 }
 
+.bgs{
+    border: 0ch;
+    background-color: white;
+}
+
 /*modal เพิ่มบัญชีใหม่*/
-.mmm {
+
+.leftnumber {
     margin-top: 1rem;
-    margin-left: 7.5rem;
-    text-align: center;
+    margin-left: 4rem;
+}
+
+.leftbank {
+    margin-top: 1rem;
+    margin-left: 3.1rem;
+}
+
+
+.leftanb {
+    margin-top: 1rem;
+    margin-left: 2.9rem;
+}
+
+.leftan {
+    margin-top: 1rem;
+    margin-left: 3.2rem;
+    margin-bottom: 1rem;
 }
 
 .btn-primary1 {
@@ -296,7 +323,7 @@ th {
     color: white;
 }
 
-.btn-primary3 {
+.btn-primary {
     background-color: #7C904E;
     color: white;
     border: 0ch;
@@ -306,11 +333,18 @@ th {
     background-color: #688557;
 }
 
-/*
-.modal-body {
-    background-color: #D4DDC6;
-}*/
-
 .modal-footer {
     background-color: #D4DDC6;
+}
+
+/*ลบ*/
+
+.btn-primary2 {
+    background-color: #7C904E;
+    color: white;
+    border: 0ch;
+}
+
+.body {
+    margin-top: 2rem;
 }

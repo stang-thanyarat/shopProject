@@ -117,33 +117,66 @@ option {
     border: 0ch;
 }
 
-.a{
-    color: red;
-    margin-left: 13.2rem;
-    margin-top: -1.5rem;
+.bb {
+    margin-left: 2rem;
 }
 
-.b{
+.a {
     color: red;
-    margin-left: 14.2rem;
-    margin-top: -1.5rem;
+    margin-left: 5.5rem;
+    margin-top: -1.8rem;
 }
 
-.c{
+.b {
     color: red;
-    margin-left: 16.5rem;
-    margin-top: -1.5rem;
+    margin-left: 2rem;
+    margin-top: -1.8rem;
 }
 
-.d{
+.c {
     color: red;
-    margin-left: 15.2rem;
-    margin-top: -1.5rem;
+    margin-left: 4.2rem;
+    margin-top: -1.8rem;
 }
-.e{
+
+.leftemail {
+    margin-left: 2.5rem;
+}
+
+.d {
     color: red;
-    margin-left: 16.5rem;
-    margin-top: -1.5rem;
+    margin-left: 2.9rem;
+    margin-top: -1.8rem;
+}
+
+.leftpassword {
+    margin-left: 4.2rem;
+}
+
+.e {
+    color: red;
+    margin-left: 4.2rem;
+    margin-top: -1.8rem;
+}
+
+.leftposition {
+    margin-left: 1.3rem;
+}
+
+.g {
+    color: red;
+    margin-left: 4.2rem;
+    margin-top: -1.8rem;
+}
+
+.leftstatus {
+    margin-left: 2rem;
+}
+
+.h {
+    color: red;
+    margin-left: 7.6rem;
+    margin-top: -2.5rem;
 }
 
 @media only screen and (max-width: 540px) {

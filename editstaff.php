@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="./src/css/editstaff.css" />
+    <link rel="stylesheet" href="./src/css/addnewstaff.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
     <title>Document</title>
@@ -148,8 +148,8 @@
                     <th>1234567089</th>
                     <th>ปณวัตร์ ศรีโชติ</th>
                     <th>
-                        <img src="./src/images/icon-delete.png" width="25">
-                        <img src="./src/images/icon-pencil.png" width="25">
+                    <button type="submit" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
+                        <button type="submit" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl1"><img src="./src/images/icon-pencil.png" width="25"></button>
                     </th>
                 </tr>
             </table><br>
@@ -166,8 +166,8 @@
             </div>
         </div>
 
-        <!---modal เพิ่มบัญชีใหม่-->
-        <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <!---modal เพิ่มบัญชีใหม่-->
+              <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -178,26 +178,88 @@
                     </div>
                     <div class="modal-body">
                         <form name="addbankaccount" method="post" action="">
-                            <table class="mmm">
-                                <tr>
-                                    <th>ลำดับ</th>
-                                    <th>ธนาคาร</th>
-                                    <th>เลขบัญชี</th>
-                                    <th>ชื่อบัญชี</th>
-                                </tr>
-                                <tr>
-                                    <th><input type="text" name="no" required></th>
-                                    <th><input type="text" name="bankname" required></th>
-                                    <th><input type="text" name="accountnumber" required></th>
-                                    <th><input type="text" name="accountname" required></th>
-                                </tr>
-                            </table>
+                            &nbsp ลำดับ : <input type="text" name="no" required>
+                            <label for="bank">&nbsp &nbsp ธนาคาร : </label>
+                            <select name="bank" id="bank" required>
+                                <option value="select bank" selected>เลือกธนาคาร</option>
+                                <option value="KTB">ธนาคารกรุงไทย</option>
+                                <option value="SCB">ธนาคารไทยพาณิชย์</option>
+                                <option value="KBANK">ธนาคารกสิกรไทย</option>
+                                <option value="BBL">ธนาคารกรุงเทพ</option>
+                            </select>
+                            &nbsp &nbsp เลขบัญชี : <input type="text" name="accountnumber" required>
+                            &nbsp &nbsp ชื่อบัญชี : <input type="text" name="accountnumber" required>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary3">ตกลง</button>
+                        <button type="submit" class="btn btn-primary2">ตกลง</button>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- ลบ -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title2" id="exampleModalLabel">ลบบัญชีรับเงิน</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h3>ยืนยันที่จะลบ</h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary2">ตกลง</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!---modal แก้ไขบัญชีรับเงิน-->
+        <div class="modal fade bd-example-modal-xl1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl1">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">แก้ไขบัญชีรับเงิน</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form name="addbankaccount" method="post" action="">
+                            <div class="row">
+                                <div class="col leftnumber">
+                                    ลำดับ : <input type="text" name="no" required></div>
+                            </div>
+                            <div class="row">
+                                <div class="col leftbank ">
+                                    <label for="bank">ธนาคาร : </label>
+                                    <select name="bank" id="bank" required>
+                                        <option value="select bank" selected>เลือกธนาคาร</option>
+                                        <option value="KTB">ธนาคารกรุงไทย</option>
+                                        <option value="SCB">ธนาคารไทยพาณิชย์</option>
+                                        <option value="KBANK">ธนาคารกสิกรไทย</option>
+                                        <option value="BBL">ธนาคารกรุงเทพ</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col leftanb">
+                                    เลขบัญชี : <input type="text" name="accountnumber" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col leftan">
+                                    ชื่อบัญชี : <input type="text" name="accountnumber" required>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary2">ตกลง</button>
+                </div>
+            </div>
+        </div>
         </div>
     </form>
 </body>

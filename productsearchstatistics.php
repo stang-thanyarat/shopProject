@@ -20,11 +20,13 @@
                     <div class="col-10">
                         <h1>สถิติการค้นหาโดยประเภทสินค้า</h1>
                     </div>
-                    <div class="col-1">
+                </div>
+                <div class="row">
+                    <div class="col-1 left">
                         <button class="buttom re" type="reset">รีเซต</button>
                     </div>
                 </div>
-                <table class="main col-10">
+                <table class="table col-10">
                     <tr>
                         <th>ลำดับ</th>
                         <th>ประเภทสินค้า</th>

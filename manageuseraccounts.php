@@ -20,23 +20,23 @@
                     <div class="col-6">
                         <h1>จัดการดูแลบัญชีผู้ใช้งาน</h1>
                     </div>
-                    <div class="row c">
-                        <div class="col-2">
-                            <label for="position">ตำแหน่ง :</label>
-                            <select name="position" id="position">
-                                <option value="position" selected>ตำแหน่ง</option>
-                                <option value="shopkeeper">เจ้าของร้าน</option>
-                                <option value="admin">ผู้ดูแลระบบ</option>
-                            </select>
-                        </div>
-                        <div class="col-2">
-                            <input type="text" class="btn-d" placeholder="&nbsp ชื่อผู้ขาย">
-                            <button type="submit" class="s">
-                                <img src="./src/images/search.png" width="15">
-                        </div>
-                        <div class="col-1">
-                            <a class="submit btn" href="#"><img class='add' src="./src/images/plus.png" width="25">&nbsp เพิ่มบัญชีผู้ใช้งาน</a>
-                        </div>
+                </div>
+                <div class="row c">
+                    <div class="col-3">
+                        <label for="position">ตำแหน่ง :</label>
+                        <select name="position" id="position">
+                            <option value="position" selected>ตำแหน่ง</option>
+                            <option value="shopkeeper">เจ้าของร้าน</option>
+                            <option value="admin">ผู้ดูแลระบบ</option>
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" class="btn-d" placeholder="&nbsp ชื่อผู้ขาย">
+                        <button type="submit" class="s">
+                            <img src="./src/images/search.png" width="15">
+                    </div>
+                    <div class="col-3">
+                        <a class="submit btn" href="adduseraccount.php"><img class='add' src="./src/images/plus.png" width="25">&nbsp เพิ่มบัญชีผู้ใช้งาน</a>
                     </div>
                 </div>
                 <table class="ma">
@@ -59,8 +59,8 @@
                             </label>
                         </th>
                         <th>
-                            <img src="./src/images/icon-delete.png" width="25">
-                            <img src="./src/images/icon-pencil.png" width="25">
+                            <button type="submit" class="bgs"><img src="./src/images/icon-delete.png" width="25"></button>
+                            <button type="submit" class="bgs"><img src="./src/images/icon-pencil.png" width="25"></button>
                         </th>
                     </tr>
                     <tr>
@@ -75,8 +75,8 @@
                             </label>
                         </th>
                         <th>
-                            <img src="./src/images/icon-delete.png" width="25">
-                            <img src="./src/images/icon-pencil.png" width="25">
+                            <button type="submit" class="bgs"><img src="./src/images/icon-delete.png" width="25"></button>
+                            <button type="submit" class="bgs"><img src="./src/images/icon-pencil.png" width="25"></button>
                         </th>
                     </tr>
                 </table>

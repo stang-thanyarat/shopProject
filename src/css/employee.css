@@ -67,9 +67,14 @@ input:checked+.slider:before {
     border-radius: 50%;
 }
 
+.row{
+    --bs-gutter-x: 0rem;
+}
+
 .main {
     margin-top: 4rem;
     margin-left: 3rem;
+    width: 90%;
 }
 
 .Nbar {
@@ -77,7 +82,7 @@ input:checked+.slider:before {
 }
 
 .mai {
-    margin-left: 70rem;
+    margin-left: 65rem;
 }
 
 .ma {
@@ -134,4 +139,72 @@ select {
     background: transparent;
     border: 0px;
     margin-left: -2rem;
+}
+
+.bgs{
+    border: 0ch;
+    background-color: white;
+}
+
+.btn1{
+    border: 0ch;
+    background-color: white;
+}
+
+
+/*modal เพิ่มบัญชีใหม่*/
+
+.leftnumber {
+    margin-top: 1rem;
+    margin-left: 4rem;
+}
+
+.leftbank {
+    margin-top: 1rem;
+    margin-left: 3.1rem;
+}
+
+
+.leftanb {
+    margin-top: 1rem;
+    margin-left: 2.9rem;
+}
+
+.leftan {
+    margin-top: 1rem;
+    margin-left: 3.2rem;
+    margin-bottom: 1rem;
+}
+
+.btn-primary1 {
+    color: white;
+    background-color: #A36627;
+}
+
+.btn-primary1:hover {
+    color: white;
+}
+
+.modal-title {
+    color: white;
+}
+
+.modal-header {
+    background-color: #688557;
+}
+
+.modal-footer {
+    background-color: #D4DDC6;
+}
+
+/*ลบ*/
+
+.btn-primary2 {
+    background-color: #7C904E;
+    color: white;
+    border: 0ch;
+}
+
+.body {
+    margin-top: 2rem;
 }

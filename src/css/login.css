@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&display=swap');
 
+.row{
+     --bs-gutter-x: 0rem;
+}
+
 .BgLeft {
     background-color: #688557;
     display: flex;
@@ -16,7 +20,7 @@
 
 .inLeft {
     background-color: #E0B87E;
-    min-width: 50%;
+    min-width: 100%;
     display: flex;
     align-items: center;
     --bs-gutter-x: 0;

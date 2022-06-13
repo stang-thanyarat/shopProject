@@ -67,6 +67,10 @@ input:checked+.slider:before {
     border-radius: 50%;
 }
 
+.row {
+    --bs-gutter-x: 0rem;
+}
+
 .main {
     margin-top: 4rem;
     margin-left: 3rem;
@@ -78,7 +82,7 @@ input:checked+.slider:before {
 
 .ma {
     margin-top: 1rem;
-    margin-left: 85rem;
+    margin-left: 75rem;
 }
 
 .mai {
@@ -122,6 +126,7 @@ option {
     border-radius: 25px 25px 25px 25px;
     background-color: #F8E4C8;
     border: 0ch;
+    margin-left: -2rem;
 
 }
 

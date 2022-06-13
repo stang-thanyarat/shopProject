@@ -20,14 +20,14 @@
                     <h1>สินค้าใกล้หมด</h1>
                 </div>
             </div>
-            <div class="row min-vw-100 ma">
-                <div class="col-1">
+            <div class="row ma">
+                <div class="col-4">
                     <label for="category"></label>
                     <select name="category" id="category">
                         <option value="category" selected>เลือกประเภทสินค้า</option>
                     </select>
                 </div>
-                <div class="col-2">
+                <div class="col-4">
                     <form>
                         <input type="text" class="btn-d" placeholder="&nbsp ชื่อสินค้า">
                         <button type="submit" class="s">

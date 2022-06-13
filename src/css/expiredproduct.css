@@ -2,12 +2,16 @@
 
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
+}
+
+.row{
     --bs-gutter-x: 0;
 }
 
 .main {
     margin-top: 4rem;
     margin-left: 3rem;
+    width: 85%;
 }
 
 .Nbar {
@@ -16,7 +20,7 @@
 
 .ma {
     margin-top: 1rem;
-    margin-left: 60rem;
+    margin-left: 55rem;
 }
 
 .mai {
@@ -67,4 +71,9 @@ option {
     background: transparent;
     border: 0px;
     margin-left: -2rem;
+}
+
+.bgs{
+    border: 0ch;
+    background-color: white;
 }

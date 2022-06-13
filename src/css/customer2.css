@@ -2,12 +2,9 @@
 
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
-    --bs-gutter-x: 0;
-
 }
-
 .row {
-    --bs-gutter-x: 0;
+    --bs-gutter-x: 0rem;
 }
 
 .a {
@@ -18,7 +15,7 @@
 }
 
 .b {
-    margin-left: 1rem;
+    margin-left: 2rem;
     padding-top: 10px;
 }
 
@@ -28,4 +25,10 @@
 
 .c {
     color: #7C904E;
+}
+
+.back{
+ border: 0ch;
+ background-color: #ABBE99;
+ margin-top: -3rem;
 }

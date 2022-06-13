@@ -2,16 +2,30 @@
 
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
+}
+
+.row {
     --bs-gutter-x: 0;
 }
 
-.main {
+.main{
     margin-top: 4rem;
     margin-left: 3rem;
 }
 
+.table {
+    margin-top: 2rem;
+    margin-left: 3rem;
+    width: 90%;
+}
+
 .Nbar {
     margin-top: 3.5rem;
+}
+
+.left {
+    margin-top: 2rem;
+    margin-left: 85rem;
 }
 
 table,

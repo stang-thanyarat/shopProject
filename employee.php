@@ -20,25 +20,25 @@
                     <div class="col-12">
                         <h1>พนักงาน</h1>
                     </div>
-                    <div class="col-2 mai">
+                    <div class="col-3 mai">
                         <input type="text" class="btn-d" placeholder="&nbsp ชื่อ-นามสกุล">
                         <button type="submit" class="s">
                             <img src="./src/images/search.png" width="15">
                     </div>
                     <div class="col-1">
-                        <a class="submit btn" href="#"><img class='add' src="./src/images/plus.png" width="25">&nbsp เพิ่มพนักงาน</a>
+                        <a class="submit btn" href="addnewstaff.php"><img class='add' src="./src/images/plus.png" width="25">&nbsp เพิ่มพนักงาน</a>
                     </div>
                 </div>
                 <table class="ma">
                     <tr>
-                    <th>ชื่อ-นามสกุล</th>
+                        <th>ชื่อ-นามสกุล</th>
                         <th>เลขบัตรประชาชน</th>
                         <th>เบอร์โทรศัพท์</th>
                         <th>สถานะการใช้งาน</th>
                         <th></th>
                     </tr>
                     <tr>
-                    <th>นางสายสมร ใจดี</th>
+                        <th>นางสายสมร ใจดี</th>
                         <th>1235698745656</th>
                         <th>061-4398626</th>
                         <th>
@@ -47,12 +47,13 @@
                                 <span class="slider round"></span>
                             </label>
                         </th>
-                        <th><img src="./src/images/icon-delete.png" width="25">
-                            <img src="./src/images/icon-pencil.png" width="25">
+                        <th>
+                            <button type="submit" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
+                            <button type="button" class="btn1" onclick="javascript:window.location='editstaff.php';"><img src="./src/images/icon-pencil.png" width="25"></button>
                         </th>
                     </tr>
                     <tr>
-                    <th>นายสมศักดิ์ ดีใจ</th>
+                        <th>นายสมศักดิ์ ดีใจ</th>
                         <th>1235684849752</th>
                         <th>061-9785136</th>
                         <th>
@@ -61,10 +62,33 @@
                                 <span class="slider round"></span>
                             </label>
                         </th>
-                        <th><img src="./src/images/icon-delete.png" width="25">
-                            <img src="./src/images/icon-pencil.png" width="25">
+                        <th>
+                            <button type="submit" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
+                            <button type="button" class="btn1" onclick="javascript:window.location='editstaff.php';"><img src="./src/images/icon-pencil.png" width="25"></button>
                         </th>
                     </tr>
                 </table>
             </div>
+        </div>
+
+        <!-- ลบ -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title2" id="exampleModalLabel">ลบบัญชีรับเงิน</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h3>ยืนยันที่จะลบ</h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary2">ตกลง</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </body>
+
+</html>

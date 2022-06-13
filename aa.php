@@ -47,14 +47,16 @@
                     <div class="line br"></div>
                     <div class="row br">
                         <div class="col-2">
-                            <button type="stubmit" class="a" href="#">&nbsp สินค้าขายดี</button>
+                            <a button type="stubmit" class="a" href="dailybestseller.php">&nbsp สินค้าขายดี &nbsp </a>
                         </div>
                         <div class="col-2">
-                            <button type="stubmit" class="b" href="#">&nbsp สินค้าหมดอายุ</button>
+                            <a button type="stubmit" class="b" href="expiredproduct.php">&nbsp สินค้าหมดอายุ &nbsp </a>
                         </div>
                         <div class="col-2">
-                            <button type="stubmit" class="c" href="#">&nbsp สถิติการค้นหา</button>
-
+                            <a button type="stubmit" class="c" href="searchstatistics.php">&nbsp สถิติการค้นหา &nbsp </a>
+                        </div>
+                        <div class="col-5">
+                            <a button type="stubmit" class="d" href="productsearchstatistics.php">&nbsp สถิติการค้นหาโดยประเภทสินค้า &nbsp </a>
                         </div>
                     </div>
                 </div>

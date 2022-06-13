@@ -5,9 +5,14 @@
     --bs-gutter-x: 0
 }
 
+.row{
+    --bs-gutter-x: 0rem;
+}
+
 .main {
     margin-top: 4rem;
     margin-left: 3rem;
+    width: 90%;
 }
 
 .Nbar {
@@ -72,4 +77,26 @@ select {
     background: transparent;
     border: 0px;
     margin-left: -2rem;
+}
+
+.bgs{
+    border: 0ch;
+    background-color: white;
+}
+
+.btn1{
+    border: 0ch;
+    background-color: white;
+}
+
+/*ลบ*/
+
+.btn-primary2 {
+    background-color: #7C904E;
+    color: white;
+    border: 0ch;
+}
+
+.body {
+    margin-top: 2rem;
 }

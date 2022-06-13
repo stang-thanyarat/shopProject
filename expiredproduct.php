@@ -61,7 +61,7 @@
                     <th>25 ซอง</th>
                     <th>10 ซอง</th>
                     <th>
-                        <img src="./src/images/icon-delete.png" width="25">
+                        <button type="submit" class="bgs"><img src="./src/images/icon-delete.png" width="25"></button>
                     </th>
                 </tr>
                 <tr>
@@ -73,7 +73,7 @@
                     <th>25 ซอง</th>
                     <th>5 ซอง</th>
                     <th>
-                        <img src="./src/images/icon-delete.png" width="25">
+                        <button type="submit" class="bgs"><img src="./src/images/icon-delete.png" width="25"></button>
                     </th>
                 </tr>
             </table>
