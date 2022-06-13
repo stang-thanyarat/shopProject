@@ -30,9 +30,11 @@ th {
 
 .th {
     height: 100px;
-    width: 50%;
+    
 }
-
+.col-6{
+    text-align: center;
+}
 
 .col-12{
     text-align: center;
@@ -62,12 +64,8 @@ th {
     margin-top: 5rem;
 }
 
-.BTNP{
-    width: 15%;
-    background-color: #fff;
-    color: #A36627;
-    border: 0in;
-}
+
+ 
 
 .col-12{
     margin-bottom: 2rem;
@@ -86,18 +84,8 @@ th {
     margin-top: 1rem;
 }
 
-.btn-primary{
-    margin-right: 5rem;
-    width: 15%;
-    background-color: #fff;
-    color: #A36627;
-    border: 0in;
-}
 
-.btn-primary:hover{
-    background-color: #7C904E;
-    color: #fff;
-}
+
 
 .btn-primary1{
     
@@ -124,10 +112,12 @@ th {
 }
 
 .btn2{
-    margin-right: 8rem;
+    margin-right: 4.3rem;
     background-color: #7C904E;
     color: #fff;
     border: 0in;
+    border-radius: 25px;
+    height: 30px;
 }
 
 .btn1{
@@ -148,4 +138,7 @@ th {
 
 .row{
     --bs-gutter-x: 0rem;
+}
+.w{
+    margin-left: 1.5rem;
 }

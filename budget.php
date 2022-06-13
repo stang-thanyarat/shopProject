@@ -58,7 +58,7 @@
                         <div class="col y">
                             <h6>รวม สินทรัพย์</h6>
                         </div>
-                        <div class="col">
+                        <div class="col d-flex justify-content-around">
                             1,000,000
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                         <div class="col y">
                             <h6>รวม หนี้สิน+ทุน</h6>
                         </div>
-                        <div class="col">
+                        <div class="col d-flex justify-content-around">
                             250,000
                         </div>
                     </div>

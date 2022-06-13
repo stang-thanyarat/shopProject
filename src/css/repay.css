@@ -4,7 +4,7 @@
 }
 .main{
     margin-top: 5rem;
-    margin-left: 4rem;
+    margin-left: 5rem;
     width: 90%;
 }
 
@@ -14,7 +14,7 @@
 
 .c{
     margin-top: 1rem;
-    margin-left: 5rem;
+    margin-left: 15rem;
 }
 
 table,
@@ -119,5 +119,7 @@ th {
     background-color: #7C904E;
     color: #fff;
     border: 0in;
-    
+    border-radius: 25px;
+    height: 30px;
+    width: 5%;
 }

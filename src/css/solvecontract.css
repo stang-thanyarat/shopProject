@@ -16,9 +16,7 @@
     margin-top: 5rem;
     margin-left: 5rem;
 }
-.row{
-    --bs-gutter-x: 0rem;
-}
+
 .B{
     margin-right: 5rem;
 }
@@ -29,9 +27,7 @@
     background-color: black;
     margin-top: 20px;
 }
-.t{
-    margin-left: 5rem;
-}
+
 .BTN{
     border-radius: 25px;
     width: 15%;
@@ -45,15 +41,21 @@
 .main{
     margin-top: 5rem;
     margin-left: 4rem;
-    width: 90%;
+    width: 85%;
 }
 
 .Nbar{
     margin-top: 3.5rem;
 }
+.t{
+    margin-left: 5rem;
+}
+.row{
+    --bs-gutter-x: 0rem;
+}
 @media only screen and (min-width: 835px) {
     .col-xl-4{
-        margin-bottom: 1.15rem;
+        margin-bottom: 1.35rem;
     }
     
 }
@@ -87,3 +89,27 @@
     
 }
 
+.q{
+    margin-left: 3rem;
+}
+
+.e{
+    margin-left:2rem;
+}
+.r{
+    margin-left: -0.5rem;
+}
+
+.u{
+    margin-left: 1rem;
+}
+
+.i{
+    margin-left: 4.3rem;
+}
+.o{
+    margin-left: 6rem;
+}
+.p{
+    margin-left: 3.8rem;
+}

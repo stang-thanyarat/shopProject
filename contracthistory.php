@@ -25,20 +25,20 @@
                     <input type="text" class="btnd" placeholder="&nbsp ชื่อ-นามสกุล">
                     <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>&nbsp &nbsp
                     <div class="col-3">
-                        <a class="submit BTNC" href="#"><img class='add' src="./src/images/arrow.png" width="35">กลับไปยังหน้าขาย</a>
+                        <a class="submit BTNC" href="#"><img class="add" src="./src/images/arrow.png" width="35">กลับไปยังหน้าขาย</a>
                     </div>
                 </div>
                 <table class="main col-10">
                     <tr>
-                        <th>วันที่ทำสัญญา</th>
-                        <th>เลขที่สัญญา</th>
-                        <th>ชื่อ-นามสกุล</th>
-                        <th>มูลค่าสินค้าทั้งหมด</th>
-                        <th>ยอดคงเหลือ</th>
-                        <th>ใบส่งของ</th>
-                        <th>ไฟล์สัญญา</th>
-                        <th>พิมพ์</th>
-                        <th></th>
+                        <th width="12%">วันที่ทำสัญญา</th>
+                        <th width="8%">เลขที่สัญญา</th>
+                        <th width="15%">ชื่อ-นามสกุล</th>
+                        <th width="12%">มูลค่าสินค้าทั้งหมด</th>
+                        <th width="8%">ยอดคงเหลือ</th>
+                        <th width="8%">ใบส่งของ</th>
+                        <th width="8%">ไฟล์สัญญา</th>
+                        <th width="8%">พิมพ์</th>
+                        <th width="5%"></th>
                     </tr>
                     <tr>
                         <th>26/12/2021</th>
@@ -51,9 +51,9 @@
                         <th>220</th>
                         <th>0</th>
                         <th><img src="./src/images/pdf.png" width="25"></th>
-                        <th>แนบไฟล์ &nbsp<img src="./src/images/upload.png" width="25"></th>
+                        <th><input accept="image/*" type="file" name="contractfile" width="10" required></th>
                         <th><img src="./src/images/print.png" width="25"></th>
-                        <th><img src="./src/images/icon-pencil.png" width="25"></th>
+                        <th><button type="button" class="btn1" onclick="javascript:window.location='solvecontract.php';"><img src="./src/images/icon-pencil.png" width="25"></button></th>
                     </tr>
                 </table>
             </div>

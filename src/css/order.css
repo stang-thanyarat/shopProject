@@ -31,7 +31,6 @@ table {
 
 th {
     height: 50px;
-    width: 20%;
 }
 .btnd{
     background-color: #F8E4C8;
@@ -64,4 +63,22 @@ th {
     background: transparent;
     border: 0px;
     margin-left: -2rem;
+}
+.btn-primary1{
+    
+    background-color: #7C904E;
+    color: #fff;
+    border: 0in;
+}
+.modal-header{
+    background-color: #7C904E;
+    height: 50px;
+}
+.modal-title{
+    color: #fff;
+}
+.modal-body1{
+   text-align: center;
+   height: 70px;
+   margin-top: 3rem;
 }

@@ -118,7 +118,7 @@ th {
 }
 
 .btn2{
-    margin-right: 8rem;
+    margin-right: 4.3rem;
     background-color: #7C904E;
     color: #fff;
     border: 0in;
@@ -141,4 +141,7 @@ th {
 
 .u{
     width: 100px;
+}
+.h{
+    margin-left: 6rem;
 }

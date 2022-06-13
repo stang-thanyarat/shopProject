@@ -33,10 +33,10 @@
                     </div>
                     <table class="main col-10">
                         <tr>
-                            <th>วันที่สั่งซื้อ</th>
-                            <th>ชื่อผู้ขาย</th>
-                            <th></th>
-                            <th></th>
+                            <th  width="15%">วันที่สั่งซื้อ</th>
+                            <th  width="60%">ชื่อผู้ขาย</th>
+                            <th  width="15%"></th>
+                            <th  width="10%"></th>
                         </tr>
                         <tr>
                             <th>14/12/2021</th>

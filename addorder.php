@@ -24,10 +24,10 @@
                         <a class="submit BTNT" href="#"><img class='print' src="./src/images/print.png" width="25">&nbsp; print</a>
                     </div>
                     <p></p>
-                    <div class="col-12">
+                    <div class="col-12 w">
                         วันที่วางบิล:&nbsp;
-                        <input type="date" name="datebill" id="datebill" required />
-                        วันที่รับของ:&nbsp;
+                        <input type="date" name="datebill" id="datebill" required />&nbsp;&nbsp;
+                        &nbsp;&nbsp;วันที่รับของ:&nbsp;
                         <input type="date" name="datereceive" id="datereceive" required />
                     </div>
                     <div class="col-12">
@@ -41,7 +41,7 @@
                         <select name="payment"  onchange="location = this.value;" style="background-color: #7C904E;">
                             <option value="เงินสด" selected>เงินสด</option>
                             <option value="addorder2.php">เครดิต</option>
-                        </select>
+                        </select>&nbsp;&nbsp;
                         วันที่ชำระเงิน:&nbsp;
                         <input type="date" name="datepayment">
                     </div>
@@ -99,7 +99,7 @@
                     </div>
                     <div class="row A">
                         <div class=" col-12 d-flex justify-content-end signin">
-                            ยอดสุทธิ:&nbsp;
+                            ยอดสุทธิ:&nbsp;&nbsp;
                             <input type="text" name="totalmoney">
                         </div>
                     </div>

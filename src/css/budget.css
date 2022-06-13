@@ -25,10 +25,10 @@
     margin-top: -1rem;
 }
 .t{
+    margin-left: 2rem;
     background-color: #ABBE99;
     height: 45px;
-    width: 100%;
-   
+    width: 1205px;
 }
 
 .m{
@@ -45,7 +45,7 @@
 .p{
     background-color: #ABBE99;
     height: 27px;
-    width: 700px;
+    width: 630px;
     margin-top: 1rem;
     margin-left: 17rem;
 }

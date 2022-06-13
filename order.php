@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./src/css/order.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <?php include('nav.php'); ?>
@@ -34,10 +35,10 @@
                     </div>
                     <table class="main col-10">
                         <tr>
-                            <th>วันที่สั่งซื้อ</th>
-                            <th>ชื่อผู้ขาย</th>
-                            <th></th>
-                            <th></th>
+                            <th width="15%">วันที่สั่งซื้อ</th>
+                            <th width="60%">ชื่อผู้ขาย</th>
+                            <th width="15%"></th>
+                            <th width="10%"></th>
                         </tr>
                         <tr>
                             <th>14/12/2021</th>
@@ -48,8 +49,8 @@
                                 </div>
                             </th>
                             <th>
-                                <img src="./src/images/icon-delete.png" width="25">
-                                <img src="./src/images/icon-pencil.png" width="25">
+                            <button type="button" class="btn1 " data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
+                            <button type="button" class="btn1 " onclick="javascript:window.location='editconfirm.php';"><img src="./src/images/icon-pencil.png" width="25"></button>
                             </th>
                         </tr>
 
@@ -58,6 +59,23 @@
                     <p></p>
                 </div>
             </div>
+            <!-- ลบ -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">ลบรายการ</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body1">
+                        <h3>ยืนยันที่จะลบ</h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary1">ตกลง</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </form>
 </body>
 
