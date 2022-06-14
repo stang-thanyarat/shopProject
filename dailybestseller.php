@@ -55,7 +55,7 @@
                     <th>xx</th>
                     <th>xx</th>
                     <th>
-                        <button type="submit" class="bgs"><img src="./src/images/icon-delete.png" width="25"></button>
+                        <button type="submit" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
                         <button type="submit" class="bgs"><img src="./src/images/icon-pencil.png" width="25"></button>
                     </th>
                 </tr>
@@ -66,11 +66,32 @@
                     <th>xx</th>
                     <th>xx</th>
                     <th>
-                        <button type="submit" class="bgs"><img src="./src/images/icon-delete.png" width="25"></button>
+                        <button type="submit" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
                         <button type="submit" class="bgs"><img src="./src/images/icon-pencil.png" width="25"></button>
                     </th>
                 </tr>
             </table>
         </div>
     </div>
+
+      <!-- ลบ -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">ลบรายการ</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body1">
+                        <h3>ยืนยันที่จะลบ</h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary1">ตกลง</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 </body>
+
+</html>

@@ -236,7 +236,57 @@ th {
     background-color: white;
 }
 
+
+/*modal เพิ่มบัญชีใหม่*/
+
+.leftnumber {
+    margin-top: 1rem;
+    margin-left: 4rem;
+}
+
+.leftbank {
+    margin-top: 1rem;
+    margin-left: 3.1rem;
+}
+
+
+.leftanb {
+    margin-top: 1rem;
+    margin-left: 2.9rem;
+}
+
+.leftan {
+    margin-top: 1rem;
+    margin-left: 3.2rem;
+    margin-bottom: 1rem;
+}
+
+.btn-primary1 {
+    color: white;
+    background-color: #A36627;
+}
+
+.btn-primary1:hover {
+    color: white;
+}
+
+.modal-title {
+    color: white;
+}
+
+.modal-header {
+    background-color: #688557;
+}
+
+.modal-footer {
+    background-color: #D4DDC6;
+}
+
 /*ลบ*/
+
+.modal-title2 {
+    color: white;
+}
 
 .btn-primary2 {
     background-color: #7C904E;

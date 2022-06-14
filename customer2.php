@@ -18,7 +18,7 @@
                 <h5 class="b"></h5>ประเภทสินค้า</h5>
             </div>
             <div class="col d-flex justify-content-end">
-            <button type="submit" class="back"><img src="./src/images/back-button.png" width="40"></button>
+                <button type="button" class="back" onclick="javascript:window.location='customer.php';"><img src="./src/images/back-button.png" width="40"></button>
             </div>
         </div>
         <div class="row">

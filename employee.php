@@ -20,7 +20,9 @@
                     <div class="col-12">
                         <h1>พนักงาน</h1>
                     </div>
-                    <div class="col-3 mai">
+                </div>
+                <div class="row">
+                    <div class="col-2 mai">
                         <input type="text" class="btn-d" placeholder="&nbsp ชื่อ-นามสกุล">
                         <button type="submit" class="s">
                             <img src="./src/images/search.png" width="15">

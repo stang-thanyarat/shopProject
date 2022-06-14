@@ -28,9 +28,9 @@
                 </div>
                 <table class="table col-10">
                     <tr>
-                        <th width="10%">ลำดับ</th>
-                        <th width="20%">คำค้น</th>
-                        <th width="20%">จำนวนครั้งค้นหา</th>
+                        <th>ลำดับ</th>
+                        <th>คำค้น</th>
+                        <th>จำนวนครั้งค้นหา</th>
                     </tr>
                     <tr>
                         <th>1</th>

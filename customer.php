@@ -21,7 +21,7 @@
             <div class="col-11">
                 <div class="col main row-5" style="margin-top:20px;">
                     <?php for ($i = 0; $i < 15; $i++) { ?>
-                        <a href="#" class="button" style="margin:10px;">
+                        <a href="customer2.php" class="button" style="margin:10px;">
                             <font size="5">กระเจี๊ยบ-อพอลโล </font><br><br>
                             <img src="./src/images/roselle.png" width="130"><br>
                             <div class="d-flex justify-content-end">
