@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="row ma">
-                <div class="col-4">
+                <div class="col-5">
                     <label for="category"></label>
                     <select name="category" id="category">
                         <option value="category" selected>เลือกประเภทสินค้า</option>

@@ -294,6 +294,7 @@ th {
     border: 0ch;
 }
 
-.body {
-    margin-top: 2rem;
+.modal-body {
+    margin-top: 1rem;
+    margin-left: 1rem;
 }
