@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./src/css/productlist.css" />
     
     <title>productlist</title>
@@ -14,6 +15,7 @@
 <?php include('nav.php'); ?>
 
 <body>
+<script src="./src/js/productlist.js"></script>
     <form>
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
@@ -23,7 +25,7 @@
                         <div class="title page">
                             <h1 style="display: inline;">รายการสินค้า</h1>&nbsp &nbsp &nbsp
                             <input type="text" class="btnd" placeholder="&nbsp ชื่อสินค้า">
-                    <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>&nbsp &nbsp
+                    <button type="button" class="s"><img src="./src/images/search.png" width="13"></button>&nbsp &nbsp
                     <select name="type" id="type" required>
                                         <option value="seed.">ใบตัดหญ้า</option>
                                         <option value="seed.">ชุดเสื้อสูบ</option>
@@ -48,11 +50,11 @@
                 </div>
                     <div class="col-11 d-flex justify-content-end signin">
                         <div class="col-1">
-                        <button type="submit" class="right"><img src="./src/images/cart.png" width="50"></a>
+                        <a href="./addtocart.php"  type="button" class="right"><img src="./src/images/cart.png" width="50"></a>
                         </div>
                     </div>
                 <table class="main col-11">
-                <tr bgcolor="lightgreen">
+                <tr class="t">
                         <td align="left" colspan="3"><p><h5>ใบตัดหญ้า</h5><p></td>
                     </tr>
                     <tr >
@@ -67,7 +69,9 @@
                                 <p>คงเหลือ&nbsp &nbsp ใบ</p>
                             </div>
 
-                            <div><button type="submit" align="right">เพิ่มไปยังรถเข็น
+                            <div class="title page">
+                                <button type="button" class="right" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1">เพิ่มไปยังรถเข็น</button>
+                                <button type="button" class="right" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm2"><img class='pencil' src="./src/images/icon-pencil.png" width="25"></button>
                             </div>
 
                         <p></th>
@@ -82,7 +86,9 @@
                                 <p>คงเหลือ&nbsp &nbsp ใบ</p>
                             </div>
 
-                            <div><button type="submit" align="right">เพิ่มไปยังรถเข็น
+                            <div class="title page">
+                                <button type="button" class="right" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1">เพิ่มไปยังรถเข็น</button>
+                                <button type="button" class="right"data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm2"><img class='pencil' src="./src/images/icon-pencil.png" width="25"></button>
                             </div>
 
                         <p></th>
@@ -97,7 +103,9 @@
                                 <p>คงเหลือ&nbsp &nbsp ใบ</p>
                             </div>
                             
-                            <div><button type="submit" align="right">เพิ่มไปยังรถเข็น
+                            <div class="title page">
+                                <button type="button" class="right" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1">เพิ่มไปยังรถเข็น</button>
+                                <button type="button" class="right" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm2"><img class='pencil' src="./src/images/icon-pencil.png" width="25"></button>
                             </div>
 
                         <p></th>
@@ -120,7 +128,57 @@
                 </table>
             </div>
         </div>
+
+        <!--- modal เพิ่มไปยังรถเข็น-->
+        <div class="modal fade bd-example-modal-sm1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm1">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">เพิ่มไปยังรถเข็น</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form name="productlist" method="post" action="">
+                           
+                        <center>วันหมดอายุ: &nbsp;<input type="date" name="list" id="list" required />&nbspถึง&nbsp<input type="date" name="list" id="list" required /><br><p></p></center>
+                        <center>จำนวน: &nbsp;<input type="text" name="priceother" id="priceother" required /><p></p></center>
+                               
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary1">ตกลง</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--- modal แก้ไขวันหมดอายุ-->
+        <div class="modal fade bd-example-modal-sm2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm1">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">แก้ไขวันหมดอายุ</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form name="productlist" method="post" action="">
+                           
+                        <center>วันหมดอายุ: &nbsp;<input type="date" name="list" id="list" required />&nbspถึง&nbsp<input type="date" name="list" id="list" required /><br><p></p></center>
+                        <center>จำนวน: &nbsp;<input type="text" name="priceother" id="priceother" required /><p></p></center>
+                               
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary1">ตกลง</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </form>
 </body>
-
 </html>
