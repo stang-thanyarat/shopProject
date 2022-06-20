@@ -53,7 +53,7 @@
                         <th>-</th>
                         <th><img src="./src/images/2.png" width="100"></th>
                         <th>
-                            <button type="submit" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
+                            <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
                             <button type="button" class="btn1" onclick="javascript:window.location='editstaff.php';"><img src="./src/images/icon-pencil.png" width="25"></button>
                         </th>
                     </tr>

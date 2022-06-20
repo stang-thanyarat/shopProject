@@ -77,3 +77,33 @@ option {
     border: 0ch;
     background-color: white;
 }
+
+/*ลบ*/
+
+.modal-title {
+    color: white;
+}
+
+.modal-header {
+    background-color: #688557;
+}
+
+.modal-footer {
+    background-color: #D4DDC6;
+}
+
+.modal-title2 {
+    color: white;
+}
+
+.btn-primary2 {
+    background-color: #7C904E;
+    color: white;
+    border: 0ch;
+    width: 10rem;
+}
+
+.modal-body {
+    margin-top: 1rem;
+    margin-left: 1rem;
+}

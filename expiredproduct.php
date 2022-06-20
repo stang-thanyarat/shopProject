@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./src/css/expiredproduct.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <?php include('nav.php'); ?>
@@ -61,7 +62,7 @@
                     <th>25 ซอง</th>
                     <th>10 ซอง</th>
                     <th>
-                        <button type="submit" class="bgs"><img src="./src/images/icon-delete.png" width="25"></button>
+                        <button type="submit" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
                     </th>
                 </tr>
                 <tr>
@@ -73,10 +74,28 @@
                     <th>25 ซอง</th>
                     <th>5 ซอง</th>
                     <th>
-                        <button type="submit" class="bgs"><img src="./src/images/icon-delete.png" width="25"></button>
+                        <button type="submit" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
                     </th>
                 </tr>
             </table>
+
+            <!-- ลบ -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title2" id="exampleModalLabel">ลบรายการ</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <h3>ยืนยันที่จะลบ</h3>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary2">ตกลง</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
