@@ -60,7 +60,7 @@
                     <div class="col-12 C">
                     รายการสินค้า
                         <div class=" col-12 d-flex justify-content-end">
-                        <button type="button" class="btn2" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm">เพิ่มสินค้า</button>
+                        <button type="button" class="btn2" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm" onclick="document.getElementById('id01').style.display='block'">เพิ่มสินค้า</button>
                         </div>
                         <table class="main col-10">
                             <tr>
@@ -68,9 +68,9 @@
                                 <th width="15%" id="listproduct">รายการสินค้า</th>
                                 <th width="8%" id="brand">ยี่ห้อ</th>
                                 <th width="10%" id="productmodel">รุ่น</th>
-                                <th width="15%" id="unitprice">ราคาต่อหน่วย</th>
+                                <th width="15%" id="unitprice">ราคาต่อหน่วย (บาท)</th>
                                 <th width="15%" id="amount">จำนวน</th>
-                                <th width="15%" id="price">ราคา</th>
+                                <th width="15%" id="price">ราคา (บาท)</th>
                                 <th width="15%" id="deleteedit"></th>
                             </tr>
                             <tr>
@@ -79,9 +79,9 @@
                                 <th width="15%">ใบตัดหญ้า มีฟัน (แบบวงเดือน)</th>
                                 <th width="8%">-</th>
                                 <th width="10%">10X24T</th>
-                                <th width="15%">105</th>
+                                <th width="15%">105.00</th>
                                 <th width="15%">30</th>
-                                <th width="15%">3,150</th>
+                                <th width="15%">3,150.00</th>
                                 <th width="15%">
                                     <button type="button" class="btn1 " data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
                                     <button type="button" class="btn1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm4"><img src="./src/images/icon-pencil.png" width="25"></button>
@@ -165,7 +165,7 @@
 
 
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary1" onclick="addproduct()" >ตกลง</button>
+                                <button type="submit" class="btn btn-primary1"  >ตกลง</button>
                             </div>
                         </form>
                     </div>

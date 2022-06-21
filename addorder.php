@@ -13,7 +13,7 @@
 <?php include('nav.php'); ?>
 
 <body>
-
+<script src="./src/js/addorder.js"></script>
     <form>
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
@@ -54,7 +54,7 @@
                     <div class="col-12 C">
                         รายการสินค้า
                         <div class=" col-12 d-flex justify-content-end">
-                        <button type="button" class="btn2" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm">เพิ่มสินค้า</button>
+                        <button type="button" class="btn2" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm" onclick="myFunction()">เพิ่มสินค้า</button>
                         </div>
                         <table class="main col-10">
                             <tr>
@@ -62,9 +62,9 @@
                                 <th width="15%">รายการสินค้า</th>
                                 <th width="8%">ยี่ห้อ</th>
                                 <th width="10%">รุ่น</th>
-                                <th width="15%">ราคาต่อหน่วย</th>
+                                <th width="15%">ราคาต่อหน่วย (บาท)</th>
                                 <th width="15%">จำนวน</th>
-                                <th width="15%">ราคา</th>
+                                <th width="15%">ราคา (บาท)</th>
                                 <th width="15%"></th>
                             </tr>
                             <tr>
@@ -73,14 +73,27 @@
                                 <th width="15%">ใบตัดหญ้า มีฟัน (แบบวงเดือน)</th>
                                 <th width="8%">-</th>
                                 <th width="10%">10X24T</th>
-                                <th width="15%">105</th>
+                                <th width="15%">105.00</th>
                                 <th width="15%">30</th>
-                                <th width="15%">3,150</th>
+                                <th width="15%">3,150.00</th>
                                 <th width="15%">
                                     <button type="button" class="btn1 " data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
                                     <button type="button" class="btn1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm4"><img src="./src/images/icon-pencil.png" width="25"></button>
                                 </th>
                             </tr>
+                            <tr>
+
+                                <th width="12%" id="typeproduct"></th>
+                                <th width="15%" id="listproduct"></th>
+                                <th width="8%" id="brand"></th>
+                                <th width="10%" id="productmodel"></th>
+                                <th width="15%" id="priceproduct"></th>
+                                <th width="15%"id="amountproduct"></th>
+                                <th width="15%"></th>
+                                <th width="15%">
+                                </th>
+                            </tr>
+                            
                             <tbody id="list-product"></tbody>
                         </table>
                     </div>
@@ -128,7 +141,7 @@
 
                             <div class="col-12 r">
                             ประเภทสินค้า: &nbsp;
-                                <select id="typeproduct" style="background-color: #7C904E;" required>
+                                <select id="typeproduct" name="typeproduct" style="background-color: #7C904E;" required>
                                     <option value="เลือก" selected>เลือก</option>
                                 </select>
                             </div>
@@ -260,7 +273,9 @@
                 </div>
             </div>
         </div>
+
     </form>
+   
 
 </body>
 

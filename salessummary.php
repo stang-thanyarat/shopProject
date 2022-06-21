@@ -21,11 +21,7 @@
                 </div>
                 <div class="t">
                     <div class="m">
-                        <h6>สรุปยอดขาย</h6>
-                    </div>
-                    <div class="d-flex flex-row-reverse">
-                        <button type="submit" class="g "><img src="./src/images/download.png " width="15">&nbsp; ดาวน์โหลด</button>
-                        <button type="submit" class="g"><img src="./src/images/print.png" width="15">&nbsp; print</button>
+                        <h5>สรุปยอดขาย</h5>
                     </div>
                 </div>
                 <div class="n">

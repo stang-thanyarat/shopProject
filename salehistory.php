@@ -32,35 +32,35 @@
                             <th width="10%">ช่องทางการชำระ</th>
                         </tr>
                         <tr>
-                            <th>05/11/2021</th>
+                            <th>05 พ.ย. 2564</th>
                             <th>12:30</th>
                             <th><button type="submit" class="s"><img src="./src/images/pdf.png" width="25"></button></th>
                             <th>2</th>
-                            <th>210</th>
+                            <th>210.00</th>
                             <th>เงินสด</th>
                         </tr>
                         <tr>
-                            <th>05/11/2021</th>
+                            <th>05 พ.ย. 2564</th>
                             <th>12:30</th>
                             <th><button type="submit" class="s"><img src="./src/images/pdf.png" width="25"></button></th>
                             <th>2</th>
-                            <th>210</th>
+                            <th>210.00</th>
                             <th>โอนเงิน</th>
                         </tr>
                         <tr>
-                            <th>26/12/2021</th>
+                            <th>26 ธ.ค. 2564</th>
                             <th>14:30</th>
                             <th><button type="submit" class="s"><img src="./src/images/pdf.png" width="25"></button></th>
                             <th>2</th>
-                            <th>230</th>
+                            <th>230.00</th>
                             <th>เงินสด</th>
                         </tr>
                         <tr>
-                            <th>25/06/2022</th>
+                            <th>25 มิ.ย. 2565</th>
                             <th>16:30</th>
                             <th><button type="submit" class="s"><img src="./src/images/pdf.png" width="25"></button></th>
                             <th>10</th>
-                            <th>3,220</th>
+                            <th>3,220.00</th>
                             <th>สัญญาซื้อขาย</th>
                         </tr>
                     </table>

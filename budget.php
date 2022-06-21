@@ -59,7 +59,7 @@
                             <h6>รวม สินทรัพย์</h6>
                         </div>
                         <div class="col d-flex justify-content-around">
-                            1,000,000
+                            1,000,000.00
                         </div>
                     </div>
                     <div class="row f">
@@ -73,7 +73,7 @@
                             <h6>รวม หนี้สิน+ทุน</h6>
                         </div>
                         <div class="col d-flex justify-content-around">
-                            250,000
+                            250,000.00
                         </div>
                     </div>
                 </div>

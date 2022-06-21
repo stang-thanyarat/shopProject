@@ -62,30 +62,30 @@
                                 <th width="15%">รายการสินค้า</th>
                                 <th width="8%">ยี่ห้อ</th>
                                 <th width="8%">รุ่น</th>
-                                <th width="12%">ราคาต่อหน่วย</th>
+                                <th width="12%">ราคาต่อหน่วย (บาท)</th>
                                 <th width="15%">จำนวน</th>
                                 <th width="15%">วันหมดอายุ</th>
-                                <th width="15%">ราคา</th>
+                                <th width="15%">ราคา (บาท)</th>
                             </tr>
                             <tr>
                                 <th>ใบตัดหญ้า</th>
                                 <th>ใบตัดหญ้า มีฟัน (แบบวงเดือน)</th>
                                 <th>-</th>
                                 <th>10X24T</th>
-                                <th>105</th>
+                                <th>105.00</th>
                                 <th>35</th>
                                 <th>10/10/2030</th>
-                                <th>3,675</th>
+                                <th>3,675.00</th>
                             </tr>
                             <tr>
                                 <th>ใบตัดหญ้า</th>
                                 <th>ใบตัดหญ้า มีฟัน (แบบวงเดือน)</th>
                                 <th>-</th>
                                 <th>10X30T</th>
-                                <th>110</th>
+                                <th>110.00</th>
                                 <th>20</th>
                                 <th>10/10/2030</th>
-                                <th>2,200</th>
+                                <th>2,200.00</th>
                             </tr>
                             <tr>
                                 <th></th>
@@ -95,7 +95,7 @@
                                 <th>ยอดรวม</th>
                                 <th>55</th>
                                 <th></th>
-                                <th>5,875</th>
+                                <th>5,875.00</th>
                             </tr>
                         </table>
                     </div>
@@ -112,7 +112,7 @@
                             </tr>
                             <tr>
                                 <th>ค่าขนส่ง</th>
-                                <th>200</th>
+                                <th>200.00</th>
                                 <th>
                                 <button type="button" class="btn1 " data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
                                 <button type="button" class="btn1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm2"><img src="./src/images/icon-pencil.png" width="25"></button>

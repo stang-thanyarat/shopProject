@@ -53,22 +53,22 @@
                         <th  width="10%">คงค้าง</th>
                     </tr>
                     <tr>
-                        <th>02/01/2022</th>
+                        <th>02 ม.ค. 2565</th>
                         <th>เงินสด</th>
                         <th></th>
-                        <th>100</th>
-                        <th>100</th>
+                        <th>100.00</th>
+                        <th>100.00</th>
                         <th></th>
-                        <th>120</th>
+                        <th>120.00</th>
                     </tr>
                     <tr>
-                        <th>26/02/2022</th>
+                        <th>26 ก.พ. 2565</th>
                         <th>โอนเงิน</th>
                         <th><img src="./src/images/picture.png" width="25"></th>
-                        <th>120</th>
-                        <th>120</th>
+                        <th>120.00</th>
+                        <th>120.00</th>
                         <th></th>
-                        <th>0</th>
+                        <th>0.00</th>
                     </tr>
                 </table>
                 <p></p>

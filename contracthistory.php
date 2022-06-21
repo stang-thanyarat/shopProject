@@ -41,17 +41,17 @@
                         <th width="5%"></th>
                     </tr>
                     <tr>
-                        <th>26/12/2021</th>
+                        <th>26 ธ.ค. 2564 </th>
                         <th>A01</th>
                         <th>
                             <div class="r">
                                 <a class="submit BTNP" href="repay.php"><img class='confirm'>สมชาย พักดี</a>
                             </div>
                         </th>
-                        <th>220</th>
-                        <th>0</th>
+                        <th>220.00</th>
+                        <th>0.00</th>
                         <th><img src="./src/images/pdf.png" width="25"></th>
-                        <th><input accept="image/*" type="file" name="contractfile" width="10" required></th>
+                        <th><input type="file" accept="image/*" name="contractfile" width="10px" required></th>
                         <th><img src="./src/images/print.png" width="25"></th>
                         <th><button type="button" class="btn1" onclick="javascript:window.location='solvecontract.php';"><img src="./src/images/icon-pencil.png" width="25"></button></th>
                     </tr>

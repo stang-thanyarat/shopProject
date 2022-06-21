@@ -25,10 +25,6 @@
                     <div class="m">
                     <h6>สรุปยอดขาย</h6>
                     </div>
-                    <div class="d-flex flex-row-reverse">
-                        <button type="submit" class="g "><img src="./src/images/download.png " width="15">&nbsp; ดาวน์โหลด</button>
-                        <button type="submit" class="g"><img src="./src/images/print.png" width="15">&nbsp; print</button>
-                    </div>
                 </div>
                 <div class="row main q">
                     <div class="col-12 a">
@@ -36,6 +32,7 @@
                             <option value="ประเภทสินค้า" selected>ประเภทสินค้า</option>
                         </select>
                         <input type="date" name="firstdate" required>
+                        
                     </div>
                     <p></p>
                     <h3>ยอดขายสินค้า</h3>
@@ -50,20 +47,20 @@ const myChart = new Chart(ctx, {
             label: 'ยอดขายสินค้า',
             data: [20, 17, 23, 35, 22, 28],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgb(180, 180, 180)',
+                'rgb(180, 180, 180)',
+                'rgb(180, 180, 180)',
+                'rgb(180, 180, 180)',
+                'rgb(180, 180, 180)',
+                'rgb(180, 180, 180)'
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgb(120, 120, 120)',
+                'rgb(120, 120, 120)',
+                'rgb(120, 120, 120)',
+                'rgb(120, 120, 120)',
+                'rgb(120, 120, 120)',
+                'rgb(120, 120, 120)'
             ],
             borderWidth: 1
         }]

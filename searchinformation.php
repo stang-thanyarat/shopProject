@@ -36,22 +36,22 @@
                             <th>1</th>
                             <th><img src="./src/images/1.png" width="100"></th>
                             <th>เครื่องตัดหญ้าสะพายบ่า 4 จังหวะ 50ซี.ซี. UMK450T U2TT (จานยาว)</th>
-                            <th>9,490 บาท</th>
+                            <th>9,490.00 บาท</th>
                             <th>1</th>
-                            <th>9,490 บาท</th>
+                            <th>9,490.00 บาท</th>
                             <th><input class="BTN" type="submit" value="เปลี่ยนสินค้า"></th>
                         </tr>
                         <tr>
                             <th>2</th>
                             <th><img src="./src/images/2.png" width="100"></th>
                             <th> กระเจี๊ยบ-อพอลโล</th>
-                            <th>20 บาท</th>
+                            <th>20.00 บาท</th>
                             <th>1</th>
-                            <th>20 บาท</th>
+                            <th>20.00 บาท</th>
                             <th></th>
                         </tr>
                         <tr class="h">
-                            <th colspan="8">จำนวน 3 ชิ้น ยอดรวมทั้งหมด : 9,510 บาท</ะ>
+                            <th colspan="8">จำนวน 3 ชิ้น ยอดรวมทั้งหมด : 9,510.00 บาท</ะ>
                         </tr>
                     </table>
                 </div>
