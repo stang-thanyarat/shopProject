@@ -5,17 +5,29 @@ function myFunction(){
     let productmodel = document.getElementById("productmodel").value
     let unitprice = document.getElementById("unitprice").value
     let amount = document.getElementById("mount").value
-    if (typeproduct != null) {
-        document.getElementById("typeproduct").table =
-           
-        product;
+    if (typeproduct!= null) {
+        document.write("typeproduct");
     }
-    document.write("typeproduct");
-    document.write("listproduct" );
-    document.write("brand" );
-    document.write("productmodel");
-    document.write("unitprice");
-    document.write("amount");
+
+    if (listproduct!= null) {
+        document.write("listproduct");
+    }
+
+    if (brand!= null) {
+        document.write("brand");
+    }
+
+    if (productmodel!= null) {
+        document.write("productmodel");
+    }
+
+    if (unitprice!= null) {
+        document.write("unitprice");
+    }
+
+    if (amount!= null) {
+        document.write("amount");
+    }
 }
 
 /*function myFunction() {

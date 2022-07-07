@@ -13,7 +13,7 @@
 <?php include('nav.php'); ?>
 
 <body>
-<script src="./src/js/addorder.js"></script>
+<script src="./src/js/addorder2.js"></script>
     <form>
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
@@ -62,7 +62,7 @@
                         <div class=" col-12 d-flex justify-content-end">
                         <button type="button" class="btn2" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm" onclick="document.getElementById('id01').style.display='block'">เพิ่มสินค้า</button>
                         </div>
-                        <table class="main col-10">
+                        <table class="main col-10" id="product">
                             <tr>
                                 <th width="12%" id="typeproduct">ประเภทสินค้า</th>
                                 <th width="15%" id="listproduct">รายการสินค้า</th>
@@ -130,32 +130,32 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form id="addproduct" >
+                        <form id="addproduct" action="addorder2.php">
 
                             <div class="col-12 r">
                             ประเภทสินค้า: &nbsp;
-                                <select id="typeproduct" style="background-color: #7C904E;" required>
+                                <select id="typeproduct" name="typeproduct" style="background-color: #7C904E;" required>
                                     <option value="เลือก" selected>เลือก</option>
                                 </select>
                             </div>
                             
                             <div class="col-12 r">
                             รายการสินค้า: &nbsp;
-                                <select id="listproduct" style="background-color: #7C904E;" required>
+                                <select id="listproduct" name="listproduct" style="background-color: #7C904E;" required>
                                     <option value="เลือก" selected>เลือก</option>
                                 </select>
                             </div>
 
                             <div class="col-12 r">
                             ยี่ห้อ: &nbsp;
-                                <select id="brand" style="background-color: #7C904E;" required>
+                                <select id="brand" name="brand" style="background-color: #7C904E;" required>
                                     <option value="เลือก" selected>เลือก</option>
                                 </select>
                             </div>
 
                             <div class="col-12 r">
                             รุ่น: &nbsp;
-                                <select id="productmodel" style="background-color: #7C904E;" required>
+                                <select id="productmodel" name="productmodel" style="background-color: #7C904E;" required>
                                     <option value="เลือก" selected>เลือก</option>
                                 </select>
                             </div>
@@ -165,7 +165,7 @@
 
 
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary1"  >ตกลง</button>
+                                <button class="btn btn-primary1" onclick="myFunction()" >ตกลง</button>
                             </div>
                         </form>
                     </div>
