@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&display=swap');
+
+* {
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+    --bs-gutter-x: 0
+}
+
+.row{
+    --bs-gutter-x: 0rem;
+}
+
+.main {
+    margin-top: 4rem;
+    margin-left: 3rem;
+    width: 90%;
+}
+
+.Nbar {
+    margin-top: 3.5rem;
+}
+
+.mai {
+    margin-left: 70rem;
+}
+
+.ma {
+    margin-top: 1rem;
+    margin-left: 3rem;
+}
+
+table,
+td,
+th {
+    border: 1px solid black;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 90%;
+}
+
+th {
+    height: 50px;
+    width: 20%;
+}
+
+select {
+    background-color: #ABBE99;
+    border: 0ch;
+}
+
+.submit {
+    background-color: #7C904E;
+    border: 0ch;
+    color: white;
+}
+
+.btn:hover {
+    color: white;
+}
+
+.btn-d {
+    border-radius: 25px 25px 25px 25px;
+    background-color: #F8E4C8;
+    border: 0ch;
+    margin-left: 5rem;
+}
+
+.btn {
+    border-radius: 25px 25px 25px 25px;
+    font-size: 16pt;
+    width: 150%;
+}
+
+.s {
+    background: transparent;
+    border: 0px;
+    margin-left: -2rem;
+}
+
+.bgs{
+    border: 0ch;
+    background-color: white;
+}
+
+.btn1{
+    border: 0ch;
+    background-color: white;
+}
+
+/*ลบ*/
+
+.btn-primary2 {
+    background-color: #7C904E;
+    color: white;
+    border: 0ch;
+}
+
+.body {
+    margin-top: 2rem;
+}
