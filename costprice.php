@@ -50,7 +50,7 @@
 
                     <!-- กราฟ-->
                     <p><p>
-                    <h6>ราคา</h6>
+                    <h6>จำนวน</h6>
                     <canvas id="myChart" style="width:100%;max-width:1000px"></canvas>
                         <script>
                              var xValues = [1,2,3,4,5,6,7,8,9,10,11,12];
@@ -76,7 +76,55 @@
                                 }
                               }
                             });
-                                </script><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>วันที่
+                                </script><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>&nbsp&nbsp&nbsp&nbspวันที่
+                                <script>
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['1/12','2/12','3/12','4/12','5/12','6/12','7/12','8/12','9/12','10/12','11/12','12/12'],
+        datasets: [{
+            label: 'ยอดขายสินค้า',
+            data: [15,15,20,20,20,20,20,20,20,25,25,10],
+            backgroundColor: [
+                'rgb(180, 180, 180)',
+                'rgb(180, 180, 180)',
+                'rgb(180, 180, 180)',
+                'rgb(180, 180, 180)',
+                'rgb(180, 180, 180)',
+                'rgb(180, 180, 180)',
+                'rgb(180, 180, 180)',
+                'rgb(180, 180, 180)',
+                'rgb(180, 180, 180)',
+                'rgb(180, 180, 180)',
+                'rgb(180, 180, 180)',
+                'rgb(180, 180, 180)'
+            ],
+            borderColor: [
+                'rgb(120, 120, 120)',
+                'rgb(120, 120, 120)',
+                'rgb(120, 120, 120)',
+                'rgb(120, 120, 120)',
+                'rgb(120, 120, 120)',
+                'rgb(120, 120, 120)',
+                'rgb(120, 120, 120)',
+                'rgb(120, 120, 120)',
+                'rgb(120, 120, 120)',
+                'rgb(120, 120, 120)',
+                'rgb(120, 120, 120)',
+                'rgb(120, 120, 120)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: 
+    { scales: {
+                  yAxes: [{ticks: {min: 0, max:40}}],
+                                
+                   }
+    }
+});
+</script>
 
                 </div>
             </div>
