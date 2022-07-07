@@ -52,32 +52,8 @@
                     <p><p>
                     <h6>จำนวน</h6>
                     <canvas id="myChart" style="width:100%;max-width:1000px"></canvas>
-                        <script>
-                             var xValues = [1,2,3,4,5,6,7,8,9,10,11,12];
-                            var yValues = [15,15,20,20,20,20,20,20,20,25,25,10];
-
-                        new Chart("myChart", {
-                              type: "line",
-                              data: {
-                                labels: xValues,
-                                datasets: [{
-                                  fill: false,
-                                  lineTension: 0,
-                                  backgroundColor: "rgba(0,0,255,1.0)",
-                                  borderColor: "rgba(0,0,255,0.1)",
-                                  data: yValues
-                                }]
-                              },
-                              options: {
-                                legend: {display: false},
-                                scales: {
-                                  yAxes: [{ticks: {min: 0, max:40}}],
-                                
-                                }
-                              }
-                            });
-                                </script><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>&nbsp&nbsp&nbsp&nbspวันที่
-                                <script>
+                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>&nbsp&nbsp&nbsp&nbspวันที่
+                    <script>
 const ctx = document.getElementById('myChart').getContext('2d');
 const myChart = new Chart(ctx, {
     type: 'bar',
