@@ -32,7 +32,7 @@
                             <div class="row-4 leftmodel">
                                 <label for="employee model">รูปแบบพนักงาน :</label>
                                 <select name="employee model" id="employee model" class="margin" required>
-                                    <option value="employee model" selected>เลือกรูปแบบพนักงาน</option>
+                                    <option value="employee model" selected hidden>เลือกรูปแบบพนักงาน</option>
                                     <option value="full time staff">พนักงานประจำ</option>
                                     <option value="daily staff">พนักงานรายวัน</option>
                                     <option value="temporary worker">พนักงานชั่วคราว</option>
@@ -50,7 +50,7 @@
                             <div class="row-4 ma">
                                 <label for="prefix">คำนำหน้าชื่อ : </label>
                                 <select name="prefix" id="prefix" class="margin" required>
-                                    <option value="noun" selected>เลือกคำนำหน้า</option>
+                                    <option value="noun" selected hidden>เลือกคำนำหน้า</option>
                                     <option value="Mr.">นาย</option>
                                     <option value="Mrs.">นาง</option>
                                     <option value="miss">นางสาว</option>
