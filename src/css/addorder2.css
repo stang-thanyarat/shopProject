@@ -73,6 +73,7 @@ th {
 
 .A{
     margin-top: 3rem;
+
 }
 
 .Nbar {
@@ -84,7 +85,10 @@ th {
     margin-top: 1rem;
 }
 
-
+.close{
+    background-color: #7C904E;
+   
+}
 
 
 .btn-primary1{
@@ -110,7 +114,9 @@ th {
    height: 70px;
    margin-top: 3rem;
 }
-
+.modal-footer{
+    height: 50px;
+}
 .btn2{
     margin-right: 4.3rem;
     background-color: #7C904E;

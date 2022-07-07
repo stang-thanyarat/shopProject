@@ -29,3 +29,5 @@
     <a class="nav-link bar-link" href="changeproduct.php">การเปลียนสินค้า</a>
     <a class="nav-link bar-link" href="vat.php">ภาษีมูลค่าเพิ่ม</a>
 </nav>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="./src/js/bar.js"></script>
