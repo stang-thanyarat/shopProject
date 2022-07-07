@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&display=swap');
+*{
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+}
+.main{
+    margin-top: 5rem;
+    margin-left: 5rem;
+    width: 90%;
+}
+
+.Nbar{
+    margin-top: 3.5rem;
+}
+
+.c{
+    margin-top: 1rem;
+    margin-left: 15rem;
+}
+
+table,
+td,
+th {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.th {
+    height: 100px;
+    width: 50%;
+}
+
+.col-12{
+    margin-left: 1rem;
+    
+}
+
+.B{
+    margin-right: 5rem;
+}
+
+.BTN{
+    border-radius: 25px;
+    width: 15%;
+    background-color: #7C904E;
+    color: white;
+    border: 0in;
+    margin-top: 5rem;
+}
+
+.BTNC{
+    border-radius: 25px;
+    width: 15%;
+    background-color: #E0B87E;
+    color: white;
+    border: 0in;
+    margin-top: 5rem;
+}
+
+.BTNE{
+    border-radius: 25px;
+    width: 15%;
+    background-color: #A36627;
+    color: white;
+    border: 0in;
+    margin-top: 5rem;
+}
+.row{
+    --bs-gutter-x: 0rem;
+}
+.BTNP{
+    width: 15%;
+    background-color: #fff;
+    color: #A36627;
+    border: 0in;
+}
+
+.col-10{
+    margin-top: 1rem;
+}
+
+.btn-primary1{
+    
+    background-color: #7C904E;
+    color: #fff;
+    border: 0in;
+}
+
+.r{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 200px;
+}
+.u{
+    width: 100px;
+}
+.p{
+    width: 120px;
+}
+.t{
+    width: 120px;
+}
+.modal-header{
+    background-color: #7C904E;
+    height: 50px;
+}
+.modal-title{
+    color: #fff;
+}
+.modal-body{
+    background-color: #D4DDC6;
+}
+
+.btn1{
+    background-color: #7C904E;
+    color: #fff;
+    border: 0in;
+    border-radius: 25px;
+    height: 30px;
+    width: 5%;
+}
