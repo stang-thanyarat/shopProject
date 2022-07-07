@@ -119,6 +119,7 @@ $("#editbankaccount").submit(function (event) {
     localStorage.removeItem('editIndex')
     $('#editclose').click()
 
+
 })
 
 //เพิ่มบัญชี
@@ -157,7 +158,6 @@ $("#addbankaccount").submit(function (event) {
 function saveIndexDel(i) {
     localStorage.setItem('deleteIndex', i)
 }
-
 //กำหนดแถวที่จะแก้ไข พร้อมข้อมูลเริ่มต้น
 function saveIndexEdit(i) {
     localStorage.setItem('editIndex', i)
