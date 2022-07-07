@@ -21,7 +21,7 @@
                     <div class="col-lg-5">
                     <div class="title page">
                         <h1 style="display: inline;">การเปลี่ยนสินค้า</h1>        
-                        &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
+                        &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
                         <input type="date" name="birthday" id="birthday" required /> &nbsp  ถึง &nbsp  <input type="date" name="birthday" id="birthday" required />
                         
                     </div>

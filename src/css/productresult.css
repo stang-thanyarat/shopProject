@@ -2,12 +2,11 @@
 
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
-    
+
 }
 
 .row {
-    --bs-gutter-x: 0;
-
+    --bs-gutter-x: 0rem;
 }
 
 .switch {

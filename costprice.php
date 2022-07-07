@@ -8,7 +8,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./src/css/costprice.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <title>costprice</title>
+    
     
 </head>
 <?php include('nav.php'); ?>
@@ -19,61 +21,63 @@
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
-                    <h1>การขาย</h1>
-                </div>
-                <div class="t">
-                    <div class="m">
-                    <h6>สรุปยอดขาย</h6>
-                    </div>
-                    <div class="d-flex flex-row-reverse">
-                        <button type="submit" class="g "><img src="./src/images/download.png " width="15">&nbsp; ดาวน์โหลด</button>
-                        <button type="submit" class="g"><img src="./src/images/print.png" width="15">&nbsp; print</button>
-                    </div>
+                    <h1>ราคาทุน</h1>
                 </div>
                 <div class="row main q">
-                    <div class="col-12 a">
-                        <select name="categoryproduct" style="background-color: #7C904E;" required>
-                            <option value="ประเภทสินค้า" selected>ประเภทสินค้า</option>
-                        </select>
-                        <input type="date" name="firstdate" required>
+                    <div class="col-12 ">
+                        <div>
+                       <h4> ชื่อสินค้า : &nbsp กะเพรา-SL<h4>
+                        </div>
+                        <p>
+                        <div>
+                        <h4>ประเภทสินค้า : &nbsp เมล็ดพันธุ์<h4>
+                        </div>
+                        <p>
+                        <div>
+                        <h4>ยี่ห้อสินค้า : &nbsp SEEDLINE<h4>
+                        </div>
+                        <p>
+                        <div class="title page">
+                        <h4 style="display: inline;">วันที่ซื้อ :</h4>
+                        &nbsp &nbsp
+                        <input type="date" class="l" name="firstdate" style=" background-color: #F8E4C8;" required>
+                        &nbsp ถึง &nbsp
+                        <input type="date" class="l" name="lastdate" style=" background-color: #F8E4C8;" required>
+                        &nbsp &nbsp &nbsp
+                        <a type="submit" class=""><img src="./src/images/search.png" width="15"></a>
+                        </div>
                     </div>
-                    <p></p>
-                    <h3>ยอดขายสินค้า</h3>
-                    <canvas id="myChart" height="300"  ></canvas>
-<script>
-const ctx = document.getElementById('myChart').getContext('2d');
-const myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['เมล็ดคะน้า', 'เมล็ดพริก', 'เมล็ดข้าวโพด', 'เมล็ดกระเจี๊ยบเขียว', 'เมล็ดมะเขือ', 'เมล็ดถั่วฝักยาว'],
-        datasets: [{
-            label: 'ยอดขายสินค้า',
-            data: [20, 17, 23, 35, 22, 28],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        indexAxis: 'y',
-    }
-});
-</script>
- 
+
+                    <!-- กราฟ-->
+                    <p><p>
+                    <h6>ราคา</h6>
+                    <canvas id="myChart" style="width:100%;max-width:1000px"></canvas>
+                        <script>
+                             var xValues = [1,2,3,4,5,6,7,8,9,10,11,12];
+                            var yValues = [15,15,20,20,20,20,20,20,20,25,25,10];
+
+                        new Chart("myChart", {
+                              type: "line",
+                              data: {
+                                labels: xValues,
+                                datasets: [{
+                                  fill: false,
+                                  lineTension: 0,
+                                  backgroundColor: "rgba(0,0,255,1.0)",
+                                  borderColor: "rgba(0,0,255,0.1)",
+                                  data: yValues
+                                }]
+                              },
+                              options: {
+                                legend: {display: false},
+                                scales: {
+                                  yAxes: [{ticks: {min: 0, max:40}}],
+                                
+                                }
+                              }
+                            });
+                                </script><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>วันที่
+
                 </div>
             </div>
         </div>

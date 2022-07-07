@@ -33,10 +33,22 @@
                         <th>
                             <div class="row-4 ma">
                                 <label for="type">ประเภทสินค้า:</label>
-                                    <select name="type" id="type" required>
-                                        <option value="seed.">เมล็ดพันธุ์</option>
-                                        <option value="Mrs.">นาง</option>
-                                        <option value="miss">นางสาว</option>
+                                <select name="type" id="type" required>
+                                        <option value="lawn mower blade">ใบตัดหญ้า</option>
+                                        <option value="kit">ชุดเสื้อสูบ</option>
+                                        <option value="gear knob">หัวเกียร์</option>
+                                        <option value="rice cutting blade">ใบตัดข้าว</option>
+                                        <option value="screw nut">น็อตสกรู</option>
+                                        <option value="string">เชือกเอ็น</option>
+                                        <option value="disc lawn mower">จานตัดหญ้า</option>
+                                        <option value="kaboo">คาบู</option>
+                                        <option value="Fertilizer Sprayer Parts">อะไหล่เครื่องพ่นปุ๋ย</option>
+                                        <option value="suspension rubber">ยางกันสะเทือน</option>
+                                        <option value="water pump">ปั๊มน้ำ</option>
+                                        <option value="lawn mower">เครื่องตัดหญ้า</option>
+                                        <option value="seed">เมล็ดพันธุ์</option>
+                                        <option value="herbicide">ยากำจัดวัชพืช</option>
+                                        <option value="chemical fertilizer">ปุ๋ยเคมี</option>
                                     </select>
                             </div>
                             <div class="row-4 ma">
@@ -57,9 +69,7 @@
                             <div class="row-4 ma">
                                 <label for="ID card numbe">ชื่อผู้ขาย :</label>
                                     <select name="type" id="type" required>
-                                        <option value="seed.">อาร์เอส อินเตอร์เทรด (2017) จำกัด</option>
-                                        <option value="Mrs.">นาง</option>
-                                        <option value="miss">นางสาว</option>
+                                        <option value="RS intertred(2017)">อาร์เอส อินเตอร์เทรด (2017) จำกัด</option>
                                     </select>
                             </div>
                             <div class="row ma">
@@ -91,10 +101,13 @@
                             <div class="row-4 ma">
                                 <label for="type">หน่วยนับ:</label>
                                     <select name="type" id="type" required>
-                                        <option value="seed.">ซอง</option>
-                                        <option value="Mrs.">ขวด</option>
-                                        <option value="miss">ชิ้น</option>
-                                    </select>
+                                        <option value="envelope">ซอง</option>
+                                        <option value="bottle">ขวด</option>
+                                        <option value="item">ชิ้น</option>
+                                        <option value="box">กล่อง</option>
+                                        <option value="machine">เครื่อง</option>
+                                        <option value="bag">ถุง</option><option value="sack">กระสอบ</option>
+                                        </select>
                             </div>
                             <div class="row ma">
                                 <div class="col">

@@ -20,14 +20,33 @@
             <div class="col-11">
                 <div class="row main">
                     <div class="col-lg-5">
-                        <h1>รายการสินค้าทั้งหมด</h1>
+                        <div class="title page">
+                            <h1 style="display: inline;">รายการสินค้าทั้งหมด</h1>&nbsp &nbsp &nbsp &nbsp
+                            <select name="type" id="type" style="     background-color: #7C904E;" required>
+                                        <option value="lawn mower blade">ใบตัดหญ้า</option>
+                                        <option value="kit">ชุดเสื้อสูบ</option>
+                                        <option value="gear knob">หัวเกียร์</option>
+                                        <option value="rice cutting blade">ใบตัดข้าว</option>
+                                        <option value="screw nut">น็อตสกรู</option>
+                                        <option value="string">เชือกเอ็น</option>
+                                        <option value="disc lawn mower">จานตัดหญ้า</option>
+                                        <option value="kaboo">คาบู</option>
+                                        <option value="Fertilizer Sprayer Parts">อะไหล่เครื่องพ่นปุ๋ย</option>
+                                        <option value="suspension rubber">ยางกันสะเทือน</option>
+                                        <option value="water pump">ปั๊มน้ำ</option>
+                                        <option value="lawn mower">เครื่องตัดหญ้า</option>
+                                        <option value="seed">เมล็ดพันธุ์</option>
+                                        <option value="herbicide">ยากำจัดวัชพืช</option>
+                                        <option value="chemical fertilizer">ปุ๋ยเคมี</option>
+                                    </select>
+                            </div>
                     </div>
                 </div>
                 <div class="col-12 d-flex justify-content-end signin">
                     <input type="text" class="btnd" placeholder="&nbsp ชื่อสินค้า">
                     <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>&nbsp &nbsp
                     <div class="col-3">
-                        <a class="submit BTNC" href="#"><img class='add' src="./src/images/plus.png" width="50">เพิ่มสินค้า</a>
+                        <a class="submit BTNC" ><img class='add' src="./src/images/plus.png" width="50">เพิ่มสินค้า</a>
                     </div>
                 </div>
                 <table class="main col-10">
