@@ -21,7 +21,7 @@
                 <div class="col-lg-4 col-md-12">
                     <label for="prefix">คำนำหน้าชื่อ:</label>
                     <select name="prefix" id="prefix" onchange="show_title_other(this.form);" class="bb" required>
-                        <option value="noun" selected>เลือกคำนำหน้า</option>
+                        <option value="noun" selected hidden>เลือกคำนำหน้า</option>
                         <option value="Mr.">นาย</option>
                         <option value="Mrs.">นาง</option>
                         <option value="missmiss">นางสาว</option>
