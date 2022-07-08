@@ -32,6 +32,7 @@
                 <table align="center" class="wh m">
                 <thead>
                     <tr>
+                        <th>ลำดับ</th>
                         <th>ประเภทสินค้า</th>
                         <th>รายการทั้งหมด</th>
                         <th>รายการที่ขาย</th>
@@ -57,8 +58,8 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <label for="producttype">&nbsp &nbsp ชื่อประเภทสินค้า : </label>
-                           <select name="type" id="producttype" required>
+                        <label for="addproducttype">&nbsp &nbsp ชื่อประเภทสินค้า : </label>
+                           <select name="type" id="addproducttypename" required>
                                         <option value="" selected hidden>เลือกประเภทสินค้า</option>
                                         <option value="ใบตัดหญ้า">ใบตัดหญ้า</option>
                                         <option value="ชุดเสื้อสูบ">ชุดเสื้อสูบ</option>
@@ -78,9 +79,9 @@
                                     </select>
                                     <p>
                                         <p>
-                        &nbsp &nbsp รายการทั้งหมด : <input type="text" id="allproducttype"></input>
+                        &nbsp &nbsp รายการทั้งหมด : <input type="text" id="addallproducttype"></input>
                         <p>
-                        &nbsp &nbsp รายการที่ขาย : <input type="text" id="sellproducttype"></input>
+                        &nbsp &nbsp รายการที่ขาย : <input type="text" id="addsellproducttype"></input>
                                
                         <div class="modal-footer">
                             <button type="submit" id="addtable" class="btn btn-primary2">ตกลง</button>
@@ -91,19 +92,21 @@
             </form>
         </div>
 
-        <!-- ลบ -->
-<div class="modal fade bd-example-modal-xl2" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
+                    <!-- ลบ -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
                                             <h5 class="modal-title2" id="exampleModalLabel">ลบประเภทสินค้า</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <button type="button" class="btn-close" id="closedelrow" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
+
                                         <div class="modal-body">
                                             <h3>ยืนยันที่จะลบ</h3>
                                         </div>
+
                                         <div class="modal-footer">
-                                            <button type="submit" class="btn btn-primary2">ตกลง</button>
+                                            <button type="button" onclick="delrow()" class="btn btn-primary2">ตกลง</button>
                                         </div>
                                     </div>
                                 </div>
@@ -111,27 +114,60 @@
 
         <!--- modal แก้ไขประเภทสินค้า-->
 <div class="modal fade bd-example-modal-xl3" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <form name="editproducttype" id="editproducttype" method="post" action="">
         <div class="modal-dialog modal-xl3">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">แก้ไขประเภทสินค้า</h5>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" id="editclose" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form name="productlist" method="post" action="">
-                           
-                        <center>ชื่อประเภทสินค้า: &nbsp;<input type="text" name="list" id="list" required /><br><p></p></center>
+                        <div class="row">
+                            <div class="col leftproducttype ">
+                            <label for="producttype">&nbsp &nbsp ชื่อประเภทสินค้า : </label>
+                           <select name="type" id="editproducttypename" required>
+                                        <option value="" selected hidden>เลือกประเภทสินค้า</option>
+                                        <option value="ใบตัดหญ้า">ใบตัดหญ้า</option>
+                                        <option value="ชุดเสื้อสูบ">ชุดเสื้อสูบ</option>
+                                        <option value="หัวเกียร์">หัวเกียร์</option>
+                                        <option value="ใบตัดข้าว">ใบตัดข้าว</option>
+                                        <option value="น็อตสกรู">น็อตสกรู</option>
+                                        <option value="เชือกเอ็น">เชือกเอ็น</option>
+                                        <option value="จานตัดหญ้า">จานตัดหญ้า</option>
+                                        <option value="คาบู">คาบู</option>
+                                        <option value="อะไหล่เครื่องพ่นปุ๋ย">อะไหล่เครื่องพ่นปุ๋ย</option>
+                                        <option value="ยางกันสะเทือน">ยางกันสะเทือน</option>
+                                        <option value="ปั๊มน้ำ">ปั๊มน้ำ</option>
+                                        <option value="เครื่องตัดหญ้า">เครื่องตัดหญ้า</option>
+                                        <option value="เมล็ดพันธุ์">เมล็ดพันธุ์</option>
+                                        <option value="ยากำจัดวัชพืช">ยากำจัดวัชพืช</option>
+                                        <option value="ปุ๋ยเคมี">ปุ๋ยเคมี</option>
+                                    </select>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col leftallproducttype ">
+                            รายการทั้งหมด : <input type="text" id="editallproducttype">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col leftsellproducttype ">
+                            รายการที่ขาย : <input type="text" id="editsellproducttype">
+                            </div>
+                        </div>
                                
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary1">ตกลง</button>
+                                <button type="submit" class="btn btn-primary2">ตกลง</button>
                             </div>
-                        </form>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
+    </div>
 
 </body>
 
