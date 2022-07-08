@@ -26,22 +26,23 @@
                             <h1 style="display: inline;">รายการสินค้า</h1>&nbsp &nbsp &nbsp
                             <input type="text" class="btnd" placeholder="&nbsp ชื่อสินค้า">
                     <button type="button" class="s"><img src="./src/images/search.png" width="13"></button>&nbsp &nbsp
-                    <select name="type" id="type" required>
-                                        <option value="lawn mower blade">ใบตัดหญ้า</option>
-                                        <option value="kit">ชุดเสื้อสูบ</option>
-                                        <option value="gear knob">หัวเกียร์</option>
-                                        <option value="rice cutting blade">ใบตัดข้าว</option>
-                                        <option value="screw nut">น็อตสกรู</option>
-                                        <option value="string">เชือกเอ็น</option>
-                                        <option value="disc lawn mower">จานตัดหญ้า</option>
-                                        <option value="kaboo">คาบู</option>
-                                        <option value="Fertilizer Sprayer Parts">อะไหล่เครื่องพ่นปุ๋ย</option>
-                                        <option value="suspension rubber">ยางกันสะเทือน</option>
-                                        <option value="water pump">ปั๊มน้ำ</option>
-                                        <option value="lawn mower">เครื่องตัดหญ้า</option>
-                                        <option value="seed">เมล็ดพันธุ์</option>
-                                        <option value="herbicide">ยากำจัดวัชพืช</option>
-                                        <option value="chemical fertilizer">ปุ๋ยเคมี</option>
+                    <select name="type" id="producttype" required>
+                                        <option value="" selected hidden>เลือกประเภทสินค้า</option>
+                                        <option value="ใบตัดหญ้า">ใบตัดหญ้า</option>
+                                        <option value="ชุดเสื้อสูบ">ชุดเสื้อสูบ</option>
+                                        <option value="หัวเกียร์">หัวเกียร์</option>
+                                        <option value="ใบตัดข้าว">ใบตัดข้าว</option>
+                                        <option value="น็อตสกรู">น็อตสกรู</option>
+                                        <option value="เชือกเอ็น">เชือกเอ็น</option>
+                                        <option value="จานตัดหญ้า">จานตัดหญ้า</option>
+                                        <option value="คาบู">คาบู</option>
+                                        <option value="อะไหล่เครื่องพ่นปุ๋ย">อะไหล่เครื่องพ่นปุ๋ย</option>
+                                        <option value="ยางกันสะเทือน">ยางกันสะเทือน</option>
+                                        <option value="ปั๊มน้ำ">ปั๊มน้ำ</option>
+                                        <option value="เครื่องตัดหญ้า">เครื่องตัดหญ้า</option>
+                                        <option value="เมล็ดพันธุ์">เมล็ดพันธุ์</option>
+                                        <option value="ยากำจัดวัชพืช">ยากำจัดวัชพืช</option>
+                                        <option value="ปุ๋ยเคมี">ปุ๋ยเคมี</option>
                                     </select>
                             </div>
                     </div>

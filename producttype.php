@@ -6,14 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./src/css/producttype.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
     <title>producttype</title>
 </head>
 <?php include('nav.php'); ?>
 
 <body>
-    <form>
+    <form action="" name="form1" id="form1">
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
@@ -23,25 +24,26 @@
                     </div>
                     <div class="col-2 mai">
                     </div>
-                    <div class="col-1">
+                    <div class="col-1" align="right" >
                         <button class="submit btn" id="addmodel_btn" type="button"  data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl1"><img class='add' src="./src/images/plus.png" width="25">&nbsp เพิ่มประเภทสินค้า</button>
                     </div>
                 </div>
-
-                <table class="wh m">
+<br>
+                <table align="center" class="wh m">
                 <thead>
                     <tr>
-                    <th>ประเภทสินค้า</th>
+                        <th>ประเภทสินค้า</th>
                         <th>รายการทั้งหมด</th>
                         <th>รายการที่ขาย</th>
-                        <th  colspan="2">ลบ หรือ แก้ไข</th>
-                        </tr>
+                        <th>ลบ หรือ แก้ไข</th>
+                    </tr>
                 </thead>
                 <tbody id="producttypetable">
 
                 </tbody>
                 </table>
             </div>
+</form>
 
 <!--- modal เพิ่มประเภทสินค้า-->
 <div class="modal fade bd-example-modal-xl1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -58,21 +60,21 @@
                         <label for="producttype">&nbsp &nbsp ชื่อประเภทสินค้า : </label>
                            <select name="type" id="producttype" required>
                                         <option value="" selected hidden>เลือกประเภทสินค้า</option>
-                                        <option value="lawn mower blade">ใบตัดหญ้า</option>
-                                        <option value="kit">ชุดเสื้อสูบ</option>
-                                        <option value="gear knob">หัวเกียร์</option>
-                                        <option value="rice cutting blade">ใบตัดข้าว</option>
-                                        <option value="screw nut">น็อตสกรู</option>
-                                        <option value="string">เชือกเอ็น</option>
-                                        <option value="disc lawn mower">จานตัดหญ้า</option>
-                                        <option value="kaboo">คาบู</option>
-                                        <option value="Fertilizer Sprayer Parts">อะไหล่เครื่องพ่นปุ๋ย</option>
-                                        <option value="suspension rubber">ยางกันสะเทือน</option>
-                                        <option value="water pump">ปั๊มน้ำ</option>
-                                        <option value="lawn mower">เครื่องตัดหญ้า</option>
-                                        <option value="seed">เมล็ดพันธุ์</option>
-                                        <option value="herbicide">ยากำจัดวัชพืช</option>
-                                        <option value="chemical fertilizer">ปุ๋ยเคมี</option>
+                                        <option value="ใบตัดหญ้า">ใบตัดหญ้า</option>
+                                        <option value="ชุดเสื้อสูบ">ชุดเสื้อสูบ</option>
+                                        <option value="หัวเกียร์">หัวเกียร์</option>
+                                        <option value="ใบตัดข้าว">ใบตัดข้าว</option>
+                                        <option value="น็อตสกรู">น็อตสกรู</option>
+                                        <option value="เชือกเอ็น">เชือกเอ็น</option>
+                                        <option value="จานตัดหญ้า">จานตัดหญ้า</option>
+                                        <option value="คาบู">คาบู</option>
+                                        <option value="อะไหล่เครื่องพ่นปุ๋ย">อะไหล่เครื่องพ่นปุ๋ย</option>
+                                        <option value="ยางกันสะเทือน">ยางกันสะเทือน</option>
+                                        <option value="ปั๊มน้ำ">ปั๊มน้ำ</option>
+                                        <option value="เครื่องตัดหญ้า">เครื่องตัดหญ้า</option>
+                                        <option value="เมล็ดพันธุ์">เมล็ดพันธุ์</option>
+                                        <option value="ยากำจัดวัชพืช">ยากำจัดวัชพืช</option>
+                                        <option value="ปุ๋ยเคมี">ปุ๋ยเคมี</option>
                                     </select>
                                     <p>
                                         <p>
