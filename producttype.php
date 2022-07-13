@@ -24,19 +24,19 @@
                     </div>
                     <div class="col-2 mai">
                     </div>
-                    <div class="col-1" align="right" >
+                    <div class="col-1"  >
                         <button class="submit btn" id="addmodel_btn" type="button"  data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl1"><img class='add' src="./src/images/plus.png" width="25">&nbsp เพิ่มประเภทสินค้า</button>
                     </div>
                 </div>
 <br>
-                <table align="center" class="wh m">
+                <table  align="center" class="wh m">
                 <thead>
                     <tr>
                         <th>ลำดับ</th>
                         <th>ประเภทสินค้า</th>
                         <th>รายการทั้งหมด</th>
                         <th>รายการที่ขาย</th>
-                        <th>ลบ หรือ แก้ไข</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody id="producttypetable">

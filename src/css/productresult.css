@@ -52,6 +52,9 @@ th {
 .btnd{
     background-color: #F8E4C8;
     border-radius: 25px;
+    border: 1ch;
+    
+    height: 90%;
 }
 .BTNC{
     background-color: #7C904E;
@@ -86,8 +89,15 @@ th {
 
 .btn {
     border-radius: 25px 25px 25px 25px;
-    font-size: 16pt;
+    font-size: 13pt;
     width: 150%;
+    height: 97%;
+}
+
+.submit {
+    background-color: #7C904E;
+    border: 0ch;
+    color: white;
 }
 
 .slider.round {
@@ -182,4 +192,40 @@ input:checked+.slider:before {
     height: 45px;
     width: 100%;
    
+}
+
+.g{
+    background-color: #ABBE99;
+    margin-left: 1rem;
+   
+}
+
+.q{
+    margin-top: 1rem;
+    margin-left: 4rem;
+   
+}
+
+.z{
+    font-size: 13pt;
+    margin-left: 45rem;
+   
+}
+
+.y{
+    font-size: 13pt;
+    margin-left: -2rem;
+    margin-top: 0rem;
+   
+}
+
+.x{
+    
+    margin-top: 0rem;
+    margin-left: 0.5rem;
+   
+}
+
+.modal-title2{
+    color:white;
 }

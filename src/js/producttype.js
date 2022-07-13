@@ -13,7 +13,7 @@ $("#addproducttype").submit(function (event) {
         return
     }
     $('#producttypetable').append(`<tr id="rr${i}">
-                    <th class="index-table-product">${i}</th>
+                    <th class="index-table-producttype">${i}</th>
                     <th>${$('#addproducttypename').val()}</th>
                     <th>${$('#addallproducttype').val()}</th>
                     <th>${$('#addsellproducttype').val()}</th>
@@ -50,7 +50,7 @@ $("#editproducttype").submit(function (event) {
     $('#producttypetable').html("")
     rows.forEach((e, i) => {
         $('#producttypetable').append(`<tr id="rr${i + 1}">
-                    <th class="index-table-product">${i + 1}</th>
+                    <th class="index-table-producttype">${i + 1}</th>
                     <th>${e.producttype}</th>
                     <th>${e.all}</th>
                     <th>${e.sell}</th>
@@ -86,13 +86,13 @@ function delrow() {
     const index = localStorage.getItem('deleteIndex')
     let rows = tableObj.data
     if (rows.length > 0) {
-        rows.splice(index, index - 1)
-        $('#rr' + index).remove()
+        rows.splice(index - 1)
+
     }
     $('#producttypetable').html("")
     rows.forEach((e, i) => {
         $('#producttypetable').append(`<tr id="rr${i + 1}">
-                    <th class="index-table-product">${i + 1}</th>
+                    <th class="index-table-producttype">${i + 1}</th>
                     <th>${e.producttype}</th>
                     <th>${e.all}</th>
                     <th>${e.sell}</th>
@@ -102,6 +102,7 @@ function delrow() {
                     </th>
                 </tr>`)
     });
+    tableObj.data = rows
     localStorage.setItem("tableProducttype", JSON.stringify(tableObj))
     localStorage.removeItem('deleteIndex')
     $('#closedelrow').click()

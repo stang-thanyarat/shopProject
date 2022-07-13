@@ -139,3 +139,21 @@ th {
 .h{
     margin-left: 6rem;
 }
+.r{
+    margin-right: 3rem;
+    border-radius: 25px 25px 25px 25px;
+}
+.w{
+    margin-left: 12rem;
+}
+.a{
+    color:#000
+}
+.modal-title2{
+    color:white
+}
+.z{
+    margin-left: 4rem;
+    margin-top: 1rem;
+}
+

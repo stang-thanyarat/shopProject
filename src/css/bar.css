@@ -8,13 +8,9 @@ hr {
 }
 
 .bar-link {
-    font-size: 10pt;
+    font-size: 13pt;
     margin-top: -0.5rem;
     color: white;
-}
-
-.bar-link:visited {
-    color: #ABBE99;
 }
 
 .bar-link:hover {

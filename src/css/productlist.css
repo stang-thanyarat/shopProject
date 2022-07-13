@@ -8,6 +8,7 @@
 .row {
     --bs-gutter-x: 0;
 
+
 }
 
 .switch {
@@ -37,7 +38,7 @@ table,
 td,
 th {
     border: 1px solid black;
-    text-align: center;
+    text-align:center;
 }
 
 table {
@@ -48,6 +49,7 @@ table {
 
 th {
     height: 50px;
+    width: 20%;
 }
 .btnd{
     background-color: #F8E4C8;
@@ -63,12 +65,6 @@ th {
     text-decoration: none;
     text-align: center;
 
-}
-
-.s{
-    background: transparent;
-    border: 0px;
-    margin-left: -2rem;
 }
 
 
@@ -138,4 +134,62 @@ th {
     height: 45px;
     width: 100%;
    
+}
+
+.q{
+        margin-left: 4rem;
+        margin-top: 1rem;
+    
+}
+
+.c{
+    margin-left: 4rem;
+    margin-top: 1rem;
+
+}
+.z{
+    color:black;
+    margin-left: -73rem;
+}
+.x{
+    margin-top: 1rem;
+    margin-bottom: -1rem;
+}
+
+.aa{
+    margin-top: 4.2rem;
+    margin-left: 2rem;
+}
+
+.bb{
+    margin-left: 0rem;
+}
+
+.l{
+    background: transparent;
+    border: 0px;
+}
+
+.u{
+    margin-left: -6rem;
+    margin-top: 0.5rem;
+}
+
+.m{
+    margin-left: -3rem;
+    margin-top: 0.5rem;
+    
+}
+
+.s{
+    margin-left: 3.8rem;
+    margin-top: 0.6rem;
+}
+
+.n{
+    background-color: #ABBE99;
+}
+
+.a{
+    margin-left: 9rem;
 }

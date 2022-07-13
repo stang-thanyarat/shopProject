@@ -24,7 +24,7 @@
                 <div class="row main">
                 <h1>รถเข็นสินค้า<h1>
                 </div>
-                <table class="main col-11">
+                <table class="col-11 z">
                 <tr class="t">
                         <th>ลำดับ</th>
                         <th>รูปภาพ</th>
@@ -32,7 +32,7 @@
                         <th>ราคาต่อชิ้น</th>
                         <th>จำนวน</th>
                         <th>ราคารวม</th>
-                        <th  colspan="2">ลบ หรือ แก้ไข</th>
+                        <th></th>
                     </tr>
                     <tr>
                         <th>1</th>
@@ -42,8 +42,7 @@
                         <th>2</th>
                         <th>210 บาท</th>
                         <th><a type="button"  data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1"><img class='delete' src="./src/images/icon-delete.png" width="25"></a>
-                        </th>
-                        <th><a type="button"  data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm2"><img class='pencil' src="./src/images/icon-pencil.png" width="25"></a>
+                        <a type="button"  data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm2"><img class='pencil' src="./src/images/icon-pencil.png" width="25"></a>
                         </th>
                     </tr>
                     <tr class="t">
@@ -53,10 +52,11 @@
                                         <option value="installment">ผ่อนชำระ</option>
                                         </th>
                                         <th  colspan="6">
-                                            <div class="title page">
-                                                <h5 style="display: inline;">จำนวน 2 ชิ้น   &nbsp</h5>
-                                                <h5 style="display: inline;">ยอดรวมทั้งหมด : 210 บาท &nbsp &nbsp</h5>
-                                                <a type="button"  data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm3">ยืนยัน</a>
+                                            <div class=" d-flex justify-content-end">
+                                                <h5 class="a" >จำนวน 2 ชิ้น   &nbsp</h5>
+                                                <h5 class="a" >ยอดรวมทั้งหมด : 210 บาท &nbsp &nbsp</h5>
+
+                                                <button type="button"  data-bs-toggle="modal" class="r" data-bs-target=".bd-example-modal-sm3">ยืนยัน</button>
                                             </div>
 
                         </th>
@@ -70,7 +70,7 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title2" id="exampleModalLabel">ลบบัญชีรับเงิน</h5>
+                                            <h5 class="modal-title2" id="exampleModalLabel">ลบรายการ</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
