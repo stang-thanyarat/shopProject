@@ -6,13 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="./src/css/t.css" />
+    <link rel="stylesheet" href="./src/css/confirm2.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <?php include('nav.php'); ?>
 
 <body>
+    <script src="./src/js/confirm.js"></script>
     <form>
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
@@ -216,10 +217,10 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <center>รายการ: &nbsp;<input type="text" name="editlist" id="editlist" required /><br>
+                        <center>รายการ: &nbsp;<input type="text" name="editlist" id="editlist" /><br>
                             <p></p>
                         </center>
-                        <center>ราคา: &nbsp;<input type="text" name="editpriceother" id="editpriceother" required />
+                        <center>ราคา: &nbsp;<input type="text" name="editpriceother" id="editpriceother" />
                             <p></p>
                         </center>
 
@@ -244,13 +245,13 @@
                     <h3>ยืนยันที่จะลบ</h3>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary1">ตกลง</button>
+                    <button type="submit" onclick="delrow()" class="btn btn-primary1">ตกลง</button>
                 </div>
             </div>
         </div>
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-<script src="./src/js/t.js"></script>
+<script src="./src/js/confirm.js"></script>
 
 </html>
