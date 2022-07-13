@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,13 +10,14 @@
     <title>Document</title>
 </head>
 <?php include('nav2.php'); ?>
+
 <body>
     <form>
         <div class="col a">
             <h5 class="b">ประเภทสินค้า</h5>
         </div>
         <div class="row">
-        <div class="col-1 Nbar min-vh-100"><?php include('bar2.php'); ?></div>
+            <div class="col-1 Nbar min-vh-100"><?php include('bar2.php'); ?></div>
             <div class="col-11">
                 <div class="col main row-5" style="margin-top:20px;">
                     <?php for ($i = 0; $i < 15; $i++) { ?>

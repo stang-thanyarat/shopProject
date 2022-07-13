@@ -5,7 +5,7 @@
     --bs-gutter-x: 0rem;
 }
 
-.row{
+.row {
     --bs-gutter-x: 0rem;
 }
 
@@ -27,7 +27,7 @@
     margin-top: 2rem;
 }
 
-.brr{
+.brr {
     margin-top: 2rem;
     margin-left: -0.9rem;
 }
@@ -119,6 +119,6 @@
 }
 
 
-.s{
+.s {
     border: 0ch;
 }

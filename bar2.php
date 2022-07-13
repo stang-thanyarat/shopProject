@@ -25,8 +25,8 @@
             <li><a href="#">ยากำจัดวัชพืช</a></li>
             <li><a href="#">ปุ๋ยเคมี</a></li>
             <h5 class="ma">ผู้เยื่ยมชม : 10</h5>
-            <h5 class="m">วันที่ <?php echo date("d-m-Y");?></h5>
-            <h5 class="ma">เวลา mn <?php echo date("H:i");?></h5>
+            <h5 class="m">วันที่ <?php echo date("d-m-Y"); ?></h5>
+            <h5 class="ma">เวลา mn <?php echo date("H:i"); ?></h5>
         </ul>
     </div>
 </body>

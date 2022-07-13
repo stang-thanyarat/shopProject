@@ -16,8 +16,7 @@ function checkID(id) {
         return false
     }
 }
-
 function IsNumeric(val) {
-  /*  var pattern = /^\d+\.?\d*$/;
-    return pattern.test(str); */
+    /*  var pattern = /^\d+\.?\d*$/;
+      return pattern.test(str); */
 }

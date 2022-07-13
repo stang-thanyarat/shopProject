@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&display=swap');
 
-.row{
-     --bs-gutter-x: 0rem;
+.row {
+    --bs-gutter-x: 0rem;
 }
 
 .BgLeft {
@@ -35,7 +35,7 @@
     color: #A36627;
 }
 
-.bi{
+.bi {
     margin-left: -50px;
     margin-top: -10px;
     font-size: 25pt;

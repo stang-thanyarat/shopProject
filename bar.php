@@ -12,7 +12,7 @@
     <a class="nav-link bar-link" href="#6">ใบสั่งซื้อ</a>
     <a class="nav-link bar-link" href="#7">ประวัติการสั่งซื้อ</a>
     <h5><span><img src="./src/images/sell.png" width="25" height="25" /></span> สินค้า</h5>
-    <hr /> 
+    <hr />
     <a class="nav-link bar-link" href="#8">สินค้าทั้งหมด</a>
     <a class="nav-link bar-link" href="#9">ประเภทสินค้า</a>
     <h5><span><img src="./src/images/employee.png" width="25" height="25" /></span> พนักงาน</h5>
