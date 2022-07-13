@@ -80,7 +80,7 @@ input:checked+.slider:before {
 }
 
 .mai {
-    margin-left: 70rem;
+    margin-left: 67rem;
 }
 
 .ma {
@@ -128,6 +128,8 @@ select {
     border-radius: 25px 25px 25px 25px;
     background-color: #F8E4C8;
     border: 0ch;
+    font-size: 13pt;
+    height: 97%;
 }
 
 .btn {
@@ -140,6 +142,10 @@ select {
     background: transparent;
     border: 0px;
     margin-left: -2rem;
+}
+
+.w{
+    margin-left: -0.5rem;
 }
 
 .bgs {
@@ -158,7 +164,7 @@ select {
 }
 
 .modal-footer {
-    background-color: #D4DDC6;
+    background-color: white;
 }
 
 .modal-title2 {

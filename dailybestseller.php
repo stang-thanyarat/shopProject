@@ -32,7 +32,7 @@
                 <div class="col-3">
                     <input type="date" name="date" />
                 </div>
-                <div class="col-4">
+                <div class="col-4 w">
                     <form>
                         <input type="text" class="btn-d" placeholder="&nbsp ชื่อสินค้า">
                         <button type="submit" class="s">
@@ -58,7 +58,6 @@
                     <th>xx</th>
                     <th>
                         <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
-                        <button type="button" class="bgs"><img src="./src/images/icon-pencil.png" width="25"></button>
                     </th>
                 </tr>
                 <tr>
@@ -69,7 +68,6 @@
                     <th>xx</th>
                     <th>
                         <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
-                        <button type="button" class="bgs"><img src="./src/images/icon-pencil.png" width="25"></button>
                     </th>
                 </tr>
             </table>

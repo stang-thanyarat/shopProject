@@ -131,7 +131,7 @@
                     <tr>
                         <th>
                             <div class="col d-flex justify-content-end">
-                                <button type="button" id="addmodel_btn" class="btn btn-primary1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl">เพิ่มบัญชีใหม่</button>
+                                <button type="button" id="addmodel_btn" class="btn btn-primary1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm">เพิ่มบัญชีใหม่</button>
                             </div>
             </div>
             <table class="wh m">
@@ -164,9 +164,9 @@
     </form>
 
     <!---modal เพิ่มบัญชีใหม่-->
-    <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <form name="addbankaccount" method="post" id="addbankaccount">
-            <div class="modal-dialog modal-xl">
+            <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">เพิ่มบัญชีใหม่</h5>
@@ -175,16 +175,22 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <label for="bank">&nbsp &nbsp ธนาคาร : </label>
-                        <select name="bank" id="addbank">
-                            <option value="" selected hidden>เลือกธนาคาร</option>
-                            <option value="ธนาคารกรุงไทย">ธนาคารกรุงไทย</option>
-                            <option value="ธนาคารไทยพาณิชย์">ธนาคารไทยพาณิชย์</option>
-                            <option value="ธนาคารกสิกรไทย">ธนาคารกสิกรไทย</option>
-                            <option value="ธนาคารกรุงเทพ">ธนาคารกรุงเทพ</option>
-                        </select>
-                        &nbsp &nbsp เลขบัญชี : <input type="text" id="addbanknumber"></input>
-                        &nbsp &nbsp ชื่อบัญชี : <input type="text" id="addbankaccountname"></input>
+                        <div class="row">
+                            <label for="bank">ธนาคาร : </label>
+                            <select name="bank" id="addbank" required>
+                                <option value="" selected hidden>เลือกธนาคาร</option>
+                                <option value="ธนาคารกรุงไทย">ธนาคารกรุงไทย</option>
+                                <option value="ธนาคารไทยพาณิชย์">ธนาคารไทยพาณิชย์</option>
+                                <option value="ธนาคารกสิกรไทย">ธนาคารกสิกรไทย</option>
+                                <option value="ธนาคารกรุงเทพ">ธนาคารกรุงเทพ</option>
+                            </select>
+                        </div><br>
+                        <div class="row">
+                            เลขบัญชี : <input type="text" id="addbanknumber" required></input>
+                        </div><br>
+                        <div class="row">
+                            ชื่อบัญชี : <input type="text" id="addbankaccountname" required></input>
+                        </div>
                         <br>
                         <div class="modal-footer">
                             <button type="submit" id="addtable" class="btn btn-primary2">ตกลง</button>

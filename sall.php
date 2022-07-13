@@ -29,7 +29,7 @@
                         <button type="submit" class="s">
                             <img src="./src/images/search.png" width="15">
                     </div>
-                    <div class="col-1">
+                    <div class="col-1 w">
                         <a class="submit btn" href="addseller.php"><img class='add' src="./src/images/plus.png" width="25" alt="">&nbsp เพิ่มผู้ขาย</a>
                     </div>
                 </div>
@@ -45,6 +45,7 @@
                         <th>0745560004191</th>
                         <th><img src="./src/images/1.png" width="100"></th>
                         <th>
+                            <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
                             <button type="button" class="btn1" onclick="javascript:window.location='editstaff.php';"><img src="./src/images/icon-pencil.png" width="25"></button>
                         </th>
                     </tr>

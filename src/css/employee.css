@@ -67,7 +67,7 @@ input:checked+.slider:before {
     border-radius: 50%;
 }
 
-.row{
+.row {
     --bs-gutter-x: 0rem;
 }
 
@@ -82,7 +82,7 @@ input:checked+.slider:before {
 }
 
 .mai {
-    margin-left: 70rem;
+    margin-left: 70.7rem;
 }
 
 .ma {
@@ -127,12 +127,14 @@ select {
     background-color: #F8E4C8;
     border: 0ch;
     margin-left: 5rem;
+    font-size: 13pt;
+    height: 97%;
 }
 
 .btn {
     border-radius: 25px 25px 25px 25px;
-    font-size: 16pt;
-    width: 150%;
+    font-size: 13pt;
+    width: 120%;
 }
 
 .s {
@@ -141,12 +143,16 @@ select {
     margin-left: -2rem;
 }
 
-.bgs{
+.w {
+    margin-left: 1rem;
+}
+
+.bgs {
     border: 0ch;
     background-color: white;
 }
 
-.btn1{
+.btn1 {
     border: 0ch;
     background-color: white;
 }
@@ -198,6 +204,14 @@ select {
 }
 
 /*ลบ*/
+
+.modal-header {
+    background-color: #688557;
+}
+
+.modal-title2 {
+    color: white;
+}
 
 .btn-primary2 {
     background-color: #7C904E;

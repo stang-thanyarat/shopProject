@@ -27,6 +27,11 @@
     margin-top: 2rem;
 }
 
+.brr{
+    margin-top: 2rem;
+    margin-left: -0.9rem;
+}
+
 .box1 {
     width: 600px;
     height: 40px;
@@ -91,6 +96,7 @@
     margin-left: 1rem;
     font-size: 16pt;
     width: 150px;
+    height: 50%;
     background-color: #ABBE99;
     border: 0in;
 }
@@ -99,6 +105,7 @@
     margin-left: 1rem;
     font-size: 16pt;
     width: 150px;
+    height: 50%;
     background-color: #ABBE99;
     border: 0in;
 }
@@ -106,7 +113,7 @@
 .d {
     margin-left: 1rem;
     font-size: 16pt;
-    width: 400px;
+    width: 350px;
     background-color: #ABBE99;
     border: 0in;
 }

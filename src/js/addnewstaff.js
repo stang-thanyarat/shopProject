@@ -21,8 +21,7 @@ function autoTab(obj) {
     }
 
     let id = document.form1.idcardnumber.value.split(/ /)[0].replace(/[^\d]/g, '')
-    if (!checkID(id))
-        alert('รหัสประชาชนไม่ถูกต้อง');
+
 }
 
 //เช็คเลข13หลัก
@@ -42,6 +41,10 @@ function checkID(id) {
 //ตรวจสอบพร้อมส่งข้อมูล
 $("#form1").submit(function (event) {
     event.preventDefault();
+    if (!checkID(id))
+        alert('รหัสประชาชนไม่ถูกต้อง');
+    if (!phonenumber(document.form1.telephone.value))
+        alert('เบอร์โทรศัพท์ไม่ถูกต้อง');
     if (JSON.parse(localStorage.getItem("tableBank")).data.length <= 0)
         alert('กรุณากรอกข้อมูลบัญชีธนาคาร');
 })
@@ -62,8 +65,7 @@ function autoTab2(obj) {
     if (obj_l >= pattern.length) {
         obj.value = obj.value.substr(0, pattern.length);
     }
-    if (!phonenumber(document.form1.telephone.value))
-        alert('เบอร์โทรศัพท์ไม่ถูกต้อง');
+
 }
 
 //เช็คอีเมล
@@ -173,8 +175,7 @@ function delrow() {
     const index = localStorage.getItem('deleteIndex')
     let rows = tableObj.data
     if (rows.length > 0) {
-        rows.splice(index, index - 1)
-        $('#rr' + index).remove()
+        rows.splice(index - 1)
     }
     $('#banktable').html("")
     rows.forEach((e, i) => {
@@ -189,6 +190,7 @@ function delrow() {
                     </th>
                 </tr>`)
     });
+    tableObj.data = rows
     localStorage.setItem("tableBank", JSON.stringify(tableObj))
     localStorage.removeItem('deleteIndex')
     $('#closedelrow').click()

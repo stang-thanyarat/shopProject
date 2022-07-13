@@ -12,7 +12,6 @@
 <?php include('nav.php'); ?>
 
 <body>
-    <form>
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
@@ -20,7 +19,7 @@
                     <div class="col-6 aa">
                         <h1>ร้านวรเชษฐ์เกษตรภัณฑ์</h1>
                     </div>
-                    <div class="row br">
+                    <div class="row brr">
                         <h5>ยินดีตอนรับ ผู้ใช้งานระบบ</h5>
                     </div>
                     <div class="row">
@@ -47,20 +46,19 @@
                     <div class="line br"></div>
                     <div class="row br">
                         <div class="col-2">
-                            <a button type="stubmit" class="a" href="dailybestseller.php">&nbsp สินค้าขายดี &nbsp </a>
+                            <button type="stubmit" class="a" onclick="javascript:window.location='dailybestseller.php';">&nbsp สินค้าขายดี &nbsp </button>
                         </div>
                         <div class="col-2">
-                            <a button type="stubmit" class="b" href="expiredproduct.php">&nbsp สินค้าหมดอายุ &nbsp </a>
+                            <button type="stubmit" class="b" onclick="javascript:window.location='expiredproduct.php';">&nbsp สินค้าหมดอายุ &nbsp&nbsp </button>
                         </div>
                         <div class="col-2">
-                            <a button type="stubmit" class="c" href="searchstatistics.php">&nbsp สถิติการค้นหา &nbsp </a>
+                            <button type="stubmit" class="c" onclick="javascript:window.location='searchstatistics.php'";>&nbsp สถิติการค้นหา &nbsp </button>
                         </div>
                         <div class="col-5">
-                            <a button type="stubmit" class="d" href="productsearchstatistics.php">&nbsp สถิติการค้นหาโดยประเภทสินค้า &nbsp </a>
+                            <button type="stubmit" class="d" onclick="javascript:window.location='productsearchstatistics.php';">&nbsp สถิติการค้นหาโดยประเภทสินค้า &nbsp </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </form>
 </body>

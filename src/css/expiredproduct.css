@@ -4,7 +4,7 @@
     font-family: 'IBM Plex Sans Thai', sans-serif;
 }
 
-.row{
+.row {
     --bs-gutter-x: 0;
 }
 
@@ -20,7 +20,7 @@
 
 .ma {
     margin-top: 1rem;
-    margin-left: 63rem;
+    margin-left: 66rem;
 }
 
 .mai {
@@ -64,6 +64,8 @@ option {
     border-radius: 25px 25px 25px 25px;
     background-color: #F8E4C8;
     border: 0ch;
+    font-size: 13pt;
+    height: 97%;
 
 }
 
@@ -73,7 +75,15 @@ option {
     margin-left: -2rem;
 }
 
-.bgs{
+.w {
+    margin-left: -1rem;
+}
+
+.ww{
+    margin-left: -1rem;
+}
+
+.bgs {
     border: 0ch;
     background-color: white;
 }
@@ -89,7 +99,7 @@ option {
 }
 
 .modal-footer {
-    background-color: #D4DDC6;
+    background-color: white;
 }
 
 .modal-title2 {

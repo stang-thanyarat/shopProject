@@ -27,7 +27,7 @@
                         <button type="submit" class="s">
                             <img src="./src/images/search.png" width="15">
                     </div>
-                    <div class="col-1">
+                    <div class="col-1 w">
                         <a class="submit btn" href="addnewstaff.php"><img class='add' src="./src/images/plus.png" width="25">&nbsp เพิ่มพนักงาน</a>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                             </label>
                         </th>
                         <th>
-                            <button type="submit" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
+                            <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
                             <button type="button" class="btn1" onclick="javascript:window.location='editstaff.php';"><img src="./src/images/icon-pencil.png" width="25"></button>
                         </th>
                     </tr>
@@ -65,32 +65,34 @@
                             </label>
                         </th>
                         <th>
-                            <button type="submit" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
+                            <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
                             <button type="button" class="btn1" onclick="javascript:window.location='editstaff.php';"><img src="./src/images/icon-pencil.png" width="25"></button>
                         </th>
                     </tr>
                 </table>
             </div>
         </div>
+    </form>
 
-        <!-- ลบ -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title2" id="exampleModalLabel">ลบบัญชีรับเงิน</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h3>ยืนยันที่จะลบ</h3>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary2">ตกลง</button>
-                    </div>
+    <!-- ลบ -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title2" id="exampleModalLabel">ลบบัญชีรับเงิน</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h3>ยืนยันที่จะลบ</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary2">ตกลง</button>
                 </div>
             </div>
         </div>
-    </form>
+    </div>
+
+
 </body>
 
 </html>
