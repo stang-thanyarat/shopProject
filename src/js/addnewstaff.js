@@ -173,8 +173,7 @@ function delrow() {
     const index = localStorage.getItem('deleteIndex')
     let rows = tableObj.data
     if (rows.length > 0) {
-        rows.splice(index, index - 1)
-        $('#rr' + index).remove()
+        rows.splice(index - 1)
     }
     $('#banktable').html("")
     rows.forEach((e, i) => {
@@ -189,6 +188,7 @@ function delrow() {
                     </th>
                 </tr>`)
     });
+    tableObj.data = rows
     localStorage.setItem("tableBank", JSON.stringify(tableObj))
     localStorage.removeItem('deleteIndex')
     $('#closedelrow').click()
