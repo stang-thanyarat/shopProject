@@ -25,9 +25,11 @@
 
 .a {
     margin-top: 1rem;
-    margin-left: 7rem;
+    margin-left: 4rem;
+    margin-right: -6rem;
     
 }
+
 
 table,
 td,
@@ -59,10 +61,27 @@ th {
     margin-top: 1rem;
 }
 
+.reset {
+    background-color: #E0B87E;
+    color: white;
+    border: 0ch;
+    margin-left: 4rem;
+}
 .btn-c {
     border-radius: 25px 25px 25px 25px;
     font-size: 20pt;
     width: 60%;
+}
+.reset1{
+    background-color: #A36627;
+    color: white;
+    border: 0ch;
+    margin-left: 4rem;
+}
+.btn-c1 {
+    
+    font-size: 11pt;
+    width: 70%;
 }
 
 .submit {
@@ -71,12 +90,7 @@ th {
     border: 0ch;
 }
 
-.reset {
-    background-color: #E0B87E;
-    color: white;
-    border: 0ch;
-    margin-left: 4rem;
-}
+
 
 .switch {
     position: relative;
@@ -190,4 +204,40 @@ input:checked+.slider:before {
 }
 .topic{
     margin-left: 20rem;
+}
+
+.inbox {
+    margin-left: 2rem
+}
+.productname{
+    margin-left: 1.9rem
+}
+.productnumber{
+    margin-left: 2rem
+}
+.productversion{
+    margin-left: 1.9rem
+}
+.sellername{
+    margin-left: 1.2rem
+}
+.image{
+    margin-left: 0.1rem;
+}
+.productinformation{
+    margin-left: -6.5rem;
+}
+.price{
+    margin-left: 1.2rem;
+}
+.vax{
+    margin-left: -0.4rem;
+    margin-top: -0.1rem;
+}
+.vaxcheckbox{
+    margin-top: 0.5rem;
+}
+.costprice{
+    margin-left: -9.55rem;
+    margin-top: 0.1rem;
 }

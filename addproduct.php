@@ -35,8 +35,8 @@
                         <th>
                             <div class="row a">
                                 <div class="col">
-                                    <label for="type">ประเภทสินค้า:</label>
-                                    <select name="type" id="type" required>
+                                    <label for="type">ประเภทสินค้า :</label>
+                                    <select name="type" id="type" class="inbox" required>
                                         <option value="lawn mower blade">ใบตัดหญ้า</option>
                                         <option value="kit">ชุดเสื้อสูบ</option>
                                         <option value="gear knob">หัวเกียร์</option>
@@ -54,40 +54,40 @@
                                         <option value="chemical fertilizer">ปุ๋ยเคมี</option>
                                     </select>
                                 </div>
-                                <div class="col">
-                                    <label for="no.">รหัสสินค้า : </label><label for="no."> A01</label>
+                                <div class="col productnumber ">
+                                    <label for="no.">รหัสสินค้า :&nbsp</label><label for="no." class="inbox">A01</label>
                                 </div>
                             </div>
 
                             <div class="row a">
-                                <div class="col">
+                                <div class="col productname">
                                     <label for="address">ชื่อสินค้า :</label>
-                                    <input name="lastname" type="text" id="lastname" required />
+                                    <input name="lastname" type="text" id="lastname" class="inbox" required />
                                 </div>
                                 <div class="col">
                                     <label for="birthday">ยี่ห้อสินค้า :</label>
-                                    <input name="lastname" type="text" id="lastname" required />
+                                    <input name="lastname" type="text" id="lastname" class="inbox" required />
                                 </div>
                             </div>
 
                             <div class="row a">
-                                <div class="col">
+                                <div class="col productversion">
                                 <label for="birthday">รุ่นสินค้า :</label>
-                                    <input name="lastname" type="text" id="lastname" required />
+                                    <input name="lastname" type="text" id="lastname" class="inbox" required />
                                 </div>
-                                <div class="col">
-                                    <label for="ID card numbe">ชื่อผู้ขาย :</label>
-                                    <select name="type" id="type" required>
+                                <div class="col sellername">
+                                    <label for="">ชื่อผู้ขาย :</label>
+                                    <select name="type" id="type" class="inbox" required>
                                         <option value="RS intertred(2017)">อาร์เอส อินเตอร์เทรด (2017) จำกัด</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="row a">
-                                <div class="col">
-                                    รูปภาพสินค้า : <input type="file" accept="image/*" name="copyofIDcard" required>
+                                <div class="col image">
+                                    รูปภาพสินค้า : <input type="file" accept="image/*" name="copyofIDcard" class="inbox" required>
                                 </div>
-                                <div class="col">
-                                    รูปรายละเอียดสินค้า : <input type="file" accept="image/*" name="Copyofhouseregistration" required>
+                                <div class="col productinformation">
+                                    รูปรายละเอียดสินค้า : <input type="file" accept="image/*" name="Copyofhouseregistration" class="inbox" required>
                                 </div>
                             </div>
 
@@ -119,16 +119,17 @@
                                         <option value="bag">ถุง</option><option value="sack">กระสอบ</option>
                                     </select>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-3 price">
                                     <label for="birthday">ราคาขาย :</label>
-                                    <input name="lastname" type="text" id="lastname" required />
+                                    <input name="lastname" type="text" id="lastname" class="inbox" required />
                                 </div>
-                                <div class="col-2">
-                                    <label class="checkbox"><input type="checkbox"></label>
+                                <div class="col-2 vax">
+                                <input type="checkbox" class="vaxcheckbox">
+                                    <label class="checkbox"></label>
                                         ภาษีมูลค่าเพิ่ม
                                 </div>
-                                    <div class="col-1">
-                                        <button type="button" class="btn btn-primary1" data-bs-toggle="modal" data-bs-target=".    bd-example-modal-xl">ดูราคาทุน</button>
+                                    <div class="col-1 costprice">
+                                        <button type="button" class="btn-c1 reset1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl">ดูราคาทุน</button>
                                 </div>
                             </div>
 
