@@ -98,19 +98,19 @@
                             </div>
 
                             <div class="row a">
-                                <div class="col">
-                                <label for="note">รายละเอียด :&nbsp;</label>
-                                        <textarea name="note" cols="50" rows="5" style="vertical-align:top;"></textarea>
+                                <div class="col details">
+                                <label for="note">รายละเอียด :</label>
+                                        <textarea name="note" cols="50" rows="5"class="inbox" style="vertical-align:top;"></textarea>
                                 </div>
-                                <div class="col">
+                                <div class="col amount">
                                     <label for="birthday">จำนวน :</label>
-                                    <input name="lastname" type="text" id="lastname" required />
+                                    <input name="lastname" type="text" id="lastname" class="inbox" required />
                                 </div>
                             </div>
                             <div class="row a">
-                                <div class="col-6">
-                                    <label for="type">หน่วยนับ:</label>
-                                    <select name="type" id="type" required>
+                                <div class="col-5 unit">
+                                    <label for="type">หน่วยนับ :</label>
+                                    <select name="type" id="type" class="inbox" required>
                                         <option value="envelope">ซอง</option>
                                         <option value="bottle">ขวด</option>
                                         <option value="item">ชิ้น</option>
@@ -134,35 +134,35 @@
                             </div>
 
                             <div class="row a">
-                                <div class="col">
+                                <div class="col status">
                                     สถานะการขาย : 
                                     <label class="switch">
                                     <input type="checkbox">
-                                    <span class="slider round"></span>
+                                    <span class="slider round inbox"></span>
                                     </label>
                                 </div>
-                                <div class="col">
+                                <div class="col min1">
                                     <label for="birthday">สินค้าคงคลังขั้นต่ำ :</label>
-                                    <input name="lastname" type="text" id="lastname" required />
+                                    <input name="lastname" type="text" id="lastname" class="inbox" required />
                                 </div>
                             </div>
             
                             <div class="row a">
-                                <div class="col">
-                                    <label class="checkbox">
-                                    <input type="checkbox">
+                                <div class="col settingmin">
+                                    <label class="checkbox" >
+                                    <input type="checkbox" >
                                     </label>
-                                    <label for="setting">ตั้งค่าสินค้าคงคลังขั้นต่ำล่วงหน้า </label>
+                                    <label for="setting">&nbsp&nbspตั้งค่าสินค้าคงคลังขั้นต่ำล่วงหน้า</label>
                                 </div>
                             </div>
 
                             <div class="row a">
-                                <div class="col">
+                                <div class="col start">
                                     <label for="date">วันที่เริ่มใช้งาน :</label>
-                                    <input name="lastname" type="date" id="lastname" required /></div>
-                                <div class="col">
+                                    <input name="lastname" type="date" id="lastname" class="inbox" required /></div>
+                                <div class="col min2">
                                     <label for="birthday">สินค้าคงคลังขั้นต่ำ :</label>
-                                    <input name="lastname" type="text" id="lastname" required /></div>
+                                    <input name="lastname" type="text" id="lastname" class="inbox" required /></div>
                                 </div>
                             </div>
                             <br>

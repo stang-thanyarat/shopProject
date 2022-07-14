@@ -25,8 +25,8 @@
 
 .a {
     margin-top: 1rem;
-    margin-left: 4rem;
-    margin-right: -6rem;
+    margin-left: 3rem;
+    margin-right: -5rem;
     
 }
 
@@ -95,8 +95,9 @@ th {
 .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
+    width: 90px;
     height: 34px;
+    
 }
 
 /* Hide default HTML checkbox */
@@ -148,6 +149,7 @@ input:checked+.slider:before {
 /* Rounded sliders */
 .slider.round {
     border-radius: 34px;
+    
 }
 
 .slider.round:before {
@@ -186,9 +188,6 @@ input:checked+.slider:before {
     border: 0in;
     border-radius: 25px;
 }
-.row{
-    --bs-gutter-x: 0rem;
-}
 
 .u{
     width: 100px;
@@ -201,9 +200,6 @@ input:checked+.slider:before {
     height: 45px;
     width: 100%;
    
-}
-.topic{
-    margin-left: 20rem;
 }
 
 .inbox {
@@ -228,7 +224,7 @@ input:checked+.slider:before {
     margin-left: -6.5rem;
 }
 .price{
-    margin-left: 1.2rem;
+    margin-left: 6.3rem;
 }
 .vax{
     margin-left: -0.4rem;
@@ -240,4 +236,28 @@ input:checked+.slider:before {
 .costprice{
     margin-left: -9.55rem;
     margin-top: 0.1rem;
+}
+.details{
+    margin-left: 0.5rem;
+}
+.amount{
+    margin-left: 4rem;
+}
+.unit{
+    margin-left: 1.7rem;
+}
+.status{
+    margin-left: -0.7rem;
+}
+.start{
+    margin-left: -0.3rem;
+}
+.min1{
+    margin-left: -4.1rem;
+}
+.min2{
+    margin-left: -4.8rem;
+}
+.settingmin{
+    margin-left: -0.7rem;
 }
