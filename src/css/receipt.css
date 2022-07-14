@@ -1,18 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&display=swap');
-
-* {
+*{
     font-family: 'IBM Plex Sans Thai', sans-serif;
-
-}
-
-.row {
-    --bs-gutter-x: 0rem;
 }
 
 .main{
     margin-top: 5rem;
     margin-left: 4rem;
     text-align: center;
+    width: 90%;
 }
 
 table,
@@ -39,7 +34,9 @@ th{
     margin-right: 5rem;
     margin-bottom: 2rem;
 }
-
+.row{
+    --bs-gutter-x: 0rem;
+}
 .s{
     background-color: #fff;
     border: 0in;
@@ -48,3 +45,4 @@ th{
 .col-10{
     margin-top: 1rem;
 }
+
