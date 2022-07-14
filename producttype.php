@@ -19,17 +19,14 @@
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
-                    <div class="col-12">
+                    <div class="col">
                         <h1>ประเภทสินค้า</h1>
                     </div>
-                    <div class="col-2 mai">
-                    </div>
-                    <div class="col-1"  >
+                    <div class="col-2 addproducttypebutton">
                         <button class="submit btn" id="addmodel_btn" type="button"  data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl1"><img class='add' src="./src/images/plus.png" width="25">&nbsp เพิ่มประเภทสินค้า</button>
                     </div>
                 </div>
-<br>
-                <table  align="center" class="wh m">
+                <table class="col-13 tbproducttype">
                 <thead>
                     <tr>
                         <th>ลำดับ</th>

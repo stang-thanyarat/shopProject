@@ -27,7 +27,7 @@
     margin-top: 1rem;
     margin-left: 3rem;
     margin-right: -5rem;
-    
+
 }
 
 
@@ -67,21 +67,11 @@ th {
     border: 0ch;
     margin-left: 4rem;
 }
+
 .btn-c {
     border-radius: 25px 25px 25px 25px;
     font-size: 20pt;
     width: 60%;
-}
-.reset1{
-    background-color: #A36627;
-    color: white;
-    border: 0ch;
-    margin-left: 4rem;
-}
-.btn-c1 {
-    
-    font-size: 11pt;
-    width: 70%;
 }
 
 .submit {
@@ -90,14 +80,12 @@ th {
     border: 0ch;
 }
 
-
-
 .switch {
     position: relative;
     display: inline-block;
     width: 90px;
     height: 34px;
-    
+
 }
 
 /* Hide default HTML checkbox */
@@ -149,7 +137,7 @@ input:checked+.slider:before {
 /* Rounded sliders */
 .slider.round {
     border-radius: 34px;
-    
+
 }
 
 .slider.round:before {
@@ -157,107 +145,146 @@ input:checked+.slider:before {
 }
 
 
-.modal-header{
+.modal-header {
     background-color: #7C904E;
     height: 50px;
 }
-.modal-title{
+
+.modal-title {
     color: #fff;
 }
-.modal-body1{
-   text-align: center;
-   height: 70px;
-   margin-top: 3rem;
+
+.modal-body1 {
+    text-align: center;
+    height: 70px;
+    margin-top: 3rem;
 }
 
-.btn2{
+.btn2 {
     margin-right: 4.3rem;
     background-color: #7C904E;
     color: #fff;
     border: 0in;
 }
 
-.btn1{
+.btn1 {
     background-color: #fff;
-    
+
 }
 
-.btn3{
+.btn3 {
     background-color: #7C904E;
     color: #fff;
     border: 0in;
     border-radius: 25px;
 }
 
-.u{
+.u {
     width: 100px;
 }
-.h{
+
+.h {
     margin-left: 6rem;
 }
-.t{
+
+.t {
     background-color: #ABBE99;
     height: 45px;
     width: 100%;
-   
+
 }
 
 .inbox {
     margin-left: 2rem
 }
-.productname{
+
+.productname {
     margin-left: 1.9rem
 }
-.productnumber{
+
+.productnumber {
     margin-left: 2rem
 }
-.productversion{
+
+.productversion {
     margin-left: 1.9rem
 }
-.sellername{
+
+.sellername {
     margin-left: 1.2rem
 }
-.image{
+
+.image {
     margin-left: 0.1rem;
 }
-.productinformation{
+
+.productinformation {
     margin-left: -6.5rem;
 }
-.price{
+
+.price {
     margin-left: 6.3rem;
 }
-.vax{
-    margin-left: -0.4rem;
+
+.vax {
+    margin-left: 0.1rem;
     margin-top: -0.1rem;
 }
-.vaxcheckbox{
-    margin-top: 0.5rem;
+
+.vaxcheckbox {
+    width: 20px;
 }
-.costprice{
+
+.vaxcheckboxtext {
+    margin-top: 0.3rem;
+    margin-left: -0rem;
+}
+
+.costprice {
     margin-left: -9.55rem;
     margin-top: 0.1rem;
 }
-.details{
-    margin-left: 0.5rem;
-}
-.amount{
+
+.reset1 {
+    background-color: #A36627;
+    color: white;
+    border: 0ch;
     margin-left: 4rem;
 }
-.unit{
+
+.btn-c1 {
+    font-size: 11pt;
+    width: 70%;
+}
+
+.details {
+    margin-left: 0.5rem;
+}
+
+.amount {
+    margin-left: 4rem;
+}
+
+.unit {
     margin-left: 1.7rem;
 }
-.status{
+
+.status {
     margin-left: -0.7rem;
 }
-.start{
+
+.start {
     margin-left: -0.3rem;
 }
-.min1{
-    margin-left: -4.1rem;
+
+.min1 {
+    margin-left: -4.2rem;
 }
-.min2{
-    margin-left: -4.8rem;
+
+.min2 {
+    margin-left: -4.6rem;
 }
-.settingmin{
+
+.settingmin {
     margin-left: -0.7rem;
 }

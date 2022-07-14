@@ -132,7 +132,12 @@ select {
 .btn {
     border-radius: 25px 25px 25px 25px;
     font-size: 16pt;
-    width: 150%;
+    width: 100%;
+}
+
+.addproducttypebutton{
+    margin-top: 0.25rem;
+    margin-left: -18rem;
 }
 
 .s {
@@ -187,4 +192,8 @@ select {
     height: 45px;
     width: 100%;
    
+}
+.tbproducttype{
+    margin-top: 1rem;
+    margin-left: 3rem;
 }

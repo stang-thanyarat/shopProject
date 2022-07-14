@@ -18,28 +18,25 @@
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
-                    <div class="col-lg-5">
-                    <div class="title page">
-                        <h1 style="display: inline;">การเปลี่ยนสินค้า</h1>        
-                        &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp&nbsp &nbsp
-                        <input type="date" name="birthday" id="birthday" required /> &nbsp  ถึง &nbsp  <input type="date" name="birthday" id="birthday" required />
-                        
-                    </div>
-                    </div>
-                <div class="col-12 d-flex justify-content-end signin">
-                    <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>&nbsp &nbsp
                     <div class="col-3">
-                        <a class="submit BTNC"><img class='add' src="./src/images/plus.png" width="50">เพิ่ม</a>
+                        <h1>การเปลี่ยนสินค้า</h1>
                     </div>
-                </div>
-                <table class="main col-10">
+                    <div class="col-4 datetodate">
+                        <input type="date" name="birthday" id="birthday">
+                        &nbsp&nbspถึง&nbsp&nbsp<input type="date" name="birthday" id="birthday">
+                        <button type="submit" class="s"><img src="./src/images/search.png" width="17.5"></button>
+                    </div>
+                    <div class="col-3 addpdr d-flex justify-content-end signin">
+                        <button class="submit btn"><img class='plus' src="./src/images/plus.png" width="30">&nbspเพิ่ม</button>
+                    </div>
+                <table class="col-11 pdrtb">
                     <tr>
                         <th>วันที่เปลี่ยนสินค้า</th>
                         <th>เวลา</th>
                         <th>ชื่อสินค้า</th>
                         <th>จำนวน</th>
                         <th>สถานะการขาย</th>
-                        <th  colspan="2">ลบ หรือ แก้ไข</th>
+                        <th></th>
                     </tr>
                     <tr>
                         <th>05/11/2021</th>
@@ -48,8 +45,6 @@
                         <th>1</th>
                         <th>รอของ</th>
                         <th><a type="button"  data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1"><img src="./src/images/icon-delete.png" width="25">
-                        </th>
-                        <th>
                         <a type="button"  data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm3"><img src="./src/images/icon-pencil.png" width="25">
                         </th>
                     </tr>

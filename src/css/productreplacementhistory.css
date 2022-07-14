@@ -53,17 +53,6 @@ th {
     background-color: #F8E4C8;
     border-radius: 25px;
 }
-.BTNC{
-    background-color: #7C904E;
-    color: #000;
-    border-radius: 25px;
-    font-size: 16pt;
-    display: inline-block;
-    width: 65%;
-    text-decoration: none;
-    text-align: center;
-
-}
 
 .s{
     background: transparent;
@@ -84,10 +73,17 @@ th {
     margin-left: 5rem;
 }
 
+.submit {
+    background-color: #7C904E;
+    border: 0ch;
+    color: white;
+}
+
 .btn {
     border-radius: 25px 25px 25px 25px;
     font-size: 16pt;
-    width: 150%;
+    width: 40%;
+    height: 85%;
 }
 
 .slider.round {
@@ -180,5 +176,21 @@ input:checked+.slider:before {
     background-color: #ABBE99;
     height: 45px;
     width: 100%;
-   
+}
+.datetodate{
+    margin-top: 0.55rem;
+    margin-left: 24rem;
+}
+.s{
+    margin-left: 0.5rem;
+}
+.plus{
+    margin-left: -1rem;
+}
+.addpdr{
+    margin-left: -16.5rem;
+}
+.pdrtb{
+    margin-top: 1rem;
+    margin-left: -0.5rem;
 }

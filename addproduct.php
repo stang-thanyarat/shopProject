@@ -35,7 +35,7 @@
                         <th>
                             <div class="row a">
                                 <div class="col">
-                                    <label for="type">ประเภทสินค้า :</label>
+                                    ประเภทสินค้า :<font color="red">&nbsp*</font>
                                     <select name="type" id="type" class="inbox" required>
                                         <option value="lawn mower blade">ใบตัดหญ้า</option>
                                         <option value="kit">ชุดเสื้อสูบ</option>
@@ -55,28 +55,30 @@
                                     </select>
                                 </div>
                                 <div class="col productnumber ">
-                                    <label for="no.">รหัสสินค้า :&nbsp</label><label for="no." class="inbox">A01</label>
+                                    รหัสสินค้า :<font color="red">&nbsp*</font>
+                                    <label for="no." class="inbox">A01
+                                    </label>
                                 </div>
                             </div>
 
                             <div class="row a">
                                 <div class="col productname">
-                                    <label for="address">ชื่อสินค้า :</label>
+                                    ชื่อสินค้า :<font color="red">&nbsp*</font>
                                     <input name="lastname" type="text" id="lastname" class="inbox" required />
                                 </div>
                                 <div class="col">
-                                    <label for="birthday">ยี่ห้อสินค้า :</label>
+                                    ยี่ห้อสินค้า :<font color="red">&nbsp*</font>
                                     <input name="lastname" type="text" id="lastname" class="inbox" required />
                                 </div>
                             </div>
 
                             <div class="row a">
                                 <div class="col productversion">
-                                <label for="birthday">รุ่นสินค้า :</label>
+                                    รุ่นสินค้า :<font color="red">&nbsp*</font>
                                     <input name="lastname" type="text" id="lastname" class="inbox" required />
                                 </div>
                                 <div class="col sellername">
-                                    <label for="">ชื่อผู้ขาย :</label>
+                                    ชื่อผู้ขาย :<font color="red">&nbsp*</font>
                                     <select name="type" id="type" class="inbox" required>
                                         <option value="RS intertred(2017)">อาร์เอส อินเตอร์เทรด (2017) จำกัด</option>
                                     </select>
@@ -84,10 +86,12 @@
                             </div>
                             <div class="row a">
                                 <div class="col image">
-                                    รูปภาพสินค้า : <input type="file" accept="image/*" name="copyofIDcard" class="inbox" required>
+                                    รูปภาพสินค้า :<font color="red">&nbsp*</font>
+                                    <input type="file" accept="image/*" name="copyofIDcard" class="inbox" required>
                                 </div>
                                 <div class="col productinformation">
-                                    รูปรายละเอียดสินค้า : <input type="file" accept="image/*" name="Copyofhouseregistration" class="inbox" required>
+                                    รูปรายละเอียดสินค้า :<font color="red">&nbsp*</font>
+                                    <input type="file" accept="image/*" name="Copyofhouseregistration" class="inbox" required>
                                 </div>
                             </div>
 
@@ -99,17 +103,18 @@
 
                             <div class="row a">
                                 <div class="col details">
-                                <label for="note">รายละเอียด :</label>
-                                        <textarea name="note" cols="50" rows="5"class="inbox" style="vertical-align:top;"></textarea>
+                                รายละเอียด :<font color="red">&nbsp*</font>
+                                    <textarea name="note" cols="50" rows="5"class="inbox" style="vertical-align:top;">
+                                    </textarea>
                                 </div>
                                 <div class="col amount">
-                                    <label for="birthday">จำนวน :</label>
+                                    จำนวน :<font color="red">&nbsp*</font>
                                     <input name="lastname" type="text" id="lastname" class="inbox" required />
                                 </div>
                             </div>
                             <div class="row a">
                                 <div class="col-5 unit">
-                                    <label for="type">หน่วยนับ :</label>
+                                    หน่วยนับ :<font color="red">&nbsp*</font>
                                     <select name="type" id="type" class="inbox" required>
                                         <option value="envelope">ซอง</option>
                                         <option value="bottle">ขวด</option>
@@ -120,13 +125,12 @@
                                     </select>
                                 </div>
                                 <div class="col-3 price">
-                                    <label for="birthday">ราคาขาย :</label>
+                                    ราคาขาย :<font color="red">&nbsp*</font>
                                     <input name="lastname" type="text" id="lastname" class="inbox" required />
                                 </div>
                                 <div class="col-2 vax">
                                 <input type="checkbox" class="vaxcheckbox">
-                                    <label class="checkbox"></label>
-                                        ภาษีมูลค่าเพิ่ม
+                                    <label class="vaxcheckboxtext">ภาษีมูลค่าเพิ่ม</label>
                                 </div>
                                     <div class="col-1 costprice">
                                         <button type="button" class="btn-c1 reset1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl">ดูราคาทุน</button>
@@ -135,14 +139,14 @@
 
                             <div class="row a">
                                 <div class="col status">
-                                    สถานะการขาย : 
+                                    สถานะการขาย :<font color="red">&nbsp*</font> 
                                     <label class="switch">
                                     <input type="checkbox">
                                     <span class="slider round inbox"></span>
                                     </label>
                                 </div>
                                 <div class="col min1">
-                                    <label for="birthday">สินค้าคงคลังขั้นต่ำ :</label>
+                                    สินค้าคงคลังขั้นต่ำ :<font color="red">&nbsp*</font>
                                     <input name="lastname" type="text" id="lastname" class="inbox" required />
                                 </div>
                             </div>
@@ -158,10 +162,10 @@
 
                             <div class="row a">
                                 <div class="col start">
-                                    <label for="date">วันที่เริ่มใช้งาน :</label>
+                                    วันที่เริ่มใช้งาน :<font color="red">&nbsp*</font>
                                     <input name="lastname" type="date" id="lastname" class="inbox" required /></div>
                                 <div class="col min2">
-                                    <label for="birthday">สินค้าคงคลังขั้นต่ำ :</label>
+                                    สินค้าคงคลังขั้นต่ำ :<font color="red">&nbsp*</font>
                                     <input name="lastname" type="text" id="lastname" class="inbox" required /></div>
                                 </div>
                             </div>

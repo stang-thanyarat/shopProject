@@ -25,14 +25,15 @@
 }
 
 
-.main{
-    margin-top: 5rem;
-    margin-left: 4rem;
+.main {
+    margin-top: 4rem;
+    margin-left: 3rem;
 }
 
-.Nbar{
+.Nbar {
     margin-top: 3.5rem;
 }
+
 table,
 td,
 th {
@@ -49,11 +50,13 @@ table {
 th {
     height: 50px;
 }
-.btnd{
+
+.btnd {
     background-color: #F8E4C8;
     border-radius: 25px;
 }
-.BTNC{
+
+.BTNC {
     background-color: #7C904E;
     color: #000;
     border-radius: 25px;
@@ -65,25 +68,26 @@ th {
 
 }
 
-.s{
+.s {
     background: transparent;
     border: 0px;
     margin-left: -2rem;
 }
 
-.t{
+.t {
     background-color: #ABBE99;
     height: 45px;
     width: 100%;
-   
+
 }
 
-.BTNP{
+.BTNP {
     background-color: #fff;
     color: #A36627;
     border: 0in;
-    
+
 }
+
 .btn-d {
     border-radius: 25px 25px 25px 25px;
     background-color: #F8E4C8;
@@ -98,62 +102,66 @@ th {
     width: 65%;
 }
 
-.modal-header{
+.modal-header {
     background-color: #7C904E;
     height: 50px;
 }
-.modal-title{
+
+.modal-title {
     color: #fff;
 }
-.modal-body1{
-   text-align: center;
-   height: 70px;
-   margin-top: 3rem;
+
+.modal-body1 {
+    text-align: center;
+    height: 70px;
+    margin-top: 3rem;
 }
 
-.btn2{
+.btn2 {
     margin-right: 4.3rem;
     background-color: #7C904E;
     color: #fff;
     border: 0in;
 }
 
-.btn1{
+.btn1 {
     background-color: #fff;
-    
+
 }
 
-.btn3{
+.btn3 {
     background-color: #7C904E;
     color: #fff;
     border: 0in;
     border-radius: 25px;
 }
-.row{
-    --bs-gutter-x: 0rem;
-}
 
-.u{
+.u {
     width: 100px;
 }
-.h{
+
+.h {
     margin-left: 6rem;
 }
-.r{
+
+.r {
     margin-right: 3rem;
     border-radius: 25px 25px 25px 25px;
 }
-.w{
+
+.w {
     margin-left: 12rem;
 }
-.a{
-    color:#000
-}
-.modal-title2{
-    color:white
-}
-.z{
-    margin-left: 4rem;
-    margin-top: 1rem;
+
+.a {
+    color: #000
 }
 
+.modal-title2 {
+    color: white
+}
+
+.z {
+    margin-top: 1rem;
+    margin-left: -1rem;
+}
