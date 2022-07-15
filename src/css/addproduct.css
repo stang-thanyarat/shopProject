@@ -251,6 +251,9 @@ input:checked+.slider:before {
     border: 0ch;
     margin-left: 4rem;
 }
+.label1{
+    margin-left: 0.5rem;
+}
 
 .btn-c1 {
     font-size: 11pt;

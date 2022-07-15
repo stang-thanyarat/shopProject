@@ -112,6 +112,12 @@ select {
     border: 0ch;
 }
 
+.btn {
+    border-radius: 25px 25px 25px 25px;
+    font-size: 16pt;
+    width: 100%;
+}
+
 .submit {
     background-color: #7C904E;
     border: 0ch;
@@ -129,13 +135,9 @@ select {
     margin-left: 5rem;
 }
 
-.btn {
-    border-radius: 25px 25px 25px 25px;
-    font-size: 16pt;
-    width: 100%;
-}
 
-.addproducttypebutton{
+
+.addproducttypebutton {
     margin-top: 0.25rem;
     margin-left: -18rem;
 }
@@ -146,54 +148,60 @@ select {
     margin-left: -2rem;
 }
 
-.modal-header{
+.modal-header {
     background-color: #7C904E;
     height: 50px;
 }
-.modal-title{
+
+.modal-title {
     color: #fff;
 }
-.modal-body1{
-   text-align: center;
-   height: 70px;
-   margin-top: 3rem;
+
+.modal-body1 {
+    text-align: center;
+    height: 70px;
+    margin-top: 3rem;
 }
 
-.btn2{
+.btn2 {
     margin-right: 4.3rem;
     background-color: #7C904E;
     color: #fff;
     border: 0in;
 }
 
-.btn1{
+.btn1 {
     background-color: #fff;
-    
+
 }
 
-.btn3{
+.btn3 {
     background-color: #7C904E;
     color: #fff;
     border: 0in;
     border-radius: 25px;
 }
-.row{
+
+.row {
     --bs-gutter-x: 0rem;
 }
 
-.u{
+.u {
     width: 100px;
 }
-.h{
+
+.h {
     margin-left: 6rem;
 }
-.t{
+
+.t {
     background-color: #ABBE99;
     height: 45px;
     width: 100%;
-   
+
 }
-.tbproducttype{
+
+.tbproducttype {
     margin-top: 1rem;
     margin-left: 3rem;
 }

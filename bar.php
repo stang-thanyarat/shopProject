@@ -2,7 +2,7 @@
 <nav class="nav flex-column bar">
     <h5>$ ขาย</h5>
     <hr />
-    <a class="nav-link bar-link" href="#1">รายการขาย</a>
+    <a class="nav-link bar-link" href="productlist.php">รายการขาย</a>
     <a class="nav-link bar-link" href="#2">สัญญาซื้อขาย</a>
     <a class="nav-link bar-link" href="#3">ประวัติการขาย</a>
     <a class="nav-link bar-link" href="./productreplacementhistory.php">การประกันสินค้า</a>
@@ -13,7 +13,7 @@
     <a class="nav-link bar-link" href="#7">ประวัติการสั่งซื้อ</a>
     <h5><span><img src="./src/images/sell.png" width="25" height="25" /></span> สินค้า</h5>
     <hr />
-    <a class="nav-link bar-link" href="./productresult.php">สินค้าทั้งหมด</a>
+    <a class="nav-link bar-link" href="productresult.php">สินค้าทั้งหมด</a>
     <a class="nav-link bar-link" href="producttype.php">ประเภทสินค้า</a>
     <h5><span><img src="./src/images/employee.png" width="25" height="25" /></span> พนักงาน</h5>
     <hr />

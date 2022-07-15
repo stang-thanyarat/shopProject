@@ -134,7 +134,7 @@
                                     <label class="vaxcheckboxtext">ภาษีมูลค่าเพิ่ม</label>
                                 </div>
                                 <div class="col-1 costprice">
-                                    <button type="button" class="btn-c1 reset1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl">ดูราคาทุน</button>
+                                    <a href="costprice.php" type="button" class="btn-c1 reset1"><label class="label1">ดูราคาทุน</label></a>
                                 </div>
                             </div>
 
