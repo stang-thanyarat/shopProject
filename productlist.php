@@ -54,7 +54,6 @@
                         <a href="./addtocart.php" type="button"><img src="./src/images/cart.png" width="45"></a>
                     </div>
                 </div>
-
                 <table class="col-11 q">
                     <tr class="t">
                         <th colspan="3">
@@ -68,7 +67,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-6">&nbsp&nbsp&nbsp&nbsp
-                                    <img src="./src/images/ใบตัดหญ้า1.png" width="200">
+                                    <img src="./src/images/ใบตัดหญ้า01.png" width="200">
                                 </div>
                                 <div class="col-6">
                                     <p class="aa">ราคา&nbsp&nbsp&nbsp บาท</p>
@@ -83,7 +82,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-6">&nbsp&nbsp&nbsp&nbsp
-                                    <img src="./src/images/ใบตัดหญ้า2.png" width="200">
+                                    <img src="./src/images/ใบตัดหญ้า02.png" width="200">
                                 </div>
                                 <div class="col-6">
                                     <p class="aa">ราคา&nbsp&nbsp&nbsp บาท</p>
@@ -98,7 +97,53 @@
                             </div>
                             <div class="row">
                                 <div class="col-6">&nbsp&nbsp&nbsp&nbsp
-                                    <img src="./src/images/ใบตัดหญ้า3.png" width="200">
+                                    <img src="./src/images/ใบตัดหญ้า03.png" width="200">
+                                </div>
+                                <div class="col-6">
+                                    <p class="aa">ราคา&nbsp&nbsp&nbsp บาท</p>
+                                    <p>คงเหลือ&nbsp ใบ</p>
+                                    <p><button type="button" class="aa" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1">เพิ่มไปยังรถเข็น</button></p>
+                                </div>
+                            </div>
+                        </th>
+                    <tr>
+                        <th>
+                            <div class="row-4">
+                                <div class="x">ใบตัดหญ้า ไม่มีฟัน รุ่น 10X20T</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">&nbsp&nbsp&nbsp&nbsp
+                                    <img src="./src/images/ใบตัดหญ้า04.png" width="200">
+                                </div>
+                                <div class="col-6">
+                                    <p class="aa">ราคา&nbsp&nbsp&nbsp บาท</p>
+                                    <p>คงเหลือ&nbsp ใบ</p>
+                                    <p><button type="button" class="aa" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1">เพิ่มไปยังรถเข็น</button></p>
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="row-4">
+                                <div class="x">ใบตัดหญ้า ไม่มีฟัน รุ่น 10X24T</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">&nbsp&nbsp&nbsp&nbsp
+                                    <img src="./src/images/ใบตัดหญ้า05.png" width="200">
+                                </div>
+                                <div class="col-6">
+                                    <p class="aa">ราคา&nbsp&nbsp&nbsp บาท</p>
+                                    <p>คงเหลือ&nbsp ใบ</p>
+                                    <p><button type="button" class="aa" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1">เพิ่มไปยังรถเข็น</button></p>
+                                </div>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="row-4">
+                                <div class="x">ใบสามเหลี่ยมใหญ่</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">&nbsp&nbsp&nbsp&nbsp
+                                    <img src="./src/images/ใบตัดหญ้า06.png" width="200">
                                 </div>
                                 <div class="col-6">
                                     <p class="aa">ราคา&nbsp&nbsp&nbsp บาท</p>
@@ -109,19 +154,21 @@
                         </th>
                     </tr>
                     <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th>
+                            <div class="row-4">
+                                <div class="x">ใบสามเหลี่ยมใหญ่เล็ก</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">&nbsp&nbsp&nbsp&nbsp
+                                    <img src="./src/images/ใบตัดหญ้า07.png" width="200">
+                                </div>
+                                <div class="col-6">
+                                    <p class="aa">ราคา&nbsp&nbsp&nbsp บาท</p>
+                                    <p>คงเหลือ&nbsp ใบ</p>
+                                    <p><button type="button" class="aa" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1">เพิ่มไปยังรถเข็น</button></p>
+                                </div>
+                            </div>
+                        </th>
                     </tr>
                 </table>
             </div>
@@ -133,7 +180,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">เพิ่มไปยังรถเข็น</h5>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" id="editclose" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>

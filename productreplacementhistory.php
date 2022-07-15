@@ -27,7 +27,7 @@
                         <button type="submit" class="s"><img src="./src/images/search.png" width="17.5"></button>
                     </div>
                     <div class="col-3 addpdr d-flex justify-content-end signin">
-                        <button class="submit btn"><img class='plus' src="./src/images/plus.png" width="30">&nbspเพิ่ม</button>
+                        <a type="button" href="./addproductreplacement.php" class="submit btn"><img class='plus' src="./src/images/plus.png" width="30">&nbspเพิ่ม</a>
                     </div>
                 <table class="col-11 pdrtb">
                     <tr>
@@ -45,7 +45,7 @@
                         <th>1</th>
                         <th>รอของ</th>
                         <th><a type="button"  data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1"><img src="./src/images/icon-delete.png" width="25">
-                        <a type="button"  data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm3"><img src="./src/images/icon-pencil.png" width="25">
+                        <a type="button" href="./editproductreplacement.php"><img src="./src/images/icon-pencil.png" width="25">
                         </th>
                     </tr>
                     <th>23/01/2021</th>

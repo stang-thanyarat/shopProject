@@ -49,7 +49,7 @@
                         <button type="submit" class="s"><img src="./src/images/search.png" width="15"></button>
                     </div>
                     <div class="col-1 x">
-                        <button class="submit btn"><img src="./src/images/plus.png" width="25">&nbsp เพิ่มสินค้า</button>
+                        <a type="button" href="./addproduct.php" class="submit btn"><img src="./src/images/plus.png" width="25">&nbsp เพิ่มสินค้า</a>
                     </div>
                     <table class="col-11 q">
                         <tr>
@@ -80,8 +80,9 @@
                                     <span class="slider round"></span>
                                 </label>
                             </th>
-                            <th><a type="button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1"><img src="./src/images/icon-delete.png" width="25">
-                                <a type="button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm2"><img src="./src/images/icon-pencil.png" width="25">
+                            <th>
+                                <a type="button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1"><img src="./src/images/icon-delete.png" width="25"></a>
+                                <a type="button" href="./editproduct.php"><img src="./src/images/icon-pencil.png" width="25"></a>
                             </th>
                         </tr>
                     </table>

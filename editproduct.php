@@ -14,23 +14,24 @@
 <?php include('nav.php'); ?>
 
 <body>
-        <form name="editproduct" onsubmit="return validateForm()" id="form1" name="form1" method="post" action="">
-            <div class="row">
-                <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
-                <div class="col-11">
-                    <div class="row main">
-                        <div class="col">
+    <form name="editproduct" onsubmit="return validateForm()" id="form1" name="form1" method="post" action="">
+        <div class="row">
+            <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
+            <div class="col-11">
+                <div class="row main">
+                    <div class="col">
                         <h1>แก้ไขสินค้า</h1>
-                        </div>
                     </div>
-                    <table class="mai">
-                    <tr >
+                </div>
+                <table class="mai">
+                    <tr>
                         <div class="row">
                             <div class="col-11">
                                 <th>&nbsp รายละเอียดสินค้า</th>
                             </div>
                         </div>
                     </tr>
+                    <tr>
                     <tr>
                         <th>
                             <div class="row a">
@@ -55,7 +56,7 @@
                                     </select>
                                 </div>
                                 <div class="col productnumber ">
-                                    รหัสสินค้า :<font color="red">&nbsp*</font>
+                                    รหัสสินค้า :&nbsp&nbsp
                                     <label for="no." class="inbox">A01
                                     </label>
                                 </div>
@@ -103,8 +104,8 @@
 
                             <div class="row a">
                                 <div class="col details">
-                                รายละเอียด :<font color="red">&nbsp*</font>
-                                    <textarea name="note" cols="50" rows="5"class="inbox" style="vertical-align:top;">
+                                    รายละเอียด :&nbsp&nbsp&nbsp
+                                    <textarea name="note" cols="50" rows="5" class="inbox" style="vertical-align:top;">
                                     </textarea>
                                 </div>
                                 <div class="col amount">
@@ -121,7 +122,8 @@
                                         <option value="item">ชิ้น</option>
                                         <option value="box">กล่อง</option>
                                         <option value="machine">เครื่อง</option>
-                                        <option value="bag">ถุง</option><option value="sack">กระสอบ</option>
+                                        <option value="bag">ถุง</option>
+                                        <option value="sack">กระสอบ</option>
                                     </select>
                                 </div>
                                 <div class="col-3 price">
@@ -129,20 +131,20 @@
                                     <input name="lastname" type="text" id="lastname" class="inbox" required />
                                 </div>
                                 <div class="col-2 vax">
-                                <input type="checkbox" class="vaxcheckbox">
+                                    <input type="checkbox" class="vaxcheckbox">
                                     <label class="vaxcheckboxtext">ภาษีมูลค่าเพิ่ม</label>
                                 </div>
-                                    <div class="col-1 costprice">
-                                        <button type="button" class="btn-c1 reset1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl">ดูราคาทุน</button>
+                                <div class="col-1 costprice">
+                                    <button type="button" class="btn-c1 reset1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl">ดูราคาทุน</button>
                                 </div>
                             </div>
 
                             <div class="row a">
                                 <div class="col status">
-                                    สถานะการขาย :<font color="red">&nbsp*</font> 
+                                    สถานะการขาย :&nbsp&nbsp
                                     <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider round inbox"></span>
+                                        <input type="checkbox">
+                                        <span class="slider round inbox"></span>
                                     </label>
                                 </div>
                                 <div class="col min1">
@@ -150,11 +152,11 @@
                                     <input name="lastname" type="text" id="lastname" class="inbox" required />
                                 </div>
                             </div>
-            
+
                             <div class="row a">
                                 <div class="col settingmin">
-                                    <label class="checkbox" >
-                                    <input type="checkbox" >
+                                    <label class="checkbox">
+                                        <input type="checkbox">
                                     </label>
                                     <label for="setting">&nbsp&nbspตั้งค่าสินค้าคงคลังขั้นต่ำล่วงหน้า</label>
                                 </div>
@@ -163,28 +165,31 @@
                             <div class="row a">
                                 <div class="col start">
                                     วันที่เริ่มใช้งาน :<font color="red">&nbsp*</font>
-                                    <input name="lastname" type="date" id="lastname" class="inbox" required /></div>
+                                    <input name="lastname" type="date" id="lastname" class="inbox" required />
+                                </div>
                                 <div class="col min2">
                                     สินค้าคงคลังขั้นต่ำ :<font color="red">&nbsp*</font>
-                                    <input name="lastname" type="text" id="lastname" class="inbox" required /></div>
+                                    <input name="lastname" type="text" id="lastname" class="inbox" required />
                                 </div>
                             </div>
-                            <br>
-                        </th>
-                    </tr>
-                    </table>
-                    <div class="row btn-g">
-                        <div class="col-2">
-                            <button type="reset" class="btn-c reset">ยกเลิก</button>
-                        </div>
-                        <div class="col-2">
-                            <input type="submit" class="btn-c submit" value="บันทึก" />
-                        </div>
-                    </div>        
+            </div>
+            <br>
+            </th>
+            </tr>
+            </table>
+            <div class="row btn-g">
+                <div class="col-2">
+                    <button type="reset" class="btn-c reset">ยกเลิก</button>
+                </div>
+                <div class="col-2">
+                    <input type="submit" class="btn-c submit" value="บันทึก" />
                 </div>
             </div>
-        </form>
+        </div>
+        </div>
+    </form>
 </body>
 
 <script src="./src/js/editproduct.js"></script>
+
 </html>
