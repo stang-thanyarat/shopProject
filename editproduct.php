@@ -38,6 +38,7 @@
                                 <div class="col">
                                     ประเภทสินค้า :<font color="red">&nbsp*</font>
                                     <select name="type" id="type" class="inbox" required>
+                                        <option value="" selected hidden>เลือกประเภทสินค้า</option>
                                         <option value="lawn mower blade">ใบตัดหญ้า</option>
                                         <option value="kit">ชุดเสื้อสูบ</option>
                                         <option value="gear knob">หัวเกียร์</option>

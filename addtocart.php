@@ -44,24 +44,25 @@
                             </th>
                         </tr>
                         <tr class="t">
-                            <th colspan="2"> <select name="type" id="type" required>
+                            <th colspan="2"> <select name="type" id="solutionPay" required>
+                                    <option value="" selected hidden>เลือกประเภทการชำระ</option>
                                     <option value="cash">เงินสด</option>
-                                    <option value="bank transfer">โอนผ่าบัญชีธนาคาร</option>
+                                    <option value="bankTransfer">โอนผ่าบัญชีธนาคาร</option>
                                     <option value="installment">ผ่อนชำระ</option>
                             </th>
                             <th colspan="6">
                                 <div class=" d-flex justify-content-end">
                                     <h5 class="a">จำนวน 2 ชิ้น &nbsp</h5>
                                     <h5 class="a">ยอดรวมทั้งหมด : 210 บาท &nbsp &nbsp</h5>
-
-                                    <button type="button" data-bs-toggle="modal" class="r" data-bs-target=".bd-example-modal-sm3">ยืนยัน</button>
+                                    <button type="button" id="mySubmit" class="r" data-bs-toggle="modal">ยืนยัน</button>
                                 </div>
 
                             </th>
                         </tr>
                     </table>
+
                     <!-- ลบ -->
-                    <div class="modal fade bd-example-modal-sm1" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade bd-example-modal-sm1" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -77,6 +78,7 @@
                             </div>
                         </div>
                     </div>
+
                     <!-- แก้ไขจำนวน-->
                     <div class="modal fade bd-example-modal-sm2" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
@@ -95,27 +97,104 @@
                             </div>
                         </div>
                     </div>
-                    <!-- ยืนยันการซื้อ -->
+
+                    <!-- ยืนยันการซื้อแบบเงินสด -->
                     <div class="modal fade bd-example-modal-sm3" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title2" id="exampleModalLabel">ยืนยันการซื้อ</h5>
+                                    <h5 class="modal-title2" id="exampleModalLabel">รับเงินสด</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <h3>ยืนยันที่จะซื้อ</h3>
+                                    <div class="row">
+                                        <div class="col leftallproducttype ">
+                                            ยอดรวมทั้งหมด : <input type="text" id="editallproducttype">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col leftallproducttype ">
+                                            เงินที่รับมา : <input type="text" id="editallproducttype">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col leftallproducttype ">
+                                            เงินทอน : <input type="text" id="editallproducttype">
+                                        </div>
+                                    </div>
                                 </div>
+
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-primary2">ตกลง</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- ยืนยันการซื้อแบบโอนผ่านธนาคาร -->
+                    <div class="modal fade bd-example-modal-sm4" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title2" id="exampleModalLabel">แนบในสลิปธนาคาร</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col leftallproducttype ">
+                                            แนบในสลิปธนาคาร : <input type="file" id="editallproducttype">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col leftallproducttype ">
+                                            หมายเหตุ : <input type="note" id="editallproducttype">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary2">ตกลง</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ยืนยันการซื้อแบบผ่อนชำระ -->
+                    <div class="modal fade bd-example-modal-sm5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title2" id="exampleModalLabel">กรอกรหัสเจ้าของร้าน</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col leftallproducttype ">
+                                            E-mail : <input type="text" id="editallproducttype">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col leftallproducttype ">
+                                            รหัสผ่าน : <input type="text" id="editallproducttype">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary2">ยืนยัน</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
     </form>
 </body>
 <script src="./src/js/addtocart.js"></script>
 
 </html>
+<!-- <input type='number' id='valuePrice'/> -->
