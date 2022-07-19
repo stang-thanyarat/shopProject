@@ -36,7 +36,7 @@
                             <div class="row a">
                                 <div class="col">
                                     ประเภทสินค้า :<font color="red">&nbsp*</font>
-                                    <select name="type" id="type" class="inbox" required>
+                                    <select name="product_type" id="product_type" class="inbox" required>
                                         <option value="" selected hidden>เลือกประเภทสินค้า</option>
                                         <option value="lawn mower blade">ใบตัดหญ้า</option>
                                         <option value="kit">ชุดเสื้อสูบ</option>
@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="col productnumber ">
                                     รหัสสินค้า :&nbsp&nbsp
-                                    <label for="no." class="inbox">A01
+                                    <label for="no." id="" class="inbox">A01
                                     </label>
                                 </div>
                             </div>
@@ -65,11 +65,11 @@
                             <div class="row a">
                                 <div class="col productname">
                                     ชื่อสินค้า :<font color="red">&nbsp*</font>
-                                    <input name="lastname" type="text" id="lastname" class="inbox" required />
+                                    <input name="product_name" type="text" id="product_name" class="inbox" required />
                                 </div>
                                 <div class="col">
                                     ยี่ห้อสินค้า :<font color="red">&nbsp*</font>
-                                    <input name="lastname" type="text" id="lastname" class="inbox" required />
+                                    <input name="product_" type="text" id="lastname" class="inbox" required />
                                 </div>
                             </div>
 
