@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./src/css/producttype.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    
+
     <title>producttype</title>
 </head>
 <?php include('nav.php'); ?>
@@ -23,29 +23,29 @@
                         <h1>ประเภทสินค้า</h1>
                     </div>
                     <div class="col-2 addproducttypebutton">
-                        <button class="submit btn" id="addmodel_btn" type="button"  data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl1"><img class='add' src="./src/images/plus.png" width="25">&nbsp เพิ่มประเภทสินค้า</button>
+                        <button class="submit btn" id="addmodel_btn" type="button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl1"><img class='add' src="./src/images/plus.png" width="25">&nbsp เพิ่มประเภทสินค้า</button>
                     </div>
                 </div>
                 <table class="col-13 tbproducttype">
-                <thead>
-                    <tr>
-                        <th>ลำดับ</th>
-                        <th>ประเภทสินค้า</th>
-                        <th>รายการทั้งหมด</th>
-                        <th>รายการที่ขาย</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="producttypetable">
+                    <thead>
+                        <tr>
+                            <th>ลำดับ</th>
+                            <th>ประเภทสินค้า</th>
+                            <th>รายการทั้งหมด</th>
+                            <th>รายการที่ขาย</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="producttypetable">
 
-                </tbody>
+                    </tbody>
                 </table>
             </div>
-</form>
+    </form>
 
-<!--- modal เพิ่มประเภทสินค้า-->
-<div class="modal fade bd-example-modal-xl1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <form name="addproducttype" method="post" id="addproducttype">
+    <!--- modal เพิ่มประเภทสินค้า-->
+    <div class="modal fade bd-example-modal-xl1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <form name="addproducttype" method="post" id="addproducttype">
             <div class="modal-dialog modal-xl1">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -55,64 +55,74 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <label for="addproducttype">&nbsp &nbsp ชื่อประเภทสินค้า : </label>
-                           <select name="type" id="addproducttypename" required>
-                                        <option value="" selected hidden>เลือกประเภทสินค้า</option>
-                                        <option value="ใบตัดหญ้า">ใบตัดหญ้า</option>
-                                        <option value="ชุดเสื้อสูบ">ชุดเสื้อสูบ</option>
-                                        <option value="หัวเกียร์">หัวเกียร์</option>
-                                        <option value="ใบตัดข้าว">ใบตัดข้าว</option>
-                                        <option value="น็อตสกรู">น็อตสกรู</option>
-                                        <option value="เชือกเอ็น">เชือกเอ็น</option>
-                                        <option value="จานตัดหญ้า">จานตัดหญ้า</option>
-                                        <option value="คาบู">คาบู</option>
-                                        <option value="อะไหล่เครื่องพ่นปุ๋ย">อะไหล่เครื่องพ่นปุ๋ย</option>
-                                        <option value="ยางกันสะเทือน">ยางกันสะเทือน</option>
-                                        <option value="ปั๊มน้ำ">ปั๊มน้ำ</option>
-                                        <option value="เครื่องตัดหญ้า">เครื่องตัดหญ้า</option>
-                                        <option value="เมล็ดพันธุ์">เมล็ดพันธุ์</option>
-                                        <option value="ยากำจัดวัชพืช">ยากำจัดวัชพืช</option>
-                                        <option value="ปุ๋ยเคมี">ปุ๋ยเคมี</option>
-                                    </select>
-                                    <p>
-                                        <p>
-                        &nbsp &nbsp รายการทั้งหมด : <input type="text" id="addallproducttype"></input>
-                        <p>
-                        &nbsp &nbsp รายการที่ขาย : <input type="text" id="addsellproducttype"></input>
-                               
+                        <div class="row">
+                            <div class="addproducttypename">
+                                ชื่อประเภทสินค้า :<font color="red">&nbsp*</font>
+                                <select name="type" id="addproducttypename" class="inbox" required>
+                                    <option value="" selected hidden>เลือกประเภทสินค้า</option>
+                                    <option value="ใบตัดหญ้า">ใบตัดหญ้า</option>
+                                    <option value="ชุดเสื้อสูบ">ชุดเสื้อสูบ</option>
+                                    <option value="หัวเกียร์">หัวเกียร์</option>
+                                    <option value="ใบตัดข้าว">ใบตัดข้าว</option>
+                                    <option value="น็อตสกรู">น็อตสกรู</option>
+                                    <option value="เชือกเอ็น">เชือกเอ็น</option>
+                                    <option value="จานตัดหญ้า">จานตัดหญ้า</option>
+                                    <option value="คาบู">คาบู</option>
+                                    <option value="อะไหล่เครื่องพ่นปุ๋ย">อะไหล่เครื่องพ่นปุ๋ย</option>
+                                    <option value="ยางกันสะเทือน">ยางกันสะเทือน</option>
+                                    <option value="ปั๊มน้ำ">ปั๊มน้ำ</option>
+                                    <option value="เครื่องตัดหญ้า">เครื่องตัดหญ้า</option>
+                                    <option value="เมล็ดพันธุ์">เมล็ดพันธุ์</option>
+                                    <option value="ยากำจัดวัชพืช">ยากำจัดวัชพืช</option>
+                                    <option value="ปุ๋ยเคมี">ปุ๋ยเคมี</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="addallproducttype">
+                                รายการทั้งหมด :<font color="red">&nbsp*</font>
+                                <input type="text" id="addallproducttype" class="inbox" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="addsellproducttype">
+                                รายการที่ขาย :<font color="red">&nbsp*</font>
+                                <input type="text" id="addsellproducttype" class="inbox" required>
+                            </div>
+                        </div>
                         <div class="modal-footer">
-                            <button type="submit" id="addtable" class="btn btn-primary2">ตกลง</button>
+                            <button type="submit" id="addtable" class="btn1 btn-primary1">ตกลง</button>
                         </div>
                     </div>
                 </div>
             </div>
-            </form>
-        </div>
+        </form>
+    </div>
 
-                    <!-- ลบ -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- ลบ -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                                            <h5 class="modal-title2" id="exampleModalLabel">ลบประเภทสินค้า</h5>
-                                            <button type="button" class="btn-close" id="closedelrow" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
+                    <h5 class="modal-title2" id="exampleModalLabel">ลบประเภทสินค้า</h5>
+                    <button type="button" class="btn-close" id="closedelrow" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
 
-                                        <div class="modal-body">
-                                            <h3>ยืนยันที่จะลบ</h3>
-                                        </div>
+                <div class="modal-body">
+                    <h3>ยืนยันที่จะลบ</h3>
+                </div>
 
-                                        <div class="modal-footer">
-                                            <button type="button" onclick="delrow()" class="btn btn-primary2">ตกลง</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="delrow()" class="btn1 btn-primary1">ตกลง</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <!--- modal แก้ไขประเภทสินค้า-->
-<div class="modal fade bd-example-modal-xl3" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <form name="editproducttype" id="editproducttype" method="post" action="">
-        <div class="modal-dialog modal-xl3">
+    <!--- modal แก้ไขประเภทสินค้า-->
+    <div class="modal fade bd-example-modal-xl3" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <form name="editproducttype" id="editproducttype" method="post" action="">
+            <div class="modal-dialog modal-xl3">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">แก้ไขประเภทสินค้า</h5>
@@ -122,44 +132,46 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <div class="col leftproducttype ">
-                            <label for="producttype">&nbsp &nbsp ชื่อประเภทสินค้า : </label>
-                           <select name="type" id="editproducttypename" required>
-                                        <option value="" selected hidden>เลือกประเภทสินค้า</option>
-                                        <option value="ใบตัดหญ้า">ใบตัดหญ้า</option>
-                                        <option value="ชุดเสื้อสูบ">ชุดเสื้อสูบ</option>
-                                        <option value="หัวเกียร์">หัวเกียร์</option>
-                                        <option value="ใบตัดข้าว">ใบตัดข้าว</option>
-                                        <option value="น็อตสกรู">น็อตสกรู</option>
-                                        <option value="เชือกเอ็น">เชือกเอ็น</option>
-                                        <option value="จานตัดหญ้า">จานตัดหญ้า</option>
-                                        <option value="คาบู">คาบู</option>
-                                        <option value="อะไหล่เครื่องพ่นปุ๋ย">อะไหล่เครื่องพ่นปุ๋ย</option>
-                                        <option value="ยางกันสะเทือน">ยางกันสะเทือน</option>
-                                        <option value="ปั๊มน้ำ">ปั๊มน้ำ</option>
-                                        <option value="เครื่องตัดหญ้า">เครื่องตัดหญ้า</option>
-                                        <option value="เมล็ดพันธุ์">เมล็ดพันธุ์</option>
-                                        <option value="ยากำจัดวัชพืช">ยากำจัดวัชพืช</option>
-                                        <option value="ปุ๋ยเคมี">ปุ๋ยเคมี</option>
-                                    </select>
+                            <div class="col leftproducttype">
+                                ชื่อประเภทสินค้า :<font color="red">&nbsp*</font>
+                                <select name="type" id="editproducttypename" class="inbox" required>
+                                    <option value="" selected hidden>เลือกประเภทสินค้า</option>
+                                    <option value="ใบตัดหญ้า">ใบตัดหญ้า</option>
+                                    <option value="ชุดเสื้อสูบ">ชุดเสื้อสูบ</option>
+                                    <option value="หัวเกียร์">หัวเกียร์</option>
+                                    <option value="ใบตัดข้าว">ใบตัดข้าว</option>
+                                    <option value="น็อตสกรู">น็อตสกรู</option>
+                                    <option value="เชือกเอ็น">เชือกเอ็น</option>
+                                    <option value="จานตัดหญ้า">จานตัดหญ้า</option>
+                                    <option value="คาบู">คาบู</option>
+                                    <option value="อะไหล่เครื่องพ่นปุ๋ย">อะไหล่เครื่องพ่นปุ๋ย</option>
+                                    <option value="ยางกันสะเทือน">ยางกันสะเทือน</option>
+                                    <option value="ปั๊มน้ำ">ปั๊มน้ำ</option>
+                                    <option value="เครื่องตัดหญ้า">เครื่องตัดหญ้า</option>
+                                    <option value="เมล็ดพันธุ์">เมล็ดพันธุ์</option>
+                                    <option value="ยากำจัดวัชพืช">ยากำจัดวัชพืช</option>
+                                    <option value="ปุ๋ยเคมี">ปุ๋ยเคมี</option>
+                                </select>
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col leftallproducttype ">
-                            รายการทั้งหมด : <input type="text" id="editallproducttype">
+                            <div class="col leftallproducttype">
+                                รายการทั้งหมด :<font color="red">&nbsp*</font>
+                                <input type="text" id="editallproducttype" class="inbox">
                             </div>
                         </div>
 
                         <div class="row">
-                            <div class="col leftsellproducttype ">
-                            รายการที่ขาย : <input type="text" id="editsellproducttype">
+                            <div class="col leftsellproducttype">
+                                รายการที่ขาย :<font color="red">&nbsp*</font>
+                                <input type="text" id="editsellproducttype" class="inbox">
                             </div>
                         </div>
-                               
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary2">ตกลง</button>
-                            </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn1 btn-primary1">ตกลง</button>
+                        </div>
                     </div>
                 </div>
             </div>

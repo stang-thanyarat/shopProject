@@ -194,3 +194,15 @@ input:checked+.slider:before {
     margin-top: 1rem;
     margin-left: -0.5rem;
 }
+.btn-primary1{
+    
+    background-color: #7C904E;
+    color: #fff;
+    border: 0in;
+}
+
+.btn1 {
+    border-radius: 25px 25px 25px 25px;
+    font-size: 13pt;
+    width: 20%;
+}

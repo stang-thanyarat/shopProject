@@ -101,7 +101,7 @@
                             <h3>ยืนยันที่จะลบ</h3>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary2">ตกลง</button>
+                            <button type="submit" class="btn1 btn-primary1">ตกลง</button>
                         </div>
                     </div>
                 </div>

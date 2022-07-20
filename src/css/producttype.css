@@ -205,3 +205,46 @@ select {
     margin-top: 1rem;
     margin-left: 3rem;
 }
+.btn-primary1{
+    
+    background-color: #7C904E;
+    color: #fff;
+    border: 0in;
+}
+
+.btn1 {
+    border-radius: 25px 25px 25px 25px;
+    font-size: 13pt;
+    width: 20%;
+}
+.inbox {
+    margin-left: 2rem;
+}
+.addproducttypename{
+    font-size: 15pt;
+}
+.addallproducttype{
+    font-size: 15pt;
+    margin-top: 1rem;
+    margin-left: 0.49rem;
+}
+.addsellproducttype{
+    font-size: 15pt;
+    margin-top: 1rem;
+    margin-left: 1.4rem;
+    margin-bottom: 2rem;
+}
+.leftproducttype{
+    font-size: 15pt;
+}
+.leftallproducttype{
+    font-size: 15pt;
+    margin-top: 1rem;
+    margin-left: 0.49rem;
+}
+.leftsellproducttype{
+    font-size: 15pt;
+    margin-top: 1rem;
+    margin-left: 1.4rem;
+    margin-bottom: 2rem;
+}

@@ -47,7 +47,7 @@
                             <th colspan="2"> <select name="type" id="solutionPay" required>
                                     <option value="" selected hidden>เลือกประเภทการชำระ</option>
                                     <option value="cash">เงินสด</option>
-                                    <option value="bankTransfer">โอนผ่าบัญชีธนาคาร</option>
+                                    <option value="bankTransfer">โอนผ่านบัญชีธนาคาร</option>
                                     <option value="installment">ผ่อนชำระ</option>
                             </th>
                             <th colspan="6">
@@ -66,14 +66,14 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title2" id="exampleModalLabel">ลบรายการ</h5>
+                                    <h5 class="modal-title2" id="exampleModalLabel">ลบรายการสินค้า</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <h3>ยืนยันที่จะลบ</h3>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary2">ตกลง</button>
+                                    <button type="submit" class="btn btn-primary1">ตกลง</button>
                                 </div>
                             </div>
                         </div>
@@ -84,15 +84,22 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title2" id="exampleModalLabel">แก้ไขจำนวน</h5>
+                                    <h5 class="modal-title2" id="exampleModalLabel">แก้ไขรายการสินค้า</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <h3>จำนวนที่ต้องการเปลี่ยนแปลง</h3>
-                                    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<input type="text" name="list" id="list" required />
+                                    <div class="exp">
+                                        วันหมดอายุ :&nbsp<font color="red">&nbsp*</font>
+                                        <input type="date" name="list" id="list" class="inbox" required />
+                                    </div>
+
+                                    <div class="amount">
+                                        จำนวน : <font color="red">&nbsp*</font>
+                                        <input type="text" name="amount" id="amount" class="inbox" required />
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary2">ตกลง</button>
+                                    <button type="submit" class="btn btn-primary1">ตกลง</button>
                                 </div>
                             </div>
                         </div>
@@ -108,24 +115,30 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="row">
-                                        <div class="col leftallproducttype ">
-                                            ยอดรวมทั้งหมด : <input type="text" id="editallproducttype">
+                                        <div class="col allprice">
+                                            ยอดรวมทั้งหมด :<font color="red">&nbsp*</font>
+                                            <input type="text" id="" class="inbox" required />
+                                            &nbsp&nbspบาท
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col leftallproducttype ">
-                                            เงินที่รับมา : <input type="text" id="editallproducttype">
+                                        <div class="col receivecash">
+                                            เงินที่รับมา :<font color="red">&nbsp*</font>
+                                            <input type="text" id="" class="inbox" required />
+                                            &nbsp&nbspบาท
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col leftallproducttype ">
-                                            เงินทอน : <input type="text" id="editallproducttype">
+                                        <div class="col change">
+                                            เงินทอน :&nbsp&nbsp&nbsp
+                                            <input type="text" id="" class="inbox">
+                                            &nbsp&nbspบาท
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary2">ตกลง</button>
+                                    <button type="submit" class="btn btn-primary1">ตกลง</button>
                                 </div>
                             </div>
                         </div>
@@ -140,24 +153,24 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="row">
-                                        <div class="col leftallproducttype ">
-                                            แนบในสลิปธนาคาร : <input type="file" id="editallproducttype">
+                                        <div class="col importfile">
+                                            แนบในสลิปธนาคาร : <input type="file" class="inbox" id="" required />
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col">
-                                            <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
+                                        <div class="col notice">
+                                            <label class="noticetext">*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</label>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col leftallproducttype ">
-                                            หมายเหตุ : <input type="note" id="editallproducttype">
+                                        <div class="col detail">
+                                            หมายเหตุ : <input type="note" class="inbox" id="">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary2">ตกลง</button>
+                                    <button type="submit" class="btn btn-primary1">ตกลง</button>
                                 </div>
                             </div>
                         </div>
@@ -172,19 +185,19 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="row">
-                                        <div class="col leftallproducttype ">
-                                            E-mail : <input type="text" id="editallproducttype">
+                                        <div class="col email">
+                                            E-mail : <input type="text" id="" class="btnd inbox" required />
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col leftallproducttype ">
-                                            รหัสผ่าน : <input type="text" id="editallproducttype">
+                                        <div class="col password">
+                                            รหัสผ่าน : <input type="text" id="" class="btnd inbox" required />
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-primary2">ยืนยัน</button>
+                                    <button type="submit" class="btn btn-primary1">ยืนยัน</button>
                                 </div>
                             </div>
                         </div>
