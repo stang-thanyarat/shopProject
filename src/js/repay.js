@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $("#slip_upload").hide()
     localStorage.clear()
     localStorage.setItem("tableRepay", JSON.stringify({ data: [] }))
 });
@@ -128,3 +129,11 @@ $("#editaddproduct").submit(function (event) {
     $('#editclose').click()
 
 })
+
+$("#payment_sl").change(function () {
+    if ($("#payment_sl").val() === 'โอนเงิน') {
+        $("#slip_upload").show()
+    } else {
+        $("#slip_upload").hide()
+    }
+});

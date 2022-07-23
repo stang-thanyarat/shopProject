@@ -1,65 +1,8 @@
-/*function myFunction(){ 
-    let typeproduct = document.getElementById("typeproduct").value
-    let listproduct = document.getElementById("listproduct").value
-    let brand = document.getElementById("brand").value
-    let productmodel = document.getElementById("productmodel").value
-    let unitprice = document.getElementById("unitprice").value
-    let amount = document.getElementById("mount").value
-    if (typeproduct != null) {
-        document.getElementById("typeproduct").table =
-           
-        product;
-    }
-    document.write("typeproduct");
-    document.write("listproduct" );
-    document.write("brand" );
-    document.write("productmodel");
-    document.write("unitprice");
-    document.write("amount");
-}
-
-function myFunction() {
-    let typeproduct = prompt("ประเภทสินค้า :");
-    if (typeproduct != null) {
-        document.getElementById("typeproduct").innerHTML =
-           
-        typeproduct;
-    }
-    let listproduct = prompt("รายการสินค้า :");
-    if (listproduct!= null) {
-        document.getElementById("listproduct").innerHTML =
-           
-        listproduct;
-    }
-    let brand = prompt("ยี่ห้อ :");
-    if (brand != null) {
-        document.getElementById("brand").innerHTML =
-           
-        brand;
-    }
-    let productmodel = prompt("รุ่น :");
-    if (productmodel != null) {
-        document.getElementById("productmodel").innerHTML =
-           
-        productmodel;
-    }
-    let priceproduct = prompt("ราคาต่อหน่วย(บาท) :");
-    if (priceproduct != null) {
-        document.getElementById("priceproduct").innerHTML =
-           
-        priceproduct;
-    }
-    let amountproduct = prompt("จำนวน :");
-    if (amountproduct != null) {
-        document.getElementById("amountproduct").innerHTML =
-           
-        amountproduct;
-    }
-   
-}*/
 $(document).ready(function () {
+    $("#creditupload").hide()
     localStorage.clear()
     localStorage.setItem("tableProduct", JSON.stringify({ data: [] }))
+    localStorage.setItem("tablePrice", JSON.stringify({ data: [] }))
 });
 
 //เพิ่มสินค้า
@@ -67,15 +10,15 @@ $("#addproduct").submit(function (event) {
     event.preventDefault();
     let tableObj = JSON.parse(localStorage.getItem("tableProduct"))
     const i = $('#list-product').children().length + 1
-    if ($('#typeproduct').val() === "" || $('#listproduct').val() === "" || $('#brand').val() === "" || $('#productmodel').val() === "" || $('#unitprice').val() === "" || $('#amount').val() === "") {
+    if ($('#typeproduct').val() === "" || $('#product_name').val() === "" || $('#brand').val() === "" || $('#model').val() === "" || $('#unitprice').val() === "" || $('#amount').val() === "") {
         $('#addtable').blur()
         return
     }
     $('#list-product').append(`<tr id="rr${i}">
                     <th>${$('#typeproduct').val()}</th>
-                    <th>${$('#listproduct').val()}</th>
+                    <th>${$('#product_name').val()}</th>
                     <th>${$('#brand').val()}</th>
-                    <th>${$('#productmodel').val()}</th>
+                    <th>${$('#model').val()}</th>
                     <th>${$('#unitprice').val()}</th>
                     <th>${$('#amount').val()}</th>
                     <th>${Number($('#unitprice').val()) * Number($('#amount').val())}</th>
@@ -87,18 +30,18 @@ $("#addproduct").submit(function (event) {
     $('#addclose').click()
     tableObj.data.push({
         type: $('#typeproduct').val(),
-        list: $('#listproduct').val(),
+        list: $('#product_name').val(),
         brand: $('#brand').val(),
-        model: $('#productmodel').val(),
+        model: $('#model').val(),
         price: $('#unitprice').val(),
         amount: $('#amount').val(),
         allPrice: Number($('#unitprice').val()) * Number($('#amount').val())
     })
     localStorage.setItem("tableProduct", JSON.stringify(tableObj))
     $('#typeproduct').val("")
-    $('#listproduct').val("")
+    $('#product_name').val("")
     $('#brand').val("")
-    $('#productmodel').val("")
+    $('#model').val("")
     $('#unitprice').val("")
     $('#amount').val("")
 });
@@ -195,7 +138,7 @@ $("#addprice").submit(function (event) {
     event.preventDefault();
     let tableObj = JSON.parse(localStorage.getItem("tablePrice"))
     const i = $('#list-priceother').children().length + 1
-    if ($('#listother').val() === "" || $('#priceother').val() === "" ) {
+    if ($('#listother').val() === "" || $('#priceother').val() === "") {
         $('#addtable2').blur()
         return
     }
@@ -216,7 +159,7 @@ $("#addprice").submit(function (event) {
     localStorage.setItem("tablePrice", JSON.stringify(tableObj))
     $('#listother').val("")
     $('#priceother').val("")
-   
+
 });
 
 //กำหนดแถวที่จะลบ
@@ -277,7 +220,7 @@ $("#editaddprice").submit(function (event) {
             <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModalother"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndex(${i + 1})"></button>
             <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm4"><img src="./src/images/icon-pencil.png" width="25"></button>
         </th>
-                </tr>`)
+        </tr>`)
     });
     localStorage.setItem1("tablePrice", JSON.stringify(tableObj))
     localStorage.removeItem('editIndex')
@@ -285,3 +228,10 @@ $("#editaddprice").submit(function (event) {
 
 })
 
+$("#payment_sl").change(function () {
+    if ($("#payment_sl").val() === 'เครดิต') {
+        $("#creditupload").show()
+    } else {
+        $("#creditupload").hide()
+    }
+});

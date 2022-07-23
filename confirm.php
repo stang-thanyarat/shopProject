@@ -123,39 +123,39 @@
                     <div class="modal-body">
                         <div class="col-12 r">
                             ประเภทสินค้า: &nbsp;
-                            <select id="addtypeproduct" style="background-color: #7C904E;">
+                            <select id="typeproduct" style="background-color: #7C904E;">
                                 <option value="เลือก" selected>เลือก</option>
                             </select>
                         </div>
 
                         <div class="col-12 r">
                             รายการสินค้า: &nbsp;
-                            <select name="listproduct" id="addlistproduct" style="background-color: #7C904E;">
+                            <select name="product_name" id="product_name" style="background-color: #7C904E;">
                                 <option value="เลือก" selected>เลือก</option>
                             </select>
                         </div>
 
                         <div class="col-12 r">
                             ยี่ห้อ: &nbsp;
-                            <select name="brand" id="addbrand" style="background-color: #7C904E;">
+                            <select name="brand" id="brand" style="background-color: #7C904E;">
                                 <option value="เลือก" selected>เลือก</option>
                             </select>
                         </div>
 
                         <div class="col-12 r">
                             รุ่น: &nbsp;
-                            <select name="productmodel" id="addproductmodel" style="background-color: #7C904E;">
+                            <select name="model" id="model" style="background-color: #7C904E;">
                                 <option value="เลือก" selected>เลือก</option>
                             </select>
                         </div>
 
-                        <center>ราคาต่อหน่วย: &nbsp;<input type="number" class="u" min="1" name="amountproduct" id="addamountproduct" width="5%" /><br>
+                        <center>ราคาต่อหน่วย: &nbsp;<input type="number" class="u" min="1" name="unitprice" id="unitprice" width="5%" /><br>
                             <p></p>
                         </center>
-                        <center>จำนวน: &nbsp;<input type="number" class="u" min="1" name="addnumber" id="addnumber" width="5%" /><br>
+                        <center>จำนวน: &nbsp;<input type="number" class="u" min="1" name="amount" id="amount" width="5%" /><br>
                             <p></p>
                         </center>
-                        <center>วันหมดอายุ: &nbsp;<input type="date" class="u" name="expirationdate" id="addexpirationdate" />
+                        <center>วันหมดอายุ: &nbsp;<input type="date" class="u" name="exp_date" id="exp_date" />
                             <p></p>
                         </center>
                         
@@ -170,25 +170,25 @@
 
     <!--- modal ค่าใช้จ่ายอื่นๆ-->
     <div class="modal fade bd-example-modal-sm1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <form name="addotherexpenses" id="addotherexpenses" method="post" action="">
+        <form name="addotherexpenses" id="addotherexpenses" method="post">
             <div class="modal-dialog modal-sm1">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">เพิ่มค่าใช้จ่ายอื่นๆ</h5>
-                        <button type="button" id="addclose1" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <button type="button" id="addcloseother" class="close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <center>รายการ: &nbsp;<input type="text" name="list" id="addlist" required /><br>
+                        <center>รายการ: &nbsp;<input type="text" name="listother" id="listother" required /><br>
                             <p></p>
                         </center>
-                        <center>ราคา: &nbsp;<input type="text" name="priceother" id="addpriceother" required />
+                        <center>ราคา: &nbsp;<input type="text" name="priceother" id="priceother" required />
                             <p></p>
                         </center>
 
                         <div class="modal-footer">
-                            <button type="submit" id="addtable" class="btn btn-primary1">ตกลง</button>
+                            <button type="submit" id="addtable2" class="btn btn-primary1">ตกลง</button>
                         </div>
                     </div>
                 </div>
@@ -208,7 +208,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <center>รายการ: &nbsp;<input type="text" name="editlist" id="editlist" /><br>
+                        <center>รายการ: &nbsp;<input type="text" name="editlistother" id="editlistother" /><br>
                             <p></p>
                         </center>
                         <center>ราคา: &nbsp;<input type="text" name="editpriceother" id="editpriceother" />

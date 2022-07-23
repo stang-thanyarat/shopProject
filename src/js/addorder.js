@@ -60,6 +60,7 @@ function myFunction() {
 $(document).ready(function () {
     localStorage.clear()
     localStorage.setItem("tableProduct", JSON.stringify({ data: [] }))
+    localStorage.setItem("tablePrice", JSON.stringify({ data: [] }))
 });
 
 //เพิ่มสินค้า
@@ -67,15 +68,15 @@ $("#addproduct").submit(function (event) {
     event.preventDefault();
     let tableObj = JSON.parse(localStorage.getItem("tableProduct"))
     const i = $('#list-product').children().length + 1
-    if ($('#typeproduct').val() === "" || $('#listproduct').val() === "" || $('#brand').val() === "" || $('#productmodel').val() === "" || $('#unitprice').val() === "" || $('#amount').val() === "") {
+    if ($('#typeproduct').val() === "" || $('#product_name').val() === "" || $('#brand').val() === "" || $('#model').val() === "" || $('#unitprice').val() === "" || $('#amount').val() === "") {
         $('#addtable').blur()
         return
     }
     $('#list-product').append(`<tr id="rr${i}">
                     <th>${$('#typeproduct').val()}</th>
-                    <th>${$('#listproduct').val()}</th>
+                    <th>${$('#product_name').val()}</th>
                     <th>${$('#brand').val()}</th>
-                    <th>${$('#productmodel').val()}</th>
+                    <th>${$('#model').val()}</th>
                     <th>${$('#unitprice').val()}</th>
                     <th>${$('#amount').val()}</th>
                     <th>${Number($('#unitprice').val()) * Number($('#amount').val())}</th>
@@ -87,18 +88,18 @@ $("#addproduct").submit(function (event) {
     $('#addclose').click()
     tableObj.data.push({
         type: $('#typeproduct').val(),
-        list: $('#listproduct').val(),
+        list: $('#product_name').val(),
         brand: $('#brand').val(),
-        model: $('#productmodel').val(),
+        model: $('#model').val(),
         price: $('#unitprice').val(),
         amount: $('#amount').val(),
         allPrice: Number($('#unitprice').val()) * Number($('#amount').val())
     })
     localStorage.setItem("tableProduct", JSON.stringify(tableObj))
     $('#typeproduct').val("")
-    $('#listproduct').val("")
+    $('#product_name').val("")
     $('#brand').val("")
-    $('#productmodel').val("")
+    $('#model').val("")
     $('#unitprice').val("")
     $('#amount').val("")
 });
@@ -277,7 +278,7 @@ $("#editaddprice").submit(function (event) {
             <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModalother"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndex(${i + 1})"></button>
             <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm4"><img src="./src/images/icon-pencil.png" width="25"></button>
         </th>
-                </tr>`)
+        </tr>`)
     });
     localStorage.setItem1("tablePrice", JSON.stringify(tableObj))
     localStorage.removeItem('editIndex')

@@ -69,7 +69,7 @@
                         <p></p>
                         <div class="col-12">
                             ดอกเบี้ยสูงสุดต่อปี: &nbsp &nbsp
-                            <input type="text" name="interest" required> &nbsp &nbsp ตามกฎหมาย
+                            <input type="text" name="interest" id="interest" required> &nbsp &nbsp ตามกฎหมาย
                         </div>
                         <div class="row B">
                             <div class=" col-12 d-flex justify-content-end signin">

@@ -11,7 +11,6 @@
     <title>Document</title>
 </head>
 <?php include('nav.php'); ?>
-
 <body>
     <form id="form1">
         <div class="row">
@@ -38,24 +37,26 @@
                         </div>
                         <div class="col-12 j">
                             วิธีการชำระเงิน:&nbsp;
-                            <select name="payment" onchange="location = this.value;" style="background-color: #7C904E;">
+                            <select name="payment_sl" id="payment_sl"  style="background-color: #7C904E;">
                                 <option value="เงินสด" selected>เงินสด</option>
-                                <option value="addorder2.php">เครดิต</option>
+                                <option value="เครดิต">เครดิต</option>
                             </select>&nbsp;&nbsp;
                             วันที่ชำระเงิน:&nbsp;
-                            <input type="date" name="datepayment">
+                            <input type="date" name="payment_dt" id="payment_dt">
                         </div>
+                        <div id="creditupload">
                         <div class="col-12 h">
-                            สลิปธนาคาร:&nbsp; <input accept="image/*" type="file" name="slip" required>
+                            สลิปธนาคาร:&nbsp; <input accept="image/*" type="file" id="bank_slip" name="bank_slip">
                         </div>
                         <div class="col-12">
                             *ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB
+                        </div>
                         </div>
                         <div class="col-12">
                             หมายเหตุ:
                         </div>
                         <div class="col-12">
-                            <textarea style="vertical-align: middle; background-color: #7C904E;" name="detail" cols="50" rows="5"></textarea>
+                            <textarea style="vertical-align: middle; background-color: #7C904E;" name="note" cols="50" rows="5" id="note"></textarea>
                         </div>
                         <div class="col-12 C">
                             รายการสินค้า
@@ -99,9 +100,9 @@
                             </table>
                         </div>
                         <div class="row A">
-                            <div class=" col-12 d-flex justify-content-end">
+                            <div class=" col-12 d-flex justify-content-end" >
                                 ยอดสุทธิ:&nbsp;&nbsp;
-                                <input type="text" name="totalmoney">
+                                <input type="text" name="net_price" id="net_price">
                             </div>
                         </div>
                     </div>
@@ -134,7 +135,7 @@
                                 <option value="เลือก" selected>เลือก</option>
                             </select><br><br>
                             รายการสินค้า: &nbsp;
-                            <select id="listproduct" name="listproduct" style="background-color: #7C904E;" required>
+                            <select id="product_name" name="product_name" style="background-color: #7C904E;" required>
                                 <option value="เลือก" selected>เลือก</option>
                             </select><br><br>
                             ยี่ห้อ: &nbsp;
@@ -142,7 +143,7 @@
                                 <option value="เลือก" selected>เลือก</option>
                             </select><br><br>
                             รุ่น: &nbsp;
-                            <select id="productmodel" name="productmodel" style="background-color: #7C904E;" required>
+                            <select id="model" name="model" style="background-color: #7C904E;" required>
                                 <option value="เลือก" selected>เลือก</option>
                             </select><br><br>
                             ราคาต่อหน่วย: &nbsp;<input type="number" class="u" min="0.25" step="0.25" name="unitprice" id="unitprice" required /><br><br>
@@ -293,6 +294,6 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="./src/js/printThis.js"></script>
-<script src="./src/js/addorder.js"></script>
+<script src="./src/js/addorder2.js"></script>
 
 </html>

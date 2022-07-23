@@ -27,12 +27,12 @@
                         </div>
                         <div class="col-12 w">
                             วันที่ทำสัญญา:&nbsp;
-                            <input type="date" name="dateContract" id="dateContract" required />
+                            <input type="date" name="datecontract" id="datecontract" required />
                         </div>
                         <div class="col-12 e">
                             นามผู้ขาย:&nbsp;
                             <select name="owner" style="background-color: #7C904E;">
-                                <option value="นาย" selected>เลือก</option>
+                                <option value="เลือก" selected>เลือก</option>
                             </select>
                         </div>
                         <div class="col-12 r">
@@ -52,14 +52,14 @@
                         </div>
                         <div class="row1">
                             <div class="col-xl-12 col-lg-12 i">ข้าพเจ้า:&nbsp;
-                                <select name="customerPrefix" style="background-color: #7C904E;" required>
+                                <select name="customerprefix" id="customerprefix" style="background-color: #7C904E;" required>
                                     <option value="นาย" selected>นาย</option>
                                     <option value="นาง">นาง</option>
                                     <option value="นางสาว">นางสาว</option>
                                 </select>
                             </div>
                             <div class="col-xl-12 col-lg-12 o">ชื่อ:&nbsp; &nbsp;<input type="text" name="namecustomer" id="namecustomer" required /></div>
-                            <div class="col-xl-12 col-lg-12 p">นามสกุล:&nbsp; &nbsp;<input type="text" name="lastamecustomer" id="lastamecustomer" required /></div>
+                            <div class="col-xl-12 col-lg-12 p">นามสกุล:&nbsp; &nbsp;<input type="text" name="lastnamecustomer" id="lastnamecustomer" required /></div>
                             <div class="col-xl-12 col-lg-12 ">รหัสบัตรประชาชน:&nbsp; &nbsp;<input type="text" name="idcard" id="idcard" required /></div>
                         </div>
                     </div>
@@ -75,10 +75,10 @@
                         </div>
                         <div class="col-12">
                             <div class="col-12">ให้แก่ผู้ซื้อเป็นจำนวนเงิน xxx บาท xxxx สตางค์ (xxxxxxxx)</div>
-                            <div class="col-12">และยอมส่งมอบทรัพย์สินที่ขายให้แก่ผู้ซื้อวันที่&nbsp;<span>&nbsp;<input type="date" name="saleDate" required></span> และผู้ขายได้รับราคาดังกล่าวแล้วไปจากผู้ซื้อเสร็จแล้วตั้งแต่วันที่&nbsp;<span>&nbsp;<input type="date" name="payDate" required></span></div>
+                            <div class="col-12">และยอมส่งมอบทรัพย์สินที่ขายให้แก่ผู้ซื้อวันที่&nbsp;<span>&nbsp;<input type="date" name="selldate" id="selldate" required></span> และผู้ขายได้รับราคาดังกล่าวแล้วไปจากผู้ซื้อเสร็จแล้วตั้งแต่วันที่&nbsp;<span>&nbsp;<input type="date" name="payDate" required></span></div>
                             <div class="col-12">ข้อ ๒ ผู้ขายยอมสัญญาว่า ทรัพย์สินซ่งผู้ขายนำมาขายให้แก่ผู้ซื้อนี้เป็นทรัพย์สินของผู้ขายคนเดียว และไม่เคยนำไปขาย จำนำ หรือทำสัญญาผูกพันธ์ใด ๆ แก่ผู้ใดเลย</div>
-                            <div class="col-12"><label for="contract"> ข้อ ๓ &nbsp;</label></div>
-                            <div class="col-12"><textarea style="background-color: #7C904E; vertical-align: middle;" name="AnotherCondition" cols="50" rows="5"></textarea></div>
+                            <div class="col-12"><label for="contract" > ข้อ ๓ &nbsp;</label></div>
+                            <div class="col-12"><textarea style="background-color: #7C904E; vertical-align: middle;" name="AnotherCondition" id="contract_details" cols="50" rows="5"></textarea></div>
                             <div class="col-12">ข้อ ๔ ผู้ขายและผู้ซื้อได้ทราบข้อความในสัญญานี้ดีแล้ว จึงได้ลงลายมือชื่อไว้ในสัญญานี้เป็นหลักฐาน</div>
 
                         </div>

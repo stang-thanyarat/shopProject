@@ -90,14 +90,12 @@
 
                         <div class="col-12 p">
                             วิธีการชำระ: &nbsp;
-                            <select name="payment" id="payment" style="background-color: #7C904E;" required>
-                                <option value="เลือก" selected>เลือก</option>
+                            <select name="payment_sl" id="payment_sl"style="background-color: #7C904E;" >
                                 <option value="เงินสด">เงินสด</option>
                                 <option value="โอนเงิน">โอนเงิน</option>
                             </select>
                         </div>
-
-                        <div class="col-12 r">
+                        <div class="col-12 r" id="slip_upload">
                             ไฟล์แนบ: &nbsp;
                             <input accept="image/*" type="file" name="slip" id="slip"/>
                         </div>
