@@ -21,7 +21,7 @@
                 <div class="row main">
                     <h1>ใบสั่งซื้อ เลขที่01</h1>
                     <div class="col-12 d-flex justify-content-end signin">
-                        <a class="submit BTNT" href="#"><img class='print' src="./src/images/print.png" width="25">&nbsp print</a>
+                        <button type="button" onclick="print()"><img class='print' src="./src/images/print.png" width="25" />&nbsp&nbsp print</button>
                     </div>
                     <p></p>
                     <div class="col-12">

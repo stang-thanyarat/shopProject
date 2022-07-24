@@ -60,6 +60,7 @@ function myFunction() {
 $(document).ready(function () {
     localStorage.clear()
     localStorage.setItem("tableProduct", JSON.stringify({ data: [] }))
+    localStorage.clear()
     localStorage.setItem("tablePrice", JSON.stringify({ data: [] }))
 });
 
