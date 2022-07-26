@@ -19,8 +19,8 @@
             </div>
             <div class="row top">
                 <div class="col-lg-4 col-md-12">
-                    <label for="prefix">คำนำหน้าชื่อ:</label>
-                    <select name="prefix" id="prefix" onchange="show_title_other(this.form);" class="bb" required>
+                    <label for="account_prefix">คำนำหน้าชื่อ:</label>
+                    <select name="account_prefix" id="account_prefix" onchange="show_title_other(this.form);" class="bb" required>
                         <option value="noun" selected hidden>เลือกคำนำหน้า</option>
                         <option value="Mr.">นาย</option>
                         <option value="Mrs.">นาง</option>
@@ -29,14 +29,14 @@
                     <div class="a">*</div>
                 </div>
                 <div class="col-lg-4 col-md-12 leftfirst">
-                    <label for="firstname">ชื่อ :</label>
-                    <input name="firstname" id="firstname" type="text" class="bb" required />
+                    <label for="account_firstname">ชื่อ :</label>
+                    <input name="account_firstname" id="account_firstname" type="text" class="bb" required />
                     <div class="b">*</div>
                 </div>
                 <br>
                 <div class="col-lg-4 col-md-12">
-                    <label for="lastname">นามสกุล :</label>
-                    <input name="lastname" id="lastname" type="text" class="bb" required />
+                    <label for="account_lastname">นามสกุล :</label>
+                    <input name="account_lastname" id="account_lastname" type="text" class="bb" required />
                     <div class="c">*</div>
                 </div>
             </div>
@@ -61,9 +61,9 @@
                     <div class="g">*</div>
                 </div>
                 <div class="col-lg-4 leftstatus">
-                    <label for="status">สถานะการใช้งาน :</label>
+                    <label for="account_user_status">สถานะการใช้งาน :</label>
                     <label class="switch bb">
-                        <input type="checkbox">
+                        <input type="checkbox" id="account_user_status">
                         <span class="slider round"></span>
                     </label>
                     <div class="h">*</div>

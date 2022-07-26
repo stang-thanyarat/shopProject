@@ -103,11 +103,11 @@ $("#addotherexpenses").submit(function (event) {
 
 });
 
-//กำหนดแถวที่จะลบ
+//กำหนดแถวที่จะลบค่าใช้จ่ายอื่นๆ
 function saveIndexDel(i) {
     localStorage.setItem('deleteIndex', i)
 }
-//กำหนดแถวที่จะแก้ไข พร้อมข้อมูลเริ่มต้น
+//กำหนดแถวที่จะแก้ไข พร้อมข้อมูลเริ่มต้นค่าใช้จ่ายอื่นๆ
 function saveIndexEdit(i) {
     localStorage.setItem('editIndex', i)
     let rows = (JSON.parse(localStorage.getItem("tableproduct"))).data
@@ -115,7 +115,7 @@ function saveIndexEdit(i) {
     $('#editpriceother').val(rows[i - 1].priceother)
 }
 
-//ลบแถว
+//ลบแถวค่าใช้จ่ายอื่นๆ
 function delrow() {
     let tableObj = JSON.parse(localStorage.getItem("tableproduct"))
     const index = localStorage.getItem('deleteIndex')

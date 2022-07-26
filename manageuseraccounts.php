@@ -24,8 +24,8 @@
                 </div>
                 <div class="row c">
                     <div class="col-3">
-                        <label for="position">ตำแหน่ง :</label>
-                        <select name="position" id="position">
+                        <label for="account_user_type">ตำแหน่ง :</label>
+                        <select name="account_user_type" id="account_user_type">
                             <option value="position" selected>ตำแหน่ง</option>
                             <option value="shopkeeper">เจ้าของร้าน</option>
                             <option value="admin">ผู้ดูแลระบบ</option>

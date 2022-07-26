@@ -29,15 +29,22 @@
                     </tr>
                     <tr>
                         <th>
-                            <div class="row-4 leftmodel">
-                                <label for="employee model">รูปแบบพนักงาน :</label>
-                                <select name="employee model" id="employee model" class="margin" required>
-                                    <option value="employee model" selected hidden>เลือกรูปแบบพนักงาน</option>
-                                    <option value="full time staff">พนักงานประจำ</option>
-                                    <option value="daily staff">พนักงานรายวัน</option>
-                                    <option value="temporary worker">พนักงานชั่วคราว</option>
-                                </select>
-                                <div class="a">*</div>
+                            <div class="row">
+                                <div class="col-4 leftmodel">
+                                    <label for="employee_model">รูปแบบพนักงาน :</label>
+                                    <select name="employee_model" id="employee_model" class="margin" required>
+                                        <option value="employee model" selected hidden>เลือกรูปแบบพนักงาน</option>
+                                        <option value="full time staff">พนักงานประจำ</option>
+                                        <option value="daily staff">พนักงานรายวัน</option>
+                                        <option value="temporary worker">พนักงานชั่วคราว</option>
+                                    </select>
+                                    <div class="a">*</div>
+                                </div>
+                                <div class="col-4 leftstartwork">
+                                    <label for="employee_startwork_dt">วันที่เข้าทำงาน :</label>
+                                    <input type="date" name="employee_startwork_dt" id="employee_startwork_dt" class="bb" required />
+                                    <div class="q">*</div><br>
+                                </div>
                             </div>
                             <br>
                         </th>
@@ -48,8 +55,8 @@
                     <tr>
                         <th>
                             <div class="row-4 ma">
-                                <label for="prefix">คำนำหน้าชื่อ : </label>
-                                <select name="prefix" id="prefix" class="margin" required>
+                                <label for="employee_prefix">คำนำหน้าชื่อ : </label>
+                                <select name="employee_prefix" id="employee_prefix" class="margin" required>
                                     <option value="noun" selected hidden>เลือกคำนำหน้า</option>
                                     <option value="Mr.">นาย</option>
                                     <option value="Mrs.">นาง</option>
@@ -59,26 +66,25 @@
                             </div>
                             <div class="row">
                                 <div class="col leftname">
-                                    <label for="firstname">ชื่อ :</label>
-                                    <input name="firstname" type="text" id="firstname" class="bb" required />
+                                    <label for="employee_firstname">ชื่อ :</label>
+                                    <input name="employee_firstname" type="text" id="employee_firstname" class="bb" required />
                                     <div class="c">*</div>
                                 </div>
                                 <div class="col leftlastname">
-                                    <label for="lastname">นามสกุล :</label>
-                                    <input name="lastname" type="text" id="lastname" class="bb" class="bb" required />
+                                    <label for="employee_lastname">นามสกุล :</label>
+                                    <input name="employee_lastname" type="text" id="employee_lastname" class="bb" class="bb" required />
                                     <div class="d">*</div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col leftidcardnumber">
-                                    <label for="idcardnumber">เลขบัตรประชาชน :</label>
-                                    <input name="idcardnumber" type="text" id=idcardnumber onkeyup="autoTab(this)" class="bb" required />
+                                    <label for="employee_card_id">เลขบัตรประชาชน :</label>
+                                    <input name="employee_card_id" type="text" id=employee_card_id onkeyup="autoTab(this)" class="bb" required />
                                     <div class="e">*</div>
                                 </div>
                                 <div class="col leftbirthday">
-                                    <label for="birthday">วันเกิด :</label>
-                                    <label for="birthday"></label>
-                                    <input type="date" name="birthday" id="birthday" class="bb" required />
+                                    <label for="employee_birthday">วันเกิด :</label>
+                                    <input type="date" name="employee_birthday" id="employee_birthday" class="bb" required />
                                     <div class="f">*</div><br>
                                 </div>
                             </div>
@@ -91,35 +97,35 @@
                         <th>
                             <div class="row">
                                 <div class="col leftaddress">
-                                    <label for="address">ที่อยู่ :</label>
-                                    <input type="text" name="address" id="address" class="bb" required />
+                                    <label for="employee_address">ที่อยู่ :</label>
+                                    <input type="text" name="employee_address" id="employee_address" class="bb" required />
                                     <div class="l">*</div>
                                 </div>
                                 <div class="col lefttelephone">
-                                    <label for="telephone">โทรศัพท์ :</label>
-                                    <input name="telephone" type="text" id=telephone onkeyup="autoTab2(this)" class="bb" required />
+                                    <label for="employee_telephone">โทรศัพท์ :</label>
+                                    <input name="employee_telephone" type="text" id=employee_telephone onkeyup="autoTab2(this)" class="bb" required />
                                     <div class="g">*</div>
                                 </div>
                             </div>
                             <div class="row leftemail">
                                 <div class="col">
-                                    <label for="email">อีเมล :</label>
-                                    <input name="email" type="email" id="email" onblur='check_email(this)' class="bb" required />
+                                    <label for="employee_email">อีเมล :</label>
+                                    <input name="employee_email" type="email" id="employee_email" onblur='check_email(this)' class="bb" required />
                                     <div class="h">*</div>
                                 </div>
                                 <div class="col leftpassword">
-                                    <label for="password">รหัสผ่าน :</label>
-                                    <input name="password" type="password" id="password" onblur='check_num(this)' class="bb" required />
+                                    <label for="employee_password">รหัสผ่าน :</label>
+                                    <input name="employee_password" type="password" id="employee_password" onblur='check_num(this)' class="bb" required />
                                     <div class="i">*</div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col leftn">สำเนาบัตรประชาชน :
-                                    <input type="file" accept="image/*" name="copyofIDcard" class="bb" required>
+                                    <input type="file" accept="image/*" id="employee_card_id_copy" name="employee_card_id_copy" class="bb" required>
                                     <div class="j">*</div>
                                 </div>
                                 <div class="col leftnb">สำเนาทะเบียนบ้าน :
-                                    <input type="file" accept="image/*" name="Copyofhouseregistration" class="bb" required>
+                                    <input type="file" accept="image/*" id="employee_address_copy" name="employee_address_copy" class="bb" required>
                                     <div class="k">*</div>
                                 </div>
                                 <div class="row leftpng">
@@ -177,7 +183,7 @@
                     <div class="modal-body">
                         <div class="row">
                             <label for="bank">ธนาคาร : </label>
-                            <select name="bank" id="addbank" required>
+                            <select name="bank_name" id="bank_name" required>
                                 <option value="" selected hidden>เลือกธนาคาร</option>
                                 <option value="ธนาคารกรุงไทย">ธนาคารกรุงไทย</option>
                                 <option value="ธนาคารไทยพาณิชย์">ธนาคารไทยพาณิชย์</option>
@@ -186,10 +192,10 @@
                             </select>
                         </div><br>
                         <div class="row">
-                            เลขบัญชี : <input type="text" id="addbanknumber" required></input>
+                            เลขบัญชี : <input type="text" id="bank_number" name="bank_number" required></input>
                         </div><br>
                         <div class="row">
-                            ชื่อบัญชี : <input type="text" id="addbankaccountname" required></input>
+                            ชื่อบัญชี : <input type="text" id="bank_account" name="bank_account" required></input>
                         </div>
                         <br>
                         <div class="modal-footer">
@@ -233,8 +239,8 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col leftbank ">
-                                <label for="bank">ธนาคาร : </label>
-                                <select name="bank" id="editbank">
+                                <label for="editbank_name">ธนาคาร : </label>
+                                <select name="editbank_name" id="editbank_name">
                                     <option value="" selected hidden>เลือกธนาคาร</option>
                                     <option value="ธนาคารกรุงไทย">ธนาคารกรุงไทย</option>
                                     <option value="ธนาคารไทยพาณิชย์">ธนาคารไทยพาณิชย์</option>
@@ -245,12 +251,12 @@
                         </div>
                         <div class="row">
                             <div class="col leftanb">
-                                เลขบัญชี : <input type="text" id="editaccountnumber" name="accountnumber">
+                                เลขบัญชี : <input type="text" id="editbank_number" name="editbank_number">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col leftan">
-                                ชื่อบัญชี : <input type="text" id="editaccoutname" name="accountnumber">
+                                ชื่อบัญชี : <input type="text" id="editbank_account" name="editbank_account">
                             </div>
                         </div>
                         <div class="modal-footer">

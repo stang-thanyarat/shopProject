@@ -23,7 +23,7 @@
                 </div>
                 <div class="row leftseller">
                     <div class="col">
-                        <label for="seller type">ประเภทผู้ขาย :</label>
+                        <label for="sell_type">ประเภทผู้ขาย :</label>
                         <input type="radio" name="seller type" value="บริษัท / ห้างร้าน" class="bb" checked>
                         <label for="seller type">บริษัท / ห้างร้าน </label>
                         <input type="radio" name="seller type" value="บุคคลทั่วไป">
@@ -31,32 +31,32 @@
                         <div class="d">*</div>
                     </div>
                     <div class="col leftsellername">
-                        <label for="seller name">ชื่อผู้ขาย :</label>
-                        <input type="text" name="sellername" id="sellername" class="bb" required />
+                        <label for="sell_supplier_name">ชื่อผู้ขาย :</label>
+                        <input type="text" name="sell_supplier_name" id="sell_supplier_name" class="bb" required />
                         <div class="a">*</div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col leftidentification">
-                        <label for="tax Identification Number">เลขประจำตัวผู้เสียภาษี :</label>
-                        <input type="text" name="taxidentificationnumber" id="taxidentificationnumber" class="bb" required />
+                        <label for="sell_tax_id">เลขประจำตัวผู้เสียภาษี :</label>
+                        <input type="text" name="sell_tax_id" id="sell_tax_id" class="bb" required />
                         <div class="c">*</div>
                     </div>
                     <div class="col leftaddress">
-                        <label for="address">ที่อยู่ :</label>
-                        <input type="text" name="address" id="address" class="bb" required />
+                        <label for="sell_address">ที่อยู่ :</label>
+                        <input type="text" name="sell_address" id="sell_address" class="bb" required />
                         <div class="b">*</div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col lefttelephone">
-                        <label for="telephone number">เบอร์โทรศัพท์ :</label>
-                        <input type="text" name="telephonenumber" id="telephonenumber" onkeyup="autoTab2(this)" class="bb" required />
+                        <label for="sell_telephone">เบอร์โทรศัพท์ :</label>
+                        <input type="text" name="sell_telephone" id="sell_telephone" onkeyup="autoTab2(this)" class="bb" required />
                         <div class="e">*</div>
                     </div>
                     <div class="col leftwebsite">
-                        <label for="website">เว็บไซต์ :</label>
-                        <input type="text" name="website" id="website" class="bb" />
+                        <label for="sell_website">เว็บไซต์ :</label>
+                        <input type="text" name="sell_website" id="sell_website" class="bb" />
                     </div>
                 </div>
                 <div class="row th">
@@ -64,42 +64,42 @@
                 </div>
                 <div class="row">
                     <div class="col leftfirst">
-                        <label for="first name">ชื่อ :</label>
-                        <input type="text" name="firstname" id="firstname" class="bb" required />
+                        <label for="seller_firstname">ชื่อ :</label>
+                        <input type="text" name="seller_firstname" id="seller_firstname" class="bb" required />
                         <div class="f">*</div>
                     </div>
                     <div class="col leftlast">
-                        <label for="last name">นามสกุล :</label>
-                        <input type="text" name="lastname" id="lastname" class="bb" required />
+                        <label for="seller_lastname">นามสกุล :</label>
+                        <input type="text" name="seller_lastname" id="seller_lastname" class="bb" required />
                         <div class="g">*</div>
                     </div>
                 </div>
                 <div class="row leftnick">
                     <div class="col">
-                        <label for="nickname">ชื่อเล่น :</label>
-                        <input type="text" name="nickname" id="nickname" class="bb" required />
+                        <label for="seller_nickname">ชื่อเล่น :</label>
+                        <input type="text" name="seller_nickname" id="seller_nickname" class="bb" required />
                         <div class="h">*</div>
                     </div>
                     <div class="col leftemail">
-                        <label for="email">อีเมล :</label>
-                        <input type="text" name="email" id="email" class="bb" required />
+                        <label for="seller_email">อีเมล :</label>
+                        <input type="text" name="seller_email" id="seller_email" class="bb" required />
                         <div class="i">*</div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col leftnumber2">
-                        <label for="telephone number2">เบอร์โทรศัพท์ :</label>
-                        <input type="text" name="telephonenumber2" id="telephonenumber2" onkeyup="autoTab2(this)" class="bb" required />
+                        <label for="seller_telephone">เบอร์โทรศัพท์ :</label>
+                        <input type="text" name="seller_telephone" id="seller_telephone" onkeyup="autoTab2(this)" class="bb" required />
                         <div class="j">*</div>
                     </div>
                     <div class="col leftidline">
-                        <label for="idline">ไอดีไลน์ :</label>
-                        <input type="text" name="idline" id="idline" class="bb" />
+                        <label for="seller_lind_id">ไอดีไลน์ :</label>
+                        <input type="text" name="seller_lind_id" id="seller_lind_id" class="bb" />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col leftfile">
-                        บัตรประชาชน : <input type="file" accept="image/*" name="slip" class="bb" required>
+                        บัตรประชาชน : <input type="file" accept="image/*" name="seller_card_id" id="seller_card_id" class="bb" required>
                         <div class="k">*</div>
                     </div>
                 </div>
@@ -128,10 +128,10 @@
                 </table>
                 <div class="row">
                     <div class="col leftfile2">
-                        นามบัตร : <input type="file" accept="image/*" name="card" class="bb">
+                        นามบัตร : <input type="file" accept="image/*" name="seller_cardname" id="seller_cardname" class="bb">
                     </div>
                     <div class="col leftfile3">
-                        เอกสารอื่นๆ : <input type="file" accept="image/*" name="other documents" class="bb">
+                        เอกสารอื่นๆ : <input type="file" accept="image/*" name="sell_documents" id="sell_documents" class="bb">
                     </div>
                 </div>
                 <div class="row leftpng">
@@ -140,7 +140,7 @@
                 <div class="row">
                     <div class="col leftnote">
                         <label for="note">หมายเหตุ :&nbsp;</label>
-                        <textarea name="note" cols="50" rows="5" style="vertical-align:top;" class="bb"></textarea>
+                        <textarea name="note" id="note" cols="50" rows="5" style="vertical-align:top;" class="bb"></textarea>
                     </div>
                 </div>
                 <div class="row btn-g">
@@ -168,8 +168,8 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <label for="bank">ธนาคาร : </label>
-                            <select name="bank" id="addbank" required>
+                            <label for="bank_name">ธนาคาร : </label>
+                            <select name="bank_name" id="bank_name" required>
                                 <option value="" selected hidden>เลือกธนาคาร</option>
                                 <option value="ธนาคารกรุงไทย">ธนาคารกรุงไทย</option>
                                 <option value="ธนาคารไทยพาณิชย์">ธนาคารไทยพาณิชย์</option>
@@ -178,10 +178,10 @@
                             </select>
                         </div><br>
                         <div class="row">
-                            เลขบัญชี : <input type="text" id="addbanknumber" required></input>
+                            เลขบัญชี : <input type="text" id="bank_number" name="bank_number" required></input>
                         </div><br>
                         <div class="row">
-                            ชื่อบัญชี : <input type="text" id="addbankaccountname" required></input>
+                            ชื่อบัญชี : <input type="text" id="bank_account" name="bank_account" required></input>
                         </div>
                         <br>
                         <div class="modal-footer">
@@ -225,8 +225,8 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col leftbank ">
-                                <label for="bank">ธนาคาร : </label>
-                                <select name="bank" id="editbank">
+                                <label for="editbank_name">ธนาคาร : </label>
+                                <select name="editbank_name" id="editbank_name">
                                     <option value="" selected hidden>เลือกธนาคาร</option>
                                     <option value="ธนาคารกรุงไทย">ธนาคารกรุงไทย</option>
                                     <option value="ธนาคารไทยพาณิชย์">ธนาคารไทยพาณิชย์</option>
@@ -237,12 +237,12 @@
                         </div>
                         <div class="row">
                             <div class="col leftanb">
-                                เลขบัญชี : <input type="text" id="editaccountnumber" name="accountnumber">
+                                เลขบัญชี : <input type="text" id="editbank_number" name="editbank_number">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col leftan">
-                                ชื่อบัญชี : <input type="text" id="editaccoutname" name="accountnumber">
+                                ชื่อบัญชี : <input type="text" id="editbank_account" name="editbank_account">
                             </div>
                         </div>
                         <div class="modal-footer">

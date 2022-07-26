@@ -26,7 +26,26 @@ function autoTab2(obj) {
     if (obj_l >= pattern.length) {
         obj.value = obj.value.substr(0, pattern.length);
     }
-    if (!phonenumber(document.form1.telephone.value))
+    if (!telephone1(document.form1.telephone.value))
+        alert('เบอร์โทรศัพท์ไม่ถูกต้อง');
+}
+
+function autoTab2(obj) {
+    var pattern = new String("___-_______");
+    var pattern_ex = new String("-");
+    var returnText = new String("");
+    var obj_l = obj.value.length;
+    var obj_l2 = obj_l - 1;
+    for (i = 0; i < pattern.length; i++) {
+        if (obj_l2 == i && pattern.charAt(i + 1) == pattern_ex) {
+            returnText += obj.value + pattern_ex;
+            obj.value = returnText;
+        }
+    }
+    if (obj_l >= pattern.length) {
+        obj.value = obj.value.substr(0, pattern.length);
+    }
+    if (!telephone2(document.form1.telephone.value))
         alert('เบอร์โทรศัพท์ไม่ถูกต้อง');
 }
 
@@ -46,7 +65,15 @@ function check_num(elm) {
 }
 
 //ตรวจสอบเบอร์โทรศัพท์
-function phonenumber(inputtxt) {
+function telephone1(inputtxt) {
+    var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    if (inputtxt.match(phoneno)) {
+        return true;
+    }
+    return false;
+}
+
+function telephone2(inputtxt) {
     var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
     if (inputtxt.match(phoneno)) {
         return true;
@@ -59,10 +86,10 @@ $("#editbankaccount").submit(function (event) {
     event.preventDefault();
     let tableObj = JSON.parse(localStorage.getItem("tableBank"))
     const index = localStorage.getItem('editIndex')
-    tableObj.data[index - 1] = {
-        bank: $('#editbank').val(),
-        number: $('#editaccountnumber').val(),
-        name: $('#editaccoutname').val(),
+    tableObj.data[index] = {
+        bank: $('#editbank_name').val(),
+        number: $('#editbank_number').val(),
+        name: $('#editbank_account').val(),
     }
     localStorage.setItem("tableBank", JSON.stringify(tableObj))
     let rows = tableObj.data
@@ -74,8 +101,8 @@ $("#editbankaccount").submit(function (event) {
                     <th>${e.number}</th>
                     <th>${e.name}</th>
                     <th>
-                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndex(${i + 1})"></button>
-                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl1"><img src="./src/images/icon-pencil.png" width="25"></button>
+                    <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(${i})"></button>
+                    <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl1"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
                     </th>
                 </tr>`)
     });
@@ -89,31 +116,31 @@ $("#editbankaccount").submit(function (event) {
 $("#addbankaccount").submit(function (event) {
     event.preventDefault();
     let tableObj = JSON.parse(localStorage.getItem("tableBank"))
-    const i = $('#banktable').children().length + 1
-    if ($('#addbank').val() === "" || $('#addbanknumber').val() === "" || $('#addbankaccountname').val() === "") {
+    const i = tableObj.data.length
+    if ($('#bank_name').val() === "" || $('#bank_number').val() === "" || $('#bank_account').val() === "") {
         $('#addtable').blur()
         return
     }
     $('#banktable').append(`<tr id="rr${i}">
                     <th class="index-table-bank">${i}</th>
-                    <th>${$('#addbank').val()}</th>
-                    <th>${$('#addbanknumber').val()}</th>
-                    <th>${$('#addbankaccountname').val()}</th>
+                    <th>${$('#bank_name').val()}</th>
+                    <th>${$('#bank_number').val()}</th>
+                    <th>${$('#bank_account').val()}</th>
                     <th>
-                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(${i})"></button>
-                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl1"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
+                    <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(${i})"></button>
+                    <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl1"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
                     </th>
                 </tr>`)
     $('#addclose').click()
     tableObj.data.push({
-        bank: $('#addbank').val(),
-        number: $('#addbanknumber').val(),
-        name: $('#addbankaccountname').val(),
+        bank: $('#bank_name').val(),
+        number: $('#bank_number').val(),
+        name: $('#bank_account').val(),
     })
     localStorage.setItem("tableBank", JSON.stringify(tableObj))
-    $('#addbank').val("")
-    $('#addbanknumber').val("")
-    $('#addbankaccountname').val("")
+    $('#bank_name').val("")
+    $('#bank_number').val("")
+    $('#bank_account').val("")
 
 });
 
@@ -126,9 +153,9 @@ function saveIndexDel(i) {
 function saveIndexEdit(i) {
     localStorage.setItem('editIndex', i)
     let rows = (JSON.parse(localStorage.getItem("tableBank"))).data
-    $('#editbank').val(rows[i - 1].bank)
-    $('#editaccountnumber').val(rows[i - 1].number)
-    $('#editaccoutname').val(rows[i - 1].name)
+    $('#editbank_name').val(rows[i].bank)
+    $('#editbank_number').val(rows[i].number)
+    $('#editbank_account').val(rows[i].name)
 }
 
 //ลบแถว
@@ -136,9 +163,7 @@ function delrow() {
     let tableObj = JSON.parse(localStorage.getItem("tableBank"))
     const index = localStorage.getItem('deleteIndex')
     let rows = tableObj.data
-    if (rows.length > 0) {
-        rows.splice(index - 1)
-    }
+    rows.splice(index, 1)
     $('#banktable').html("")
     rows.forEach((e, i) => {
         $('#banktable').append(`<tr id="rr${i + 1}">
@@ -147,8 +172,8 @@ function delrow() {
                     <th>${e.number}</th>
                     <th>${e.name}</th>
                     <th>
-                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndex(${i + 1})"></button>
-                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl1"><img src="./src/images/icon-pencil.png" width="25"></button>
+                    <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(${i})"></button>
+                    <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl1"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
                     </th>
                 </tr>`)
     });

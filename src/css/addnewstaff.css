@@ -54,6 +54,17 @@
     margin-left: 7rem;
 }
 
+.leftstartwork {
+    margin-left: 12rem;
+    margin-top: 1rem;
+}
+
+.q {
+    color: red;
+    margin-left: 6.5rem;
+    margin-top: -1.8rem;
+}
+
 .b {
     color: red;
     margin-left: 5.8rem;
@@ -102,7 +113,7 @@
 
 .f {
     color: red;
-    margin-left: 3.4rem;
+    margin-left: 3.5rem;
     margin-top: -1.8rem;
 }
 
