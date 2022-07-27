@@ -13,7 +13,7 @@ $("#addproducttype").submit(function (event) {
         return
     }
     $('#producttypetable').append(`<tr id="rr${i + 1}">
-    <th class="index-table-producttype">${i + 1}</th>
+    <th class="index-table-producttype">${i}</th>
     <th>${$('#addproducttypename').val()}</th>
     <th>${$('#addallproducttype').val()}</th>
     <th>${$('#addsellproducttype').val()}</th>

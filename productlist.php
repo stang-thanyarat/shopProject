@@ -173,8 +173,10 @@
                 </table>
             </div>
         </div>
+    </form>
 
-        <!--- modal เพิ่มไปยังรถเข็น-->
+    <!--- modal เพิ่มไปยังรถเข็น-->
+    <form action="addtocart.php" method="get">
         <div class="modal fade bd-example-modal-sm1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm1">
                 <div class="modal-content">
@@ -185,27 +187,23 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form name="productlist" method="post" action="">
-
-                            <div class="exp">
-                                วันหมดอายุ :&nbsp<font color="red">&nbsp*</font>
-                                <input type="date" name="list" id="list" class="inbox" required />
-                            </div>
-
-                            <div class="amount">
-                                จำนวน : <font color="red">&nbsp*</font>
-                                <input type="text" name="amount" id="amount" class="inbox" required />
-                            </div>
+                        <div class="exp">
+                            วันหมดอายุ :&nbsp<font color="red">&nbsp*</font>
+                            <input type="date" name="list" id="list" class="inbox" />
+                        </div>
+                        <div class="amount">
+                            จำนวน : <font color="red">&nbsp*</font>
+                            <input type="text" name="amounts" id="amount" class="inbox" />
+                        </div>
                     </div>
-
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary1">ตกลง</button>
+                        <button type="submit" class="btn btn-primary1">ตกลง</button>
                     </div>
+                </div>
+            </div>
+        </div>
+        </div>
     </form>
-    </div>
-    </div>
-    </div>
-    </div>
 
     <!--- modal แก้ไขวันหมดอายุ-->
     <div class="modal fade bd-example-modal-sm2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -241,7 +239,7 @@
         </form>
     </div>
 
-    </form>
+
 </body>
 
 </html>

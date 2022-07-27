@@ -14,7 +14,7 @@
 <?php include('nav.php'); ?>
 
 <body>
-    <form name="addtocart" onsubmit="return validateForm()" id="form1" name="form1" method="post" action="">
+    <form>
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">

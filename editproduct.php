@@ -14,7 +14,7 @@
 <?php include('nav.php'); ?>
 
 <body>
-    <form name="editproduct" onsubmit="return validateForm()" id="form1" name="form1" method="post" action="">
+    <form action="productresult.php" name="editproduct" method="post" id="editproduct">
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
@@ -37,28 +37,28 @@
                             <div class="row a">
                                 <div class="col">
                                     ประเภทสินค้า :<font color="red">&nbsp*</font>
-                                    <select name="type" id="type" class="inbox" required>
+                                    <select name="product_type" id="product_type" class="inbox" required>
                                         <option value="" selected hidden>เลือกประเภทสินค้า</option>
-                                        <option value="lawn mower blade">ใบตัดหญ้า</option>
-                                        <option value="kit">ชุดเสื้อสูบ</option>
-                                        <option value="gear knob">หัวเกียร์</option>
-                                        <option value="rice cutting blade">ใบตัดข้าว</option>
-                                        <option value="screw nut">น็อตสกรู</option>
-                                        <option value="string">เชือกเอ็น</option>
-                                        <option value="disc lawn mower">จานตัดหญ้า</option>
-                                        <option value="kaboo">คาบู</option>
-                                        <option value="Fertilizer Sprayer Parts">อะไหล่เครื่องพ่นปุ๋ย</option>
-                                        <option value="suspension rubber">ยางกันสะเทือน</option>
-                                        <option value="water pump">ปั๊มน้ำ</option>
-                                        <option value="lawn mower">เครื่องตัดหญ้า</option>
-                                        <option value="seed">เมล็ดพันธุ์</option>
-                                        <option value="herbicide">ยากำจัดวัชพืช</option>
-                                        <option value="chemical fertilizer">ปุ๋ยเคมี</option>
+                                        <option value="ใบตัดหญ้า">ใบตัดหญ้า</option>
+                                        <option value="ชุดเสื้อสูบ">ชุดเสื้อสูบ</option>
+                                        <option value="หัวเกียร์">หัวเกียร์</option>
+                                        <option value="ใบตัดข้าว">ใบตัดข้าว</option>
+                                        <option value="น็อตสกรู">น็อตสกรู</option>
+                                        <option value="เชือกเอ็น">เชือกเอ็น</option>
+                                        <option value="จานตัดหญ้า">จานตัดหญ้า</option>
+                                        <option value="คาบู">คาบู</option>
+                                        <option value="อะไหล่เครื่องพ่นปุ๋ย">อะไหล่เครื่องพ่นปุ๋ย</option>
+                                        <option value="ยางกันสะเทือน">ยางกันสะเทือน</option>
+                                        <option value="ปั๊มน้ำ">ปั๊มน้ำ</option>
+                                        <option value="เครื่องตัดหญ้า">เครื่องตัดหญ้า</option>
+                                        <option value="เมล็ดพันธุ์">เมล็ดพันธุ์</option>
+                                        <option value="ยากำจัดวัชพืช">ยากำจัดวัชพืช</option>
+                                        <option value="ปุ๋ยเคมี">ปุ๋ยเคมี</option>
                                     </select>
                                 </div>
                                 <div class="col productnumber ">
                                     รหัสสินค้า :&nbsp&nbsp
-                                    <label for="no." class="inbox">A01
+                                    <label for="no." id="" class="inbox">A01
                                     </label>
                                 </div>
                             </div>
@@ -66,22 +66,22 @@
                             <div class="row a">
                                 <div class="col productname">
                                     ชื่อสินค้า :<font color="red">&nbsp*</font>
-                                    <input name="lastname" type="text" id="lastname" class="inbox" required />
+                                    <input name="product_name" type="text" id="product_name" class="inbox" required />
                                 </div>
                                 <div class="col">
                                     ยี่ห้อสินค้า :<font color="red">&nbsp*</font>
-                                    <input name="lastname" type="text" id="lastname" class="inbox" required />
+                                    <input name="brand" type="text" id="brand" class="inbox" required />
                                 </div>
                             </div>
 
                             <div class="row a">
                                 <div class="col productversion">
                                     รุ่นสินค้า :<font color="red">&nbsp*</font>
-                                    <input name="lastname" type="text" id="lastname" class="inbox" required />
+                                    <input name="model" type="text" id="model" class="inbox" required />
                                 </div>
                                 <div class="col sellername">
                                     ชื่อผู้ขาย :<font color="red">&nbsp*</font>
-                                    <select name="type" id="type" class="inbox" required>
+                                    <select name="seller_id" id="seller_id" class="inbox" required>
                                         <option value="RS intertred(2017)">อาร์เอส อินเตอร์เทรด (2017) จำกัด</option>
                                     </select>
                                 </div>
@@ -89,11 +89,11 @@
                             <div class="row a">
                                 <div class="col image">
                                     รูปภาพสินค้า :<font color="red">&nbsp*</font>
-                                    <input type="file" accept="image/*" name="copyofIDcard" class="inbox" required>
+                                    <input type="file" accept="image/*" name="product_img1" id="product_img1" class="inbox" required>
                                 </div>
                                 <div class="col productinformation">
                                     รูปรายละเอียดสินค้า :<font color="red">&nbsp*</font>
-                                    <input type="file" accept="image/*" name="Copyofhouseregistration" class="inbox" required>
+                                    <input type="file" accept="image/*" name="product_img2" id="product_img2" class="inbox" required>
                                 </div>
                             </div>
 
@@ -106,18 +106,18 @@
                             <div class="row a">
                                 <div class="col details">
                                     รายละเอียด :&nbsp&nbsp&nbsp
-                                    <textarea name="note" cols="50" rows="5" class="inbox" style="vertical-align:top;">
+                                    <textarea name="product_detail" id="product_detail" cols="50" rows="5" class="inbox" style="vertical-align:top;">
                                     </textarea>
                                 </div>
                                 <div class="col amount">
                                     จำนวน :<font color="red">&nbsp*</font>
-                                    <input name="lastname" type="text" id="lastname" class="inbox" required />
+                                    <input name="product_dlt_unit" type="text" id="product_dlt_unit" class="inbox" required />
                                 </div>
                             </div>
                             <div class="row a">
                                 <div class="col-5 unit">
                                     หน่วยนับ :<font color="red">&nbsp*</font>
-                                    <select name="type" id="type" class="inbox" required>
+                                    <select name="product_unit" id="product_unit" class="inbox" required>
                                         <option value="envelope">ซอง</option>
                                         <option value="bottle">ขวด</option>
                                         <option value="item">ชิ้น</option>
@@ -129,14 +129,14 @@
                                 </div>
                                 <div class="col-3 price">
                                     ราคาขาย :<font color="red">&nbsp*</font>
-                                    <input name="lastname" type="text" id="lastname" class="inbox" required />
+                                    <input name="price" type="text" id="price" class="inbox" required />
                                 </div>
                                 <div class="col-2 vax">
                                     <input type="checkbox" class="vaxcheckbox">
                                     <label class="vaxcheckboxtext">ภาษีมูลค่าเพิ่ม</label>
                                 </div>
                                 <div class="col-1 costprice">
-                                    <a href="costprice.php" type="button" class="btn-c1 reset1"><label class="label1">ดูราคาทุน</label></a>
+                                    <a href="costprice.php" name="cost_price" id="cost_price" type="button" class="btn-c1 reset1"><label class="label1">ดูราคาทุน</label></a>
                                 </div>
                             </div>
 
@@ -144,13 +144,13 @@
                                 <div class="col status">
                                     สถานะการขาย :&nbsp&nbsp
                                     <label class="switch">
-                                        <input type="checkbox">
+                                        <input name="sales_status" id="sales_status" type="checkbox">
                                         <span class="slider round inbox"></span>
                                     </label>
                                 </div>
                                 <div class="col min1">
                                     สินค้าคงคลังขั้นต่ำ :<font color="red">&nbsp*</font>
-                                    <input name="lastname" type="text" id="lastname" class="inbox" required />
+                                    <input name="notification_amt " type="text" id="notification_amt " class="inbox" required />
                                 </div>
                             </div>
 
@@ -159,7 +159,7 @@
                                     <label class="checkbox">
                                         <input type="checkbox">
                                     </label>
-                                    <label for="setting">&nbsp&nbspตั้งค่าสินค้าคงคลังขั้นต่ำล่วงหน้า</label>
+                                    <label for="setting">&nbsp&nbsp ตั้งค่าสินค้าคงคลังขั้นต่ำล่วงหน้า</label>
                                 </div>
                             </div>
 
@@ -191,6 +191,5 @@
     </form>
 </body>
 
-<script src="./src/js/editproduct.js"></script>
 
 </html>

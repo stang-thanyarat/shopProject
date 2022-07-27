@@ -52,39 +52,53 @@
                         <a type="button" href="./addproduct.php" class="submit btn"><img src="./src/images/plus.png" width="25">&nbsp เพิ่มสินค้า</a>
                     </div>
                     <table class="col-11 q">
-                        <tr>
-                            <th>ประเภทสินค้า</th>
-                            <th>ชื่อสินค้า</th>
-                            <th>ยี่ห้อ</th>
-                            <th>รุ่น</th>
-                            <th>จำนวน</th>
-                            <th>คงเหลือ</th>
-                            <th>ราคา</th>
-                            <th>รูปภาพ</th>
-                            <th>สถานะการขาย</th>
-                            <th></th>
+                        <thead>
+                            <tr>
+                                <th>ประเภทสินค้า</th>
+                                <th>ชื่อสินค้า</th>
+                                <th>ยี่ห้อ</th>
+                                <th>รุ่น</th>
+                                <th>จำนวน</th>
+                                <th>คงเหลือ</th>
+                                <th>ราคา</th>
+                                <th>รูปภาพ</th>
+                                <th>สถานะการขาย</th>
+                                <th></th>
 
-                        </tr>
-                        <tr>
-                            <th>เมล็ดพันธุ์</th>
-                            <th>กระเจี๊ยบ-อพอลโล</th>
-                            <th>Seedline</th>
-                            <th>-</th>
-                            <th>1 ซอง</th>
-                            <th>25 ซอง</th>
-                            <th>20</th>
-                            <th><img src="./src/images/images1.png" width="25"></th>
-                            <th>
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider round"></span>
-                                </label>
-                            </th>
-                            <th>
-                                <a type="button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1"><img src="./src/images/icon-delete.png" width="25"></a>
-                                <a type="button" href="./editproduct.php"><img src="./src/images/icon-pencil.png" width="25"></a>
-                            </th>
-                        </tr>
+                            </tr>
+                            <tr>
+                                <th><?php echo "{$_POST['product_type']}"; ?></th>
+                                <th><?php echo "{$_POST['product_name']}"; ?></th>
+                                <th><?php echo "{$_POST['brand']}"; ?></th>
+                                <th><?php echo "{$_POST['model']}"; ?></th>
+                                <th><?php echo "{$_POST['product_dlt_unit']}"; ?></th>
+                                <th><?php echo "{$_POST['']}"; ?></th>
+                                <th><?php echo "{$_POST['price']}"; ?></th>
+                                <th><?php echo "{$_POST['product_img1']}"; ?></th>
+                                <th><?php echo "{$_POST['sales_status']}"; ?></th>
+                                <th><?php echo "{$_POST['']}"; ?></th>
+
+                            </tr>
+                            <tr>
+                                <th>เมล็ดพันธุ์</th>
+                                <th>กระเจี๊ยบ-อพอลโล</th>
+                                <th>Seedline</th>
+                                <th>-</th>
+                                <th>1 ซอง</th>
+                                <th>25 ซอง</th>
+                                <th>20</th>
+                                <th><img src="./src/images/images1.png" width="25"></th>
+                                <th>
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider round"></span>
+                                    </label>
+                                </th>
+                                <th>
+                                    <a type="button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1"><img src="./src/images/icon-delete.png" width="25"></a>
+                                    <a type="button" href="./editproduct.php"><img src="./src/images/icon-pencil.png" width="25"></a>
+                                </th>
+                            </tr>
                     </table>
                 </div>
             </div>
@@ -109,5 +123,6 @@
 
     </form>
 </body>
+<script src="./src/js/productresult.js"></script>
 
 </html>

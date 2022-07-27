@@ -1,19 +1,15 @@
 
-
+const targetElement = document.getElementById('solutionPay')
 const submitElement = document.getElementById('mySubmit')
-submitElement.addEventListener('click', (e) => {
-  const targetElement = document.getElementById('solutionPay')
-  console.log(targetElement.value)
-  
-  if (targetElement.value === 'cash') {
-    e.target.setAttribute("data-bs-target", ".bd-example-modal-sm3")
+targetElement.addEventListener('change', (e) => {
+  if (e.target.value === 'cash') {
+    submitElement.setAttribute("data-bs-target", ".bd-example-modal-sm3")
   }
-  else if (targetElement.value === 'bankTransfer') {
-    e.target.setAttribute("data-bs-target", ".bd-example-modal-sm4")
+  else if (e.target.value === 'bankTransfer') {
+    submitElement.setAttribute("data-bs-target", ".bd-example-modal-sm4")
   }
-  else if (targetElement.value === 'installment') {
-    e.target.setAttribute("data-bs-target", ".bd-example-modal-sm5")
+  else if (e.target.value === 'installment') {
+    submitElement.setAttribute("data-bs-target", ".bd-example-modal-sm5")
   }
-  // const price = document.getElementById('valuePrice')
-  // price.value=210
 })
+
