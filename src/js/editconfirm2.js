@@ -146,7 +146,7 @@ $("#addotherexpenses").submit(function (event) {
                         <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm2"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
                     </th>
                 </tr>`)
-    $('#addclose1').click()
+    $('#addcloseother').click()
     tableObj.data.push({
         list: $('#listother').val(),
         priceother: $('#priceother').val(),

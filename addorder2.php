@@ -118,7 +118,7 @@
     </form>
     <!---modal เพิ่มสินค้า-->
     <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <form id="addproduct">
+        <form id="addproduct" name="addproduct">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -188,7 +188,7 @@
     <!--แก้ไขสินค้า-->
     <div class="modal fade bd-example-modal-sm3" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <form id="editaddproduct">
-            <div class="modal-dialog modal-xl">
+            <div class="modal-dialog modal-sm3">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">แก้ไขสินค้า</h5>

@@ -2,14 +2,13 @@ $(document).ready(function () {
     $("#creditupload").hide()
     localStorage.clear()
     localStorage.setItem("tableProduct", JSON.stringify({ data: [] }))
-    localStorage.setItem("tablePrice", JSON.stringify({ data: [] }))
 });
 
 //เพิ่มสินค้า
 $("#addproduct").submit(function (event) {
     event.preventDefault();
     let tableObj = JSON.parse(localStorage.getItem("tableProduct"))
-    const i = $('#list-product').children().length + 1
+    const i = tableObj.data.length
     if ($('#typeproduct').val() === "" || $('#product_name').val() === "" || $('#brand').val() === "" || $('#model').val() === "" || $('#unitprice').val() === "" || $('#amount').val() === "") {
         $('#addtable').blur()
         return
@@ -56,12 +55,12 @@ function saveIndexDel(i) {
 function saveIndexEdit(i) {
     localStorage.setItem('editIndex', i)
     let rows = (JSON.parse(localStorage.getItem("tableProduct"))).data
-    $('#edittypeproduct').val(rows[i - 1].type)
-    $('#editlistproduct').val(rows[i - 1].list)
-    $('#editbrand').val(rows[i - 1].brand)
-    $('#editproductmodel').val(rows[i - 1].model)
-    $('#editunitprice').val(rows[i - 1].price)
-    $('#editamount').val(rows[i - 1].amount)
+    $('#edittypeproduct').val(rows[i].type)
+    $('#editlistproduct').val(rows[i].list)
+    $('#editbrand').val(rows[i].brand)
+    $('#editproductmodel').val(rows[i].model)
+    $('#editunitprice').val(rows[i].price)
+    $('#editamount').val(rows[i].amount)
 }
 
 //ลบแถว
@@ -69,9 +68,7 @@ function delrow() {
     let tableObj = JSON.parse(localStorage.getItem("tableProduct"))
     const index = localStorage.getItem('deleteIndex')
     let rows = tableObj.data
-    if (rows.length > 0) {
-        rows.splice(index - 1)
-    }
+        rows.splice(index,1)
     $('#list-product').html("")
     rows.forEach((e, i) => {
         $('#list-product').append(`<tr id="rr${i + 1}">
@@ -83,8 +80,8 @@ function delrow() {
                     <th>${e.amount}</th>
                     <th>${e.allPrice}</th>
                     <th>
-                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndex(${i + 1})"></button>
-                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm3"><img src="./src/images/icon-pencil.png" width="25"></button>
+                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndex(${i})"></button>
+                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm3"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
                     </th>
                 </tr>`)
     });
@@ -99,7 +96,7 @@ $("#editaddproduct").submit(function (event) {
     event.preventDefault();
     let tableObj = JSON.parse(localStorage.getItem("tableProduct"))
     const index = localStorage.getItem('editIndex')
-    tableObj.data[index - 1] = {
+    tableObj.data[index] = {
         type: $('#edittypeproduct').val(),
         list: $('#editlistproduct').val(),
         brand: $('#editbrand').val(),
@@ -121,8 +118,8 @@ $("#editaddproduct").submit(function (event) {
                     <th>${e.amount}</th>
                     <th>${e.allPrice}</th>
                     <th>
-                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndex(${i + 1})"></button>
-                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm3"><img src="./src/images/icon-pencil.png" width="25"></button>
+                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndex(${i})"></button>
+                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm3"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
                     </th>
                 </tr>`)
     });
@@ -137,7 +134,7 @@ $("#editaddproduct").submit(function (event) {
 $("#addprice").submit(function (event) {
     event.preventDefault();
     let tableObj = JSON.parse(localStorage.getItem("tablePrice"))
-    const i = $('#list-priceother').children().length + 1
+    const i = tableObj.data.length
     if ($('#listother').val() === "" || $('#priceother').val() === "") {
         $('#addtable2').blur()
         return
@@ -171,8 +168,8 @@ function saveIndexDel1(i) {
 function saveIndexEdit1(i) {
     localStorage.setItem('editIndex', i)
     let rows = (JSON.parse(localStorage.getItem("tablePrice"))).data
-    $('#editlistother').val(rows[i - 1].listOther)
-    $('#editpriceother').val(rows[i - 1].priceOther)
+    $('#editlistother').val(rows[i].listOther)
+    $('#editpriceother').val(rows[i].priceOther)
 }
 
 //ลบแถว
@@ -180,9 +177,7 @@ function delrow2() {
     let tableObj = JSON.parse(localStorage.getItem("tablePrice"))
     const index = localStorage.getItem('deleteIndex')
     let rows = tableObj.data
-    if (rows.length > 0) {
-        rows.splice(index - 1)
-    }
+    rows.splice(index , 1)
     $('#list-priceother').html("")
     rows.forEach((e, i) => {
         $('#list-priceother').append(`<tr id="rr${i + 1}">
@@ -205,7 +200,7 @@ $("#editaddprice").submit(function (event) {
     event.preventDefault();
     let tableObj = JSON.parse(localStorage.getItem("tablePrice"))
     const index = localStorage.getItem('editIndex')
-    tableObj.data[index - 1] = {
+    tableObj.data[index] = {
         listOther: $('#editlistother').val(),
         priceOther: $('#editpriceother').val(),
     }

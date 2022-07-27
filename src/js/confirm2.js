@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    $("#slipupload").hide()
     localStorage.clear()
     localStorage.setItem("tableproduct", JSON.stringify({ data: [] }))
 });
@@ -8,58 +7,7 @@ $(document).ready(function () {
 $("#addproduct").submit(function (event) {
     event.preventDefault();
     let tableObj = JSON.parse(localStorage.getItem("tableproduct"))
-    const i = $('#producttable').children().length + 1
-    if ($('#addtypeproduct').val() === "" || $('#addlistproduct').val() === "" || $('#addbrand').val() === "" || $('#addproductmodel').val() === "" || $('#addamountproduct').val() === ""
-        || $('#amount').val() === "" || $('#exp_date').val() === "" || $('#addprice').val() === "") {
-        $('#addtable').blur()
-        return
-    }
-    $('#producttable').append(`<tr id="rr${i}">
-                    <th>${$('#addtypeproduct').val()}</th>
-                    <th>${$('#addlistproduct').val()}</th>
-                    <th>${$('#addbrand').val()}</th>
-                    <th>${$('#addproductmodel').val()}</th>
-                    <th>${$('#amount').val()}</th>
-                    <th>${$('#unitprice').val()}</th>
-                    <th>${$('#exp_date').val()}</th>
-                    
-                    <th>${Number($('#amount').val()) * Number($('#unitprice').val())}</th>
-                
-                </tr>`)
-    $('#addclose').click()
-    tableObj.data.push({
-        typeproduct: $('#addtypeproduct').val(),
-        listproduc: $('#addlistproduct').val(),
-        brand: $('#addbrand').val(),
-        productmodel: $('#addproductmodel').val(),
-        amountproduct: $('#addamountproduct').val(),
-        number: $('#amount').val(),
-        expirationdate: $('#exp_date').val(),
-        
-        Prices: Number($('#addamountproduct').val()) * Number($('#amount').val())
-    })
-    localStorage.setItem("tableproduct", JSON.stringify(tableObj))
-    $('#addtypeproduct').val("")
-    $('#addlistproduct').val("")
-    $('#addbrand').val("")
-    $('#addproductmodel').val("")
-    $('#addamountproduct').val("")
-    $('#amount').val("")
-    $('#exp_date').val("")
-    $('#addprice').val("")
-
-});
-
-$(document).ready(function () {
-    localStorage.clear()
-    localStorage.setItem("tableproduct", JSON.stringify({ data: [] }))
-});
-
-//เพิ่มรายการสินค้า
-$("#addproduct").submit(function (event) {
-    event.preventDefault();
-    let tableObj = JSON.parse(localStorage.getItem("tableproduct"))
-    const i = $('#producttable').children().length + 1
+    const i = tableObj.data.length
     if ($('#typeproduct').val() === "" || $('#product_name').val() === "" || $('#brand').val() === "" || $('#model').val() === "" || $('#unitprice').val() === ""
         || $('#amount').val() === "" || $('#exp_date').val() === "" || $('#addprice').val() === "") {
         $('#addtable').blur()
@@ -106,7 +54,7 @@ $("#editotherexpenses").submit(function (event) {
     event.preventDefault();
     let tableObj = JSON.parse(localStorage.getItem("tableproduct"))
     const index = localStorage.getItem('editIndex')
-    tableObj.data[index - 1] = {
+    tableObj.data[index] = {
         list: $('#editlistother').val(),
         priceother: $('#editpriceother').val(),
     }
@@ -146,7 +94,7 @@ $("#addotherexpenses").submit(function (event) {
                         <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm2"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
                     </th>
                 </tr>`)
-    $('#addclose1').click()
+    $('#addcloseother').click()
     tableObj.data.push({
         list: $('#listother').val(),
         priceother: $('#priceother').val(),
