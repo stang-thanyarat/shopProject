@@ -4,10 +4,37 @@ $(document).ready(function () {
 });
 
 //ตรวจสอบพร้อมส่งข้อมูล
-$("#form1").submit(function (event) {
+$("#form1").submit(async function (event) {
     event.preventDefault();
-    if (JSON.parse(localStorage.getItem("tableBank")).data.length <= 0)
+    if (JSON.parse(localStorage.getItem("tableBank")).data.length <= 0) {
+        event.preventDefault();
         alert('กรุณากรอกข้อมูลบัญชีธนาคาร');
+        return
+    }
+    if (!telephone2(document.form1.seller_telephone.value)) {
+        event.preventDefault();
+        alert('เบอร์โทรศัพท์ไม่ถูกต้อง');
+        return
+    }
+    if (!telephone1(document.form1.sell_telephone.value)) {
+        event.preventDefault();
+        alert('เบอร์โทรศัพท์ไม่ถูกต้อง');
+        return
+    }
+    if (!check_email(document.form1.seller_email.value)) {
+        event.preventDefault();
+        alert('อีเมลไม่ถูกต้อง');
+        return
+    } else {
+        const Seller = await (await fetch(`controller/EmailSellCheck.php?email=${document.form1.seller_email.value}`)).json()
+        if (Seller.length > 0) {
+            event.preventDefault();
+            alert('อีเมลนี้มีผู้ใช้งานอยู่แล้ว');
+            return
+        }
+
+    }
+    
 })
 
 //เบอร์โทรศัพท์
@@ -26,8 +53,6 @@ function autoTab2(obj) {
     if (obj_l >= pattern.length) {
         obj.value = obj.value.substr(0, pattern.length);
     }
-    if (!telephone1(document.form1.telephone.value))
-        alert('เบอร์โทรศัพท์ไม่ถูกต้อง');
 }
 
 function autoTab2(obj) {
@@ -45,16 +70,12 @@ function autoTab2(obj) {
     if (obj_l >= pattern.length) {
         obj.value = obj.value.substr(0, pattern.length);
     }
-    if (!telephone2(document.form1.telephone.value))
-        alert('เบอร์โทรศัพท์ไม่ถูกต้อง');
 }
 
 //เช็คอีเมล
 function check_email(elm) {
     var regex_email = /^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*\@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.([a-zA-Z]){2,4})$/
-    if (!elm.value.match(regex_email)) {
-        alert('รูปแบบ email ไม่ถูกต้อง');
-    }
+    return elm.match(regex_email)
 }
 
 //เช็คจำนวนรหัสผ่าน
@@ -81,6 +102,38 @@ function telephone2(inputtxt) {
     return false;
 }
 
+
+//เพิ่มบัญชี
+$("#addbankaccount").submit(function (event) {
+    event.preventDefault();
+    let tableObj = JSON.parse(localStorage.getItem("tableBank"))
+    const i = tableObj.data.length
+    if ($('#bank_name').val() === "" || $('#bank_number').val() === "" || $('#bank_account').val() === "") {
+        $('#addtable').blur()
+        return
+    }
+    $('#banktable').append(`<tr id="rr${i + 1}">
+    <th class="index-table-bank">${i + 1}</th>
+    <th>${$('#bank_name').val()}</th>
+    <th>${$('#bank_number').val()}</th>
+    <th>${$('#bank_account').val()}</th>
+    <th>
+    <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(${i})"></button>
+    <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
+    </th>
+                </tr>`)
+    $('#addclose').click()
+    tableObj.data.push({
+        bank: $('#bank_name').val(),
+        number: $('#bank_number').val(),
+        name: $('#bank_account').val(),
+    })
+    localStorage.setItem("tableBank", JSON.stringify(tableObj))
+    $('#bank_name').val("")
+    $('#bank_number').val("")
+    $('#bank_account').val("")
+});
+
 //แก้ไขบัญชี
 $("#editbankaccount").submit(function (event) {
     event.preventDefault();
@@ -102,7 +155,7 @@ $("#editbankaccount").submit(function (event) {
                     <th>${e.name}</th>
                     <th>
                     <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(${i})"></button>
-                    <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl1"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
+                    <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
                     </th>
                 </tr>`)
     });
@@ -110,46 +163,14 @@ $("#editbankaccount").submit(function (event) {
     localStorage.removeItem('editIndex')
     $('#editclose').click()
 
+
 })
 
-//เพิ่มบัญชี
-$("#addbankaccount").submit(function (event) {
-    event.preventDefault();
-    let tableObj = JSON.parse(localStorage.getItem("tableBank"))
-    const i = tableObj.data.length
-    if ($('#bank_name').val() === "" || $('#bank_number').val() === "" || $('#bank_account').val() === "") {
-        $('#addtable').blur()
-        return
-    }
-    $('#banktable').append(`<tr id="rr${i}">
-                    <th class="index-table-bank">${i}</th>
-                    <th>${$('#bank_name').val()}</th>
-                    <th>${$('#bank_number').val()}</th>
-                    <th>${$('#bank_account').val()}</th>
-                    <th>
-                    <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(${i})"></button>
-                    <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl1"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
-                    </th>
-                </tr>`)
-    $('#addclose').click()
-    tableObj.data.push({
-        bank: $('#bank_name').val(),
-        number: $('#bank_number').val(),
-        name: $('#bank_account').val(),
-    })
-    localStorage.setItem("tableBank", JSON.stringify(tableObj))
-    $('#bank_name').val("")
-    $('#bank_number').val("")
-    $('#bank_account').val("")
-
-});
-
-//กำหนดแถวที่จะลบ
+//กำหนดแถวที่จะลบ บัญชี
 function saveIndexDel(i) {
     localStorage.setItem('deleteIndex', i)
 }
-
-//กำหนดแถวที่จะแก้ไข พร้อมข้อมูลเริ่มต้น
+//กำหนดแถวที่จะแก้ไข พร้อมข้อมูลเริ่มต้น บัญชี
 function saveIndexEdit(i) {
     localStorage.setItem('editIndex', i)
     let rows = (JSON.parse(localStorage.getItem("tableBank"))).data
@@ -158,7 +179,7 @@ function saveIndexEdit(i) {
     $('#editbank_account').val(rows[i].name)
 }
 
-//ลบแถว
+//ลบแถวบัญชี
 function delrow() {
     let tableObj = JSON.parse(localStorage.getItem("tableBank"))
     const index = localStorage.getItem('deleteIndex')
@@ -173,7 +194,7 @@ function delrow() {
                     <th>${e.name}</th>
                     <th>
                     <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(${i})"></button>
-                    <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl1"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
+                    <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
                     </th>
                 </tr>`)
     });

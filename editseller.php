@@ -31,8 +31,8 @@
                         <div class="d">*</div>
                     </div>
                     <div class="col leftsellername">
-                        <label for="sell_supplier_name">ชื่อผู้ขาย :</label>
-                        <input type="text" name="sell_supplier_name" id="sell_supplier_name" class="bb" required />
+                        <label for="sell_name">ชื่อผู้ขาย :</label>
+                        <input type="text" name="sell_name" id="sell_name" class="bb" required />
                         <div class="a">*</div>
                     </div>
                 </div>

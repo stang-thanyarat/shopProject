@@ -7,7 +7,7 @@ $(document).ready(function () {
 $("#addproduct").submit(function (event) {
     event.preventDefault();
     let tableObj = JSON.parse(localStorage.getItem("tableproduct"))
-    const i = $('#producttable').children().length + 1
+    const i = tableObj.data.length
     if ($('#addtypeproduct').val() === "" || $('#addlistproduct').val() === "" || $('#addbrand').val() === "" || $('#addproductmodel').val() === "" || $('#addamountproduct').val() === ""
         || $('#addnumber').val() === "" || $('#addexpirationdate').val() === "" || $('#addprice').val() === "") {
         $('#addtable').blur()
@@ -52,7 +52,7 @@ $("#editotherexpenses").submit(function (event) {
     event.preventDefault();
     let tableObj = JSON.parse(localStorage.getItem("tableproduct"))
     const index = localStorage.getItem('editIndex')
-    tableObj.data[index - 1] = {
+    tableObj.data[index] = {
         list: $('#editlist').val(),
         priceother: $('#editpriceother').val(),
     }
@@ -64,8 +64,8 @@ $("#editotherexpenses").submit(function (event) {
                     <th>${e.list}</th>
                     <th>${e.priceother}</th>
                     <th>
-                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndex(${i + 1})"></button>
-                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm2"><img src="./src/images/icon-pencil.png" width="25"></button>
+                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndex(${i})"></button>
+                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm2"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
                     </th>
                 </tr>`)
     });
@@ -79,7 +79,7 @@ $("#editotherexpenses").submit(function (event) {
 $("#addotherexpenses").submit(function (event) {
     event.preventDefault();
     let tableObj = JSON.parse(localStorage.getItem("tableproduct"))
-    const i = $('#otherexpensestable').children().length + 1
+    const i = tableObj.data.length
     if ($('#addlist').val() === "" || $('#addpriceother').val() === "") {
         $('#addtable').blur()
         return
@@ -111,8 +111,8 @@ function saveIndexDel(i) {
 function saveIndexEdit(i) {
     localStorage.setItem('editIndex', i)
     let rows = (JSON.parse(localStorage.getItem("tableproduct"))).data
-    $('#editlist').val(rows[i - 1].list)
-    $('#editpriceother').val(rows[i - 1].priceother)
+    $('#editlist').val(rows[i].list)
+    $('#editpriceother').val(rows[i].priceother)
 }
 
 //ลบแถวค่าใช้จ่ายอื่นๆ
@@ -120,17 +120,15 @@ function delrow() {
     let tableObj = JSON.parse(localStorage.getItem("tableproduct"))
     const index = localStorage.getItem('deleteIndex')
     let rows = tableObj.data
-    if (rows.length > 0) {
-        rows.splice(index - 1)
-    }
+    rows.splice(index, 1)
     $('#otherexpensestable').html("")
     rows.forEach((e, i) => {
         $('#otherexpensestable').append(`<tr id="rr${i + 1}">
                     <th>${e.list}</th>
                     <th>${e.priceother}</th>
                     <th>
-                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndex(${i + 1})"></button>
-                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm2"><img src="./src/images/icon-pencil.png" width="25"></button>
+                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndex(${i})"></button>
+                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm2"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
                     </th>
                 </tr>`)
     });

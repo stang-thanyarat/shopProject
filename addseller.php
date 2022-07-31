@@ -14,8 +14,10 @@
 <?php include('nav.php'); ?>
 
 <body>
-    <form action="" name="form1" id="form1">
-        <div class="row">
+    <form action="controller/Sell.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
+    <input type="hidden" value="sell" name="table"/>
+    <input type="hidden" value="insert" name="form_action"/>
+    <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
@@ -24,15 +26,15 @@
                 <div class="row leftseller">
                     <div class="col">
                         <label for="sell_type">ประเภทผู้ขาย :</label>
-                        <input type="radio" name="seller type" value="บริษัท / ห้างร้าน" class="bb" checked>
+                        <input type="radio" name="sell_type" value="บริษัท / ห้างร้าน" class="bb" checked>
                         <label for="seller type">บริษัท / ห้างร้าน </label>
-                        <input type="radio" name="seller type" value="บุคคลทั่วไป">
+                        <input type="radio" name="sell_type" value="บุคคลทั่วไป">
                         <label for="seller type">บุคคลทั่วไป</label>
                         <div class="d">*</div>
                     </div>
                     <div class="col leftsellername">
-                        <label for="sell_supplier_name">ชื่อผู้ขาย :</label>
-                        <input type="text" name="sell_supplier_name" id="sell_supplier_name" class="bb" required />
+                        <label for="sell_name">ชื่อผู้ขาย :</label>
+                        <input type="text" name="sell_name" id="sell_name" class="bb" required />
                         <div class="a">*</div>
                     </div>
                 </div>
@@ -82,7 +84,7 @@
                     </div>
                     <div class="col leftemail">
                         <label for="seller_email">อีเมล :</label>
-                        <input type="text" name="seller_email" id="seller_email" class="bb" required />
+                        <input type="email" name="seller_email" id="seller_email" class="bb" required />
                         <div class="i">*</div>
                     </div>
                 </div>
