@@ -3,7 +3,7 @@ function Connection(){
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "myform";
+$database = "shop_pj";
 
 try {
   $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);

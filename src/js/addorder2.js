@@ -2,6 +2,7 @@ $(document).ready(function () {
     $("#creditupload").hide()
     localStorage.clear()
     localStorage.setItem("tableProduct", JSON.stringify({ data: [] }))
+    localStorage.setItem("tablePrice", JSON.stringify({ data: [] }))
 });
 
 //เพิ่มสินค้า
@@ -80,7 +81,7 @@ function delrow() {
                     <th>${e.amount}</th>
                     <th>${e.allPrice}</th>
                     <th>
-                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndex(${i})"></button>
+                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(${i})"></button>
                         <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm3"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
                     </th>
                 </tr>`)
@@ -118,7 +119,7 @@ $("#editaddproduct").submit(function (event) {
                     <th>${e.amount}</th>
                     <th>${e.allPrice}</th>
                     <th>
-                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndex(${i})"></button>
+                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(${i})"></button>
                         <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm3"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
                     </th>
                 </tr>`)
@@ -217,7 +218,7 @@ $("#editaddprice").submit(function (event) {
         </th>
         </tr>`)
     });
-    localStorage.setItem1("tablePrice", JSON.stringify(tableObj))
+    localStorage.setItem("tablePrice", JSON.stringify(tableObj))
     localStorage.removeItem('editIndex')
     $('#editaddcloseother').click()
 

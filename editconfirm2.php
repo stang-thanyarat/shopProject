@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="./src/css/confirm2.css" />
+    <link rel="stylesheet" href="./src/css/editconfirm.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
@@ -61,50 +61,52 @@
                         <textarea style="vertical-align: middle; background-color: #7C904E;" name="detail" cols="50" rows="5" ></textarea>
                     </div>
                     <div class="col-12 C">
-                        รายการสินค้า
-                        <div class=" col-12 d-flex justify-content-end">
-                        <button type="button" class="btn2" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm">เพิ่มสินค้า</button>
-                        </div>
-                        <table class="main col-10">
-                            <thead>
-                                <tr>
+                    รายการสินค้า
+                            <div class=" col-12 d-flex justify-content-end">
+                                <button type="button" class="btn2" id="addmodel_btn" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm">เพิ่มสินค้า</button>
+                            </div>
+                            <table class="main col-10">
+                                <thead>
+                                    <tr>
                                     <th width="12%">ประเภทสินค้า</th>
-                                    <th width="15%">รายการสินค้า</th>
+                                    <th width="10%">รายการสินค้า</th>
                                     <th width="8%">ยี่ห้อ</th>
                                     <th width="8%">รุ่น</th>
                                     <th width="12%">ราคาต่อหน่วย (บาท)</th>
-                                    <th width="15%">จำนวน</th>
+                                    <th width="10%">จำนวน</th>
                                     <th width="15%">วันหมดอายุ</th>
                                     <th width="15%">ราคา (บาท)</th>
-                                </tr>
-                            </thead>
-                            <tbody id="producttable">
+                                    <th width="10%"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="list-product">
 
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-12 C">
-                        ค่าใช้จ่ายอื่นๆ
-                        <div class=" col-12 d-flex justify-content-end">
-                            <button type="button" id="addmodel_btn" class="btn2" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1">เพิ่ม</button>
+                                </tbody>
+                            </table>
                         </div>
-                        <table class="main col-10">
-                            <thead>
-                                <tr>
-                                    <th width="45%">รายการ</th>
-                                    <th width="45%">ราคา</th>
-                                    <th width="20%"></th>
-                                </tr>
-                            </thead>
-                            <tbody id="otherexpensestable">
+                        <div class="col-12 C">
+                            ค่าใช้จ่ายอื่นๆ
+                            <div class=" col-12 d-flex justify-content-end">
+                                <button type="button" class="btn2" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1">เพิ่ม</button>
+                            </div>
+                            <table class="main col-10">
+                                <thead>
+                                    <tr>
+                                        <th width="45%">รายการ</th>
+                                        <th width="45%">ราคา</th>
+                                        <th width="10%"></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="list-priceother">
 
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="row A">
-                        <div class=" col-12 d-flex justify-content-end signin">
-                            ยอดสุทธิ:&nbsp;&nbsp;
-                            <input type="text" name="totalmoney" id="totalmoney">
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row A">
+                            <div class=" col-12 d-flex justify-content-end" >
+                                ยอดสุทธิ:&nbsp;&nbsp;
+                                <input type="text" name="net_price" id="net_price">
+                            </div>
                         </div>
                     </div>
                     <div class="row B">
@@ -117,69 +119,52 @@
             </div>
         </div>
     </form>
-
     <!---modal เพิ่มสินค้า-->
     <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <form id="addproduct">
+        <form id="addproduct" name="addproduct">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">เพิ่มสินค้า</h5>
-                        <button type="button" id="addclose" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" id="addclose" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+
                     <div class="modal-body">
                         <div class="col-12 r">
                             ประเภทสินค้า: &nbsp;
-                            <select id="typeproduct" style="background-color: #7C904E;">
+                            <select id="typeproduct" name="typeproduct" style="background-color: #7C904E;" required>
                                 <option value="เลือก" selected>เลือก</option>
-                            </select>
-                        </div>
-
-                        <div class="col-12 r">
+                            </select><br><br>
                             รายการสินค้า: &nbsp;
-                            <select name="product_name" id="product_name" style="background-color: #7C904E;">
+                            <select id="product_name" name="product_name" style="background-color: #7C904E;" required>
                                 <option value="เลือก" selected>เลือก</option>
-                            </select>
-                        </div>
-
-                        <div class="col-12 r">
+                            </select><br><br>
                             ยี่ห้อ: &nbsp;
-                            <select name="brand" id="brand" style="background-color: #7C904E;">
+                            <select id="brand" name="brand" style="background-color: #7C904E;" required>
                                 <option value="เลือก" selected>เลือก</option>
-                            </select>
-                        </div>
-
-                        <div class="col-12 r">
+                            </select><br><br>
                             รุ่น: &nbsp;
-                            <select name="model" id="model" style="background-color: #7C904E;">
+                            <select id="model" name="model" style="background-color: #7C904E;" required>
                                 <option value="เลือก" selected>เลือก</option>
-                            </select>
+                            </select><br><br>
+                            ราคาต่อหน่วย: &nbsp;<input type="number" class="u" min="0.25" step="0.25" name="unitprice" id="unitprice" required /><br><br>
+                            จำนวน: &nbsp;<input type="number" class="u" min="1" name="amount" id="amount" required /><br><br>
+                            วันหมดอายุ: &nbsp;<input type="date" class="u" name="exp_date" id="exp_date" />
+                            <p></p>
                         </div>
-
-                        <center>ราคาต่อหน่วย: &nbsp;<input type="number" class="u" min="1" name="unitprice" id="unitprice" width="5%" /><br>
-                            <p></p>
-                        </center>
-                        <center>จำนวน: &nbsp;<input type="number" class="u" min="1" name="amount" id="amount" width="5%" /><br>
-                            <p></p>
-                        </center>
-                        <center>วันหมดอายุ: &nbsp;<input type="date" class="u" name="exp_date" id="exp_date" />
-                            <p></p>
-                        </center>
-                        
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary1">ตกลง</button>
+                            <button type="submit" id="addtable" class="btn btn-primary1">ตกลง</button>
                         </div>
                     </div>
                 </div>
             </div>
         </form>
     </div>
-
     <!--- modal ค่าใช้จ่ายอื่นๆ-->
     <div class="modal fade bd-example-modal-sm1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <form name="addotherexpenses" id="addotherexpenses" method="post">
+        <form name="addprice" id="addprice" method="post">
             <div class="modal-dialog modal-sm1">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -204,23 +189,22 @@
             </div>
         </form>
     </div>
-
     <!--- modal แก้ไขค่าใช้จ่ายอื่นๆ-->
-    <div class="modal fade bd-example-modal-sm2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <form name="editotherexpenses" id="editotherexpenses" method="post" action="">
-            <div class="modal-dialog modal-sm2">
+    <div class="modal fade bd-example-modal-sm4" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <form name="addprice" id="editaddprice" method="post">
+            <div class="modal-dialog modal-sm4">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">แก้ไขค่าใช้จ่ายอื่นๆ</h5>
-                        <button type="button" id="editclose" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <button type="button" id="editaddcloseother" class="close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <center>รายการ: &nbsp;<input type="text" name="editlistother" id="editlistother" /><br>
+                        <center>รายการ: &nbsp;<input type="text" name="listother" id="editlistother" required /><br>
                             <p></p>
                         </center>
-                        <center>ราคา: &nbsp;<input type="text" name="editpriceother" id="editpriceother" />
+                        <center>ราคา: &nbsp;<input type="text" name="priceother" id="editpriceother" required />
                             <p></p>
                         </center>
 
@@ -232,20 +216,81 @@
             </div>
         </form>
     </div>
+    <!-- ลบรายการอื่นๆ -->
+    <div class="modal fade" id="exampleModalother" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">ลบรายการ</h5>
+                    <button type="button" id="closedelrow2" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body1">
+                    <h3>ยืนยันที่จะลบ</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="delrow2()" class="btn btn-primary1">ตกลง</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--แก้ไขสินค้า-->
+    <div class="modal fade bd-example-modal-sm3" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <form id="editaddproduct">
+            <div class="modal-dialog modal-sm3">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">แก้ไขสินค้า</h5>
+                        <button type="button" id="editclose" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
 
+                    <div class="modal-body">
+
+
+                        <div class="col-12 r">
+                            ประเภทสินค้า: &nbsp;
+                            <select id="edittypeproduct" name="typeproduct" style="background-color: #7C904E;" required>
+                                <option value="เลือก" selected>เลือก</option>
+                            </select><br><br>
+                            รายการสินค้า: &nbsp;
+                            <select id="editlistproduct" name="listproduct" style="background-color: #7C904E;" required>
+                                <option value="เลือก" selected>เลือก</option>
+                            </select><br><br>
+                            ยี่ห้อ: &nbsp;
+                            <select id="editbrand" name="brand" style="background-color: #7C904E;" required>
+                                <option value="เลือก" selected>เลือก</option>
+                            </select><br><br>
+                            รุ่น: &nbsp;
+                            <select id="editproductmodel" name="productmodel" style="background-color: #7C904E;" required>
+                                <option value="เลือก" selected>เลือก</option>
+                            </select><br><br>
+                            ราคาต่อหน่วย: &nbsp;<input type="number" class="u" min="0.25" step="0.25" name="unitprice" id="editunitprice" required /><br><br>
+                            จำนวน: &nbsp;<input type="number" class="u" min="1" name="amount" id="editamount" required /><br><br>
+                            วันหมดอายุ: &nbsp;<input type="date" class="u" name="exp_date" id="editexp_date" />
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary1">ตกลง</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
     <!-- ลบ -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">ลบรายการ</h5>
-                    <button type="button" class="btn-close" id="closedelrow" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" id="closedelrow" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body1">
                     <h3>ยืนยันที่จะลบ</h3>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" onclick="delrow()" class="btn btn-primary1">ตกลง</button>
+                    <button type="button" onclick="delrow()" class="btn btn-primary1">ตกลง</button>
                 </div>
             </div>
         </div>
