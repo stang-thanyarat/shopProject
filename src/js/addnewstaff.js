@@ -20,12 +20,15 @@ function autoTab(obj) {
         obj.value = obj.value.substr(0, pattern.length);
     }
 
-    let id = document.form1.idcardnumber.value.split(/ /)[0].replace(/[^\d]/g, '')
+    let id = document.form1.employee_card_id.value.split(/ /)[0].replace(/[^\d]/g, '')
 
 }
 
 //เช็คเลข13หลัก
 function checkID(id) {
+    //alert(id);
+    id = id.replace(/-/g, "");
+    //alert(id);
     if (id.length != 13) return false;
     for (i = 0, sum = 0; i < 12; i++) {
         sum += parseInt(id.charAt(i)) * (13 - i);
@@ -39,15 +42,48 @@ function checkID(id) {
 }
 
 //ตรวจสอบพร้อมส่งข้อมูล
-$("#form1").submit(function (event) {
+/*
+$("#form1").submit(async function (event) {
     event.preventDefault();
-    if (!checkID(id))
-        alert('รหัสประชาชนไม่ถูกต้อง');
-    if (!telephone(document.form1.telephone.value))
+    if (!checkID(document.form1.employee_card_id.value)){
+        alert('ระบุหมายเลขประจำตัวประชาชนไม่ถูกต้อง');
+        return
+    }
+    if (!telephone(document.form1.employee_telephone.value)){
         alert('เบอร์โทรศัพท์ไม่ถูกต้อง');
-    if (JSON.parse(localStorage.getItem("tableBank")).data.length <= 0)
+        return
+    }
+    if (JSON.parse(localStorage.getItem("tableBank")).data.length <= 0){
         alert('กรุณากรอกข้อมูลบัญชีธนาคาร');
-})
+        return
+    }
+    if (!check_email(document.form1.employee_email)) {
+        event.preventDefault();
+        alert('อีเมลไม่ถูกต้อง');
+        return
+    } else {
+        const Employee = await (await fetch(`controller/EmailEmployeeCheck.php?email=${document.form1.employee_email.value}`)).json()
+        if (Employee.length > 0) {
+            event.preventDefault();
+            alert('อีเมลนี้มีผู้ใช้งานอยู่แล้ว');
+            //console.log (Employee);
+            return
+        }else{
+            let response = await fetch('controller/Employee.php', {
+                method: 'POST',
+                body: new FormData(document.form1)
+            });
+            console.log(response);
+            
+            if (!response.ok) {
+                console.log(response);
+            } else {
+                alert("success");
+                window.location.assign("employee.php");
+            }
+        }
+    }
+});*/
 
 //เบอร์โทรศัพท์
 function autoTab2(obj) {
@@ -62,25 +98,25 @@ function autoTab2(obj) {
             obj.value = returnText;
         }
     }
-    if (obj_l >= pattern.length) {
-        obj.value = obj.value.substr(0, pattern.length);
-    }
-
 }
 
 //เช็คอีเมล
 function check_email(elm) {
+    //alert(elm.value); 
+    let text = elm.value;
     var regex_email = /^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*\@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.([a-zA-Z]){2,4})$/
-    if (!elm.value.match(regex_email)) {
-        alert('รูปแบบ email ไม่ถูกต้อง');
-    }
+    return text.match(regex_email) 
+
 }
 
 //เช็คจำนวนรหัสผ่าน
 function check_num(elm) {
-    if (elm.value.length < 6 || elm.value.length > 15) {
-        alert("จำนวนตัวอักษหรือตัวเลขอยู่ช่วง 6-15 ตัวเท่านั้น");
+    if( elm.value.length > 0 ){
+        if (elm.value.length < 6 || elm.value.length > 15) {
+            alert("จำนวนตัวอักษรหรือตัวเลขอยู่ช่วง 6-15 ตัวเท่านั้น");
+        }
     }
+    
 }
 
 //ตรวจสอบเบอร์โทรศัพท์

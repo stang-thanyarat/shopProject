@@ -14,7 +14,9 @@
 <?php include('nav.php'); ?>
 
 <body>
-    <form action="" name="form1" id="form1">
+    <form action="controller/Employee.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
+    <input type="hidden" value="employee" name="table"/>
+    <input type="hidden" value="insert" name="form_action"/>
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
@@ -33,10 +35,10 @@
                                 <div class="col-4 leftmodel">
                                     <label for="employee_model">รูปแบบพนักงาน :</label>
                                     <select name="employee_model" id="employee_model" class="margin" required>
-                                        <option value="employee model" selected hidden>เลือกรูปแบบพนักงาน</option>
-                                        <option value="full time staff">พนักงานประจำ</option>
-                                        <option value="daily staff">พนักงานรายวัน</option>
-                                        <option value="temporary worker">พนักงานชั่วคราว</option>
+                                        <option value="เลือกรูปแบบพนักงาน" selected hidden>เลือกรูปแบบพนักงาน</option>
+                                        <option value="พนักงานประจำ">พนักงานประจำ</option>
+                                        <option value="พนักงานรายวัน">พนักงานรายวัน</option>
+                                        <option value="พนักงานชั่วคราว">พนักงานชั่วคราว</option>
                                     </select>
                                     <div class="a">*</div>
                                 </div>
@@ -112,11 +114,6 @@
                                     <label for="employee_email">อีเมล :</label>
                                     <input name="employee_email" type="email" id="employee_email" onblur='check_email(this)' class="bb" required />
                                     <div class="h">*</div>
-                                </div>
-                                <div class="col leftpassword">
-                                    <label for="employee_password">รหัสผ่าน :</label>
-                                    <input name="employee_password" type="password" id="employee_password" onblur='check_num(this)' class="bb" required />
-                                    <div class="i">*</div>
                                 </div>
                             </div>
                             <div class="row">

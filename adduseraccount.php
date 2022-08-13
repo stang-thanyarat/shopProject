@@ -12,7 +12,9 @@
 <?php include('nav.php'); ?>
 
 <body>
-    <form name="form">
+    <form action="controller/Useraccount.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
+    <input type="hidden" value="useraccount" name="table"/>
+    <input type="hidden" value="insert" name="form_action"/>
         <div class="row main">
             <div class="row">
                 <h1>เพิ่มบัญชีผู้ใช้งาน</h1>

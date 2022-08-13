@@ -21,7 +21,7 @@ $("#form1").submit(async function (event) {
         alert('เบอร์โทรศัพท์ไม่ถูกต้อง');
         return
     }
-    if (!check_email(document.form1.seller_email.value)) {
+   if (!check_email(document.form1.seller_email.value)) {
         event.preventDefault();
         alert('อีเมลไม่ถูกต้อง');
         return
@@ -31,10 +31,20 @@ $("#form1").submit(async function (event) {
             event.preventDefault();
             alert('อีเมลนี้มีผู้ใช้งานอยู่แล้ว');
             return
+        }else{
+            event.preventDefault();
+            let response = await fetch('controller/Sell.php', {
+                method: 'POST',
+                body: new FormData(document.form1)
+            });
+            if (!response.ok) {
+                console.log(response);
+            } else {
+                alert("success");
+                window.location.assign("sall.php");
+            }
         }
-
     }
-    
 })
 
 //เบอร์โทรศัพท์

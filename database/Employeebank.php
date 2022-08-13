@@ -1,6 +1,6 @@
 <?php
 include("Connection.php");
-class Bank
+class Employeebank
 {
     private $conn;
     function __construct()
@@ -10,7 +10,7 @@ class Bank
     public function fetchAll()
     {
         try {
-            $sql = "SELECT * FROM bank_tb";
+            $sql = "SELECT * FROM employeebank_tb";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetchAll();
@@ -24,7 +24,7 @@ class Bank
     public function fetchById($id)
     {
         try {
-            $sql = "SELECT * FROM bank_tb WHERE bank_id=?";
+            $sql = "SELECT * FROM employeebank_tb WHERE bank_id=?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
@@ -39,7 +39,7 @@ class Bank
     public function delete($id)
     {
         try {
-            $sql = "DELETE FROM bank_tb WHERE bank_id=?;";
+            $sql = "DELETE FROM employeebank_tb WHERE bank_id=?;";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
@@ -52,10 +52,10 @@ class Bank
     public function insert($data)
     {
         try {
-            $sql = "INSERT INTO bank_tb (sell_id, bank_name, bank_number, bank_account) 
+            $sql = "INSERT INTO bank_tb (employee_id, bank_name, bank_number, bank_account) 
         VALUES (?,?,?,?)";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(1, $data['sell_id'], PDO::PARAM_STR);
+            $stmt->bindParam(1, $data['employee_id'], PDO::PARAM_STR);
             $stmt->bindParam(2, $data['bank_name'], PDO::PARAM_STR);
             $stmt->bindParam(3, $data['bank_number'], PDO::PARAM_STR);
             $stmt->bindParam(4, $data['bank_account'], PDO::PARAM_STR);
@@ -70,10 +70,10 @@ class Bank
     {
         try {
             $sql = "UPDATE bank_tb
-        SET sell_id = ?, bank_name = ?, bank_number = ?, bank_account = ?,
+        SET employee_id = ?, bank_name = ?, bank_number = ?, bank_account = ?,
         WHERE bank_id=?";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(1, $data['sell_id'], PDO::PARAM_INT);
+            $stmt->bindParam(1, $data['employee_id'], PDO::PARAM_INT);
             $stmt->bindParam(2, $data['bank_name'], PDO::PARAM_STR);
             $stmt->bindParam(3, $data['bank_number'], PDO::PARAM_STR);
             $stmt->bindParam(4, $data['bank_account'], PDO::PARAM_STR);

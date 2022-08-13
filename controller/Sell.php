@@ -2,6 +2,7 @@
 include '../database/Sell.php';
 include 'Redirection.php';
 include '../service/upload.php';
+
 $sell = new Sell();
 if (isset($_POST)) {
     if ($_POST['table'] === 'sell') {
