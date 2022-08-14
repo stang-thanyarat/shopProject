@@ -1,5 +1,5 @@
 <?php
-include("Connection.php");
+include_once("Connection.php");
 class Sell
 {
     private $conn;
@@ -91,7 +91,6 @@ class Sell
             $stmt->bindParam(15, $data['sell_documents'], PDO::PARAM_STR);
             $stmt->bindParam(16, $data['sell_note'], PDO::PARAM_STR);
             $stmt->execute();
-            //return($data.'***'.$sql);
         } catch (Exception $e) {
             http_response_code(500);
             echo strval($e);

@@ -42,18 +42,18 @@ function checkID(id) {
 }
 
 //ตรวจสอบพร้อมส่งข้อมูล
-/*
+
 $("#form1").submit(async function (event) {
     event.preventDefault();
-    if (!checkID(document.form1.employee_card_id.value)){
+    if (!checkID(document.form1.employee_card_id.value)) {
         alert('ระบุหมายเลขประจำตัวประชาชนไม่ถูกต้อง');
         return
     }
-    if (!telephone(document.form1.employee_telephone.value)){
+    if (!telephone(document.form1.employee_telephone.value)) {
         alert('เบอร์โทรศัพท์ไม่ถูกต้อง');
         return
     }
-    if (JSON.parse(localStorage.getItem("tableBank")).data.length <= 0){
+    if (JSON.parse(localStorage.getItem("tableBank")).data.length <= 0) {
         alert('กรุณากรอกข้อมูลบัญชีธนาคาร');
         return
     }
@@ -68,22 +68,25 @@ $("#form1").submit(async function (event) {
             alert('อีเมลนี้มีผู้ใช้งานอยู่แล้ว');
             //console.log (Employee);
             return
-        }else{
+        } else {
+            event.preventDefault();
+            $('#bank').val(JSON.stringify(JSON.parse(localStorage.getItem("tableBank")).data))
             let response = await fetch('controller/Employee.php', {
                 method: 'POST',
                 body: new FormData(document.form1)
             });
             console.log(response);
-            
+
             if (!response.ok) {
                 console.log(response);
             } else {
                 alert("success");
+                console.log(await response.text());
                 window.location.assign("employee.php");
             }
         }
     }
-});*/
+});
 
 //เบอร์โทรศัพท์
 function autoTab2(obj) {
@@ -105,18 +108,18 @@ function check_email(elm) {
     //alert(elm.value); 
     let text = elm.value;
     var regex_email = /^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*\@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.([a-zA-Z]){2,4})$/
-    return text.match(regex_email) 
+    return text.match(regex_email)
 
 }
 
 //เช็คจำนวนรหัสผ่าน
 function check_num(elm) {
-    if( elm.value.length > 0 ){
+    if (elm.value.length > 0) {
         if (elm.value.length < 6 || elm.value.length > 15) {
             alert("จำนวนตัวอักษรหรือตัวเลขอยู่ช่วง 6-15 ตัวเท่านั้น");
         }
     }
-    
+
 }
 
 //ตรวจสอบเบอร์โทรศัพท์

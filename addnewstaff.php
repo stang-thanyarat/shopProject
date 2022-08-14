@@ -17,6 +17,7 @@
     <form action="controller/Employee.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
     <input type="hidden" value="employee" name="table"/>
     <input type="hidden" value="insert" name="form_action"/>
+    <input type="hidden" id="bank" name="bank"/>
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
@@ -59,10 +60,10 @@
                             <div class="row-4 ma">
                                 <label for="employee_prefix">คำนำหน้าชื่อ : </label>
                                 <select name="employee_prefix" id="employee_prefix" class="margin" required>
-                                    <option value="noun" selected hidden>เลือกคำนำหน้า</option>
-                                    <option value="Mr.">นาย</option>
-                                    <option value="Mrs.">นาง</option>
-                                    <option value="miss">นางสาว</option>
+                                    <option value="เลือกคำนำหน้า" selected hidden>เลือกคำนำหน้า</option>
+                                    <option value="นาย">นาย</option>
+                                    <option value="นาง">นาง</option>
+                                    <option value="นางสาว">นางสาว</option>
                                 </select>
                                 <div class="b">*</div>
                             </div>
@@ -259,6 +260,7 @@
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary2">ตกลง</button>
                         </div>
+                        
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 <?php
-include("Connection.php");
+include_once("Connection.php");
 class Employeebank
 {
     private $conn;
@@ -36,9 +36,27 @@ class Employeebank
         }
     }
 
+    public function fetchByEmployeeId($id)
+    {
+        try {
+            $sql = "SELECT * FROM employeebank_tb WHERE employee_id=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            return $result;
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
+    }
+
     public function delete($id)
     {
         try {
+            $sql = "SET FOREIGN_KEY_CHECKS=0";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
             $sql = "DELETE FROM employeebank_tb WHERE bank_id=?;";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
@@ -52,7 +70,10 @@ class Employeebank
     public function insert($data)
     {
         try {
-            $sql = "INSERT INTO bank_tb (employee_id, bank_name, bank_number, bank_account) 
+            $sql = "SET FOREIGN_KEY_CHECKS=0";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $sql = "INSERT INTO employeebank_tb (employee_id, bank_name, bank_number, bank_account) 
         VALUES (?,?,?,?)";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $data['employee_id'], PDO::PARAM_STR);
@@ -69,7 +90,10 @@ class Employeebank
     public function update($data)
     {
         try {
-            $sql = "UPDATE bank_tb
+            $sql = "SET FOREIGN_KEY_CHECKS=0";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $sql = "UPDATE employeebank_tb
         SET employee_id = ?, bank_name = ?, bank_number = ?, bank_account = ?,
         WHERE bank_id=?";
             $stmt = $this->conn->prepare($sql);

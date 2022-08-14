@@ -1,11 +1,16 @@
 <?php
-include("Connection.php");
+include_once("Connection.php");
 class Employee
 {
     private $conn;
     function __construct()
     {
-        $this->conn = Connection();
+        try {
+            $this->conn = Connection();
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
     public function fetchAll()
     {
@@ -54,9 +59,8 @@ class Employee
     public function fetchLast()
     {
         try {
-            $sql="SELECT * FROM employee_tb ORDER BY employee_id DESC LIMIT 1";
+            $sql = "SELECT * FROM employee_tb ORDER BY employee_id DESC LIMIT 1";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetch();
             return $result;
@@ -82,7 +86,10 @@ class Employee
     public function insert($data)
     {
         try {
-            $sql = "INSERT INTO employee_tb (employee_model, employee_startwork_dt, employee_prefix, employee_firstname, employee_lastname, employee_address, employee_birthday, employee_card_id, employee_telephone, employee_email, employee_card_id_copy, employee_address_copy, ) 
+            $sql = "SET FOREIGN_KEY_CHECKS=0";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $sql = "INSERT INTO employee_tb (employee_model, employee_startwork_dt, employee_prefix, employee_firstname, employee_lastname, employee_address, employee_birthday, employee_card_id, employee_telephone, employee_email, employee_card_id_copy, employee_address_copy) 
         VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $data['employee_model'], PDO::PARAM_STR);

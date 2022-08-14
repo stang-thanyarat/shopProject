@@ -11,10 +11,33 @@
 
     <title>Document</title>
 </head>
-<?php include('nav.php'); ?>
+<?php
+include('nav.php');
+include_once('database/Employee.php');
+include_once('database/Employeebank.php');
+$employee = new Employee();
+$e = $employee->fetchById($_GET['id']);
+$employeeBank = new Employeebank();
+$banks = $employeeBank->fetchByEmployeeId($_GET['id']);
+$json = '';
+foreach ($banks as $b) {
+    $json .= "{
+        bank: \"" . $b['bank_name'] . "\",
+        number: \"" . $b['bank_number'] . "\",
+        name: \"" . $b['bank_account'] . "\",
+        id:\"" . $b['bank_id'] . "\",
+    },";
+}
+?>
 
 <body>
     <form action="" name="form1" id="form1">
+        <input type="hidden" name="employee_card_id_copy" value="<?= $e['employee_card_id_copy']; ?>" />
+        <input type="hidden" name="employee_address_copy" value="<?= $e['employee_address_copy']; ?>" />
+        <input type="hidden" name="bank" value="" />
+        <input type="hidden" name="table" value="employee"  />
+        <input type="hidden" name="form_action" value="update" />
+        <input type="hidden" value="<? $_GET['id'] ?>" name="employee_id" />
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
@@ -33,16 +56,15 @@
                                 <div class="col-4 leftmodel">
                                     <label for="employee_model">รูปแบบพนักงาน :</label>
                                     <select name="employee_model" id="employee_model" class="margin" required>
-                                        <option value="employee model" selected hidden>เลือกรูปแบบพนักงาน</option>
-                                        <option value="full time staff">พนักงานประจำ</option>
-                                        <option value="daily staff">พนักงานรายวัน</option>
-                                        <option value="temporary worker">พนักงานชั่วคราว</option>
+                                        <option value="พนักงานประจำ" <?= $e['employee_model'] == "พนักงานประจำ" ? "selected" : '' ?>>พนักงานประจำ</option>
+                                        <option value="พนักงานรายวัน" <?= $e['employee_model'] == "พนักงานรายวัน" ? "selected" : '' ?>>พนักงานรายวัน</option>
+                                        <option value="พนักงานชั่วคราว" <?= $e['employee_model'] == "พนักงานชั่วคราว" ? "selected" : '' ?>>พนักงานชั่วคราว</option>
                                     </select>
                                     <div class="a">*</div>
                                 </div>
                                 <div class="col-4 leftstartwork">
                                     <label for="employee_startwork_dt">วันที่เข้าทำงาน :</label>
-                                    <input type="date" name="employee_startwork_dt" id="employee_startwork_dt" class="bb" required />
+                                    <input type="date" name="employee_startwork_dt" value="<?= $e['employee_startwork_dt']; ?>" id="employee_startwork_dt" class="bb" required />
                                     <div class="q">*</div><br>
                                 </div>
                             </div>
@@ -57,34 +79,33 @@
                             <div class="row-4 ma">
                                 <label for="employee_prefix">คำนำหน้าชื่อ : </label>
                                 <select name="employee_prefix" id="employee_prefix" class="margin" required>
-                                    <option value="noun" selected hidden>เลือกคำนำหน้า</option>
-                                    <option value="Mr.">นาย</option>
-                                    <option value="Mrs.">นาง</option>
-                                    <option value="miss">นางสาว</option>
+                                    <option value="นาย"  <?= $e['employee_prefix'] == "นาย" ? "selected" : '' ?>>นาย</option>
+                                    <option value="นาง" <?= $e['employee_prefix'] == "นาง" ? "selected" : '' ?>>นาง</option>
+                                    <option value="นางสาว" <?= $e['employee_prefix'] == "นางสาว" ? "selected" : '' ?>>นางสาว</option>
                                 </select>
                                 <div class="b">*</div>
                             </div>
                             <div class="row">
                                 <div class="col leftname">
                                     <label for="employee_firstname">ชื่อ :</label>
-                                    <input name="employee_firstname" type="text" id="employee_firstname" class="bb" required />
+                                    <input name="employee_firstname" type="text" value="<?= $e['employee_firstname']; ?>" id="employee_firstname" class="bb" required />
                                     <div class="c">*</div>
                                 </div>
                                 <div class="col leftlastname">
                                     <label for="employee_lastname">นามสกุล :</label>
-                                    <input name="employee_lastname" type="text" id="employee_lastname" class="bb" class="bb" required />
+                                    <input name="employee_lastname" type="text" value="<?= $e['employee_lastname']; ?>" id="employee_lastname" class="bb" class="bb" required />
                                     <div class="d">*</div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col leftidcardnumber">
                                     <label for="employee_card_id">เลขบัตรประชาชน :</label>
-                                    <input name="employee_card_id" type="text" id=employee_card_id onkeyup="autoTab(this)" class="bb" required />
+                                    <input name="employee_card_id" type="text" value="<?= $e['employee_card_id']; ?>" id=employee_card_id onkeyup="autoTab(this)" class="bb" required />
                                     <div class="e">*</div>
                                 </div>
                                 <div class="col leftbirthday">
                                     <label for="employee_birthday">วันเกิด :</label>
-                                    <input type="date" name="employee_birthday" id="employee_birthday" class="bb" required />
+                                    <input type="date" name="employee_birthday" value="<?= $e['employee_birthday']; ?>" id="employee_birthday" class="bb" required />
                                     <div class="f">*</div><br>
                                 </div>
                             </div>
@@ -98,35 +119,28 @@
                             <div class="row">
                                 <div class="col leftaddress">
                                     <label for="employee_address">ที่อยู่ :</label>
-                                    <input type="text" name="employee_address" id="employee_address" class="bb" required />
+                                    <input type="text" name="employee_address" value="<?= $e['employee_address']; ?>" id="employee_address" class="bb" required />
                                     <div class="l">*</div>
                                 </div>
                                 <div class="col lefttelephone">
                                     <label for="employee_telephone">โทรศัพท์ :</label>
-                                    <input name="employee_telephone" type="text" id=employee_telephone onkeyup="autoTab2(this)" class="bb" required />
+                                    <input name="employee_telephone" type="text" value="<?= $e['employee_telephone']; ?>" id=employee_telephone onkeyup="autoTab2(this)" class="bb" required />
                                     <div class="g">*</div>
                                 </div>
                             </div>
                             <div class="row leftemail">
                                 <div class="col">
                                     <label for="employee_email">อีเมล :</label>
-                                    <input name="employee_email" type="email" id="employee_email" onblur='check_email(this)' class="bb" required />
+                                    <input name="employee_email" type="email" value="<?= $e['employee_email']; ?>" id="employee_email" onblur='check_email(this)' class="bb" required />
                                     <div class="h">*</div>
-                                </div>
-                                <div class="col leftpassword">
-                                    <label for="employee_password">รหัสผ่าน :</label>
-                                    <input name="employee_password" type="password" id="employee_password" onblur='check_num(this)' class="bb" required />
-                                    <div class="i">*</div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col leftn">สำเนาบัตรประชาชน :
-                                    <input type="file" accept="image/*" id="employee_card_id_copy" name="employee_card_id_copy" class="bb" required>
-                                    <div class="j">*</div>
+                                    <input type="file" accept="image/*" id="employee_card_id_copy" name="employee_card_id_copy" class="bb">
                                 </div>
                                 <div class="col leftnb">สำเนาทะเบียนบ้าน :
-                                    <input type="file" accept="image/*" id="employee_address_copy" name="employee_address_copy" class="bb" required>
-                                    <div class="k">*</div>
+                                    <input type="file" accept="image/*" id="employee_address_copy" name="employee_address_copy" class="bb">
                                 </div>
                                 <div class="row leftpng">
                                     <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
@@ -151,7 +165,20 @@
                     </tr>
                 </thead>
                 <tbody id="banktable">
-
+                    <?php $i = 0;
+                    foreach ($banks as $b) { ?>
+                        <tr id="rr<?= $i ?>">
+                            <th class="index-table-bank"><?= $i + 1 ?></th>
+                            <th><?= $b['bank_name'] ?></th>
+                            <th><?= $b['bank_number'] ?></th>
+                            <th><?= $b['bank_account'] ?></th>
+                            <th>
+                                <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(<?= $i ?>)"></button>
+                                <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl1"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(<?= $i ?>)"></button>
+                            </th>
+                        </tr>
+                    <?php $i++;
+                    } ?>
                 </tbody>
 
             </table><br>
@@ -269,6 +296,14 @@
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-<script src="./src/js/addnewstaff.js"></script>
+<script>
+    $(document).ready(function() {
+        localStorage.clear()
+        localStorage.setItem("tableBank", JSON.stringify({
+            data: [<?php echo $json; ?>]
+        }))
+    });
+</script>
+<script src="./src/js/editstaff.js"></script>
 
 </html>
