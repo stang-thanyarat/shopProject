@@ -13,7 +13,9 @@
 
 </head>
 <?php include('nav.php'); ?>
-
+<!--
+ แก้ชื่อ และ id บางส่วนแล้ว แต่ส่วนชื่อ และ id ใน modal นั้น อาจจะต้องหาจากเพื่อน หรือ เพิ่ม หรือ แก้ไข และทำการแก้ไข หรือ เพิ่มลง database
+-->
 <body>
     <script src="./src/js/productlist.js"></script>
     <form>
@@ -31,7 +33,7 @@
                         <button type="button" class="l"><img src="./src/images/search.png" width="16"></button>&nbsp &nbsp
                     </div>
                     <div class="col-2 m">
-                        <select name="type" id="producttype" class="n" required>
+                        <select name="category_name" id="category_name" class="n" required>
                             <option value="" selected hidden>เลือกประเภทสินค้า</option>
                             <option value="ใบตัดหญ้า">ใบตัดหญ้า</option>
                             <option value="ชุดเสื้อสูบ">ชุดเสื้อสูบ</option>
@@ -175,7 +177,7 @@
         </div>
     </form>
 
-    <!--- modal เพิ่มไปยังรถเข็น-->
+    <!---เพิ่มไปยังรถเข็น-->
     <form action="addtocart.php" method="get">
         <div class="modal fade bd-example-modal-sm1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm1">
@@ -193,7 +195,7 @@
                         </div>
                         <div class="amount">
                             จำนวน : <font color="red">&nbsp*</font>
-                            <input type="text" name="amounts" id="amount" class="inbox" />
+                            <input type="text" name="amount" id="amount" class="inbox" />
                         </div>
                     </div>
                     <div class="modal-footer">

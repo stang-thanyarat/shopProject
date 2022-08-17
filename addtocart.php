@@ -12,6 +12,9 @@
     <title>addtocart</title>
 </head>
 <?php include('nav.php'); ?>
+<!--
+    ยังไม่ได้เปลี่ยนชื่อ และ id ให้ตรงกับ word และ database
+-->
 
 <body>
     <form>
@@ -186,12 +189,64 @@
                                 <div class="modal-body">
                                     <div class="row">
                                         <div class="col email">
-                                            E-mail : <input type="text" id="" class="btnd inbox" required />
+                                            E-mail : <input type="text" name="email" id="email" class="btnd inbox" required />
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col password">
-                                            รหัสผ่าน : <input type="text" id="" class="btnd inbox" required />
+                                            รหัสผ่าน : <input type="text" name="password" id="password" class="btnd inbox" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary1">ยืนยัน</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ยืนยันการซื้อแบบผ่อนชำระ(ต่อ 1) -->
+                    <div class="modal fade bd-example-modal-sm6" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title2" id="exampleModalLabel">กรอกรหัสเจ้าของร้าน</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col email">
+                                            กรอกรหัสบัตรประชาชน : <input type="text" name="email" id="email" class="btnd inbox" required />
+                                        </div>
+                                        <div class="col-1">
+                                            <button type="button" class="l"><img src="./src/images/search.png" width="16"></button>&nbsp &nbsp
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary1">ยืนยัน</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ยืนยันการซื้อแบบผ่อนชำระ(ต่อ 2) -->
+                    <div class="modal fade bd-example-modal-sm7" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title2" id="exampleModalLabel">กรอกรหัสเจ้าของร้าน</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col email">
+                                            E-mail : <input type="text" name="email" id="email" class="btnd inbox" required />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col password">
+                                            รหัสผ่าน : <input type="text" name="password" id="password" class="btnd inbox" required />
                                         </div>
                                     </div>
                                 </div>
@@ -210,4 +265,7 @@
 <script src="./src/js/addtocart.js"></script>
 
 </html>
-<!-- <input type='number' id='valuePrice'/> -->
+<!-- 
+    แก้ ui ที่ต่อจากกดยืนยันการผ่อนชำระ
+    เพิ่มการเชื่อมต่อทั้งข้อมูลและ modal
+-->

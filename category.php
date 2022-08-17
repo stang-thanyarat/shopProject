@@ -6,15 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="./src/css/producttype.css" />
+    <link rel="stylesheet" href="./src/css/category.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <title>producttype</title>
+    <title>category</title>
 </head>
 <?php include('nav.php'); ?>
 
 <body>
-    <form action="" name="form1" id="form1">
+    <form action="controller/Category.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
+        <input type="hidden" value="category" name="table" />
+        <input type="hidden" value="insert" name="form_action" />
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
@@ -36,12 +38,11 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody id="producttypetable">
+                    <tbody id="categorytable">
 
                     </tbody>
                 </table>
             </div>
-    </form>
 
     <!--- modal เพิ่มประเภทสินค้า-->
     <div class="modal fade bd-example-modal-xl1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -57,8 +58,9 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="addproducttypename">
-                                ชื่อประเภทสินค้า :<font color="red">&nbsp*</font>
-                                <select name="type" id="addproducttypename" class="inbox" required>
+                                <label for="category_name">ชื่อประเภทสินค้า : </label>
+                                <font color="red">&nbsp*</font>
+                                <select name="category_name" id="category_name" class="inbox" required>
                                     <option value="" selected hidden>เลือกประเภทสินค้า</option>
                                     <option value="ใบตัดหญ้า">ใบตัดหญ้า</option>
                                     <option value="ชุดเสื้อสูบ">ชุดเสื้อสูบ</option>
@@ -81,13 +83,13 @@
                         <div class="row">
                             <div class="addallproducttype">
                                 รายการทั้งหมด :<font color="red">&nbsp*</font>
-                                <input type="text" id="addallproducttype" class="inbox" required>
+                                <input type="text" name="addallproducttype" id="addallproducttype" class="inbox" required>
                             </div>
                         </div>
                         <div class="row">
                             <div class="addsellproducttype">
                                 รายการที่ขาย :<font color="red">&nbsp*</font>
-                                <input type="text" id="addsellproducttype" class="inbox" required>
+                                <input type="text" name="addsellproducttype" id="addsellproducttype" class="inbox" required>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -134,7 +136,7 @@
                         <div class="row">
                             <div class="col leftproducttype">
                                 ชื่อประเภทสินค้า :<font color="red">&nbsp*</font>
-                                <select name="type" id="editproducttypename" class="inbox" required>
+                                <select name="category_name" id="editproducttypename" class="inbox" required>
                                     <option value="" selected hidden>เลือกประเภทสินค้า</option>
                                     <option value="ใบตัดหญ้า">ใบตัดหญ้า</option>
                                     <option value="ชุดเสื้อสูบ">ชุดเสื้อสูบ</option>
@@ -158,14 +160,14 @@
                         <div class="row">
                             <div class="col leftallproducttype">
                                 รายการทั้งหมด :<font color="red">&nbsp*</font>
-                                <input type="text" id="editallproducttype" class="inbox">
+                                <input type="text" name="editallproducttype" id="editallproducttype" class="inbox">
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col leftsellproducttype">
                                 รายการที่ขาย :<font color="red">&nbsp*</font>
-                                <input type="text" id="editsellproducttype" class="inbox">
+                                <input type="text" name="editsellproducttype" id="editsellproducttype" class="inbox">
                             </div>
                         </div>
 
@@ -177,10 +179,10 @@
             </div>
         </form>
     </div>
-
+    </form>
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-<script src="./src/js/producttype.js"></script>
+<script src="./src/js/category.js"></script>
 
 </html>

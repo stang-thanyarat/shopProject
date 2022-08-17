@@ -12,7 +12,9 @@
     <title>productresult</title>
 </head>
 <?php include('nav.php'); ?>
-
+<!--
+    เปลี่ยนชื่อ และ id แล้ว แต่จะใส่แทรกเพื่อเก็บข้อมูลหรือแสดงผลต้องรอ
+-->
 <body>
     <form>
         <div class="row">
@@ -25,27 +27,27 @@
                 </div>
                 <div class="row">
                     <div class="col-2 z">
-                        <select name="type" id="type" class="g">
+                        <select name="category_name" id="category_name" class="g">
                             <option value="" selected hidden>เลือกประเภทสินค้า</option>
-                            <option value="lawn mower blade">ใบตัดหญ้า</option>
-                            <option value="kit">ชุดเสื้อสูบ</option>
-                            <option value="gear knob">หัวเกียร์</option>
-                            <option value="rice cutting blade">ใบตัดข้าว</option>
-                            <option value="screw nut">น็อตสกรู</option>
-                            <option value="string">เชือกเอ็น</option>
-                            <option value="disc lawn mower">จานตัดหญ้า</option>
-                            <option value="kaboo">คาบู</option>
-                            <option value="Fertilizer Sprayer Parts">อะไหล่เครื่องพ่นปุ๋ย</option>
-                            <option value="suspension rubber">ยางกันสะเทือน</option>
-                            <option value="water pump">ปั๊มน้ำ</option>
-                            <option value="lawn mower">เครื่องตัดหญ้า</option>
-                            <option value="seed">เมล็ดพันธุ์</option>
-                            <option value="herbicide">ยากำจัดวัชพืช</option>
-                            <option value="chemical fertilizer">ปุ๋ยเคมี</option>
+                            <option value="ใบตัดหญ้า">ใบตัดหญ้า</option>
+                            <option value="ชุดเสื้อสูบ">ชุดเสื้อสูบ</option>
+                            <option value="หัวเกียร์">หัวเกียร์</option>
+                            <option value="ใบตัดข้าว">ใบตัดข้าว</option>
+                            <option value="น็อตสกรู">น็อตสกรู</option>
+                            <option value="เชือกเอ็น">เชือกเอ็น</option>
+                            <option value="จานตัดหญ้า">จานตัดหญ้า</option>
+                            <option value="คาบู">คาบู</option>
+                            <option value="อะไหล่เครื่องพ่นปุ๋ย">อะไหล่เครื่องพ่นปุ๋ย</option>
+                            <option value="ยางกันสะเทือน">ยางกันสะเทือน</option>
+                            <option value="ปั๊มน้ำ">ปั๊มน้ำ</option>
+                            <option value="เครื่องตัดหญ้า">เครื่องตัดหญ้า</option>
+                            <option value="เมล็ดพันธุ์">เมล็ดพันธุ์</option>
+                            <option value="ยากำจัดวัชพืช">ยากำจัดวัชพืช</option>
+                            <option value="ปุ๋ยเคมี">ปุ๋ยเคมี</option>
                         </select>
                     </div>
                     <div class="col-2 y">
-                        <input type="text" class="btnd" placeholder="&nbsp ชื่อสินค้า">
+                        <input name="product_name" type="text" id="product_name" class="btnd" placeholder="&nbsp ชื่อสินค้า">
                         <button type="submit" class="s"><img src="./src/images/search.png" width="15"></button>
                     </div>
                     <div class="col-1 x">
@@ -67,28 +69,15 @@
 
                             </tr>
                             <tr>
-                                <th><?php echo "{$_POST['product_type']}"; ?></th>
-                                <th><?php echo "{$_POST['product_name']}"; ?></th>
-                                <th><?php echo "{$_POST['brand']}"; ?></th>
-                                <th><?php echo "{$_POST['model']}"; ?></th>
-                                <th><?php echo "{$_POST['product_dlt_unit']}"; ?></th>
-                                <th><?php echo "{$_POST['']}"; ?></th>
-                                <th><?php echo "{$_POST['price']}"; ?></th>
-                                <th><?php echo "{$_POST['product_img1']}"; ?></th>
-                                <th><?php echo "{$_POST['sales_status']}"; ?></th>
-                                <th><?php echo "{$_POST['']}"; ?></th>
-
-                            </tr>
-                            <tr>
-                                <th>เมล็ดพันธุ์</th>
-                                <th>กระเจี๊ยบ-อพอลโล</th>
-                                <th>Seedline</th>
-                                <th>-</th>
-                                <th>1 ซอง</th>
-                                <th>25 ซอง</th>
-                                <th>20</th>
-                                <th><img src="./src/images/images1.png" width="25"></th>
-                                <th>
+                                <th name="category_name" id="category_name">เมล็ดพันธุ์</th>
+                                <th name="product_name" id="product_name">กระเจี๊ยบ-อพอลโล</th>
+                                <th name="brand" id="brand">Seedline</th>
+                                <th name="model" id="model">-</th>
+                                <th name="product_dlt_unit" id="product_dlt_unit">1 ซอง</th>
+                                <th name="product_rm_unit" id="product_rm_unit">25 ซอง</th>
+                                <th name="price" id="price">20</th>
+                                <th name="product_img1" id="product_img1"><img src="./src/images/images1.png" width="25"></th>
+                                <th name="sales_status" id="sales_status">
                                     <label class="switch">
                                         <input type="checkbox">
                                         <span class="slider round"></span>
