@@ -30,7 +30,7 @@ if (isset($_POST)) {
             }
 
             $productexchange->insert($_POST);
-            header( "location: ../productreplacementhistory.php" );
+            header( "location: ../productexchangehistory.php" );
         }
     }
 }

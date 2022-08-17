@@ -6,15 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="./src/css/editproductreplacement.css" />
+    <link rel="stylesheet" href="./src/css/addproductexchange.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <title>editproductreplacement</title>
+    <title>addproductexchange</title>
 </head>
 <?php include('nav.php'); ?>
 
 <body>
-    <form name="editproductreplacement" onsubmit="return validateForm()" id="form1" name="form1" method="post" action="productreplacementhistory.php">
+    <form action="controller/ProductExchange.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
+        <input type="hidden" value="productexchange" name="table" />
+        <input type="hidden" value="insert" name="form_action" />
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
@@ -92,6 +94,6 @@
         </div>
     </form>
 </body>
-<script src="./src/js/addproductreplacement.js"></script>
+<script src="./src/js/addproductexchange.js"></script>
 
 </html>
