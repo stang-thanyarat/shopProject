@@ -15,9 +15,9 @@
 
 <body>
     <form action="controller/Employee.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
-    <input type="hidden" value="employee" name="table"/>
-    <input type="hidden" value="insert" name="form_action"/>
-    <input type="hidden" id="bank" name="bank"/>
+        <input type="hidden" value="employee" name="table" />
+        <input type="hidden" value="insert" name="form_action" />
+        <input type="hidden" id="bank" name="bank" />
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
@@ -100,8 +100,8 @@
                         <th>
                             <div class="row">
                                 <div class="col leftaddress">
-                                    <label for="employee_address">ที่อยู่ :</label>
-                                    <input type="text" name="employee_address" id="employee_address" class="bb" required />
+                                ที่อยู่ :&nbsp&nbsp&nbsp
+                                    <textarea name="employee_address" id="employee_address" cols="50" rows="5" class="bb" style="vertical-align:top;"></textarea>
                                     <div class="l">*</div>
                                 </div>
                                 <div class="col lefttelephone">
@@ -260,7 +260,7 @@
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary2">ตกลง</button>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>

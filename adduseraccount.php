@@ -9,76 +9,62 @@
     <link rel="stylesheet" href="./src/css/adduseraccount.css" />
     <title>Document</title>
 </head>
-<?php include('nav.php'); ?>
+<?php
+include_once('nav.php');
+include_once('database/Employee.php');
+$employee = new Employee();
+$rows = $employee->fetchAll();
+?>
 
 <body>
-    <form action="controller/Useraccount.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
-    <input type="hidden" value="useraccount" name="table"/>
-    <input type="hidden" value="insert" name="form_action"/>
+    <form action="controller/UserAccount.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
+        <input type="hidden" value="useraccount" name="table" />
+        <input type="hidden" value="insert" name="form_action" />
         <div class="row main">
             <div class="row">
                 <h1>เพิ่มบัญชีผู้ใช้งาน</h1>
             </div>
             <div class="row top">
                 <div class="col-lg-4 col-md-12">
-                    <label for="account_prefix">คำนำหน้าชื่อ:</label>
-                    <select name="account_prefix" id="account_prefix" onchange="show_title_other(this.form);" class="bb" required>
-                        <option value="noun" selected hidden>เลือกคำนำหน้า</option>
-                        <option value="Mr.">นาย</option>
-                        <option value="Mrs.">นาง</option>
-                        <option value="missmiss">นางสาว</option>
+                    <label for="account_prefix">ชื่อพนักงาน:</label>
+                    <select name="employee_id" id="employee_id" class="bb" required onchange="readEmail()">
+                        <option value="" selected hidden>เลือกพนักงาน</option>
+                        <?php foreach($rows as $row){?>
+                            <option value="<?=$row['employee_id']?>"><?=$row['employee_prefix']?> <?=$row['employee_firstname']?> <?=$row['employee_lastname']?></option>
+                        <?php } ?>
                     </select>
                     <div class="a">*</div>
-                </div>
-                <div class="col-lg-4 col-md-12 leftfirst">
-                    <label for="account_firstname">ชื่อ :</label>
-                    <input name="account_firstname" id="account_firstname" type="text" class="bb" required />
-                    <div class="b">*</div>
-                </div>
-                <br>
-                <div class="col-lg-4 col-md-12">
-                    <label for="account_lastname">นามสกุล :</label>
-                    <input name="account_lastname" id="account_lastname" type="text" class="bb" required />
-                    <div class="c">*</div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-3 login leftemail">
                     <label for="email">อีเมล :</label>
-                    <input name="email" id="email" type="email" onblur='check_email(this)' class="bb" required />
+                    <input name="account_username" value="" id="account_username" type="email" class="bb" required />
                     <div class="d">*</div>
                 </div>
                 <div class="col-lg-4 login leftpassword">
                     <label for="password">รหัสผ่าน :</label>
-                    <input name="password" id="password" type="password" onblur='check_num(this)' class="bb" required />
+                    <input name="account_password" id="account_password" type="password" onblur='check_num(this)' class="bb" required />
                     <div class="e">*</div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-3 leftposition">
-                    <label for="account_user_type">ตำแหน่ง :</label>
-                    <input type="radio" name="position" value="shopkeeper" class="bb" checked>เจ้าของร้าน
-                    <input type="radio" name="position" value="admin" id="admin">
-                    <label for="admin">ผู้ดูแลระบบ</label>
-                    <div class="g">*</div>
-                </div>
-                <div class="col-lg-4 leftstatus">
-                    <label for="status">สถานะการใช้งาน :</label>
-                    <label class="switch bb">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                    </label>
-                    <div class="h">*</div>
-                </div>
+            <div class="col-lg-4 leftstatus">
+                <label for="status">สถานะการใช้งาน :</label>
+                <label class="switch bb">
+                    <input type="checkbox" id="account_user_status" name="account_user_status">
+                    <span class="slider round" id="account_user_status" name="account_user_status"></span>
+                </label>
+                <div class="h">*</div>
             </div>
-            <div class="row btn-g">
-                <div class="col-lg-2 col-md-12">
-                    <button type="reset" class="btn-c reset">ยกเลิก</button>
-                </div>
-                <div class="col-lg-10 col-md-12">
-                    <input type="submit" class="btn-c submit" value="บันทึก" />
-                </div>
+        </div>
+        <div class="row btn-g">
+            <div class="col-lg-2 col-md-12">
+                <button type="reset" class="btn-c reset">ยกเลิก</button>
             </div>
+            <div class="col-lg-10 col-md-12">
+                <input type="submit" class="btn-c submit" value="บันทึก" />
+            </div>
+        </div>
     </form>
 </body>
 <script src="./src/js/adduseraccount.js"></script>

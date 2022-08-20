@@ -114,12 +114,10 @@ function check_email(elm) {
 
 //เช็คจำนวนรหัสผ่าน
 function check_num(elm) {
-    if (elm.value.length > 0) {
-        if (elm.value.length < 6 || elm.value.length > 15) {
-            alert("จำนวนตัวอักษรหรือตัวเลขอยู่ช่วง 6-15 ตัวเท่านั้น");
-        }
+    var regex_num = /^\s*\S+(\s?\S)*\s*$/
+    if (elm.value.length < 6 || elm.value.length > 15&&!elm.value.match(regex_num)) {
+        alert("จำนวนตัวอักษรหรือตัวเลขอยู่ช่วง 6-15 ตัวเท่านั้น");
     }
-
 }
 
 //ตรวจสอบเบอร์โทรศัพท์

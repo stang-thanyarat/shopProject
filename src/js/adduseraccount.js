@@ -8,17 +8,15 @@ function check_email(elm) {
 
 //password
 function check_num(elm) {
-    if (elm.value.length < 6 || elm.value.length > 15) {
+    var regex_num = /^\s*\S+(\s?\S)*\s*$/
+    if (elm.value.length < 6 || elm.value.length > 15&&!elm.value.match(regex_num)) {
         alert("จำนวนตัวอักษรหรือตัวเลขอยู่ช่วง 6-15 ตัวเท่านั้น");
     }
 }
-/*
-function on_change(id){
-    if(id=='1'|| id=='2'){
-    document.form.shopkeeper[0].checked=true;
-    }else{
-    document.form.admin[1].checked=true;
-    }
-    
-    }
-    on_change(0);*/
+
+async function readEmail(){
+    const id = document.getElementById('employee_id').value
+    const employee = await(await fetch(`./controller/LoadEmail.php?id=${id}`)).json()
+    const email = employee.employee_email
+    document.getElementById('account_username').value = email
+}
