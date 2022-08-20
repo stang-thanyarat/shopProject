@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&display=swap');
+
+* {
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+    --bs-gutter-x: 0rem;
+}
+
+.row {
+    --bs-gutter-x: 0rem;
+}
+
+.main {
+    margin-top: 4rem;
+    margin-left: 3rem;
+    width: 85%;
+}
+
+.Nbar {
+    margin-top: 3.5rem;
+}
+
+.aa {
+    color: #688557;
+}
+
+.br {
+    margin-top: 2rem;
+}
+
+.brr {
+    margin-top: 2rem;
+    margin-left: -0.9rem;
+}
+
+.box1 {
+    width: 600px;
+    height: 40px;
+    background-color: #C4C4C4;
+    border-radius: 25px 25px 25px 25px;
+    text-align: center;
+}
+
+.t {
+    margin-top: 0.6rem;
+}
+
+.box2 {
+    width: 120px;
+    height: 40px;
+    background-color: #7C904E;
+    border-radius: 25px 25px 25px 25px;
+    text-align: center;
+    margin-left: 37.5rem;
+}
+
+.n {
+    margin-top: 1rem;
+    margin-left: 12.5rem;
+}
+
+.nn {
+    margin-top: 1rem;
+    margin-left: 10.5rem;
+}
+
+.nnn {
+    margin-top: 1rem;
+}
+
+.line {
+    width: 1600px;
+    height: 10px;
+    background-color: #E0B87E;
+    border-radius: 25px 25px 25px 25px;
+}
+
+.submit {
+    background-color: #ABBE99;
+    border: 0ch;
+    color: black;
+}
+
+.a:hover .b:hover .c:hover {
+    color: white;
+}
+
+.a {
+    margin-left: 1rem;
+    font-size: 16pt;
+    width: 150px;
+    background-color: #ABBE99;
+    border: 0in;
+}
+
+.b {
+    margin-left: 1rem;
+    font-size: 16pt;
+    width: 150px;
+    height: 50%;
+    background-color: #ABBE99;
+    border: 0in;
+}
+
+.c {
+    margin-left: 1rem;
+    font-size: 16pt;
+    width: 150px;
+    height: 50%;
+    background-color: #ABBE99;
+    border: 0in;
+}
+
+.d {
+    margin-left: 1rem;
+    font-size: 16pt;
+    width: 350px;
+    background-color: #ABBE99;
+    border: 0in;
+}
+
+
+.s {
+    border: 0ch;
+}

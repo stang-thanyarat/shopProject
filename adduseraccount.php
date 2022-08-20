@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./src/css/adduseraccount.css" />
+    <title>Document</title>
+</head>
+<?php
+include_once('nav.php');
+include_once('database/Employee.php');
+$employee = new Employee();
+$rows = $employee->fetchAll();
+?>
+
+<body>
+    <form action="controller/UserAccount.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
+        <input type="hidden" value="useraccount" name="table" />
+        <input type="hidden" value="insert" name="form_action" />
+        <div class="row main">
+            <div class="row">
+                <h1>เพิ่มบัญชีผู้ใช้งาน</h1>
+            </div>
+            <div class="row top">
+                <div class="col-lg-4 col-md-12">
+                    <label for="account_prefix">ชื่อพนักงาน:</label>
+                    <select name="employee_id" id="employee_id" class="bb" required onchange="readEmail()">
+                        <option value="" selected hidden>เลือกพนักงาน</option>
+                        <?php foreach($rows as $row){?>
+                            <option value="<?=$row['employee_id']?>"><?=$row['employee_prefix']?> <?=$row['employee_firstname']?> <?=$row['employee_lastname']?></option>
+                        <?php } ?>
+                    </select>
+                    <div class="a">*</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 login leftemail">
+                    <label for="email">อีเมล :</label>
+                    <input name="account_username" value="" id="account_username" type="email" class="bb" required />
+                    <div class="d">*</div>
+                </div>
+                <div class="col-lg-4 login leftpassword">
+                    <label for="password">รหัสผ่าน :</label>
+                    <input name="account_password" id="account_password" type="password" onblur='check_num(this)' class="bb" required />
+                    <div class="e">*</div>
+                </div>
+            </div>
+            <div class="col-lg-4 leftstatus">
+                <label for="status">สถานะการใช้งาน :</label>
+                <label class="switch bb">
+                    <input type="checkbox" id="account_user_status" name="account_user_status">
+                    <span class="slider round" id="account_user_status" name="account_user_status"></span>
+                </label>
+                <div class="h">*</div>
+            </div>
+        </div>
+        <div class="row btn-g">
+            <div class="col-lg-2 col-md-12">
+                <button type="reset" class="btn-c reset">ยกเลิก</button>
+            </div>
+            <div class="col-lg-10 col-md-12">
+                <input type="submit" class="btn-c submit" value="บันทึก" />
+            </div>
+        </div>
+    </form>
+</body>
+<script src="./src/js/adduseraccount.js"></script>
+
+</html>

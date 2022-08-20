@@ -19,4 +19,3 @@ function uploadImage($file, $dir)
     }
     return null;
 }
-?>
