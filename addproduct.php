@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="./src/css/addproduct.css" />
 
     <title>addproduct</title>
@@ -153,31 +154,22 @@
                                 <div class="col min1">
                                     สินค้าคงคลังขั้นต่ำ :<font color="red">&nbsp*</font>
                                     <input name="notification_amt" type="text" id="notification_amt" class="inbox" />
+                                    <!--notification_amt = notification amount-->
                                 </div>
                             </div>
-
                             <div class="row a">
                                 <div class="col settingmin">
-                                    <label class="checkbox">
-                                        <input type="checkbox">
-                                    </label>
-                                    <label for="setting">&nbsp&nbsp ตั้งค่าสินค้าคงคลังขั้นต่ำล่วงหน้า</label>
-                                </div>
-                                <div>
                                     ราคาทุน :<font color="red">&nbsp*</font>
                                     <input name="cost_price" type="text" id="cost_price" class="inbox" required />
                                 </div>
-                                <div>
-                                    จำนวนคงเหลือ :<font color="red">&nbsp*</font>
-                                    <input name="product_rm_unit" type="text" id="product_rm_unit" class="inbox" required />
-                                </div>
-                                <div>
-                                    การเปลี่ยนประเภทสินค้า :<font color="red">&nbsp*</font>
-                                    <input name="product_exchange_id" type="text" id="product_exchange_id" class="inbox" required />
+                            </div>
+                            <div class="row a">
+                                <div class="col settingmin">
+                                    <input name="set_n_amt" id="set_n_amt" type="checkbox" checked />
+                                    <label for="set_n_amt">ตั้งค่าสินค้าคงคลังขั้นต่ำล่วงหน้า</label>
                                 </div>
                             </div>
-
-                            <div class="row a">
+                            <div class="row a" id="post">
                                 <div class="col start">
                                     วันที่เริ่มใช้งาน :<font color="red">&nbsp*</font>
                                     <input name="lastname" type="date" id="lastname" class="inbox" />
@@ -204,5 +196,6 @@
         </div>
     </form>
 </body>
+<script src="./src/js/addproduct.js"></script>
 
 </html>

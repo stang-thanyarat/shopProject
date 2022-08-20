@@ -128,7 +128,6 @@
                                             <option value="bag">ถุง</option>
                                             <option value="sack">กระสอบ</option>
                                         </select>
-
                                     </div>
                                     <div class="col-3 price">
                                         ราคาขาย :<font color="red">&nbsp*</font>
@@ -142,31 +141,33 @@
                                         <a href="costprice.php" name="cost_price" id="cost_price" type="button" class="btn-c1 reset1"><label class="label1">ดูราคาทุน</label></a>
                                     </div>
                                 </div>
-
                                 <div class="row a">
                                     <div class="col status">
                                         สถานะการขาย :&nbsp&nbsp
                                         <label class="switch">
                                             <input name="sales_status" id="sales_status" type="checkbox">
-                                            <span class="slider round inbox"></span>
+                                            <span name="sales_status" id="sales_status" class="slider round inbox"></span>
                                         </label>
                                     </div>
                                     <div class="col min1">
                                         สินค้าคงคลังขั้นต่ำ :<font color="red">&nbsp*</font>
                                         <input name="notification_amt" type="text" id="notification_amt" class="inbox" />
+                                        <!--notification_amt = notification amount-->
                                     </div>
                                 </div>
-
                                 <div class="row a">
                                     <div class="col settingmin">
-                                        <label class="checkbox">
-                                            <input type="checkbox">
-                                        </label>
-                                        <label for="setting">&nbsp&nbsp ตั้งค่าสินค้าคงคลังขั้นต่ำล่วงหน้า</label>
+                                        ราคาทุน :<font color="red">&nbsp*</font>
+                                        <input name="cost_price" type="text" id="cost_price" class="inbox" required />
                                     </div>
                                 </div>
-
                                 <div class="row a">
+                                    <div class="col settingmin">
+                                        <input name="set_n_amt" id="set_n_amt" type="checkbox" checked />
+                                        <label for="set_n_amt">ตั้งค่าสินค้าคงคลังขั้นต่ำล่วงหน้า</label>
+                                    </div>
+                                </div>
+                                <div class="row a" id="post">
                                     <div class="col start">
                                         วันที่เริ่มใช้งาน :<font color="red">&nbsp*</font>
                                         <input name="lastname" type="date" id="lastname" class="inbox" />
@@ -194,6 +195,7 @@
     </form>
     </form>
 </body>
+<script src="./src/js/editproduct.js"></script>
 
 
 </html>
