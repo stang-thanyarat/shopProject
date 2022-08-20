@@ -17,7 +17,7 @@ if (isset($_POST)) {
             } else {
                 $_POST['account_user_status'] = '1';
             }
-            $_POST
+            $_POST[]= $a;
             $useraccount->insert($_POST);
         }
     }
