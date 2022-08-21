@@ -11,10 +11,15 @@
 
     <title>productresult</title>
 </head>
-<?php include('nav.php'); ?>
+<?php include('nav.php');
+include_once "./database/Category.php";
+$category =  new Category();
+$rows = $category->fetchAll();
+?>
 <!--
     เปลี่ยนชื่อ และ id แล้ว แต่จะใส่แทรกเพื่อเก็บข้อมูลหรือแสดงผลต้องรอ
 -->
+
 <body>
     <form>
         <div class="row">
@@ -27,27 +32,15 @@
                 </div>
                 <div class="row">
                     <div class="col-2 z">
-                        <select name="category_name" id="category_name" class="g">
+                        <select name="category_id" id="category_id" class="g" required>
                             <option value="" selected hidden>เลือกประเภทสินค้า</option>
-                            <option value="ใบตัดหญ้า">ใบตัดหญ้า</option>
-                            <option value="ชุดเสื้อสูบ">ชุดเสื้อสูบ</option>
-                            <option value="หัวเกียร์">หัวเกียร์</option>
-                            <option value="ใบตัดข้าว">ใบตัดข้าว</option>
-                            <option value="น็อตสกรู">น็อตสกรู</option>
-                            <option value="เชือกเอ็น">เชือกเอ็น</option>
-                            <option value="จานตัดหญ้า">จานตัดหญ้า</option>
-                            <option value="คาบู">คาบู</option>
-                            <option value="อะไหล่เครื่องพ่นปุ๋ย">อะไหล่เครื่องพ่นปุ๋ย</option>
-                            <option value="ยางกันสะเทือน">ยางกันสะเทือน</option>
-                            <option value="ปั๊มน้ำ">ปั๊มน้ำ</option>
-                            <option value="เครื่องตัดหญ้า">เครื่องตัดหญ้า</option>
-                            <option value="เมล็ดพันธุ์">เมล็ดพันธุ์</option>
-                            <option value="ยากำจัดวัชพืช">ยากำจัดวัชพืช</option>
-                            <option value="ปุ๋ยเคมี">ปุ๋ยเคมี</option>
+                            <?php foreach ($rows as $row) { ?>
+                                <option value="<?= $row['category_id'] ?>"><?= $row['category_name'] ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                     <div class="col-2 y">
-                        <input name="product_name" type="text" id="product_name" class="btnd" placeholder="&nbsp ชื่อสินค้า">
+                        <input name="keyword" type="text" id="keyword" class="btnd" placeholder="&nbsp ชื่อสินค้า">
                         <button type="submit" class="s"><img src="./src/images/search.png" width="15"></button>
                     </div>
                     <div class="col-1 x">
@@ -68,6 +61,7 @@
                                 <th></th>
 
                             </tr>
+                        <tbody id="productResultTable">
                             <tr>
                                 <th name="category_name" id="category_name">เมล็ดพันธุ์</th>
                                 <th name="product_name" id="product_name">กระเจี๊ยบ-อพอลโล</th>
@@ -88,6 +82,7 @@
                                     <a type="button" href="./editproduct.php"><img src="./src/images/icon-pencil.png" width="25"></a>
                                 </th>
                             </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -112,6 +107,7 @@
 
     </form>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 <script src="./src/js/productresult.js"></script>
 
 </html>

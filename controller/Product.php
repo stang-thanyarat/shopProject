@@ -19,9 +19,10 @@ if (isset($_POST)) {
         } else if ($_POST['form_action'] === 'insert') {
 
             if (!empty($_FILES['product_img1'])) {
-                $filesname = uploadImage($_FILES['product_img1'], '../file/product/image1/');
+                $path = './file/product/image1/';
+                $filesname = uploadImage($_FILES['product_img1'],".".$path);
                 if ($filesname) {
-                    $_POST['product_img1'] = $filesname;
+                    $_POST['product_img1'] = $path.$filesname;
                 } else {
                     $_POST['product_img1'] = '';
                 }
@@ -31,9 +32,9 @@ if (isset($_POST)) {
 
 
             if (!empty($_FILES['product_img2'])) {
-                $filesname = uploadImage($_FILES['product_img2'], '../file/product/image2/');
+                $filesname = uploadImage($_FILES['product_img2'], ".".$path);
                 if ($filesname) {
-                    $_POST['product_img2'] = $filesname;
+                    $_POST['product_img2'] = $path.$filesname;
                 } else {
                     $_POST['product_img2'] = '';
                 }

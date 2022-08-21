@@ -11,12 +11,15 @@
 
     <title>category</title>
 </head>
-<?php include('nav.php'); ?>
+<?php include('nav.php');
+include_once "./database/Category.php";
+include_once "./database/Product.php";
+$category =  new Category();
+$rows = $category->fetchAll();
+$product = new Product();
+?>
 
 <body>
-    <form  name="form1" id="form1"  enctype="multipart/form-data">
-        <input type="hidden" value="category" name="table" />
-        <input type="hidden" value="insert" name="form_action"/>
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
@@ -39,15 +42,27 @@
                         </tr>
                     </thead>
                     <tbody id="categorytable">
-
+                        <?php $i = 1;
+                        foreach ($rows as $row) { ?>
+                            <tr>
+                                <td><?= $i ?></td>
+                                <td><?= $row['category_name'] ?></td>
+                                <td><?= $product->countCategoryId($row['category_id'],false)?></td>
+                                <td><?= $product->countCategoryId($row['category_id'],true)?></td>
+                            </tr>
+                        <?php $i++;
+                        } ?>
                     </tbody>
                 </table>
             </div>
-            </form>
+    </form>
 
     <!--- modal เพิ่มประเภทสินค้า-->
     <div class="modal fade bd-example-modal-xl1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <form name="addproducttype" method="post" id="addproducttype">
+        <form action="controller/Category.php" method="POST" name="form1" id="form1" enctype="multipart/form-data">
+            <input type="hidden" value="category" name="table" />
+            <input type="hidden" value="insert" name="form_action" />
+            <input type="hidden" id="category" name="category" />
             <div class="modal-dialog modal-xl1">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -61,45 +76,17 @@
                             <div class="addproducttypename">
                                 <label for="category_name">ชื่อประเภทสินค้า : </label>
                                 <font color="red">&nbsp*</font>
-                                <select name="category_name" id="category_name" class="inbox" required>
-                                    <option value="" selected hidden>เลือกประเภทสินค้า</option>
-                                    <option value="ใบตัดหญ้า">ใบตัดหญ้า</option>
-                                    <option value="ชุดเสื้อสูบ">ชุดเสื้อสูบ</option>
-                                    <option value="หัวเกียร์">หัวเกียร์</option>
-                                    <option value="ใบตัดข้าว">ใบตัดข้าว</option>
-                                    <option value="น็อตสกรู">น็อตสกรู</option>
-                                    <option value="เชือกเอ็น">เชือกเอ็น</option>
-                                    <option value="จานตัดหญ้า">จานตัดหญ้า</option>
-                                    <option value="คาบู">คาบู</option>
-                                    <option value="อะไหล่เครื่องพ่นปุ๋ย">อะไหล่เครื่องพ่นปุ๋ย</option>
-                                    <option value="ยางกันสะเทือน">ยางกันสะเทือน</option>
-                                    <option value="ปั๊มน้ำ">ปั๊มน้ำ</option>
-                                    <option value="เครื่องตัดหญ้า">เครื่องตัดหญ้า</option>
-                                    <option value="เมล็ดพันธุ์">เมล็ดพันธุ์</option>
-                                    <option value="ยากำจัดวัชพืช">ยากำจัดวัชพืช</option>
-                                    <option value="ปุ๋ยเคมี">ปุ๋ยเคมี</option>
-                                </select>
+                                <input type="text" name="category_name" id="category_name" class="inbox" required>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="addallproducttype">
-                                รายการทั้งหมด :<font color="red">&nbsp*</font>
-                                <input type="text" name="addallproducttype" id="addallproducttype" class="inbox" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="addsellproducttype">
-                                รายการที่ขาย :<font color="red">&nbsp*</font>
-                                <input type="text" name="addsellproducttype" id="addsellproducttype" class="inbox" required>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" id="addtable" class="btn1 btn-primary1">ตกลง</button>
-                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" id="addtable" class="btn1 btn-primary1">ตกลง</button>
                     </div>
                 </div>
             </div>
-        </form>
+    </div>
+    </form>
     </div>
 
     <!-- ลบ -->
@@ -178,7 +165,6 @@
                     </div>
                 </div>
             </div>
-        </form>
     </div>
 </body>
 
