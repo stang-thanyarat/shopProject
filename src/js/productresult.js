@@ -53,5 +53,5 @@ function setUI(data) {
 
 async function setStatus(id){
     const status = $("#S"+id).is(':checked');
-    console.log(await (await fetch(`./controller/setProductStatus.php?status=${status}&id=${id}`)))
+    console.log(await (await fetch(`./controller/SetProductStatus.php?status=${status}&id=${id}`)))
 }
