@@ -21,7 +21,6 @@ function autoTab(obj) {
     }
 
     let id = document.form1.employee_card_id.value.split(/ /)[0].replace(/[^\d]/g, '')
-
 }
 
 //เช็คเลข13หลัก
@@ -42,7 +41,6 @@ function checkID(id) {
 }
 
 //ตรวจสอบพร้อมส่งข้อมูล
-
 $("#form1").submit(async function (event) {
     event.preventDefault();
     if (!checkID(document.form1.employee_card_id.value)) {
@@ -109,7 +107,6 @@ function check_email(elm) {
     let text = elm.value;
     var regex_email = /^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*\@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.([a-zA-Z]){2,4})$/
     return text.match(regex_email)
-
 }
 
 //เช็คจำนวนรหัสผ่าน

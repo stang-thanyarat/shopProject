@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&display=swap');
+
+* {
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+    --bs-gutter-x: 0;
+}
+
+.main{
+    margin-top: 5rem;
+    margin-left: 4rem;
+    width: 90%;
+}
+
+.Nbar{
+    margin-top: 3.5rem;
+}
+.row{
+    --bs-gutter-x: 0rem;
+}
+table,
+td,
+th {
+    border: 1px solid black;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 60%;
+}
+
+th {
+    height: 50px;
+}
+.btnd{
+    background-color: #F8E4C8;
+    border-radius: 25px;
+}
+.Nbar{
+    margin-top: 3.5rem;
+}
+
+.BTNP{
+    background-color: #fff;
+    color: #A36627;
+    border: 0in;
+    
+}
+
+.BTNC{
+    background-color: #7C904E;
+    color: #000;
+    border-radius: 25px;
+    font-size: 16pt;
+    display: inline-block;
+    width: 55%;
+    text-decoration: none;
+    text-align: center;
+
+}
+
+.s{
+    background: transparent;
+    border: 0px;
+    margin-left: -2rem;
+}
+.btn-primary1{
+    
+    background-color: #7C904E;
+    color: #fff;
+    border: 0in;
+}
+.modal-header{
+    background-color: #7C904E;
+    height: 50px;
+}
+.modal-title{
+    color: #fff;
+}
+.modal-body1{
+   text-align: center;
+   height: 70px;
+   margin-top: 3rem;
+}

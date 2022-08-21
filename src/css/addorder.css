@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&display=swap');
+
 *{
     font-family: 'IBM Plex Sans Thai', sans-serif;
 }
@@ -6,7 +7,6 @@
     margin-top: 5rem;
     margin-left: 4rem;
     width: 90%;
-    
 }
 .sign{
     margin-right: 5rem;
@@ -29,8 +29,7 @@ th {
 }
 
 .th {
-    height: 100px;
-    
+    height: 100px;   
 }
 .col-6{
     text-align: center;
@@ -64,7 +63,6 @@ th {
     margin-top: 5rem;
 }
 
-
  
 
 .col-12{
@@ -77,22 +75,18 @@ th {
 
 .Nbar {
     margin-top: 3.5rem;
-    
 }
 
 .col-10{
     margin-top: 1rem;
 }
 
-
-
-
 .btn-primary1{
-    
     background-color: #7C904E;
     color: #fff;
     border: 0in;
 }
+
 
 .r{
     margin-top: 1rem;
@@ -119,6 +113,7 @@ th {
     border-radius: 25px;
     height: 30px;
 }
+
 
 .btn1{
     background-color: #fff;
