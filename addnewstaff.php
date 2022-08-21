@@ -260,7 +260,6 @@
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary2">ตกลง</button>
                         </div>
-
                     </div>
                 </div>
             </div>

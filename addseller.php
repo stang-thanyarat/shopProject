@@ -45,17 +45,16 @@
                         <input type="text" name="sell_tax_id" id="sell_tax_id" class="bb" required />
                         <div class="c">*</div>
                     </div>
-                    <div class="col leftaddress">
-                        <label for="sell_address">ที่อยู่ :</label>
-                        <input type="text" name="sell_address" id="sell_address" class="bb" required />
-                        <div class="b">*</div>
-                    </div>
-                </div>
-                <div class="row">
                     <div class="col lefttelephone">
                         <label for="sell_telephone">เบอร์โทรศัพท์ :</label>
                         <input type="text" name="sell_telephone" id="sell_telephone" onkeyup="autoTab2(this)" class="bb" required />
                         <div class="e">*</div>
+                    </div>
+                </div>
+                <div class="row">
+                <div class="col leftaddress">
+                        ที่อยู่ :<font color="red">&nbsp*</font>
+                        <textarea name="sell_address" id="sell_address" cols="40" rows="5" class="cc" style="vertical-align:top;" required></textarea>
                     </div>
                     <div class="col leftwebsite">
                         <label for="sell_website">เว็บไซต์ :</label>
