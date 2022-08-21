@@ -6,4 +6,3 @@ function redirection($path)
     exit;
 
 }
-

@@ -60,6 +60,7 @@ th {
 }
 
 .BTNC {
+
     border-radius: 25px;
     width: 15%;
     background-color: #E0B87E;
@@ -67,9 +68,6 @@ th {
     border: 0in;
     margin-top: 5rem;
 }
-
-
-
 
 .col-12 {
     margin-bottom: 2rem;
@@ -81,7 +79,6 @@ th {
 
 .Nbar {
     margin-top: 3.5rem;
-
 }
 
 .col-10 {
@@ -125,6 +122,7 @@ th {
     border-radius: 25px;
     height: 30px;
 }
+
 
 .btn1 {
     background-color: #fff;
