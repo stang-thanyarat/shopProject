@@ -53,7 +53,7 @@
                 <div class="row">
                 <div class="col leftaddress">
                         ที่อยู่ :<font color="red">&nbsp*</font>
-                        <textarea name="sell_address" id="sell_address" cols="40" rows="5" class="bb" style="vertical-align:top;" required></textarea>
+                        <textarea name="sell_address" id="sell_address" cols="40" rows="5" class="cc" style="vertical-align:top;" required></textarea>
                     </div>
                     <div class="col leftwebsite">
                         <label for="sell_website">เว็บไซต์ :</label>

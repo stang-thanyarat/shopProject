@@ -36,7 +36,9 @@
 .bb {
     margin-left: 2rem
 }
-
+.cc {
+    margin-left: 1.7rem
+}
 .leftseller {
     margin-left: 6.8rem;
     margin-top: 2rem;
@@ -71,7 +73,7 @@
 }
 
 .leftaddress {
-    margin-left: 5rem;
+    margin-left: 10rem;
     margin-top: 1rem;
 }
 
@@ -82,7 +84,7 @@
 }
 
 .lefttelephone {
-    margin-left: 6.5rem;
+    margin-left: 7.1rem;
     margin-top: 1rem;
 }
 
