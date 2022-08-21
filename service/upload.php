@@ -15,7 +15,7 @@ function uploadImage($file, $dir)
     $imagename = generateRandomString() . basename($file["name"]);
     $filename = $dir . $imagename;
     if (move_uploaded_file($file["tmp_name"], $filename)) {
-        return $filename;
+        return $imagename;
     }
     return null;
 }

@@ -17,7 +17,7 @@ if (isset($_POST)) {
         } else if ($_POST['form_action'] === 'insert') {
 
             $category->insert($_POST);
-            //header( "location: ../category.php" );
+            redirection("../category.php");
         }
     }
 }

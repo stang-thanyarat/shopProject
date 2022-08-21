@@ -12,7 +12,12 @@
 
     <title>addproduct</title>
 </head>
-<?php include('nav.php'); ?>
+<?php include('nav.php'); 
+include_once "./database/Category.php";
+$category = new Category();
+$rows = $category->fetchAll();
+
+?>
 
 <body>
     <form action="controller/Product.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
@@ -41,28 +46,16 @@
                                     ประเภทสินค้า :<font color="red">&nbsp*</font>
                                     <select name="category_id" id="category_id" class="inbox" required>
                                         <option value="" selected hidden>เลือกประเภทสินค้า</option>
-                                        <option value="ใบตัดหญ้า">ใบตัดหญ้า</option>
-                                        <option value="ชุดเสื้อสูบ">ชุดเสื้อสูบ</option>
-                                        <option value="หัวเกียร์">หัวเกียร์</option>
-                                        <option value="ใบตัดข้าว">ใบตัดข้าว</option>
-                                        <option value="น็อตสกรู">น็อตสกรู</option>
-                                        <option value="เชือกเอ็น">เชือกเอ็น</option>
-                                        <option value="จานตัดหญ้า">จานตัดหญ้า</option>
-                                        <option value="คาบู">คาบู</option>
-                                        <option value="อะไหล่เครื่องพ่นปุ๋ย">อะไหล่เครื่องพ่นปุ๋ย</option>
-                                        <option value="ยางกันสะเทือน">ยางกันสะเทือน</option>
-                                        <option value="ปั๊มน้ำ">ปั๊มน้ำ</option>
-                                        <option value="เครื่องตัดหญ้า">เครื่องตัดหญ้า</option>
-                                        <option value="เมล็ดพันธุ์">เมล็ดพันธุ์</option>
-                                        <option value="ยากำจัดวัชพืช">ยากำจัดวัชพืช</option>
-                                        <option value="ปุ๋ยเคมี">ปุ๋ยเคมี</option>
+                                        <?php foreach ($rows as $row) { ?>
+                                            <option value="<?= $row['category_id'] ?>"><?= $row['category_name'] ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
-                                <div class="col productnumber ">
+                                <!--<div class="col productnumber ">
                                     รหัสสินค้า :&nbsp&nbsp
                                     <label for="no." id="" class="inbox">A01
                                     </label>
-                                </div>
+                                </div>-->
                             </div>
 
                             <div class="row a">
