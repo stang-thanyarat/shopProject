@@ -41,6 +41,10 @@ class Employee
         }
     }
 
+    public function fetchHaveUser(){
+        
+    }
+
     public function fetchById($id)
     {
         try {

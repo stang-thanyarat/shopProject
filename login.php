@@ -21,7 +21,19 @@
             </div>
         </div>
         <div class="BgRight col-md-6">
-            <form action="aa.php" method="post" id="login" onsubmit="return errorCheck1()">
+
+            <form action="./controller/LogIn.php" method="post" id="login">
+                <input type="hidden" name="table" value="useraccount" />
+                <input type="hidden" name="form_action" value="login" />
+                <?php 
+                session_start();
+                if(isset($_SESSION['error'])){
+                ?>
+                <div class="alert alert-danger" role="alert">
+                   <?=$_SESSION['error']?>
+                </div>
+                <br>
+                <?php }  session_destroy();?>
                 <h1 class="text-login">Login</h1>
                 <label class="label" for="email">E-mail</label>
                 <input class="field input" type="email" id="email" name="email" onblur='check_email(this)' required>
@@ -37,6 +49,6 @@
         </div>
     </div>
 </body>
-<!--<script src="./src/js/login.js"></script>-->
+<script src="./src/js/login.js"></script>
 
 </html>

@@ -7,7 +7,6 @@ if (isset($_POST)) {
         if ($_POST['form_action'] === 'update') {
 
             $useraccount->update($_POST);
-
         } else if ($_POST['form_action'] === 'delete') {
 
             $useraccount->delete($_POST['unique_id']);
@@ -17,7 +16,7 @@ if (isset($_POST)) {
             } else {
                 $_POST['account_user_status'] = '1';
             }
-            $_POST[]= $a;
+            $_POST['account_password'] = password_hash($_POST['account_password'], PASSWORD_BCRYPT);  //ทำให้ไม่เห็นรหัสผ่าน
             $useraccount->insert($_POST);
         }
     }
