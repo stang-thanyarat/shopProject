@@ -17,7 +17,7 @@ $rows = $employee->fetchAll();
 ?>
 
 <body>
-    <form action="controller/UserAccount.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
+    <form action="controller/UserAccount.php" name="form1" id="form1" method="POST">
         <input type="hidden" value="useraccount" name="table" />
         <input type="hidden" value="insert" name="form_action" />
         <div class="row main">
@@ -29,8 +29,8 @@ $rows = $employee->fetchAll();
                     <label for="account_prefix">ชื่อพนักงาน:</label>
                     <select name="employee_id" id="employee_id" class="bb" required onchange="readEmail()">
                         <option value="" selected hidden>เลือกพนักงาน</option>
-                        <?php foreach($rows as $row){?>
-                            <option value="<?=$row['employee_id']?>"><?=$row['employee_prefix']?> <?=$row['employee_firstname']?> <?=$row['employee_lastname']?></option>
+                        <?php foreach ($rows as $row) { ?>
+                            <option value="<?= $row['employee_id'] ?>"><?= $row['employee_prefix'] ?> <?= $row['employee_firstname'] ?> <?= $row['employee_lastname'] ?></option>
                         <?php } ?>
                     </select>
                     <div class="a">*</div>
