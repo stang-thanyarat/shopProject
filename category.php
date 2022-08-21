@@ -14,9 +14,9 @@
 <?php include('nav.php'); ?>
 
 <body>
-    <form action="controller/Category.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
+    <form  name="form1" id="form1"  enctype="multipart/form-data">
         <input type="hidden" value="category" name="table" />
-        <input type="hidden" value="insert" name="form_action" />
+        <input type="hidden" value="insert" name="form_action"/>
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
@@ -43,6 +43,7 @@
                     </tbody>
                 </table>
             </div>
+            </form>
 
     <!--- modal เพิ่มประเภทสินค้า-->
     <div class="modal fade bd-example-modal-xl1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -179,7 +180,6 @@
             </div>
         </form>
     </div>
-    </form>
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
