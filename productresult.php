@@ -33,7 +33,7 @@ $rows = $category->fetchAll();
                 <div class="row">
                     <div class="col-2 z">
                         <select name="category_id" id="category_id" class="g" required>
-                            <option value="" selected hidden>เลือกประเภทสินค้า</option>
+                            <option value="all">ทั้งหมด</option>
                             <?php foreach ($rows as $row) { ?>
                                 <option value="<?= $row['category_id'] ?>"><?= $row['category_name'] ?></option>
                             <?php } ?>
