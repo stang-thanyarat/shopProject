@@ -1,15 +1,25 @@
 $("#category_id").change(async function () {
-    let url = `./controller/ProductResult.php?category_id=${$("#category_id").val()}`
-    if ($("#keyword").val() !== "") {
-        url += `&keyword=${$("#keyword").val()}`
+    if ($("#category_id").val() !== "all") {
+        let url = `./controller/ProductResult.php?category_id=${$("#category_id").val()}`
+        if ($("#keyword").val() !== "") {
+            url += `&keyword=${$("#keyword").val()}`
+        }
+        const product = await (await fetch(url)).json()
+        setUI(product)
+    } else {
+        let url = './controller/ProductResult.php'
+        if ($("#keyword").val() !== "") {
+            url += `?keyword=${$("#keyword").val()}`
+        }
+        const product = await (await fetch(url)).json()
+        console.log(product);
+        setUI(product)
     }
-    const product = await (await fetch(url)).json()
-    setUI(product)
 });
 
 $("#keyword").keyup(async function () {
     let url = `./controller/ProductResult.php?keyword=${$("#keyword").val()}`
-    if ($("#category_id").val() !== "") {
+    if ($("#category_id").val() !== "" && $("#category_id").val() !== "all") {
         url += `&category_id=${$("#category_id").val()}`
     }
     const product = await (await fetch(url)).json()
@@ -51,7 +61,7 @@ function setUI(data) {
     });
 }
 
-async function setStatus(id){
-    const status = $("#S"+id).is(':checked');
+async function setStatus(id) {
+    const status = $("#S" + id).is(':checked');
     console.log(await (await fetch(`./controller/SetProductStatus.php?status=${status}&id=${id}`)))
 }

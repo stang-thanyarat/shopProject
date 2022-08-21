@@ -45,7 +45,7 @@ class Product
 
     public function countCategoryId($id, $on)
     {
-        $sql = "SELECT * FROM product_tb WHERE category_id=?";
+        $sql = "SELECT * FROM product_tb LEFT JOIN category_tb ON product_tb.category_id =category_tb.category_id WHERE category_id=?";
         if ($on) {
             $sql .= " AND sales_status=1";
         }
@@ -58,7 +58,7 @@ class Product
 
     public function fetchByCategoryId($id)
     {
-        $sql = "SELECT * FROM product_tb LEFT JOIN category_tb ON product_tb.category_id =category_tb.category_id WHERE category_id=?";
+        $sql = "SELECT * FROM product_tb WHERE category_id=?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $id, PDO::PARAM_INT);
         $stmt->execute();
@@ -69,10 +69,10 @@ class Product
     public function search($keyword, $id = null)
     {
         $like = "%".$keyword."%";
-        $sql = "SELECT * FROM product_tb LEFT JOIN category_tb ON product_tb.category_id = category_tb.category_id
+        $sql = "SELECT * FROM product_tb LEFT JOIN category_tb ON product_tb.category_id =category_tb.category_id
         WHERE product_name LIKE ?";
         if (!is_null($id)) {
-            $sql .= " AND category_id=?";
+            $sql .= " AND product_tb.category_id=?";
         }
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $like , PDO::PARAM_STR);
