@@ -11,7 +11,16 @@
 
     <title>Document</title>
 </head>
-<?php include('nav.php'); ?>
+<?php
+include_once('database/Sell.php');
+$sell = new Sell();
+include_once('nav.php');
+if(isset($_GET['keyword'])){
+    $rows = $sell->search($_GET['keyword']);
+}else{
+    $rows = $sell->fetchAll();
+}
+?>
 
 <body>
     <form>
@@ -24,11 +33,14 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-2 mai">
-                        <input type="text" class="btn-d" placeholder="&nbsp ชื่อผู้ขาย">
-                        <button type="submit" class="s">
-                            <img src="./src/images/search.png" width="15">
-                    </div>
+                    <form action="sall.php" method="GET">
+                        <div class="col-2 mai">
+                            <input type="text" name="keyword" class="btn-d" placeholder="&nbsp ชื่อผู้ขาย"></input>
+                            <button type="submit" class="s">
+                                <img src="./src/images/search.png" width="15">
+                            </button>
+                        </div>
+                    </form>
                     <div class="col-1 w">
                         <a class="submit btn" href="addseller.php"><img class='add' src="./src/images/plus.png" width="25" alt="">&nbsp เพิ่มผู้ขาย</a>
                     </div>
@@ -40,24 +52,17 @@
                         <th>นามบัตร</th>
                         <th></th>
                     </tr>
-                    <tr>
-                        <th>อาร์เอส อินเตอร์เทรด (2017) จำกัด</th>
-                        <th>0745560004191</th>
-                        <th><img src="./src/images/1.png" width="100"></th>
-                        <th>
-                            <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
-                            <button type="button" class="btn1" onclick="javascript:window.location='editseller.php';"><img src="./src/images/icon-pencil.png" width="25"></button>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>ซีดไลน์ จำกัด</th>
-                        <th>-</th>
-                        <th><img src="./src/images/2.png" width="100"></th>
-                        <th>
-                            <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
-                            <button type="button" class="btn1" onclick="javascript:window.location='editseller.php';"><img src="./src/images/icon-pencil.png" width="25"></button>
-                        </th>
-                    </tr>
+                    <?php foreach ($rows as $e) { ?>
+                        <tr>
+                            <th><?= $e['sell_name']; ?></th>
+                            <th><?= $e['sell_tax_id']; ?></th>
+                            <th><img src="<?= $e['seller_cardname']; ?>" /></th>
+                            <th>
+                                <button type="button" class="bgs" data-bs-toggle="modal1" data-bs-target="#exampleModal<?= $e['sell_id']; ?>"><img src="./src/images/icon-delete.png" width="25"></button>
+                                <a type="button" class="btn1" href="editstaff.php?id=<?= $e['sell_id']; ?>"><img src="./src/images/icon-pencil.png" width="25"></a>
+                            </th>
+                        </tr>
+                    <?php } ?>
                 </table>
             </div>
         </div>

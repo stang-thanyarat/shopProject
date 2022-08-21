@@ -9,6 +9,10 @@ if (isset($_POST)) {
             $user = $useraccount->fetchByEmail($_POST['email']);
             if (count($user) > 0) {
                 if (password_verify($_POST['password'], $user['account_password'])) {
+                    if ($user['account_user_status'] == 0) {
+                        $_SESSION['error'] = "บัญชีนี้ไม่อนุญาตให้ใช้งาน";
+                        redirection('../login.php');
+                    }
                     $_SESSION['role'] = $user['account_user_type'];
                     redirection('../index.php');
                 } else {

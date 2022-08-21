@@ -76,7 +76,6 @@ $("#form1").submit(async function (event) {
                 body: new FormData(document.form1)
             });
             console.log(response);
-
             if (!response.ok) {
                 console.log(response);
             } else {

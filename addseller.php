@@ -17,6 +17,7 @@
     <form action="controller/Sell.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
     <input type="hidden" value="sell" name="table"/>
     <input type="hidden" value="insert" name="form_action"/>
+    <input type="hidden" id="bank" name="bank" />
     <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">

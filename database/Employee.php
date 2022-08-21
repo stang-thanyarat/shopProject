@@ -26,6 +26,38 @@ class Employee
         }
     }
 
+    public function search($keyword, $id = null)
+    {
+        $like = "%".$keyword."%";
+        $sql = "SELECT * FROM user_account_tb LEFT JOIN employee_tb ON user_account_tb.employee_id = user_account_tb.employee_id
+        WHERE employee_firstname LIKE ? OR employee_lastname LIKE ?";
+        if (!is_null($id)) {
+            $sql .= " AND user_account_tb.account_user_type=?";
+        }
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $like , PDO::PARAM_STR);
+        if (!is_null($id)) {
+            $stmt->bindParam(2, $id, PDO::PARAM_INT);
+        }
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
+    public function updateStatus($status, $id)
+    {
+        try {
+            $sql = "UPDATE employee_tb SET employee_status = ? WHERE employee_id=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $status, PDO::PARAM_INT);
+            $stmt->bindParam(2, $id, PDO::PARAM_INT);
+            $stmt->execute();
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
+    }
+
     public function emailCheck($email)
     {
         try {
@@ -41,8 +73,8 @@ class Employee
         }
     }
 
-    public function fetchHaveUser(){
-        
+    public function fetchHaveUser()
+    {
     }
 
     public function fetchById($id)
@@ -120,7 +152,7 @@ class Employee
         try {
             $sql = "UPDATE employee_tb
         SET employee_model = ?, employee_startwork_dt = ?, employee_prefix = ?, employee_firstname = ?, employee_lastname = ?, employee_address = ?, employee_birthday = ?,
-        employee_card_id = ?, employee_telephone = ?, employee_email = ?, employee_card_id_copy = ?, employee_address_copy = ?, 
+        employee_card_id = ?, employee_telephone = ?, employee_email = ?, employee_card_id_copy = ?, employee_address_copy = ?, employee_status = ?, 
         WHERE employee_id=?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $data['employee_model'], PDO::PARAM_STR);
@@ -135,7 +167,8 @@ class Employee
             $stmt->bindParam(10, $data['employee_email'], PDO::PARAM_STR);
             $stmt->bindParam(11, $data['employee_card_id_copy'], PDO::PARAM_STR);
             $stmt->bindParam(12, $data['employee_address_copy'], PDO::PARAM_STR);
-            $stmt->bindParam(13, $data['employee_id'], PDO::PARAM_INT);
+            $stmt->bindParam(13, $data['employee_status'], PDO::PARAM_INT);
+            $stmt->bindParam(14, $data['employee_id'], PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
             http_response_code(500);

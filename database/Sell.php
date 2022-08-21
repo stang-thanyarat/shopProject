@@ -21,6 +21,21 @@ class Sell
         }
     }
 
+    public function search($keyword){
+        try {
+            $like = "%$keyword%";
+            $sql = "SELECT * FROM sell_tb WHERE sell_name LIKE ? ";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $like, PDO::PARAM_STR);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            return $result;
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
+    }
+
     public function fetchById($id)
     {
         try {

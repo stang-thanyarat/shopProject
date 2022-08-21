@@ -69,14 +69,14 @@ if (isset($_POST)) {
         } else if ($_POST['form_action'] === 'insert') {
             //อัพโหลด
             if (!empty($_FILES['employee_card_id_copy'])) {
-                try{
+            
                     $filesname = uploadImage($_FILES['employee_card_id_copy'], '../file/employee/id/');
                 if ($filesname) {
                     $_POST['employee_card_id_copy'] = $filesname;
                 } else {
                     $_POST['employee_card_id_copy'] = '';
                 }
-                }
+                
             } else {
                 $_POST['employee_card_id_copy'] = '';
             }
