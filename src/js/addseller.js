@@ -33,7 +33,7 @@ $("#form1").submit(async function (event) {
             return
         }else{
             event.preventDefault();
-         
+            $('#bank').val(JSON.stringify(JSON.parse(localStorage.getItem("tableBank")).data))
             let response = await fetch('controller/Sell.php', {
                 method: 'POST',
                 body: new FormData(document.form1)

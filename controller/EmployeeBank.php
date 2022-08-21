@@ -1,9 +1,9 @@
 <?php
-include 'database/Bank.php';
+include 'database/EmployeeBank.php';
 include 'Redirection.php';
-$bank = new Bank();
+$employeebank = new EmployeeBank();
 if (isset($_POST)) {
-    if ($_POST['table'] === 'bank') {
+    if ($_POST['table'] === 'employeebank') {
 
         if ($_POST['form_action'] === 'update') {
 

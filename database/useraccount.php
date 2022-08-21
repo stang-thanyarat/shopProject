@@ -21,6 +21,20 @@ class UserAccount
         }
     }
 
+    public function updateStatus($status, $id)
+    {
+        try {
+            $sql = "UPDATE user_account_tb SET account_user_status = ? WHERE unique_id=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $status, PDO::PARAM_INT);
+            $stmt->bindParam(2, $id, PDO::PARAM_INT);
+            $stmt->execute();
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
+    }
+
     public function fetchById($id)
     {
         try {
@@ -63,6 +77,24 @@ class UserAccount
         }
     }
 
+
+
+    public function search($keyword, $type = null)
+    {
+        $like = "%".$keyword."%";
+        $sql = "SELECT * FROM user_account_tb WHERE (SELECT employee_id FROM employee_tb WHERE employee_firstname LIKE ?  OR employee_lastname LIKE ?)";
+        if (!is_null($type)) {
+            $sql .= " AND account_user_type=?";
+        }
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $like , PDO::PARAM_STR);
+        if (!is_null($type)) {
+            $stmt->bindParam(2, $type, PDO::PARAM_INT);
+        }
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    }
 
     public function insert($data)
     {

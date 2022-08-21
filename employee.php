@@ -14,6 +14,11 @@
 include_once('database/Employee.php');
 $employee = new Employee();
 include_once('nav.php');
+if (isset($_GET['keyword'])) {
+    $rows = $employee->search($_GET['keyword']);
+} else {
+    $rows = $employee->fetchAll();
+}
 ?>
 
 <body>
@@ -27,14 +32,16 @@ include_once('nav.php');
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-2 mai">
-                        <input type="text" class="btn-d" placeholder="&nbsp ชื่อ-นามสกุล">
-                        <button type="submit" class="s">
-                            <img src="./src/images/search.png" width="15">
-                    </div>
-                    <div class="col-1 w">
-                        <a class="submit btn" href="addnewstaff.php"><img class='add' src="./src/images/plus.png" width="25">&nbsp เพิ่มพนักงาน</a>
-                    </div>
+                    <form action="employee.php" method="GET">
+                        <div class="col-2 mai">
+                            <input type="text" name="keyword" class="btn-d" placeholder="&nbsp ชื่อ-นามสกุล">
+                            <button type="submit" class="s">
+                                <img src="./src/images/search.png" width="15">
+                        </div>
+                        <div class="col-1 w">
+                            <a class="submit btn" href="addnewstaff.php"><img class='add' src="./src/images/plus.png" width="25">&nbsp เพิ่มพนักงาน</a>
+                        </div>
+                    </form>
                 </div>
                 <table class="ma">
                     <tr>
@@ -44,14 +51,14 @@ include_once('nav.php');
                         <th>สถานะการใช้งาน</th>
                         <th></th>
                     </tr>
-                    <?php foreach ($employee->fetchAll() as $e) { ?>
+                    <?php foreach ($rows as $e) { ?>
                         <tr>
                             <th><?= $e['employee_prefix'] . $e['employee_firstname'] . " " . $e['employee_lastname']; ?></th>
                             <th><?= $e['employee_card_id']; ?></th>
                             <th><?= $e['employee_telephone']; ?></th>
                             <th>
                                 <label class="switch">
-                                    <input type="checkbox" <?= $e['employee_status'] == 1 ? "checked" : ""; ?> />
+                                    <input type="checkbox"  id="S<?= $e['employee_id']; ?>" <?= $e['employee_status'] == 1 ? "checked" : ""; ?> onchange="setStatus(<?= $e['employee_id']; ?>)"/>
                                     <span class="slider round"></span>
                                 </label>
                             </th>
@@ -87,7 +94,8 @@ include_once('nav.php');
         </div>
     </div>
 
-    
-</body>
 
+</body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="./src/js/employee.js"></script>
 </html>

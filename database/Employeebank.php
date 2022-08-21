@@ -1,6 +1,6 @@
 <?php
 include_once("Connection.php");
-class Employeebank
+class EmployeeBank
 {
     private $conn;
     function __construct()
