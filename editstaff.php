@@ -35,7 +35,7 @@ foreach ($banks as $b) {
         <input type="hidden" name="employee_card_id_copy" value="<?= $e['employee_card_id_copy']; ?>" />
         <input type="hidden" name="employee_address_copy" value="<?= $e['employee_address_copy']; ?>" />
         <input type="hidden" name="bank" value="" />
-        <input type="hidden" name="table" value="employee"  />
+        <input type="hidden" name="table" value="employee" />
         <input type="hidden" name="form_action" value="update" />
         <input type="hidden" value="<? $_GET['id'] ?>" name="employee_id" />
         <div class="row">
@@ -79,7 +79,7 @@ foreach ($banks as $b) {
                             <div class="row-4 ma">
                                 <label for="employee_prefix">คำนำหน้าชื่อ : </label>
                                 <select name="employee_prefix" id="employee_prefix" class="margin" required>
-                                    <option value="นาย"  <?= $e['employee_prefix'] == "นาย" ? "selected" : '' ?>>นาย</option>
+                                    <option value="นาย" <?= $e['employee_prefix'] == "นาย" ? "selected" : '' ?>>นาย</option>
                                     <option value="นาง" <?= $e['employee_prefix'] == "นาง" ? "selected" : '' ?>>นาง</option>
                                     <option value="นางสาว" <?= $e['employee_prefix'] == "นางสาว" ? "selected" : '' ?>>นางสาว</option>
                                 </select>
@@ -117,23 +117,20 @@ foreach ($banks as $b) {
                     <tr>
                         <th>
                             <div class="row">
-                                <div class="col leftaddress">
-                                    <label for="employee_address">ที่อยู่ :</label>
-                                    <input type="text" name="employee_address" value="<?= $e['employee_address']; ?>" id="employee_address" class="bb" required />
-                                    <div class="l">*</div>
-                                </div>
                                 <div class="col lefttelephone">
                                     <label for="employee_telephone">โทรศัพท์ :</label>
                                     <input name="employee_telephone" type="text" value="<?= $e['employee_telephone']; ?>" id=employee_telephone onkeyup="autoTab2(this)" class="bb" required />
                                     <div class="g">*</div>
                                 </div>
-                            </div>
-                            <div class="row leftemail">
-                                <div class="col">
+                                <div class="col leftemail">
                                     <label for="employee_email">อีเมล :</label>
                                     <input name="employee_email" type="email" value="<?= $e['employee_email']; ?>" id="employee_email" onblur='check_email(this)' class="bb" required />
                                     <div class="h">*</div>
                                 </div>
+                            </div>
+                            <div class="col leftaddress">
+                                ที่อยู่ :<font color="red">&nbsp*</font>
+                                <textarea name="employee_address" id="employee_address" cols="40" rows="5" class="cc" style="vertical-align:top;" type="text" value="<?= $e['employee_address']; ?>" required></textarea>
                             </div>
                             <div class="row">
                                 <div class="col leftn">สำเนาบัตรประชาชน :
@@ -180,7 +177,6 @@ foreach ($banks as $b) {
                     <?php $i++;
                     } ?>
                 </tbody>
-
             </table><br>
             </th>
             </tr>

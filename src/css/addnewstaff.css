@@ -34,6 +34,10 @@
     margin-left: 2rem;
 }
 
+.cc {
+    margin-left: 1.4rem
+}
+
 .margin {
     margin-left: 2rem;
 }
@@ -129,7 +133,7 @@
 }
 
 .lefttelephone {
-    margin-right: 2.8rem;
+    margin-left: 8.5rem;
     margin-top: 1rem;
 }
 
@@ -140,7 +144,7 @@
 }
 
 .leftemail {
-    margin-left: 9.9rem;
+    margin-left: 2rem;
     margin-top: 1rem;
 }
 

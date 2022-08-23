@@ -32,6 +32,7 @@ if (isset($_POST)) {
 
 
             if (!empty($_FILES['product_img2'])) {
+                $path = './file/product/image2/';
                 $filesname = uploadImage($_FILES['product_img2'], ".".$path);
                 if ($filesname) {
                     $_POST['product_img2'] = $path.$filesname;

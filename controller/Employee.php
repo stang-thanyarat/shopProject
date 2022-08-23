@@ -69,10 +69,10 @@ if (isset($_POST)) {
         } else if ($_POST['form_action'] === 'insert') {
             //อัพโหลด
             if (!empty($_FILES['employee_card_id_copy'])) {
-            
-                    $filesname = uploadImage($_FILES['employee_card_id_copy'], '../file/employee/id/');
+                $path = './file/employee/id/';
+                    $filesname = uploadImage($_FILES['employee_card_id_copy'], ".".$path );
                 if ($filesname) {
-                    $_POST['employee_card_id_copy'] = $filesname;
+                    $_POST['employee_card_id_copy'] = $path.$filesname;
                 } else {
                     $_POST['employee_card_id_copy'] = '';
                 }
@@ -82,9 +82,10 @@ if (isset($_POST)) {
             }
 
             if (!empty($_FILES['employee_address_copy'])) {
-                $filesname = uploadImage($_FILES['employee_address_copy'], '../file/employee/address/');
+                $path = './file/employee/address/';
+                $filesname = uploadImage($_FILES['employee_address_copy'], ".".$path );
                 if ($filesname) {
-                    $_POST['employee_address_copy'] = $filesname;
+                    $_POST['employee_address_copy'] = $path.$filesname;
                 } else {
                     $_POST['employee_address_copy'] = '';
                 }

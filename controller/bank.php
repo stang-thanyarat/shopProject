@@ -2,6 +2,7 @@
 include 'database/Bank.php';
 include 'Redirection.php';
 $bank = new Bank();
+
 if (isset($_POST)) {
     if ($_POST['table'] === 'bank') {
 

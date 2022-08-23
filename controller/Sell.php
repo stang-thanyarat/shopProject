@@ -2,7 +2,8 @@
 include '../database/Sell.php';
 include 'Redirection.php';
 include '../service/upload.php';
-
+include '../database/Bank.php';
+$bank = new Bank();
 $sell = new Sell();
 if (isset($_POST)) {
     if ($_POST['table'] === 'sell') {
@@ -16,9 +17,10 @@ if (isset($_POST)) {
         } else if ($_POST['form_action'] === 'insert') {
 
             if (!empty($_FILES['seller_card_id'])) {
-                $filesname = uploadImage($_FILES['seller_card_id'], '../file/seller/id/');
+                $path = './file/seller/id/';
+                $filesname = uploadImage($_FILES['seller_card_id'], "." . $path);
                 if ($filesname) {
-                    $_POST['seller_card_id'] = $filesname;
+                    $_POST['seller_card_id'] = $path . $filesname;
                 } else {
                     $_POST['seller_card_id'] = '';
                 }
@@ -27,9 +29,10 @@ if (isset($_POST)) {
             }
 
             if (!empty($_FILES['seller_cardname'])) {
-                $filesname = uploadImage($_FILES['seller_cardname'], '../file/seller/card/');
+                $path = './file/seller/card/';
+                $filesname = uploadImage($_FILES['seller_cardname'], "." . $path);
                 if ($filesname) {
-                    $_POST['seller_cardname'] = $filesname;
+                    $_POST['seller_cardname'] = $path . $filesname;
                 } else {
                     $_POST['seller_cardname'] = '';
                 }
@@ -38,16 +41,32 @@ if (isset($_POST)) {
             }
 
             if (!empty($_FILES['sell_documents'])) {
-                $filesname = uploadImage($_FILES['sell_documents'], '../file/seller/documents/');
+                $path = './file/seller/documents/';
+                $filesname = uploadImage($_FILES['sell_documents'], "." . $path);
                 if ($filesname) {
-                    $_POST['sell_documents'] = $filesname;
+                    $_POST['sell_documents'] = $path . $filesname;
                 } else {
                     $_POST['sell_documents'] = '';
                 }
             } else {
                 $_POST['sell_documents'] = '';
             }
-            $sell->insert($_POST);
+            $_POST['seller_card_id'] = str_replace("-", "", $_POST['seller_card_id']);
+            $_POST['seller_cardname'] = str_replace("-", "", $_POST['seller_cardname']);
+            $_POST['sell_documents'] = str_replace("-", "", $_POST['sell_documents']);
+            $employee->insert($_POST);
+            $last = $employee->fetchLast();
+            $lastID = $last['sell_id'];
+            $banks = json_decode($_POST['bank']);
+            foreach ($banks as $value) {
+                $form = [];
+                $form['sell_id'] =  $lastID;
+                $form['bank_name'] = $value->bank;
+                $form['bank_number'] =  $value->number;
+                $form['bank_account'] =  $value->name;
+                $employeebank->insert($form);
+                $sell->insert($_POST);
+            }
         }
     }
 } else {
