@@ -13,7 +13,6 @@
 <?php include('nav.php'); ?>
 
 <body>
-    <form>
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
@@ -24,7 +23,7 @@
                     <div class="col-4 datetodate">
                         <input type="date" name="since" id="since"> &nbsp&nbspถึง&nbsp&nbsp
                         <input type="date" name="until" id="until">
-                        <button type="submit" class="s"><img src="./src/images/search.png" width="17.5"></button>
+                        <button type="button" class="s"><img src="./src/images/search.png" width="17.5"></button>
                     </div>
                     <div class="col-3 addpdr d-flex justify-content-end signin">
                         <a type="button" href="./addproductreplacement.php" class="submit btn"><img class='plus' src="./src/images/plus.png" width="30">&nbsp เพิ่ม </a>
@@ -76,7 +75,6 @@
             </div>
         </div>
     </div>
-
 
 </body>
 

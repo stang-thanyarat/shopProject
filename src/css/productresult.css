@@ -87,17 +87,17 @@ th {
     margin-left: 5rem;
 }
 
+.submit {
+    background-color: #7C904E;
+    border: 0ch;
+    color: white;
+}
+
 .btn {
     border-radius: 25px 25px 25px 25px;
     font-size: 16pt;
     width: 150%;
     height: 95%;
-}
-
-.submit {
-    background-color: #7C904E;
-    border: 0ch;
-    color: white;
 }
 
 .slider.round {
@@ -204,7 +204,6 @@ input:checked+.slider:before {
 }
 
 .x{
-    
     margin-top: 0rem;
     margin-left: -3rem;
    
