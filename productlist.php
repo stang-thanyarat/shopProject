@@ -13,9 +13,7 @@
 
 </head>
 <?php include('nav.php'); ?>
-<!--
- แก้ชื่อ และ id บางส่วนแล้ว แต่ส่วนชื่อ และ id ใน modal นั้น อาจจะต้องหาจากเพื่อน หรือ เพิ่ม หรือ แก้ไข และทำการแก้ไข หรือ เพิ่มลง database
--->
+
 <body>
     <script src="./src/js/productlist.js"></script>
     <form>
@@ -201,9 +199,9 @@
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary1">ตกลง</button>
                     </div>
+
                 </div>
             </div>
-        </div>
         </div>
     </form>
 

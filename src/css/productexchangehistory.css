@@ -25,14 +25,15 @@
 }
 
 
-.main{
+.main {
     margin-top: 5rem;
     margin-left: 4rem;
 }
 
-.Nbar{
+.Nbar {
     margin-top: 3.5rem;
 }
+
 table,
 td,
 th {
@@ -49,23 +50,25 @@ table {
 th {
     height: 50px;
 }
-.btnd{
+
+.btnd {
     background-color: #F8E4C8;
     border-radius: 25px;
 }
 
-.s{
+.s {
     background: transparent;
     border: 0px;
     margin-left: -2rem;
 }
 
-.BTNP{
+.BTNP {
     background-color: #fff;
     color: #A36627;
     border: 0in;
-    
+
 }
+
 .btn-d {
     border-radius: 25px 25px 25px 25px;
     background-color: #F8E4C8;
@@ -81,7 +84,7 @@ th {
 
 .btn {
     border-radius: 25px 25px 25px 25px;
-    font-size: 16pt;
+    font-size: 18pt;
     width: 40%;
     height: 85%;
 }
@@ -93,6 +96,7 @@ th {
 .slider.round:before {
     border-radius: 50%;
 }
+
 .slider {
     position: absolute;
     cursor: pointer;
@@ -131,71 +135,82 @@ input:checked+.slider:before {
     transform: translateX(26px);
 }
 
-.modal-header{
+.modal-header {
     background-color: #7C904E;
     height: 50px;
 }
-.modal-title{
+
+.modal-title {
     color: #fff;
 }
-.modal-body1{
-   text-align: center;
-   height: 70px;
-   margin-top: 3rem;
+
+.modal-body1 {
+    text-align: center;
+    height: 70px;
+    margin-top: 3rem;
 }
 
-.btn2{
+.btn2 {
     margin-right: 4.3rem;
     background-color: #7C904E;
     color: #fff;
     border: 0in;
 }
 
-.btn1{
+.btn1 {
     background-color: #fff;
-    
+
 }
 
-.btn3{
+.btn3 {
     background-color: #7C904E;
     color: #fff;
     border: 0in;
     border-radius: 25px;
 }
-.row{
+
+.row {
     --bs-gutter-x: 0rem;
 }
 
-.u{
+.u {
     width: 100px;
 }
-.h{
+
+.h {
     margin-left: 6rem;
 }
-.t{
+
+.t {
     background-color: #ABBE99;
     height: 45px;
     width: 100%;
 }
-.datetodate{
+
+.datetodate {
     margin-top: 0.55rem;
-    margin-left: 24rem;
+    margin-left: 35rem;
 }
-.s{
+
+.addpdr {
+    margin-left: -26rem;
+}
+
+.s {
     margin-left: 0.5rem;
 }
-.plus{
+
+.plus {
     margin-left: -1rem;
 }
-.addpdr{
-    margin-left: -16.5rem;
-}
-.pdrtb{
+
+.pdrtb {
     margin-top: 1rem;
     margin-left: -0.5rem;
 }
-.btn-primary1{
-    
+
+.btn-primary1 {
+
     background-color: #7C904E;
     color: #fff;
     border: 0in;

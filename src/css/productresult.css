@@ -87,17 +87,17 @@ th {
     margin-left: 5rem;
 }
 
-.btn {
-    border-radius: 25px 25px 25px 25px;
-    font-size: 13pt;
-    width: 150%;
-    height: 97%;
-}
-
 .submit {
     background-color: #7C904E;
     border: 0ch;
     color: white;
+}
+
+.btn {
+    border-radius: 25px 25px 25px 25px;
+    font-size: 16pt;
+    width: 150%;
+    height: 95%;
 }
 
 .slider.round {
@@ -179,6 +179,8 @@ input:checked+.slider:before {
 .g{
     background-color: #ABBE99;
     margin-left: 1rem;
+    height: 90%;
+    width: 60%;
    
 }
 
@@ -190,21 +192,20 @@ input:checked+.slider:before {
 
 .z{
     font-size: 13pt;
-    margin-left: 45rem;
+    margin-left: 60rem;
    
 }
 
 .y{
     font-size: 13pt;
-    margin-left: -2rem;
+    margin-left: -4.5rem;
     margin-top: 0rem;
    
 }
 
 .x{
-    
     margin-top: 0rem;
-    margin-left: 0.5rem;
+    margin-left: -3rem;
    
 }
 

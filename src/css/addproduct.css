@@ -80,6 +80,18 @@ th {
     border: 0ch;
 }
 
+.btn {
+    font-size: 12pt;
+    width: 40%;
+    height: 100%;
+}
+
+.button {
+    background-color: #A36627;
+    border: 0ch;
+    color: white;
+}
+
 .switch {
     position: relative;
     display: inline-block;
@@ -167,11 +179,6 @@ input:checked+.slider:before {
     border: 0in;
 }
 
-.btn1 {
-    background-color: #fff;
-
-}
-
 .btn3 {
     background-color: #7C904E;
     color: #fff;
@@ -223,11 +230,11 @@ input:checked+.slider:before {
 }
 
 .price {
-    margin-left: 6.3rem;
+    margin-left: 8rem;
 }
 
 .vax {
-    margin-left: 0.1rem;
+    margin-left: -2rem;
     margin-top: -0.1rem;
 }
 
@@ -237,27 +244,21 @@ input:checked+.slider:before {
 
 .vaxcheckboxtext {
     margin-top: 0.3rem;
-    margin-left: -0rem;
+    margin-left: 0rem;
 }
 
 .costprice {
-    margin-left: -9.55rem;
+    margin-left: 10.85rem;
     margin-top: 0.1rem;
 }
 
-.reset1 {
-    background-color: #A36627;
-    color: white;
-    border: 0ch;
-    margin-left: 4rem;
-}
-.label1{
-    margin-left: 0.5rem;
+.watchcostprice {
+    margin-left: -2rem;
+    margin-top: 0.1rem;
 }
 
-.btn-c1 {
-    font-size: 11pt;
-    width: 70%;
+.label1{
+    margin-top: -5rem;
 }
 
 .details {
@@ -281,7 +282,7 @@ input:checked+.slider:before {
 }
 
 .min1 {
-    margin-left: -4.2rem;
+    margin-left: -2.25rem;
 }
 
 .min2 {

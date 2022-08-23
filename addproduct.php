@@ -12,7 +12,7 @@
 
     <title>addproduct</title>
 </head>
-<?php include('nav.php'); 
+<?php include('nav.php');
 include_once "./database/Category.php";
 $category = new Category();
 $rows = $category->fetchAll();
@@ -131,29 +131,29 @@ $rows = $category->fetchAll();
                                     <input type="checkbox" class="vaxcheckbox">
                                     <label class="vaxcheckboxtext">ภาษีมูลค่าเพิ่ม</label>
                                 </div>
-                                <div class="col-1 costprice">
-                                    <a href="costprice.php" name="watch_cost_price" id="watch_cost_price" type="button" class="btn-c1 reset1"><label class="label1">ดูราคาทุน</label></a>
-                                </div>
                             </div>
 
                             <div class="row a">
-                                <div class="col status">
+                                <div class="col-5 status">
                                     สถานะการขาย :&nbsp&nbsp
                                     <label class="switch">
                                         <input name="sales_status" id="sales_status" type="checkbox">
                                         <span name="sales_status" id="sales_status" class="slider round inbox"></span>
                                     </label>
                                 </div>
+                                <div class="col-3 costprice">
+                                    ราคาทุน :<font color="red">&nbsp*</font>
+                                    <input name="cost_price" type="text" id="cost_price" class="inbox" required />
+                                </div>
+                                <div class="col-2 watchcostprice">
+                                    <a type="button" href="./costprice.php" class="button btn">ดูราคาทุน</a>
+                                </div>
+                            </div>
+                            <div class="row a">
                                 <div class="col min1">
                                     สินค้าคงคลังขั้นต่ำ :<font color="red">&nbsp*</font>
                                     <input name="notification_amt" type="text" id="notification_amt" class="inbox" />
                                     <!--notification_amt = notification amount-->
-                                </div>
-                            </div>
-                            <div class="row a">
-                                <div class="col settingmin">
-                                    ราคาทุน :<font color="red">&nbsp*</font>
-                                    <input name="cost_price" type="text" id="cost_price" class="inbox" required />
                                 </div>
                             </div>
                             <div class="row a">
