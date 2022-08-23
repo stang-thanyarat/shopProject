@@ -15,10 +15,10 @@
 
 <body>
     <form action="controller/Sell.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
-    <input type="hidden" value="sell" name="table"/>
-    <input type="hidden" value="insert" name="form_action"/>
-    <input type="hidden" id="bank" name="bank" />
-    <div class="row">
+        <input type="hidden" value="sell" name="table" />
+        <input type="hidden" value="insert" name="form_action" />
+        <input type="hidden" id="bank" name="bank" />
+        <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <div class="row">
-                <div class="col leftaddress">
+                    <div class="col leftaddress">
                         ที่อยู่ :<font color="red">&nbsp*</font>
                         <textarea name="sell_address" id="sell_address" cols="40" rows="5" class="cc" style="vertical-align:top;" required></textarea>
                     </div>
@@ -101,7 +101,7 @@
                 </div>
                 <div class="row">
                     <div class="col leftfile">
-                        บัตรประชาชน : <input type="file" accept="image/*" name="seller_card_id" id="seller_card_id" class="bb" required>
+                        บัตรประชาชน : <input type="file" accept="image/*"  name="seller_card_id" id="seller_card_id" class="bb" required>
                         <div class="k">*</div>
                     </div>
                 </div>

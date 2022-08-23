@@ -1,5 +1,5 @@
 <?php
-include("Connection.php");
+include_once("Connection.php");
 class Bank
 {
     private $conn;
@@ -36,9 +36,27 @@ class Bank
         }
     }
 
+    public function fetchBySellId($id)
+    {
+        try {
+            $sql = "SELECT * FROM bank_tb WHERE sell_id=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            return $result;
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
+    }
+
     public function delete($id)
     {
         try {
+            $sql = "SET FOREIGN_KEY_CHECKS=0";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
             $sql = "DELETE FROM bank_tb WHERE bank_id=?;";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
@@ -52,6 +70,9 @@ class Bank
     public function insert($data)
     {
         try {
+            $sql = "SET FOREIGN_KEY_CHECKS=0";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
             $sql = "INSERT INTO bank_tb (sell_id, bank_name, bank_number, bank_account) 
         VALUES (?,?,?,?)";
             $stmt = $this->conn->prepare($sql);
@@ -69,6 +90,9 @@ class Bank
     public function update($data)
     {
         try {
+            $sql = "SET FOREIGN_KEY_CHECKS=0";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
             $sql = "UPDATE bank_tb
         SET sell_id = ?, bank_name = ?, bank_number = ?, bank_account = ?,
         WHERE bank_id=?";

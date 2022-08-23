@@ -2,6 +2,7 @@
 include 'database/EmployeeBank.php';
 include 'Redirection.php';
 $employeebank = new EmployeeBank();
+
 if (isset($_POST)) {
     if ($_POST['table'] === 'employeebank') {
 

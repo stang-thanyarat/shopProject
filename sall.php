@@ -8,16 +8,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./src/css/sall.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
     <title>Document</title>
 </head>
 <?php
 include_once('database/Sell.php');
 $sell = new Sell();
 include_once('nav.php');
-if(isset($_GET['keyword'])){
+if (isset($_GET['keyword'])) {
     $rows = $sell->search($_GET['keyword']);
-}else{
+} else {
     $rows = $sell->fetchAll();
 }
 ?>
@@ -40,10 +39,10 @@ if(isset($_GET['keyword'])){
                                 <img src="./src/images/search.png" width="15">
                             </button>
                         </div>
+                        <div class="col-1 w">
+                            <a class="submit btn" href="addseller.php"><img class='add' src="./src/images/plus.png" width="25" alt="">&nbsp เพิ่มผู้ขาย</a>
+                        </div>
                     </form>
-                    <div class="col-1 w">
-                        <a class="submit btn" href="addseller.php"><img class='add' src="./src/images/plus.png" width="25" alt="">&nbsp เพิ่มผู้ขาย</a>
-                    </div>
                 </div>
                 <table class="ma">
                     <tr>
@@ -86,5 +85,5 @@ if(isset($_GET['keyword'])){
         </div>
     </div>
 </body>
-
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 </html>

@@ -11,10 +11,34 @@
 
     <title>Document</title>
 </head>
-<?php include('nav.php'); ?>
+<?php
+include('nav.php');
+include_once('database/Sell.php');
+include_once('database/Bank.php');
+$sell = new Sell();
+$e = $sell->fetchById($_GET['id']);
+$employeeBank = new Bank();
+$banks = $bank->fetchByEmployeeId($_GET['id']);
+$json = '';
+foreach ($banks as $b) {
+    $json .= "{
+        bank: \"" . $b['bank_name'] . "\",
+        number: \"" . $b['bank_number'] . "\",
+        name: \"" . $b['bank_account'] . "\",
+        id:\"" . $b['bank_id'] . "\",
+    },";
+}
+?>
 
 <body>
     <form>
+        <input type="hidden" name="seller_card_id" value="<?= $e['seller_card_id']; ?>" />
+        <input type="hidden" name="seller_cardname" value="<?= $e['seller_cardname']; ?>" />
+        <input type="hidden" name="sell_documents" value="<?= $e['sell_documents']; ?>" />
+        <input type="hidden" name="bank" value="" />
+        <input type="hidden" name="table" value="sell" />
+        <input type="hidden" name="form_action" value="update" />
+        <input type="hidden" value="<? $_GET['id'] ?>" name="sell_id" />
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
@@ -32,31 +56,30 @@
                     </div>
                     <div class="col leftsellername">
                         <label for="sell_name">ชื่อผู้ขาย :</label>
-                        <input type="text" name="sell_name" id="sell_name" class="bb" required />
+                        <input type="text" name="sell_name" id="sell_name" value="<?= $e['sell_name']; ?>" class="bb" required />
                         <div class="a">*</div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col leftidentification">
                         <label for="sell_tax_id">เลขประจำตัวผู้เสียภาษี :</label>
-                        <input type="text" name="sell_tax_id" id="sell_tax_id" class="bb" required />
+                        <input type="text" name="sell_tax_id" id="sell_tax_id" value="<?= $e['sell_tax_id']; ?>" class="bb" required />
                         <div class="c">*</div>
                     </div>
-                    <div class="col leftaddress">
-                        <label for="sell_address">ที่อยู่ :</label>
-                        <input type="text" name="sell_address" id="sell_address" class="bb" required />
-                        <div class="b">*</div>
+                    <div class="col lefttelephone">
+                        <label for="sell_telephone">เบอร์โทรศัพท์ :</label>
+                        <input type="text" name="sell_telephone" id="sell_telephone" value="<?= $e['sell_telephone']; ?>" onkeyup="autoTab2(this)" class="bb" required />
+                        <div class="e">*</div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col lefttelephone">
-                        <label for="sell_telephone">เบอร์โทรศัพท์ :</label>
-                        <input type="text" name="sell_telephone" id="sell_telephone" onkeyup="autoTab2(this)" class="bb" required />
-                        <div class="e">*</div>
+                    <div class="col leftaddress">
+                        ที่อยู่ :<font color="red">&nbsp*</font>
+                        <textarea type="text" name="sell_address" id="sell_address" cols="40" rows="5" class="cc" value="<?= $e['sell_address']; ?>" required></textarea>
                     </div>
                     <div class="col leftwebsite">
                         <label for="sell_website">เว็บไซต์ :</label>
-                        <input type="text" name="sell_website" id="sell_website" class="bb" />
+                        <input type="text" name="sell_website" id="sell_website" class="bb" value="<?= $e['sell_website']; ?>" />
                     </div>
                 </div>
                 <div class="row th">
@@ -65,36 +88,36 @@
                 <div class="row">
                     <div class="col leftfirst">
                         <label for="seller_firstname">ชื่อ :</label>
-                        <input type="text" name="seller_firstname" id="seller_firstname" class="bb" required />
+                        <input type="text" name="seller_firstname" id="seller_firstname" class="bb" value="<?= $e['seller_firstname']; ?>" required />
                         <div class="f">*</div>
                     </div>
                     <div class="col leftlast">
                         <label for="seller_lastname">นามสกุล :</label>
-                        <input type="text" name="seller_lastname" id="seller_lastname" class="bb" required />
+                        <input type="text" name="seller_lastname" id="seller_lastname" class="bb" value="<?= $e['seller_lastname']; ?>" required />
                         <div class="g">*</div>
                     </div>
                 </div>
                 <div class="row leftnick">
                     <div class="col">
                         <label for="seller_nickname">ชื่อเล่น :</label>
-                        <input type="text" name="seller_nickname" id="seller_nickname" class="bb" required />
+                        <input type="text" name="seller_nickname" id="seller_nickname" class="bb" value="<?= $e['seller_nickname']; ?>" required />
                         <div class="h">*</div>
                     </div>
                     <div class="col leftemail">
                         <label for="seller_email">อีเมล :</label>
-                        <input type="text" name="seller_email" id="seller_email" class="bb" required />
+                        <input type="text" name="seller_email" id="seller_email" class="bb" value="<?= $e['seller_email']; ?>" required />
                         <div class="i">*</div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col leftnumber2">
                         <label for="seller_telephone">เบอร์โทรศัพท์ :</label>
-                        <input type="text" name="seller_telephone" id="seller_telephone" onkeyup="autoTab2(this)" class="bb" required />
+                        <input type="text" name="seller_telephone" id="seller_telephone" value="<?= $e['seller_telephone']; ?>" onkeyup="autoTab2(this)" class="bb" required />
                         <div class="j">*</div>
                     </div>
                     <div class="col leftidline">
                         <label for="seller_lind_id">ไอดีไลน์ :</label>
-                        <input type="text" name="seller_lind_id" id="seller_lind_id" class="bb" />
+                        <input type="text" name="seller_lind_id" id="seller_lind_id" class="bb" value="<?= $e['seller_lind_id']; ?>" />
                     </div>
                 </div>
                 <div class="row">
@@ -123,7 +146,20 @@
                         </tr>
                     </thead>
                     <tbody id="banktable">
-
+                        <?php $i = 0;
+                        foreach ($banks as $b) { ?>
+                            <tr id="rr<?= $i ?>">
+                                <th class="index-table-bank"><?= $i + 1 ?></th>
+                                <th><?= $b['bank_name'] ?></th>
+                                <th><?= $b['bank_number'] ?></th>
+                                <th><?= $b['bank_account'] ?></th>
+                                <th>
+                                    <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(<?= $i ?>)"></button>
+                                    <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl1"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(<?= $i ?>)"></button>
+                                </th>
+                            </tr>
+                        <?php $i++;
+                        } ?>
                     </tbody>
                 </table>
                 <div class="row">
@@ -140,7 +176,7 @@
                 <div class="row">
                     <div class="col leftnote">
                         <label for="note">หมายเหตุ :&nbsp;</label>
-                        <textarea name="note" id="note" cols="50" rows="5" style="vertical-align:top;" class="bb"></textarea>
+                        <textarea name="note" id="note" cols="50" rows="5" style="vertical-align:top;" class="bb" value="<?= $e['note']; ?>"></textarea>
                     </div>
                 </div>
                 <div class="row btn-g">
@@ -255,6 +291,14 @@
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-<script src="./src/js/addseller.js"></script>
+<script>
+    $(document).ready(function() {
+        localStorage.clear()
+        localStorage.setItem("tableBank", JSON.stringify({
+            data: [<?php echo $json; ?>]
+        }))
+    });
+</script>
+<script src="./src/js/editseller.js"></script>
 
 </html>
