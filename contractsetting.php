@@ -21,17 +21,17 @@
                     <p></p>
                     <p></p>
                     <div class="col-12">
-                        <h4>นามผู้ขาย</h4>
-                        <table class="main col-10">
+                        <h4>นามผู้ขาย</h4><br>
+                        <table class="col-5 mm">
                             <tr>
-                                <th width="40%">ชื่อ-นามสกุล</th>
-                                <th width="40%">สถานะการใช้งาน</th>
+                                <th>ชื่อ-นามสกุล</th>
+                                <th>สถานะการใช้งาน</th>
                             </tr>
                             <tr>
                                 <th>นายสมชาย ถึงที่หมาย</th>
-                                <th><label class="switch" >
-                                        <input type="checkbox" required >
-                                        <span class="slider round"  ></span>
+                                <th><label class="switch">
+                                        <input type="checkbox" required>
+                                        <span class="slider round"></span>
                                     </label>
                                 </th>
                             </tr>
@@ -71,10 +71,12 @@
                             ดอกเบี้ยสูงสุดต่อปี: &nbsp &nbsp
                             <input type="text" name="interest" id="interest" required> &nbsp &nbsp ตามกฎหมาย
                         </div>
-                        <div class="row B">
-                            <div class=" col-12 d-flex justify-content-end signin">
-                                <input class="BTNC" type="submit" value="ยกเลิก">
-                                <input class="BTN" type="submit" value="บันทึก">
+                        <div class="row btn-g">
+                            <div class="col-2">
+                                <button type="reset" class="btn-c reset">ยกเลิก</button>
+                            </div>
+                            <div class="col-2">
+                                <input type="submit" class="btn-c submit" value="บันทึก" />
                             </div>
                         </div>
                     </div>

@@ -2,25 +2,27 @@
 
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
-
 }
-.row{
+
+.row {
     --bs-gutter-x: 0;
 }
-.main{
+
+.main {
     margin-top: 5rem;
     margin-left: 4rem;
-    width: 90%;
 }
 
-.Nbar{
+.Nbar {
     margin-top: 3.5rem;
 }
+
 table,
 td,
 th {
-    border: 1px solid black;
     text-align: center;
+    border: 1px solid black;
+
 }
 
 table {
@@ -32,11 +34,49 @@ table {
 th {
     height: 50px;
 }
-.btnd{
+
+.ma {
+    margin-left: 6rem;
+}
+
+.submit {
+    background-color: #7C904E;
+    border: 0ch;
+    color: white;
+}
+
+.btn {
+    border-radius: 25px 25px 25px 25px;
+    font-size: 16pt;
+    width: 70%;
+    height: 95%;
+}
+
+.btnd {
     background-color: #F8E4C8;
     border-radius: 25px;
+    height: 95%;
 }
-.BTNC{
+
+.q {
+    margin-top: 1.5rem;
+    margin-left: 4rem;
+}
+
+.y{
+    font-size: 13pt;
+    margin-left: 75rem;
+    margin-top: 0rem;
+   
+}
+
+.x{
+    margin-top: 0rem;
+    margin-left: -3rem;
+   
+}
+
+.BTNC {
     background-color: #7C904E;
     color: #000;
     border-radius: 25px;
@@ -48,16 +88,15 @@ th {
 
 }
 
-.s{
+.s {
     background: transparent;
     border: 0px;
     margin-left: -2rem;
 }
 
-.BTNP{
+.BTNP {
     background-color: #fff;
     color: #A36627;
     border: 0in;
-    
-}
 
+}

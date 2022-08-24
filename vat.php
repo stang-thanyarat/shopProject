@@ -23,10 +23,12 @@
                             <th>ภาษีมูลค่าเพิ่ม &nbsp<input type="text" name="vat" id="vat" required> &nbsp %</th>
                         </tr>
                     </table>
-                    <div class="row B">
-                        <div class=" col-12 d-flex justify-content-end signin">
-                            <input class="BTNC" type="submit" value="ยกเลิก">
-                            <input class="BTN" type="submit" value="บันทึก">
+                    <div class="row btn-g">
+                        <div class="col-2">
+                            <button type="reset" class="btn-c reset">ยกเลิก</button>
+                        </div>
+                        <div class="col-2">
+                            <input type="submit" class="btn-c submit" value="บันทึก" />
                         </div>
                     </div>
                 </div>

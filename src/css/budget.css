@@ -5,64 +5,101 @@
     --bs-gutter-x: 0;
 }
 
-.main{
+.main {
     margin-top: 5rem;
     margin-left: 4rem;
     margin-bottom: 1rem;
     width: 90%;
 }
 
-.Nbar{
+.Nbar {
     margin-top: 3.5rem;
 }
 
 
 
-.g{
+.g {
     width: 130px;
     border: 0in;
     background-color: #ABBE99;
     margin-top: -1rem;
 }
-.t{
-    margin-left: 2rem;
-    background-color: #ABBE99;
-    height: 45px;
-    width: 1205px;
+
+.tt {
+    color: #000;
+    margin-left: 4.2rem;
 }
 
-.m{
-    margin-left: 3rem;
+.th {
+    width: 100.8%;
+    height: 50px;
+    background-color: #ABBE99;
+    box-sizing: border-box;
+    margin-left: -0.89rem;
+    margin-top: -2.25rem;
 }
-.s{
+
+.ttt {
+    margin-top: -1.2rem;
+}
+
+.s {
     background-color: #fff;
     border: 0in;
 }
-.b{
+
+.b {
+    margin-top: 1rem;
     text-align: center;
 }
 
-.p{
+.p {
     background-color: #ABBE99;
     height: 27px;
     width: 630px;
     margin-top: 1rem;
     margin-left: 17rem;
 }
-.f{
+
+.tp {
+    color: #000;
+    margin-left: 78rem;
+    
+}
+
+.ttp {
+    width: 65%;
+    height: 50px;
+    background-color: #ABBE99;
+    box-sizing: border-box;
+    margin-left: 15rem;
+    margin-top: -2.5rem;
+}
+
+.c{
+    color: #A36627;
+}
+
+.cb{
+    color: #000;
+}
+
+.f {
     text-indent: 280px;
 }
 
-.y{
+.y {
     text-indent: 300px;
 }
-.w{
+
+.w {
     text-indent: 800px;
 }
-.q{
-    margin-top: 1rem;
+
+.q {
+    margin-top: 2rem;
 }
 
-.row{
+.row {
     --bs-gutter-x: 0rem;
 }
