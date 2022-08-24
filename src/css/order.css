@@ -8,15 +8,20 @@
 .main{
     margin-top: 5rem;
     margin-left: 4rem;
-    width: 90%;
 }
 
-.Nbar{
+.ma {
+    margin-top: 1rem;
+}
+
+.Nbar {
     margin-top: 3.5rem;
 }
-.row{
+
+.row {
     --bs-gutter-x: 0rem;
 }
+
 table,
 td,
 th {
@@ -32,22 +37,25 @@ table {
 th {
     height: 50px;
 }
-.btnd{
+
+.btnd {
     background-color: #F8E4C8;
     border-radius: 25px;
+    height: 95%;
 }
-.Nbar{
+
+.Nbar {
     margin-top: 3.5rem;
 }
 
-.BTNP{
+.BTNP {
     background-color: #fff;
     color: #A36627;
     border: 0in;
-    
+
 }
 
-.BTNC{
+.BTNC {
     background-color: #7C904E;
     color: #000;
     border-radius: 25px;
@@ -59,26 +67,60 @@ th {
 
 }
 
-.s{
+.s {
     background: transparent;
     border: 0px;
     margin-left: -2rem;
 }
-.btn-primary1{
-    
+
+.btn-primary1 {
+
     background-color: #7C904E;
     color: #fff;
     border: 0in;
 }
-.modal-header{
+
+.modal-header {
     background-color: #7C904E;
     height: 50px;
 }
-.modal-title{
+
+.modal-title {
     color: #fff;
 }
-.modal-body1{
-   text-align: center;
-   height: 70px;
-   margin-top: 3rem;
+
+.modal-body1 {
+    text-align: center;
+    height: 70px;
+    margin-top: 3rem;
+}
+
+.z {
+    font-size: 13pt;
+    margin-left: 68rem;
+
+}
+
+.y {
+    margin-top: 0rem;
+    margin-left: -2.5rem;
+
+}
+
+.submit {
+    background-color: #7C904E;
+    border: 0ch;
+    color: white;
+}
+
+.btn {
+    border-radius: 25px 25px 25px 25px;
+    font-size: 16pt;
+    width: 75%;
+    height: 95%;
+}
+
+.tb{
+    margin-top: 2rem;
+    margin-left: 0rem; 
 }

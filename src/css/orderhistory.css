@@ -5,16 +5,22 @@
     --bs-gutter-x: 0;
 }
 
-.main{
+.main {
     margin-top: 5rem;
     margin-left: 4rem;
     width: 90%;
 }
-.row{
+
+.row {
     --bs-gutter-x: 0rem;
 }
-.Nbar{
+
+.Nbar {
     margin-top: 3.5rem;
+}
+
+.ma{
+    margin-top: 1rem;
 }
 
 table,
@@ -31,16 +37,19 @@ table {
 
 th {
     height: 50px;
-   
+
 }
-.btnd{
+
+.btnd {
     background-color: #F8E4C8;
     border-radius: 25px;
 }
-.Nbar{
+
+.Nbar {
     margin-top: 3.5rem;
 }
-.s{
+
+.s {
     background: transparent;
     border: 0px;
     margin-left: -2rem;

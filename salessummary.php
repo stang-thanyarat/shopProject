@@ -19,9 +19,10 @@
                 <div class="row main">
                     <h1>การขาย</h1>
                 </div>
-                <div class="t">
-                    <div class="m">
-                        <h5>สรุปยอดขาย</h5>
+                <div class="row">
+                    <div class="col">
+                        <h5 class="tt">สรุปยอดขาย</h5>
+                        <div class="th"></div>
                     </div>
                 </div>
                 <div class="n">

@@ -20,10 +20,10 @@
                     <div class="col-lg-5">
                         <h1>ประวัติใบสั่งซื้อ</h1>
                     </div>
-                    <div class="row m">
+                    <div class="row">
                         <div class="col-12 d-flex justify-content-end signin">
                             <label for="date"></label>
-                            <input type="date" name="date" id="date" required />&nbsp
+                            <input type="date" name="date" id="date" required />&nbsp&nbsp&nbsp
                             <form>
                                 <input type="text" class="btnd" placeholder="&nbsp ชื่อผู้ขาย" required>
                                 <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
@@ -31,7 +31,7 @@
                         </div>
 
                     </div>
-                    <table class="main col-10">
+                    <table class="col-12 ma">
                         <tr>
                             <th  width="15%">วันที่สั่งซื้อ</th>
                             <th  width="60%">ชื่อผู้ขาย</th>
