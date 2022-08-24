@@ -21,14 +21,12 @@
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
-                    <div class="col-3">
+                    <div class="col-6 topic_productlist">
                         <h1>รายการสินค้า</h1>
                     </div>
-                    <div class="col-1 u">
-                        <input type="text" class="btnd" placeholder="&nbsp ชื่อสินค้า">
-                    </div>
-                    <div class="col-1 s">
-                        <button type="button" class="l"><img src="./src/images/search.png" width="16"></button>&nbsp &nbsp
+                    <div class="col-3 u">
+                        <input name="keyword" id="keyword" type="text" class="btnd" placeholder="&nbsp ชื่อสินค้า">
+                        <button type="submit" class="l"><img src="./src/images/search.png" width="20"></button>
                     </div>
                     <div class="col-2 m">
                         <select name="category_name" id="category_name" class="n" required>
@@ -50,26 +48,26 @@
                             <option value="ปุ๋ยเคมี">ปุ๋ยเคมี</option>
                         </select>
                     </div>
-                    <div class="col-4 d-flex justify-content-end a">
-                        <a href="./addtocart.php" type="button"><img src="./src/images/cart.png" width="45"></a>
+                    <div class="col-2 d-flex justify-content-end a">
+                        <a href="./addtocart.php" type="button"><img src="./src/images/cart.png" width="52.5"></a>
                     </div>
                 </div>
                 <table class="col-11 q">
-                    <tr class="t">
+                    <tr class="topic_category">
                         <th colspan="3">
                             <h5 class="z">ใบตัดหญ้า</h5>
                         </th>
                     </tr>
                     <tr>
                         <th>
-                            <div class="row-4">
-                                <div class="x">ใบตัดหญ้า มีฟัน (แบบวงเดือน) รุ่น 10X24T</div>
+                            <div class="row-4 topic_product">
+                                ใบตัดหญ้า มีฟัน (แบบวงเดือน) รุ่น 10X30T
                             </div>
                             <div class="row">
-                                <div class="col-6">&nbsp&nbsp&nbsp&nbsp
-                                    <img src="./src/images/ใบตัดหญ้า01.png" width="200">
+                                <div class="col-7">
+                                    <img src="./src/images/ใบตัดหญ้า02.png" class="img_position">
                                 </div>
-                                <div class="col-6">
+                                <div class="col-5">
                                     <p class="aa">ราคา&nbsp&nbsp&nbsp บาท</p>
                                     <p>คงเหลือ&nbsp ใบ</p>
                                     <p><button type="button" class="aa" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1">เพิ่มไปยังรถเข็น</button></p>
@@ -77,14 +75,14 @@
                             </div>
                         </th>
                         <th>
-                            <div class="row-4">
-                                <div class="x">ใบตัดหญ้า มีฟัน (แบบวงเดือน) รุ่น 10X30T</div>
+                            <div class="row-4 topic_product">
+                                ใบตัดหญ้า มีฟัน (แบบวงเดือน) รุ่น 10X30T
                             </div>
                             <div class="row">
-                                <div class="col-6">&nbsp&nbsp&nbsp&nbsp
-                                    <img src="./src/images/ใบตัดหญ้า02.png" width="200">
+                                <div class="col-7">
+                                    <img src="./src/images/ใบตัดหญ้า02.png" class="img_position">
                                 </div>
-                                <div class="col-6">
+                                <div class="col-5">
                                     <p class="aa">ราคา&nbsp&nbsp&nbsp บาท</p>
                                     <p>คงเหลือ&nbsp ใบ</p>
                                     <p><button type="button" class="aa" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1">เพิ่มไปยังรถเข็น</button></p>
@@ -92,14 +90,14 @@
                             </div>
                         </th>
                         <th>
-                            <div class="row-4">
-                                <div class="x">ใบตัดหญ้า ไม่มีฟัน รุ่น 10X16T</div>
+                            <div class="row-4 topic_product">
+                                ใบตัดหญ้า ไม่มีฟัน รุ่น 10X16T
                             </div>
                             <div class="row">
-                                <div class="col-6">&nbsp&nbsp&nbsp&nbsp
-                                    <img src="./src/images/ใบตัดหญ้า03.png" width="200">
+                                <div class="col-7">&nbsp&nbsp&nbsp&nbsp
+                                    <img src="./src/images/ใบตัดหญ้า03.png" class="img_position">
                                 </div>
-                                <div class="col-6">
+                                <div class="col-5">
                                     <p class="aa">ราคา&nbsp&nbsp&nbsp บาท</p>
                                     <p>คงเหลือ&nbsp ใบ</p>
                                     <p><button type="button" class="aa" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1">เพิ่มไปยังรถเข็น</button></p>
@@ -108,14 +106,14 @@
                         </th>
                     <tr>
                         <th>
-                            <div class="row-4">
-                                <div class="x">ใบตัดหญ้า ไม่มีฟัน รุ่น 10X20T</div>
+                            <div class="row-4 topic_product">
+                                ใบตัดหญ้า ไม่มีฟัน รุ่น 10X20T
                             </div>
                             <div class="row">
-                                <div class="col-6">&nbsp&nbsp&nbsp&nbsp
-                                    <img src="./src/images/ใบตัดหญ้า04.png" width="200">
+                                <div class="col-7">&nbsp&nbsp&nbsp&nbsp
+                                    <img src="./src/images/ใบตัดหญ้า04.png" class="img_position">
                                 </div>
-                                <div class="col-6">
+                                <div class="col-5">
                                     <p class="aa">ราคา&nbsp&nbsp&nbsp บาท</p>
                                     <p>คงเหลือ&nbsp ใบ</p>
                                     <p><button type="button" class="aa" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1">เพิ่มไปยังรถเข็น</button></p>
@@ -123,14 +121,14 @@
                             </div>
                         </th>
                         <th>
-                            <div class="row-4">
-                                <div class="x">ใบตัดหญ้า ไม่มีฟัน รุ่น 10X24T</div>
+                            <div class="row-4 topic_product">
+                                ใบตัดหญ้า ไม่มีฟัน รุ่น 10X24T
                             </div>
                             <div class="row">
-                                <div class="col-6">&nbsp&nbsp&nbsp&nbsp
-                                    <img src="./src/images/ใบตัดหญ้า05.png" width="200">
+                                <div class="col-7">&nbsp&nbsp&nbsp&nbsp
+                                    <img src="./src/images/ใบตัดหญ้า05.png" class="img_position">
                                 </div>
-                                <div class="col-6">
+                                <div class="col-5">
                                     <p class="aa">ราคา&nbsp&nbsp&nbsp บาท</p>
                                     <p>คงเหลือ&nbsp ใบ</p>
                                     <p><button type="button" class="aa" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1">เพิ่มไปยังรถเข็น</button></p>
@@ -138,14 +136,14 @@
                             </div>
                         </th>
                         <th>
-                            <div class="row-4">
-                                <div class="x">ใบสามเหลี่ยมใหญ่</div>
+                            <div class="row-4 topic_product">
+                                ใบสามเหลี่ยมใหญ่
                             </div>
                             <div class="row">
-                                <div class="col-6">&nbsp&nbsp&nbsp&nbsp
-                                    <img src="./src/images/ใบตัดหญ้า06.png" width="200">
+                                <div class="col-7">&nbsp&nbsp&nbsp&nbsp
+                                    <img src="./src/images/ใบตัดหญ้า06.png" class="img_position">
                                 </div>
-                                <div class="col-6">
+                                <div class="col-5">
                                     <p class="aa">ราคา&nbsp&nbsp&nbsp บาท</p>
                                     <p>คงเหลือ&nbsp ใบ</p>
                                     <p><button type="button" class="aa" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1">เพิ่มไปยังรถเข็น</button></p>
@@ -155,14 +153,14 @@
                     </tr>
                     <tr>
                         <th>
-                            <div class="row-4">
-                                <div class="x">ใบสามเหลี่ยมใหญ่เล็ก</div>
+                            <div class="row-4 topic_product">
+                                ใบสามเหลี่ยมใหญ่เล็ก
                             </div>
                             <div class="row">
-                                <div class="col-6">&nbsp&nbsp&nbsp&nbsp
-                                    <img src="./src/images/ใบตัดหญ้า07.png" width="200">
+                                <div class="col-7">&nbsp&nbsp&nbsp&nbsp
+                                    <img src="./src/images/ใบตัดหญ้า07.png" class="img_position">
                                 </div>
-                                <div class="col-6">
+                                <div class="col-5">
                                     <p class="aa">ราคา&nbsp&nbsp&nbsp บาท</p>
                                     <p>คงเหลือ&nbsp ใบ</p>
                                     <p><button type="button" class="aa" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1">เพิ่มไปยังรถเข็น</button></p>
