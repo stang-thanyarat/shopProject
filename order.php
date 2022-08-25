@@ -46,8 +46,8 @@
                                 </div>
                             </th>
                             <th>
-                                <button type="button" class="btn1 " data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
-                                <button type="button" class="btn1 " onclick="javascript:window.location='editconfirm.php';"><img src="./src/images/icon-pencil.png" width="25"></button>
+                                <button type="button" class="btn1" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
+                                <button type="button" class="btn1" onclick="javascript:window.location='editconfirm.php';"><img src="./src/images/icon-pencil.png" width="25"></button>
                             </th>
                         </tr>
 

@@ -1,5 +1,5 @@
 <?php
-include("Connection.php");
+include_once("Connection.php");
 Class Category
 {
     private $conn;
@@ -12,7 +12,7 @@ Class Category
         $sql = "SELECT * FROM category_tb";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        $result = $stmt->fetchAll();
+        $result = $stmt->fetchAll(); 
         return $result;
     }
 
