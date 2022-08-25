@@ -17,50 +17,48 @@
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
-                    <div class="col-lg-5">
+                    <div class="col-12">
                         <h1>ประวัติใบสั่งซื้อ</h1>
                     </div>
-                    <div class="row">
-                        <div class="col-12 d-flex justify-content-end signin">
-                            <label for="date"></label>
-                            <input type="date" name="date" id="date" required />&nbsp&nbsp&nbsp
-                            <form>
-                                <input type="text" class="btnd" placeholder="&nbsp ชื่อผู้ขาย" required>
-                                <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
-                            </form>
-                        </div>
-
-                    </div>
-                    <table class="col-12 ma">
-                        <tr>
-                            <th  width="15%">วันที่สั่งซื้อ</th>
-                            <th  width="60%">ชื่อผู้ขาย</th>
-                            <th  width="15%"></th>
-                            <th  width="10%"></th>
-                        </tr>
-                        <tr>
-                            <th>14 ธ.ค. 2564</th>
-                            <th> อาร์เอส อินเตอร์เทรด (2017) จำกัด</th>
-                            <th>รับของแล้ว</th>
-                            <th>
-                                <img src="./src/images/icon-delete.png" width="25">
-                                <img src="./src/images/icon-pencil.png" width="25">
-                            </th>
-                        </tr>
-                        <tr>
-                            <th>13 ธ.ค. 2564</th>
-                            <th>ซีดไลน์ จำกัด</th>
-                            <th>รับของแล้ว</th>
-                            <th>
-                                <img src="./src/images/icon-delete.png" width="25">
-                                <img src="./src/images/icon-pencil.png" width="25">
-                            </th>
-                        </tr>
-
-                    </table>
-                    <p></p>
                 </div>
+                <div class="row">
+                    <div class="col-2 c">
+                        <input type="date" name="date" id="date" class="date" required />&nbsp&nbsp&nbsp
+                    </div>
+                    <div class="col-2 b">
+                        <input type="text" class="btnd" placeholder="&nbsp ชื่อผู้ขาย" required>
+                        <button type="submit" class="s"><img src="./src/images/search.png" width="15"></button>
+                    </div>
+                </div>
+                <table class="col-11 ma">
+                    <tr>
+                        <th>วันที่สั่งซื้อ</th>
+                        <th>ชื่อผู้ขาย</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <th>14 ธ.ค. 2564</th>
+                        <th> อาร์เอส อินเตอร์เทรด (2017) จำกัด</th>
+                        <th>รับของแล้ว</th>
+                        <th>
+                            <img src="./src/images/icon-delete.png" width="25">
+                            <img src="./src/images/icon-pencil.png" width="25">
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>13 ธ.ค. 2564</th>
+                        <th>ซีดไลน์ จำกัด</th>
+                        <th>รับของแล้ว</th>
+                        <th>
+                            <img src="./src/images/icon-delete.png" width="25">
+                            <img src="./src/images/icon-pencil.png" width="25">
+                        </th>
+                    </tr>
+
+                </table>
             </div>
+        </div>
     </form>
 </body>
 

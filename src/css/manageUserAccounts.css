@@ -70,9 +70,9 @@ input:checked+.slider:before {
     --bs-gutter-x: 0;
 }
 
-.main {
-    margin-top: 4rem;
-    margin-left: 3rem;
+.main{
+    margin-top: 5rem;
+    margin-left: 4rem;
 }
 
 .Nbar {
@@ -84,8 +84,8 @@ input:checked+.slider:before {
 }
 
 .ma {
-    margin-top: 1rem;
-    margin-left: 3rem;
+    margin-top: 1.5rem;
+    margin-left: 4rem;
 }
 
 table,
@@ -108,6 +108,9 @@ th {
 select {
     background-color: #ABBE99;
     border: 0ch;
+    height: 90%;
+    width: 50%;
+    margin-left: 0.5rem;
 }
 
 .submit {
@@ -124,27 +127,44 @@ select {
     margin-left: 55rem;
 }
 
-.btn-d {
-    border-radius: 25px 25px 25px 25px;
+.btnd {
     background-color: #F8E4C8;
-    border: 0ch;
+    border-radius: 25px;
+    border: 1ch;
+
+    height: 90%;
 }
 
 .btn {
     border-radius: 25px 25px 25px 25px;
     font-size: 16pt;
-    width: 150%;
+    height: 100%;
+    width: 90%;
 }
 
 .s {
     background: transparent;
     border: 0px;
-    margin-left: -2rem;
+    margin-left: -2.5rem;
 }
 
 .bgs {
     border: 0ch;
     background-color: white;
+}
+
+.c{
+    margin-left: 57rem;
+    font-size: 13pt;
+}
+
+.b{
+    margin-left: -2rem;
+}
+
+.a{
+    margin-top: 0rem;
+    margin-left: -4.5rem;
 }
 
 /*ลบ*/

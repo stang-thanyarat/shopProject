@@ -59,7 +59,6 @@ $rows = $category->fetchAll();
                                 <th>รูปภาพ</th>
                                 <th>สถานะการขาย</th>
                                 <th></th>
-
                             </tr>
                         <tbody id="productResultTable">
                             <tr>
