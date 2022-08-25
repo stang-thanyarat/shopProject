@@ -103,9 +103,9 @@ $rows = $category->fetchAll();
                     </div>
                 </div>
             </div>
-
     </form>
 </body>
+
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 <script src="./src/js/productresult.js"></script>
 

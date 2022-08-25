@@ -10,8 +10,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
+
 <?php
-include_once('database/Sell.php');
+include_once('./database/Sell.php');
 $sell = new Sell();
 include_once('nav.php');
 if (isset($_GET['keyword'])) {
@@ -32,7 +33,7 @@ if (isset($_GET['keyword'])) {
                     </div>
                 </div>
                 <div class="row">
-                    <form action="sall.php" method="GET">
+                    <!---<form action="sall.php" method="GET">-->
                         <div class="col-2 mai">
                             <input type="text" name="keyword" class="btn-d" placeholder="&nbsp ชื่อผู้ขาย"></input>
                             <button type="submit" class="s">
@@ -42,7 +43,7 @@ if (isset($_GET['keyword'])) {
                         <div class="col-1 w">
                             <a class="submit btn" href="addseller.php"><img class='add' src="./src/images/plus.png" width="25" alt="">&nbsp เพิ่มผู้ขาย</a>
                         </div>
-                    </form>
+                    <!--</form>-->
                 </div>
                 <table class="ma">
                     <tr>
@@ -51,39 +52,43 @@ if (isset($_GET['keyword'])) {
                         <th>นามบัตร</th>
                         <th></th>
                     </tr>
-                    <?php foreach ($rows as $e) { ?>
-                        <tr>
-                            <th><?= $e['sell_name']; ?></th>
-                            <th><?= $e['sell_tax_id']; ?></th>
-                            <th><img src="<?= $e['seller_cardname']; ?>" /></th>
-                            <th>
-                                <button type="button" class="bgs" data-bs-toggle="modal1" data-bs-target="#exampleModal<?= $e['sell_id']; ?>"><img src="./src/images/icon-delete.png" width="25"></button>
-                                <a type="button" class="btn1" href="editstaff.php?id=<?= $e['sell_id']; ?>"><img src="./src/images/icon-pencil.png" width="25"></a>
-                            </th>
-                        </tr>
-                    <?php } ?>
+                    <tbody id="sellTable">
+                        <?php foreach ($rows as $e) { ?>
+                            <tr>
+                                <th name="sell_name" id="sell_name"></th>
+                                <th name="sell_tax_id" id="sell_tax_id"></th>
+                                <th name="seller_cardname" id="seller_cardname"><img src="./src/images/.png" /></th>
+                                <th>
+                                    <button type="button" class="bgs" data-bs-toggle="modal1" data-bs-target="#exampleModal<?= $e['sell_id']; ?>"><img src="./src/images/icon-delete.png" width="25"></button>
+                                    <a type="button" class="btn1" href="editstaff.php?id=<?= $e['sell_id']; ?>"><img src="./src/images/icon-pencil.png" width="25"></a>
+                                </th>
+                            </tr> <?php } ?>
+                    </tbody>
                 </table>
             </div>
         </div>
-    </form>
 
-    <!-- ลบ -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title2" id="exampleModalLabel">ลบบัญชีรับเงิน</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <h3>ยืนยันที่จะลบ</h3>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary2">ตกลง</button>
+        <!-- ลบ -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title2" id="exampleModalLabel">ลบบัญชีรับเงิน</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h3>ยืนยันที่จะลบ</h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary2">ตกลง</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 </body>
+
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="./src/js/sall.js"></script>
+
 </html>

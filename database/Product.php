@@ -92,6 +92,7 @@ class Product
         $stmt->execute();
     }
 
+
     public function insert($data)
     {
         $sql = "SET FOREIGN_KEY_CHECKS=0";
