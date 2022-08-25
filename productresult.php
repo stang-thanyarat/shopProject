@@ -11,6 +11,7 @@
 
     <title>productresult</title>
 </head>
+
 <?php include('nav.php');
 include_once "./database/Category.php";
 $category =  new Category();
@@ -103,7 +104,6 @@ $rows = $category->fetchAll();
                     </div>
                 </div>
             </div>
-
     </form>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
