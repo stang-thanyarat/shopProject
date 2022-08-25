@@ -26,7 +26,7 @@ $rows = $employee->fetchAll();
             </div>
             <div class="row top">
                 <div class="col-lg-4 col-md-12">
-                    <label for="account_prefix">ชื่อพนักงาน:</label>
+                    <label for="employee_id">ชื่อพนักงาน:</label>
                     <select name="employee_id" id="employee_id" class="bb" required onchange="readEmail()">
                         <option value="" selected hidden>เลือกพนักงาน</option>
                         <?php foreach ($rows as $row) { ?>
@@ -47,24 +47,23 @@ $rows = $employee->fetchAll();
                     <input name="account_password" id="account_password" type="password" onblur='check_num(this)' class="bb" required />
                     <div class="e">*</div>
                 </div>
+                <div class="col-lg-4 leftstatus">
+                    <label for="status">สถานะการใช้งาน :</label>
+                    <label class="switch bb">
+                        <input type="checkbox" id="account_user_status" name="account_user_status">
+                        <span class="slider round" id="account_user_status" name="account_user_status"></span>
+                    </label>
+                    <div class="h">*</div>
+                </div>
             </div>
-            <div class="col-lg-4 leftstatus">
-                <label for="status">สถานะการใช้งาน :</label>
-                <label class="switch bb">
-                    <input type="checkbox" id="account_user_status" name="account_user_status">
-                    <span class="slider round" id="account_user_status" name="account_user_status"></span>
-                </label>
-                <div class="h">*</div>
+            <div class="row btn-g">
+                <div class="col-lg-2 col-md-12">
+                    <button type="reset" class="btn-c reset">ยกเลิก</button>
+                </div>
+                <div class="col-lg-10 col-md-12">
+                    <input type="submit" class="btn-c submit" value="บันทึก" />
+                </div>
             </div>
-        </div>
-        <div class="row btn-g">
-            <div class="col-lg-2 col-md-12">
-                <button type="reset" class="btn-c reset">ยกเลิก</button>
-            </div>
-            <div class="col-lg-10 col-md-12">
-                <input type="submit" class="btn-c submit" value="บันทึก" />
-            </div>
-        </div>
     </form>
 </body>
 <script src="./src/js/adduseraccount.js"></script>

@@ -19,27 +19,13 @@
             </div>
             <div class="row top">
                 <div class="col-lg-4 col-md-12">
-                    <label for="account_prefix">คำนำหน้าชื่อ:</label>
-                    <select name="account_prefix" id="account_prefix" onchange="show_title_other(this.form);" class="bb" required>
-                        <option value="noun" selected hidden>เลือกคำนำหน้า</option>
-                        <option value="Mr.">นาย</option>
-                        <option value="Mrs.">นาง</option>
-                        <option value="missmiss">นางสาว</option>
+                    <label for="employee_id">ชื่อพนักงาน :</label>
+                    <select name="employee_id" id="employee_id" class="bb" required>
+                        <option value="" selected hidden>เลือกพนักงาน</option>
                     </select>
                     <div class="a">*</div>
                 </div>
-                <div class="col-lg-4 col-md-12 leftfirst">
-                    <label for="account_firstname">ชื่อ :</label>
-                    <input name="account_firstname" id="account_firstname" type="text" class="bb" required />
-                    <div class="b">*</div>
-                </div>
-                <br>
-                <div class="col-lg-4 col-md-12">
-                    <label for="account_lastname">นามสกุล :</label>
-                    <input name="account_lastname" id="account_lastname" type="text" class="bb" required />
-                    <div class="c">*</div>
-                </div>
-            </div>
+            </div><br>
             <div class="row">
                 <div class="col-lg-3 login leftemail">
                     <label for="email">อีเมล :</label>
@@ -50,15 +36,6 @@
                     <label for="password">รหัสผ่าน :</label>
                     <input name="password" id="password" type="password" onblur='check_num(this)' class="bb" required />
                     <div class="e">*</div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 leftposition">
-                    <label for="position">ตำแหน่ง :</label>
-                    <input type="radio" name="position" value="shopkeeper" class="bb" checked>เจ้าของร้าน
-                    <input type="radio" name="position" value="admin" id="admin">
-                    <label for="admin">ผู้ดูแลระบบ</label>
-                    <div class="g">*</div>
                 </div>
                 <div class="col-lg-4 leftstatus">
                     <label for="account_user_status">สถานะการใช้งาน :</label>
