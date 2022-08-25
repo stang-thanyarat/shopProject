@@ -8,7 +8,6 @@
 .main {
     margin-top: 5rem;
     margin-left: 4rem;
-    width: 90%;
 }
 
 .row {
@@ -19,8 +18,9 @@
     margin-top: 3.5rem;
 }
 
-.ma{
-    margin-top: 1rem;
+.ma {
+    margin-top: 1.5rem;
+    margin-left: 4rem;
 }
 
 table,
@@ -43,6 +43,11 @@ th {
 .btnd {
     background-color: #F8E4C8;
     border-radius: 25px;
+    height: 115%;
+}
+
+.date{
+    height: 115%;
 }
 
 .Nbar {
@@ -53,4 +58,12 @@ th {
     background: transparent;
     border: 0px;
     margin-left: -2rem;
+}
+
+.c{
+    margin-left: 79rem;
+}
+
+.b{
+    margin-left: -7rem;
 }

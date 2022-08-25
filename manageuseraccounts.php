@@ -18,12 +18,12 @@
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
-                    <div class="col-6">
+                    <div class="col-12">
                         <h1>จัดการดูแลบัญชีผู้ใช้งาน</h1>
                     </div>
                 </div>
-                <div class="row c">
-                    <div class="col-3">
+                <div class="row">
+                    <div class="col-2 c">
                         <label for="account_user_type">ตำแหน่ง :</label>
                         <select name="account_user_type" id="account_user_type">
                             <option value="position" selected hidden>เลือกตำแหน่ง</option>
@@ -31,16 +31,15 @@
                             <option value="E">พนักงาน</option>
                         </select>
                     </div>
-                    <div class="col-3">
-                        <input type="text" class="btn-d" placeholder="&nbsp ชื่อ-นามสกุล">
-                        <button type="submit" class="s">
-                            <img src="./src/images/search.png" width="15">
+                    <div class="col-2 b">
+                        <input type="text" class="btnd" placeholder="&nbsp ชื่อ-นามสกุล">
+                        <button type="submit" class="s"><img src="./src/images/search.png" width="17">
                     </div>
-                    <div class="col-3">
-                        <a class="submit btn" href="adduseraccount.php"><img class='add' src="./src/images/plus.png" width="25">&nbsp เพิ่มบัญชีผู้ใช้งาน</a>
+                    <div class="col-2 a">
+                        <a class="submit btn" href="adduseraccount.php"><img src="./src/images/plus.png" width="25">&nbsp เพิ่มบัญชีผู้ใช้งาน</a>
                     </div>
                 </div>
-                <table class="ma">
+                <table class="col-11 ma">
                     <tr>
                         <th>ลำดับ</th>
                         <th>ชื่อ</th>
@@ -51,27 +50,28 @@
                     </tr>
                     <tbody id='useraccountTable'></tbody>
                 </table>
+            </div>
+        </div>
 
-
-                <!-- ลบ -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title2" id="exampleModalLabel">ลบรายการ</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <h3>ยืนยันที่จะลบ</h3>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary2">ตกลง</button>
-                            </div>
-                        </div>
+        <!-- ลบ -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title2" id="exampleModalLabel">ลบรายการ</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+                    <div class="modal-body">
+                        <h3>ยืนยันที่จะลบ</h3>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary2">ตกลง</button>
+                    </div>
+
                 </div>
             </div>
         </div>
+
     </form>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
