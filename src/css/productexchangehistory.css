@@ -221,3 +221,8 @@ input:checked+.slider:before {
     font-size: 13pt;
     width: 20%;
 }
+
+.btn4{
+    border: 0ch;
+    background-color: white;
+}

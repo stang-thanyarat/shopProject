@@ -11,6 +11,7 @@
 
     <title>productresult</title>
 </head>
+
 <?php include('nav.php');
 include_once "./database/Category.php";
 $category =  new Category();

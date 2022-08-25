@@ -43,9 +43,11 @@
                             <th name="product_name" id="product_name">เครื่องตัดหญ้า</th>
                             <th name="exchange_amount" id="exchange_amount">1</th>
                             <th name="exchange_status" id="exchange_status">รอของ</th>
-                            <th>
-                                <a type="button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1"><img src="./src/images/icon-delete.png" width="25">
-                                    <a type="button" href="./editproductreplacement.php"><img src="./src/images/icon-pencil.png" width="25">
+                            <th width="7%">
+                                <button type="button" class="btn4" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1"><img src="./src/images/icon-delete.png" width="25">
+                                </button>
+                                <button type="button" class="btn4" href="./editproductreplacement.php"><img src="./src/images/icon-pencil.png" width="25">
+                                </button>
                             </th>
                         </tr>
                         <th name="exchange_date" id="exchange_date">23/01/2021</th>
