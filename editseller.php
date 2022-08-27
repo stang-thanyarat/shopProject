@@ -12,33 +12,38 @@
     <title>Document</title>
 </head>
 <?php
-include('nav.php');
+include_once('nav.php');
 include_once('database/Sell.php');
 include_once('database/Bank.php');
 $sell = new Sell();
 $e = $sell->fetchById($_GET['id']);
-$employeeBank = new Bank();
-$banks = $bank->fetchByEmployeeId($_GET['id']);
+$bank = new Bank();
+$banks = $bank->fetchBySellId($_GET['id']);
 $json = '';
-foreach ($banks as $b) {
+for ($i = 0; $i < count($banks); $i++) {
+    $b = $banks[$i];
     $json .= "{
         bank: \"" . $b['bank_name'] . "\",
         number: \"" . $b['bank_number'] . "\",
         name: \"" . $b['bank_account'] . "\",
-        id:\"" . $b['bank_id'] . "\",
-    },";
+        id:\"" . $b['bank_id'] . "\"
+    }";
+    if ($i + 1 != count($banks)) {
+        $json .= ",";
+    }
 }
+
 ?>
 
 <body>
-    <form>
+    <form action="" name="form1" id="form1">
         <input type="hidden" name="seller_card_id" value="<?= $e['seller_card_id']; ?>" />
         <input type="hidden" name="seller_cardname" value="<?= $e['seller_cardname']; ?>" />
         <input type="hidden" name="sell_documents" value="<?= $e['sell_documents']; ?>" />
-        <input type="hidden" name="bank" value="" />
+        <input type="hidden" name="bank" value="" id="bank" />
         <input type="hidden" name="table" value="sell" />
         <input type="hidden" name="form_action" value="update" />
-        <input type="hidden" value="<? $_GET['id'] ?>" name="sell_id" />
+        <input type="hidden" value="<?= $_GET['id'] ?>" name="sell_id" />
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
@@ -48,9 +53,9 @@ foreach ($banks as $b) {
                 <div class="row leftseller">
                     <div class="col">
                         <label for="sell_type">ประเภทผู้ขาย :</label>
-                        <input type="radio" name="seller type" value="บริษัท / ห้างร้าน" class="bb" checked>
+                        <input type="radio" name="seller type" value="บริษัท / ห้างร้าน" class="bb" <?= $e['sell_type'] == "บริษัท / ห้างร้าน" ? "checked" : "" ?>>
                         <label for="seller type">บริษัท / ห้างร้าน </label>
-                        <input type="radio" name="seller type" value="บุคคลทั่วไป">
+                        <input type="radio" name="seller type" value="บุคคลทั่วไป" <?= $e['sell_type'] == "บุคคลทั่วไป" ? "checked" : "" ?>>
                         <label for="seller type">บุคคลทั่วไป</label>
                         <div class="d">*</div>
                     </div>
@@ -75,7 +80,7 @@ foreach ($banks as $b) {
                 <div class="row">
                     <div class="col leftaddress">
                         ที่อยู่ :<font color="red">&nbsp*</font>
-                        <textarea type="text" name="sell_address" id="sell_address" cols="40" rows="5" class="cc" value="<?= $e['sell_address']; ?>" required></textarea>
+                        <textarea name="sell_address" id="sell_address" cols="40" rows="5" class="cc" style="vertical-align:top;" required><?= $e['sell_address']; ?></textarea>
                     </div>
                     <div class="col leftwebsite">
                         <label for="sell_website">เว็บไซต์ :</label>
@@ -122,7 +127,7 @@ foreach ($banks as $b) {
                 </div>
                 <div class="row">
                     <div class="col leftfile">
-                        บัตรประชาชน : <input type="file" accept="image/*" name="seller_card_id" id="seller_card_id" class="bb" required>
+                        บัตรประชาชน : <input type="file" accept="image/*" name="seller_card_id" id="seller_card_id" class="bb">
                         <div class="k">*</div>
                     </div>
                 </div>
@@ -175,8 +180,8 @@ foreach ($banks as $b) {
                 </div>
                 <div class="row">
                     <div class="col leftnote">
-                        <label for="note">หมายเหตุ :&nbsp;</label>
-                        <textarea name="note" id="note" cols="50" rows="5" style="vertical-align:top;" class="bb" value="<?= $e['note']; ?>"></textarea>
+                        <label for="sell_note">หมายเหตุ :&nbsp;</label>
+                        <textarea name="sell_note" id="sell_note" cols="50" rows="5" style="vertical-align:top;" class="bb"><?= $e['sell_note']; ?></textarea>
                     </div>
                 </div>
                 <div class="row btn-g">

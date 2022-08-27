@@ -20,24 +20,29 @@ $e = $employee->fetchById($_GET['id']);
 $employeeBank = new Employeebank();
 $banks = $employeeBank->fetchByEmployeeId($_GET['id']);
 $json = '';
-foreach ($banks as $b) {
+for ($i = 0; $i < count($banks); $i++) {
+    $b = $banks[$i];
     $json .= "{
         bank: \"" . $b['bank_name'] . "\",
         number: \"" . $b['bank_number'] . "\",
         name: \"" . $b['bank_account'] . "\",
-        id:\"" . $b['bank_id'] . "\",
-    },";
+        id:\"" . $b['bank_id'] . "\"
+    }";
+    if ($i + 1 != count($banks)) {
+        $json .= ",";
+    }
 }
+
 ?>
 
 <body>
     <form action="" name="form1" id="form1">
         <input type="hidden" name="employee_card_id_copy" value="<?= $e['employee_card_id_copy']; ?>" />
         <input type="hidden" name="employee_address_copy" value="<?= $e['employee_address_copy']; ?>" />
-        <input type="hidden" name="bank" value="" />
+        <input type="hidden" name="bank" value=""  id="bank"/>
         <input type="hidden" name="table" value="employee" />
         <input type="hidden" name="form_action" value="update" />
-        <input type="hidden" value="<? $_GET['id'] ?>" name="employee_id" />
+        <input type="hidden" value="<?= $_GET['id'] ?>" name="employee_id" />
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
@@ -130,7 +135,7 @@ foreach ($banks as $b) {
                             </div>
                             <div class="col leftaddress">
                                 ที่อยู่ :<font color="red">&nbsp*</font>
-                                <textarea name="employee_address" id="employee_address" cols="40" rows="5" class="cc" style="vertical-align:top;" type="text" value="<?= $e['employee_address']; ?>" required></textarea>
+                                <textarea name="employee_address" id="employee_address" cols="40" rows="5" class="cc" style="vertical-align:top;" type="text" required><?= $e['employee_address']; ?></textarea>
                             </div>
                             <div class="row">
                                 <div class="col leftn">สำเนาบัตรประชาชน :
