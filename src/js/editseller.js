@@ -17,31 +17,25 @@ $("#form1").submit(async function (event) {
         alert('เบอร์โทรศัพท์ไม่ถูกต้อง');
         return
     }
-   if (!check_email(document.form1.seller_email.value)) {
+    if (!check_email(document.form1.seller_email.value)) {
         event.preventDefault();
         alert('อีเมลไม่ถูกต้อง');
         return
-    } else {
-        const Seller = await (await fetch(`controller/EmailSellCheck.php?email=${document.form1.seller_email.value}`)).json()
-        if (Seller.length > 0) {
-            event.preventDefault();
-            alert('อีเมลนี้มีผู้ใช้งานอยู่แล้ว');
-            return
-        }else{
-            event.preventDefault();
-            $('#bank').val(JSON.stringify(JSON.parse(localStorage.getItem("tableBank")).data))
-            let response = await fetch('controller/Sell.php', {
-                method: 'POST',
-                body: new FormData(document.form1)
-            });
-            if (!response.ok) {
-                console.log(response);
-            } else {
-                alert("success");
-                window.location.assign("sall.php");
-            }
-        }
     }
+
+    event.preventDefault();
+    $('#bank').val(JSON.stringify(JSON.parse(localStorage.getItem("tableBank")).data))
+    let response = await fetch('controller/Sell.php', {
+        method: 'POST',
+        body: new FormData(document.form1)
+    });
+    if (!response.ok) {
+        console.log(response);
+    } else {
+        alert("success");
+        window.location.assign("sall.php");
+    }
+
 })
 
 //เบอร์โทรศัพท์
@@ -88,7 +82,7 @@ function check_email(elm) {
 //เช็คจำนวนรหัสผ่าน
 function check_num(elm) {
     var regex_num = /^\s*\S+(\s?\S)*\s*$/
-    if (elm.value.length < 6 || elm.value.length > 15&&!elm.value.match(regex_num)) {
+    if (elm.value.length < 6 || elm.value.length > 15 && !elm.value.match(regex_num)) {
         alert("จำนวนตัวอักษรหรือตัวเลขอยู่ช่วง 6-15 ตัวเท่านั้น");
     }
 }
