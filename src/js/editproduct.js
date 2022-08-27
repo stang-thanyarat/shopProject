@@ -1,10 +1,10 @@
 $('#set_n_amt').on('click', function(e) {
-    $('#post').toggle();
+      $('#post').toggle();
   });
 
 //ตรวจสอบพร้อมส่งข้อมูล
 
-$("#form1").submit(async function (event) {
+/*$("#form1").submit(async function (event) {
   event.preventDefault();
       if (!response.ok) {
           console.log(response);
@@ -13,4 +13,4 @@ $("#form1").submit(async function (event) {
           console.log(await response.text());
           window.location.assign("productresult.php");
       }
-});
+});*/
