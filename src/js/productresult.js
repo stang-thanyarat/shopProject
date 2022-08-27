@@ -53,8 +53,8 @@ function setUI(data) {
             </label>
         </th>
         <th>
-            <a type="button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1"><img src="./src/images/icon-delete.png" width="25"></a>
-            <a type="button" href="./editproduct.php"><img src="./src/images/icon-pencil.png" width="25"></a>
+            <a  data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1"><img src="./src/images/icon-delete.png" width="25"></a>
+            <a  href="./editproduct.php?id=${element.product_id}"><img src="./src/images/icon-pencil.png" width="25"></a>
         </th>
     </tr>`)
 

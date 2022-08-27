@@ -248,7 +248,7 @@ input:checked+.slider:before {
 }
 
 .costprice {
-    margin-left: 10.85rem;
+    margin-left: 12.45rem;
     margin-top: 0.1rem;
 }
 
@@ -257,7 +257,7 @@ input:checked+.slider:before {
     margin-top: 0.1rem;
 }
 
-.label1{
+.label1 {
     margin-top: -5rem;
 }
 
@@ -273,16 +273,12 @@ input:checked+.slider:before {
     margin-left: 1.7rem;
 }
 
-.status {
-    margin-left: -0.7rem;
+.min1 {
+    margin-left: -2.25rem;
 }
 
 .start {
     margin-left: -0.3rem;
-}
-
-.min1 {
-    margin-left: -2.25rem;
 }
 
 .min2 {

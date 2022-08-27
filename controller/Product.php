@@ -49,6 +49,13 @@ if (isset($_POST)) {
             } else {
                 $_POST['sales_status'] = '1';
             }
+
+            if (empty($_POST['set_n_amt'])) {
+
+                $_POST['set_n_amt'] = '0';
+            } else {
+                $_POST['set_n_amt'] = '1';
+            }
             $product->insert($_POST); 
             header( "location: ../productresult.php" );
         }

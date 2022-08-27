@@ -158,18 +158,18 @@ $rows = $category->fetchAll();
                             </div>
                             <div class="row a">
                                 <div class="col settingmin">
-                                    <input name="set_n_amt" id="set_n_amt" type="checkbox" checked />
+                                    <input name="set_n_amt" id="set_n_amt" type="checkbox" />
                                     <label for="set_n_amt">ตั้งค่าสินค้าคงคลังขั้นต่ำล่วงหน้า</label>
                                 </div>
                             </div>
                             <div class="row a" id="post">
                                 <div class="col start">
                                     วันที่เริ่มใช้งาน :<font color="red">&nbsp*</font>
-                                    <input name="lastname" type="date" id="lastname" class="inbox" />
+                                    <input name="date_n_amt" type="date" id="date_n_amt" class="inbox" />
                                 </div>
                                 <div class="col min2">
                                     สินค้าคงคลังขั้นต่ำ :<font color="red">&nbsp*</font>
-                                    <input name="lastname" type="text" id="lastname" class="inbox" />
+                                    <input name="notification_amt2" type="text" id="notification_amt2" class="inbox" />
                                 </div>
                             </div>
             </div>
