@@ -124,8 +124,11 @@ class Product
 
     public function update($data)
     {
+        $sql = "SET FOREIGN_KEY_CHECKS=0";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
         $sql = "UPDATE product_tb
-        SET product_name = ?, category_id = ?, brand = ?, model = ?, sell_id = ?, product_detail = ?, product_img = ?, product_detail_img = ?, product_dlt_unit = ?, product_unit = ?, price = ?, cost_price = ?, notification_amt = ?, sales_status = ?, set_n_amt = ?, date_n_amt = ?, notification_amt2 = ?, product_rm_unit = ?, product_exchange_id = ?
+        SET product_name = ?, category_id = ?, brand = ?, model = ?, sell_id = ?, product_detail = ?, product_img = ?, product_detail_img = ?, product_dlt_unit = ?, product_unit = ?, price = ?, cost_price = ?, notification_amt = ?, sales_status = ?, set_n_amt = ?, date_n_amt = ?, notification_amt2 = ?/*, product_rm_unit = ?, product_exchange_id = ?*/
         WHERE product_id=?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $data['product_name'], PDO::PARAM_STR);
