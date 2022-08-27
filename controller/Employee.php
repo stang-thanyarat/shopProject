@@ -1,0 +1,123 @@
+<?php
+include '../database/Employee.php';
+include 'Redirection.php';
+include '../service/upload.php';
+include '../database/Employeebank.php';
+$employeebank = new Employeebank();
+$employee = new Employee();
+if (isset($_POST)) {
+    if ($_POST['table'] === 'employee') {
+
+        if ($_POST['form_action'] === 'update') {
+
+            //เชคการอัพโหลดรูป
+            if (isset($_FILES['employee_card_id_copy'])) {
+                $path = './file/employee/id/';
+                if (file_exists($_POST['employee_card_id_copy'])) {
+                    unlink($_POST['employee_card_id_copy']);
+                }
+                $filesname = $path . uploadImage($_FILES['employee_card_id_copy'], "." . $path);
+                if ($filesname) {
+                    $_POST['employee_card_id_copy'] = $filesname;
+                } else {
+                    $_POST['employee_card_id_copy'] = '';
+                }
+            }
+            if (isset($_FILES['employee_address_copy'])) {
+                $path = './file/employee/address/';
+                if (file_exists($_POST['employee_address_copy'])) {
+                    unlink($_POST['employee_address_copy']);
+                }
+                $filesname = $path . uploadImage($_FILES['employee_address_copy'], "." . $path);
+                if ($filesname) {
+                    $_POST['employee_address_copy'] = $filesname;
+                } else {
+                    $_POST['employee_address_copy'] = '';
+                }
+            }
+
+            $banks = json_decode($_POST['bank']);
+            $tempbanks = [];
+            foreach ($banks as $b) {
+                $tempbanks[] = (array)$b;
+            }
+            $banks = $tempbanks;
+
+            // remove bank and edit
+            $recBack = $employeebank->fetchByEmployeeId($_POST['employee_id']);
+            foreach ($recBack as $r) {
+                $f = false;
+                foreach ($banks as $value) {
+                    $f = $f  || ($r['bank_id'] == $value['id']);
+                }
+                if (!$f) {
+                    $employeebank->delete($r['bank_id']);
+                } else {
+                    $form = [];
+                    $form['bank_id'] =  $r['bank_id'];
+                    $form['employee_id'] =  $_POST['employee_id'];
+                    $form['bank_name'] = $value['bank'];
+                    $form['bank_number'] =  $value['number'];
+                    $form['bank_account'] =  $value['name'];
+                    $employeebank->update($form);
+                }
+            }
+            // insert bank to edit
+            foreach ($banks as $value) {
+                if ($value['id'] == -1) {
+                    $form = [];
+                    $form['employee_id'] =  $_POST['employee_id'];
+                    $form['bank_name'] = $value['bank'];
+                    $form['bank_number'] =  $value['number'];
+                    $form['bank_account'] =  $value['name'];
+                    $employeebank->insert($form);
+                }
+            }
+
+            $employee->update($_POST);
+        } else if ($_POST['form_action'] === 'delete') {
+            $employee->delete($_POST['employee_id']);
+        } else if ($_POST['form_action'] === 'insert') {
+            //อัพโหลด
+            if (isset($_FILES['employee_card_id_copy'])) {
+                $path = './file/employee/id/';
+                $filesname = uploadImage($_FILES['employee_card_id_copy'], "." . $path);
+                if ($filesname) {
+                    $_POST['employee_card_id_copy'] = $path . $filesname;
+                } else {
+                    $_POST['employee_card_id_copy'] = '';
+                }
+            } else {
+                $_POST['employee_card_id_copy'] = '';
+            }
+
+            if (isset($_FILES['employee_address_copy'])) {
+                $path = './file/employee/address/';
+                $filesname = uploadImage($_FILES['employee_address_copy'], "." . $path);
+                if ($filesname) {
+                    $_POST['employee_address_copy'] = $path . $filesname;
+                } else {
+                    $_POST['employee_address_copy'] = '';
+                }
+            } else {
+                $_POST['employee_address_copy'] = '';
+            }
+            $_POST['employee_card_id'] = str_replace("-", "", $_POST['employee_card_id']);
+            $_POST['employee_telephone'] = str_replace("-", "", $_POST['employee_telephone']);
+            $employee->insert($_POST);
+            $last = $employee->fetchLast();
+            $lastID = $last['employee_id'];
+            $banks = json_decode($_POST['bank']);
+            foreach ($banks as $value) {
+                $form = [];
+                $form['employee_id'] =  $lastID;
+                $form['bank_name'] = $value->bank;
+                $form['bank_number'] =  $value->number;
+                $form['bank_account'] =  $value->name;
+                $employeebank->insert($form);
+            }
+        }
+    }
+} else {
+    echo "Page Not found.";
+}
