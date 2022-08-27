@@ -1,5 +1,5 @@
 <?php
-function generateRandomString($length = 10)
+function generateRandomString($length = 25)
 {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
@@ -12,7 +12,8 @@ function generateRandomString($length = 10)
 
 function uploadImage($file, $dir)
 {
-    $imagename = generateRandomString() . basename($file["name"]);
+    $ext = pathinfo($file["name"], PATHINFO_EXTENSION);
+    $imagename = generateRandomString() . "." . $ext;
     $filename = $dir . $imagename;
     if (move_uploaded_file($file["tmp_name"], $filename)) {
         return $imagename;
