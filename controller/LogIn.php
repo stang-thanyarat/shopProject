@@ -7,7 +7,8 @@ if (isset($_POST)) {
     if ($_POST['table'] === 'useraccount') {
         if ($_POST['form_action'] === 'login') {
             $user = $useraccount->fetchByEmail($_POST['email']);
-            if (count($user) > 0) {
+            var_dump(trim($user['account_password']));
+            /*if (count($user) > 0) {
                 if (password_verify($_POST['password'], $user['account_password'])) {
                     if ($user['account_user_status'] == 0) {
                         $_SESSION['error'] = "บัญชีนี้ไม่อนุญาตให้ใช้งาน";
@@ -22,7 +23,7 @@ if (isset($_POST)) {
             } else {
                 $_SESSION['error'] = "ไม่พบผู้ใช้";
                 redirection('../login.php');
-            }
+            }*/
         }
     }
 }

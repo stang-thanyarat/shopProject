@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
     <link rel="stylesheet" href="./src/css/manageuseraccounts.css" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js" ></script>
     <title>Document</title>
 </head>
 <?php include('nav.php'); ?>
@@ -26,13 +26,13 @@
                     <div class="col-2 c">
                         <label for="account_user_type">ตำแหน่ง :</label>
                         <select name="account_user_type" id="account_user_type">
-                            <option value="position" selected hidden>เลือกตำแหน่ง</option>
+                            <option value="position" selected hidden>&nbsp;&nbsp;เลือกตำแหน่ง</option>
                             <option value="A">เจ้าของร้าน</option>
                             <option value="E">พนักงาน</option>
                         </select>
                     </div>
                     <div class="col-2 b">
-                        <input type="text" class="btnd" placeholder="&nbsp ชื่อ-นามสกุล">
+                        <input type="text" id="keyword" class="btnd" placeholder="&nbsp ชื่อ-นามสกุล">
                         <button type="submit" class="s"><img src="./src/images/search.png" width="17">
                     </div>
                     <div class="col-2 a">
@@ -74,7 +74,7 @@
 
     </form>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./src/js/useraccount.js"></script>
 
 </html>
