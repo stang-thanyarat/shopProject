@@ -5,12 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/addorder2.css" />
 
     <title>Document</title>
 </head>
 <?php include('nav.php'); ?>
+
 <body>
     <form id="form1">
         <div class="row">
@@ -42,11 +43,11 @@
                                 <option value="addorder2.php">เครดิต</option>
                             </select>&nbsp;&nbsp;
                             <div class="col-12 h">
-                            สลิปธนาคาร:&nbsp; <input accept="image/*" type="file" id="bank_slip" name="bank_slip" required>
-                        </div>
-                        <div class="col-12">
-                            *ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB
-                        </div>
+                                สลิปธนาคาร:&nbsp; <input accept="image/*" type="file" id="bank_slip" name="bank_slip" required>
+                            </div>
+                            <div class="col-12">
+                                *ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB
+                            </div>
                             วันที่ชำระเงิน:&nbsp;
                             <input type="date" name="payment_dt" id="payment_dt">
                         </div>
@@ -98,7 +99,7 @@
                             </table>
                         </div>
                         <div class="row A">
-                            <div class=" col-12 d-flex justify-content-end" >
+                            <div class=" col-12 d-flex justify-content-end">
                                 ยอดสุทธิ:&nbsp;&nbsp;
                                 <input type="text" name="net_price" id="net_price">
                             </div>
@@ -289,8 +290,8 @@
         </div>
     </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src=" ./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="./src/js/printThis.js"></script>
 <script src="./src/js/addorder.js"></script>
 

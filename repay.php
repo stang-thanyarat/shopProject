@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/repay.css" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <title>Document</title>
 </head>
 <?php include('nav.php'); ?>
@@ -44,20 +44,20 @@
                 </div>
                 <table class="main col-10">
                     <thead>
-                    <tr>
-                        <th width="15%">วันที่ชำระ</th>
-                        <th width="10%">วิธีการชำระ</th>
-                        <th width="10%">ไฟล์แนบ</th>
-                        <th width="10%">ยอดที่ชำระ</th>
-                        <th width="10%">หักเงินต้น</th>
-                        <th width="10%">หักดอกเบี้ย</th>
-                        <th width="10%">คงค้าง</th>
-                    </tr>
+                        <tr>
+                            <th width="15%">วันที่ชำระ</th>
+                            <th width="10%">วิธีการชำระ</th>
+                            <th width="10%">ไฟล์แนบ</th>
+                            <th width="10%">ยอดที่ชำระ</th>
+                            <th width="10%">หักเงินต้น</th>
+                            <th width="10%">หักดอกเบี้ย</th>
+                            <th width="10%">คงค้าง</th>
+                        </tr>
                     </thead>
                     <tbody id="list-repay">
 
                     </tbody>
-                    
+
                 </table>
                 <p></p>
                 <div class="row B">
@@ -90,21 +90,21 @@
 
                         <div class="col-12 p">
                             วิธีการชำระ: &nbsp;
-                            <select name="payment_sl" id="payment_sl"style="background-color: #7C904E;" >
+                            <select name="payment_sl" id="payment_sl" style="background-color: #7C904E;">
                                 <option value="เงินสด">เงินสด</option>
                                 <option value="โอนเงิน">โอนเงิน</option>
                             </select>
                         </div>
                         <div class="col-12 r" id="slip_upload">
                             ไฟล์แนบ: &nbsp;
-                            <input accept="image/*" type="file" name="slip" id="slip"/>
+                            <input accept="image/*" type="file" name="slip" id="slip" />
                         </div>
 
                         ยอดที่ชำระ: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="paymentamount" id="paymentamount" required /></div>
                         หักเงินต้น: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="deduct" id="deduct" required /></div>
                         หักดอกเบี้ย: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0" step="0.25" name="lessinterest" id="lessinterest" required /></div>
-                        คงค้าง: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="outstanding" id="outstanding"required /></div>
-                        
+                        คงค้าง: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="outstanding" id="outstanding" required /></div>
+
 
                         <div class="modal-footer">
                             <button type="submit" id="addtable" class="btn btn-primary1">ตกลง</button>
@@ -115,7 +115,7 @@
         </form>
     </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-<script src="./src/js/repay.js"></script>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src=" ./src/js/repay.js"></script>
 
 </html>

@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/addseller.css" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <title>Document</title>
 </head>
@@ -15,8 +15,8 @@
 
 <body>
     <form action="controller/Sell.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="table" value="sell"  />
-        <input type="hidden" name="form_action" value="insert"  />
+        <input type="hidden" name="table" value="sell" />
+        <input type="hidden" name="form_action" value="insert" />
         <input type="hidden" id="bank" name="bank" />
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
@@ -101,7 +101,7 @@
                 </div>
                 <div class="row">
                     <div class="col leftfile">
-                        บัตรประชาชน : <input type="file" accept="image/*"  name="seller_card_id" id="seller_card_id" class="bb" required>
+                        บัตรประชาชน : <input type="file" accept="image/*" name="seller_card_id" id="seller_card_id" class="bb" required>
                         <div class="k">*</div>
                     </div>
                 </div>
@@ -256,7 +256,7 @@
         </form>
     </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-<script src="./src/js/addseller.js"></script>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src=" ./src/js/addseller.js"></script>
 
 </html>
