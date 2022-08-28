@@ -52,12 +52,13 @@ function setUI(data) {
     let i = 0
 
     data.forEach((element, index) => {
-        if (i > 2) {
-            html +='</tr><tr>'
+        if (i > 2 || index + 1 === data.length) {
             if (index + 1 === data.length) {
                 html +='</tr>'
-            }
-            i = 0
+            }else{
+                html +='</tr><tr>'
+                i = 0
+            }  
         } else {
             html +=` <th>
                 <div class="row-4 topic_product">
@@ -79,6 +80,7 @@ function setUI(data) {
             i++
         }
     });
+    console.log(html);
     $("tbody").html(html);
     if (data.length === 0) {
         $('tbody').html("ไม่พบสินค้า")
