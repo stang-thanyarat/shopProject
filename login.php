@@ -22,7 +22,7 @@
         </div>
         <div class="BgRight col-md-6">
 
-            <form action="./controller/LogIn.php" method="post" id="login">
+            <form action="./controller/Login.php" method="post" id="login">
                 <input type="hidden" name="table" value="useraccount" />
                 <input type="hidden" name="form_action" value="login" />
                 <?php
@@ -37,10 +37,10 @@
                 session_destroy(); ?>
                 <h1 class="text-login">Login</h1>
                 <label class="label" for="email">E-mail</label>
-                <input class="field input" type="email" id="email" name="email" onblur='check_email(this)' required>
+                <input class="field input" type="email" id="email" name="email"  required>
                 <label class="label" for="password">Password</label>
                 <div class="d-flex">
-                    <input class="field input" type="password" id="password" name="password" onblur='check_num(this)' required>
+                    <input class="field input" type="password" id="password" name="password" required>
                     <i class="bi bi-eye-slash" id="togglePassword"></i>
                 </div>
                 <div class="BTN">

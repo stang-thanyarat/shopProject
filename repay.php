@@ -8,6 +8,7 @@
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/repay.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
     <title>Document</title>
 </head>
 <?php include('nav.php'); ?>
@@ -116,6 +117,6 @@
     </div>
 </body>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-<script src=" ./src/js/repay.js"></script>
+<script src="./src/js/repay.js"></script>
 
 </html>

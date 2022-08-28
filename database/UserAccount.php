@@ -20,6 +20,19 @@ class UserAccount
             return [];
         }
     }
+    public function fetchAddEmployee()
+    {
+        try {
+            $sql = "SELECT * FROM user_account_tb LEFT JOIN employee_tb ON user_account_tb.employee_id = user_account_tb.employee_id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            return $result;
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
+    }
 
     public function updateStatus($status, $id)
     {
@@ -79,21 +92,32 @@ class UserAccount
 
 
 
-    public function search($keyword, $type = null)
+    public function search($keyword, $type = null)  // sql ผิดอยู่
     {
         $like = "%".$keyword."%";
-        $sql = "SELECT * FROM user_account_tb WHERE (SELECT employee_id FROM employee_tb WHERE employee_firstname LIKE ?  OR employee_lastname LIKE ?)";
+        $sql = "SELECT * FROM employee_tb , user_account_tb WHERE employee_tb.employee_firstname LIKE ? OR employee_tb.employee_lastname LIKE ? ";
         if (!is_null($type)) {
-            $sql .= " AND account_user_type=?";
+            $sql .= " AND user_account_tb.account_user_type=?";
         }
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $like , PDO::PARAM_STR);
+        $stmt->bindParam(2, $like , PDO::PARAM_STR);
         if (!is_null($type)) {
-            $stmt->bindParam(2, $type, PDO::PARAM_INT);
+            $stmt->bindParam(3, $type, PDO::PARAM_STR);
         }
         $stmt->execute();
         $result = $stmt->fetchAll();
         return $result;
+    }
+
+    public function findByType($type){
+        $sql = "SELECT * FROM employee_tb , user_account_tb WHERE account_user_type=?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $type , PDO::PARAM_STR);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+        
     }
 
     public function insert($data)

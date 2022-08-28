@@ -35,6 +35,14 @@ $rows = $employee->fetchAll();
                     </select>
                     <div class="a">*</div>
                 </div>
+                <div class="col leftposition">
+                    <label for="account_user_type">ตำแหน่ง :</label>
+                    <input type="radio" name="account_user_type" value="L" class="bb" checked>
+                    <label for="account_user_type">เจ้าของร้าน </label>&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="account_user_type" value="E">
+                    <label for="account_user_type">พนักงาน</label>
+                    <div class="j">*</div>
+                </div>
             </div>
             <div class="row">
                 <div class="col-lg-3 login leftemail">

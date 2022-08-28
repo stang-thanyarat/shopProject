@@ -257,6 +257,6 @@
     </div>
 </body>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-<script src=" ./src/js/addseller.js"></script>
+<script src="./src/js/addseller.js"></script>
 
 </html>

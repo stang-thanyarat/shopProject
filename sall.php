@@ -89,6 +89,6 @@ if (isset($_GET['keyword'])) {
 </body>
 
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-<script src=" ./src/js/sall.js"></script>
+<script src="./src/js/sall.js"></script>
 
 </html>

@@ -305,7 +305,7 @@ for ($i = 0; $i < count($banks); $i++) {
         }))
     });
 </script>
-< script src="./src/js/editstaff.js">
+<script src="./src/js/editstaff.js">
     </script>
 
 </html>

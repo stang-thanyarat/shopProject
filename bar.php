@@ -31,4 +31,5 @@
     <a class="nav-link bar-link" href="vat.php">ภาษีมูลค่าเพิ่ม</a>
 </nav>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-<script src=" ./src/js/bar.js"></script>
+<script src="./src/js/bar.js"></script>
+

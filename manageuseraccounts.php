@@ -26,13 +26,13 @@
                     <div class="col-2 c">
                         <label for="account_user_type">ตำแหน่ง :</label>
                         <select name="account_user_type" id="account_user_type">
-                            <option value="position" selected hidden>เลือกตำแหน่ง</option>
+                            <option value="position" selected hidden>&nbsp;&nbsp;เลือกตำแหน่ง</option>
                             <option value="A">เจ้าของร้าน</option>
                             <option value="E">พนักงาน</option>
                         </select>
                     </div>
                     <div class="col-2 b">
-                        <input type="text" class="btnd" placeholder="&nbsp ชื่อ-นามสกุล">
+                        <input type="text" id="keyword" class="btnd" placeholder="&nbsp ชื่อ-นามสกุล">
                         <button type="submit" class="s"><img src="./src/images/search.png" width="17">
                     </div>
                     <div class="col-2 a">
@@ -75,6 +75,6 @@
     </form>
 </body>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-<script src=" ./src/js/useraccount.js"></script>
+<script src="./src/js/useraccount.js"></script>
 
 </html>

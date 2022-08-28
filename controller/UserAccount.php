@@ -18,6 +18,7 @@ if (isset($_POST)) {
             }
             $_POST['account_password'] = password_hash($_POST['account_password'], PASSWORD_BCRYPT);  //ทำให้ไม่เห็นรหัสผ่าน
             $useraccount->insert($_POST);
+            redirection("../manageuseraccounts.php");
         }
     }
 } else {

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./src/css/addnewstaff.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
+
     <title>Document</title>
 </head>
 <?php include('nav.php'); ?>
@@ -265,6 +266,8 @@
     </div>
 </body>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-<script src=" ./src/js/addnewstaff.js"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="./node_modules//sweetalert2/dist/sweetalert2.min.js"></script>
+<script src="./src/js/addnewstaff.js"></script>
 
 </html>
