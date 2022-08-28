@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/editseller.css" />
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js" ></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <title>Document</title>
 </head>
@@ -299,11 +299,12 @@ for ($i = 0; $i < count($banks); $i++) {
 <script>
     $(document).ready(function() {
         localStorage.clear()
-        localStorage.setItem("tableBank", JSON.stringify({
+        localStorage.setItem(" tableBank", JSON.stringify({
             data: [<?php echo $json; ?>]
         }))
     });
 </script>
-<script src="./src/js/editseller.js"></script>
+<script src="./src/js/editseller.js">
+    </script>
 
 </html>

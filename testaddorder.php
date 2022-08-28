@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/addorder.css" />
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js" ></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <title>Document</title>
 </head>
 
@@ -22,7 +23,7 @@
                     <h5>เพิ่มสินค้า</h5><span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
                 </div>
 
-                <form class="w3-container" action="test.php" >
+                <form class="w3-container" action="test.php">
                     <div class="w3-section">
                         <label><b>ประเภทสินค้า</b></label>
                         <select id="typeproduct" name="typeproduct" style="background-color: #7C904E;" required>

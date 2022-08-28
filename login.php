@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link type="text/css" href="./src/css/login.css" rel='stylesheet' />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
 
@@ -25,15 +25,16 @@
             <form action="./controller/Login.php" method="post" id="login">
                 <input type="hidden" name="table" value="useraccount" />
                 <input type="hidden" name="form_action" value="login" />
-                <?php 
+                <?php
                 session_start();
-                if(isset($_SESSION['error'])){
+                if (isset($_SESSION['error'])) {
                 ?>
-                <div class="alert alert-danger" role="alert">
-                   <?=$_SESSION['error']?>
-                </div>
-                <br>
-                <?php }  session_destroy();?>
+                    <div class="alert alert-danger" role="alert">
+                        <?= $_SESSION['error'] ?>
+                    </div>
+                    <br>
+                <?php }
+                session_destroy(); ?>
                 <h1 class="text-login">Login</h1>
                 <label class="label" for="email">E-mail</label>
                 <input class="field input" type="email" id="email" name="email"  required>

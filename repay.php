@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/repay.css" />
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js" ></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
     <title>Document</title>
 </head>
 <?php include('nav.php'); ?>
@@ -44,20 +45,20 @@
                 </div>
                 <table class="main col-10">
                     <thead>
-                    <tr>
-                        <th width="15%">วันที่ชำระ</th>
-                        <th width="10%">วิธีการชำระ</th>
-                        <th width="10%">ไฟล์แนบ</th>
-                        <th width="10%">ยอดที่ชำระ</th>
-                        <th width="10%">หักเงินต้น</th>
-                        <th width="10%">หักดอกเบี้ย</th>
-                        <th width="10%">คงค้าง</th>
-                    </tr>
+                        <tr>
+                            <th width="15%">วันที่ชำระ</th>
+                            <th width="10%">วิธีการชำระ</th>
+                            <th width="10%">ไฟล์แนบ</th>
+                            <th width="10%">ยอดที่ชำระ</th>
+                            <th width="10%">หักเงินต้น</th>
+                            <th width="10%">หักดอกเบี้ย</th>
+                            <th width="10%">คงค้าง</th>
+                        </tr>
                     </thead>
                     <tbody id="list-repay">
 
                     </tbody>
-                    
+
                 </table>
                 <p></p>
                 <div class="row B">
@@ -90,21 +91,21 @@
 
                         <div class="col-12 p">
                             วิธีการชำระ: &nbsp;
-                            <select name="payment_sl" id="payment_sl"style="background-color: #7C904E;" >
+                            <select name="payment_sl" id="payment_sl" style="background-color: #7C904E;">
                                 <option value="เงินสด">เงินสด</option>
                                 <option value="โอนเงิน">โอนเงิน</option>
                             </select>
                         </div>
                         <div class="col-12 r" id="slip_upload">
                             ไฟล์แนบ: &nbsp;
-                            <input accept="image/*" type="file" name="slip" id="slip"/>
+                            <input accept="image/*" type="file" name="slip" id="slip" />
                         </div>
 
                         ยอดที่ชำระ: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="paymentamount" id="paymentamount" required /></div>
                         หักเงินต้น: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="deduct" id="deduct" required /></div>
                         หักดอกเบี้ย: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0" step="0.25" name="lessinterest" id="lessinterest" required /></div>
-                        คงค้าง: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="outstanding" id="outstanding"required /></div>
-                        
+                        คงค้าง: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="outstanding" id="outstanding" required /></div>
+
 
                         <div class="modal-footer">
                             <button type="submit" id="addtable" class="btn btn-primary1">ตกลง</button>

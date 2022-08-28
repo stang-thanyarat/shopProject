@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/addproductexchange.css" />
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js" ></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <title>addproductexchange</title>
 </head>
@@ -59,28 +59,28 @@
                             <div class="row a">
                                 <div class="col status">
                                     สถานะการเปลี่ยนสินค้า :<font color="red">&nbsp*</font>
-                                    <input type="radio" name="exchange_status" id="exchange_status" class="inbox" value="complete" >สำเร็จแล้ว
-                                    
+                                    <input type="radio" name="exchange_status" id="exchange_status" class="inbox" value="complete">สำเร็จแล้ว
+
                                     <input type="radio" name="exchange_status" id="exchange_status" class="inbox" value="wait" checked>รอของ
-                                    
+
                                 </div>
                             </div>
                             <div class="desc" id="wait">
-                            <div class="row a">
-                                <div class="col name">
-                                    ชื่อ :<font color="red">&nbsp*</font>
-                                    <input name="name" type="text" id="name" class="inbox" required />
-                                    <!--ดูชื่อ class และ id จากเพื่อน-->
+                                <div class="row a">
+                                    <div class="col name">
+                                        ชื่อ :<font color="red">&nbsp*</font>
+                                        <input name="name" type="text" id="name" class="inbox" required />
+                                        <!--ดูชื่อ class และ id จากเพื่อน-->
+                                    </div>
+                                </div>
+                                <div class="row a tel">
+                                    <div class="col">
+                                        เบอร์โทรติดต่อ :<font color="red">&nbsp*</font>
+                                        <input name="tel" type="text" id="tel" class="inbox" required />
+                                        <!--ดูชื่อ class และ id จากเพื่อน-->
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row a tel">
-                                <div class="col">
-                                    เบอร์โทรติดต่อ :<font color="red">&nbsp*</font>
-                                    <input name="tel" type="text" id="tel" class="inbox" required />
-                                    <!--ดูชื่อ class และ id จากเพื่อน-->
-                                </div>
-                            </div>
-</div>
             </div>
             </th>
             </tr>

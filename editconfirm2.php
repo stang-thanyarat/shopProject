@@ -5,15 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/editconfirm.css" />
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js" ></script>
-    <title>Document</title>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
 <?php include('nav.php'); ?>
 
 <body>
-<script src="./src/js/confirm.js"></script>
+    <script src="./src/js/confirm.js"></script>
     <form>
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
@@ -36,7 +35,7 @@
                             <option value="อาร์เอส อินเตอร์เทรด (2017) จำกัด" selected> อาร์เอส อินเตอร์เทรด (2017) จำกัด</option>
                         </select>
                     </div>
-                    <div class="col-12" >
+                    <div class="col-12">
                         วิธีการชำระเงิน:&nbsp;
                         <select name="payment" id="payment_sl" style="background-color: #7C904E;">
                             <option value="เงินสด" selected>เงินสด</option>
@@ -46,28 +45,28 @@
                         <input type="date" name="datepayment" id="datepayment">
                     </div>
                     <div id="slipupload">
-                    <div class="col-12" >
-                        ใบเสร็จ:&nbsp;<input type="file" accept="image/*" name="slip" >
-                        ใบส่งของ:&nbsp;<input type="file" accept="image/*" name="invoice" >
-                    </div>
-                    <div class="col-12">
-                        *ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB
-                    </div>
+                        <div class="col-12">
+                            ใบเสร็จ:&nbsp;<input type="file" accept="image/*" name="slip">
+                            ใบส่งของ:&nbsp;<input type="file" accept="image/*" name="invoice">
+                        </div>
+                        <div class="col-12">
+                            *ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB
+                        </div>
                     </div>
                     <div class="col-12">
                         หมายเหตุ:
                     </div>
                     <div class="col-12">
-                        <textarea style="vertical-align: middle; background-color: #7C904E;" name="detail" cols="50" rows="5" ></textarea>
+                        <textarea style="vertical-align: middle; background-color: #7C904E;" name="detail" cols="50" rows="5"></textarea>
                     </div>
                     <div class="col-12 C">
-                    รายการสินค้า
-                            <div class=" col-12 d-flex justify-content-end">
-                                <button type="button" class="btn2" id="addmodel_btn" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm">เพิ่มสินค้า</button>
-                            </div>
-                            <table class="main col-10">
-                                <thead>
-                                    <tr>
+                        รายการสินค้า
+                        <div class=" col-12 d-flex justify-content-end">
+                            <button type="button" class="btn2" id="addmodel_btn" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm">เพิ่มสินค้า</button>
+                        </div>
+                        <table class="main col-10">
+                            <thead>
+                                <tr>
                                     <th width="12%">ประเภทสินค้า</th>
                                     <th width="10%">รายการสินค้า</th>
                                     <th width="8%">ยี่ห้อ</th>
@@ -77,46 +76,46 @@
                                     <th width="15%">วันหมดอายุ</th>
                                     <th width="15%">ราคา (บาท)</th>
                                     <th width="10%"></th>
-                                    </tr>
-                                </thead>
-                                <tbody id="list-product">
+                                </tr>
+                            </thead>
+                            <tbody id="list-product">
 
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="col-12 C">
-                            ค่าใช้จ่ายอื่นๆ
-                            <div class=" col-12 d-flex justify-content-end">
-                                <button type="button" class="btn2" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1">เพิ่ม</button>
-                            </div>
-                            <table class="main col-10">
-                                <thead>
-                                    <tr>
-                                        <th width="45%">รายการ</th>
-                                        <th width="45%">ราคา</th>
-                                        <th width="10%"></th>
-                                    </tr>
-                                </thead>
-                                <tbody id="list-priceother">
-
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="row A">
-                            <div class=" col-12 d-flex justify-content-end" >
-                                ยอดสุทธิ:&nbsp;&nbsp;
-                                <input type="text" name="net_price" id="net_price">
-                            </div>
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="row B">
-                        <div class=" col-12 d-flex justify-content-end signin">
-                            <input class="BTNC" type="submit" value="ยกเลิก">
-                            <input class="BTN" type="submit" value="บันทึก">
+                    <div class="col-12 C">
+                        ค่าใช้จ่ายอื่นๆ
+                        <div class=" col-12 d-flex justify-content-end">
+                            <button type="button" class="btn2" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1">เพิ่ม</button>
+                        </div>
+                        <table class="main col-10">
+                            <thead>
+                                <tr>
+                                    <th width="45%">รายการ</th>
+                                    <th width="45%">ราคา</th>
+                                    <th width="10%"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="list-priceother">
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row A">
+                        <div class=" col-12 d-flex justify-content-end">
+                            ยอดสุทธิ:&nbsp;&nbsp;
+                            <input type="text" name="net_price" id="net_price">
                         </div>
                     </div>
                 </div>
+                <div class="row B">
+                    <div class=" col-12 d-flex justify-content-end signin">
+                        <input class="BTNC" type="submit" value="ยกเลิก">
+                        <input class="BTN" type="submit" value="บันทึก">
+                    </div>
+                </div>
             </div>
+        </div>
         </div>
     </form>
     <!---modal เพิ่มสินค้า-->

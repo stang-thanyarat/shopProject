@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/contract.css" />
     <title>Document</title>
 </head>
@@ -77,7 +77,7 @@
                             <div class="col-12">ให้แก่ผู้ซื้อเป็นจำนวนเงิน xxx บาท xxxx สตางค์ (xxxxxxxx)</div>
                             <div class="col-12">และยอมส่งมอบทรัพย์สินที่ขายให้แก่ผู้ซื้อวันที่&nbsp;<span>&nbsp;<input type="date" name="selldate" id="selldate" required></span> และผู้ขายได้รับราคาดังกล่าวแล้วไปจากผู้ซื้อเสร็จแล้วตั้งแต่วันที่&nbsp;<span>&nbsp;<input type="date" name="payDate" required></span></div>
                             <div class="col-12">ข้อ ๒ ผู้ขายยอมสัญญาว่า ทรัพย์สินซ่งผู้ขายนำมาขายให้แก่ผู้ซื้อนี้เป็นทรัพย์สินของผู้ขายคนเดียว และไม่เคยนำไปขาย จำนำ หรือทำสัญญาผูกพันธ์ใด ๆ แก่ผู้ใดเลย</div>
-                            <div class="col-12"><label for="contract" > ข้อ ๓ &nbsp;</label></div>
+                            <div class="col-12"><label for="contract"> ข้อ ๓ &nbsp;</label></div>
                             <div class="col-12"><textarea style="background-color: #7C904E; vertical-align: middle;" name="AnotherCondition" id="contract_details" cols="50" rows="5"></textarea></div>
                             <div class="col-12">ข้อ ๔ ผู้ขายและผู้ซื้อได้ทราบข้อความในสัญญานี้ดีแล้ว จึงได้ลงลายมือชื่อไว้ในสัญญานี้เป็นหลักฐาน</div>
 

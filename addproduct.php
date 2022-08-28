@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js" ></script>
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="./src/css/addproduct.css" />
 
@@ -71,7 +71,7 @@ $rows = $category->fetchAll();
 
                             <div class="row a">
                                 <div class="col productversion">
-                                    รุ่นสินค้า :<font color="red">&nbsp*</font>
+                                    รุ่นสินค้า :
                                     <input name="model" type="text" id="model" class="inbox" />
                                 </div>
                                 <div class="col sellername">
