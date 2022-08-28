@@ -1,37 +1,38 @@
-$("#category_id").change(async function () {
-    let url = `./controller/ProductResult.php?category_id=${$("#category_id").val()}`
+$("#account_user_type").change(async function () {
+    let url = `./controller/UserAccountResult.php?type=${$("#account_user_type").val()}`
     if ($("#keyword").val() !== "") {
         url += `&keyword=${$("#keyword").val()}`
     }
-    const product = await (await fetch(url)).json()
-    setUI(product)
+    const users = await (await fetch(url)).json()
+    console.log(url);
+    setUI(users)
 });
 
 $("#keyword").keyup(async function () {
-    let url = `./controller/ProductResult.php?keyword=${$("#keyword").val()}`
-    if ($("#category_id").val() !== "") {
-        url += `&category_id=${$("#category_id").val()}`
+    let url = `./controller/UserAccountResult.php?keyword=${$("#keyword").val()}`
+    if ($("#account_user_type").val() !== "") {
+        url += `&account_user_type=${$("#account_user_type").val()}`
     }
-    const product = await (await fetch(url)).json()
-    setUI(product)
+    const users = await (await fetch(url)).json()
+    setUI(users)
 });
 
 $(document).ready(async function () {
     let url = './controller/UserAccountResult.php'
-    const product = await (await fetch(url)).json()
-    console.log(product);
-    setUI(product)
+    const users = await (await fetch(url)).json()
+    setUI(users)
 });
 
 function setUI(data) {
     $('#useraccountTable').html('')
-    data.forEach(element => {
+    data.forEach((element,i) => {
+        console.log(element);
         $('#useraccountTable').append(`
         <tr>
-            <th>1</th>
-            <th>สมหญิง</th>
-            <th>ถึงที่หมาย</th>
-            <th>เจ้าของร้าน</th>
+            <th>${i+1}</th>
+            <th>${element.employee_firstname}</th>
+            <th>${element.employee_lastname}</th>
+            <th>${element.account_user_type==='E'?"พนักงาน":"เจ้าของร้าน"}</th>
             <th>
                 <label class="switch">
                     <input type="checkbox"/>

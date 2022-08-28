@@ -3,6 +3,7 @@
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
 }
+
 .row {
     --bs-gutter-x: 0rem;
 }
@@ -178,6 +179,17 @@ option {
     color: red;
     margin-left: 7.6rem;
     margin-top: -2.5rem;
+}
+
+.leftposition {
+    margin-left: -2.4rem;
+}
+
+.j {
+    color: red;
+    margin-left: 4rem;
+    margin-top: -1.8rem;
+    margin-bottom: 2rem;
 }
 
 @media only screen and (max-width: 540px) {

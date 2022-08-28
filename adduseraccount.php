@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
     <link rel="stylesheet" href="./src/css/adduseraccount.css" />
     <title>Document</title>
 </head>
@@ -34,6 +34,14 @@ $rows = $employee->fetchAll();
                         <?php } ?>
                     </select>
                     <div class="a">*</div>
+                </div>
+                <div class="col leftposition">
+                    <label for="account_user_type">ตำแหน่ง :</label>
+                    <input type="radio" name="account_user_type" value="L" class="bb" checked>
+                    <label for="account_user_type">เจ้าของร้าน </label>&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="account_user_type" value="E">
+                    <label for="account_user_type">พนักงาน</label>
+                    <div class="j">*</div>
                 </div>
             </div>
             <div class="row">
