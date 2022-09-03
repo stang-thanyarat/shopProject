@@ -4,7 +4,6 @@ $("#account_user_type").change(async function () {
         url += `&keyword=${$("#keyword").val()}`
     }
     const users = await (await fetch(url)).json()
-    console.log(url);
     setUI(users)
 });
 
@@ -26,7 +25,6 @@ $(document).ready(async function () {
 function setUI(data) {
     $('#useraccountTable').html('')
     data.forEach((element,i) => {
-        console.log(element);
         $('#useraccountTable').append(`
         <tr>
             <th>${i+1}</th>
@@ -35,7 +33,7 @@ function setUI(data) {
             <th>${element.account_user_type==='E'?"พนักงาน":"เจ้าของร้าน"}</th>
             <th>
                 <label class="switch">
-                    <input type="checkbox"/>
+                    <input ${element.account_user_status===1? 'checked' :''} id="S${element.employee_id}" type="checkbox" onchange="setStatus(${element.employee_id})"/>
                     <span class="slider round"></span>
                 </label>
             </th>
@@ -50,5 +48,5 @@ function setUI(data) {
 
 async function setStatus(id) {
     const status = $("#S" + id).is(':checked');
-    console.log(await (await fetch(`./controller/SetUserAccountStatus.php?status=${status}&id=${id}`)))
+    await (await fetch(`./controller/SetUserAccountStatus.php?status=${status}&id=${id}`))
 }

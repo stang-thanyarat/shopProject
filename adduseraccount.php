@@ -13,7 +13,7 @@
 include_once('nav.php');
 include_once('database/Employee.php');
 $employee = new Employee();
-$rows = $employee->fetchAll();
+$rows = $employee->fetchWithOutUserId();
 ?>
 
 <body>

@@ -47,13 +47,13 @@
                     </div>
                     <div class="col lefttelephone">
                         <label for="sell_telephone">เบอร์โทรศัพท์ :</label>
-                        <input type="text" name="sell_telephone" id="sell_telephone" onkeyup="autoTab2(this)" class="bb" required />
+                        <input type="text" name="sell_telephone" id="sell_telephone" onkeyup="autoTab2(this)" class="bb"/>
                         <div class="e">*</div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col leftaddress">
-                        ที่อยู่ :<font color="red">&nbsp*</font>
+                        ที่อยู่ :<span style="color: red; ">&nbsp*</span>
                         <textarea name="sell_address" id="sell_address" cols="40" rows="5" class="cc" style="vertical-align:top;" required></textarea>
                     </div>
                     <div class="col leftwebsite">
@@ -84,14 +84,14 @@
                     </div>
                     <div class="col leftemail">
                         <label for="seller_email">อีเมล :</label>
-                        <input type="email" name="seller_email" id="seller_email" class="bb" required />
+                        <input type="email" name="seller_email" id="seller_email" class="bb"/>
                         <div class="i">*</div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col leftnumber2">
                         <label for="seller_telephone">เบอร์โทรศัพท์ :</label>
-                        <input type="text" name="seller_telephone" id="seller_telephone" onkeyup="autoTab2(this)" class="bb" required />
+                        <input type="text" name="seller_telephone" id="seller_telephone" onkeyup="autoTab2(this)" class="bb"/>
                         <div class="j">*</div>
                     </div>
                     <div class="col leftidline">

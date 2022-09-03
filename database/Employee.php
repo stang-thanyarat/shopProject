@@ -1,8 +1,11 @@
 <?php
 include_once("Connection.php");
+include_once("UserAccount.php");
+
 class Employee
 {
     private $conn;
+
     function __construct()
     {
         try {
@@ -12,6 +15,7 @@ class Employee
             echo strval($e);
         }
     }
+
     public function fetchAll()
     {
         try {
@@ -26,16 +30,46 @@ class Employee
         }
     }
 
+    public function fetchWithOutUserId()
+    {
+        $employees = $this->fetchAll();
+        $users = (new UserAccount())->fetchAll();
+        $found = 0;
+        $data = [];
+        foreach ($employees as $employee) {
+            foreach ($users as $user) {
+                if ($employee['employee_id'] === $user['employee_id']) {
+                    $found++;
+                }
+            }
+            if($found<=0){
+                $data[]=$employee;
+            }
+        }
+        return $data;
+    }
+
+    public function searchByName($keyword){
+        $like = "%" . $keyword . "%";
+        $sql = "SELECT * FROM employee_tb WHERE employee_firstname LIKE ? OR employee_lastname LIKE ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $like, PDO::PARAM_STR);
+        $stmt->bindParam(2, $like, PDO::PARAM_STR);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
     public function search($keyword, $id = null)
     {
-        $like = "%".$keyword."%";
+        $like = "%" . $keyword . "%";
         $sql = "SELECT * FROM user_account_tb LEFT JOIN employee_tb ON user_account_tb.employee_id = user_account_tb.employee_id
         WHERE employee_firstname LIKE ? OR employee_lastname LIKE ?";
         if (!is_null($id)) {
             $sql .= " AND user_account_tb.account_user_type=?";
         }
         $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $like , PDO::PARAM_STR);
+        $stmt->bindParam(1, $like, PDO::PARAM_STR);
         if (!is_null($id)) {
             $stmt->bindParam(2, $id, PDO::PARAM_INT);
         }
