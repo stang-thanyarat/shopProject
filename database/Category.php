@@ -1,18 +1,22 @@
 <?php
 include_once("Connection.php");
-Class Category
+include_once("Product.php");
+
+class Category
 {
     private $conn;
+
     function __construct()
     {
         $this->conn = Connection();
     }
+
     public function fetchAll()
     {
         $sql = "SELECT * FROM category_tb";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        $result = $stmt->fetchAll(); 
+        $result = $stmt->fetchAll();
         return $result;
     }
 
@@ -24,6 +28,26 @@ Class Category
         $stmt->execute();
         $result = $stmt->fetch();
         return $result;
+    }
+
+
+    public function getCount($id, $on)
+    {
+        $products = new Product();
+        $products = $products->fetchByCategoryId($id);
+        $counts = 0;
+        if ($on) {
+            foreach ($products as $product) {
+                if (intval($product['sales_status']) === 1) {
+                    $counts++;
+                }
+            }
+        } else {
+            foreach ($products as $product) {
+                $counts++;
+            }
+        }
+        return $counts;
     }
 
     public function delete($id)
@@ -56,4 +80,5 @@ Class Category
         $stmt->execute();
     }
 }
+
 ?>
