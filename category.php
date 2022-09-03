@@ -16,7 +16,6 @@ include_once "./database/Category.php";
 include_once "./database/Product.php";
 $category =  new Category();
 $rows = $category->fetchAll();
-$product = new Product();
 ?>
 
 <body>
@@ -47,8 +46,8 @@ $product = new Product();
                         <tr>
                             <th><?= $i ?></th>
                             <th><?= $row['category_name'] ?></th>
-                            <th><?= $product->countCategoryId($row['category_id'], false) ?></th>
-                            <th><?= $product->countCategoryId($row['category_id'], true) ?></th>
+                            <th><?= $category->getCount($row['category_id'],false) ?></th>
+                            <th><?= $category->getCount($row['category_id'],true) ?></th>
                         </tr>
                     <?php $i++;
                     } ?>

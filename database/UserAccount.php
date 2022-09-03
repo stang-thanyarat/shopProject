@@ -87,7 +87,7 @@ class UserAccount
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $email, PDO::PARAM_STR);
             $stmt->execute();
-            $result = $stmt->fetch();
+            $result = $stmt->fetchAll();
             return $result;
         } catch (Exception $e) {
             http_response_code(500);

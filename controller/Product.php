@@ -3,7 +3,6 @@ include '../database/Product.php';
 include 'Redirection.php';
 include '../service/upload.php';
 $product = new Product();
-
 if (isset($_POST)) {
     if ($_POST['table'] === 'product') {
 
@@ -49,6 +48,7 @@ if (isset($_POST)) {
             $product->update($_POST);
 
             redirection('../productresult.php');
+
         } else if ($_POST['form_action'] === 'delete') {
             $product->delete($_POST['product_id']);
             

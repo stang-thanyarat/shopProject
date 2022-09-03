@@ -45,9 +45,9 @@ class Product
 
     public function countCategoryId($id, $on)
     {
-        $sql = "SELECT * FROM product_tb LEFT JOIN category_tb ON product_tb.category_id =category_tb.category_id WHERE category_id=?";
+        $sql = "SELECT * FROM product_tb LEFT JOIN category_tb ON product_tb.category_id = category_tb.category_id ";
         if ($on) {
-            $sql .= " AND sales_status=1";
+            $sql .= " AND product_tb.sales_status=1";
         }
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $id, PDO::PARAM_INT);
@@ -158,7 +158,7 @@ class Product
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $sql = "UPDATE product_tb
-        SET product_name = ?, category_id = ?, brand = ?, model = ?, sell_id = ?, product_detail = ?, product_img = ?, product_detail_img = ?, product_dlt_unit = ?, product_unit = ?, price = ?, cost_price = ?, notification_amt = ?, sales_status = ?, set_n_amt = ?, date_n_amt = ?, notification_amt2 = ?/*, product_rm_unit = ?, product_exchange_id = ?*/
+        SET product_name = ?, category_id = ?, brand = ?, model = ?, sell_id = ?, product_detail = ?, product_img = ?, product_detail_img = ?, product_dlt_unit = ?, product_unit = ?, price = ?, cost_price = ?, notification_amt = ?, set_n_amt = ?, date_n_amt = ?, notification_amt2 = ?
         WHERE product_id=?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $data['product_name'], PDO::PARAM_STR);
@@ -174,13 +174,10 @@ class Product
         $stmt->bindParam(11, $data['price'], PDO::PARAM_STR);
         $stmt->bindParam(12, $data['cost_price'], PDO::PARAM_STR);
         $stmt->bindParam(13, $data['notification_amt'], PDO::PARAM_INT);
-        $stmt->bindParam(14, $data['sales_status'], PDO::PARAM_INT); //Boolean ใช้ INT
-        //$stmt->bindParam(15, $data['product_rm_unit'], PDO::PARAM_INT);
-        //$stmt->bindParam(16, $data['product_exchange_id'], PDO::PARAM_INT);
-        $stmt->bindParam(15, $data['set_n_amt'], PDO::PARAM_INT);
-        $stmt->bindParam(16, $data['date_n_amt'], PDO::PARAM_STR);
-        $stmt->bindParam(17, $data['notification_amt2'], PDO::PARAM_INT);
-        $stmt->bindParam(18, $data['product_id'], PDO::PARAM_INT);
+        $stmt->bindParam(14, $data['set_n_amt'], PDO::PARAM_INT);
+        $stmt->bindParam(15, $data['date_n_amt'], PDO::PARAM_STR);
+        $stmt->bindParam(16, $data['notification_amt2'], PDO::PARAM_INT);
+        $stmt->bindParam(17, $data['product_id'], PDO::PARAM_INT);
         $stmt->execute();
     }
 }
