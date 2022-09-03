@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="385074c4-520f-4822-99cb-04ab19287d5c" name="Changes" comment="">
+    <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/controller/LogOut.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/js/nav.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/category.php" beforeDir="false" afterPath="$PROJECT_DIR$/category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addseller.php" beforeDir="false" afterPath="$PROJECT_DIR$/addseller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/LogIn.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/LogIn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/UserAccountResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/UserAccountResult.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Employee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/UserAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/UserAccount.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/editseller.php" beforeDir="false" afterPath="$PROJECT_DIR$/editseller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/editstaff.php" beforeDir="false" afterPath="$PROJECT_DIR$/editstaff.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/nav.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/productlist.php" beforeDir="false" afterPath="$PROJECT_DIR$/productlist.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sall.php" beforeDir="false" afterPath="$PROJECT_DIR$/sall.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/mailSevice/sample_email.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/mailSevice/sample_email.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/employee.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/employee.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/addnewstaff.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/addnewstaff.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/addseller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/addseller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/bar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/bar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/useraccount.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/useraccount.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +54,6 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "C:/xampp/htdocs/shopProject",
-    "node.js.selected.package.tslint": "(autodetect)",
     "settings.editor.selected.configurable": "preferences.general",
     "vue.rearranger.settings.migration": "true"
   }
@@ -61,7 +70,7 @@
       <option name="presentableId" value="Default" />
       <updated>1662183157031</updated>
       <workItem from="1662183159862" duration="299000" />
-      <workItem from="1662183520787" duration="14430000" />
+      <workItem from="1662183520787" duration="19599000" />
     </task>
     <servers />
   </component>

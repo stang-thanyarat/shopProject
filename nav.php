@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="./node_modules/sweetalert2/dist/sweetalert2.min.css" />
 <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #A36627;">
     <div class="container-fluid" >
-        <a class="navbar-brand nav-bell" href="index.php"> หน้าแรก<img class='print' src="./src/images/bell.png" width="25"></a>
+        <a class="navbar-brand nav-link" href="index.php"> หน้าแรก &nbsp;<img class='print' src="./src/images/bell.png" width="25"></a>
         <a herf="#"><img src="" /></a>
         <div class="d-flex">
             <button onclick="logout()" style="background: transparent; border: none;"><?= $_SESSION['username'];?></button>
