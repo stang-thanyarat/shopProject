@@ -70,11 +70,11 @@ $rows = $category->fetchAll();
                     </div>
                     <div class="modal-body">
                         <div class="exp">
-                            วันหมดอายุ :&nbsp<font color="red">&nbsp*</font>
+                            วันหมดอายุ :&nbsp<span style="color: red; ">&nbsp*</span>
                             <input type="date" name="list" id="list" class="inbox" />
                         </div>
                         <div class="amount">
-                            จำนวน : <font color="red">&nbsp*</font>
+                            จำนวน : <span style="color: red; ">&nbsp*</span>
                             <input type="text" name="amount" id="amount" class="inbox" />
                         </div>
                     </div>
@@ -99,17 +99,17 @@ $rows = $category->fetchAll();
                     </div>
                     <div class="modal-body">
 
-                        <center>
+                        <div style="text-align: center;">
 
                             วันหมดอายุ: &nbsp;<input type="date" name="mfg" id="mfg" required />
                             &nbspถึง&nbsp<input type="date" name="exp" id="exp" required /><br>
                             <p></p>
 
-                        </center>
+                        </div>
 
-                        <center>จำนวน: &nbsp;<input type="text" name="amount" id="amount" required />
+                        <div style="text-align: center;">จำนวน: &nbsp;<input type="text" name="amount" id="amount" required />
                             <p></p>
-                        </center>
+                        </div>
 
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary1">ตกลง</button>

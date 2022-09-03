@@ -299,7 +299,7 @@ for ($i = 0; $i < count($banks); $i++) {
 <script>
     $(document).ready(function() {
         localStorage.clear()
-        localStorage.setItem(" tableBank", JSON.stringify({
+        localStorage.setItem("tableBank", JSON.stringify({
             data: [<?php echo $json; ?>]
         }))
     });
