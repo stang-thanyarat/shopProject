@@ -1,12 +1,15 @@
 <?php
 include_once("Connection.php");
+
 class UserAccount
 {
     private $conn;
+
     function __construct()
     {
         $this->conn = Connection();
     }
+
     public function fetchAll()
     {
         try {
@@ -20,10 +23,11 @@ class UserAccount
             return [];
         }
     }
+
     public function fetchAddEmployee()
     {
         try {
-            $sql = "SELECT * FROM user_account_tb LEFT JOIN employee_tb ON user_account_tb.employee_id = user_account_tb.employee_id";
+            $sql = "SELECT * FROM user_account_tb LEFT JOIN employee_tb ON user_account_tb.employee_id = employee_tb.employee_id";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetchAll();
@@ -37,7 +41,7 @@ class UserAccount
     public function updateStatus($status, $id)
     {
         try {
-            $sql = "UPDATE user_account_tb SET account_user_status = ? WHERE unique_id=?";
+            $sql = "UPDATE user_account_tb SET account_user_status = ? WHERE employee_id=?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $status, PDO::PARAM_INT);
             $stmt->bindParam(2, $id, PDO::PARAM_INT);
@@ -76,11 +80,12 @@ class UserAccount
         }
     }
 
-    public function fetchByEmail($email){
+    public function fetchByEmail($email)
+    {
         try {
             $sql = "SELECT * FROM user_account_tb WHERE account_username=?";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(1, $email, PDO::PARAM_INT);
+            $stmt->bindParam(1, $email, PDO::PARAM_STR);
             $stmt->execute();
             $result = $stmt->fetch();
             return $result;
@@ -91,33 +96,35 @@ class UserAccount
     }
 
 
-
     public function search($keyword, $type = null)  // sql ผิดอยู่
     {
-        $like = "%".$keyword."%";
-        $sql = "SELECT * FROM employee_tb , user_account_tb WHERE employee_tb.employee_firstname LIKE ? OR employee_tb.employee_lastname LIKE ? ";
-        if (!is_null($type)) {
-            $sql .= " AND user_account_tb.account_user_type=?";
+        $userData = $this->fetchAddEmployee();
+        $data = [];
+        foreach ($userData as $user) {
+            if (strpos($user['employee_firstname'], $keyword) !== false
+                || strpos($user['employee_lastname'], $keyword) !== false) {
+                if (is_null($type)) {
+                    $data[] = $user;
+                } else {
+                    if (strpos($user['account_user_type'], $type) !== false) {
+                        $data[] = $user;
+                    }
+                }
+            }
         }
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $like , PDO::PARAM_STR);
-        $stmt->bindParam(2, $like , PDO::PARAM_STR);
-        if (!is_null($type)) {
-            $stmt->bindParam(3, $type, PDO::PARAM_STR);
-        }
-        $stmt->execute();
-        $result = $stmt->fetchAll();
-        return $result;
+        return $data;
     }
 
-    public function findByType($type){
-        $sql = "SELECT * FROM employee_tb , user_account_tb WHERE account_user_type=?";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $type , PDO::PARAM_STR);
-        $stmt->execute();
-        $result = $stmt->fetchAll();
-        return $result;
-        
+    public function findByType($type)
+    {
+        $userData = $this->fetchAddEmployee();
+        $data = [];
+        foreach ($userData as $user) {
+            if (strpos($user['account_user_type'], $type) !== false) {
+                $data[] = $user;
+            }
+        }
+        return $data;
     }
 
     public function insert($data)

@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/addnewstaff.css" />
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./node_modules/sweetalert2/dist/sweetalert2.min.css" />
+
 
 
     <title>Document</title>
@@ -83,7 +84,7 @@
                             <div class="row">
                                 <div class="col leftidcardnumber">
                                     <label for="employee_card_id">เลขบัตรประชาชน :</label>
-                                    <input name="employee_card_id" type="text" id=employee_card_id onkeyup="autoTab(this)" class="bb" required />
+                                    <input name="employee_card_id" type="text" id=employee_card_id onkeyup="autoTab(this)" class="bb" />
                                     <div class="e">*</div>
                                 </div>
                                 <div class="col leftbirthday">
@@ -102,17 +103,17 @@
                             <div class="row">
                                 <div class="col lefttelephone">
                                     <label for="employee_telephone">โทรศัพท์ :</label>
-                                    <input name="employee_telephone" type="text" id=employee_telephone onkeyup="autoTab2(this)" class="bb" required />
+                                    <input name="employee_telephone" type="text" id=employee_telephone onkeyup="autoTab2(this)" class="bb" />
                                     <div class="g">*</div>
                                 </div>
                                 <div class="col leftemail">
                                     <label for="employee_email">อีเมล :</label>
-                                    <input name="employee_email" type="email" id="employee_email" onblur='check_email(this)' class="bb" required />
+                                    <input name="employee_email" type="text" id="employee_email" onblur='check_email(this)' class="bb"  />
                                     <div class="h">*</div>
                                 </div>
                             </div>
                             <div class="col leftaddress">
-                                ที่อยู่ :<font color="red">&nbsp*</font>
+                                ที่อยู่ :<span style="color: red; ">&nbsp*</span>
                                 <textarea name="employee_address" id="employee_address" type="text" cols="40" rows="5" class="cc" style="vertical-align:top;" required></textarea>
                             </div>
 

@@ -44,26 +44,52 @@ function checkID(id) {
 $("#form1").submit(async function (event) {
     event.preventDefault();
     if (!checkID(document.form1.employee_card_id.value)) {
-        alert('ระบุหมายเลขประจำตัวประชาชนไม่ถูกต้อง');
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'ระบุหมายเลขประจำตัวประชาชนไม่ถูกต้อง',
+            timer:3000
+        })
         return
     }
     if (!telephone(document.form1.employee_telephone.value)) {
-        alert('เบอร์โทรศัพท์ไม่ถูกต้อง');
-        return
-    }
-    if (JSON.parse(localStorage.getItem("tableBank")).data.length <= 0) {
-        alert('กรุณากรอกข้อมูลบัญชีธนาคาร');
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'เบอร์โทรศัพท์ไม่ถูกต้อง',
+            timer:3000
+        })
         return
     }
     if (!check_email(document.form1.employee_email)) {
         event.preventDefault();
-        alert('อีเมลไม่ถูกต้อง');
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'อีเมลไม่ถูกต้อง',
+            timer:3000
+        })
         return
-    } else {
+    }
+    if (JSON.parse(localStorage.getItem("tableBank")).data.length <= 0) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'กรุณากรอกข้อมูลบัญชีธนาคาร',
+            timer:3000
+        })
+        return
+    }
+     else {
         const Employee = await (await fetch(`controller/EmailEmployeeCheck.php?email=${document.form1.employee_email.value}`)).json()
         if (Employee.length > 0) {
             event.preventDefault();
-            alert('อีเมลนี้มีผู้ใช้งานอยู่แล้ว');
+            Swal.fire({
+                icon: 'warning',
+                title: 'คำเตือน',
+                text: 'อีเมลนี้มีผู้ใช้งานอยู่แล้ว',
+                timer:3000
+            })
             //console.log (Employee);
             return
         } else {
@@ -77,7 +103,11 @@ $("#form1").submit(async function (event) {
             if (!response.ok) {
                 console.log(response);
             } else {
-                alert("success");
+                await Swal.fire({
+                    icon: 'success',
+                    text: 'บันทึกข้อมูลเสร็จสิ้น',
+                    timer:3000
+                })
                 console.log(await response.text());
                 window.location.assign("employee.php");
             }
@@ -98,6 +128,9 @@ function autoTab2(obj) {
             obj.value = returnText;
         }
     }
+    if (obj_l >= pattern.length) {
+        obj.value = obj.value.substr(0, pattern.length);
+    }
 }
 
 //เช็คอีเมล
@@ -108,13 +141,7 @@ function check_email(elm) {
     return text.match(regex_email)
 }
 
-//เช็คจำนวนรหัสผ่าน
-function check_num(elm) {
-    var regex_num = /^\s*\S+(\s?\S)*\s*$/
-    if (elm.value.length < 6 || elm.value.length > 15&&!elm.value.match(regex_num)) {
-        alert("จำนวนตัวอักษรหรือตัวเลขอยู่ช่วง 6-15 ตัวเท่านั้น");
-    }
-}
+
 
 //ตรวจสอบเบอร์โทรศัพท์
 function telephone(inputtxt) {
