@@ -15,7 +15,7 @@ include_once('database/Employee.php');
 $employee = new Employee();
 include_once('nav.php');
 if (isset($_GET['keyword'])) {
-    $rows = $employee->search($_GET['keyword']);
+    $rows = $employee->searchByName($_GET['keyword']);
 } else {
     $rows = $employee->fetchAll();
 }
@@ -49,6 +49,8 @@ if (isset($_GET['keyword'])) {
                         <th>ชื่อ-นามสกุล</th>
                         <th>เลขบัตรประชาชน</th>
                         <th>เบอร์โทรศัพท์</th>
+                        <th class="copy">สำเนาบัตรประชาชน</th>
+                        <th class="copy">สำเนาทะเบียนบ้าน</th>
                         <th>สถานะการใช้งาน</th>
                         <th></th>
                     </tr>
@@ -57,6 +59,8 @@ if (isset($_GET['keyword'])) {
                             <th><?= $e['employee_prefix'] . $e['employee_firstname'] . " " . $e['employee_lastname']; ?></th>
                             <th><?= $e['employee_card_id']; ?></th>
                             <th><?= $e['employee_telephone']; ?></th>
+                            <th class="copy"><a href="<?= $e['employee_card_id_copy']; ?>">ดู</a></th>
+                            <th class="copy"><a href="<?= $e['employee_address_copy']; ?>">ดู</a></th>
                             <th>
                                 <label class="switch">
                                     <input type="checkbox" id="S<?= $e['employee_id']; ?>" <?= $e['employee_status'] == 1 ? "checked" : ""; ?> onchange="setStatus(<?= $e['employee_id']; ?>)" />

@@ -1,7 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 include_once './phpmailer/src/PHPMailer.php';
 include_once './phpmailer/src/SMTP.php';
 include_once './phpmailer/src/Exception.php';
@@ -14,21 +13,16 @@ $mail->Port = 587;
 $mail->SMTPSecure = 'tls';
 $mail->SMTPAuth = true;
 
-
-$gmail_username = "stangstang0508@gmail.com"; // gmail ที่ใช้ส่ง
-$gmail_password = "0958122915"; // รหัสผ่าน gmail
-// ตั้งค่าอนุญาตการใช้งานได้ที่นี่ https://myaccount.google.com/lesssecureapps?pli=1
-
-
 $sender = "Thanyarat"; // ชื่อผู้ส่ง
-$email_sender = "stangstang0508@gmail.com"; // เมล์ผู้ส่ง 
 $email_receiver = "stangstang0508@gmail.com"; // เมล์ผู้รับ ***
 
 $subject = "รายงานประจำวัน"; // หัวข้อเมล์
 
-
-$mail->Username = $gmail_username;
-$mail->Password = $gmail_password;
+$email_sender= "padetsuek.2543@gmail.com";
+$mail->oauthUserEmail = "padetsuek.2543@gmail.com";
+$mail->oauthClientId = "177945959551-al6m9c80p26v3cvhf9j211g5an46umot.apps.googleusercontent.com";
+$mail->oauthClientSecret = "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";
+//$mail->oauthRefreshToken = "[Redacted]";
 $mail->setFrom($email_sender, $sender);
 $mail->addAddress($email_receiver);
 $mail->Subject = $subject;
@@ -73,5 +67,3 @@ $email_content = "
 	</html>
 ";
 $mail->msgHTML($email_content);
-
-?>

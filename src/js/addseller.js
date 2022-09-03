@@ -1,29 +1,52 @@
 $(document).ready(function () {
     localStorage.clear()
-    localStorage.setItem("tableBank", JSON.stringify({ data: [] }))
+    localStorage.setItem("tableBank", JSON.stringify({data: []}))
 });
 
 //ตรวจสอบพร้อมส่งข้อมูล
 $("#form1").submit(async function (event) {
     event.preventDefault();
-    if (JSON.parse(localStorage.getItem("tableBank")).data.length <= 0) {
-        event.preventDefault();
-        alert('กรุณากรอกข้อมูลบัญชีธนาคาร');
-        return
-    }
-    if (!telephone2(document.form1.seller_telephone.value)) {
-        event.preventDefault();
-        alert('เบอร์โทรศัพท์ไม่ถูกต้อง');
-        return
-    }
     if (!telephone1(document.form1.sell_telephone.value)) {
         event.preventDefault();
-        alert('เบอร์โทรศัพท์ไม่ถูกต้อง');
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'เบอร์โทรศัพท์ไม่ถูกต้อง',
+            timer: 3000
+        })
         return
     }
-   if (!check_email(document.form1.seller_email.value)) {
+
+    if (!check_email(document.form1.seller_email.value)) {
         event.preventDefault();
-        alert('อีเมลไม่ถูกต้อง');
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'อีเมลไม่ถูกต้อง',
+            timer: 3000
+        })
+        return
+    }
+
+    if (!telephone2(document.form1.seller_telephone.value)) {
+        event.preventDefault();
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'เบอร์โทรศัพท์ไม่ถูกต้อง',
+            timer: 3000
+        })
+        return
+    }
+
+    if (JSON.parse(localStorage.getItem("tableBank")).data.length <= 0) {
+        event.preventDefault();
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'กรุณากรอกข้อมูลบัญชีธนาคาร',
+            timer: 3000
+        })
         return
     } else {
         const Seller = await (await fetch(`controller/EmailSellCheck.php?email=${document.form1.seller_email.value}`)).json()
@@ -31,7 +54,7 @@ $("#form1").submit(async function (event) {
             event.preventDefault();
             alert('อีเมลนี้มีผู้ใช้งานอยู่แล้ว');
             return
-        }else{
+        } else {
             event.preventDefault();
             $('#bank').val(JSON.stringify(JSON.parse(localStorage.getItem("tableBank")).data))
             let response = await fetch('controller/Sell.php', {
@@ -41,7 +64,11 @@ $("#form1").submit(async function (event) {
             if (!response.ok) {
                 console.log(response);
             } else {
-                alert("success");
+                await Swal.fire({
+                    icon: 'success',
+                    text: 'บันทึกข้อมูลเสร็จสิ้น',
+                    timer: 3000
+                })
                 window.location.assign("sall.php");
             }
         }
@@ -87,14 +114,6 @@ function autoTab2(obj) {
 function check_email(elm) {
     var regex_email = /^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*\@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.([a-zA-Z]){2,4})$/
     return elm.match(regex_email)
-}
-
-//เช็คจำนวนรหัสผ่าน
-function check_num(elm) {
-    var regex_num = /^\s*\S+(\s?\S)*\s*$/
-    if (elm.value.length < 6 || elm.value.length > 15&&!elm.value.match(regex_num)) {
-        alert("จำนวนตัวอักษรหรือตัวเลขอยู่ช่วง 6-15 ตัวเท่านั้น");
-    }
 }
 
 //ตรวจสอบเบอร์โทรศัพท์
@@ -182,6 +201,7 @@ $("#editbankaccount").submit(function (event) {
 function saveIndexDel(i) {
     localStorage.setItem('deleteIndex', i)
 }
+
 //กำหนดแถวที่จะแก้ไข พร้อมข้อมูลเริ่มต้น บัญชี
 function saveIndexEdit(i) {
     localStorage.setItem('editIndex', i)

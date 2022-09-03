@@ -104,7 +104,11 @@ table {
 
 th {
     height: 50px;
-    width: 20%;
+    width: fit-content;
+}
+
+.copy{
+    width: 150px;
 }
 
 select {
