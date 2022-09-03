@@ -11,6 +11,7 @@ if (isset($_POST)) {
     if ($_POST['table'] === 'useraccount') {
         if ($_POST['form_action'] === 'login') {
             $user = $useraccount->fetchByEmail($_POST['email']);
+            var_dump($user);
             if (count($user) > 0) {
                 if (password_verify($_POST['password'], $user['account_password'])) {
                     if ($user['account_user_status'] == 0) {
