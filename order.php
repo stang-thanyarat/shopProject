@@ -15,9 +15,9 @@ include_once('./database/Order.php');
 $order = new Order();
 include_once('nav.php');
 if (isset($_GET['keyword'])) {
-$rows = $order->search($_GET['keyword']);
+    $rows = $order->search($_GET['keyword']);
 } else {
-$rows = $order->fetchAll();
+    $rows = $order->fetchAll();
 }
 ?>
 
