@@ -181,12 +181,30 @@ class Employee
         }
     }
 
+    public function updateimage($filename, $img, $employee_id)
+    {
+        try {
+            $colname = ['employee_card_id_copy', 'employee_address_copy'];
+            if (in_array($filename, $colname)) {
+                $sql = "UPDATE employee_tb SET $filename = ? WHERE employee_id=?";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->bindParam(1, $img, PDO::PARAM_STR);
+                $stmt->bindParam(2, $employee_id, PDO::PARAM_INT);
+                $stmt->execute();
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
+    }
+
+
     public function update($data)
     {
         try {
             $sql = "UPDATE employee_tb
         SET employee_model = ?, employee_startwork_dt = ?, employee_prefix = ?, employee_firstname = ?, employee_lastname = ?, employee_address = ?, employee_birthday = ?,
-        employee_card_id = ?, employee_telephone = ?, employee_email = ?, employee_card_id_copy = ?, employee_address_copy = ?, employee_status = ?
+        employee_card_id = ?, employee_telephone = ?, employee_email = ?
         WHERE employee_id=?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $data['employee_model'], PDO::PARAM_STR);
@@ -199,10 +217,7 @@ class Employee
             $stmt->bindParam(8, $data['employee_card_id'], PDO::PARAM_STR);
             $stmt->bindParam(9, $data['employee_telephone'], PDO::PARAM_STR);
             $stmt->bindParam(10, $data['employee_email'], PDO::PARAM_STR);
-            $stmt->bindParam(11, $data['employee_card_id_copy'], PDO::PARAM_STR);
-            $stmt->bindParam(12, $data['employee_address_copy'], PDO::PARAM_STR);
-            $stmt->bindParam(13, $data['employee_status'], PDO::PARAM_INT);
-            $stmt->bindParam(14, $data['employee_id'], PDO::PARAM_INT);
+            $stmt->bindParam(11, $data['employee_id'], PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
             http_response_code(500);

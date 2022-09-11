@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/LogIn.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/LogIn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order.php" beforeDir="false" afterPath="$PROJECT_DIR$/order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Employee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/Sell.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Sell.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Employee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Sell.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Sell.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
