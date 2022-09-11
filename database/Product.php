@@ -66,6 +66,19 @@ class Product
         return $result;
     }
 
+    public function deleteByCategoryId($id)
+    {
+        $sql = "SET FOREIGN_KEY_CHECKS=0";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $sql = "DELETE FROM product_tb WHERE category_id=?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
     public function search($keyword, $id = null)
     {
         $like = "%".$keyword."%";
@@ -86,6 +99,9 @@ class Product
 
     public function delete($id)
     {
+        $sql = "SET FOREIGN_KEY_CHECKS=0";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
         $sql = "DELETE FROM product_tb WHERE product_id=?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $id, PDO::PARAM_INT);
