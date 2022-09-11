@@ -103,7 +103,6 @@ table {
 
 th {
     height: 50px;
-    width: 20%;
 }
 
 
@@ -116,6 +115,11 @@ select {
     border-radius: 25px 25px 25px 25px;
     font-size: 16pt;
     width: 100%;
+}
+
+.bgs{
+    border: 0ch;
+    background-color: #fff;
 }
 
 .submit {

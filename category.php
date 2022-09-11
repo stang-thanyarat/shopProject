@@ -44,10 +44,14 @@ $rows = $category->fetchAll();
                     <?php $i = 1;
                     foreach ($rows as $row) { ?>
                         <tr>
-                            <th><?= $i ?></th>
-                            <th><?= $row['category_name'] ?></th>
-                            <th><?= $category->getCount($row['category_id'],false) ?></th>
-                            <th><?= $category->getCount($row['category_id'],true) ?></th>
+                            <th width=10%><?= $i ?></th>
+                            <th width=35%><?= $row['category_name'] ?></th>
+                            <th width=20%><?= $category->getCount($row['category_id'], false) ?></th>
+                            <th width=20%><?= $category->getCount($row['category_id'], true) ?></th>
+                            <th>
+                                <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
+                                <a type="button" class="btn1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl3"><img src="./src/images/icon-pencil.png" width="25"></a>
+                            </th>
                         </tr>
                     <?php $i++;
                     } ?>
@@ -71,7 +75,7 @@ $rows = $category->fetchAll();
                         </div>
                         <div class="modal-body">
                             <div class="row">
-                                <div class="addproducttypename">
+                                <div class="addcategory">
                                     <label for="category_name">ชื่อประเภทสินค้า : </label>
                                     <font color="red">&nbsp*</font>
                                     <input type="text" name="category_name" id="category_name" class="inbox" required>
@@ -119,52 +123,22 @@ $rows = $category->fetchAll();
                         </div>
                         <div class="modal-body">
                             <div class="row">
-                                <div class="col leftproducttype">
-                                    ชื่อประเภทสินค้า :<font color="red">&nbsp*</font>
-                                    <select name="category_name" id="editproducttypename" class="inbox" required>
-                                        <option value="" selected hidden>เลือกประเภทสินค้า</option>
-                                        <option value="ใบตัดหญ้า">ใบตัดหญ้า</option>
-                                        <option value="ชุดเสื้อสูบ">ชุดเสื้อสูบ</option>
-                                        <option value="หัวเกียร์">หัวเกียร์</option>
-                                        <option value="ใบตัดข้าว">ใบตัดข้าว</option>
-                                        <option value="น็อตสกรู">น็อตสกรู</option>
-                                        <option value="เชือกเอ็น">เชือกเอ็น</option>
-                                        <option value="จานตัดหญ้า">จานตัดหญ้า</option>
-                                        <option value="คาบู">คาบู</option>
-                                        <option value="อะไหล่เครื่องพ่นปุ๋ย">อะไหล่เครื่องพ่นปุ๋ย</option>
-                                        <option value="ยางกันสะเทือน">ยางกันสะเทือน</option>
-                                        <option value="ปั๊มน้ำ">ปั๊มน้ำ</option>
-                                        <option value="เครื่องตัดหญ้า">เครื่องตัดหญ้า</option>
-                                        <option value="เมล็ดพันธุ์">เมล็ดพันธุ์</option>
-                                        <option value="ยากำจัดวัชพืช">ยากำจัดวัชพืช</option>
-                                        <option value="ปุ๋ยเคมี">ปุ๋ยเคมี</option>
-                                    </select>
+                                <div class="editcategory">
+                                    <label for="category_name">ชื่อประเภทสินค้า : </label>
+                                    <font color="red">&nbsp*</font>
+                                    <input type="text" name="category_name" id="category_name" class="inbox" required>
                                 </div>
                             </div>
-
-                            <div class="row">
-                                <div class="col leftallproducttype">
-                                    รายการทั้งหมด :<font color="red">&nbsp*</font>
-                                    <input type="text" name="editallproducttype" id="editallproducttype" class="inbox">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col leftsellproducttype">
-                                    รายการที่ขาย :<font color="red">&nbsp*</font>
-                                    <input type="text" name="editsellproducttype" id="editsellproducttype" class="inbox">
-                                </div>
-                            </div>
-
-                            <div class="modal-footer">
-                                <button type="submit" class="btn1 btn-primary1">ตกลง</button>
-                            </div>
-
                         </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn1 btn-primary1">ตกลง</button>
+                        </div>
+
                     </div>
                 </div>
-            </form>
         </div>
+        </form>
+    </div>
 </body>
 
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>

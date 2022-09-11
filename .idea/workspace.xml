@@ -2,25 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/controller/LogOut.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/js/nav.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addseller.php" beforeDir="false" afterPath="$PROJECT_DIR$/addseller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/LogIn.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/LogIn.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/UserAccountResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/UserAccountResult.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Employee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/UserAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/UserAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/editseller.php" beforeDir="false" afterPath="$PROJECT_DIR$/editseller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/editstaff.php" beforeDir="false" afterPath="$PROJECT_DIR$/editstaff.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/nav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/productlist.php" beforeDir="false" afterPath="$PROJECT_DIR$/productlist.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addorder2.php" beforeDir="false" afterPath="$PROJECT_DIR$/addorder2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/category.php" beforeDir="false" afterPath="$PROJECT_DIR$/category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/customer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order.php" beforeDir="false" afterPath="$PROJECT_DIR$/order.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sall.php" beforeDir="false" afterPath="$PROJECT_DIR$/sall.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/mailSevice/sample_email.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/mailSevice/sample_email.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/employee.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/employee.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/addnewstaff.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/addnewstaff.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/category.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/category.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/addseller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/addseller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/bar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/bar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/useraccount.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/useraccount.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,16 +38,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/xampp/htdocs/shopProject",
-    "settings.editor.selected.configurable": "preferences.general",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/shopProject&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
@@ -71,6 +61,7 @@
       <updated>1662183157031</updated>
       <workItem from="1662183159862" duration="299000" />
       <workItem from="1662183520787" duration="19599000" />
+      <workItem from="1662536176838" duration="2351000" />
     </task>
     <servers />
   </component>

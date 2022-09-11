@@ -22,13 +22,13 @@
                 <div class="col main row-5" style="margin-top:20px;">
                     <?php for ($i = 0; $i < 15; $i++) { ?>
                         <a href="customer2.php" class="button" style="margin:10px;">
-                            <font size="5">กระเจี๊ยบ-อพอลโล </font><br><br>
+                            <span style="font-size: large; ">กระเจี๊ยบ-อพอลโล </span><br><br>
                             <img src="./src/images/roselle.png" width="130"><br>
                             <div class="d-flex justify-content-end">
-                                <font size="4">฿20</font>
+                                <span style="font-size: medium; ">฿20</span>
                             </div>
                             <div class="d-flex justify-content-end">
-                                <font size="4">คงเหลือ 25 ซอง</font>
+                                <span style="font-size: medium; ">คงเหลือ 25 ซอง</span>
                             </div>
                         </a>
                     <?php } ?>
