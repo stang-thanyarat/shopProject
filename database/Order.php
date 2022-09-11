@@ -26,7 +26,7 @@ Class Order{
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $like, PDO::PARAM_STR);
             $stmt->execute();
-            $result = $stmt->fetchAll();
+            $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
             return $result;
         } catch (Exception $e) {
             http_response_code(500);

@@ -16,7 +16,7 @@ class UserAccount
             $sql = "SELECT * FROM user_account_tb";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-            $result = $stmt->fetchAll();
+            $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
             return $result;
         } catch (Exception $e) {
             http_response_code(500);
@@ -30,7 +30,7 @@ class UserAccount
             $sql = "SELECT * FROM user_account_tb LEFT JOIN employee_tb ON user_account_tb.employee_id = employee_tb.employee_id";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-            $result = $stmt->fetchAll();
+            $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
             return $result;
         } catch (Exception $e) {
             http_response_code(500);
@@ -59,7 +59,7 @@ class UserAccount
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
-            $result = $stmt->fetch();
+            $result = $stmt->fetch( PDO::FETCH_ASSOC);
             return $result;
         } catch (Exception $e) {
             http_response_code(500);
@@ -67,9 +67,28 @@ class UserAccount
         }
     }
 
+    public function deleteByEmployeeId($id)
+    {
+        try {
+            $sql = "SET FOREIGN_KEY_CHECKS=0";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $sql = "DELETE FROM user_account_tb WHERE employee_id=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->execute();
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
+    }
+
     public function delete($id)
     {
         try {
+            $sql = "SET FOREIGN_KEY_CHECKS=0";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
             $sql = "DELETE FROM user_account_tb WHERE unique_id=?;";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
@@ -87,7 +106,7 @@ class UserAccount
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $email, PDO::PARAM_STR);
             $stmt->execute();
-            $result = $stmt->fetchAll();
+            $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
             return $result;
         } catch (Exception $e) {
             http_response_code(500);

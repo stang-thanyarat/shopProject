@@ -12,7 +12,7 @@ class Product
         $sql = "SELECT * FROM product_tb";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        $result = $stmt->fetchAll();
+        $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
         return $result;
     }
 
@@ -21,7 +21,7 @@ class Product
         $sql = "SELECT * FROM product_tb LEFT JOIN category_tb ON product_tb.category_id =category_tb.category_id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        $result = $stmt->fetchAll();
+        $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
         return $result;
     }
 
@@ -39,7 +39,7 @@ class Product
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $id, PDO::PARAM_INT);
         $stmt->execute();
-        $result = $stmt->fetch();
+        $result = $stmt->fetch( PDO::FETCH_ASSOC);
         return $result;
     }
 
@@ -62,7 +62,7 @@ class Product
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $id, PDO::PARAM_INT);
         $stmt->execute();
-        $result = $stmt->fetchAll();
+        $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
         return $result;
     }
 
@@ -80,7 +80,7 @@ class Product
             $stmt->bindParam(2, $id, PDO::PARAM_INT);
         }
         $stmt->execute();
-        $result = $stmt->fetchAll();
+        $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
         return $result;
     }
 
@@ -126,7 +126,7 @@ class Product
         $sql= "SELECT product_rm_unit FROM product_tb WHERE product_id=?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $id, PDO::PARAM_INT);
-        $result = $stmt->fetch();
+        $result = $stmt->fetch( PDO::FETCH_ASSOC);
         return $result;
     }
  

@@ -7,9 +7,7 @@ $employeebank = new Employeebank();
 $employee = new Employee();
 if (isset($_POST)) {
     if ($_POST['table'] === 'employee') {
-
         if ($_POST['form_action'] === 'update') {
-
             //เชคการอัพโหลดรูป
             if ($_FILES['employee_card_id_copy']['size'] > 0) {
                 $path = './file/employee/id/';
@@ -69,11 +67,19 @@ if (isset($_POST)) {
                     $employeebank->insert($form);
                 }
             }
-
             $employee->update($_POST);
-        } else if ($_POST['form_action'] === 'delete') {
+        }
+        else if ($_POST['form_action'] === 'delete') {  //ลบข้อมูลของพนักงาน
+            if (file_exists($_POST['employee_card_id_copy'])) {
+                unlink($_POST['employee_card_id_copy']);
+            }
+            if (file_exists($_POST['employee_address_copy'])) {
+                unlink($_POST['employee_address_copy']);
+            }
+            $employeebank->deleteByEmployeeId($_POST['employee_id']);
             $employee->delete($_POST['employee_id']);
-        } else if ($_POST['form_action'] === 'insert') {
+        }
+        else if ($_POST['form_action'] === 'insert') {
             //อัพโหลด
             if (isset($_FILES['employee_card_id_copy'])) {
                 $path = './file/employee/id/';
