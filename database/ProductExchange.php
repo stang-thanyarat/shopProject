@@ -12,7 +12,7 @@ class ProductExchange
         $sql = "SELECT * FROM product_exchange_tb";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        $result = $stmt->fetchAll();
+        $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
         return $result;
     }
 
@@ -22,7 +22,7 @@ class ProductExchange
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $id, PDO::PARAM_INT);
         $stmt->execute();
-        $result = $stmt->fetch();
+        $result = $stmt->fetch( PDO::FETCH_ASSOC);
         return $result;
     }
 

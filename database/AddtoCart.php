@@ -17,7 +17,7 @@ Class AddtoCard
         $sql = "SELECT * FROM product_tb";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        $result = $stmt->fetchAll();
+        $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
         return $result;
     }
 
@@ -27,7 +27,7 @@ Class AddtoCard
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $id, PDO::PARAM_INT);
         $stmt->execute();
-        $result = $stmt->fetch();
+        $result = $stmt->fetch( PDO::FETCH_ASSOC);
         return $result;
     }
 
@@ -36,7 +36,7 @@ Class AddtoCard
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $email, PDO::PARAM_INT);
         $stmt->execute();
-        $result = $stmt->fetchAll();
+        $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
         return $result;
     }
 

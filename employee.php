@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/employee.css" />
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link href="./node_modules/sweetalert2/dist/sweetalert2.css" rel="stylesheet"></link>
     <title>Document</title>
 </head>
 <?php
@@ -68,7 +68,7 @@ if (isset($_GET['keyword'])) {
                                 </label>
                             </th>
                             <th>
-                                <button type="button" class="bgs" data-bs-toggle="modal1" data-bs-target="#exampleModal<?= $e['employee_id']; ?>"><img src="./src/images/icon-delete.png" width="25"></button>
+                                <button type="button" class="bgs" onclick="del(<?=$e['employee_id']; ?>)" ><img src="./src/images/icon-delete.png" width="25"></button>
                                 <a type="button" class="btn1" href="editstaff.php?id=<?= $e['employee_id']; ?>"><img src="./src/images/icon-pencil.png" width="25"></a>
                             </th>
                         </tr>
@@ -101,7 +101,9 @@ if (isset($_GET['keyword'])) {
 
 
 </body>
+<script src="./node_modules/sweetalert2/dist/sweetalert2.js"></script>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="./src/js/employee.js"></script>
 
 </html>

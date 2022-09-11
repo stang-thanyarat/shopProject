@@ -13,7 +13,7 @@ class Bank
             $sql = "SELECT * FROM bank_tb";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-            $result = $stmt->fetchAll();
+            $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
             return $result;
         } catch (Exception $e) {
             http_response_code(500);
@@ -28,7 +28,7 @@ class Bank
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
-            $result = $stmt->fetch();
+            $result = $stmt->fetch( PDO::FETCH_ASSOC);
             return $result;
         } catch (Exception $e) {
             http_response_code(500);
@@ -43,7 +43,7 @@ class Bank
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
-            $result = $stmt->fetchAll();
+            $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
             return $result;
         } catch (Exception $e) {
             http_response_code(500);
@@ -60,6 +60,21 @@ class Bank
             $sql = "DELETE FROM bank_tb WHERE bank_id=?;";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->execute();
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
+    }
+
+    public function  deleteBySellId($SellId){ //ลบธนาคารจากรหัสพนักงาน
+        try {
+            $sql = "SET FOREIGN_KEY_CHECKS=0";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $sql = "DELETE FROM sell_tb WHERE sell_id=?;";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $SellId, PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
             http_response_code(500);

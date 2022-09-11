@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/sall.css"/>
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link href="./node_modules/sweetalert2/dist/sweetalert2.css" rel="stylesheet"></link>
     <title>Document</title>
 </head>
 
@@ -59,7 +59,7 @@ if (isset($_GET['keyword'])) {
                                 <th name="sell_tax_id" id="sell_tax_id"><?= $e['sell_tax_id']; ?></th>
                                 <th name="seller_cardname" id="seller_cardname"><a href="<?= $e['seller_cardname']; ?>"><img src="<?= $e['seller_cardname']; ?>" width="100px" height="50p" /></a></th>
                                 <th>
-                                    <button type="button" class="bgs" data-bs-toggle="modal1" data-bs-target="#exampleModal<?= $e['sell_id']; ?>"><img src="./src/images/icon-delete.png" width="25"></button>
+                                    <button type="button" class="btn1" onclick="del(<?=$e['sell_id']; ?>)" ><img src="./src/images/icon-delete.png" width="25"></button>
                                     <a type="button" class="btn1" href="editseller.php?id=<?= $e['sell_id']; ?>"><img src="./src/images/icon-pencil.png" width="25"></a>
                                 </th>
                             </tr> <?php } ?>
@@ -67,27 +67,10 @@ if (isset($_GET['keyword'])) {
                 </table>
             </div>
         </div>
-
-        <!-- ลบ -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title2" id="exampleModalLabel">ลบบัญชีรับเงิน</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h3>ยืนยันที่จะลบ</h3>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary2">ตกลง</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </form>
 </body>
-
+<script src="./node_modules/sweetalert2/dist/sweetalert2.js"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./src/js/sall.js"></script>
 

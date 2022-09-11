@@ -77,9 +77,22 @@ if (isset($_POST)) {
                 }
             }
             $sell->update($_POST);
-        } else if ($_POST['form_action'] === 'delete') {
+        }
+        else if ($_POST['form_action'] === 'delete') {
+            if (file_exists($_POST['seller_card_id'])) {
+                unlink($_POST['seller_card_id']);
+            }
+            if (file_exists($_POST['seller_cardname'])) {
+                unlink($_POST['seller_cardname']);
+            }
+            if (file_exists($_POST['sell_documents'])) {
+                unlink($_POST['sell_documents']);
+            }
+            $bank->deleteBySellId($_POST['sell_id']);
             $sell->delete($_POST['sell_id']);
-        } else if ($_POST['form_action'] === 'insert') {
+
+        }
+        else if ($_POST['form_action'] === 'insert') {
             if ($_FILES['seller_card_id']['size'] > 0) {
                 $path = './file/seller/id/';
                 $filesname = uploadImage($_FILES['seller_card_id'], "." . $path);
