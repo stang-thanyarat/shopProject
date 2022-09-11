@@ -11,28 +11,24 @@ if (isset($_POST)) {
         if ($_POST['form_action'] === 'update') {
 
             //เชคการอัพโหลดรูป
-            if (isset($_FILES['employee_card_id_copy'])) {
+            if ($_FILES['employee_card_id_copy']['size'] > 0) {
                 $path = './file/employee/id/';
                 if (file_exists($_POST['employee_card_id_copy'])) {
                     unlink($_POST['employee_card_id_copy']);
                 }
                 $filesname = $path . uploadImage($_FILES['employee_card_id_copy'], "." . $path);
                 if ($filesname) {
-                    $_POST['employee_card_id_copy'] = $filesname;
-                } else {
-                    $_POST['employee_card_id_copy'] = '';
+                    $employee->updateimage('employee_card_id_copy',$filesname,$_POST['employee_id']);
                 }
             }
-            if (isset($_FILES['employee_address_copy'])) {
+            if ($_FILES['employee_address_copy']['size'] > 0) {
                 $path = './file/employee/address/';
                 if (file_exists($_POST['employee_address_copy'])) {
                     unlink($_POST['employee_address_copy']);
                 }
                 $filesname = $path . uploadImage($_FILES['employee_address_copy'], "." . $path);
                 if ($filesname) {
-                    $_POST['employee_address_copy'] = $filesname;
-                } else {
-                    $_POST['employee_address_copy'] = '';
+                    $employee->updateimage('employee_address_copy',$filesname,$_POST['employee_id']);
                 }
             }
 

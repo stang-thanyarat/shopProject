@@ -33,7 +33,7 @@ if (isset($_GET['keyword'])) {
                     </div>
                 </div>
                 <div class="row">
-                    <!---<form action="sall.php" method="GET">-->
+                    <form action="sall.php" method="GET">
                     <div class="col-2 mai">
                         <input type="text" name="keyword" class="btn-d" placeholder="&nbsp ชื่อผู้ขาย"></input>
                         <button type="submit" class="s">
@@ -43,7 +43,7 @@ if (isset($_GET['keyword'])) {
                     <div class="col-1 w">
                         <a class="submit btn" href="addseller.php"><img class='add' src="./src/images/plus.png" width="25" alt="">&nbsp เพิ่มผู้ขาย</a>
                     </div>
-                    <!--</form>-->
+                    </form>
                 </div>
                 <table class="ma">
                     <tr>
@@ -57,7 +57,7 @@ if (isset($_GET['keyword'])) {
                             <tr>
                                 <th name="sell_name" id="sell_name"><?= $e['sell_name']; ?></th>
                                 <th name="sell_tax_id" id="sell_tax_id"><?= $e['sell_tax_id']; ?></th>
-                                <th name="seller_cardname" id="seller_cardname"><a href="<?= $e['seller_cardname']; ?>"><img src="<?= $e['seller_cardname']; ?>" width="100" /></a></th>
+                                <th name="seller_cardname" id="seller_cardname"><a href="<?= $e['seller_cardname']; ?>"><img src="<?= $e['seller_cardname']; ?>" width="100px" height="50p" /></a></th>
                                 <th>
                                     <button type="button" class="bgs" data-bs-toggle="modal1" data-bs-target="#exampleModal<?= $e['sell_id']; ?>"><img src="./src/images/icon-delete.png" width="25"></button>
                                     <a type="button" class="btn1" href="editseller.php?id=<?= $e['sell_id']; ?>"><img src="./src/images/icon-pencil.png" width="25"></a>

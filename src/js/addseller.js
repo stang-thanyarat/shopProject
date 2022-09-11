@@ -52,7 +52,12 @@ $("#form1").submit(async function (event) {
         const Seller = await (await fetch(`controller/EmailSellCheck.php?email=${document.form1.seller_email.value}`)).json()
         if (Seller.length > 0) {
             event.preventDefault();
-            alert('อีเมลนี้มีผู้ใช้งานอยู่แล้ว');
+            Swal.fire({
+                icon: 'warning',
+                title: 'คำเตือน',
+                text: 'อีเมลนี้มีผู้ใช้งานอยู่แล้ว',
+                timer: 3000
+            })
             return
         } else {
             event.preventDefault();
@@ -150,7 +155,7 @@ $("#addbankaccount").submit(function (event) {
     <th>${$('#bank_account').val()}</th>
     <th>
     <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(${i})"></button>
-    <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
+    <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl1"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
     </th>
                 </tr>`)
     $('#addclose').click()
@@ -186,7 +191,7 @@ $("#editbankaccount").submit(function (event) {
                     <th>${e.name}</th>
                     <th>
                     <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(${i})"></button>
-                    <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
+                    <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl1"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
                     </th>
                 </tr>`)
     });
@@ -226,7 +231,7 @@ function delrow() {
                     <th>${e.name}</th>
                     <th>
                     <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(${i})"></button>
-                    <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
+                    <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl1"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
                     </th>
                 </tr>`)
     });

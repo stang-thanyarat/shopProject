@@ -10,7 +10,16 @@
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <title>Document</title>
 </head>
-<?php include('nav.php'); ?>
+<?php
+include_once('./database/Order.php');
+$order = new Order();
+include_once('nav.php');
+if (isset($_GET['keyword'])) {
+    $rows = $order->search($_GET['keyword']);
+} else {
+    $rows = $order->fetchAll();
+}
+?>
 
 <body>
     <form>
@@ -23,11 +32,11 @@
                     </div>
                     <div class="row">
                         <div class="col-2 z">
-                            <input type="text" class="btnd" placeholder="&nbsp ชื่อผู้ขาย" required>
+                            <input type="text" class="btnd" placeholder="&nbsp ชื่อผู้ขาย">
                             <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
                         </div>
                         <div class="col-2 y">
-                            <a class="submit btn" href="addorder.php"><img src="./src/images/plus.png" width="25"> เพิ่มใบสั่งซื้อ</a>
+                            <a class="submit btn" href="addorder2.php"><img src="./src/images/plus.png" width="25"> เพิ่มใบสั่งซื้อ</a>
                         </div>
                     </div>
                     <table class="col-11 tb">

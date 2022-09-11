@@ -20,30 +20,44 @@
                 <div class="row main">
                     <h1>ใบสั่งซื้อ</h1>
                     <div class="col-12 d-flex justify-content-end signin">
-                        <button type="button" onclick="print()"><img class='print' src="./src/images/print.png" width="25" />&nbsp&nbsp print</button>
+                        <button type="button" onclick="print()"><img class='print' src="./src/images/print.png" width="25" />&nbsp&nbsp
+                            print
+                        </button>
                     </div>
                     <p></p>
                     <div id="print">
-                        <div class="col-12">
-                            วันที่วางบิล:&nbsp;
-                            <input type="date" name="datebill" id="datebill" required />
-                            &nbsp;&nbsp;วันที่รับของ:&nbsp;
-                            <input type="date" name="datereceive" id="datereceive" required />
+                        <div class="row">
+                            <div class="col datebill">
+                                วันที่วางบิล:&nbsp;
+                                <input type="date" name="datebill" id="datebill" required />
+                            </div>
+                            <div class="col">
+                                &nbsp;&nbsp;วันที่รับของ:&nbsp;
+                                <input type="date" name="datereceive" id="datereceive" required />
+                            </div>
                         </div>
-                        <div class="col-12">
-                            ชื่อผู้ขาย:&nbsp;
-                            <select name="company" style="background-color: #7C904E;">
-                                <option value="อาร์เอส อินเตอร์เทรด (2017) จำกัด" selected> อาร์เอส อินเตอร์เทรด (2017) จำกัด</option>
-                            </select>
+                        <div class="row">
+                            <div class="col company">
+                                ชื่อผู้ขาย:&nbsp;
+                                <select name="company" style="background-color: #ABBE99;">
+                                    <option value="อาร์เอส อินเตอร์เทรด (2017) จำกัด" selected> อาร์เอส อินเตอร์เทรด (2017)
+                                        จำกัด
+                                    </option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="col-12 j">
-                            วิธีการชำระเงิน:&nbsp;
-                            <select name="payment_sl" id="payment_sl" style="background-color: #7C904E;">
-                                <option value="เงินสด" selected>เงินสด</option>
-                                <option value="เครดิต">เครดิต</option>
-                            </select>&nbsp;&nbsp;
-                            วันที่ชำระเงิน:&nbsp;
-                            <input type="date" name="payment_dt" id="payment_dt">
+                        <div class="row">
+                            <div class="col j payment_sl">
+                                วิธีการชำระเงิน:&nbsp;
+                                <select name="payment_sl" id="payment_sl" style="background-color: #ABBE99;">
+                                    <option value="เงินสด" selected>เงินสด</option>
+                                    <option value="เครดิต">เครดิต</option>
+                                </select>
+                            </div>
+                            <div class="col payment">
+                                วันที่ชำระเงิน:&nbsp;
+                                <input type="date" name="payment_dt" id="payment_dt">
+                            </div>
                         </div>
                         <div id="creditupload">
                             <div class="col-12 h">
@@ -53,16 +67,15 @@
                                 *ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB
                             </div>
                         </div>
-                        <div class="col-12">
-                            หมายเหตุ:
-                        </div>
-                        <div class="col-12">
-                            <textarea style="vertical-align: middle; background-color: #7C904E;" name="note" cols="50" rows="5" id="note"></textarea>
+                        <div class="col note">
+                            <label for="note">หมายเหตุ :&nbsp;</label>
+                            <textarea name="note" id="note" cols="50" rows="5" style="vertical-align:top;" class="bb"></textarea>
                         </div>
                         <div class="col-12 C">
                             รายการสินค้า
                             <div class=" col-12 d-flex justify-content-end">
-                                <button type="button" class="btn2" id="addmodel_btn" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm">เพิ่มสินค้า</button>
+                                <button type="button" class="btn2" id="addmodel_btn" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm">เพิ่มสินค้า
+                                </button>
                             </div>
                             <table class="main col-10">
                                 <thead>
@@ -85,7 +98,8 @@
                         <div class="col-12 C">
                             ค่าใช้จ่ายอื่นๆ
                             <div class=" col-12 d-flex justify-content-end">
-                                <button type="button" class="btn2" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1">เพิ่ม</button>
+                                <button type="button" class="btn2" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1">เพิ่ม
+                                </button>
                             </div>
                             <table class="main col-10">
                                 <thead>
@@ -107,10 +121,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row B">
-                        <div class=" col-12 d-flex justify-content-end signin">
-                            <input class="BTNC" type="submit" value="ยกเลิก">
-                            <input class="BTN" type="submit" value="บันทึก">
+                    <div class="row btn-g">
+                        <div class="col-2">
+                            <button type="reset" class="btn-c reset">ยกเลิก</button>
+                        </div>
+                        <div class="col-2">
+                            <input type="submit" class="btn-c submit" value="บันทึก" />
                         </div>
                     </div>
                 </div>
@@ -293,7 +309,7 @@
     </div>
 </body>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js" ></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="./src/js/printThis.js"></script>
 <script src="./src/js/addorder2.js"></script>
 

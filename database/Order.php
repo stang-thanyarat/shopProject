@@ -7,22 +7,45 @@ Class Order{
         $this -> conn = Connection();
     }
     public function fetchAll(){
+        try {
         $sql = "SELECT * FROM order_tb ";
         $stmt = $this -> conn -> prepare($sql);
         $stmt->execute();
         $result = $stmt ->fetchAll();
         return $result;
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
+    }
 
+    public function search($keyword){
+        try {
+            $like = "%$keyword%";
+            $sql = "SELECT * FROM order_tb WHERE sell_name LIKE ? ";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $like, PDO::PARAM_STR);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            return $result;
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
     }
 
     public function fetchById($id){
+        try{
         $sql = "SELECT * FROM order_tb WHERE order_id=?";
         $stmt = $this -> conn -> prepare($sql);
         $stmt->bindParam(1,$id, PDO::PARAM_INT);
         $stmt->execute();
         $result = $stmt ->fetch();
         return $result;
-
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
     }
 
     public function delete($id){
