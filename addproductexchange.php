@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/addproductexchange.css" />
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
+    <link rel="stylesheet" href="./node_modules/jquery-ui/dist/themes/base/jquery-ui.css" />
     <title>addproductexchange</title>
 </head>
 <?php include('nav.php'); ?>
@@ -30,14 +29,14 @@
                         <th>
                             <div class="row a">
                                 <div class="col productr">
-                                    สินค้าที่ต้องการเปลี่ยน :<font color="red">&nbsp*</font>
+                                    สินค้าที่ต้องการเปลี่ยน :<span style="color: red; ">&nbsp*</span>
                                     <input name="product_name" type="text" id="product_name" class="inbox" required />
                                 </div>
                             </div>
                             <div class="row a">
                                 <div class="col productn">
-                                    จำนวนที่เปลี่ยนสินค้า :<font color="red">&nbsp*</font>
-                                    <input name="exchange_amount" type="text" id="exchange_amount" class="inbox" required />
+                                    จำนวนที่เปลี่ยนสินค้า :<span style="color: red; ">&nbsp*</span>
+                                    <input name="exchange_amount" min="1" step="1" value="1" type="number" id="exchange_amount" class="inbox" required />
                                 </div>
                             </div>
                             <div class="row a ">
@@ -58,7 +57,7 @@
                             </div>
                             <div class="row a">
                                 <div class="col status">
-                                    สถานะการเปลี่ยนสินค้า :<font color="red">&nbsp*</font>
+                                    สถานะการเปลี่ยนสินค้า :<span style="color: red; ">&nbsp*</span>
                                     <input type="radio" name="exchange_status" id="exchange_status" class="inbox" value="complete">สำเร็จแล้ว
 
                                     <input type="radio" name="exchange_status" id="exchange_status" class="inbox" value="wait" checked>รอของ
@@ -68,15 +67,15 @@
                             <div class="desc" id="wait">
                                 <div class="row a">
                                     <div class="col name">
-                                        ชื่อ :<font color="red">&nbsp*</font>
-                                        <input name="name" type="text" id="name" class="inbox" required />
+                                        ชื่อ :<span style="color: red; ">&nbsp*</span>
+                                        <input name="name" type="text" id="name" class="inbox"  />
                                         <!--ดูชื่อ class และ id จากเพื่อน-->
                                     </div>
                                 </div>
                                 <div class="row a tel">
                                     <div class="col">
-                                        เบอร์โทรติดต่อ :<font color="red">&nbsp*</font>
-                                        <input name="tel" type="text" id="tel" class="inbox" required />
+                                        เบอร์โทรติดต่อ :<span style="color: red; ">&nbsp*</span>
+                                        <input name="tel" type="text" id="tel" class="inbox"  />
                                         <!--ดูชื่อ class และ id จากเพื่อน-->
                                     </div>
                                 </div>
@@ -96,6 +95,9 @@
         </div>
     </form>
 </body>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./node_modules/jquery-ui/dist/jquery-ui.min.js"></script>
 <script src="./src/js/addproductexchange.js"></script>
 
 </html>

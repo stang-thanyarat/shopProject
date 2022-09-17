@@ -16,14 +16,17 @@ include('nav.php');
 //เริ่มทำแก้ไข//
 include_once('database/Product.php');
 include_once('database/Category.php');
+include_once "./database/Sell.php";
 include_once('controller/Redirection.php');
 $product = new Product();
 $category = new Category();
+$sell = new Sell();
 if (!isset($_GET['id'])) {
     redirection('productresult.php');
 }
 $p = $product->fetchById($_GET['id']);
 $rows = $category->fetchAll();
+$sells = $sell->fetchAll();
 //เริ่มทำแก้ไข//
 ?>
 
@@ -55,7 +58,7 @@ $rows = $category->fetchAll();
                             <div class="row a">
                                 <div class="col">
                                     ประเภทสินค้า :<span style="color: red; ">&nbsp*</span>
-                                    <select name="category_id" id="category_id" class="inbox" required>
+                                    <select name="category_id" id="category_id" class="inbox" style="background-color: #D4DDC6;" required>
                                         <option value="" selected hidden>เลือกประเภทสินค้า</option>
                                         <?php foreach ($rows as $row) { ?>
                                             <option value="<?= $row['category_id'] ?>" <?= $p['category_id'] == $row['category_id'] ? "selected" : '' ?>><?= $row['category_name'] ?></option>
@@ -87,8 +90,10 @@ $rows = $category->fetchAll();
                                 </div>
                                 <div class="col sellername">
                                     ชื่อผู้ขาย :<span style="color: red; ">&nbsp*</span>
-                                    <select name="seller_id" id="seller_id" class="inbox" required>
-                                        <option value="1">อาร์เอส อินเตอร์เทรด (2017) จำกัด</option>
+                                    <select name="sell_id" id="sell_id" class="inbox" style="background-color: #D4DDC6;" required>
+                                        <?php foreach ($sells as $s) { ?>
+                                        <option value="<?= $s['sell_id'] ?>" <?= $s['sell_id'] == $s['sell_id'] ? "selected" : '' ?>><?= $s['sell_name'] ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                             </div>
@@ -124,7 +129,7 @@ $rows = $category->fetchAll();
                             <div class="row a">
                                 <div class="col-5 unit">
                                     หน่วยนับ :<span style="color: red; ">&nbsp*</span>
-                                    <select name="product_unit" id="product_unit" class="inbox" required>
+                                    <select name="product_unit" id="product_unit" class="inbox" style="background-color: #D4DDC6;" required>
                                         <option value="ซอง" <?= $p['product_unit'] == "ซอง" ? "selected" : '' ?>>ซอง</option>
                                         <option value="ขวด" <?= $p['product_unit'] == "ขวด" ? "selected" : '' ?>>ขวด</option>
                                         <option value="ชิ้น" <?= $p['product_unit'] == "ชิ้น" ? "selected" : '' ?>>ชิ้น</option>
@@ -140,8 +145,8 @@ $rows = $category->fetchAll();
                                     <input name="price" type="text" id="price" class="inbox" value="<?= $p['price']; ?>" required />
                                 </div>
                                 <div class="col-2 vax">
-                                    <input type="checkbox" class="vaxcheckbox">
-                                    <label class="vaxcheckboxtext">ภาษีมูลค่าเพิ่ม</label>
+                                    <input type="checkbox" class="vaxcheckbox" name="vat"  <?=$p['vat']==1?"checked":''; ?>/>
+                                    <label class="vaxcheckboxtext" >ภาษีมูลค่าเพิ่ม</label>
                                 </div>
                             </div>
 
@@ -182,7 +187,7 @@ $rows = $category->fetchAll();
             </table>
             <div class="row btn-g">
                 <div class="col-2">
-                    <button type="reset" class="btn-c reset">ยกเลิก</button>
+                    <button type="button" onclick="window.location= 'productresult.php'" class="btn-c reset">กลับ</button>
                 </div>
                 <div class="col-2">
                     <input type="submit" class="btn-c submit" value="บันทึก" />

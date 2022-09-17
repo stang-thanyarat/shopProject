@@ -14,9 +14,11 @@
 </head>
 <?php include('nav.php');
 include_once "./database/Category.php";
+include_once "./database/Sell.php";
+$sell = new Sell();
 $category = new Category();
 $rows = $category->fetchAll();
-
+$sells = $sell->fetchAll();
 ?>
 
 <body>
@@ -76,8 +78,10 @@ $rows = $category->fetchAll();
                                 </div>
                                 <div class="col sellername">
                                     ชื่อผู้ขาย :<span style="color: red; ">&nbsp*</span>
-                                    <select name="seller_id" id="seller_id" class="inbox" style="background-color: #D4DDC6;" required>
-                                        <option value="1">อาร์เอส อินเตอร์เทรด (2017) จำกัด</option>
+                                    <select name="sell_id" id="sell_id" class="inbox" style="background-color: #D4DDC6;" required>
+                                        <?php foreach ($sells as $s) { ?>
+                                            <option value="<?= $s['sell_id'] ?>"><?= $s['sell_name'] ?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
                             </div>
@@ -176,7 +180,7 @@ $rows = $category->fetchAll();
             </table>
             <div class="row btn-g">
                 <div class="col-2">
-                    <button type="reset" class="btn-c reset">ยกเลิก</button>
+                    <button type="button" onclick="window.location= 'productresult.php'" class="btn-c reset">กลับ</button>
                 </div>
                 <div class="col-2">
                     <input type="submit" class="btn-c submit" value="บันทึก" />
