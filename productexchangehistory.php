@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./src/css/productexchangehistory.css" />
     <title>productexchangehistory</title>
 </head>
-<?php include('nav.php'); ?>
+<?php include('nav.php');
+
+?>
 
 <body>
     <div class="row">
@@ -26,7 +27,7 @@
                     <button type="button" class="s"><img src="./src/images/search.png" width="17.5"></button>
                 </div>
                 <div class="col-3 addpdr d-flex justify-content-end signin">
-                    <a type="button" href="./addproductreplacement.php" class="submit btn"><img class='plus' src="./src/images/plus.png" width="30">&nbsp เพิ่ม </a>
+                    <a type="button" href="./addproductexchange.php" class="submit btn"><img class='plus' src="./src/images/plus.png" width="30">&nbsp เพิ่ม </a>
                 </div>
                 <table class="col-11 pdrtb">
                     <tr>
@@ -58,7 +59,7 @@
                 </table>
             </div>
         </div>
-        </form>
+        </div>
 
         <!-- ลบ -->
         <div class="modal fade bd-example-modal-sm1" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -79,5 +80,8 @@
         </div>
 
 </body>
-
+<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./node_modules/jquery-ui/dist/jquery-ui.min.js"></script>
+<script src="./src/js/productexchangehistory.js"></script>
 </html>
