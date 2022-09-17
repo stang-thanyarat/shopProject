@@ -36,9 +36,10 @@ $(document).ready(async function () {
 function setUI(data) {
     $('#productResultTable').html('')
     data.forEach(element => {
+        console.log(element)
         $('#productResultTable').append(`
         <tr>
-        <th>${element.category_name}</th>
+        <th>${element.category_name || $("#category_id option:selected").text()}</th>
         <th>${element.product_name}</th>
         <th>${element.brand}</th>
         <th>${element.model}</th>

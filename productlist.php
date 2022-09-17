@@ -40,7 +40,7 @@ $rows = $category->fetchAll();
                         </select>
                     </div>
                     <div class="col-2 d-flex justify-content-end a">
-                        <a href="./addtocart.php" type="button"><img src="./src/images/cart.png" width="52.5"></a>
+                        <button onclick="cart()"><img src="./src/images/cart.png" width="52.5"/></button>
                     </div>
                 </div>
                 <table class="col-11 q">
@@ -51,75 +51,12 @@ $rows = $category->fetchAll();
                             </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="productlistTable">
+
                     </tbody>
                 </table>
             </div>
         </div>
-
-    <!---เพิ่มไปยังรถเข็น-->
-    <form action="addtocart.php" method="get">
-        <div class="modal fade bd-example-modal-sm1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm1">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">เพิ่มไปยังรถเข็น</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" id="editclose" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="exp">
-                            วันหมดอายุ :&nbsp<span style="color: red; ">&nbsp*</span>
-                            <input type="date" name="list" id="list" class="inbox" />
-                        </div>
-                        <div class="amount">
-                            จำนวน : <span style="color: red; ">&nbsp*</span>
-                            <input type="text" name="amount" id="amount" class="inbox" />
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary1">ตกลง</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-
-    <!--- modal แก้ไขวันหมดอายุ-->
-    <div class="modal fade bd-example-modal-sm2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <form name="editstatus" id="editstatus" method="post" action="">
-            <div class="modal-dialog modal-sm2">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">แก้ไขวันหมดอายุ และจำนวน</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" id="editclose" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-
-                        <div style="text-align: center;">
-
-                            วันหมดอายุ: &nbsp;<input type="date" name="mfg" id="mfg" required />
-                            &nbspถึง&nbsp<input type="date" name="exp" id="exp" required /><br>
-                            <p></p>
-
-                        </div>
-
-                        <div style="text-align: center;">จำนวน: &nbsp;<input type="text" name="amount" id="amount" required />
-                            <p></p>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary1">ตกลง</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-
 
 </body>
 

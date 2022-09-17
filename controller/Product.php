@@ -1,35 +1,31 @@
 <?php
-include '../database/Product.php';
-include 'Redirection.php';
-include '../service/upload.php';
+include_once '../database/Product.php';
+include_once 'Redirection.php';
+include_once '../service/upload.php';
 $product = new Product();
+
 if (isset($_POST)) {
     if ($_POST['table'] === 'product') {
-
         if ($_POST['form_action'] === 'update') {
             //เชคการอัพโหลดรูป
-            if (isset($_FILES['product_img1'])) {
+            if ($_FILES['product_img1']['size'] > 0) {
                 $path = './file/product/image1/';
                 if (file_exists($_POST['product_img1'])) {
                     unlink($_POST['product_img1']);
                 }
-                $filesname = uploadImage($_FILES['product_img1'],".".$path);
+                $filesname = $path.uploadImage($_FILES['product_img1'],".".$path);
                 if ($filesname) {
-                    $_POST['product_img1'] = $path.$filesname;
-                } else {
-                    $_POST['product_img1'] = '';
+                    $product->updateimage('product_img',$filesname,$_POST['product_id']);
                 }
             }
-            if (isset($_FILES['product_img2'])) {
+            if ($_FILES['product_img2']['size'] > 0) {
                 $path = './file/product/image2/';
                 if (file_exists($_POST['product_img2'])) {
                     unlink($_POST['product_img2']);
                 }
-                $fliename = $path.uploadImage($_FILES['product_img2'], ".".$path);
+                $filesname = $path.uploadImage($_FILES['product_detail_img'],".".$path);
                 if ($filesname) {
-                    $_POST['product_img2'] = $path.$filesname;
-                } else {
-                    $_POST['product_img2'] = '';
+                    $product->updateimage('product_img2',$filesname,$_POST['product_id']);
                 }
             }
             if (empty($_POST['sales_status'])) {
@@ -53,12 +49,11 @@ if (isset($_POST)) {
             $product->delete($_POST['product_id']);
             
         } else if ($_POST['form_action'] === 'insert') {
-
-            if (isset($_FILES['product_img1'])) {
+            if ($_FILES['product_img1']['size'] > 0) {
                 $path = './file/product/image1/';
                 $filesname = uploadImage($_FILES['product_img1'],".".$path);
                 if ($filesname) {
-                    $_POST['product_img1'] = $path.$filesname;
+                    $_POST['product_img1'] = $path . $filesname;
                 } else {
                     $_POST['product_img1'] = '';
                 }
@@ -67,11 +62,11 @@ if (isset($_POST)) {
             }
 
 
-            if (isset($_FILES['product_img2'])) {
+            if ($_FILES['product_img2']['size'] > 0) {
                 $path = './file/product/image2/';
                 $filesname = uploadImage($_FILES['product_img2'], ".".$path);
                 if ($filesname) {
-                    $_POST['product_img2'] = $path.$filesname;
+                    $_POST['product_img2'] = $path . $filesname;
                 } else {
                     $_POST['product_img2'] = '';
                 }
@@ -92,6 +87,8 @@ if (isset($_POST)) {
             } else {
                 $_POST['set_n_amt'] = '1';
             }
+            $_POST['product_img1'] = str_replace("-", "", $_POST['product_img1']);
+            $_POST['product_img2'] = str_replace("-", "", $_POST['product_img2']);
             $product->insert($_POST); 
             header( "location: ../productresult.php" );
         }
