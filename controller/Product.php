@@ -3,8 +3,14 @@ include_once '../database/Product.php';
 include_once 'Redirection.php';
 include_once '../service/upload.php';
 $product = new Product();
+if (!isset($_SESSION)) {
+    session_start();
+}
 
 if (isset($_POST)) {
+    if (!empty($_POST['vat'])) {
+        $_POST['price'] = $_POST['price'] + ceil($_POST['price'] * $_SESSION['vat'] / 100);
+    }
     if ($_POST['table'] === 'product') {
         if ($_POST['form_action'] === 'update') {
             //เชคการอัพโหลดรูป
@@ -29,29 +35,27 @@ if (isset($_POST)) {
                 }
             }
             if (empty($_POST['sales_status'])) {
-
                 $_POST['sales_status'] = '0';
             } else {
                 $_POST['sales_status'] = '1';
             }
-
             if (empty($_POST['set_n_amt'])) {
-
                 $_POST['set_n_amt'] = '0';
             } else {
                 $_POST['set_n_amt'] = '1';
             }
             $product->update($_POST);
-
             redirection('../productresult.php');
-
         } else if ($_POST['form_action'] === 'delete') {
             $product->delete($_POST['product_id']);
-            
         } else if ($_POST['form_action'] === 'insert') {
+            if (!empty($_POST['vat'])) {
+                $_POST['price'] = $_POST['price'] + ceil($_POST['price'] * $_SESSION['vat'] / 100);
+            }
+            
             if ($_FILES['product_img1']['size'] > 0) {
                 $path = './file/product/image1/';
-                $filesname = uploadImage($_FILES['product_img1'],".".$path);
+                $filesname = uploadImage($_FILES['product_img1'], "." . $path);
                 if ($filesname) {
                     $_POST['product_img1'] = $path . $filesname;
                 } else {
@@ -61,10 +65,9 @@ if (isset($_POST)) {
                 $_POST['product_img1'] = '';
             }
 
-
             if ($_FILES['product_img2']['size'] > 0) {
                 $path = './file/product/image2/';
-                $filesname = uploadImage($_FILES['product_img2'], ".".$path);
+                $filesname = uploadImage($_FILES['product_img2'], "." . $path);
                 if ($filesname) {
                     $_POST['product_img2'] = $path . $filesname;
                 } else {
@@ -73,16 +76,12 @@ if (isset($_POST)) {
             } else {
                 $_POST['product_img2'] = '';
             }
-
             if (empty($_POST['sales_status'])) {
-
                 $_POST['sales_status'] = '0';
             } else {
                 $_POST['sales_status'] = '1';
             }
-
             if (empty($_POST['set_n_amt'])) {
-
                 $_POST['set_n_amt'] = '0';
             } else {
                 $_POST['set_n_amt'] = '1';

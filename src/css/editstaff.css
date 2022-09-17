@@ -59,7 +59,7 @@
 }
 
 .leftstartwork {
-    margin-left: 12rem;
+    margin-left: 12.1rem;
     margin-top: 1rem;
 }
 
@@ -99,7 +99,7 @@
 }
 
 .leftidcardnumber {
-    margin-left: 5rem;
+    margin-left: 4.9rem;
     margin-top: 1rem;
 }
 
@@ -110,7 +110,7 @@
 }
 
 .leftbirthday {
-    margin-left: 3.3rem;
+    margin-left: 3.8rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
@@ -133,7 +133,7 @@
 }
 
 .lefttelephone {
-    margin-right: 2.8rem;
+    margin-left: 8.6rem;
     margin-top: 1rem;
 }
 
@@ -144,7 +144,7 @@
 }
 
 .leftemail {
-    margin-left: 9.9rem;
+    margin-left: 1rem;
     margin-top: 1rem;
 }
 
@@ -288,9 +288,9 @@ th {
     background-color: #688557;
 }
 
-.modal-footer {
+/*.modal-footer {
     background-color: #D4DDC6;
-}
+}*/
 
 /*ลบ*/
 

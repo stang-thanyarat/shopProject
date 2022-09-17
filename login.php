@@ -26,7 +26,10 @@
                 <input type="hidden" name="table" value="useraccount" />
                 <input type="hidden" name="form_action" value="login" />
                 <?php
-                session_start();
+                if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } ;
                 if (isset($_SESSION['error'])) {
                 ?>
                     <div class="alert alert-danger" role="alert">

@@ -9,7 +9,17 @@
     <link rel="stylesheet" href="./src/css/vat.css" />
     <title>Document</title>
 </head>
-<?php include('nav.php'); ?>
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+};
+if (!isset($_SESSION['vat'])) {
+    $_SESSION['vat'] = 7;
+}
+if (isset($_POST['vat'])) {
+    $_SESSION['vat'] = $_POST['vat'];
+}
+include('nav.php'); ?>
 
 <body>
     <form>
@@ -20,7 +30,7 @@
                     <h1>ตั้งค่าภาษีมูลค่าเพิ่ม</h1>
                     <table class="main col-10">
                         <tr>
-                            <th>ภาษีมูลค่าเพิ่ม &nbsp<input type="text" name="vat" id="vat" required> &nbsp %</th>
+                            <th>ภาษีมูลค่าเพิ่ม &nbsp<input type="text" name="vat" id="vat" value="<?= $_SESSION['vat']; ?>" required> &nbsp %</th>
                         </tr>
                     </table>
                     <div class="row btn-g">

@@ -172,6 +172,16 @@ th {
 }
 
 .note{
+    margin-top: 1rem;
     margin-left: 15.5rem;
     margin-bottom: 2rem;
+}
+
+.h {
+margin-left: 14.5rem;
+}
+
+.hh{
+    margin-top: 1rem;
+    margin-left: 14.2rem;
 }

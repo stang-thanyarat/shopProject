@@ -1,5 +1,8 @@
 <?php
-session_start();
+if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } ;
 include '../database/UserAccount.php';
 include 'Redirection.php';
 include_once '../database/Employee.php';

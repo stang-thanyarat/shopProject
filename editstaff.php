@@ -60,7 +60,7 @@ for ($i = 0; $i < count($banks); $i++) {
                             <div class="row">
                                 <div class="col-4 leftmodel">
                                     <label for="employee_model">รูปแบบพนักงาน :</label>
-                                    <select name="employee_model" id="employee_model" class="margin" required>
+                                    <select name="employee_model" id="employee_model" class="margin" style="background-color: #D4DDC6;" required>
                                         <option value="พนักงานประจำ" <?= $e['employee_model'] == "พนักงานประจำ" ? "selected" : '' ?>>พนักงานประจำ</option>
                                         <option value="พนักงานรายวัน" <?= $e['employee_model'] == "พนักงานรายวัน" ? "selected" : '' ?>>พนักงานรายวัน</option>
                                         <option value="พนักงานชั่วคราว" <?= $e['employee_model'] == "พนักงานชั่วคราว" ? "selected" : '' ?>>พนักงานชั่วคราว</option>
@@ -83,7 +83,7 @@ for ($i = 0; $i < count($banks); $i++) {
                         <th>
                             <div class="row-4 ma">
                                 <label for="employee_prefix">คำนำหน้าชื่อ : </label>
-                                <select name="employee_prefix" id="employee_prefix" class="margin" required>
+                                <select name="employee_prefix" id="employee_prefix" class="margin" style="background-color: #D4DDC6;" required>
                                     <option value="นาย" <?= $e['employee_prefix'] == "นาย" ? "selected" : '' ?>>นาย</option>
                                     <option value="นาง" <?= $e['employee_prefix'] == "นาง" ? "selected" : '' ?>>นาง</option>
                                     <option value="นางสาว" <?= $e['employee_prefix'] == "นางสาว" ? "selected" : '' ?>>นางสาว</option>
@@ -211,7 +211,7 @@ for ($i = 0; $i < count($banks); $i++) {
                     <div class="modal-body">
                         <div class="row">
                             <label for="bank_name">ธนาคาร : </label>
-                            <select name="bank_name" id="bank_name" required>
+                            <select name="bank_name" id="bank_name" style="background-color: #D4DDC6;" required>
                                 <option value="" selected hidden>เลือกธนาคาร</option>
                                 <option value="ธนาคารกรุงไทย">ธนาคารกรุงไทย</option>
                                 <option value="ธนาคารไทยพาณิชย์">ธนาคารไทยพาณิชย์</option>
@@ -268,7 +268,7 @@ for ($i = 0; $i < count($banks); $i++) {
                         <div class="row">
                             <div class="col leftbank ">
                                 <label for="editbank_name">ธนาคาร : </label>
-                                <select name="editbank_name" id="editbank_name">
+                                <select name="editbank_name" id="editbank_name" style="background-color: #D4DDC6;">
                                     <option value="" selected hidden>เลือกธนาคาร</option>
                                     <option value="ธนาคารกรุงไทย">ธนาคารกรุงไทย</option>
                                     <option value="ธนาคารไทยพาณิชย์">ธนาคารไทยพาณิชย์</option>

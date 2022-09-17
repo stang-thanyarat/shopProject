@@ -50,7 +50,7 @@
                     <h4>ตั้งค่าการคิดดอกเบี้ย</h4>
                     <div class="row">
                         <div class="col-12">เดือนที่เริ่มคิดดอกเบี้ย: &nbsp &nbsp
-                            <select name="customerPrefix" style="background-color: #7C904E;">
+                            <select name="customerPrefix" style="background-color: #D4DDC6;">
                                 <option value="1" selected>1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>

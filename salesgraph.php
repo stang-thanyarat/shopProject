@@ -14,67 +14,68 @@
 <?php include('nav.php'); ?>
 
 <body>
-    <form>
-        <div class="row">
-            <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
-            <div class="col-11">
-                <div class="row main">
-                    <h1>การขาย</h1>
-                </div>
-                <div class="t">
-                    <div class="m">
-                        <h6>สรุปยอดขาย</h6>
-                    </div>
-                </div>
-                <div class="row main q">
-                    <div class="col-12 a">
-                        <select name="categoryproduct" style="background-color: #7C904E;" required>
-                            <option value="ประเภทสินค้า" selected>ประเภทสินค้า</option>
-                        </select>
-                        <input type="date" name="firstdate" required>
-
-                    </div>
-                    <p></p>
-                    <h3>ยอดขายสินค้า</h3>
-                    <canvas id="myChart" height="300"></canvas>
-                    <script>
-                        const ctx = document.getElementById('myChart').getContext('2d');
-                        const myChart = new Chart(ctx, {
-                            type: 'bar',
-                            data: {
-                                labels: ['เมล็ดคะน้า', 'เมล็ดพริก', 'เมล็ดข้าวโพด', 'เมล็ดกระเจี๊ยบเขียว', 'เมล็ดมะเขือ', 'เมล็ดถั่วฝักยาว'],
-                                datasets: [{
-                                    label: 'ยอดขายสินค้า',
-                                    data: [20, 17, 23, 35, 22, 28],
-                                    backgroundColor: [
-                                        'rgb(180, 180, 180)',
-                                        'rgb(180, 180, 180)',
-                                        'rgb(180, 180, 180)',
-                                        'rgb(180, 180, 180)',
-                                        'rgb(180, 180, 180)',
-                                        'rgb(180, 180, 180)'
-                                    ],
-                                    borderColor: [
-                                        'rgb(120, 120, 120)',
-                                        'rgb(120, 120, 120)',
-                                        'rgb(120, 120, 120)',
-                                        'rgb(120, 120, 120)',
-                                        'rgb(120, 120, 120)',
-                                        'rgb(120, 120, 120)'
-                                    ],
-                                    borderWidth: 1
-                                }]
-                            },
-                            options: {
-                                indexAxis: 'y',
-                            }
-                        });
-                    </script>
-
+    <div class="row">
+        <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
+        <div class="col-11">
+            <div class="row main">
+                <h1>การขาย</h1>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h5 class="tt">สรุปยอดขาย</h5>
+                    <div class="th"></div>
                 </div>
             </div>
+            <div class="row q">
+                <div class="col-1">
+                    <select name="categoryproduct" style="background-color: #D4DDC6;" required>
+                        <option value="ประเภทสินค้า" selected>ประเภทสินค้า</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <input type="date" name="firstdate" required>
+                </div>
+            </div>
+            <p></p>
+            <h3 class="tt">ยอดขายสินค้า</h3>
+            <div class="row">
+                <canvas id="myChart" height="300"></canvas>
+                <script>
+                    const ctx = document.getElementById('myChart').getContext('2d');
+                    const myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: ['เมล็ดคะน้า', 'เมล็ดพริก', 'เมล็ดข้าวโพด', 'เมล็ดกระเจี๊ยบเขียว', 'เมล็ดมะเขือ', 'เมล็ดถั่วฝักยาว'],
+                            datasets: [{
+                                label: 'ยอดขายสินค้า',
+                                data: [20, 17, 23, 35, 22, 28],
+                                backgroundColor: [
+                                    'rgb(180, 180, 180)',
+                                    'rgb(180, 180, 180)',
+                                    'rgb(180, 180, 180)',
+                                    'rgb(180, 180, 180)',
+                                    'rgb(180, 180, 180)',
+                                    'rgb(180, 180, 180)'
+                                ],
+                                borderColor: [
+                                    'rgb(120, 120, 120)',
+                                    'rgb(120, 120, 120)',
+                                    'rgb(120, 120, 120)',
+                                    'rgb(120, 120, 120)',
+                                    'rgb(120, 120, 120)',
+                                    'rgb(120, 120, 120)'
+                                ],
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            indexAxis: 'y',
+                        }
+                    });
+                </script>
+            </div>
         </div>
-    </form>
+    </div>
 </body>
 
 </html>

@@ -27,7 +27,7 @@ $rows = $employee->fetchWithOutUserId();
             <div class="row top">
                 <div class="col-lg-4 col-md-12">
                     <label for="employee_id">ชื่อพนักงาน:</label>
-                    <select name="employee_id" id="employee_id" class="bb" required onchange="readEmail()">
+                    <select name="employee_id" id="employee_id" class="bb" required onchange="readEmail()" style="background-color: #D4DDC6;">
                         <option value="" selected hidden>เลือกพนักงาน</option>
                         <?php foreach ($rows as $row) { ?>
                             <option value="<?= $row['employee_id'] ?>"><?= $row['employee_prefix'] ?> <?= $row['employee_firstname'] ?> <?= $row['employee_lastname'] ?></option>

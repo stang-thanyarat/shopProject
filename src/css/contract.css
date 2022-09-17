@@ -1,71 +1,94 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&display=swap');
-*{
+
+* {
     font-family: 'IBM Plex Sans Thai', sans-serif;
 }
-.sign{
-    margin-right: 5rem;
-}
-.col-12{
+
+.col-12 {
     margin-bottom: 2rem;
 }
 
-.col-xl-12{
+.col-xl-12 {
     margin-bottom: 2rem;
 }
-.content{
+
+.content {
     margin-top: 5rem;
     margin-left: 5rem;
 }
 
-.B{
+.B {
     margin-right: 5rem;
 }
 
-.line{
+.line {
     width: 50%;
     height: 1px;
     background-color: black;
     margin-top: 20px;
 }
 
-.BTN{
+.BTN {
     border-radius: 25px;
     width: 15%;
     background-color: #7C904E;
     color: white;
     border: 0in;
 }
-.row1{
+
+.row1 {
     margin-left: 4rem;
 }
-.main{
+
+.main {
     margin-top: 5rem;
     margin-left: 4rem;
     width: 85%;
 }
 
-.Nbar{
+.Nbar {
     margin-top: 3.5rem;
 }
-.t{
+
+.t {
     margin-left: 5rem;
 }
-.row{
+
+.rr {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    margin-right: 3rem;
+}
+
+.rrs {
+    margin-bottom: 1rem;
+    margin-right: 5.8rem;
+}
+
+.rrp {
+    margin-bottom: 2rem;
+    margin-right: 6.3rem;
+}
+
+.row {
     --bs-gutter-x: 0rem;
 }
+
 @media only screen and (min-width: 835px) {
-    .col-xl-4{
+    .col-xl-4 {
         margin-bottom: 1.35rem;
     }
-    
+
 }
+
 @media only screen and (max-width: 935px) {
-    .line{
+    .line {
         width: 40%;
     }
 }
+
 @media only screen and (max-width: 835px) {
-    .BTN{
+    .BTN {
         width: 50%;
     }
 
@@ -76,40 +99,149 @@
         margin-left: 1.1rem;
     }
 
-    input[type=text]{
+    input[type=text] {
         max-width: 40%;
         margin-left: 2rem;
         margin-top: 2rem;
         margin-bottom: 1.15rem;
     }
-    .sign{
+
+    .sign {
         margin-right: 2rem;
     }
-    
-    
 }
 
-.q{
-    margin-left: 3rem;
+.bb {
+    margin-left: 2rem;
 }
 
-.e{
-    margin-left:2rem;
-}
-.r{
-    margin-left: -0.5rem;
+.no {
+    margin-left: 6.6rem;
+    margin-top: 2rem;
 }
 
-.u{
-    margin-left: 1rem;
+.a {
+    color: red;
+    margin-left: 3.3rem;
+    margin-top: -1.8rem;
 }
 
-.i{
+.datec {
+    margin-top: 1rem;
+    margin-left: 2rem;
+}
+
+.b {
+    color: red;
+    margin-left: 6.6rem;
+    margin-top: -1.8rem;
+}
+
+.owner {
+    margin-top: 1rem;
+    margin-left: 5rem;
+}
+
+.c {
+    color: red;
+    margin-left: 4.9rem;
+    margin-top: -1.8rem;
+}
+
+.number {
+    margin-left: 2rem;
+}
+
+.d {
+    color: red;
+    margin-left: 7.4rem;
+    margin-top: -1.8rem;
+}
+
+.ps {
+    margin-top: 1rem;
     margin-left: 4.3rem;
 }
-.o{
-    margin-left: 6rem;
+
+.xx {
+    margin-top: 1rem;
+    margin-left: 1.8rem;
 }
-.p{
-    margin-left: 3.8rem;
+
+.customerp {
+    margin-left: 5.8rem;
+    margin-top: 1rem;
+}
+
+.e {
+    color: red;
+    margin-left: 4rem;
+    margin-top: -1.8rem;
+}
+
+.namec{
+    margin-left: 11.7em;
+    margin-top: 1rem;
+}
+
+.f {
+    color: red;
+    margin-left: 2rem;
+    margin-top: -1.8rem;
+}
+
+.lastc{
+    margin-left: 5.5rem;
+    margin-top: 1rem;
+}
+
+.g {
+    color: red;
+    margin-left: 4.3rem;
+    margin-top: -1.8rem;
+}
+
+.idcard{
+    margin-left: -0.3rem;
+    margin-top: 1rem;
+}
+
+.h {
+    color: red;
+    margin-left: 8.2rem;
+    margin-top: -1.8rem;
+}
+
+.xx{
+    margin-top: 1rem;
+    margin-left: 1.8rem;
+}
+
+.ct{
+    margin-top: 1rem;
+    margin-left: 1.9rem;
+}
+
+.ctc{
+    margin-top: 1rem;
+    margin-left: 6.6rem;
+}
+
+.btn-g {
+    width: 100%;
+    justify-content: end;
+    display: flex;
+    margin-top: 1rem;
+}
+
+.btn-c {
+    border-radius: 25px 25px 25px 25px;
+    font-size: 20pt;
+    width: 60%;
+}
+
+.submit {
+    background-color: #7C904E;
+    color: white;
+    border: 0ch;
 }
