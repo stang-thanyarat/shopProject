@@ -59,10 +59,11 @@
                                     <h5 class="a">ยอดรวมทั้งหมด : 210 บาท &nbsp &nbsp</h5>
                                     <button type="button" id="mySubmit" class="r" data-bs-toggle="modal">ยืนยัน</button>
                                 </div>
-
                             </th>
                         </tr>
                     </table>
+                </div>
+            </div>
 
                     <!-- ลบ -->
                     <div class="modal fade bd-example-modal-sm1" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
@@ -258,8 +259,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
     </form>
 </body>
 <script src="./src/js/addtocart.js"></script>
