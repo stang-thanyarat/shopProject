@@ -41,26 +41,28 @@ $(".l").click(async function (e) {
 $(document).ready(async function () {
     let url = './controller/ProductResult.php'
     const product = await (await fetch(url)).json()
-    console.log(product);
+    localStorage.clear()
+    localStorage.setItem('cart', JSON.stringify([]))
     setUI(product)
 });
 
 
 function setUI(data) {
-    $('tbody').html('');
+    console.log(data)
+    $('#productlistTable').html('');
     let html = '<tr>'
     let i = 0
 
     data.forEach((element, index) => {
         if (i > 2 || index + 1 === data.length) {
             if (index + 1 === data.length) {
-                html +='</tr>'
-            }else{
-                html +='</tr><tr>'
+                html += '</tr>'
+            } else {
+                html += '</tr><tr>'
                 i = 0
-            }  
+            }
         } else {
-            html +=` <th>
+            html += ` <th>
                 <div class="row-4 topic_product">
                     ${element.product_name} ${element.model === "" ? "" : "รุ่น&nbsp"}${element.model}
                 </div>
@@ -72,7 +74,7 @@ function setUI(data) {
                     <div class="aa">
                         <p class="fitcontent">ราคา&nbsp&nbsp ${element.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} &nbsp&nbspบาท</p>
                         <p class="fitcontent">คงเหลือ&nbsp&nbsp ${element.product_rm_unit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} &nbsp&nbspใบ</p>
-                        <p><button type="button" class="aa" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1">เพิ่มไปยังรถเข็น</button></p>
+                        <p><button onclick="addToCart(${element.product_id})">เพิ่มไปยังรถเข็น</button></p>
                         </div>
                     </div>
                 </div>
@@ -81,10 +83,35 @@ function setUI(data) {
         }
     });
     console.log(html);
-    $("tbody").html(html);
+    $("#productlistTable").html(html);
     if (data.length === 0) {
-        $('tbody').html("ไม่พบสินค้า")
+        $('#productlistTable').html("ไม่พบสินค้า")
     }
 }
 
+function cart() {
+    const cart = JSON.parse(localStorage.getItem('cart'))
+    let html = ``
+    Swal.fire({
+        title: 'Custom width',
+        width: 1200,
+    })
+}
 
+function addToCart(id) {
+    const cart = JSON.parse(localStorage.getItem('cart'))
+    const found = cart.findIndex(e => e.id === id)
+    if (found > -1) {
+        cart[found].quantity++
+    } else {
+        cart.push({
+            id,
+            quantity: 1
+        })
+    }
+    localStorage.setItem('cart', JSON.stringify(cart))
+    Swal.fire({
+        title: 'เพิ่มรายการสินค้าเรียบร้อยแล้ว',
+        timer:1000
+    })
+}

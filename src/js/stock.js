@@ -10,18 +10,18 @@ function del(id) {
         cancelButtonText: 'ยกเลิก'
     }).then(async (result) => {
         if (result.isConfirmed) {
-            const category = {}
-            category.table = 'category'
-            category.form_action = 'delete'
-            category.category_id = id
+            const stock = {}
+            stock.table = 'stock'
+            stock.form_action = 'delete'
+            stock.stock_id = id
             let formdata = new FormData();
-            Object.keys(category).forEach(key => formdata.append(key, category[key]));
+            Object.keys(stock).forEach(key => formdata.append(key, stock[key]));
             const requestOptions = {
                 method: 'POST',
                 body: formdata,
                 redirect: 'follow'
             };
-            await fetch("./controller/Category.php", requestOptions)
+            await fetch("./controller/Stock.php", requestOptions)
             Swal.fire(
                 {
                     title: 'ลบประเภทสินค้า',
@@ -60,19 +60,19 @@ function insert() {
                 return false
 
             } else {
-                const category = {}
-                category.table = 'category'
-                category.form_action = 'insert'
-                category.category_name = name
+                const stock = {}
+                stock.table = 'stock'
+                stock.form_action = 'insert'
+                stock.stock_name = name
                 let formdata = new FormData();
-                Object.keys(category).forEach(key => formdata.append(key, category[key]));
+                Object.keys(stock).forEach(key => formdata.append(key, stock[key]));
                 const requestOptions = {
                     method: 'POST',
                     body: formdata,
                     redirect: 'follow'
                 };
                 await delay(1000)
-                return fetch("./controller/Category.php", requestOptions)
+                return fetch("./controller/Stock.php", requestOptions)
                     .then(response => {
                         if (!response.ok) {
                             throw new Error(response.statusText)
@@ -119,20 +119,20 @@ function edit(id) {
                 )
                 return false
             } else {
-                const category = {}
-                category.table = 'category'
-                category.form_action = 'update'
-                category.category_id = id
-                category.category_name = name
+                const stock = {}
+                stock.table = 'stock'
+                stock.form_action = 'update'
+                stock.stock_id = id
+                stock.stock_name = name
                 let formdata = new FormData();
-                Object.keys(category).forEach(key => formdata.append(key, category[key]));
+                Object.keys(stock).forEach(key => formdata.append(key, stock[key]));
                 const requestOptions = {
                     method: 'POST',
                     body: formdata,
                     redirect: 'follow'
                 };
                 await delay(1000)
-                return fetch("./controller/Category.php", requestOptions)
+                return fetch("./controller/Stock.php", requestOptions)
                     .then(response => {
                         if (!response.ok) {
                             throw new Error(response.statusText)

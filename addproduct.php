@@ -132,7 +132,7 @@ $rows = $category->fetchAll();
 
                             <div class="row a">
                                 <div class="col-5 status">
-                                    สถานะการขาย :&nbsp&nbsp
+                                    สถานะการขาย :<span style="color: red; ">&nbsp*</span>
                                     <label class="switch">
                                         <input name="sales_status" id="sales_status" type="checkbox">
                                         <span name="sales_status" id="sales_status" class="slider round inbox"></span>
