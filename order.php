@@ -51,7 +51,7 @@ if (isset($_GET['keyword'])) {
                             <th> อาร์เอส อินเตอร์เทรด (2017) จำกัด</th>
                             <th>
                                 <div class="r">
-                                    <a class="BTNP" href="confirm.php"><img class='confirm'>รับของ</a>
+                                    <a class="BTNP" href="confirm2.php"><img class='confirm'>รับของ</a>
                                 </div>
                             </th>
                             <th>

@@ -43,8 +43,8 @@ $rows = $category->fetchAll();
                         <th>
                             <div class="row a">
                                 <div class="col">
-                                    ประเภทสินค้า :<font color="red">&nbsp*</font>
-                                    <select name="category_id" id="category_id" class="inbox" required>
+                                    ประเภทสินค้า :<span style="color: red; ">&nbsp*</span>
+                                    <select name="category_id" id="category_id" class="inbox" style="background-color: #D4DDC6;" required>
                                         <option value="" selected hidden>เลือกประเภทสินค้า</option>
                                         <?php foreach ($rows as $row) { ?>
                                             <option value="<?= $row['category_id'] ?>"><?= $row['category_name'] ?></option>
@@ -60,11 +60,11 @@ $rows = $category->fetchAll();
 
                             <div class="row a">
                                 <div class="col productname">
-                                    ชื่อสินค้า :<font color="red">&nbsp*</font>
+                                    ชื่อสินค้า :<span style="color: red; ">&nbsp*</span>
                                     <input name="product_name" type="text" id="product_name" class="inbox" required />
                                 </div>
                                 <div class="col">
-                                    ยี่ห้อสินค้า :<font color="red">&nbsp*</font>
+                                    ยี่ห้อสินค้า :<span style="color: red; ">&nbsp*</span>
                                     <input name="brand" type="text" id="brand" class="inbox" />
                                 </div>
                             </div>
@@ -72,22 +72,22 @@ $rows = $category->fetchAll();
                             <div class="row a">
                                 <div class="col productversion">
                                     รุ่นสินค้า :
-                                    <input name="model" type="text" id="model" class="inbox" />
+                                    <input name="model" type="text" id="model" class="inboxx" />
                                 </div>
                                 <div class="col sellername">
-                                    ชื่อผู้ขาย :<font color="red">&nbsp*</font>
-                                    <select name="seller_id" id="seller_id" class="inbox" required>
+                                    ชื่อผู้ขาย :<span style="color: red; ">&nbsp*</span>
+                                    <select name="seller_id" id="seller_id" class="inbox" style="background-color: #D4DDC6;" required>
                                         <option value="1">อาร์เอส อินเตอร์เทรด (2017) จำกัด</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="row a">
                                 <div class="col image">
-                                    รูปภาพสินค้า :<font color="red">&nbsp*</font>
+                                    รูปภาพสินค้า :<span style="color: red; ">&nbsp*</span>
                                     <input type="file" accept="image/*" name="product_img1" id="product_img1" class="inbox" required>
                                 </div>
                                 <div class="col productinformation">
-                                    รูปรายละเอียดสินค้า :<font color="red">&nbsp*</font>
+                                    รูปรายละเอียดสินค้า :<span style="color: red; ">&nbsp*</span>
                                     <input type="file" accept="image/*" name="product_img2" id="product_img2" class="inbox">
                                 </div>
                             </div>
@@ -97,22 +97,20 @@ $rows = $category->fetchAll();
                                     <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
                                 </div>
                             </div>
-
                             <div class="row a">
                                 <div class="col details">
                                     รายละเอียด :&nbsp&nbsp&nbsp
-                                    <textarea name="product_detail" id="product_detail" cols="50" rows="5" class="inbox" style="vertical-align:top;">
-                                    </textarea>
+                                    <textarea name="product_detail" id="product_detail" cols="50" rows="5" class="inbox" style="vertical-align:top;"></textarea>
                                 </div>
                                 <div class="col amount">
-                                    จำนวน :<font color="red">&nbsp*</font>
+                                    จำนวน :<span style="color: red; ">&nbsp*</span>
                                     <input name="product_dlt_unit" type="text" id="product_dlt_unit" class="inbox" required />
                                 </div>
                             </div>
                             <div class="row a">
                                 <div class="col-5 unit">
-                                    หน่วยนับ :<font color="red">&nbsp*</font>
-                                    <select name="product_unit" id="product_unit" class="inbox" required>
+                                    หน่วยนับ :<span style="color: red; ">&nbsp*</span>
+                                    <select name="product_unit" id="product_unit" class="inbox" style="background-color: #D4DDC6;" required>
                                         <option value="envelope">ซอง</option>
                                         <option value="bottle">ขวด</option>
                                         <option value="item">ชิ้น</option>
@@ -121,14 +119,13 @@ $rows = $category->fetchAll();
                                         <option value="bag">ถุง</option>
                                         <option value="sack">กระสอบ</option>
                                     </select>
-
                                 </div>
                                 <div class="col-3 price">
-                                    ราคาขาย :<font color="red">&nbsp*</font>
+                                    ราคาขาย :<span style="color: red; ">&nbsp*</span>
                                     <input name="price" type="text" id="price" class="inbox" required />
                                 </div>
                                 <div class="col-2 vax">
-                                    <input type="checkbox" class="vaxcheckbox">
+                                    <input type="checkbox" class="vaxcheckbox" name="vat" id="vat">
                                     <label class="vaxcheckboxtext">ภาษีมูลค่าเพิ่ม</label>
                                 </div>
                             </div>
@@ -142,7 +139,7 @@ $rows = $category->fetchAll();
                                     </label>
                                 </div>
                                 <div class="col-3 costprice">
-                                    ราคาทุน :<font color="red">&nbsp*</font>
+                                    ราคาทุน :<span style="color: red; ">&nbsp*</span>
                                     <input name="cost_price" type="text" id="cost_price" class="inbox" required />
                                 </div>
                                 <div class="col-2 watchcostprice">
@@ -151,7 +148,7 @@ $rows = $category->fetchAll();
                             </div>
                             <div class="row a">
                                 <div class="col min1">
-                                    สินค้าคงคลังขั้นต่ำ :<font color="red">&nbsp*</font>
+                                    สินค้าคงคลังขั้นต่ำ :<span style="color: red; ">&nbsp*</span>
                                     <input name="notification_amt" type="text" id="notification_amt" class="inbox" />
                                     <!--notification_amt = notification amount-->
                                 </div>
@@ -164,11 +161,11 @@ $rows = $category->fetchAll();
                             </div>
                             <div class="row a" id="post">
                                 <div class="col start">
-                                    วันที่เริ่มใช้งาน :<font color="red">&nbsp*</font>
+                                    วันที่เริ่มใช้งาน :<span style="color: red; ">&nbsp*</span>
                                     <input name="date_n_amt" type="date" id="date_n_amt" class="inbox" />
                                 </div>
                                 <div class="col min2">
-                                    สินค้าคงคลังขั้นต่ำ :<font color="red">&nbsp*</font>
+                                    สินค้าคงคลังขั้นต่ำ :<span style="color: red; ">&nbsp*</span>
                                     <input name="notification_amt2" type="text" id="notification_amt2" class="inbox" />
                                 </div>
                             </div>

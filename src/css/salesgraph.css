@@ -5,39 +5,49 @@
     --bs-gutter-x: 0;
 }
 
-.main{
+.main {
     margin-top: 5rem;
     margin-left: 4rem;
     margin-bottom: 1rem;
-    width:90%;
+    width: 90%;
 }
 
-.Nbar{
+.Nbar {
     margin-top: 3.5rem;
 }
-.row{
+
+.row {
     --bs-gutter-x: 0rem;
 }
-.g{
+
+.g {
     width: 130px;
     border: 0in;
     background-color: #ABBE99;
     margin-top: -1rem;
 }
-.t{
-    margin-left: 2rem;
-    background-color: #ABBE99;
-    height: 45px;
-    width: 1205px;
+
+.tt {
+    color: #000;
+    margin-left: 4.2rem;
 }
 
-.m{
-    margin-left: 3rem;
+.th {
+    width: 100.8%;
+    height: 50px;
+    background-color: #ABBE99;
+    box-sizing: border-box;
+    margin-left: -0.89rem;
+    margin-top: -2.25rem;
 }
-.s{
+
+.s {
     background-color: #fff;
     border: 0in;
 }
-.q{
-    margin-top: 1rem;
+
+.q {
+    margin-top: 2rem;
+    margin-left: 4.2rem;
+    margin-bottom: 2rem;
 }

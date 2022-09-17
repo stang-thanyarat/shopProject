@@ -182,7 +182,7 @@
                 <div class="modal-body">
                     <div class="row">
                         <label for="bank_name">ธนาคาร : </label>
-                        <select name="bank_name" id="bank_name" required>
+                        <select name="bank_name" id="bank_name" style="background-color: #D4DDC6;" required>
                             <option value="" selected hidden>เลือกธนาคาร</option>
                             <option value="ธนาคารกรุงไทย">ธนาคารกรุงไทย</option>
                             <option value="ธนาคารไทยพาณิชย์">ธนาคารไทยพาณิชย์</option>
@@ -243,7 +243,7 @@
                     <div class="row">
                         <div class="col leftbank ">
                             <label for="editbank_name">ธนาคาร : </label>
-                            <select name="editbank_name" id="editbank_name">
+                            <select name="editbank_name" id="editbank_name" style="background-color: #D4DDC6;">
                                 <option value="" selected hidden>เลือกธนาคาร</option>
                                 <option value="ธนาคารกรุงไทย">ธนาคารกรุงไทย</option>
                                 <option value="ธนาคารไทยพาณิชย์">ธนาคารไทยพาณิชย์</option>
