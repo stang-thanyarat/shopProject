@@ -95,11 +95,11 @@ $rows = $category->fetchAll();
                             <div class="row a">
                                 <div class="col image">
                                     รูปภาพสินค้า :<span style="color: red; ">&nbsp*</span>
-                                    <input type="file" accept="image/*" name="product_img1" id="product_img1" class="inbox" value="<?= $p['product_img1']; ?>">
+                                    <input type="file" accept="image/*" name="product_img1" id="product_img1" class="inbox" value="<?= $p['product_img']; ?>">
                                 </div>
                                 <div class="col productinformation">
                                     รูปรายละเอียดสินค้า :<span style="color: red; ">&nbsp*</span>
-                                    <input type="file" accept="image/*" name="product_img2" id="product_img2" class="inbox" value="<?= $p['product_img2']; ?>">
+                                    <input type="file" accept="image/*" name="product_img2" id="product_img2" class="inbox" value="<?= $p['product_detail_img']; ?>">
                                 </div>
                             </div>
 
