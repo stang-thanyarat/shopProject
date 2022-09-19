@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/productlist.php" beforeDir="false" afterPath="$PROJECT_DIR$/productlist.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/productresult.php" beforeDir="false" afterPath="$PROJECT_DIR$/productresult.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/salesgraph.php" beforeDir="false" afterPath="$PROJECT_DIR$/salesgraph.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/salesgraph.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/salesgraph.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/2.png" beforeDir="false" />
-    </list>
+    <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
