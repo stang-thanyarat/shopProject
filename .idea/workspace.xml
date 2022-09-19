@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/controller/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Employee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/Sell.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Sell.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Employee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Sell.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Sell.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/productlist.php" beforeDir="false" afterPath="$PROJECT_DIR$/productlist.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/productresult.php" beforeDir="false" afterPath="$PROJECT_DIR$/productresult.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/salesgraph.php" beforeDir="false" afterPath="$PROJECT_DIR$/salesgraph.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/salesgraph.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/salesgraph.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/images/2.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +34,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2EFEuTYXbW9aeFHqtvMflcfb2C5" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -39,6 +47,9 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/shopProject&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -58,6 +69,8 @@
       <workItem from="1662183520787" duration="19599000" />
       <workItem from="1662536176838" duration="2351000" />
       <workItem from="1662902532156" duration="473000" />
+      <workItem from="1663568130121" duration="360000" />
+      <workItem from="1663597332358" duration="3578000" />
     </task>
     <servers />
   </component>

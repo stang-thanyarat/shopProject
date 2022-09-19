@@ -11,7 +11,11 @@
     <title>Document</title>
 
 </head>
-<?php include('nav.php'); ?>
+<?php include('nav.php');
+include_once "./database/Category.php";
+$category =  new Category();
+$rows = $category->fetchAll();
+?>
 
 <body>
     <div class="row">
@@ -28,12 +32,15 @@
             </div>
             <div class="row q">
                 <div class="col-1">
-                    <select name="categoryproduct" style="background-color: #D4DDC6;" required>
-                        <option value="ประเภทสินค้า" selected>ประเภทสินค้า</option>
+                    <select name="category_id" id="category_id" class="sizeselect" style="background-color: #D4DDC6;" required>
+                        <option value="all">สินค้าทั้งหมด</option>
+                        <?php foreach ($rows as $row) { ?>
+                            <option value="<?= $row['category_id'] ?>"><?= $row['category_name'] ?></option>
+                        <?php } ?>
                     </select>
                 </div>
-                <div class="col">
-                    <input type="date" name="firstdate" required>
+                <div class="col-1 date">
+                    <input type="date" class="sizeselect" required>
                 </div>
             </div>
             <p></p>
