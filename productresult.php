@@ -63,26 +63,6 @@ $rows = $category->fetchAll();
                                 <th></th>
                             </tr>
                         <tbody id="productResultTable">
-                            <tr>
-                                <th name="category_name" id="category_name">เมล็ดพันธุ์</th>
-                                <th name="product_name" id="product_name">กระเจี๊ยบ-อพอลโล</th>
-                                <th name="brand" id="brand">Seedline</th>
-                                <th name="model" id="model">-</th>
-                                <th name="product_dlt_unit" id="product_dlt_unit">1 ซอง</th>
-                                <th name="product_rm_unit" id="product_rm_unit">25 ซอง</th>
-                                <th name="price" id="price">20</th>
-                                <th name="product_img1" id="product_img1"><img src="./src/images/images1.png" width="25"></th>
-                                <th name="sales_status" id="sales_status">
-                                    <label class="switch">
-                                        <input type="checkbox">
-                                        <span class="slider round"></span>
-                                    </label>
-                                </th>
-                                <th>
-                                    <a type="button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1"><img src="./src/images/icon-delete.png" width="25"></a>
-                                    <a type="button" href="./editproduct.php"><img src="./src/images/icon-pencil.png" width="25"></a>
-                                </th>
-                            </tr>
                         </tbody>
                     </table>
                 </div>

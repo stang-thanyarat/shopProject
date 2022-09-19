@@ -47,7 +47,7 @@ $rows = $category->fetchAll();
                     <thead>
                         <tr class="topic_category">
                             <th colspan="3">
-                                <h5 class="z">ใบตัดหญ้า</h5>
+                                <h5 class="z">รายการสินค้าทั้งหมด</h5>
                             </th>
                         </tr>
                     </thead>
