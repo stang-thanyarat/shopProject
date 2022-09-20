@@ -47,7 +47,7 @@ $sells = $sell->fetchAll();
                                 <div class="col">
                                     ประเภทสินค้า :<span style="color: red; ">&nbsp*</span>
                                     <select name="category_id" id="category_id" class="inbox" style="background-color: #D4DDC6;" required>
-                                        <option value="" selected hidden>เลือกประเภทสินค้า</option>
+                                        <option value="all" selected hidden>เลือกประเภทสินค้า</option>
                                         <?php foreach ($rows as $row) { ?>
                                             <option value="<?= $row['category_id'] ?>"><?= $row['category_name'] ?></option>
                                         <?php } ?>

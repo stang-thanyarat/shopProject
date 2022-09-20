@@ -55,6 +55,7 @@ th {
 .btnd {
     background-color: #F8E4C8;
     border-radius: 25px;
+    border: 0ch;
     height: 95%;
 }
 
@@ -65,14 +66,14 @@ th {
 
 .y{
     font-size: 13pt;
-    margin-left: 75rem;
+    margin-left: 64rem;
     margin-top: 0rem;
    
 }
 
 .x{
     margin-top: 0rem;
-    margin-left: -3rem;
+    margin-left: -3.5rem;
    
 }
 
@@ -99,4 +100,19 @@ th {
     color: #A36627;
     border: 0in;
 
+}
+
+.v{
+    margin-top: 0rem;
+    margin-left: -4rem;
+}
+
+.s1{
+    width: 70%;
+    height: 95%;
+}
+
+.s2{
+    width: 110%;
+    height: 95%;
 }

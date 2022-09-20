@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="" />
+    <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addorder2.php" beforeDir="false" afterPath="$PROJECT_DIR$/addorder2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addproduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/addproduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bar.php" beforeDir="false" afterPath="$PROJECT_DIR$/bar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/contract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracthistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/contracthistory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/Contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Contract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/Sis.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Sis.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Contract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Sis.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Sis.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/editconfirm2.php" beforeDir="false" afterPath="$PROJECT_DIR$/editconfirm2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order.php" beforeDir="false" afterPath="$PROJECT_DIR$/order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/contract.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/contract.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/contracthistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/contracthistory.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock.php" beforeDir="false" afterPath="$PROJECT_DIR$/stock.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,6 +80,9 @@
       <workItem from="1662902532156" duration="473000" />
       <workItem from="1663568130121" duration="360000" />
       <workItem from="1663597332358" duration="3578000" />
+      <workItem from="1663603769958" duration="258000" />
+      <workItem from="1663653757296" duration="2057000" />
+      <workItem from="1663677304588" duration="11914000" />
     </task>
     <servers />
   </component>

@@ -1,5 +1,5 @@
 <?php
-include ("Connection.php");
+include_once ("Connection.php");
 Class Sis{
     private $conn;
     function __construct()
