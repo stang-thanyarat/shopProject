@@ -7,9 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/contract.css" />
-    <title>Document</title>
+    <title>เพิ่มสัญญาซื้อขาย</title>
 </head>
-<?php include('nav.php'); ?>
+<?php include('nav.php');
+include_once "./database/Sis.php";
+include_once "./database/Customer.php";
+$sis = new Sis();
+$sis = $sis->fetchAll();
+?>
 
 <body>
     <script src="./src/js/contract.js"></script>
@@ -34,11 +39,13 @@
                 </div>
                 <div class="row">
                     <div class="col owner">
-                        นามผู้ขาย :
-                        <select name="owner" style="background-color: #D4DDC6;" class="bb">
-                            <option value="เลือกผู้ขาย" selected hidden>เลือกผู้ขาย</option>
+                        นามเจ้าของร้าน :<span style="color: red; ">&nbsp&nbsp*</span>
+                        <select name="sis_id" id="sis_id" class="bb selectsis" style="background-color: #D4DDC6;" required>
+                            <option value="all" selected hidden>เลือกเจ้าของร้าน</option>
+                            <?php foreach ($sis as $s) { ?>
+                                <option value="<?= $s['sis_id'] ?>"><?= $s['sis_prefix'] ?><?= $s['sis_name'] ?>&nbsp&nbsp<?= $s['sis_lastname'] ?></option>
+                            <?php } ?>
                         </select>
-                        <div class="c">*</div>
                     </div>
                     <div class="col number">
                         จำนวนเงินที่ขาย :
@@ -53,7 +60,7 @@
                 <div class="row xx">ข้าพเจ้า xxxxxxxxx ซึ่งต่อไปในหนังสือสัญญานี้เรียกว่าผู้ขายฝ่ายหนึ่งกับ</div>
                 <div class="row">
                     <div class="col customerp">ข้าพเจ้า :
-                        <select name="customerprefix" id="customerprefix" style="background-color: #D4DDC6;" class="bb" required>
+                        <select name="customer_prefix" id="customer_prefix" style="background-color: #D4DDC6;" class="bb" required>
                             <option value="เลือกคำนำหน้า" selected hidden>เลือกคำนำหน้า</option>
                             <option value="นาย">นาย</option>
                             <option value="นาง">นาง</option>
@@ -61,15 +68,15 @@
                         </select>
                         <div class="e">*</div>
                     </div>
-                    <div class=" col namec">ชื่อ : <input type="text" name="namecustomer" id="namecustomer" class="bb" required />
+                    <div class=" col namec">ชื่อ : <input type="text" name="customer_name" id="customer_name" class="bb" required />
                         <div class="f">*</div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col lastc">นามสกุล : <input type="text" name="lastnamecustomer" id="lastnamecustomer" class="bb" required />
+                    <div class="col lastc">นามสกุล : <input type="text" name="customer_lastname" id="customer_lastname" class="bb" required />
                         <div class="g">*</div>
                     </div>
-                    <div class="col idcard">รหัสบัตรประชาชน : <input type="text" name="idcard" id="idcard" class="bb" required />
+                    <div class="col idcard">รหัสบัตรประชาชน : <input type="text" name="customer_img" id="customer_img" class="bb" required />
                         <div class="h">*</div>
                     </div>
                 </div>
@@ -145,7 +152,7 @@
                 <div class="row xx">๑. หากผู้ขายยังไม่ส่งมอบทรัพย์ให้ในเวลาทำสัญญา ควรจะเติมข้อความอีก ๑ ข้อว่าตราบใดที่ผู้ขายยังไม่ส่งมอบทรัพย์ให้ ยังไม่ถือว่าได้มีการซื้อขาย มิฉะนั้นผู้ซื้ออาจเสียเปรียบผู้ขาย</div>
                 <div class="row xx">๒. สัญญาซื้อขายไม่ต้องปิดอากรแสตมป์ เว้นแต่จะถือว่าสัญญานี้เป็นใบรับเงินแล้ว ถ้าสัญญาซื้อขายนี้ตั้งแต่ ๑๐ บาท ถึง ๒๐ บาท ต้องติดอากรแสตมป์ ๑๐ สตางค์ ถ้าสัญญาซื้ขายนี้เกิน ๒๐ บาท ทุก ๒๐ บาท หรือเศษของ ๒๐ บาท ต่อ ๑๐ สตางค์ ถ้าสัญญาซื้อขายต่ำกว่า ๑๐ บาท ไม่ต้องติดอากรแสตมป์</div>
             <div class="row btn-g">
-            <div class="col-2">
+            <div class="col-2 buttom">
                     <input type="submit" class="btn-c submit" value="บันทึก" onclick="javascript:window.location='contracthistory.php';" />
                 </div>
             </div>

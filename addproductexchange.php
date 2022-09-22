@@ -10,7 +10,11 @@
     <link rel="stylesheet" href="./node_modules/jquery-ui/dist/themes/base/jquery-ui.css" />
     <title>addproductexchange</title>
 </head>
-<?php include('nav.php'); ?>
+<?php include('nav.php');
+include_once "./database/Product.php";
+$product = new Product();
+$rows = $product->fetchAll();
+?>
 
 <body>
     <form action="controller/ProductExchange.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
@@ -30,7 +34,12 @@
                             <div class="row a">
                                 <div class="col productr">
                                     สินค้าที่ต้องการเปลี่ยน :<span style="color: red; ">&nbsp*</span>
-                                    <input name="product_name" type="text" id="product_name" class="inbox" required />
+                                    <select name="product_id" id="product_id" class="inbox" style="background-color: #D4DDC6;" required>
+                                        <option value="all" selected hidden>เลือกสินค้า</option>
+                                        <?php foreach ($rows as $row) { ?>
+                                            <option value="<?= $row['product_id'] ?>"><?= $row['product_name'] ?></option>
+                                        <?php } ?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="row a">
@@ -68,14 +77,14 @@
                                 <div class="row a">
                                     <div class="col name">
                                         ชื่อ :<span style="color: red; ">&nbsp*</span>
-                                        <input name="name" type="text" id="name" class="inbox"  />
+                                        <input name="exchange_name" type="text" id="exchange_name" class="inbox"  />
                                         <!--ดูชื่อ class และ id จากเพื่อน-->
                                     </div>
                                 </div>
                                 <div class="row a tel">
                                     <div class="col">
                                         เบอร์โทรติดต่อ :<span style="color: red; ">&nbsp*</span>
-                                        <input name="tel" type="text" id="tel" class="inbox"  />
+                                        <input name="exchange_tel" type="text" id="exchange_tel" class="inbox"  />
                                         <!--ดูชื่อ class และ id จากเพื่อน-->
                                     </div>
                                 </div>
@@ -89,7 +98,7 @@
                     <button type="reset" class="btn-c reset">ยกเลิก</button>
                 </div>
                 <div class="col-2">
-                    <input type="submit" class="btn-c submit" value="บันทึก" />
+                    <button type="submit" class="btn-c submit">บันทึก</button>
                 </div>
             </div>
         </div>

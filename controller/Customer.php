@@ -1,17 +1,17 @@
 <?php
-include_once 'database/Contract.php';
 include_once 'database/Customer.php';
+include_once 'database/Contract.php';
 include_once 'Redirection.php';
-$contract = new Contract();
+$customer = new Customer();
 if (isset($_POST)) {
-    if ($_POST['table'] === 'contract') {
+    if ($_POST['table'] === 'customer') {
         if ($_POST['form_action'] === 'update') {
-            $contract->update($_POST);
+            $customer->update($_POST);
             //redirection('aaa.php');
         } else if ($_POST['form_action'] === 'delete') {
-            $contract->delete($_POST['contract_code']);
+            $customer->delete($_POST['customer']);
         } else if ($_POST['form_action'] === 'insert') {
-            $contract->insert($_POST);
+            $customer->insert($_POST);
         }
     }
 }else{

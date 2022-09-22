@@ -7,9 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/contracthistory.css" />
-    <title>Document</title>
+    <title>สัญญาซื้อขาย</title>
 </head>
-<?php include('nav.php'); ?>
+<?php include('nav.php');
+include_once "./database/Contract.php";
+$contract =  new Contract();
+$rows = $contract->fetchAll();
+?>
 
 <body>
     <form>
@@ -17,7 +21,7 @@
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
-                    <div class="col-12">
+                    <div class="col-11">
                         <h1>สัญญาซื้อขาย</h1>
                     </div>
                 </div>
@@ -27,9 +31,11 @@
                         <button type="submit" class="s"><img src="./src/images/search.png" width="15"></button>
                     </div>
                     <div class="col-2 x">
-                        <a type="button" href="./productlist.php" class="submit btn"><img src="./src/images/arrow.png" width="25">กลับไปยังหน้าขาย</a>
+                        <a type="button" href="./productlist.php" class="submit btn s1"><img src="./src/images/arrow.png" width="25">กลับไปยังหน้าขาย</a>
                     </div>
-                </div>
+                    <div class="col-1 v">
+                        <a type="button" href="./contract.php" class="submit btn s2"><img src="./src/images/plus.png" width="25">&nbsp;เพิ่ม</a>
+                    </div>
                 <table class="col-11 q">
                     <tr>
                         <th>วันที่ทำสัญญา</th>
@@ -58,6 +64,7 @@
                         <th><a type="button" class="btn1" onclick="javascript:window.location='solvecontract.php';"><img src="./src/images/icon-pencil.png" width="25"></a></th>
                     </tr>
                 </table>
+                </div>
             </div>
         </div>
     </form>
