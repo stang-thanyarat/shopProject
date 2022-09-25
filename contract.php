@@ -16,10 +16,12 @@ isLaber();
 </head>
 
 <?php include_once('nav.php');
-include_once "./database/Sis.php";
-include_once "./database/Customer.php";
-$sis = new Sis();
-$sis = $sis->fetchAll();
+include_once "./database/Employee.php";
+include_once "./database/Contract.php";
+$employee = new Employee();
+$labers = $employee->fetchLabers();
+$contract = new Contract();
+
 ?>
 
 <body>
@@ -34,7 +36,7 @@ $sis = $sis->fetchAll();
                 <div class="row">
                     <div class="col no">
                         ฉบับที่ :
-                        <input type="text" name="no" id="no" class="bb" />
+                        <input type="text" name="no" id="no" class="bb" value="<?= count($contract->fetchAll())+1?>" />
                         <div class="a">*</div>
                     </div>
                     <div class="col datec">
@@ -46,10 +48,10 @@ $sis = $sis->fetchAll();
                 <div class="row">
                     <div class="col owner">
                         นามเจ้าของร้าน :<span style="color: red; ">&nbsp&nbsp*</span>
-                        <select name="sis_id" id="sis_id" class="bb selectsis" style="background-color: #D4DDC6;" required>
+                        <select name="employee_id" id="employee_id" class="bb selectsis" style="background-color: #D4DDC6;" required>
                             <option value="all" selected hidden>เลือกเจ้าของร้าน</option>
-                            <?php foreach ($sis as $s) { ?>
-                                <option value="<?= $s['sis_id'] ?>"><?= $s['sis_prefix'] ?><?= $s['sis_name'] ?>&nbsp&nbsp<?= $s['sis_lastname'] ?></option>
+                            <?php foreach ($labers as $s) { ?>
+                                <option value="<?= $s['employee_id'] ?>"><?= $s['employee_prefix'] ?><?= $s['employee_firstname'] ?>&nbsp&nbsp<?= $s['employee_lastname'] ?></option>
                             <?php } ?>
                         </select>
                     </div>
