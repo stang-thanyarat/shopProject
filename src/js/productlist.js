@@ -93,7 +93,7 @@ function cart() {
     const cart = JSON.parse(localStorage.getItem('cart'))
     let html = ``
     Swal.fire({
-        title: 'Custom width',
+        title: 'รายการในรถเข็น',
         width: 1200,
     })
 }

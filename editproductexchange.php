@@ -11,12 +11,17 @@
 
     <title>editproductexchange</title>
 </head>
-<?php include('nav.php'); ?>
+<?php include('nav.php');
+include_once "./database/Product.php";
+$product = new Product();
+$p = $product->fetchById($_GET['id']);
+?>
 
 <body>
-    <form action="controller/ProductExchange.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
-        <input type="hidden" value="productexchange" name="table" />
-        <input type="hidden" value="insert" name="form_action" />
+<form action="controller/ProductExchange.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
+    <input type="hidden" value="productexchange" name="table" />
+    <input type="hidden" value="insert" name="form_action" />
+    <input type="hidden" id="product_id" name="product_id"   />
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
             <div class="col-11">
@@ -30,20 +35,20 @@
                         <th>
                             <div class="row a">
                                 <div class="col productr">
-                                    สินค้าที่ต้องการเปลี่ยน :<font color="red">&nbsp*</font>
-                                    <input name="product_name" type="text" id="product_name" class="inbox" required />
+                                    สินค้าที่ต้องการเปลี่ยน :<span style="color: red; ">&nbsp*</span>
+                                    <input type="text" accept="image/*" name="product_name" id="product_name" value="<?= $p['product_name']; ?>" class="inbox" required />
                                 </div>
                             </div>
                             <div class="row a">
                                 <div class="col productn">
-                                    จำนวนที่เปลี่ยนสินค้า :<font color="red">&nbsp*</font>
-                                    <input name="exchange_amount" type="text" id="exchange_amount" class="inbox" required />
+                                    จำนวนที่เปลี่ยนสินค้า :<span style="color: red; ">&nbsp*</span>
+                                    <input name="exchange_amount" min="1" step="1" value="1" type="number" id="exchange_amount" class="inbox" value="<?= $p['exchange_amount']; ?>" required />
                                 </div>
                             </div>
                             <div class="row a ">
                                 <div class="col ev">
                                     หลักฐานที่เสียหาย :<font color="red">&nbsp*</font>
-                                    <input type="file" accept="image/*" name="damage_proof" id="damage_proof" class="inbox" required>
+                                    <input type="file" accept="image/*" name="damage_proof" id="damage_proof" class="inbox" value="<?= $p['damage_proof']; ?>" required />
                                 </div>
                             </div>
                             <div class="row a">
@@ -53,30 +58,30 @@
                             </div>
                             <div class="row a">
                                 <div class="col comment">
-                                    หมายเหตุ :&nbsp&nbsp&nbsp&nbsp<textarea name="note" id="note" cols="80" rows="5" class="inbox" style="vertical-align:top;"></textarea>
+                                    หมายเหตุ :&nbsp&nbsp&nbsp&nbsp<textarea name="note" id="note" cols="80" rows="5" class="inbox" value="<?= $p['note']; ?>" style="vertical-align:top;"></textarea>
                                 </div>
                             </div>
                             <div class="row a">
                                 <div class="col status">
-                                    สถานะการเปลี่ยนสินค้า :<font color="red">&nbsp*</font>
-                                    <input type="radio" name="exchange_status" id="exchange_status" class="inbox" value="สำเร็จแล้ว">
-                                    <label for="complete"> สำเร็จแล้ว </label>
-                                    <input type="radio" name="exchange_status" id="exchange_status" class="inbox" value="รอของ">
-                                    <label for="wait"> รอของ </label>
+                                    สถานะการเปลี่ยนสินค้า :<span style="color: red; ">&nbsp*</span>
+                                    <input type="radio" name="exchange_status" id="exchange_status" class="inbox" value="complete">สำเร็จแล้ว
+                                    <input type="radio" name="exchange_status" id="exchange_status" class="inbox" value="wait" checked>รอของ
                                 </div>
                             </div>
-                            <div class="row a">
-                                <div class="col name">
-                                    ชื่อ :<font color="red">&nbsp*</font>
-                                    <input name="name" type="text" id="name" class="inbox" required />
-                                    <!--ดูชื่อ class และ id จากเพื่อน-->
+                            <div class="desc" id="wait">
+                                <div class="row a">
+                                    <div class="col name">
+                                        ชื่อ :<span style="color: red; ">&nbsp*</span>
+                                        <input name="exchange_name" type="text" id="exchange_name" class="inbox" value="<?= $p['exchange_name']; ?>" />
+                                        <!--ดูชื่อ class และ id จากเพื่อน-->
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row a tel">
-                                <div class="col">
-                                    เบอร์โทรติดต่อ :<font color="red">&nbsp*</font>
-                                    <input name="tel" type="text" id="tel" class="inbox" required />
-                                    <!--ดูชื่อ class และ id จากเพื่อน-->
+                                <div class="row a tel">
+                                    <div class="col">
+                                        เบอร์โทรติดต่อ :<span style="color: red; ">&nbsp*</span>
+                                        <input onkeyup="autoTab2(this)" name="exchange_tel" type="text" id="exchange_tel" class="inbox" value="<?= $p['exchange_tel']; ?>" />
+                                        <!--ดูชื่อ class และ id จากเพื่อน-->
+                                    </div>
                                 </div>
                             </div>
             </div>
