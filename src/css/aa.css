@@ -2,7 +2,6 @@
 
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
-    --bs-gutter-x: 0rem;
 }
 
 .row {
@@ -12,7 +11,7 @@
 .main {
     margin-top: 4rem;
     margin-left: 3rem;
-    width: 85%;
+
 }
 
 .Nbar {

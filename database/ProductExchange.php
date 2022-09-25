@@ -1,6 +1,5 @@
 <?php
 include_once("Connection.php");
-
 class ProductExchange
 {
     private $conn;

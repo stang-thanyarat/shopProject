@@ -8,12 +8,8 @@ $product = new Product();
 if (isset($_POST)) {
     if ($_POST['table'] === 'productexchange') {
         if ($_POST['form_action'] === 'update') {
-
-            $productexchange->update($_POST);
-
-            //redirection('aaa.php');
-        }
-        else if ($_POST['form_action'] === 'delete') {
+            $productexchange->update($_POST);    
+        } else if ($_POST['form_action'] === 'delete') {
             $productexchange->delete($_POST['product_exchange_id']);
         }
         else if ($_POST['form_action'] === 'insert') {
@@ -35,7 +31,9 @@ if (isset($_POST)) {
                 $product->cutStock($_POST['product_id'],$_POST['exchange_amount']);
             }
             $productexchange->insert($_POST);
-            header( "location: ../productexchangehistory.php" );
+
+            redirection( "/productexchangehistory.php" );
+
         }
     }
 }

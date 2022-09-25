@@ -1,18 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&display=swap');
-*{
+
+* {
     font-family: 'IBM Plex Sans Thai', sans-serif;
 }
-.main{
+
+.main {
     margin-top: 5rem;
     margin-left: 5rem;
     width: 90%;
 }
 
-.Nbar{
+.Nbar {
     margin-top: 3.5rem;
 }
 
-.c{
+.c {
     margin-top: 1rem;
     margin-left: 15rem;
 }
@@ -34,92 +36,100 @@ th {
     width: 50%;
 }
 
-.col-12{
+.col-12 {
     margin-left: 1rem;
-    
+
 }
 
-.B{
-    margin-right: 5rem;
+.btn-g {
+    width: 100%;
+    justify-content: end;
+    display: flex;
+    margin-top: 2rem;
 }
 
-.BTN{
-    border-radius: 25px;
-    width: 15%;
+.btn-c {
+    border-radius: 25px 25px 25px 25px;
+    font-size: 20pt;
+    width: 60%;
+}
+
+.submit {
     background-color: #7C904E;
     color: white;
-    border: 0in;
-    margin-top: 5rem;
+    border: 0ch;
 }
 
-.BTNC{
-    border-radius: 25px;
-    width: 15%;
-    background-color: #E0B87E;
-    color: white;
-    border: 0in;
-    margin-top: 5rem;
-}
-
-.BTNE{
-    border-radius: 25px;
-    width: 15%;
+.outdebt {
     background-color: #A36627;
     color: white;
-    border: 0in;
-    margin-top: 5rem;
-}
-.row{
-    --bs-gutter-x: 0rem;
-}
-.BTNP{
-    width: 15%;
-    background-color: #fff;
-    color: #A36627;
-    border: 0in;
+    border: 0ch;
+    margin-left: 6rem;
 }
 
-.col-10{
+.reset {
+    background-color: #E0B87E;
+    color: white;
+    border: 0ch;
+    margin-left: 12rem;
+}
+
+
+.row {
+    --bs-gutter-x: 0rem;
+}
+
+.col-10 {
     margin-top: 1rem;
 }
 
-.btn-primary1{
-    
+.btn-primary1 {
+
     background-color: #7C904E;
     color: #fff;
     border: 0in;
 }
 
-.r{
+.r {
     margin-top: 1rem;
     margin-bottom: 1rem;
     width: 200px;
 }
-.u{
+
+.u {
     width: 100px;
 }
-.p{
+
+.p {
     width: 120px;
 }
-.t{
+
+.t {
     width: 120px;
 }
-.modal-header{
+
+.modal-header {
     background-color: #7C904E;
     height: 50px;
 }
-.modal-title{
+
+.modal-title {
     color: #fff;
 }
-.modal-body{
+
+.modal-body {
     background-color: #D4DDC6;
 }
 
-.btn1{
+.btn1 {
     background-color: #7C904E;
     color: #fff;
     border: 0in;
     border-radius: 25px;
     height: 30px;
     width: 5%;
+}
+
+.B {
+    margin-right: 6.6rem;
 }

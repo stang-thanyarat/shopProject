@@ -1,3 +1,8 @@
+<?php
+include_once('service/auth.php');
+isLaber();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,12 +14,12 @@
     <link rel="stylesheet" href="./src/css/orderhistory.css" />
     <title>Document</title>
 </head>
-<?php include('nav.php'); ?>
+<?php include_once('nav.php'); ?>
 
 <body>
     <form>
         <div class="row">
-            <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
+            <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
                     <div class="col-12">

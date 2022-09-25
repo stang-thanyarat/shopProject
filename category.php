@@ -1,3 +1,8 @@
+<?php
+include_once('service/auth.php');
+isLaber();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +15,7 @@
     <link rel="stylesheet" href="./node_modules/sweetalert2/dist/sweetalert2.min.css" />
     <title>category</title>
 </head>
-<?php include('nav.php');
+<?php include_once('nav.php');
 include_once "./database/Category.php";
 include_once "./database/Product.php";
 $category =  new Category();
@@ -19,7 +24,7 @@ $rows = $category->fetchAll();
 
 <body>
     <div class="row">
-        <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
+        <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
         <div class="col-11">
             <div class="row main">
                 <div class="col">

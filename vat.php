@@ -1,3 +1,8 @@
+<?php
+include_once('service/auth.php');
+isLaber();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,12 +24,12 @@ if (!isset($_SESSION['vat'])) {
 if (isset($_POST['vat'])) {
     $_SESSION['vat'] = $_POST['vat'];
 }
-include('nav.php'); ?>
+include_once('nav.php'); ?>
 
 <body>
     <form>
         <div class="row">
-            <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
+            <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
                     <h1>ตั้งค่าภาษีมูลค่าเพิ่ม</h1>
@@ -35,7 +40,7 @@ include('nav.php'); ?>
                     </table>
                     <div class="row btn-g">
                         <div class="col-2">
-                            <button type="reset" class="btn-c reset">ยกเลิก</button>
+                            <!--<button type="reset" class="btn-c reset">ยกเลิก</button>-->
                         </div>
                         <div class="col-2">
                             <input type="submit" class="btn-c submit" value="บันทึก" />

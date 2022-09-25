@@ -1,3 +1,8 @@
+<?php
+include_once('service/auth.php');
+isLaber();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +16,8 @@
 
     <title>editproductexchange</title>
 </head>
-<?php include('nav.php');
+
+<?php include_once('nav.php');
 include_once "./database/Product.php";
 $product = new Product();
 $p = $product->fetchById($_GET['id']);
@@ -23,7 +29,7 @@ $p = $product->fetchById($_GET['id']);
     <input type="hidden" value="insert" name="form_action" />
     <input type="hidden" id="product_id" name="product_id"   />
         <div class="row">
-            <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
+            <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
                     <div class="col">

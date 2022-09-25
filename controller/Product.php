@@ -56,7 +56,7 @@ if (isset($_POST)) {
                 $_POST['set_n_amt'] = '1';
             }
             $product->update($_POST);
-            redirection('../productresult.php');
+            redirection('/productresult.php');
         } else if ($_POST['form_action'] === 'delete') {
             $product->delete($_POST['product_id']);
         } else if ($_POST['form_action'] === 'insert') {
@@ -105,7 +105,7 @@ if (isset($_POST)) {
             $_POST['product_img1'] = str_replace("-", "", $_POST['product_img1']);
             $_POST['product_img2'] = str_replace("-", "", $_POST['product_img2']);
             $product->insert($_POST);
-            header("location: ../productresult.php");
+            Redirection("/productresult.php");
         }
     }
 } else {

@@ -16,7 +16,21 @@ class UserAccount
             $sql = "SELECT * FROM user_account_tb";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-            $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
+    }
+
+    public function fetchLabers()
+    {
+        try {
+            $sql = 'SELECT * FROM user_account_tb WHERE account_user_type ="L"';
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $result;
         } catch (Exception $e) {
             http_response_code(500);
@@ -30,7 +44,7 @@ class UserAccount
             $sql = "SELECT * FROM user_account_tb LEFT JOIN employee_tb ON user_account_tb.employee_id = employee_tb.employee_id";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-            $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $result;
         } catch (Exception $e) {
             http_response_code(500);
@@ -59,7 +73,7 @@ class UserAccount
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
-            $result = $stmt->fetch( PDO::FETCH_ASSOC);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
             return $result;
         } catch (Exception $e) {
             http_response_code(500);
@@ -106,7 +120,7 @@ class UserAccount
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $email, PDO::PARAM_STR);
             $stmt->execute();
-            $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $result;
         } catch (Exception $e) {
             http_response_code(500);
@@ -139,7 +153,7 @@ class UserAccount
         $userData = $this->fetchAddEmployee();
         $data = [];
         foreach ($userData as $user) {
-            if (strpos($user['account_user_type'], $type) !== false) {
+            if ($user['account_user_type'] == $type){
                 $data[] = $user;
             }
         }
@@ -149,13 +163,14 @@ class UserAccount
     public function insert($data)
     {
         try {
-            $sql = "INSERT INTO user_account_tb (account_username, account_password, account_user_status, employee_id) 
-        VALUES (?,?,?,?)";
+            $sql = "INSERT INTO user_account_tb (account_username, account_password, account_user_status, employee_id ,account_user_type) 
+        VALUES (?,?,?,?,?)";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $data['account_username'], PDO::PARAM_STR);
             $stmt->bindParam(2, $data['account_password'], PDO::PARAM_STR);
             $stmt->bindParam(3, $data['account_user_status'], PDO::PARAM_STR);
-            $stmt->bindParam(4, $data['employee_id'], PDO::PARAM_INT);
+            $stmt->bindParam(4, $data['employee_id'], PDO::PARAM_INT);     
+            $stmt->bindParam(5, $data['account_user_type'], PDO::PARAM_STR);
             $stmt->execute();
         } catch (Exception $e) {
             http_response_code(500);

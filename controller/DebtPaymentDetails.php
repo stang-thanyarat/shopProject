@@ -1,6 +1,6 @@
 <?php
-include 'database/DebtPaymentDetails.php';
-include 'Redirection.php';
+include_once 'database/DebtPaymentDetails.php';
+include_once 'Redirection.php';
 $debtPaymentDetails = new DebtPaymentDetails();
 if (isset($_POST)) {
     if ($_POST['table'] === 'debtPaymentDetails') {

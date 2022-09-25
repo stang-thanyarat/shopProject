@@ -1,6 +1,6 @@
 <?php
-include 'database/Order.php';
-include 'Redirection.php';
+include_once 'database/Order.php';
+include_once 'Redirection.php';
 $order = new Order();
 if (isset($_POST)) {
     if ($_POST['table'] === 'order') {
