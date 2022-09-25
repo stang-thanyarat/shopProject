@@ -12,9 +12,15 @@ isLaber();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/contract.css" />
-    <title>Document</title>
+    <title>เพิ่มสัญญาซื้อขาย</title>
 </head>
-<?php include_once('nav.php'); ?>
+
+<?php include_once('nav.php');
+include_once "./database/Sis.php";
+include_once "./database/Customer.php";
+$sis = new Sis();
+$sis = $sis->fetchAll();
+?>
 
 <body>
     <script src="./src/js/contract.js"></script>
@@ -39,11 +45,13 @@ isLaber();
                 </div>
                 <div class="row">
                     <div class="col owner">
-                        นามผู้ขาย :
-                        <select name="owner" style="background-color: #D4DDC6;" class="bb">
-                            <option value="เลือกผู้ขาย" selected hidden>เลือกผู้ขาย</option>
+                        นามเจ้าของร้าน :<span style="color: red; ">&nbsp&nbsp*</span>
+                        <select name="sis_id" id="sis_id" class="bb selectsis" style="background-color: #D4DDC6;" required>
+                            <option value="all" selected hidden>เลือกเจ้าของร้าน</option>
+                            <?php foreach ($sis as $s) { ?>
+                                <option value="<?= $s['sis_id'] ?>"><?= $s['sis_prefix'] ?><?= $s['sis_name'] ?>&nbsp&nbsp<?= $s['sis_lastname'] ?></option>
+                            <?php } ?>
                         </select>
-                        <div class="c">*</div>
                     </div>
                     <div class="col number">
                         จำนวนเงินที่ขาย :
@@ -150,7 +158,7 @@ isLaber();
                 <div class="row xx">๑. หากผู้ขายยังไม่ส่งมอบทรัพย์ให้ในเวลาทำสัญญา ควรจะเติมข้อความอีก ๑ ข้อว่าตราบใดที่ผู้ขายยังไม่ส่งมอบทรัพย์ให้ ยังไม่ถือว่าได้มีการซื้อขาย มิฉะนั้นผู้ซื้ออาจเสียเปรียบผู้ขาย</div>
                 <div class="row xx">๒. สัญญาซื้อขายไม่ต้องปิดอากรแสตมป์ เว้นแต่จะถือว่าสัญญานี้เป็นใบรับเงินแล้ว ถ้าสัญญาซื้อขายนี้ตั้งแต่ ๑๐ บาท ถึง ๒๐ บาท ต้องติดอากรแสตมป์ ๑๐ สตางค์ ถ้าสัญญาซื้ขายนี้เกิน ๒๐ บาท ทุก ๒๐ บาท หรือเศษของ ๒๐ บาท ต่อ ๑๐ สตางค์ ถ้าสัญญาซื้อขายต่ำกว่า ๑๐ บาท ไม่ต้องติดอากรแสตมป์</div>
             <div class="row btn-g">
-            <div class="col-2">
+            <div class="col-2 buttom">
                     <input type="submit" class="btn-c submit" value="บันทึก" onclick="javascript:window.location='contracthistory.php';" />
                 </div>
             </div>

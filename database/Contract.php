@@ -1,5 +1,6 @@
 <?php
 include_once ("Connection.php");
+
 Class Contract{
     private $conn;
     function __construct()

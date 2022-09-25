@@ -29,10 +29,10 @@ $rows = $stock->fetchAll();
     <div class="col-11">
         <div class="row main">
             <div class="col">
-                <h1>สต๊อกสินค้า</h1>
+                <h1>คลังสินค้า</h1>
             </div>
             <div class="col-2 addproducttypebutton">
-                <button class="submit btn" onclick="insert()"><img src="./src/images/plus.png" width="25">&nbsp เพิ่มประเภทสินค้า</button>
+                <button class="submit btn" onclick="insert()"><img src="./src/images/plus.png" width="25">&nbsp เพิ่มคลังสินค้า</button>
             </div>
         </div>
         <table class="col-13 tbproducttype">

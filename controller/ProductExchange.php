@@ -6,7 +6,7 @@ $productexchange = new ProductExchange();
 
 if (isset($_POST)) {
     if ($_POST['table'] === 'productexchange') {
-
+        $path = './file/product//';
         if ($_POST['form_action'] === 'update') {
             $productexchange->update($_POST);
         } else if ($_POST['form_action'] === 'delete') {
@@ -14,18 +14,22 @@ if (isset($_POST)) {
             $productexchange->delete($_POST['product_exchange_id']);
             
         } else if ($_POST['form_action'] === 'insert') {
-
-            if (!empty($_FILES['damage_proof'])) {
-                $filesname = uploadImage($_FILES['damage_proof'], '../file/productexchange/');
+            if ($_FILES['damage_proof']['size'] > 0) {
+                $path = './file/product/productexchange/';
+                $filesname = uploadImage($_FILES['damage_proof'], "." . $path);
                 if ($filesname) {
-                    $_POST['damage_proof'] = $filesname;
+                    $_POST['damage_proof'] = $path . $filesname;
                 } else {
                     $_POST['damage_proof'] = '';
                 }
             } else {
                 $_POST['damage_proof'] = '';
             }
-
+            if (empty($_POST['exchange_status'])) {
+                $_POST['exchange_status'] = '0';
+            } else {
+                $_POST['exchange_status'] = '1';
+            }
             $productexchange->insert($_POST);
             redirection( "/productexchangehistory.php" );
         }

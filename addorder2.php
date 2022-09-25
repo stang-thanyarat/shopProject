@@ -15,7 +15,16 @@ isLaber();
 
     <title>Document</title>
 </head>
-<?php include_once('nav.php'); ?>
+
+<?php include_once('nav.php');
+include_once "./database/Category.php";
+include_once "./database/Sell.php";
+$sell = new Sell();
+$category = new Category();
+$rows = $category->fetchAll();
+$sells = $sell->fetchAll();
+?>
+
 
 <body>
     <form id="form1">
@@ -44,9 +53,11 @@ isLaber();
                         <div class="row">
                             <div class="col company">
                                 ชื่อผู้ขาย : &nbsp;
-                                <select name="company" style="background-color: #D4DDC6;">
-                                    <option value="อาร์เอส อินเตอร์เทรด (2017) จำกัด" selected> อาร์เอส อินเตอร์เทรด (2017) จำกัด
-                                    </option>
+                                <select name="sell_id" id="sell_id" class="inbox" style="background-color: #D4DDC6;" required>
+                                    <option value="all" selected hidden>เลือกผู้ขาย</option>
+                                    <?php foreach ($sells as $s) { ?>
+                                        <option value="<?= $s['sell_id'] ?>"><?= $s['sell_name'] ?></option>
+                                    <?php } ?>
                                 </select>
                             </div>
                         </div>

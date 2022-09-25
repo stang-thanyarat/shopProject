@@ -14,7 +14,14 @@ isLaber();
     <link rel="stylesheet" href="./src/css/editconfirm.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
-<?php include_once('nav.php'); ?>
+<?php include_once('nav.php');
+include_once "./database/Category.php";
+include_once "./database/Sell.php";
+$sell = new Sell();
+$category = new Category();
+$rows = $category->fetchAll();
+$sells = $sell->fetchAll();
+?>
 
 <body>
     <script src="./src/js/confirm.js"></script>
@@ -36,13 +43,16 @@ isLaber();
                     </div>
                     <div class="col-12">
                         ชื่อผู้ขาย:&nbsp;
-                        <select name="company" style="background-color: #7C904E;">
-                            <option value="อาร์เอส อินเตอร์เทรด (2017) จำกัด" selected> อาร์เอส อินเตอร์เทรด (2017) จำกัด</option>
+                        <select name="sell_id" id="sell_id" class="inbox" style="background-color: #D4DDC6;" required>
+                            <option value="all" selected hidden>เลือกผู้ขาย</option>
+                            <?php foreach ($sells as $s) { ?>
+                                <option value="<?= $s['sell_id'] ?>"><?= $s['sell_name'] ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                     <div class="col-12">
                         วิธีการชำระเงิน:&nbsp;
-                        <select name="payment" id="payment_sl" style="background-color: #7C904E;">
+                        <select name="payment" id="payment_sl" style="background-color: #D4DDC6;">
                             <option value="เงินสด" selected>เงินสด</option>
                             <option value="เครดิต">เครดิต</option>
                         </select>
@@ -62,7 +72,7 @@ isLaber();
                         หมายเหตุ:
                     </div>
                     <div class="col-12">
-                        <textarea style="vertical-align: middle; background-color: #7C904E;" name="detail" cols="50" rows="5"></textarea>
+                        <textarea style="vertical-align: middle; background-color: #D4DDC6;" name="detail" cols="50" rows="5"></textarea>
                     </div>
                     <div class="col-12 C">
                         รายการสินค้า
@@ -138,19 +148,19 @@ isLaber();
                     <div class="modal-body">
                         <div class="col-12 r">
                             ประเภทสินค้า: &nbsp;
-                            <select id="typeproduct" name="typeproduct" style="background-color: #7C904E;" required>
+                            <select id="typeproduct" name="typeproduct" style="background-color: #D4DDC6;" required>
                                 <option value="เลือก" selected>เลือก</option>
                             </select><br><br>
                             รายการสินค้า: &nbsp;
-                            <select id="product_name" name="product_name" style="background-color: #7C904E;" required>
+                            <select id="product_name" name="product_name" style="background-color: #D4DDC6;" required>
                                 <option value="เลือก" selected>เลือก</option>
                             </select><br><br>
                             ยี่ห้อ: &nbsp;
-                            <select id="brand" name="brand" style="background-color: #7C904E;" required>
+                            <select id="brand" name="brand" style="background-color: #D4DDC6;" required>
                                 <option value="เลือก" selected>เลือก</option>
                             </select><br><br>
                             รุ่น: &nbsp;
-                            <select id="model" name="model" style="background-color: #7C904E;" required>
+                            <select id="model" name="model" style="background-color: #D4DDC6;" required>
                                 <option value="เลือก" selected>เลือก</option>
                             </select><br><br>
                             ราคาต่อหน่วย: &nbsp;<input type="number" class="u" min="0.25" step="0.25" name="unitprice" id="unitprice" required /><br><br>
@@ -254,19 +264,19 @@ isLaber();
 
                         <div class="col-12 r">
                             ประเภทสินค้า: &nbsp;
-                            <select id="edittypeproduct" name="typeproduct" style="background-color: #7C904E;" required>
+                            <select id="edittypeproduct" name="typeproduct" style="background-color: #D4DDC6;" required>
                                 <option value="เลือก" selected>เลือก</option>
                             </select><br><br>
                             รายการสินค้า: &nbsp;
-                            <select id="editlistproduct" name="listproduct" style="background-color: #7C904E;" required>
+                            <select id="editlistproduct" name="listproduct" style="background-color: #D4DDC6;" required>
                                 <option value="เลือก" selected>เลือก</option>
                             </select><br><br>
                             ยี่ห้อ: &nbsp;
-                            <select id="editbrand" name="brand" style="background-color: #7C904E;" required>
+                            <select id="editbrand" name="brand" style="background-color: #D4DDC6;" required>
                                 <option value="เลือก" selected>เลือก</option>
                             </select><br><br>
                             รุ่น: &nbsp;
-                            <select id="editproductmodel" name="productmodel" style="background-color: #7C904E;" required>
+                            <select id="editproductmodel" name="productmodel" style="background-color: #D4DDC6;" required>
                                 <option value="เลือก" selected>เลือก</option>
                             </select><br><br>
                             ราคาต่อหน่วย: &nbsp;<input type="number" class="u" min="0.25" step="0.25" name="unitprice" id="editunitprice" required /><br><br>

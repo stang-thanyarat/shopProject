@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/controller/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Employee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/Sell.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Sell.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Employee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Sell.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Sell.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addorder2.php" beforeDir="false" afterPath="$PROJECT_DIR$/addorder2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addproduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/addproduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bar.php" beforeDir="false" afterPath="$PROJECT_DIR$/bar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/contract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracthistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/contracthistory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/Contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Contract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/Sis.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Sis.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Contract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Sis.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Sis.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/editconfirm2.php" beforeDir="false" afterPath="$PROJECT_DIR$/editconfirm2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order.php" beforeDir="false" afterPath="$PROJECT_DIR$/order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/contract.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/contract.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/contracthistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/contracthistory.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stock.php" beforeDir="false" afterPath="$PROJECT_DIR$/stock.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +43,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2EFEuTYXbW9aeFHqtvMflcfb2C5" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -39,6 +56,9 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/shopProject&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -58,6 +78,11 @@
       <workItem from="1662183520787" duration="19599000" />
       <workItem from="1662536176838" duration="2351000" />
       <workItem from="1662902532156" duration="473000" />
+      <workItem from="1663568130121" duration="360000" />
+      <workItem from="1663597332358" duration="3578000" />
+      <workItem from="1663603769958" duration="258000" />
+      <workItem from="1663653757296" duration="2057000" />
+      <workItem from="1663677304588" duration="11914000" />
     </task>
     <servers />
   </component>
