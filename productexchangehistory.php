@@ -14,8 +14,10 @@ isLaber();
     <link rel="stylesheet" href="./src/css/productexchangehistory.css" />
     <title>productexchangehistory</title>
 </head>
-<?php include_once('nav.php');
 
+<?php include_once('nav.php');
+include_once "./database/Product.php";
+include_once "./database/ProductExchange.php";
 ?>
 
 <body>
@@ -35,32 +37,17 @@ isLaber();
                     <a type="button" href="./addproductexchange.php" class="submit btn"><img class='plus' src="./src/images/plus.png" width="30">&nbsp เพิ่ม </a>
                 </div>
                 <table class="col-11 pdrtb">
+                    <thead>
                     <tr>
-                        <th name="exchange_date" id="exchange_date">วันที่เปลี่ยนสินค้า</th>
-                        <th name="exchange_time" id="exchange_time">เวลา</th>
-                        <th name="product_name" id="product_name">ชื่อสินค้า</th>
-                        <th name="exchange_amount" id="exchange_amount">จำนวน</th>
-                        <th name="exchange_status" id="exchange_status">สถานะการขาย</th>
+                        <th>วันที่เปลี่ยนสินค้า</th>
+                        <th>เวลา</th>
+                        <th>ชื่อสินค้า</th>
+                        <th>จำนวน</th>
+                        <th>สถานะการขาย</th>
                         <th></th>
                     </tr>
-                    <tr>
-                        <th name="exchange_date" id="exchange_date">05/11/2021</th>
-                        <th name="exchange_time" id="exchange_time">12:30</th>
-                        <th name="product_name" id="product_name">เครื่องตัดหญ้า</th>
-                        <th name="exchange_amount" id="exchange_amount">1</th>
-                        <th name="exchange_status" id="exchange_status">รอของ</th>
-                        <th width="7%">
-                            <button type="button" class="btn4" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1"><img src="./src/images/icon-delete.png" width="25">
-                            </button>
-                            <button type="button" class="btn4" href="./editproductreplacement.php"><img src="./src/images/icon-pencil.png" width="25">
-                            </button>
-                        </th>
-                    </tr>
-                    <th name="exchange_date" id="exchange_date">23/01/2021</th>
-                    <th name="exchange_time" id="exchange_time">16:40</th>
-                    <th name="product_name" id="product_name">เครื่องปั๊มน้ำ</th>
-                    <th name="exchange_amount" id="exchange_amount">1</th>
-                    <th name="exchange_status" id="exchange_status">สำเร็จแล้ว</th>
+                    <tbody id="productExchangeTable">
+                    </tbody>
                 </table>
             </div>
         </div>

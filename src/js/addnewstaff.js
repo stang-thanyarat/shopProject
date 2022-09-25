@@ -1,6 +1,6 @@
 $(document).ready(function () {
     localStorage.clear()
-    localStorage.setItem("tableBank", JSON.stringify({ data: [] }))
+    localStorage.setItem("tableBank", JSON.stringify({data: []}))
 });
 
 //บัตรประชาชน
@@ -46,7 +46,7 @@ $("#form1").submit(async function (event) {
             icon: 'warning',
             title: 'คำเตือน',
             text: 'ระบุหมายเลขประจำตัวประชาชนไม่ถูกต้อง',
-            timer:3000
+            timer: 3000
         })
         return
     }
@@ -55,7 +55,7 @@ $("#form1").submit(async function (event) {
             icon: 'warning',
             title: 'คำเตือน',
             text: 'เบอร์โทรศัพท์ไม่ถูกต้อง',
-            timer:3000
+            timer: 3000
         })
         return
     }
@@ -65,7 +65,7 @@ $("#form1").submit(async function (event) {
             icon: 'warning',
             title: 'คำเตือน',
             text: 'อีเมลไม่ถูกต้อง',
-            timer:3000
+            timer: 3000
         })
         return
     }
@@ -74,11 +74,10 @@ $("#form1").submit(async function (event) {
             icon: 'warning',
             title: 'คำเตือน',
             text: 'กรุณากรอกข้อมูลบัญชีธนาคาร',
-            timer:3000
+            timer: 3000
         })
         return
-    }
-     else {
+    } else {
         const Employee = await (await fetch(`controller/EmailEmployeeCheck.php?email=${document.form1.employee_email.value}`)).json()
         if (Employee.length > 0) {
             event.preventDefault();
@@ -86,7 +85,7 @@ $("#form1").submit(async function (event) {
                 icon: 'warning',
                 title: 'คำเตือน',
                 text: 'อีเมลนี้มีผู้ใช้งานอยู่แล้ว',
-                timer:3000
+                timer: 3000
             })
             //console.log (Employee);
             return
@@ -104,7 +103,7 @@ $("#form1").submit(async function (event) {
                 await Swal.fire({
                     icon: 'success',
                     text: 'บันทึกข้อมูลเสร็จสิ้น',
-                    timer:3000
+                    timer: 3000
                 })
                 console.log(await response.text());
                 window.location.assign("employee.php");
@@ -113,9 +112,12 @@ $("#form1").submit(async function (event) {
     }
 });
 
+
+
+
 //เบอร์โทรศัพท์
 function autoTab2(obj) {
-    var pattern = new String("___-_______");
+    var pattern =new String("___-_______");
     var pattern_ex = new String("-");
     var returnText = new String("");
     var obj_l = obj.value.length;
@@ -138,7 +140,6 @@ function check_email(elm) {
     var regex_email = /^[_a-zA-Z0-9-]+(\.[_a-zA-Z0-9-]+)*\@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.([a-zA-Z]){2,4})$/
     return text.match(regex_email)
 }
-
 
 
 //ตรวจสอบเบอร์โทรศัพท์
@@ -215,6 +216,7 @@ $("#editbankaccount").submit(function (event) {
 function saveIndexDel(i) {
     localStorage.setItem('deleteIndex', i)
 }
+
 //กำหนดแถวที่จะแก้ไข พร้อมข้อมูลเริ่มต้น บัญชี
 function saveIndexEdit(i) {
     localStorage.setItem('editIndex', i)

@@ -142,14 +142,18 @@ class Product
     public function autoComplete($keyword)
     {
         $like = $keyword . "%";
-        $sql = "SELECT product_name FROM product_tb WHERE product_name LIKE ?";
+        $sql = "SELECT * FROM product_tb WHERE product_name LIKE ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $like, PDO::PARAM_STR);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $json = [];
-        foreach ($result as $row) {
-            $json[] = $row['product_name'];
+
+        foreach($result as $row){
+            $object = new stdClass();
+            $object->label = $row['product_name'];
+            $object->value = $row['product_id'];
+            $json[]=$object;
         }
         return json_encode($json);
     }
@@ -201,7 +205,7 @@ class Product
         $sql = "SET FOREIGN_KEY_CHECKS=0";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        $sql = "UPDATE Orders SET product_rm_unit = product_rm_unit + ? WHERE product_id=?";
+        $sql = "UPDATE Orders SET product_rm_unit = product_rm_unit - ? WHERE product_id=?";
         $stmt->bindParam(1, $id, PDO::PARAM_INT); //Boolean ใช้ INT
         $stmt->bindParam(2, $amount, PDO::PARAM_INT);
         $stmt->execute();

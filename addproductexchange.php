@@ -19,13 +19,13 @@ isLaber();
 <?php include_once('nav.php');
 include_once "./database/Product.php";
 $product = new Product();
-$rows = $product->fetchAll();
 ?>
 
 <body>
     <form action="controller/ProductExchange.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
         <input type="hidden" value="productexchange" name="table" />
         <input type="hidden" value="insert" name="form_action" />
+        <input type="hidden" id="product_id" name="product_id"   />
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
@@ -40,12 +40,7 @@ $rows = $product->fetchAll();
                             <div class="row a">
                                 <div class="col productr">
                                     สินค้าที่ต้องการเปลี่ยน :<span style="color: red; ">&nbsp*</span>
-                                    <select name="product_id" id="product_id" class="inbox" style="background-color: #D4DDC6;" required>
-                                        <option value="all" selected hidden>เลือกสินค้า</option>
-                                        <?php foreach ($rows as $row) { ?>
-                                            <option value="<?= $row['product_id'] ?>"><?= $row['product_name'] ?></option>
-                                        <?php } ?>
-                                    </select>
+                                    <input type="text" accept="image/*" name="product_name" id="product_name" class="inbox" required />
                                 </div>
                             </div>
                             <div class="row a">
@@ -57,7 +52,7 @@ $rows = $product->fetchAll();
                             <div class="row a ">
                                 <div class="col ev">
                                     หลักฐานที่เสียหาย :<font color="red">&nbsp*</font>
-                                    <input type="file" accept="image/*" name="damage_proof" id="damage_proof" class="inbox" required>
+                                    <input type="file" accept="image/*" name="damage_proof" id="damage_proof" class="inbox" required />
                                 </div>
                             </div>
                             <div class="row a">
@@ -83,14 +78,14 @@ $rows = $product->fetchAll();
                                 <div class="row a">
                                     <div class="col name">
                                         ชื่อ :<span style="color: red; ">&nbsp*</span>
-                                        <input name="exchange_name" type="text" id="exchange_name" class="inbox"  />
+                                        <input name="exchange_name" type="text" id="exchange_name" class="inbox" >
                                         <!--ดูชื่อ class และ id จากเพื่อน-->
                                     </div>
                                 </div>
                                 <div class="row a tel">
                                     <div class="col">
                                         เบอร์โทรติดต่อ :<span style="color: red; ">&nbsp*</span>
-                                        <input name="exchange_tel" type="text" id="exchange_tel" class="inbox"  />
+                                        <input onkeyup="autoTab2(this)" name="exchange_tel" type="text" id="exchange_tel" class="inbox" >
                                         <!--ดูชื่อ class และ id จากเพื่อน-->
                                     </div>
                                 </div>
