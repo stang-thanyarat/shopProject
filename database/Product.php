@@ -1,5 +1,6 @@
 <?php
 include_once("Connection.php");
+include_once('category.php');
 
 class Product
 {
@@ -19,14 +20,26 @@ class Product
         return $result;
     }
 
-    public function fetchAddCategory()
+    public function fetchLost()
     {
-
-        $sql = "SELECT * FROM product_tb LEFT JOIN category_tb ON product_tb.category_id =category_tb.category_id";
+        $sql = "SELECT * FROM product_tb WHERE product_rm_unit < notification_amt";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
+    }
+
+    public function fetchAddCategory()
+    {
+        $data = $this->fetchAll();
+        $sumData = [];
+        foreach ($data as $row) {
+            if ($row['sales_status'] == 1 && $row['product_rm_unit'] > 0) {
+                $catData = (new Category())->fetchById($row);
+                $sumData[] = array_merge($row, $catData);
+            }
+        }
+        return $sumData;
     }
 
     function updateStatus($status, $id)
@@ -63,7 +76,7 @@ class Product
 
     public function fetchByCategoryId($id)
     {
-        $sql = "SELECT * FROM product_tb WHERE category_id=?";
+        $sql = "SELECT * FROM product_tb WHERE category_id=? AND sales_status = 1  AND product_rm_unit > 0";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $id, PDO::PARAM_INT);
         $stmt->execute();
@@ -96,20 +109,23 @@ class Product
 
     public function search($keyword, $id = null)
     {
-        $like = "%" . $keyword . "%";
-        $sql = "SELECT * FROM product_tb LEFT JOIN category_tb ON product_tb.category_id =category_tb.category_id
-        WHERE product_name LIKE ?";
-        if (!is_null($id)) {
-            $sql .= " AND product_tb.category_id=?";
+        $data = $this->fetchAll();
+        $dataSum = [];
+        foreach ($data as $row) {
+            if (strpos($row['product_name'], $keyword)) {
+                $catData = (new Category())->fetchById($row['category_name']);
+                if (!is_null($id)) {
+                    if ($row['category_id'] == $id && $row['product_name'] == 1 && $row['product_rm_unit'] > 0) {
+                        $dataSum[] = array_merge($dataSum, $catData);
+                    }
+                } else {
+                    if ($row['product_name'] == 1 && $row['product_rm_unit'] > 0) {
+                        $dataSum[] = array_merge($dataSum, $catData);
+                    }
+                }
+            }
         }
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $like, PDO::PARAM_STR);
-        if (!is_null($id)) {
-            $stmt->bindParam(2, $id, PDO::PARAM_INT);
-        }
-        $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
+        return $dataSum;
     }
 
     public function delete($id)
@@ -123,7 +139,8 @@ class Product
         $stmt->execute();
     }
 
-    public function autoComplete ($keyword){
+    public function autoComplete($keyword)
+    {
         $like = $keyword . "%";
         $sql = "SELECT product_name FROM product_tb WHERE product_name LIKE ?";
         $stmt = $this->conn->prepare($sql);
@@ -131,8 +148,8 @@ class Product
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $json = [];
-        foreach($result as $row){
-            $json[]=$row['product_name'];
+        foreach ($result as $row) {
+            $json[] = $row['product_name'];
         }
         return json_encode($json);
     }

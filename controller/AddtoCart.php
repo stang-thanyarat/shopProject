@@ -1,6 +1,6 @@
 <?php
-include 'database/AddtoCart.php';
-include 'Redirection.php';
+include_once 'database/AddtoCart.php';
+include_once 'Redirection.php';
 $addtocart = new AddtoCart();
 if (isset($_POST)) {
     if ($_POST['table'] === 'product') {

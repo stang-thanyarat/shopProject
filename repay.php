@@ -1,3 +1,8 @@
+<?php
+include_once('service/auth.php');
+isLaber();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,12 +16,12 @@
 
     <title>Document</title>
 </head>
-<?php include('nav.php'); ?>
+<?php include_once('nav.php'); ?>
 
 <body>
     <form>
         <div class="row">
-            <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
+            <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
                     <div class="col-lg-5">
@@ -60,15 +65,17 @@
                     </tbody>
 
                 </table>
-                <p></p>
-                <div class="row B">
-                    <div class=" col-12 d-flex justify-content-end signin">
-                        <input class="BTNC" type="submit" value="ยกเลิก">
-                        <input class="BTNE" type="submit" value="หมดหนี้">
-                        <input class="BTN" type="submit" value="บันทึก" onclick="javascript:window.location='contracthistory.php';">
+                <div class="row btn-g">
+                    <div class="col-2">
+                        <button type="reset" class="btn-c reset" onclick="javascript:window.location='contracthistory.php';">ยกเลิก</button>
+                    </div>
+                    <div class="col-2">
+                        <input type="submit" class="btn-c outdebt" value="หมดหนี้" />
+                    </div>
+                    <div class="col-2">
+                        <input type="submit" class="btn-c submit" value="บันทึก" /> 
                     </div>
                 </div>
-            </div>
         </div>
     </form>
     <!---modal เพิ่มการชำระหนี้-->

@@ -1,6 +1,5 @@
 <?php
 include_once 'database/Contract.php';
-include_once 'database/Customer.php';
 include_once 'Redirection.php';
 $contract = new Contract();
 if (isset($_POST)) {

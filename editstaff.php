@@ -1,3 +1,8 @@
+<?php
+include_once('service/auth.php');
+isLaber();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +17,7 @@
     <title>Document</title>
 </head>
 <?php
-include('nav.php');
+include_once('nav.php');
 include_once('database/Employee.php');
 include_once('database/Employeebank.php');
 $employee = new Employee();
@@ -44,7 +49,7 @@ for ($i = 0; $i < count($banks); $i++) {
         <input type="hidden" name="form_action" value="update" />
         <input type="hidden" value="<?= $_GET['id'] ?>" name="employee_id" />
         <div class="row">
-            <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
+            <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
                     <div class="col">
@@ -188,7 +193,7 @@ for ($i = 0; $i < count($banks); $i++) {
             </table>
             <div class="row btn-g">
                 <div class="col-2">
-                    <button type="reset" class="btn-c reset">ยกเลิก</button>
+                    <button type="reset" class="btn-c reset" onclick="javascript:window.location='employee.php';">ยกเลิก</button>
                 </div>
                 <div class="col-2">
                     <input type="submit" class="btn-c submit" value="บันทึก" />

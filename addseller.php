@@ -1,3 +1,8 @@
+<?php
+include_once('service/auth.php');
+isLaber();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +24,7 @@
     <input type="hidden" name="form_action" value="insert"/>
     <input type="hidden" id="bank" name="bank"/>
     <div class="row">
-        <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
+        <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
         <div class="col-11">
             <div class="row main">
                 <div class="col-12">
@@ -158,7 +163,7 @@
             </div>
             <div class="row btn-g">
                 <div class="col-2">
-                    <button type="reset" class="btn-c reset">ยกเลิก</button>
+                    <button type="reset" class="btn-c reset" onclick="javascript:window.location='sall.php';">ยกเลิก</button>
                 </div>
                 <div class="col-2">
                     <input type="submit" class="btn-c submit" value="บันทึก"/>

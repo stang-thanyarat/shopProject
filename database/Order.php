@@ -1,5 +1,5 @@
 <?php
-include ("Connection.php");
+include_once ("Connection.php");
 Class Order{
     private $conn;
     function __construct()

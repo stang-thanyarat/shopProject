@@ -1,3 +1,8 @@
+<?php
+include_once('service/auth.php');
+isLaber();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,12 +24,12 @@ if (!isset($_SESSION['day_change'])) {
 if (isset($_POST['day_change'])) {
     $_SESSION['day_change'] = $_POST['day_change'];
 }
-include('nav.php'); ?>
+include_once('nav.php'); ?>
 
 <body>
 <form action="changeproduct.php" method="post">
     <div class="row">
-        <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
+        <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
         <div class="col-11">
             <div class="row main">
                 <h1>ตั้งค่าการเปลี่ยนสินค้า</h1>
@@ -36,9 +41,9 @@ include('nav.php'); ?>
                     </tr>
                 </table>
                 <div class="row btn-g">
-                    <div class="col-2">
-                        <button type="reset" class="btn-c reset">ยกเลิก</button>
-                    </div>
+                    <!--<div class="col-2">
+                        <button type="reset" class="btn-c reset" >ยกเลิก</button>
+                    </div>-->
                     <div class="col-2">
                         <input type="submit" class="btn-c submit" value="บันทึก"/>
                     </div>

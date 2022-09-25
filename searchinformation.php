@@ -1,3 +1,8 @@
+<?php
+include_once('service/auth.php');
+isLaber();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,12 +14,12 @@
     <link rel="stylesheet" href="./src/css/searchinformation.css" />
     <title>Document</title>
 </head>
-<?php include('nav.php'); ?>
+<?php include_once('nav.php'); ?>
 
 <body>
     <form>
         <div class="row">
-            <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
+            <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
                     <h1>ค้นหาข้อมูลการซื้อสินค้า </h1>
@@ -51,7 +56,7 @@
                             <th></th>
                         </tr>
                         <tr class="h">
-                            <th colspan="8">จำนวน 3 ชิ้น ยอดรวมทั้งหมด : 9,510.00 บาท</ะ>
+                            <th colspan="8">จำนวน 3 ชิ้น ยอดรวมทั้งหมด : 9,510.00 บาท</th>
                         </tr>
                     </table>
                 </div>

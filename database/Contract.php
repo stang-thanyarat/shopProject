@@ -1,6 +1,5 @@
 <?php
 include_once ("Connection.php");
-include_once ("Customer.php");
 
 Class Contract{
     private $conn;

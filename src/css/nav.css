@@ -1,0 +1,14 @@
+.bell{
+    border: 2px solid red;
+    border-radius: 25px;
+    background: red;
+    width: 20px;
+    height: 20px;
+    color: white;
+    margin-top: -7px;
+    margin-left: -3px;
+    position: absolute;
+    font-size: 7pt;
+    text-align: center;
+    z-index: 1000;
+}

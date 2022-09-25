@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./src/css/customer2.css" />
     <title>Document</title>
 </head>
-<?php include('nav2.php'); ?>
+<?php include_once('nav2.php'); ?>
 
 <body>
     <form>
@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-1 Nbar min-vh-100"><?php include('bar2.php'); ?></div>
+            <div class="col-1 Nbar min-vh-100"><?php include_once('bar2.php'); ?></div>
             <div class="col-8" style="margin-left: 5rem;">
                 <div class="row">
                     <div class="col-2" style="margin-right: 2rem;">

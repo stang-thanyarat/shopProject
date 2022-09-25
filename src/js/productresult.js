@@ -1,3 +1,5 @@
+let lost = []
+
 $("#category_id").change(async function () {
     if ($("#category_id").val() !== "all") {
         let url = `./controller/ProductResult.php?category_id=${$("#category_id").val()}`
@@ -36,7 +38,9 @@ $(document).ready(async function () {
 function setUI(data) {
     $('#productResultTable').html('')
     data.forEach(element => {
-        console.log(element)
+        if (element.product_rm_unit == 0) {
+            lost.push(element.product_id)
+        }
         $('#productResultTable').append(`
         <tr>
         <th>${element.category_name || $("#category_id option:selected").text()}</th>
@@ -49,7 +53,7 @@ function setUI(data) {
         <th><img src="${element.product_img}" width="25"></th>
         <th>
             <label class="switch">
-                <input type="checkbox" id="S${element.product_id}" ${element.sales_status == 1 ? "checked" : ""} onchange="setStatus(${element.product_id})">
+                <input ${element.product_rm_unit == 0 ? 'disabled' : ''} type="checkbox" id="S${element.product_id}" ${element.sales_status == 1 && element.product_rm_unit > 0 ? "checked" : ""} onchange="setStatus(${element.product_id})">
                 <span class="slider round"></span>
             </label>
         </th>
@@ -60,9 +64,16 @@ function setUI(data) {
     </tr>`)
 
     });
+    lost.forEach(async (e) => {
+        await setStatus(e, 0)
+    })
 }
 
-async function setStatus(id) {
-    const status = $("#S" + id).is(':checked');
-    console.log(await (await fetch(`./controller/SetProductStatus.php?status=${status}&id=${id}`)))
+async function setStatus(id, val) {
+    if (!val) {
+        const status = $("#S" + id).is(':checked');
+        await (await fetch(`./controller/SetProductStatus.php?status=${status}&id=${id}`))
+        return
+    }
+    await (await fetch(`./controller/SetProductStatus.php?status=${val == 0 ? false : true}&id=${id}`))
 }

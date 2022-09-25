@@ -1,3 +1,8 @@
+<?php
+include_once('service/auth.php');
+isAdmin();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,12 +15,12 @@
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <title>Document</title>
 </head>
-<?php include('nav.php'); ?>
+<?php include_once('nav.php'); ?>
 
 <body>
     <form>
         <div class="row">
-            <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
+            <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
                     <div class="col-12">
@@ -27,7 +32,7 @@
                         <label for="account_user_type">ตำแหน่ง :</label>
                         <select name="account_user_type" id="account_user_type" style="background-color: #D4DDC6;">
                             <option value="position" selected hidden>&nbsp;&nbsp;เลือกตำแหน่ง</option>
-                            <option value="A">เจ้าของร้าน</option>
+                            <option value="L">เจ้าของร้าน</option>
                             <option value="E">พนักงาน</option>
                         </select>
                     </div>
@@ -52,7 +57,7 @@
                 </table>
             </div>
         </div>
-
+         
         <!-- ลบ -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">

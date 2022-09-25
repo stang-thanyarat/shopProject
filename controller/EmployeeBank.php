@@ -1,6 +1,5 @@
 <?php
-include 'database/EmployeeBank.php';
-include 'Redirection.php';
+include_once 'database/EmployeeBank.php';
 $employeebank = new EmployeeBank();
 
 if (isset($_POST)) {

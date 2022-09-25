@@ -1,5 +1,5 @@
 <?php
-include("Connection.php");
+include_once("Connection.php");
 Class AddtoCard
 {
     //เปลี่ยน ชื่อและ id ของ ตัวเลือกการชำระ

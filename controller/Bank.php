@@ -1,13 +1,10 @@
 <?php
-include 'database/Bank.php';
-include 'Redirection.php';
+include_once 'database/Bank.php';
 $bank = new Bank();
 
 if (isset($_POST)) {
     if ($_POST['table'] === 'bank') {
-
         if ($_POST['form_action'] === 'update') {
-
             $bank->update($_POST);
 
         } else if ($_POST['form_action'] === 'delete') {

@@ -22,7 +22,7 @@ class Employee
             $sql = "SELECT * FROM employee_tb";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-            $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $result;
         } catch (Exception $e) {
             http_response_code(500);
@@ -34,29 +34,45 @@ class Employee
     {
         $employees = $this->fetchAll();
         $users = (new UserAccount())->fetchAll();
-        $found = 0;
         $data = [];
         foreach ($employees as $employee) {
+            $found = 0;
             foreach ($users as $user) {
-                if ($employee['employee_id'] === $user['employee_id']) {
+                if ($employee['employee_id'] == $user['employee_id']) {
                     $found++;
                 }
             }
-            if($found<=0){
-                $data[]=$employee;
+            if ($found <= 0) {
+                $data[] = $employee;
             }
         }
         return $data;
     }
 
-    public function searchByName($keyword){
+    public function fetchLabers()
+    {
+        try {
+            $user = (new UserAccount())->fetchLabers();
+            $labers = [];
+            foreach ($user as $row) {
+                $data = $this->fetchById($row['employee_id']);
+                $labers[] = $data;
+            }
+            return $labers;
+        } catch (Exception $e) {
+            return [];
+        }
+    }
+
+    public function searchByName($keyword)
+    {
         $like = "%" . $keyword . "%";
         $sql = "SELECT * FROM employee_tb WHERE employee_firstname LIKE ? OR employee_lastname LIKE ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $like, PDO::PARAM_STR);
         $stmt->bindParam(2, $like, PDO::PARAM_STR);
         $stmt->execute();
-        $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
 
@@ -74,7 +90,7 @@ class Employee
             $stmt->bindParam(2, $id, PDO::PARAM_INT);
         }
         $stmt->execute();
-        $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
 
@@ -99,7 +115,7 @@ class Employee
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $email, PDO::PARAM_STR);
             $stmt->execute();
-            $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $result;
         } catch (Exception $e) {
             http_response_code(500);
@@ -118,7 +134,7 @@ class Employee
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
-            $result = $stmt->fetch( PDO::FETCH_ASSOC);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
             return $result;
         } catch (Exception $e) {
             http_response_code(500);
@@ -132,7 +148,7 @@ class Employee
             $sql = "SELECT * FROM employee_tb ORDER BY employee_id DESC LIMIT 1";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-            $result = $stmt->fetch( PDO::FETCH_ASSOC);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
             return $result;
         } catch (Exception $e) {
             http_response_code(500);

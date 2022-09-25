@@ -1,3 +1,8 @@
+<?php
+include_once('service/auth.php');
+isLaber();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,7 +50,7 @@ for ($i = 0; $i < count($banks); $i++) {
         <input type="hidden" name="form_action" value="update" />
         <input type="hidden" value="<?= $_GET['id'] ?>" name="sell_id" />
         <div class="row">
-            <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
+            <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
                     <h1>แก้ไขผู้ขาย</h1>
@@ -186,7 +191,7 @@ for ($i = 0; $i < count($banks); $i++) {
                 </div>
                 <div class="row btn-g">
                     <div class="col-2">
-                        <button type="reset" class="btn-c reset">ยกเลิก</button>
+                        <button type="reset" class="btn-c reset" onclick="javascript:window.location='sall.php';">ยกเลิก</button>
                     </div>
                     <div class="col-2">
                         <input type="submit" class="btn-c submit" value="บันทึก" />

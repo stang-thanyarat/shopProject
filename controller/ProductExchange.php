@@ -8,10 +8,7 @@ if (isset($_POST)) {
     if ($_POST['table'] === 'productexchange') {
         $path = './file/product//';
         if ($_POST['form_action'] === 'update') {
-
             $productexchange->update($_POST);
-
-            //redirection('aaa.php');
         } else if ($_POST['form_action'] === 'delete') {
 
             $productexchange->delete($_POST['product_exchange_id']);
@@ -34,8 +31,7 @@ if (isset($_POST)) {
                 $_POST['exchange_status'] = '1';
             }
             $productexchange->insert($_POST);
-            var_dump();
-            header( "location: ../productexchangehistory.php" );
+            redirection( "/productexchangehistory.php" );
         }
     }
 }

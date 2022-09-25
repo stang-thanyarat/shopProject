@@ -1,3 +1,8 @@
+<?php
+include_once('service/auth.php');
+isLaber();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +14,7 @@
     <link rel="stylesheet" href="./src/css/editconfirm.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </head>
-<?php include('nav.php');
+<?php include_once('nav.php');
 include_once "./database/Category.php";
 include_once "./database/Sell.php";
 $sell = new Sell();
@@ -17,11 +22,12 @@ $category = new Category();
 $rows = $category->fetchAll();
 $sells = $sell->fetchAll();
 ?>
+
 <body>
     <script src="./src/js/confirm.js"></script>
     <form>
         <div class="row">
-            <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
+            <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
                     <h1>แก้ไขใบสั่งซื้อ เลขที่01</h1>
