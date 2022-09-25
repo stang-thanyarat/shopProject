@@ -24,10 +24,12 @@ $(document).ready(async function () {
 
 function setUI(data) {
     $('#useraccountTable').html('')
-    data.forEach((element,i) => {
+    let k = 1
+    data.forEach((element) => {
+        if(element.account_user_type!=='A'){
         $('#useraccountTable').append(`
         <tr>
-            <th>${i+1}</th>
+            <th>${k}</th>
             <th>${element.employee_firstname}</th>
             <th>${element.employee_lastname}</th>
             <th>${element.account_user_type==='E'?"พนักงาน":"เจ้าของร้าน"}</th>
@@ -42,7 +44,8 @@ function setUI(data) {
                 <button type="button" class="bgs" onclick="javascript:window.location='edituseraccount.php';"><img src="./src/images/icon-pencil.png" width="25"></button>
             </th>
         </tr>`)
-
+        k++
+        }
     });
 }
 

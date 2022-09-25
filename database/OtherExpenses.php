@@ -1,5 +1,5 @@
 <?php
-include ("Connection.php");
+include_once ("Connection.php");
 Class OtherExpenses{
     private $conn;
     function __construct()

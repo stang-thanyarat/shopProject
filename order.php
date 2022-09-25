@@ -1,3 +1,8 @@
+<?php
+include_once('service/auth.php');
+isLaber();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +29,7 @@ if (isset($_GET['keyword'])) {
 <body>
     <form>
         <div class="row">
-            <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
+            <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
                     <div class="col-12">

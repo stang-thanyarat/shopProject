@@ -1,3 +1,8 @@
+<?php
+include_once('service/auth.php');
+isAdmin();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +14,7 @@
     <link rel="stylesheet" href="./src/css/edituseraccount.css" />
     <title>Document</title>
 </head>
-<?php include('nav.php'); ?>
+<?php include_once('nav.php'); ?>
 
 <body>
     <form name="form">
@@ -56,7 +61,7 @@
             </div>
             <div class="row btn-g">
                 <div class="col-lg-2 col-md-12">
-                    <button type="reset" class="btn-c reset">ยกเลิก</button>
+                    <button type="reset" class="btn-c reset" onclick="javascript:window.location='manageuseraccounts.php';">ยกเลิก</button>
                 </div>
                 <div class="col-lg-10 col-md-12">
                     <input type="submit" class="btn-c submit" value="บันทึก" />

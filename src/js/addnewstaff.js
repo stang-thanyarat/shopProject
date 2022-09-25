@@ -19,10 +19,8 @@ function autoTab(obj) {
     if (obj_l >= pattern.length) {
         obj.value = obj.value.substr(0, pattern.length);
     }
-
     let id = document.form1.employee_card_id.value.split(/ /)[0].replace(/[^\d]/g, '')
 }
-
 //เช็คเลข13หลัก
 function checkID(id) {
     //alert(id);

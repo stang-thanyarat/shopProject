@@ -1,3 +1,8 @@
+<?php
+include_once('service/auth.php');
+isNotAdmin();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,11 +15,15 @@
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <title>Document</title>
 </head>
-<?php include('nav.php'); ?>
+<?php include_once('nav.php'); 
+include_once "./database/Category.php";
+$category =  new Category();
+$rows = $category->fetchAll();
+?>
 
 <body>
     <div class="row">
-        <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
+        <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
         <div class="col-11">
             <div class="row main">
                 <div class="col">
@@ -24,8 +33,11 @@
             <div class="row ma">
                 <div class="col-3">
                     <label for="category"></label>
-                    <select name="category" id="category">
-                        <option value="category" selected>เลือกประเภทสินค้า</option>
+                    <select name="category_id" id="category_id" style="background-color: #D4DDC6;" required>
+                        <option value="all">สินค้าทั้งหมด</option>
+                        <?php foreach ($rows as $row) { ?>
+                            <option value="<?= $row['category_id'] ?>"><?= $row['category_name'] ?></option>
+                        <?php } ?>
                     </select>
                 </div>
                 <div class="col-5 ww">
@@ -99,3 +111,5 @@
         </div>
     </div>
 </body>
+<script src="./src/js/expiredproduct.js"></script>
+</html>

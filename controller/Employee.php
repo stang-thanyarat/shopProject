@@ -1,8 +1,7 @@
 <?php
-include '../database/Employee.php';
-include 'Redirection.php';
-include '../service/upload.php';
-include '../database/Employeebank.php';
+include_once '../database/Employee.php';
+include_once '../service/upload.php';
+include_once '../database/Employeebank.php';
 $employeebank = new Employeebank();
 $employee = new Employee();
 if (isset($_POST)) {

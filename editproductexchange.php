@@ -1,3 +1,8 @@
+<?php
+include_once('service/auth.php');
+isLaber();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,14 +16,14 @@
 
     <title>editproductexchange</title>
 </head>
-<?php include('nav.php'); ?>
+<?php include_once('nav.php'); ?>
 
 <body>
     <form action="controller/ProductExchange.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
         <input type="hidden" value="productexchange" name="table" />
         <input type="hidden" value="insert" name="form_action" />
         <div class="row">
-            <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
+            <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
                     <div class="col">

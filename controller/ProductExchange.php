@@ -1,17 +1,14 @@
 <?php
-include '../database/ProductExchange.php';
-include 'Redirection.php';
-include '../service/upload.php';
+include_once '../database/ProductExchange.php';
+include_once 'Redirection.php';
+include_once '../service/upload.php';
 $productexchange = new ProductExchange();
 
 if (isset($_POST)) {
     if ($_POST['table'] === 'productexchange') {
 
         if ($_POST['form_action'] === 'update') {
-
             $productexchange->update($_POST);
-
-            //redirection('aaa.php');
         } else if ($_POST['form_action'] === 'delete') {
 
             $productexchange->delete($_POST['product_exchange_id']);
@@ -30,7 +27,7 @@ if (isset($_POST)) {
             }
 
             $productexchange->insert($_POST);
-            header( "location: ../productexchangehistory.php" );
+            redirection( "/productexchangehistory.php" );
         }
     }
 }

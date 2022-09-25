@@ -1,6 +1,6 @@
 <?php
-include 'database/Contract.php';
-include 'Redirection.php';
+include_once 'database/Contract.php';
+include_once 'Redirection.php';
 $contract = new Contract();
 if (isset($_POST)) {
     if ($_POST['table'] === 'contract') {

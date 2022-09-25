@@ -1,6 +1,6 @@
 <?php
-include 'database/OtherExpenses.php';
-include 'Redirection.php';
+include_once 'database/OtherExpenses.php';
+include_once 'Redirection.php';
 $otherExpenses = new OtherExpenses();
 if (isset($_POST)) {
     if ($_POST['table'] === 'otherExpenses') {

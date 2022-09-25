@@ -2,7 +2,6 @@
 
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
-    --bs-gutter-x: 0;
 }
 
 .main{
@@ -42,6 +41,3 @@
     margin-top: 1rem;
 }
 
-.l{
-    Corner radius: 100px
-}

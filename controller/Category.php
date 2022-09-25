@@ -6,13 +6,8 @@ $category = new Category();
 $product = new Product();
 if (isset($_POST)) {
     if ($_POST['table'] === 'category') {
-
         if ($_POST['form_action'] === 'update') {
-
             $category->update($_POST);
-
-            //redirection('aaa.php');
-
         } else if ($_POST['form_action'] === 'delete') {
             $P = $product->fetchByCategoryId($_POST['category_id']);
             foreach ($P as $p) {
@@ -26,9 +21,8 @@ if (isset($_POST)) {
             $product->deleteByCategoryId($_POST['category_id']);
             $category->delete($_POST['category_id']);
         } else if ($_POST['form_action'] === 'insert') {
-
             $category->insert($_POST);
-            redirection("../category.php");
+            redirection("/category.php");
         }
     }
 } else {

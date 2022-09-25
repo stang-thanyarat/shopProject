@@ -1,3 +1,8 @@
+<?php
+include_once('service/auth.php');
+isNotAdmin();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +17,7 @@
     <title>productlist</title>
 
 </head>
-<?php include('nav.php');
+<?php include_once('nav.php');
 include_once "./database/Category.php";
 $category =  new Category();
 $rows = $category->fetchAll();
@@ -21,7 +26,7 @@ $rows = $category->fetchAll();
 <body>
 
         <div class="row">
-            <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
+            <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
                     <div class="col-6 topic_productlist">

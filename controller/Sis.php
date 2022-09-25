@@ -1,6 +1,6 @@
 <?php
-include 'database/Sis.php';
-include 'Redirection.php';
+include_once 'database/Sis.php';
+include_once 'Redirection.php';
 $sis = new Sis();
 if (isset($_POST)) {
     if ($_POST['table'] === 'sis') {

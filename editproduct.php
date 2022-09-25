@@ -1,3 +1,8 @@
+<?php
+include_once('service/auth.php');
+isLaber();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +17,7 @@
     <title>editproduct</title>
 </head>
 <?php
-include('nav.php');
+include_once('nav.php');
 //เริ่มทำแก้ไข//
 include_once('database/Product.php');
 include_once('database/Category.php');
@@ -22,7 +27,7 @@ $product = new Product();
 $category = new Category();
 $sell = new Sell();
 if (!isset($_GET['id'])) {
-    redirection('productresult.php');
+    redirection('/productresult.php');
 }
 $p = $product->fetchById($_GET['id']);
 $rows = $category->fetchAll();
@@ -38,7 +43,7 @@ $sells = $sell->fetchAll();
         <input type="hidden" value="<?= $_GET['id'] ?>" name="product_id" />
 
         <div class="row">
-            <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
+            <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
                     <div class="col">

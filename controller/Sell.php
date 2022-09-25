@@ -1,8 +1,7 @@
 <?php
-include '../database/Sell.php';
-include 'Redirection.php';
-include '../service/upload.php';
-include '../database/Bank.php';
+include_once '../database/Sell.php';
+include_once '../service/upload.php';
+include_once '../database/Bank.php';
 $bank = new Bank();
 $sell = new Sell();
 if (isset($_POST)) {

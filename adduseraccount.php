@@ -1,3 +1,8 @@
+<?php
+include_once('service/auth.php');
+isAdmin()
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,7 +42,7 @@ $rows = $employee->fetchWithOutUserId();
                 </div>
                 <div class="col leftposition">
                     <label for="account_user_type">ตำแหน่ง :</label>
-                    <input type="radio" name="account_user_type" value="L" class="bb" checked>
+                    <input type="radio" name="account_user_type" value="L" class="bb"  checked>
                     <label for="account_user_type">เจ้าของร้าน </label>&nbsp;&nbsp;&nbsp;
                     <input type="radio" name="account_user_type" value="E">
                     <label for="account_user_type">พนักงาน</label>
@@ -66,7 +71,7 @@ $rows = $employee->fetchWithOutUserId();
             </div>
             <div class="row btn-g">
                 <div class="col-lg-2 col-md-12">
-                    <button type="reset" class="btn-c reset">ยกเลิก</button>
+                    <button type="button" class="btn-c reset" onclick="javascript:window.location='manageuseraccounts.php';">ยกเลิก</button>
                 </div>
                 <div class="col-lg-10 col-md-12">
                     <input type="submit" class="btn-c submit" value="บันทึก" />

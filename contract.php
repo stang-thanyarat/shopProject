@@ -1,3 +1,8 @@
+<?php
+include_once('service/auth.php');
+isLaber();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,13 +14,13 @@
     <link rel="stylesheet" href="./src/css/contract.css" />
     <title>Document</title>
 </head>
-<?php include('nav.php'); ?>
+<?php include_once('nav.php'); ?>
 
 <body>
     <script src="./src/js/contract.js"></script>
     <form name="form1" action="" onsubmit="checkForm(); return false;">
         <div class="row">
-            <div class="col-1 Nbar min-vh-100"><?php include('bar.php'); ?></div>
+            <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
                     <h1>สัญญาซื้อขาย</h1>
@@ -28,7 +33,7 @@
                     </div>
                     <div class="col datec">
                         วันที่ทำสัญญา :
-                        <input type="date" name="datecontract" id="datecontract" class="bb" required />
+                        <input type="date" name="date_contract" id="date_contract" class="bb" required />
                         <div class="b">*</div>
                     </div>
                 </div>
@@ -53,7 +58,7 @@
                 <div class="row xx">ข้าพเจ้า xxxxxxxxx ซึ่งต่อไปในหนังสือสัญญานี้เรียกว่าผู้ขายฝ่ายหนึ่งกับ</div>
                 <div class="row">
                     <div class="col customerp">ข้าพเจ้า :
-                        <select name="customerprefix" id="customerprefix" style="background-color: #D4DDC6;" class="bb" required>
+                        <select name="customer_prefix" id="customer_prefix" style="background-color: #D4DDC6;" class="bb" required>
                             <option value="เลือกคำนำหน้า" selected hidden>เลือกคำนำหน้า</option>
                             <option value="นาย">นาย</option>
                             <option value="นาง">นาง</option>
@@ -61,15 +66,15 @@
                         </select>
                         <div class="e">*</div>
                     </div>
-                    <div class=" col namec">ชื่อ : <input type="text" name="namecustomer" id="namecustomer" class="bb" required />
+                    <div class=" col namec">ชื่อ : <input type="text" name="customer_name" id="customer_name" class="bb" required />
                         <div class="f">*</div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col lastc">นามสกุล : <input type="text" name="lastnamecustomer" id="lastnamecustomer" class="bb" required />
+                    <div class="col lastc">นามสกุล : <input type="text" name="customer_lastname" id="customer_lastname" class="bb" required />
                         <div class="g">*</div>
                     </div>
-                    <div class="col idcard">รหัสบัตรประชาชน : <input type="text" name="idcard" id="idcard" class="bb" required />
+                    <div class="col idcard">รหัสบัตรประชาชน : <input type="text" name="customer_img" id="customer_img" class="bb" required />
                         <div class="h">*</div>
                     </div>
                 </div>

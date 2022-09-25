@@ -1,6 +1,6 @@
 <?php
-include 'database/PurchaseDetails.php';
-include 'Redirection.php';
+include_once 'database/PurchaseDetails.php';
+include_once 'Redirection.php';
 $purchaseDetails = new PurchaseDetails();
 if (isset($_POST)) {
     if ($_POST['table'] === 'purchaseDetails') {
