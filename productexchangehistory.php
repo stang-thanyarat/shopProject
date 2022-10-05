@@ -16,8 +16,9 @@ isLaber();
 </head>
 
 <?php include_once('nav.php');
-include_once "./database/Product.php";
 include_once "./database/ProductExchange.php";
+$productexchange = new ProductExchange();
+$rows = $productexchange->fetchAll();
 ?>
 
 <body>
@@ -34,19 +35,31 @@ include_once "./database/ProductExchange.php";
                     <button type="button" class="s"><img src="./src/images/search.png" width="17.5"></button>
                 </div>
                 <div class="col-3 addpdr d-flex justify-content-end signin">
-                    <a type="button" href="./addproductexchange.php" class="submit btn"><img class='plus' src="./src/images/plus.png" width="30">&nbsp เพิ่ม </a>
+                    <a type="button" href="./searchinformation.php" class="submit btn"><img class='plus' src="./src/images/plus.png" width="30">&nbsp เพิ่ม </a>
                 </div>
                 <table class="col-11 pdrtb">
                     <thead>
                     <tr>
                         <th>วันที่เปลี่ยนสินค้า</th>
-                        <th>เวลา</th>
                         <th>ชื่อสินค้า</th>
                         <th>จำนวน</th>
                         <th>สถานะการขาย</th>
                         <th></th>
                     </tr>
+                    </thead>
                     <tbody id="productExchangeTable">
+                    <?php foreach ($rows as $row) { ?>
+                        <tr>
+                            <th width=10%><?= $row['exchange_date'] ?></th>
+                            <th width=35% id="text<?= $row['product_id']?>"><?= $row['product_name']?></th>
+                            <th width=20%><?= $row['exchange_amount'] ?></th>
+                            <th width=20% ><?php if( $row['exchange_status'] == 0 ) { echo "<a type='button' onclick='wait()'><font color=#A36627>รอของ</font></a>";} else{ echo "สำเร็จ";}?></th>
+                            <th>
+                                <button type="button" class="bgs" onclick="del(<?=$row["product_exchange_id"]?>)"><img src="./src/images/icon-delete.png" width="25"></button>
+                                <a href="editproductexchange.php?id=<?= $row['product_exchange_id']; ?>" type="button" class="bgs" ><img src="./src/images/icon-pencil.png" width="25"></a>
+                            </th>
+                        </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>

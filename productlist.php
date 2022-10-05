@@ -20,7 +20,9 @@ isNotAdmin();
 <?php include_once('nav.php');
 include_once "./database/Category.php";
 $category =  new Category();
+$product =  new Product();
 $rows = $category->fetchAll();
+$p = $product->fetchAll();
 ?>
 
 <body>
@@ -45,7 +47,7 @@ $rows = $category->fetchAll();
                         </select>
                     </div>
                     <div class="col-2 d-flex justify-content-end a">
-                        <button onclick="cart()"><img src="./src/images/cart.png" width="52.5"/></button>
+                        <a href="./addtocart.php" ><img src="./src/images/cart.png" width="52.5"/></a>
                     </div>
                 </div>
                 <table class="col-11 q">
@@ -57,7 +59,29 @@ $rows = $category->fetchAll();
                         </tr>
                     </thead>
                     <tbody id="productlistTable">
-
+                    <?php
+                    foreach ($p as $p) { ?>
+                    <tr>
+                    <th>
+                        <div class="row-4 topic_product">
+                            <?=$p['product_name']?> <?php if( $p['model'] == 0 ) { echo "";} else{ echo $p['model'];}?>
+                        </div>
+                        <div class="row">
+                            <div class="col-7">
+                                <img src="<?=$p['product_img']?>" class="img_position">
+                            </div>
+                            <div class="col-5">
+                                <div class="aa">
+                                    <p class="fitcontent">ราคา&nbsp&nbsp <?=$p['price']?> &nbsp&nbspบาท</p>
+                                    <p class="fitcontent">คงเหลือ&nbsp&nbsp <?=$p['product_rm_unit']?> &nbsp&nbspใบ</p>
+                                    <p><button onclick="addToCart()">เพิ่มไปยังรถเข็น</button></p>
+                                </div>
+                            </div>
+                        </div>
+                    </th>
+                    </tr>
+                        <?php
+                    } ?>
                     </tbody>
                 </table>
             </div>
