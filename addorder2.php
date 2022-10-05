@@ -17,17 +17,18 @@ isLaber();
 </head>
 
 <?php include_once('nav.php');
-include_once "./database/Category.php";
+include_once "./database/Order.php";
 include_once "./database/Sell.php";
+$order = new Order();
 $sell = new Sell();
-$category = new Category();
-$rows = $category->fetchAll();
 $sells = $sell->fetchAll();
 ?>
 
 
 <body>
-    <form id="form1">
+<form action="controller/Order.php" name="form1" id="form1" method="POST" >
+        <input type="hidden" name="table" value="order" />
+        <input type="hidden" name="form_action" value="insert" />
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">

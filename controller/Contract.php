@@ -1,11 +1,12 @@
 <?php
-include_once 'database/Contract.php';
+include_once '../database/Contract.php';
 include_once 'Redirection.php';
 $contract = new Contract();
 if (isset($_POST)) {
     if ($_POST['table'] === 'contract') {
         if ($_POST['form_action'] === 'update') {
             $contract->update($_POST);
+            redirection('/contracthistory.php');
             //redirection('aaa.php');
         } else if ($_POST['form_action'] === 'delete') {
             $contract->delete($_POST['contract_code']);

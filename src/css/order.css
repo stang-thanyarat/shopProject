@@ -22,6 +22,12 @@
     --bs-gutter-x: 0rem;
 }
 
+.bgs {
+    border: 0ch;
+    background-color: white;
+}
+
+
 table,
 td,
 th {

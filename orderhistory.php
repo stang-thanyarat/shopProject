@@ -42,29 +42,29 @@ isLaber();
                         <th></th>
                         <th></th>
                     </tr>
-                    <tr>
-                        <th>14 ธ.ค. 2564</th>
-                        <th> อาร์เอส อินเตอร์เทรด (2017) จำกัด</th>
-                        <th>รับของแล้ว</th>
-                        <th>
-                            <img src="./src/images/icon-delete.png" width="25">
-                            <img src="./src/images/icon-pencil.png" width="25">
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>13 ธ.ค. 2564</th>
-                        <th>ซีดไลน์ จำกัด</th>
-                        <th>รับของแล้ว</th>
-                        <th>
-                            <img src="./src/images/icon-delete.png" width="25">
-                            <img src="./src/images/icon-pencil.png" width="25">
-                        </th>
-                    </tr>
-
+                    <tbody id="ordertable">
+                    <?php $i = 1;
+                    foreach ($rows as $row) { ?>
+                        <tr>
+                            <th width=10%><?= $row['datebill'] ?></th>
+                            <th width=35% ><?= $row['sell_id'] ?></th>
+                            <th width=20% ><?php if( $row['order_status'] == 0 ) { echo "<a type='button' onclick='wait()'><font color=#A36627>รอของ</font></a>";} else{ echo "สำเร็จ";}?></th>
+                            <th>
+                                <button type="button" class="bgs" onclick="del(<?=$row['order_id']?>)"><img src="./src/images/icon-delete.png" width="25"></button>
+                                <button type="button" class="bgs" onclick="edit(<?=$row['order_id']?>)"><img src="./src/images/icon-pencil.png" width="25"></button>
+                            </th>
+                        </tr>
+                    <?php $i++;
+                    } ?>
                 </table>
             </div>
         </div>
     </form>
 </body>
+
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="./src/js/orderhistory.js"></script>
 
 </html>

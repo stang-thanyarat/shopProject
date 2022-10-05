@@ -15,10 +15,14 @@ isLaber();
     <title>สัญญาซื้อขาย</title>
 </head>
 
-<?php include_once('nav.php'); 
+<?php include_once('nav.php');
 include_once "./database/Contract.php";
 $contract =  new Contract();
-$rows = $contract->fetchAll();
+if (isset($_GET['keyword'])) {
+    $rows = $contract->searchByName($_GET['keyword']);
+} else {
+    $rows = $contract->fetchAll();
+}
 ?>
 
 <body>
@@ -33,7 +37,7 @@ $rows = $contract->fetchAll();
                 </div>
                 <div class="row">
                     <div class="col-2 y">
-                        <input name="keyword" type="text" id="keyword" class="btnd" placeholder="&nbsp ชื่อสินค้า">
+                        <input name="keyword" type="text" id="keyword" class="btnd" placeholder="&nbsp ชื่อ-นามสกุล">
                         <button type="submit" class="s"><img src="./src/images/search.png" width="15"></button>
                     </div>
                     <div class="col-2 x">
@@ -42,34 +46,44 @@ $rows = $contract->fetchAll();
                     <div class="col-1 v">
                         <a type="button" href="./contract.php" class="submit btn s2"><img src="./src/images/plus.png" width="25">&nbsp;เพิ่ม</a>
                     </div>
-                <table class="col-11 q">
-                    <tr>
-                        <th>วันที่ทำสัญญา</th>
-                        <th>เลขที่สัญญา</th>
-                        <th>ชื่อ-นามสกุล</th>
-                        <th>มูลค่าสินค้าทั้งหมด</th>
-                        <th>ยอดคงเหลือ</th>
-                        <th>ใบส่งของ</th>
-                        <th>ไฟล์สัญญา</th>
-                        <th>พิมพ์</th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <th>26 ธ.ค. 2564 </th>
-                        <th>A01</th>
-                        <th>
-                            <div class="r">
-                                <a class="submit BTNP" href="repay.php"><img class='confirm'>สมชาย พักดี</a>
-                            </div>
-                        </th>
-                        <th>220.00</th>
-                        <th>0.00</th>
-                        <th><img src="./src/images/pdf.png" width="25"></th>
-                        <th><input type="file" accept="image/*" name="contractfile" width="10px" required></th>
-                        <th><img src="./src/images/print.png" width="25"></th>
-                        <th><a type="button" class="btn1" onclick="javascript:window.location='solvecontract.php';"><img src="./src/images/icon-pencil.png" width="25"></a></th>
-                    </tr>
-                </table>
+                    <table class="col-11 q">
+                        <tr>
+                            <th width=10%>วันที่ทำสัญญา</th>
+                            <th width=10%>เลขที่สัญญา</th>
+                            <th width=20%>ชื่อ-นามสกุล</th>
+                            <th width=10%>มูลค่าสินค้าทั้งหมด</th>
+                            <th width=10%>ยอดคงเหลือ</th>
+                            <th width=10%>ใบส่งของ</th>
+                            <th width=10%>ไฟล์สัญญา</th>
+                            <th width=10%>พิมพ์</th>
+                            <th width=10%></th>
+                        </tr>
+                        <tbody id="contracttable">
+                            <?php
+                            foreach ($rows as $row) { ?>
+                                <tr>
+                                    <th width=10%><?= $row['date_contract'] ?></th>
+                                    <th width=10%><?= $row['contract_code'] ?></th>
+                                    <th width=20%>
+                                        <div class="r">
+                                            <a class="submit BTNP" href="repay.php"><img class='confirm'>
+                                                <?= $row['customer_prefix'] ?> <?= $row['customer_firstname'] ?> <?= $row['customer_lastname'] ?>
+                                            </a>
+                                        </div>
+                                    </th>
+                                    <th width=10%></th>
+                                    <th width=10%></th>
+                                    <th width=5%><img src="./src/images/pdf.png" width="25"></th>
+                                    <th width=5%><input type="file" accept="image/*" name="contractfile" width="10px"></th>
+                                    <th width=10%><img src="./src/images/print.png" width="25"></th>
+                                    <th>
+                                        <button type="button" class="bgs" onclick="javascript:window.location='solvecontract.php';" onclick="edit(<?= $row['contract_code'] ?>)"><img src="./src/images/icon-pencil.png" width="25"></button>
+                                    </th>
+                                </tr>
+                            <?php
+                            } ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
