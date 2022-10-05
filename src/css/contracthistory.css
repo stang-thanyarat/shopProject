@@ -59,6 +59,12 @@ th {
     height: 95%;
 }
 
+.bgs {
+    border: 0ch;
+    background-color: white;
+}
+
+
 .q {
     margin-top: 1.5rem;
     margin-left: 4rem;

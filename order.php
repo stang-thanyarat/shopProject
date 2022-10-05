@@ -17,13 +17,16 @@ isLaber();
 </head>
 <?php
 include_once('./database/Order.php');
+include_once('./database/Sell.php');
 $order = new Order();
+$sell = new Sell();
 include_once('nav.php');
 if (isset($_GET['keyword'])) {
     $rows = $order->search($_GET['keyword']);
 } else {
     $rows = $order->fetchAll();
 }
+$rows = $order->fetchAll();
 ?>
 
 <body>
@@ -37,7 +40,7 @@ if (isset($_GET['keyword'])) {
                     </div>
                     <div class="row">
                         <div class="col-2 z">
-                            <input type="text" class="btnd" placeholder="&nbsp ชื่อผู้ขาย">
+                            <input type="text" id="keyword" name="keyword" class="btnd" placeholder="&nbsp ชื่อผู้ขาย">
                             <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
                         </div>
                         <div class="col-2 y">
@@ -48,24 +51,28 @@ if (isset($_GET['keyword'])) {
                         <tr>
                             <th width="15%">วันที่สั่งซื้อ</th>
                             <th width="60%">ชื่อผู้ขาย</th>
-                            <th width="15%"></th>
-                            <th width="10%"></th>
+                            <th width="15%">สถานะ</th>
+                            <th width="20%"></th>
                         </tr>
-                        <tr>
-                            <th>14 ธ.ค. 2564</th>
-                            <th> อาร์เอส อินเตอร์เทรด (2017) จำกัด</th>
-                            <th>
-                                <div class="r">
-                                    <a class="BTNP" href="confirm2.php"><img class='confirm'>รับของ</a>
-                                </div>
-                            </th>
-                            <th>
-                                <button type="button" class="btn1" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
-                                <button type="button" class="btn1" onclick="javascript:window.location='editconfirm2.php';"><img src="./src/images/icon-pencil.png" width="25"></button>
-                            </th>
-                        </tr>
-
-
+                        <tbody id="ordertable">
+                            <?php
+                            foreach ($rows as $row) { ?>
+                                <tr>
+                                    <th width=15%><?= $row['datebill'] ?></th>
+                                    <th width=60% id="text<?= $row['sell_id']?>"><?= $row['sell_name']?></th>
+                                    <th width=15%>
+                                        <?php if ($row['order_status'] == 0) {
+                                            echo "<a type='button' onclick='wait()'><font color=#A36627>รอของ</font></a>";
+                                        } else {
+                                            echo "สำเร็จ";
+                                        } ?></th>
+                                    <th width="20%">
+                                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="del(<?= $row['order_id'] ?>)"><img src="./src/images/icon-delete.png" width="25"></button>
+                                        <button type="button" class="bgs" onclick="javascript:window.location='editconfirm2.php';" )"><img src="./src/images/icon-pencil.png" width="25"></button>
+                                    </th>
+                                </tr>
+                            <?php
+                            } ?>
                     </table>
                     <p></p>
                 </div>
@@ -89,5 +96,10 @@ if (isset($_GET['keyword'])) {
             </div>
     </form>
 </body>
+
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="./src/js/order.js"></script>
 
 </html>
