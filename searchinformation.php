@@ -44,7 +44,7 @@ isLaber();
                             <th>9,490.00 บาท</th>
                             <th>1</th>
                             <th>9,490.00 บาท</th>
-                            <th><input class="BTN" type="submit" value="เปลี่ยนสินค้า"></th>
+                            <th><a href="./addproductexchange.php" class="BTN" type="button" >เปลี่ยนสินค้า</a></th>
                         </tr>
                         <tr>
                             <th>2</th>

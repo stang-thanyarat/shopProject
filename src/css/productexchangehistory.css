@@ -226,3 +226,8 @@ input:checked+.slider:before {
     border: 0ch;
     background-color: white;
 }
+
+.bgs{
+    border: 0ch;
+    background-color: white;
+}

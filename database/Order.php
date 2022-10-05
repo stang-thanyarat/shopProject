@@ -1,32 +1,19 @@
 <?php
-include_once ("Connection.php");
-Class Order{
+include_once("Connection.php");
+class Order
+{
     private $conn;
     function __construct()
     {
-        $this -> conn = Connection();
+        $this->conn = Connection();
     }
-    public function fetchAll(){
+    public function fetchAll()
+    {
         try {
-        $sql = "SELECT * FROM order_tb ";
-        $stmt = $this -> conn -> prepare($sql);
-        $stmt->execute();
-        $result = $stmt ->fetchAll();
-        return $result;
-        } catch (Exception $e) {
-            http_response_code(500);
-            return [];
-        }
-    }
-
-    public function search($keyword){
-        try {
-            $like = "%$keyword%";
-            $sql = "SELECT * FROM order_tb WHERE sell_name LIKE ? ";
+            $sql = "SELECT O.*,S.sell_name FROM order_tb O,sell_tb S WHERE O.sell_id = S.sell_id ";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(1, $like, PDO::PARAM_STR);
             $stmt->execute();
-            $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll();
             return $result;
         } catch (Exception $e) {
             http_response_code(500);
@@ -34,30 +21,50 @@ Class Order{
         }
     }
 
-    public function fetchById($id){
-        try{
-        $sql = "SELECT * FROM order_tb WHERE order_id=?";
-        $stmt = $this -> conn -> prepare($sql);
-        $stmt->bindParam(1,$id, PDO::PARAM_INT);
-        $stmt->execute();
-        $result = $stmt ->fetch();
-        return $result;
+    public function search($keyword)
+    {
+        try {
+            $like = "%$keyword%";
+            $sql = "SELECT * FROM order_tb WHERE sell_name LIKE ? ";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $like, PDO::PARAM_STR);
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
         } catch (Exception $e) {
             http_response_code(500);
             return [];
         }
     }
 
-    public function delete($id){
+    public function fetchById($id)
+    {
+        try {
+            $sql = "SELECT O.*,S.sell_name FROM order_tb O,sell_tb S WHERE O.sell_id = S.sell_id AND order_id=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetch();
+            return $result;
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
+    }
+
+    public function delete($id)
+    {
         $sql = "DELETE FROM order_tb WHERE order_id=?;";
-        $stmt = $this -> conn -> prepare($sql);
-        $stmt->bindParam(1,$id, PDO::PARAM_INT);
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $id, PDO::PARAM_INT);
         $stmt->execute();
     }
 
     public function insert($data)
     {
-        $sql = "INSERT INTO order_tb (datebill, datereceive, sell_id, payment_sl,payment_dt,note,bank_slip,receipt,delivery_notice,net_price,order_status) VALUES (?,?,?,?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO order_tb (datebill, datereceive, sell_id, payment_sl, payment_dt, note, bank_slip, 
+        receipt, delivery_notice, net_price, order_status) 
+        VALUES (?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $data['datebill'], PDO::PARAM_STR);
         $stmt->bindParam(2, $data['datereceive'], PDO::PARAM_STR);
@@ -76,7 +83,8 @@ Class Order{
     public function update($data)
     {
         $sql = "UPDATE order_tb
-        SET datebill = ?, datereceive = ?, sell_id = ?, payment_sl = ?, payment_dt = ?, note = ?, bank_slip = ?, receipt = ? , delivery_notice = ?, net_price = ?, order_status= ?
+        SET datebill = ?, datereceive = ?, sell_id = ?, payment_sl = ?, payment_dt = ?, note = ?, bank_slip = ?, 
+        receipt = ? , delivery_notice = ?, net_price = ?, order_status= ?
         WHERE order_id=?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $data['datebill'], PDO::PARAM_STR);
@@ -94,5 +102,3 @@ Class Order{
         $stmt->execute();
     }
 }
-
-?>

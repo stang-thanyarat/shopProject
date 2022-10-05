@@ -6,20 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addorder2.php" beforeDir="false" afterPath="$PROJECT_DIR$/addorder2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addproduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/addproduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bar.php" beforeDir="false" afterPath="$PROJECT_DIR$/bar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/contract.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracthistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/contracthistory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/Contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Contract.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/Sis.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Sis.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Contract.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Sis.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Sis.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/editconfirm2.php" beforeDir="false" afterPath="$PROJECT_DIR$/editconfirm2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order.php" beforeDir="false" afterPath="$PROJECT_DIR$/order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/contract.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/contract.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/contracthistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/contracthistory.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stock.php" beforeDir="false" afterPath="$PROJECT_DIR$/stock.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/ProductExchange.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/ProductExchange.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/productexchangehistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/productexchangehistory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/productlist.php" beforeDir="false" afterPath="$PROJECT_DIR$/productlist.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/searchinformation.php" beforeDir="false" afterPath="$PROJECT_DIR$/searchinformation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/productexchangehistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/productexchangehistory.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/productexchangehistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/productexchangehistory.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +76,13 @@
       <workItem from="1663603769958" duration="258000" />
       <workItem from="1663653757296" duration="2057000" />
       <workItem from="1663677304588" duration="11914000" />
+      <workItem from="1664281822715" duration="1415000" />
+      <workItem from="1664339690323" duration="9926000" />
+      <workItem from="1664380313881" duration="6236000" />
+      <workItem from="1664436247042" duration="2334000" />
+      <workItem from="1664542679254" duration="3088000" />
+      <workItem from="1664613301206" duration="594000" />
+      <workItem from="1664717765283" duration="2013000" />
     </task>
     <servers />
   </component>
