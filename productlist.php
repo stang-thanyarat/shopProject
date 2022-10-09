@@ -60,8 +60,10 @@ $p = $product->fetchAll();
                     </thead>
                     <tbody id="productlistTable">
                     <?php
-                    foreach ($p as $p) { ?>
-                    <tr>
+                    $i = 0;
+                    echo '<tr>';
+                            foreach($p as $p){
+                            $i++;?>
                     <th>
                         <div class="row-4 topic_product">
                             <?=$p['product_name']?> <?php if( $p['model'] == 0 ) { echo "";} else{ echo $p['model'];}?>
@@ -79,9 +81,11 @@ $p = $product->fetchAll();
                             </div>
                         </div>
                     </th>
-                    </tr>
-                        <?php
-                    } ?>
+                    <?php if($i == 3) { // three items in a row. Edit this to get more or less items on a row
+                    echo '</tr><tr>';
+                        $i = 0;}
+                        }
+                        echo '</tr>'; ?>
                     </tbody>
                 </table>
             </div>

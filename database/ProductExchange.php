@@ -17,11 +17,13 @@ class ProductExchange
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
-
+//"SELECT * FROM product_exchange_tb WHERE product_exchange_id=?";
+//"SELECT E.*,P.product_name FROM product_exchange_tb E,product_tb P WHERE E.product_id = P.product_id AND product_exchange_id=? ";
+//"SELECT E.*,P.product_name FROM product_exchange_tb E,product_tb P WHERE E.product_id = P.product_id ";
     public function fetchById($id)
     {
         try {
-            $sql = "SELECT E.*,P.product_name FROM product_exchange_tb E,product_tb P WHERE E.product_id = P.product_id AND product_exchange_id=?";
+            $sql = "SELECT E.*,P.product_name FROM product_exchange_tb E,product_tb P WHERE E.product_id = P.product_id AND E.product_exchange_id=?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
@@ -91,16 +93,16 @@ class ProductExchange
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $data['product_id'], PDO::PARAM_INT);
         /*$stmt->bindParam(2, $data['customer_id'], PDO::PARAM_INT);*/
-        $stmt->bindParam(3, $data['exchange_date'], PDO::PARAM_STR);
-        $stmt->bindParam(2, $data['damage_proof'], PDO::PARAM_STR);
-        $stmt->bindParam(3, $data['note'], PDO::PARAM_STR);
+        $stmt->bindParam(2, $data['exchange_date'], PDO::PARAM_STR);
+        $stmt->bindParam(3, $data['damage_proof'], PDO::PARAM_STR);
+        $stmt->bindParam(4, $data['note'], PDO::PARAM_STR);
         /*$stmt->bindParam(6, $data['exchange_time'], PDO::PARAM_STR);*/
-        $stmt->bindParam(4, $data['exchange_amount'], PDO::PARAM_INT);
-        $stmt->bindParam(5, $data['exchange_status'], PDO::PARAM_INT);
+        $stmt->bindParam(5, $data['exchange_amount'], PDO::PARAM_INT);
+        $stmt->bindParam(6, $data['exchange_status'], PDO::PARAM_INT);
         /*$stmt->bindParam(9, $data['exchange_period'], PDO::PARAM_STR);*/
-        $stmt->bindParam(6, $data['exchange_name'], PDO::PARAM_STR);
-        $stmt->bindParam(7, $data['exchange_tel'], PDO::PARAM_STR);
-        $stmt->bindParam(8, $data['product_exchange_id'], PDO::PARAM_INT);
+        $stmt->bindParam(7, $data['exchange_name'], PDO::PARAM_STR);
+        $stmt->bindParam(8, $data['exchange_tel'], PDO::PARAM_STR);
+        $stmt->bindParam(9, $data['product_exchange_id'], PDO::PARAM_INT);
         $stmt->execute();
     }
 }

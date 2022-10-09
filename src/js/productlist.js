@@ -52,16 +52,76 @@ function setUI(data) {
     $('#productlistTable').html('');
     let html = '<tr>'
     let i = 0
-
+    const createNewRow = (el) => {
+        return (`
+            <th>
+                <div class="row-4 topic_product">
+                    ${el.product_name} ${element.model === "" ? "" : "รุ่น&nbsp"}${element.model}
+                </div>
+                <div class="row">
+                    <div class="col-7">
+                        <img src="${element.product_img}" class="img_position">
+                    </div>
+                    <div class="col-5">
+                    <div class="aa">
+                        <p class="fitcontent">ราคา&nbsp&nbsp ${element.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} &nbsp&nbspบาท</p>
+                        <p class="fitcontent">คงเหลือ&nbsp&nbsp ${element.product_rm_unit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} &nbsp&nbspใบ</p>
+                        <p><button onclick="addToCart(${element.product_id})">เพิ่มไปยังรถเข็น</button></p>
+                        </div>
+                    </div>
+                </div>
+                </th>
+                </tr> `)
+    }
     data.forEach((element, index) => {
-        if (i > 2 || index + 1 === data.length) {
+        if ((i % 3 === 0 && i !== 0) || index + 1 === data.length) {
             if (index + 1 === data.length) {
-                html += '</tr>'
+                if (i % 3 !== 0) {
+                    html += `</tr><tr>`
+                }
+                html += `
+            <th>
+                <div class="row-4 topic_product">
+                    ${element.product_name} ${element.model === "" ? "" : "รุ่น&nbsp"}${element.model}
+                </div>
+                <div class="row">
+                    <div class="col-7">
+                        <img src="${element.product_img}" class="img_position">
+                    </div>
+                    <div class="col-5">
+                    <div class="aa">
+                        <p class="fitcontent">ราคา&nbsp&nbsp ${element.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} &nbsp&nbspบาท</p>
+                        <p class="fitcontent">คงเหลือ&nbsp&nbsp ${element.product_rm_unit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} &nbsp&nbspใบ</p>
+                        <p><button onclick="addToCart(${element.product_id})">เพิ่มไปยังรถเข็น</button></p>
+                        </div>
+                    </div>
+                </div>
+                </th>
+                </tr>`
+
             } else {
-                html += '</tr><tr>'
+                html += `</tr>
+            <th>
+                <div class="row-4 topic_product">
+                    ${element.product_name} ${element.model === "" ? "" : "รุ่น&nbsp"}${element.model}
+                </div>
+                <div class="row">
+                    <div class="col-7">
+                        <img src="${element.product_img}" class="img_position">
+                    </div>
+                    <div class="col-5">
+                    <div class="aa">
+                        <p class="fitcontent">ราคา&nbsp&nbsp ${element.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} &nbsp&nbspบาท</p>
+                        <p class="fitcontent">คงเหลือ&nbsp&nbsp ${element.product_rm_unit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} &nbsp&nbspใบ</p>
+                        <p><button onclick="addToCart(${element.product_id})">เพิ่มไปยังรถเข็น</button></p>
+                        </div>
+                    </div>
+                </div>
+            </th>`
                 i = 0
             }
         } else {
+            console.log(i, element)
             html += ` <th>
                 <div class="row-4 topic_product">
                     ${element.product_name} ${element.model === "" ? "" : "รุ่น&nbsp"}${element.model}
@@ -112,6 +172,6 @@ function addToCart(id) {
     localStorage.setItem('cart', JSON.stringify(cart))
     Swal.fire({
         title: 'เพิ่มรายการสินค้าเรียบร้อยแล้ว',
-        timer:1000
+        timer: 1000
     })
 }

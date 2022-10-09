@@ -86,6 +86,6 @@ $rows = $category->fetchAll();
         </div>
 
 </body>
-<script src="./src/js/dailybestseller.js"></script>
+<script src="./src/js/notification_amt.js"></script>
 
 </html>

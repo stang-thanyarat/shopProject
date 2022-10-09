@@ -117,6 +117,9 @@ if (isset($_POST)) {
                 $form['bank_account'] =  $value->name;
                 $employeebank->insert($form);
             }
+            $employee->insert($form);
+            Redirection("/employee.php");
+
         }
     }
 } else {

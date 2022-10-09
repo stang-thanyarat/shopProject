@@ -1,6 +1,9 @@
 <?php
 include_once('service/auth.php');
+include_once ('service/dateFormat.php');
 isLaber();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +15,7 @@ isLaber();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/productexchangehistory.css" />
-    <title>productexchangehistory</title>
+    <title>product exchange history</title>
 </head>
 
 <?php include_once('nav.php');
@@ -50,7 +53,7 @@ $rows = $productexchange->fetchAll();
                     <tbody id="productExchangeTable">
                     <?php foreach ($rows as $row) { ?>
                         <tr>
-                            <th width=10%><?= $row['exchange_date'] ?></th>
+                            <th width=10%><?= dateFormat($row['exchange_date']) ?></th>
                             <th width=35% id="text<?= $row['product_id']?>"><?= $row['product_name']?></th>
                             <th width=20%><?= $row['exchange_amount'] ?></th>
                             <th width=20% ><?php if( $row['exchange_status'] == 0 ) { echo "<a type='button' onclick='wait()'><font color=#A36627>รอของ</font></a>";} else{ echo "สำเร็จ";}?></th>
@@ -83,7 +86,6 @@ $rows = $productexchange->fetchAll();
                 </div>
             </div>
         </div>
-
 </body>
 <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
