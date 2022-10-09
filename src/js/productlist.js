@@ -52,7 +52,6 @@ function setUI(data) {
     $('#productlistTable').html('');
     let html = '<tr>'
     let i = 0
-
     data.forEach((element, index) => {
         if (i > 2 || index + 1 === data.length) {
             if (index + 1 === data.length) {

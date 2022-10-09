@@ -8,7 +8,8 @@ $product = new Product();
 if (isset($_POST)) {
     if ($_POST['table'] === 'productexchange') {
         if ($_POST['form_action'] === 'update') {
-            $productexchange->update($_POST);    
+            $productexchange->update($_POST);
+            redirection( "/productexchangehistory.php" );
         } else if ($_POST['form_action'] === 'delete') {
             $productexchange->delete($_POST['product_exchange_id']);
         }

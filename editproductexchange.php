@@ -27,7 +27,7 @@ $p = $product->fetchById($_GET['id']);
 <form action="controller/ProductExchange.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
     <input type="hidden" value="productexchange" name="table" />
     <input type="hidden" value="insert" name="form_action" />
-    <input type="hidden" id="product_id" name="product_id"   />
+    <input type="hidden" id="product_exchange_id" name="product_exchange_id"   />
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
