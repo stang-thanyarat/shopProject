@@ -6,52 +6,52 @@ if (isset($_POST)) {
     if ($_POST['table'] === 'order') {
         if ($_POST['form_action'] === 'update') {
             //เชคการอัพโหลดรูป
-            if ($_FILES['employee_card_id_copy']['size'] > 0) {
+            if ($_FILES['delivery_notice']['size'] > 0) {
                 $path = './file/employee/id/';
-                if (file_exists($_POST['employee_card_id_copy'])) {
-                    unlink($_POST['employee_card_id_copy']);
+                if (file_exists($_POST['delivery_notice'])) {
+                    unlink($_POST['delivery_notice']);
                 }
-                $filesname = $path . uploadImage($_FILES['employee_card_id_copy'], "." . $path);
+                $filesname = $path . uploadImage($_FILES['delivery_notice'], "." . $path);
                 if ($filesname) {
-                    $employee->updateimage('employee_card_id_copy', $filesname, $_POST['employee_id']);
+                    $employee->updateimage('delivery_notice', $filesname, $_POST['order_id']);
                 }
             }
 
-            if ($_FILES['employee_address_copy']['size'] > 0) {
+            if ($_FILES['receipt']['size'] > 0) {
                 $path = './file/employee/address/';
-                if (file_exists($_POST['employee_address_copy'])) {
-                    unlink($_POST['employee_address_copy']);
+                if (file_exists($_POST['receipt'])) {
+                    unlink($_POST['receipt']);
                 }
-                $filesname = $path . uploadImage($_FILES['employee_address_copy'], "." . $path);
+                $filesname = $path . uploadImage($_FILES['receipt'], "." . $path);
                 if ($filesname) {
-                    $employee->updateimage('employee_address_copy',$filesname,$_POST['employee_id']);
+                    $employee->updateimage('receipt',$filesname,$_POST['order_id']);
                 }
             }
             
             $order->update($_POST);
             //อัพโหลด
-            if (isset($_FILES['employee_card_id_copy'])) {
+            if (isset($_FILES['delivery_notice'])) {
                 $path = './file/employee/id/';
-                $filesname = uploadImage($_FILES['employee_card_id_copy'], "." . $path);
+                $filesname = uploadImage($_FILES['delivery_notice'], "." . $path);
                 if ($filesname) {
-                    $_POST['employee_card_id_copy'] = $path . $filesname;
+                    $_POST['delivery_notice'] = $path . $filesname;
                 } else {
-                    $_POST['employee_card_id_copy'] = '';
+                    $_POST['delivery_notice'] = '';
                 }
             } else {
-                $_POST['employee_card_id_copy'] = '';
+                $_POST['delivery_notice'] = '';
             }
 
-            if (isset($_FILES['employee_address_copy'])) {
+            if (isset($_FILES['receipt'])) {
                 $path = './file/employee/address/';
-                $filesname = uploadImage($_FILES['employee_address_copy'], "." . $path);
+                $filesname = uploadImage($_FILES['receipt'], "." . $path);
                 if ($filesname) {
-                    $_POST['employee_address_copy'] = $path . $filesname;
+                    $_POST['receipt'] = $path . $filesname;
                 } else {
-                    $_POST['employee_address_copy'] = '';
+                    $_POST['receipt'] = '';
                 }
             } else {
-                $_POST['employee_address_copy'] = '';
+                $_POST['receipt'] = '';
             }
         }
     }
