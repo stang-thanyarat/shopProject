@@ -31,7 +31,7 @@ $rows = $category->fetchAll();
                     <h1>ประเภทสินค้า</h1>
                 </div>
                 <div class="col-2 addproducttypebutton">
-                    <button class="submit btn" onclick="insert()"><img src="./src/images/plus.png" width="25">&nbsp เพิ่มประเภทสินค้า</button>
+                    <button class="submit btn" name="btCategory_click()" onclick="insert()"><img src="./src/images/plus.png" width="25">&nbsp เพิ่มประเภทสินค้า</button>
                 </div>
             </div>
             <table class="col-13 tbproducttype">

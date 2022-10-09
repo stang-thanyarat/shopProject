@@ -167,7 +167,7 @@ $labers = $employee->fetchLabers();
                 <div class="row xx">๒. สัญญาซื้อขายไม่ต้องปิดอากรแสตมป์ เว้นแต่จะถือว่าสัญญานี้เป็นใบรับเงินแล้ว ถ้าสัญญาซื้อขายนี้ตั้งแต่ ๑๐ บาท ถึง ๒๐ บาท ต้องติดอากรแสตมป์ ๑๐ สตางค์ ถ้าสัญญาซื้ขายนี้เกิน ๒๐ บาท ทุก ๒๐ บาท หรือเศษของ ๒๐ บาท ต่อ ๑๐ สตางค์ ถ้าสัญญาซื้อขายต่ำกว่า ๑๐ บาท ไม่ต้องติดอากรแสตมป์</div>
                 <div class="row btn-g">
                     <div class="col-2 buttom">
-                        <input type="submit" class="btn-c submit" value="บันทึก" onclick="javascript:window.location='contracthistory.php';"/>
+                        <input type="submit" class="btn-c submit" value="บันทึก" />
                     </div>
                 </div>
             </div>

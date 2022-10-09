@@ -15,7 +15,7 @@ $(document).ready(function () {
     });
 });
 
-$('#form1').submit(async function (e) {
+/*$('#form1').submit(async function (e) {
     e.preventDefault()
     if (!$("#product_id").val()) {
         Swal.fire({
@@ -39,7 +39,7 @@ $('#form1').submit(async function (e) {
         }
     }
     e.currentTarget.submit();
-})
+})*/
 
 function phonePattern(obj){
     const mobile = [8,9,6]

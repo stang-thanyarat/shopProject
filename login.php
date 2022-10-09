@@ -46,7 +46,7 @@
                     <i class="bi bi-eye-slash" id="togglePassword"></i>
                 </div>
                 <div class="BTN">
-                    <input class="field button" type="submit" value="Login" />
+                    <input name="btLogin_click()" class="field button" type="submit" value="Login" />
                 </div>
             </form>
         </div>

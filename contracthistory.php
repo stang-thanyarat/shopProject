@@ -1,6 +1,8 @@
 <?php
 include_once('service/auth.php');
+include_once ('service/dateFormat.php');
 isLaber();
+
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +64,7 @@ if (isset($_GET['keyword'])) {
                             <?php
                             foreach ($rows as $row) { ?>
                                 <tr>
-                                    <th width=10%><?= $row['date_contract'] ?></th>
+                                    <th width=10%><?= dateFormat($row['date_contract']) ?></th>
                                     <th width=10%><?= $row['contract_code'] ?></th>
                                     <th width=20%>
                                         <div class="r">

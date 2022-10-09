@@ -23,9 +23,6 @@ include_once "./database/Category.php";
 $category =  new Category();
 $rows = $category->fetchAll();
 ?>
-<!--
-    เปลี่ยนชื่อ และ id แล้ว แต่จะใส่แทรกเพื่อเก็บข้อมูลหรือแสดงผลต้องรอ
--->
 
 <body>
     <form>

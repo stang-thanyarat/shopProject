@@ -18,10 +18,15 @@ isLaber();
 
 
 </head>
-<?php include_once('nav.php'); ?>
-<!--
-    เปลี่ยนชื่อ และ id แล้ว แต่จะใส่แทรกเพื่อเก็บข้อมูลหรือแสดงผลต้องรอ
--->
+<?php include_once('nav.php');
+include_once "./database/Product.php";
+$product = new Product();
+if (!isset($_GET['id'])) {
+    redirection('/productexchangehistory.php');
+}
+$p = $product->fetchById($_GET['id']);
+?>
+
 
 <body>
     <form>
@@ -34,11 +39,11 @@ isLaber();
                 <div class="row main q">
                     <div class="col-12 ">
                         <div>
-                            <h4 name="product_name" id="product_name"> ชื่อสินค้า : &nbsp กะเพรา-SL<h4>
+                            <h4 id="text<?=$p['product_id']?>">value="<?= $p['product_name']; ?>"<h4>
                         </div>
                         <p>
                         <div>
-                            <h4 name="category_name" id="category_name">ประเภทสินค้า : &nbsp เมล็ดพันธุ์<h4>
+                            <h4 name="category_name" id="category_name" value="<?= $p['category_name']; ?>">ประเภทสินค้า : &nbsp เมล็ดพันธุ์<h4>
                         </div>
                         <p>
                         <div>
