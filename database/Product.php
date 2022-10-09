@@ -20,6 +20,16 @@ class Product
         return $result;
     }
 
+    public function fetchById($id)
+    {
+        $sql = "SELECT * FROM product_tb WHERE product_id=?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
     public function fetchLost()
     {
         $sql = "SELECT * FROM product_tb WHERE product_rm_unit < notification_amt";
@@ -49,16 +59,6 @@ class Product
         $stmt->bindParam(1, $status, PDO::PARAM_INT);
         $stmt->bindParam(2, $id, PDO::PARAM_INT);
         $stmt->execute();
-    }
-
-    public function fetchById($id)
-    {
-        $sql = "SELECT * FROM product_tb WHERE product_id=?";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $id, PDO::PARAM_INT);
-        $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $result;
     }
 
     public function countCategoryId($id, $on)
