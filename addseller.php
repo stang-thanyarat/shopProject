@@ -28,7 +28,7 @@ isLaber();
         <div class="col-11">
             <div class="row main">
                 <div class="col-12">
-                <h1>เพิ่มผู้ขาย</h1>
+                <h1 name="bt">เพิ่มผู้ขาย</h1>
                 </div>
             </div>
             <div class="row leftseller">

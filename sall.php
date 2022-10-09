@@ -46,7 +46,7 @@ if (isset($_GET['keyword'])) {
                         </button>
                     </div>
                     <div class="col-1 w">
-                        <a class="submit btn" href="addseller.php"><img class='add' src="./src/images/plus.png" width="25" alt="">&nbsp เพิ่มผู้ขาย</a>
+                        <a mame="btadd" class="submit btn" href="addseller.php"><img class='add' src="./src/images/plus.png" width="25" alt="">&nbsp เพิ่มผู้ขาย</a>
                     </div>
                     </form>
                 </div>
