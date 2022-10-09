@@ -20,10 +20,11 @@ isLaber();
 </head>
 <?php include_once('nav.php');
 include_once "./database/Product.php";
-include_once "./database/Category.php";
-$product =  new Product();
-$category =  new Category();
-$p = $product->fetchAll();
+$product = new Product();
+if (!isset($_GET['id'])) {
+    redirection('/productexchangehistory.php');
+}
+$p = $product->fetchById($_GET['id']);
 ?>
 
 
@@ -38,7 +39,7 @@ $p = $product->fetchAll();
                 <div class="row main q">
                     <div class="col-12 ">
                         <div>
-                            <h4 id="text<?=$p['product_id']?>"><?= $p['product_name']; ?><h4>
+                            <h4 id="text<?=$p['product_id']?>">value="<?= $p['product_name']; ?>"<h4>
                         </div>
                         <p>
                         <div>
