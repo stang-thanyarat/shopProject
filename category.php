@@ -37,11 +37,11 @@ $rows = $category->fetchAll();
             <table class="col-13 tbproducttype">
                 <thead>
                     <tr>
-                        <th>ลำดับ</th>
-                        <th>ประเภทสินค้า</th>
-                        <th>รายการทั้งหมด</th>
-                        <th>รายการที่ขาย</th>
-                        <th></th>
+                        <th width=10%>ลำดับ</th>
+                        <th width=35%>ประเภทสินค้า</th>
+                        <th width=20%>รายการทั้งหมด</th>
+                        <th width=20%>รายการที่ขาย</th>
+                        <th width=5%></th>
                     </tr>
                 </thead>
                 <tbody id="categorytable">
@@ -52,7 +52,7 @@ $rows = $category->fetchAll();
                             <th width=35% id="text<?=$row['category_id']?>"><?= $row['category_name'] ?></th>
                             <th width=20%><?= $category->getCount($row['category_id'], false) ?></th>
                             <th width=20%><?= $category->getCount($row['category_id'], true) ?></th>
-                            <th>
+                            <th while=5%>
                                 <button type="button" class="bgs" onclick="del(<?=$row['category_id']?>)"><img src="./src/images/icon-delete.png" width="25"></button>
                                 <button type="button" class="bgs" onclick="edit(<?=$row['category_id']?>)"><img src="./src/images/icon-pencil.png" width="25"></button>
                             </th>

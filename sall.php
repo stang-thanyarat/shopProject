@@ -52,10 +52,10 @@ if (isset($_GET['keyword'])) {
                 </div>
                 <table class="ma">
                     <tr>
-                        <th>ชื่อผู้ขาย</th>
-                        <th>เลขประจำตัวผู้เสียภาษี</th>
-                        <th>นามบัตร</th>
-                        <th></th>
+                        <th width="30">ชื่อผู้ขาย</th>
+                        <th width="20">เลขประจำตัวผู้เสียภาษี</th>
+                        <th width="20">นามบัตร</th>
+                        <th width="5"></th>
                     </tr>
                     <tbody id="sellTable">
                         <?php foreach ($rows as $e) { ?>

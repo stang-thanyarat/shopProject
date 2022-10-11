@@ -35,6 +35,31 @@ $(document).ready(async function () {
 
 function setUI(data) {
     $('#notification_amtTable').html('')
+    data.forEach((element, i) => {
+        console.log(element)
+        $('#notification_amtTable').append(`<tr id="rr${i}">
+        <th><img src="${element.product_img}" width="25"></th>
+        <th>${element.product_name}</th>
+        <th>${element.price}</th>
+        <th>${element.product_rm_unit}</th>
+        <th>
+            <label class="switch">
+            <input ${element.product_rm_unit == 0 ? 'disabled' : ''} type="checkbox" id="S${element.product_id}" ${element.sales_status == 1 && element.product_rm_unit > 0 ? "checked" : ""} onchange="setStatus(${element.product_id})">
+            <span class="slider round"></span>
+    </label>
+        </th>
+    </tr>`)
+
+    });
+}
+
+async function setStatus(id) {
+    const status = $("#S" + id).is(':checked');
+    await (await fetch(`./controller/setProductStatus.php?status=${status}&id=${id}`))
+}
+
+/*function setUI(data) {
+    $('#notification_amtTable').html('')
     data.forEach((element,i) => {
         console.log(element)
         $('#notification_amtTable').append(`<tr id="rr${i + 1}">
@@ -49,4 +74,4 @@ function setUI(data) {
     </tr>`)
 
     });
-}
+} */

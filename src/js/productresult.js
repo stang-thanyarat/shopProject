@@ -1,5 +1,3 @@
-let lost = []
-
 $("#category_id").change(async function () {
     if ($("#category_id").val() !== "all") {
         let url = `./controller/ProductResult.php?category_id=${$("#category_id").val()}`
