@@ -1,5 +1,3 @@
-let lost = []
-
 $("#category_id").change(async function () {
     if ($("#category_id").val() !== "all") {
         let url = `./controller/ProductResult.php?category_id=${$("#category_id").val()}`
@@ -53,7 +51,7 @@ function setUI(data) {
         <th><img src="${element.product_img}" width="25"></th>
         <th>
             <label class="switch">
-                <input ${element.product_rm_unit == 0 ? 'disabled' : ''} type="checkbox" id="S${element.product_id}" ${element.sales_status == 1 && element.product_rm_unit > 0 ? "checked" : ""} onchange="setStatus(${element.product_id})">
+                <input  type="checkbox" id="S${element.product_id}" onchange="setStatus(${element.product_id})" ${element.product_rm_unit == 1 ? 'checked' : ''} ${element.sales_status == 1 && element.product_rm_unit > 0 ? "checked" : ""} >
                 <span class="slider round"></span>
             </label>
         </th>

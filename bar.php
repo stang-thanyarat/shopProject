@@ -11,7 +11,7 @@
     <?php if (getRole() == 'L') { ?><h5><span><img src="./src/images/buy.png" width="25" height="25" /></span> ซื้อ</h5>
         <hr /><?php } ?>
     <?php if (getRole() == 'L') { ?> <a class="nav-link bar-link" href="sall.php">ผู้ขาย</a><?php } ?>
-    <?php if (getRole() == 'L') { ?> <a class="nav-link bar-link" href="order.php">ใบสั่งซื้อ</a><?php } ?>
+    <?php if (getRole() == 'L') { ?> <a class="nav-link bar-link" href="order.php">รายการใบสั่งซื้อ</a><?php } ?>
     <?php if (getRole() == 'L') { ?> <a class="nav-link bar-link" href="orderhistory.php">ประวัติการสั่งซื้อ</a><?php } ?>
     <?php if (getRole() == 'L' || getRole() == 'E') { ?><h5><span><img src="./src/images/sell.png" width="25" height="25" /></span> สินค้า</h5>
     <hr /><?php } ?>

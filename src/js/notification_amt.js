@@ -38,11 +38,16 @@ function setUI(data) {
     data.forEach((element,i) => {
         console.log(element)
         $('#notification_amtTable').append(`<tr id="rr${i + 1}">
-        <th class="index-table-bank">${i + 1}</th>
         <th><img src="${element.product_img}" width="25"></th>
         <th>${element.product_name}</th>
         <th>${element.price}</th>
-        <th>${element.product_dlt_unit}</th>
+        <th>${element.product_rm_unit}</th>
+        <th>
+            <label class="switch">
+                <input  type="checkbox" id="S${element.product_id}" onchange="setStatus(${element.product_id})" ${element.product_rm_unit == 1 ? 'checked' : ''} ${element.sales_status == 1 && element.product_rm_unit > 0 ? "checked" : ""} >
+                <span class="slider round"></span>
+            </label>
+        </th>
         <th>
             <a  type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></a>
         </th>

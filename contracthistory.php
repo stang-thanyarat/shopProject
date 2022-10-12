@@ -79,7 +79,7 @@ if (isset($_GET['keyword'])) {
                                     <th width=5%><input type="file" accept="image/*" name="contractfile" width="10px"></th>
                                     <th width=10%><img src="./src/images/print.png" width="25"></th>
                                     <th>
-                                        <button type="button" class="bgs" onclick="javascript:window.location='solvecontract.php';" onclick="edit(<?= $row['contract_code'] ?>)"><img src="./src/images/icon-pencil.png" width="25"></button>
+                                        <a type="button" class="bgs" href="./solvecontract.php?id=<?= $row['contract_code']; ?>" ><img src="./src/images/icon-pencil.png" width="25"></a>
                                     </th>
                                 </tr>
                             <?php

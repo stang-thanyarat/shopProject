@@ -6,13 +6,30 @@
   <component name="ChangeListManager">
     <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addorder2.php" beforeDir="false" afterPath="$PROJECT_DIR$/addorder2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bar.php" beforeDir="false" afterPath="$PROJECT_DIR$/bar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/contract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracthistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/contracthistory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Employee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Contract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Form.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/database/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/ProductExchange.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/ProductExchange.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/productexchangehistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/productexchangehistory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/productlist.php" beforeDir="false" afterPath="$PROJECT_DIR$/productlist.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/searchinformation.php" beforeDir="false" afterPath="$PROJECT_DIR$/searchinformation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/productexchangehistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/productexchangehistory.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/productexchangehistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/productexchangehistory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/editconfirm2.php" beforeDir="false" afterPath="$PROJECT_DIR$/editconfirm2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order.php" beforeDir="false" afterPath="$PROJECT_DIR$/order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orderhistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/orderhistory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/productresult.php" beforeDir="false" afterPath="$PROJECT_DIR$/productresult.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/salehistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/salehistory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvecontract.php" beforeDir="false" afterPath="$PROJECT_DIR$/solvecontract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/addorder2.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/addorder2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/confirm2.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/confirm2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/salehistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/salehistory.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/editconfirm2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/editconfirm2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/notification_amt.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/notification_amt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/productresult.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/productresult.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,19 +60,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/shopProject&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/xampp/htdocs/shopProject/src/js",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\PhpStorm 2022.2.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\shopProject\src\js" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
@@ -83,6 +106,11 @@
       <workItem from="1664542679254" duration="3088000" />
       <workItem from="1664613301206" duration="594000" />
       <workItem from="1664717765283" duration="2013000" />
+      <workItem from="1665411004090" duration="39149000" />
+      <workItem from="1665469189312" duration="6941000" />
+      <workItem from="1665495922732" duration="5827000" />
+      <workItem from="1665508298845" duration="2737000" />
+      <workItem from="1665555199076" duration="13453000" />
     </task>
     <servers />
   </component>

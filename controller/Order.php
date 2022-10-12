@@ -1,5 +1,6 @@
 <?php
 include_once '../database/Order.php';
+include_once '../service/upload.php';
 include_once 'Redirection.php';
 $order = new Order();
 if (isset($_POST)) {
@@ -7,53 +8,55 @@ if (isset($_POST)) {
         if ($_POST['form_action'] === 'update') {
             //เชคการอัพโหลดรูป
             if ($_FILES['delivery_notice']['size'] > 0) {
-                $path = './file/employee/id/';
+                $path = './file/order/deliverynotice/';
                 if (file_exists($_POST['delivery_notice'])) {
                     unlink($_POST['delivery_notice']);
                 }
                 $filesname = $path . uploadImage($_FILES['delivery_notice'], "." . $path);
                 if ($filesname) {
-                    $employee->updateimage('delivery_notice', $filesname, $_POST['order_id']);
+                    $order->updateimage('delivery_notice', $filesname,$_POST['order_id']);
                 }
             }
-
             if ($_FILES['receipt']['size'] > 0) {
-                $path = './file/employee/address/';
+                $path = './file/order/receipt/';
                 if (file_exists($_POST['receipt'])) {
                     unlink($_POST['receipt']);
                 }
                 $filesname = $path . uploadImage($_FILES['receipt'], "." . $path);
                 if ($filesname) {
-                    $employee->updateimage('receipt',$filesname,$_POST['order_id']);
+                    $order->updateimage('receipt', $filesname,$_POST['order_id']);
                 }
             }
-            
+            if (empty($_POST['order_status'])) {
+                $_POST['order_status'] = '0';
+            } else {
+                $_POST['order_status'] = '1';
+            }
             $order->update($_POST);
+            Redirection("/order.php");
+        } else if ($_POST['form_action'] === 'delete') {
+            $order->delete($_POST['order_id']);
+        } else if ($_POST['form_action'] === 'insert') {
             //อัพโหลด
-            if (isset($_FILES['delivery_notice'])) {
-                $path = './file/employee/id/';
-                $filesname = uploadImage($_FILES['delivery_notice'], "." . $path);
+            if (isset($_FILES['bankslip'])) {
+                $path = './file/order/bankslip/';
+                $filesname = uploadImage($_FILES['bankslip'], "." . $path);
                 if ($filesname) {
-                    $_POST['delivery_notice'] = $path . $filesname;
+                    $_POST['bankslip'] = $path . $filesname;
                 } else {
-                    $_POST['delivery_notice'] = '';
+                    $_POST['bankslip'] = '';
                 }
             } else {
-                $_POST['delivery_notice'] = '';
+                $_POST['bankslip'] = '';
             }
-
-            if (isset($_FILES['receipt'])) {
-                $path = './file/employee/address/';
-                $filesname = uploadImage($_FILES['receipt'], "." . $path);
-                if ($filesname) {
-                    $_POST['receipt'] = $path . $filesname;
-                } else {
-                    $_POST['receipt'] = '';
-                }
+            if (empty($_POST['order_status'])) {
+                $_POST['order_status'] = '0';
             } else {
-                $_POST['receipt'] = '';
+                $_POST['order_status'] = '1';
             }
         }
+        $order->insert($_POST);
+        Redirection("/order.php");
     }
 } else {
     echo "Page Not found.";

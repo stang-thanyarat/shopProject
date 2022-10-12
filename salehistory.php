@@ -1,5 +1,6 @@
 <?php
 include_once('service/auth.php');
+include_once ('service/dateFormat.php');
 isLaber();
 ?>
 
@@ -14,7 +15,11 @@ isLaber();
     <link rel="stylesheet" href="./src/css/salehistory.css" />
     <title>Document</title>
 </head>
-<?php include_once('nav.php'); ?>
+<?php include_once('nav.php');
+include_once 'database/Sales.php';
+$sales = new Sales();
+$rows = $sales->fetchAll();
+?>
 
 <body>
     <form>
@@ -27,52 +32,33 @@ isLaber();
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-3 datetodate">
-                        <input type="date" name="firstdate" id="firstdate" required>&nbsp ถึง &nbsp<input type="date" name="lastdate" required>
+                    <div class="col-11 d-flex justify-content-end">
+                        <input class="dateS" type="date" name="firstdate" id="firstdate" required>
+                         ถึง
+                        <input class="dateE" type="date" name="lastdate" required>
                         <button type="submit" class="s"><img src="./src/images/search.png" width="20"></button>
                     </div>
                 </div>
-                <table class="col-11 q">
+                <table class="col-9 q">
                     <tr>
-                        <th>วันที่ขาย</th>
-                        <th>เวลา</th>
-                        <th>เลขที่ใบเสร็จ/ใบส่งของ</th>
-                        <th>จำนวนรวม</th>
-                        <th>ยอดรวมทั้งหมด</th>
-                        <th>ช่องทางการชำระ</th>
+                        <th width=11% >วันที่และเวลาที่ขาย</th>
+                        <th width=30% >เลขที่ใบเสร็จ/ใบส่งของ</th>
+                        <th width=12.5% >จำนวนรวม</th>
+                        <th width=30% >ยอดรวมทั้งหมด</th>
+                        <th width=16% >ช่องทางการชำระ</th>
                     </tr>
                     <tr>
-                        <th>05 พ.ย. 2564</th>
-                        <th>12:30</th>
-                        <th><button type="submit" class="s"><img src="./src/images/pdf.png" width="25"></button></th>
-                        <th>2</th>
-                        <th>210.00</th>
-                        <th>เงินสด</th>
-                    </tr>
-                    <tr>
-                        <th>05 พ.ย. 2564</th>
-                        <th>12:30</th>
-                        <th><button type="submit" class="s"><img src="./src/images/pdf.png" width="25"></button></th>
-                        <th>2</th>
-                        <th>210.00</th>
-                        <th>โอนเงิน</th>
-                    </tr>
-                    <tr>
-                        <th>26 ธ.ค. 2564</th>
-                        <th>14:30</th>
-                        <th><button type="submit" class="s"><img src="./src/images/pdf.png" width="25"></button></th>
-                        <th>2</th>
-                        <th>230.00</th>
-                        <th>เงินสด</th>
-                    </tr>
-                    <tr>
-                        <th>25 มิ.ย. 2565</th>
-                        <th>16:30</th>
-                        <th><button type="submit" class="s"><img src="./src/images/pdf.png" width="25"></button></th>
-                        <th>10</th>
-                        <th>3,220.00</th>
-                        <th>สัญญาซื้อขาย</th>
-                    </tr>
+                        <tbody id="salesHistory">
+                        <?php foreach ($rows as $row) { ?>
+                            <tr>
+                                <th><?= dateFormat($row['sales_dt']) ?></th>
+                                <th><?= $row['import_files'] ?></th>
+                                <th><?= $row['sales_amt'] ?></th>
+                                <th><?= $row['price_paid'] ?></th>
+                                <th><?= $row['payment_sl'] ?></th>
+                            </tr>
+                        <?php } ?>
+                        </tbody>
                 </table>
             </div>
         </div>

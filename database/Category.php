@@ -38,7 +38,7 @@ class Category
         $counts = 0;
         if ($on) {
             foreach ($products as $product) {
-                if (intval($product['sales_status']) === 1) {
+                if (intval($product['sales_status']) === 0) {
                     $counts++;
                 }
             }
