@@ -16,9 +16,6 @@ isNotAdmin();
     <title>Document</title>
 </head>
 <?php include_once('nav.php');
-include_once "./database/Category.php";
-$category =  new Category();
-$rows = $category->fetchAll();
 ?>
 
 <body>

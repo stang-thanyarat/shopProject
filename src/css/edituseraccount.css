@@ -2,11 +2,13 @@
 
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
+    --bs-gutter-x: 0;
 }
 
 .row {
     --bs-gutter-x: 0rem;
 }
+
 
 .switch {
     position: relative;
