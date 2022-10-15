@@ -37,11 +37,11 @@ $rows = $category->fetchAll();
             <table class="col-13 tbproducttype">
                 <thead>
                     <tr>
-                        <th>ลำดับ</th>
-                        <th>ประเภทสินค้า</th>
-                        <th>รายการทั้งหมด</th>
-                        <th>รายการที่ขาย</th>
-                        <th></th>
+                        <th width=10%>ลำดับ</th>
+                        <th width=35%>ประเภทสินค้า</th>
+                        <th width=20%>รายการทั้งหมด</th>
+                        <th width=20%>รายการที่ขาย</th>
+                        <th width=5%></th>
                     </tr>
                 </thead>
                 <tbody id="categorytable">

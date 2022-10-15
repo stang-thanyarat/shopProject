@@ -56,12 +56,12 @@ $rows = $category->fetchAll();
             <table class="ma">
                 <thead>
                     <tr>
-                        <th>ลำดับ</th>
-                        <th>รูปภาพ</th>
-                        <th>ชื่อสินค้า</th>
-                        <th>ราคา</th>
-                        <th>จำนวน</th>
-                        <th></th>
+                        <th width="10%">ลำดับ</th>
+                        <th width="10%">รูปภาพ</th>
+                        <th width="30%">ชื่อสินค้า</th>
+                        <th width="10%">ราคา</th>
+                        <th width="10%">จำนวน</th>
+                        <th width="5%"></th>
                     </tr>
                 <tbody id="dailybestsellerTable">  </tbody>
                    <!-- <tr>

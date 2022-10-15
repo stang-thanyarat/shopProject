@@ -18,9 +18,11 @@ isNotAdmin();
 <?php include_once('nav.php');
 include_once "./database/Product.php";
 include_once "./database/Category.php";
+include_once "./database/Product.php";
 $category =  new Category();
 $product =  new Product();
 $rows = $category->fetchAll();
+$product = $product->fetchAll();
 ?>
 
 <body>

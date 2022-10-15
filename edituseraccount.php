@@ -30,6 +30,7 @@ $e = $employee->fetchById($_GET['id']);
     <input type="hidden" value="update" name="form_action" />
     <input type="hidden" value="<?= $_GET['id'] ?>" name="unique_id" />
     <div class="row main">
+
         <div class="row main">
             <div class="row">
                 <h1>แก้ไขบัญชีผู้ใช้งาน</h1>
@@ -46,7 +47,7 @@ $e = $employee->fetchById($_GET['id']);
                     <div class="a">*</div>
                 </div>
                 <div class="col leftposition">
-                    <label for="account_user_type">ตำแหน่ง :</label>
+                    <label for="account_user_type">ตำแหน่ง : </label>
                     <input type="radio" name="account_user_type" value="L" class="bb" checked>
                     <label for="account_user_type">เจ้าของร้าน </label>&nbsp;&nbsp;&nbsp;
                     <input type="radio" name="account_user_type" value="E">

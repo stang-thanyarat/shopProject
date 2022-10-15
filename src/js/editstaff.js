@@ -75,6 +75,8 @@ $("#form1").submit(async function (event) {
                 text: 'บันทึกข้อมูลเสร็จสิ้น',
                 timer: 3000
             })
+
+
             window.location.assign("employee.php");
         }
     }

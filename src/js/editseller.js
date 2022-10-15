@@ -39,6 +39,7 @@ $("#form1").submit(async function (event) {
         })
         window.location.assign("sall.php");
     }
+    
 
 })
 
