@@ -32,7 +32,11 @@ $("#form1").submit(async function (event) {
     if (!response.ok) {
         console.log(response);
     } else {
-        alert("success");
+        await Swal.fire({
+            icon: 'success',
+            text: 'บันทึกข้อมูลเสร็จสิ้น',
+            timer: 3000
+        })
         window.location.assign("sall.php");
     }
 

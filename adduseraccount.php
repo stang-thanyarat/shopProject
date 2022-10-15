@@ -79,6 +79,9 @@ $rows = $employee->fetchWithOutUserId();
             </div>
     </form>
 </body>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="./node_modules//sweetalert2/dist/sweetalert2.min.js"></script>
 <script src="./src/js/adduseraccount.js"></script>
 
 </html>

@@ -39,7 +39,7 @@ $p = $product->fetchById($_GET['id']);
                 <div class="row main q">
                     <div class="col-12 ">
                         <div>
-                            <h4 id="text<?=$p['product_id']?>">value="<?= $p['product_name']; ?>"<h4>
+                            <h4 id="text<?=$p['product_id']?>"><?= $p['product_name']; ?><h4>
                         </div>
                         <p>
                         <div>

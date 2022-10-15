@@ -35,7 +35,7 @@ $e = $employee->fetchById($_GET['id']);
                 <h1>แก้ไขบัญชีผู้ใช้งาน</h1>
             </div>
             <div class="row top">
-                <div class="col-lg-4 col-md-12">
+                <div class="col-lg-4 col-md-4">
                     <label for="employee_id">ชื่อพนักงาน:</label>
                     <select  class="bb" required onchange="readEmail()" style="background-color: #D4DDC6;">
                         <option value="" selected hidden>เลือกพนักงาน</option>
@@ -75,10 +75,10 @@ $e = $employee->fetchById($_GET['id']);
                 </div>
             </div>
             <div class="row btn-g">
-                <div class="col-lg-2 col-md-12">
+                <div class="col-lg-2 col-md-4">
                     <button type="reset" class="btn-c reset" onclick="javascript:window.location='manageuseraccounts.php';">ยกเลิก</button>
                 </div>
-                <div class="col-lg-10 col-md-12">
+                <div class="col-lg-10 col-md-4">
                     <input type="submit" class="btn-c submit" value="บันทึก" />
                 </div>
             </div>
