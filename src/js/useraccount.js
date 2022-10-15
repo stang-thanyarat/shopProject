@@ -41,8 +41,7 @@ function setUI(data) {
             </th>
             <th>
                 <button type="button" class="bgs" onclick="del(${element.unique_id})" ><img src="./src/images/icon-delete.png" width="25"></button>
-                <button type="button" class="bgs" onclick="jav
-                ascript:window.location='edituseraccount.php';"><img src="./src/images/icon-pencil.png" width="25"></button>
+                <button type="button" class="bgs" onclick="javascript:window.location='edituseraccount.php';"><img src="./src/images/icon-pencil.png" width="25"></button>
             </th>
         </tr>`)
         k++

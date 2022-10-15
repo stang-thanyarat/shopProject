@@ -18,12 +18,15 @@ isNotAdmin();
     <title>addproduct</title>
 </head>
 <?php include_once('nav.php');
+include_once "./database/Product.php";
 include_once "./database/Category.php";
 include_once "./database/Sell.php";
 $sell = new Sell();
 $category = new Category();
+$product = new Product();
 $rows = $category->fetchAll();
 $sells = $sell->fetchAll();
+$p = $product->fetchAll();
 ?>
 
 <body>
@@ -152,7 +155,7 @@ $sells = $sell->fetchAll();
                                     <input name="cost_price" type="text" id="cost_price" class="inbox" required />
                                 </div>
                                 <div class="col-2 watchcostprice">
-                                    <a type="button" href="./costprice.php" class="button btn">ดูราคาทุน</a>
+                                    <a type="button" href="./costprice.php?id=1" class="button btn">ดูราคาทุน</a>
                                 </div>
                             </div>
                             <div class="row a">

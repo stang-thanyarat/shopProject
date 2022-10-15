@@ -6,13 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/ProductExchange.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/ProductExchange.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/productexchangehistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/productexchangehistory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/productlist.php" beforeDir="false" afterPath="$PROJECT_DIR$/productlist.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/searchinformation.php" beforeDir="false" afterPath="$PROJECT_DIR$/searchinformation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/productexchangehistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/productexchangehistory.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/productexchangehistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/productexchangehistory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/editseller.php" beforeDir="false" afterPath="$PROJECT_DIR$/editseller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edituseraccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/edituseraccount.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/addnewstaff.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/addnewstaff.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/addseller.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/addseller.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/editseller.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/editseller.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/editstaff.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/editstaff.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/editseller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/editseller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/editstaff.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/editstaff.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/useraccount.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/useraccount.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +85,8 @@
       <workItem from="1664542679254" duration="3088000" />
       <workItem from="1664613301206" duration="594000" />
       <workItem from="1664717765283" duration="2013000" />
+      <workItem from="1665814422207" duration="27000" />
+      <workItem from="1665814472135" duration="2320000" />
     </task>
     <servers />
   </component>

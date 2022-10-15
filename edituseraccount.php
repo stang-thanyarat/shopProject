@@ -14,24 +14,34 @@ isAdmin();
     <link rel="stylesheet" href="./src/css/edituseraccount.css" />
     <title>Document</title>
 </head>
-<?php include_once('nav.php'); ?>
+<?php
+include_once('nav.php');
+include_once('database/Employee.php');
+$employee = new Employee();
+$e = $employee->fetchById($_GET['id']);
+?>
+
 
 <body>
     <form name="form">
+        <input type="hidden" name="table" value="employee" />
+        <input type="hidden" name="form_action" value="update" />
+        <input type="hidden" value="<?= $_GET['id'] ?>" name="employee_id" />
+
         <div class="row main">
             <div class="row">
                 <h1>แก้ไขบัญชีผู้ใช้งาน</h1>
             </div>
             <div class="row top">
                 <div class="col-lg-4 col-md-12">
-                    <label for="employee_id">ชื่อพนักงาน :</label>
-                    <select name="employee_id" id="employee_id" class="bb" required>
+                    <label for="employee_id">ชื่อพนักงาน : </label>
+                    <select name="employee_id" class="bb" id=<?= $e['employee_prefix'] . $e['employee_firstname'] . " " . $e['employee_lastname']; ?> class="bb" required>
                         <option value="" selected hidden>เลือกพนักงาน</option>
                     </select>
                     <div class="a">*</div>
                 </div>
                 <div class="col leftposition">
-                    <label for="account_user_type">ตำแหน่ง :</label>
+                    <label for="account_user_type">ตำแหน่ง : </label>
                     <input type="radio" name="account_user_type" value="L" class="bb" checked>
                     <label for="account_user_type">เจ้าของร้าน </label>&nbsp;&nbsp;&nbsp;
                     <input type="radio" name="account_user_type" value="E">
@@ -41,12 +51,12 @@ isAdmin();
             </div><br>
             <div class="row">
                 <div class="col-lg-3 login leftemail">
-                    <label for="email">อีเมล :</label>
-                    <input name="email" id="email" type="email" onblur='check_email(this)' class="bb" required />
+                    <label for="email">อีเมล : </label>
+                    <input name="employee_email" id="employee_email" value="<?= $e['employee_email']; ?>" type="email" onblur='check_email(this)' class="bb" required />
                     <div class="d">*</div>
                 </div>
                 <div class="col-lg-4 login leftpassword">
-                    <label for="password">รหัสผ่าน :</label>
+                    <label for="password">รหัสผ่าน : </label>
                     <input name="password" id="password" type="password" onblur='check_num(this)' class="bb" required />
                     <div class="e">*</div>
                 </div>
@@ -69,6 +79,6 @@ isAdmin();
             </div>
     </form>
 </body>
-<script src="./src/js/adduseraccount.js"></script>
+<script src="./src/js/edituseraccount.js"></script>
 
 </html>

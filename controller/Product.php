@@ -45,10 +45,10 @@ if (isset($_POST)) {
                     $product->updateimage('product_img2', $filesname, $_POST['product_id']);
                 }
             }
-            if (empty($_POST['sales_status'])) {
-                $_POST['sales_status'] = '0';
-            } else {
+            if (($_POST['sales_status'])) {
                 $_POST['sales_status'] = '1';
+            } else {
+                $_POST['sales_status'] = '0';
             }
             if (empty($_POST['set_n_amt'])) {
                 $_POST['set_n_amt'] = '0';
