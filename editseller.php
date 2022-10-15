@@ -309,6 +309,7 @@ for ($i = 0; $i < count($banks); $i++) {
         }))
     });
 </script>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./src/js/editseller.js"></script>
 
 </html>

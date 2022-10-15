@@ -69,7 +69,7 @@ class UserAccount
     public function fetchById($id)
     {
         try {
-            $sql = "SELECT * FROM user_account_tb WHERE unique_id=?";
+            $sql = "SELECT U.*,E.employee_prefix,E.employee_firstname,E.employee_lastname FROM user_account_tb U,employee_tb E WHERE U.employee_id = E.employee_id";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();

@@ -19,12 +19,17 @@ class Contract
 
     public function fetchById($id)
     {
-        $sql = "SELECT * FROM contract_tb WHERE contract_code=?";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $id, PDO::PARAM_INT);
-        $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $result;
+        try {
+            $sql = "SELECT * FROM contract_tb WHERE contract_code = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
     }
 
     public function searchByName($keyword)
@@ -51,7 +56,7 @@ class Contract
     {
         $sql = "INSERT INTO contract_tb (date_contract, employee_id, /*sales_list_id,*/ customer_prefix, contract_details, witness1, witness2, witness3, 
         /*owner_status, contract_attachment,*/ customer_firstname, customer_lastname, customer_img, date_send) 
-        VALUES (?,?,?,?,?,?,?,?,?,?,?/*,?,?,?*/)";
+        VALUES (DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? DAY),?,?,?,?,?,?,?,?,?,?/*,?,?,?*/)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $data['date_contract'], PDO::PARAM_STR);
         $stmt->bindParam(2, $data['employee_id'], PDO::PARAM_INT);
