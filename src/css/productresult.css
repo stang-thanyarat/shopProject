@@ -223,3 +223,8 @@ input:checked+.slider:before {
     font-size: 13pt;
     width: 20%;
 }
+
+.bgs {
+    border: 0ch;
+    background-color: white;
+}

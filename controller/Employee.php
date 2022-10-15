@@ -2,6 +2,7 @@
 include_once '../database/Employee.php';
 include_once '../service/upload.php';
 include_once '../database/Employeebank.php';
+include_once 'Redirection.php';
 $employeebank = new Employeebank();
 $employee = new Employee();
 if (isset($_POST)) {
@@ -67,6 +68,7 @@ if (isset($_POST)) {
                 }
             }
             $employee->update($_POST);
+            Redirection("/employee.php");
         }
         else if ($_POST['form_action'] === 'delete') {  //ลบข้อมูลของพนักงาน
             if (file_exists($_POST['employee_card_id_copy'])) {
@@ -77,6 +79,7 @@ if (isset($_POST)) {
             }
             $employeebank->deleteByEmployeeId($_POST['employee_id']);
             $employee->delete($_POST['employee_id']);
+            Redirection("/employee.php");
         }
         else if ($_POST['form_action'] === 'insert') {
             //อัพโหลด
@@ -117,7 +120,7 @@ if (isset($_POST)) {
                 $form['bank_account'] =  $value->name;
                 $employeebank->insert($form);
             }
-            $employee->insert($form);
+            $employee->insert($_POST);
             Redirection("/employee.php");
 
         }

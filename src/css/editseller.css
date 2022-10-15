@@ -9,11 +9,14 @@
     max-width: 99%;
 }
 
+.col-11{
+    margin-bottom: 4rem;
+}
+
 .main {
     margin-top: 4rem;
     margin-left: 3rem;
     width: 85%;
-
 }
 
 .Nbar {

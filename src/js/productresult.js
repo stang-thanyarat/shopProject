@@ -1,5 +1,3 @@
-let lost = []
-
 $("#category_id").change(async function () {
     if ($("#category_id").val() !== "all") {
         let url = `./controller/ProductResult.php?category_id=${$("#category_id").val()}`
@@ -58,8 +56,8 @@ function setUI(data) {
             </label>
         </th>
         <th>
-            <a  data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1"><img src="./src/images/icon-delete.png" width="25"></a>
-            <a  href="./editproduct.php?id=${element.product_id}"><img src="./src/images/icon-pencil.png" width="25"></a>
+            <button type="button" class="bgs"  data-bs-toggle="modal" onclick="del(${element.product_id})"><img src="./src/images/icon-delete.png" width="25"></button>
+            <a type="button" class="bgs" href="./editproduct.php?id=${element.product_id}"><img src="./src/images/icon-pencil.png" width="25"></a>
         </th>
     </tr>`)
 
@@ -76,4 +74,42 @@ async function setStatus(id, val) {
         return
     }
     await (await fetch(`./controller/SetProductStatus.php?status=${val == 0 ? false : true}&id=${id}`))
+}
+
+//ลบพนักงงาน
+function del(id) {
+    Swal.fire({
+        title: 'คำเตือน',
+        text: "คุณต้องการลบรายการสินค้าใช่หรือไม่",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'ใช่',
+        cancelButtonText: 'ยกเลิก'
+    }).then(async (result) => {
+        if (result.isConfirmed) {
+            const product = await (await fetch("./controller/GetProduct.php?id=" + id)).json()
+            product.table = 'product'
+            product.form_action = 'delete'
+            let formdata = new FormData();
+            Object.keys(product).forEach(key => formdata.append(key, product[key]));
+            const requestOptions = {
+                method: 'POST',
+                body: formdata,
+                redirect: 'follow'
+            };
+            await fetch("./controller/Product.php?id=", requestOptions)
+            Swal.fire(
+                {
+                    title: 'ลบรายการสินค้า',
+                    text: 'การลบข้อมูลเสร็จสิ้น',
+                    icon: 'success',
+                    timer: 3000
+                }
+            ).then(()=>{
+                location.reload()
+            })
+        }
+    })
 }

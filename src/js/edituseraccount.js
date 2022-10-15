@@ -20,24 +20,3 @@ async function readEmail(){
     const email = employee.employee_email
     document.getElementById('account_username').value = email
 }
-
-$("#form1").submit(async function (event) {
-    event.preventDefault();
-            $('#bank').val(JSON.stringify(JSON.parse(localStorage.getItem("tableBank")).data))
-            let response = await fetch('controller/Employee.php', {
-                method: 'POST',
-                body: new FormData(document.form1)
-            });
-            console.log(response);
-            if (!response.ok) {
-                console.log(response);
-            } else {
-                await Swal.fire({
-                    icon: 'success',
-                    text: 'บันทึกข้อมูลเสร็จสิ้น',
-                    timer: 3000
-                })
-                console.log(await response.text());
-                window.location.assign("employee.php");
-            }
-});

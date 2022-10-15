@@ -32,22 +32,30 @@ class Product
 
     public function fetchLost()
     {
-        $sql = "SELECT * FROM product_tb WHERE product_rm_unit < notification_amt";
+        $sql = "SELECT * FROM product_tb WHERE product_rm_unit <= notification_amt";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
 
+    //ตัวที่เมื่อกดสวิชท์ปิดสถานะการขายและจะหายไป แต่เมื่อเปลี่ยนค่า เป็น 1 ใน database จะกลับเป็น 1 ที่ sales_status
     public function fetchAddCategory()
     {
         $data = $this->fetchAll();
         $sumData = [];
         foreach ($data as $row) {
+            //กรณีเปิดจะขึ้นสินค้า
             if ($row['sales_status'] == 1 && $row['product_rm_unit'] > 0) {
                 $catData = (new Category())->fetchById($row);
                 $sumData[] = array_merge($row, $catData);
             }
+            //กรณีปิดก็จะปิดสถานะ
+            //แต่ถ้าลบ elseif ออก จะเป็นการลบ(ซ่อนสินค้า)ออกไป
+            elseif ($row['product_name'] == 0 && $row['product_rm_unit'] > 0){
+                    $catData = (new Category())->fetchById($row);
+                    $sumData[] = array_merge($row, $catData);
+                }
         }
         return $sumData;
     }

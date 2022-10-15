@@ -8,6 +8,10 @@
     --bs-gutter-x: 0rem;
 }
 
+.col-11{
+    margin-bottom: 2rem;
+}
+
 .main {
     margin-top: 4rem;
     margin-left: 3rem;

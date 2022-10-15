@@ -18,13 +18,15 @@ isLaber();
 <?php include_once('nav.php');
 include_once "./database/Employee.php";
 include_once "./database/Contract.php";
-$employee = new Employee();
 $contract = new Contract();
-$labers = $employee->fetchLabers();
+$c= $contract->fetchAll();
+$employee = new Employee();
+$laber = $employee->fetchLabers();
+
 ?>
 
 <body>
-    <form action="controller/Contract.php" name="form1" id="form1" method="POST" >
+    <form action="controller/Contract.php" name="form1" id="form1" method="POST" enctype="multipart/form-data" >
         <input type="hidden" name="table" value="contract" />
         <input type="hidden" name="form_action" value="insert" />
         <div class="row">
@@ -50,7 +52,7 @@ $labers = $employee->fetchLabers();
                         นามเจ้าของร้าน :<span style="color: red; ">&nbsp&nbsp*</span>
                         <select name="employee_id" id="employee_id" class="bb selectsis" style="background-color: #D4DDC6;" required>
                             <option value="all" selected hidden>เลือกเจ้าของร้าน</option>
-                            <?php foreach ($labers as $s) { ?>
+                            <?php foreach ($laber as $s) { ?>
                                 <option value="<?= $s['employee_id'] ?>"><?= $s['employee_prefix'] ?><?= $s['employee_firstname'] ?>&nbsp&nbsp<?= $s['employee_lastname'] ?></option>
                             <?php } ?>
                         </select>
@@ -175,6 +177,9 @@ $labers = $employee->fetchLabers();
         </div>
     </form>
 </body>
-
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="./node_modules//sweetalert2/dist/sweetalert2.min.js"></script>
 <script src="./src/js/contract.js"></script>
+
 </html>

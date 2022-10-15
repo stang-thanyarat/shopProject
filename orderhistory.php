@@ -14,7 +14,19 @@ isLaber();
     <link rel="stylesheet" href="./src/css/orderhistory.css" />
     <title>Document</title>
 </head>
-<?php include_once('nav.php'); ?>
+<?php
+include_once('./database/Order.php');
+include_once('./database/Sell.php');
+$order = new Order();
+$sell = new Sell();
+include_once('nav.php');
+if (isset($_GET['keyword'])) {
+    $rows = $order->search($_GET['keyword']);
+} else {
+    $rows = $order->fetchAll();
+}
+$rows = $order->fetchAll();
+?>
 
 <body>
     <form>
@@ -37,21 +49,21 @@ isLaber();
                 </div>
                 <table class="col-11 ma">
                     <tr>
-                        <th>วันที่สั่งซื้อ</th>
-                        <th>ชื่อผู้ขาย</th>
-                        <th></th>
-                        <th></th>
+                        <th width="15%">วันที่สั่งซื้อ</th>
+                        <th width="60%">ชื่อผู้ขาย</th>
+                        <th width="15%">สถานะ</th>
+                        <th width="20%"></th>
                     </tr>
                     <tbody id="ordertable">
                     <?php $i = 1;
                     foreach ($rows as $row) { ?>
                         <tr>
-                            <th width=10%><?= $row['datebill'] ?></th>
-                            <th width=35% ><?= $row['sell_id'] ?></th>
-                            <th width=20% ><?php if( $row['order_status'] == 0 ) { echo "<a type='button' onclick='wait()'><font color=#A36627>รอของ</font></a>";} else{ echo "สำเร็จ";}?></th>
+                            <th><?= $row['datebill'] ?></th>
+                            <th id="text<?= $row['sell_id']?>"><?= $row['sell_name']?></th>
+                            <th><?php if( $row['order_status'] == 1 ) { echo "<a type='button' onclick='wait()'><font color=#A36627>รอของ</font></a>";} else{ echo "สำเร็จ";}?></th>
                             <th>
                                 <button type="button" class="bgs" onclick="del(<?=$row['order_id']?>)"><img src="./src/images/icon-delete.png" width="25"></button>
-                                <button type="button" class="bgs" onclick="edit(<?=$row['order_id']?>)"><img src="./src/images/icon-pencil.png" width="25"></button>
+                                <a type="button" class="bgs" onclick="edit(<?=$row['order_id']?>)"><img src="./src/images/icon-pencil.png" width="25"></a>
                             </th>
                         </tr>
                     <?php $i++;
