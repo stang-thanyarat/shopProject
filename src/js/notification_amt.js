@@ -37,9 +37,9 @@ function setUI(data) {
     $('#notification_amtTable').html('')
     data.forEach((element, i) => {
         if (element.product_rm_unit !== "0" && element.product_rm_unit !== "1" && element.product_rm_unit !== "2" && element.product_rm_unit !== "3" && element.product_rm_unit !== "4" && element.product_rm_unit !== "5") {
-            lost.push(element.product_id)
+            hide.push(element.product_id)
         }else if (element.notification_amt !== "0" && element.notification_amt !== "1" && element.notification_amt !== "2" && element.notification_amt !== "3" && element.notification_amt !== "4" && element.notification_amt !== "5") {
-            lost.push(element.product_id)
+            hide.push(element.product_id)
         }
         $('#notification_amtTable').append(`<tr id="rr${i}">
         <th><img src="${element.product_img}" width="25"></th>
@@ -56,8 +56,9 @@ function setUI(data) {
         </th>
     </tr>`)
 
-    });
-
+    });lost.forEach(async (e) => {
+        await setStatus(e, 0)
+    })
 }
 
 async function setStatus(id, val) {

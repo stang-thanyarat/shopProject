@@ -1,6 +1,18 @@
 <?php
 include_once('service/auth.php');
 isAdmin();
+function getFullRole($role)
+{
+    if ($role == "E") {
+        return 'พนักงาน';
+    }
+    if ($role == "L") {
+        return 'เจ้าของร้าน';
+    }
+    if ($role == "A") {
+        return 'ผู้ดูแลระบบ';
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -58,12 +70,12 @@ $e = $employee->fetchById($_GET['id']);
             <div class="row">
                 <div class="col-lg-3 login leftemail">
                     <label for="email">อีเมล :</label>
-                    <input value="<?= $rows['account_username']; ?>" name="account_username" id="account_username" type="email" onblur='check_email(this)' class="bb" required />
+                    <input name = "account_username" id = "account_username" type = "email" onblur = 'check_email(this)' class = "bb" value = "<?= $rows['account_username']; ?>" required />
                     <div class="d">*</div>
                 </div>
                 <div class="col-lg-4 login leftpassword">
                     <label for="password">รหัสผ่าน :</label>
-                    <input value="<?= $rows['account_password']; ?>" name="account_password" id="account_password" type="password" onblur='check_num(this)' class="bb" required />
+                    <input  name = "account_password" id = "account_password" type = "password" onblur = 'check_num(this)' class = "bb" value = "<?= $rows['account_password']; ?> " required />
                     <div class="e">*</div>
                 </div>
                 <div class="col-lg-4 leftstatus">
