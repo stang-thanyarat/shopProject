@@ -2,6 +2,18 @@
 include_once('service/auth.php');
 include_once ('service/dateFormat.php');
 isLaber();
+function getFullRole($role)
+{
+    if ($role == "E") {
+        return 'พนักงาน';
+    }
+    if ($role == "L") {
+        return 'เจ้าของร้าน';
+    }
+    if ($role == "A") {
+        return 'ผู้ดูแลระบบ';
+    }
+}
 
 ?>
 
@@ -34,7 +46,7 @@ if (isset($_GET['keyword'])) {
             <div class="col-11">
                 <div class="row main">
                     <div class="col-11">
-                        <h1>สัญญาซื้อขาย</h1>
+                        <h1>ประวัติสัญญาซื้อขาย</h1>
                     </div>
                 </div>
                 <div class="row">
@@ -43,7 +55,7 @@ if (isset($_GET['keyword'])) {
                         <button type="submit" class="s"><img src="./src/images/search.png" width="15"></button>
                     </div>
                     <div class="col-2 x">
-                        <a type="button" href="./productlist.php" class="submit btn s1"><img src="./src/images/arrow.png" width="25">กลับไปยังหน้าขาย</a>
+                        <a type="button" href="./productlist.php" class="submit btn s1"><img src="./src/images/arrow.png" width="45">กลับไปหน้าขาย</a>
                     </div>
                     <div class="col-1 v">
                         <a type="button" href="./contract.php" class="submit btn s2"><img src="./src/images/plus.png" width="25">&nbsp;เพิ่ม</a>

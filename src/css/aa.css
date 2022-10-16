@@ -40,6 +40,7 @@
 }
 
 .t {
+    color: #000;
     margin-top: 0.6rem;
 }
 
@@ -119,6 +120,9 @@
 
 
 .s {
+    margin-left: 1rem;
     border: 0ch;
-    background-color: white;
+    width: 50px;
+    height: 28px;
+    background-color: #C4C4C4;
 }

@@ -2,6 +2,18 @@
 include_once('service/auth.php');
 include_once ('service/dateFormat.php');
 isLaber();
+function getFullRole($role)
+{
+    if ($role == "E") {
+        return 'พนักงาน';
+    }
+    if ($role == "L") {
+        return 'เจ้าของร้าน';
+    }
+    if ($role == "A") {
+        return 'ผู้ดูแลระบบ';
+    }
+}
 ?>
 
 <!DOCTYPE html>
