@@ -48,7 +48,7 @@ $sells = $sell->fetchAll();
 ?>
 
 <body>
-<form action="controller/Product.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
+    <form action="controller/Product.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="product_img" value="<?= $p['product_img']; ?>" />
         <input type="hidden" name="product_detail_img" value="<?= $p['product_detail_img']; ?>" />
         <input type="hidden" value="product" name="table" />
