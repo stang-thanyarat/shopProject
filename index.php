@@ -39,7 +39,7 @@ function getFullRole($role)
                     <h1>ร้านวรเชษฐ์เกษตรภัณฑ์</h1>
                 </div>
                 <div class="row brr">
-                    <h5>ยินดีตอนรับ :  <?= $_SESSION['role'] !== 'A' ? $_SESSION['username'] : 'Admin' ?> ตำแหน่ง : <?= getFullRole($_SESSION['role']) ?></h5>
+                    <h5>ยินดีตอนรับ <!--:  <?= $_SESSION['role'] !== 'A' ? $_SESSION['username'] : 'Admin' ?> ตำแหน่ง : <?= getFullRole($_SESSION['role']) ?>--></h5>
                 </div>
                 <?php if (getRole() == 'E' || getRole() == 'L') { ?>
                     <div class="row">
@@ -52,10 +52,10 @@ function getFullRole($role)
                     </div>
                     <div class="row br">
                         <div class="col-10 box1">
-                            <h6 class="t">ยอดขาย&nbsp | &nbspต้นทุนขาย + ค่าใช้จ่าย</h6>
+                            <h5 class="t">ยอดขาย&nbsp | &nbspต้นทุนขาย + ค่าใช้จ่าย</h5>
                         </div>
                         <div class="col-2 box2">
-                            <h6 class="t">กำไรสุทธิ</h6>
+                            <h5 class="t">กำไรสุทธิ</h5>
                         </div>
                     </div>
                     <div class="row">

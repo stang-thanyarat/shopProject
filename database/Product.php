@@ -53,9 +53,9 @@ class Product
             //กรณีปิดก็จะปิดสถานะ
             //แต่ถ้าลบ elseif ออก จะเป็นการลบ(ซ่อนสินค้า)ออกไป
             elseif ($row['product_name'] == 0 && $row['product_rm_unit'] > 0){
-                    $catData = (new Category())->fetchById($row);
-                    $sumData[] = array_merge($row, $catData);
-                }
+                $catData = (new Category())->fetchById($row);
+                $sumData[] = array_merge($row, $catData);
+            }
         }
         return $sumData;
     }
