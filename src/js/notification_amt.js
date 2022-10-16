@@ -56,8 +56,9 @@ function setUI(data) {
         </th>
     </tr>`)
 
-    });
-
+    });lost.forEach(async (e) => {
+        await setStatus(e, 0)
+    })
 }
 
 async function setStatus(id, val) {

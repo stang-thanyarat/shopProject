@@ -37,8 +37,8 @@ $sells = $sell->fetchAll();
 
 <body>
     <form action="controller/Product.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="product_img1" value="<?= $p['product_img1']; ?>" />
-        <input type="hidden" name="product_img2" value="<?= $p['product_img2']; ?>" />
+        <input type="hidden" name="product_img" value="<?= $p['product_img']; ?>" />
+        <input type="hidden" name="product_detail_img" value="<?= $p['product_detail_img']; ?>" />
         <input type="hidden" value="product" name="table" />
         <input type="hidden" value="update" name="form_action" />
         <input type="hidden" value="<?= $_GET['id'] ?>" name="product_id" />
