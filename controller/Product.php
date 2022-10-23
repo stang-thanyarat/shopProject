@@ -102,6 +102,11 @@ if (isset($_POST)) {
             } else {
                 $_POST['set_n_amt'] = '1';
             }
+            if (empty($_POST['set_exchange'])) {
+                $_POST['set_exchange'] = '0';
+            } else {
+                $_POST['set_exchange'] = '1';
+            }
             $_POST['product_img1'] = str_replace("-", "", $_POST['product_img1']);
             $_POST['product_img2'] = str_replace("-", "", $_POST['product_img2']);
             $product->insert($_POST);

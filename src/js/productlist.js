@@ -171,7 +171,12 @@ function addToCart(id) {
     }
     localStorage.setItem('cart', JSON.stringify(cart))
     Swal.fire({
-        title: 'เพิ่มรายการสินค้าเรียบร้อยแล้ว',
-        timer: 1000
+        title: 'วันหมดอายุ',
+        input: 'select',
+        inputOptions: {
+            '1': 'Tier 1',
+            '2': 'Tier 2',
+            '3': 'Tier 3',
+        },
     })
 }

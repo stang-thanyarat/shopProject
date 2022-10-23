@@ -6,21 +6,28 @@
   <component name="ChangeListManager">
     <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addproduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/addproduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adduseraccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/adduseraccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/costprice.php" beforeDir="false" afterPath="$PROJECT_DIR$/costprice.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/editproduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/editproduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/editseller.php" beforeDir="false" afterPath="$PROJECT_DIR$/editseller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/editstaff.php" beforeDir="false" afterPath="$PROJECT_DIR$/editstaff.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edituseraccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/edituseraccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification_amt.php" beforeDir="false" afterPath="$PROJECT_DIR$/notification_amt.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/addorder2.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/addorder2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/confirm2.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/confirm2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/adduseraccount.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/adduseraccount.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/editproduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/editproduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/editseller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/editseller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/editstaff.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/editstaff.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/productresult.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/productresult.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GetExchange.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addtocart.php" beforeDir="false" afterPath="$PROJECT_DIR$/addtocart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/contract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracthistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/contracthistory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/AddtoCart.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/AddtoCart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/ProductExchange.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ProductExchange.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Contract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/ProductExchange.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/ProductExchange.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/editproductexchange.php" beforeDir="false" afterPath="$PROJECT_DIR$/editproductexchange.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/employee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/productexchangehistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/productexchangehistory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/PDF/PDF.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/PDF/template/order_cash.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/PDF/template/order_cash.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvecontract.php" beforeDir="false" afterPath="$PROJECT_DIR$/solvecontract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/addtocart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/addtocart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/contract.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/contract.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/editproductexchange.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/editproductexchange.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/notification_amt.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/notification_amt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/productexchangehistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/productexchangehistory.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/productlist.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/productlist.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +76,10 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\shopProject\src\js" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\shopProject\service\PDF\template" />
+      <recent name="C:\xampp\htdocs\shopProject\controller" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -103,6 +114,12 @@
       <workItem from="1665508298845" duration="2737000" />
       <workItem from="1665555199076" duration="13453000" />
       <workItem from="1665836197644" duration="3120000" />
+      <workItem from="1666030315912" duration="200000" />
+      <workItem from="1666061020181" duration="2214000" />
+      <workItem from="1666109734229" duration="1196000" />
+      <workItem from="1666164016991" duration="6884000" />
+      <workItem from="1666421321886" duration="10170000" />
+      <workItem from="1666518976045" duration="4976000" />
     </task>
     <servers />
   </component>

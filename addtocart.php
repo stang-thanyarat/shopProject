@@ -52,6 +52,7 @@ function getFullRole($role)
                             <th>ราคารวม</th>
                             <th></th>
                         </tr>
+                        <tbody id="addtocartTable">  </tbody>
                         <tr>
                             <th>1</th>
                             <th><img src="./src/images/ใบตัดหญ้า01.png" width="114"></th>

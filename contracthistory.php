@@ -28,8 +28,8 @@ function getFullRole($role)
     <link rel="stylesheet" href="./src/css/contracthistory.css" />
     <title>สัญญาซื้อขาย</title>
 </head>
-
-<?php include_once('nav.php');
+<?php
+include_once('nav.php');
 include_once "./database/Contract.php";
 $contract =  new Contract();
 if (isset($_GET['keyword'])) {
@@ -50,16 +50,19 @@ if (isset($_GET['keyword'])) {
                     </div>
                 </div>
                 <div class="row">
+                    <form action="contracthistory.php" method="GET">
                     <div class="col-2 y">
                         <input name="keyword" type="text" id="keyword" class="btnd" placeholder="&nbsp ชื่อ-นามสกุล">
                         <button type="submit" class="s"><img src="./src/images/search.png" width="15"></button>
                     </div>
                     <div class="col-2 x">
-                        <a type="button" href="./productlist.php" class="submit btn s1"><img src="./src/images/arrow.png" width="45">กลับไปหน้าขาย</a>
+                        <a type="button" href="productlist.php" class="submit btn s1"><img src="./src/images/arrow.png" width="45">กลับไปหน้าขาย</a>
                     </div>
                     <div class="col-1 v">
-                        <a type="button" href="./contract.php" class="submit btn s2"><img src="./src/images/plus.png" width="25">&nbsp;เพิ่ม</a>
+                        <a type="button" href="contract.php" class="submit btn s2"><img src="./src/images/plus.png" width="25">&nbsp;เพิ่ม</a>
                     </div>
+                    </form>
+                </div>
                     <table class="col-11 q">
                         <tr>
                             <th width=10%>วันที่ทำสัญญา</th>
@@ -91,7 +94,7 @@ if (isset($_GET['keyword'])) {
                                     <th width=5%><input type="file" accept="image/*" name="contractfile" width="10px"></th>
                                     <th width=10%><img src="./src/images/print.png" width="25"></th>
                                     <th>
-                                        <a type="button" class="bgs" href="./solvecontract.php?id=<?= $row['contract_code']; ?>" ><img src="./src/images/icon-pencil.png" width="25"></a>
+                                        <a type="button" class="bgs" href="solvecontract.php?id=<?= $row['contract_code']; ?>" ><img src="./src/images/icon-pencil.png" width="25"></a>
                                     </th>
                                 </tr>
                             <?php
