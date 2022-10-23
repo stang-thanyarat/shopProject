@@ -32,9 +32,7 @@ function getFullRole($role)
 <?php include_once('nav.php');
 include_once "./database/Category.php";
 $category =  new Category();
-$product =  new Product();
 $rows = $category->fetchAll();
-$p = $product->fetchAll();
 ?>
 
 <body>
@@ -70,35 +68,7 @@ $p = $product->fetchAll();
                             </th>
                         </tr>
                     </thead>
-                    <tbody id="productlistTable">
-                    <?php
-                    $i = 0;
-                    echo '<tr>';
-                            foreach($p as $p){
-                            $i++;?>
-                    <th>
-                        <div class="row-4 topic_product">
-                            <?=$p['product_name']?> <?php if( $p['model'] == 0 ) { echo "";} else{ echo $p['model'];}?>
-                        </div>
-                        <div class="row">
-                            <div class="col-7">
-                                <img src="<?=$p['product_img']?>" class="img_position">
-                            </div>
-                            <div class="col-5">
-                                <div class="aa">
-                                    <p class="fitcontent">ราคา&nbsp&nbsp <?=$p['price']?> &nbsp&nbspบาท</p>
-                                    <p class="fitcontent">คงเหลือ&nbsp&nbsp <?=$p['product_rm_unit']?> &nbsp&nbspใบ</p>
-                                    <p><button onclick="addToCart()">เพิ่มไปยังรถเข็น</button></p>
-                                </div>
-                            </div>
-                        </div>
-                    </th>
-                    <?php if($i == 3) { // three items in a row. Edit this to get more or less items on a row
-                    echo '</tr><tr>';
-                        $i = 0;}
-                        }
-                        echo '</tr>'; ?>
-                    </tbody>
+                    <tbody id="productlistTable"></tbody>
                 </table>
             </div>
         </div>

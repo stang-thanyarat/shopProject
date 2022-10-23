@@ -44,26 +44,15 @@ function getFullRole($role)
                     </div>
                     <table class="z">
                         <tr class="t">
-                            <th>ลำดับ</th>
-                            <th>รูปภาพ</th>
-                            <th>สินค้า</th>
-                            <th>ราคาต่อชิ้น</th>
-                            <th>จำนวน</th>
-                            <th>ราคารวม</th>
-                            <th></th>
+                            <th width="5%">ลำดับ</th>
+                            <th width="10%">รูปภาพ</th>
+                            <th width="40%">สินค้า</th>
+                            <th width="15%">ราคาต่อชิ้น</th>
+                            <th width="10%">จำนวน</th>
+                            <th width="15%">ราคารวม</th>
+                            <th width="5%"></th>
                         </tr>
                         <tbody id="addtocartTable">  </tbody>
-                        <tr>
-                            <th>1</th>
-                            <th><img src="./src/images/ใบตัดหญ้า01.png" width="114"></th>
-                            <th>ใบตัดหญ้า มีฟัน (แบบวงเดือน) รุ่น 10X24T</th>
-                            <th>105 บาท</th>
-                            <th>2</th>
-                            <th>210 บาท</th>
-                            <th><a type="button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1"><img class='delete' src="./src/images/icon-delete.png" width="25"></a>
-                                <a type="button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm2"><img class='pencil' src="./src/images/icon-pencil.png" width="25"></a>
-                            </th>
-                        </tr>
                         <tr class="t">
                             <th colspan="2"> <select name="type" id="solutionPay" required>
                                     <option value="" selected hidden>เลือกประเภทการชำระ</option>
