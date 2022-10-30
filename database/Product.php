@@ -32,7 +32,7 @@ class Product
 
     public function fetchLost()
     {
-        $sql = "SELECT * FROM product_tb WHERE product_rm_unit <= notification_amt";
+        $sql = "SELECT * FROM product_tb WHERE product_rm_unit <= notification_amt AND sales_status=1";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

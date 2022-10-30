@@ -56,7 +56,7 @@ function setUI(data) {
             </label>
         </th>
         <th>
-            <button type="button" class="bgs"  data-bs-toggle="modal" onclick="del(${element.product_id})"><img src="./src/images/icon-delete.png" width="25"></button>
+            <button type="button" class="bgs" onclick="del(${element.product_id})"><img src="./src/images/icon-delete.png" width="25"></button>
             <a type="button" class="bgs" href="./editproduct.php?id=${element.product_id}"><img src="./src/images/icon-pencil.png" width="25"></a>
         </th>
     </tr>`)

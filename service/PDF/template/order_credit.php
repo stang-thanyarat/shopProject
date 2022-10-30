@@ -1,6 +1,6 @@
 <?php
 
-require_once '../vendor/autoload.php';
+require_once   '../vendor/autoload.php';
 $defaultConfig = (new Mpdf\Config\ConfigVariables())->getDefaults();
 $fontDirs = $defaultConfig['fontDir'];
 $defaultFontConfig = (new Mpdf\Config\FontVariables())->getDefaults();
@@ -66,7 +66,7 @@ font-size: 28pt;
     <td colspan="2">ชื่อผู้ขาย : xxx</td>
   </tr>
   <tr>
-    <td>วิธีการชำระเงิน : เงินสด</td>
+    <td>วิธีการชำระเงิน : เครดิต</td>
     <td class="setright">วันที่ชำระเงิน : xxx</td>
   </tr>
   <tr>
@@ -114,6 +114,7 @@ font-size: 28pt;
 </body>
 </html>
 ';
+
 
 
 $mpdf->WriteHTML($html);

@@ -4,10 +4,12 @@ include_once("Connection.php");
 class Contract
 {
     private $conn;
+
     function __construct()
     {
         $this->conn = Connection();
     }
+
     public function fetchAll()
     {
         $sql = "SELECT * FROM contract_tb ";
@@ -54,25 +56,33 @@ class Contract
 
     public function insert($data)
     {
-        $sql = "INSERT INTO contract_tb (date_contract, employee_id, /*sales_list_id,*/ customer_prefix, contract_details, witness1, witness2, witness3, 
+        try {
+            $sql = "SET FOREIGN_KEY_CHECKS=0";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $sql = "INSERT INTO contract_tb (date_contract, employee_id, /*sales_list_id,*/ customer_prefix, contract_details, witness1, witness2, witness3, 
         /*owner_status, contract_attachment,*/ customer_firstname, customer_lastname, customer_img, date_send) 
         VALUES (DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? DAY),?,?,?,?,?,?,?,?,?,?/*,?,?,?*/)";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $data['date_contract'], PDO::PARAM_STR);
-        $stmt->bindParam(2, $data['employee_id'], PDO::PARAM_INT);
-        $stmt->bindParam(3, $data['customer_prefix'], PDO::PARAM_STR);
-        $stmt->bindParam(4, $data['contract_details'], PDO::PARAM_STR);
-        $stmt->bindParam(5, $data['witness1'], PDO::PARAM_STR);
-        $stmt->bindParam(6, $data['witness2'], PDO::PARAM_STR);
-        $stmt->bindParam(7, $data['witness3'], PDO::PARAM_STR);
-        $stmt->bindParam(8, $data['customer_firstname'], PDO::PARAM_STR);
-        $stmt->bindParam(9, $data['customer_lastname'], PDO::PARAM_STR);
-        $stmt->bindParam(10, $data['customer_img'], PDO::PARAM_STR);
-        $stmt->bindParam(11, $data['date_send'], PDO::PARAM_STR);
-        /*$stmt->bindParam(8, $data['contract_attachment'], PDO::PARAM_STR);*/
-        /*$stmt->bindParam(8, $data['owner_status'], PDO::PARAM_INT);*/
-        /*$stmt->bindParam(14, $data['sales_list_id'], PDO::PARAM_INT);*/
-        $stmt->execute();
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $data['date_contract'], PDO::PARAM_STR);
+            $stmt->bindParam(2, $data['employee_id'], PDO::PARAM_INT);
+            $stmt->bindParam(3, $data['customer_prefix'], PDO::PARAM_STR);
+            $stmt->bindParam(4, $data['contract_details'], PDO::PARAM_STR);
+            $stmt->bindParam(5, $data['witness1'], PDO::PARAM_STR);
+            $stmt->bindParam(6, $data['witness2'], PDO::PARAM_STR);
+            $stmt->bindParam(7, $data['witness3'], PDO::PARAM_STR);
+            $stmt->bindParam(8, $data['customer_firstname'], PDO::PARAM_STR);
+            $stmt->bindParam(9, $data['customer_lastname'], PDO::PARAM_STR);
+            $stmt->bindParam(10, $data['customer_img'], PDO::PARAM_STR);
+            $stmt->bindParam(11, $data['date_send'], PDO::PARAM_STR);
+            /*$stmt->bindParam(8, $data['contract_attachment'], PDO::PARAM_STR);*/
+            /*$stmt->bindParam(8, $data['owner_status'], PDO::PARAM_INT);*/
+            /*$stmt->bindParam(14, $data['sales_list_id'], PDO::PARAM_INT);*/
+            $stmt->execute();
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 
     public function update($data)
@@ -85,19 +95,19 @@ class Contract
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $data['date_contract'], PDO::PARAM_STR);
             $stmt->bindParam(2, $data['employee_id'], PDO::PARAM_INT);
-            $stmt->bindParam(4, $data['customer_prefix'], PDO::PARAM_STR);
-            $stmt->bindParam(5, $data['contract_details'], PDO::PARAM_STR);
-            $stmt->bindParam(6, $data['witness1'], PDO::PARAM_STR);
-            $stmt->bindParam(7, $data['witness2'], PDO::PARAM_STR);
-            $stmt->bindParam(8, $data['witness3'], PDO::PARAM_STR);
-            $stmt->bindParam(9, $data['customer_firstname'], PDO::PARAM_STR);
-            $stmt->bindParam(10, $data['customer_lastname'], PDO::PARAM_STR);
-            $stmt->bindParam(11, $data['customer_img'], PDO::PARAM_STR);
-            $stmt->bindParam(12, $data['date_send'], PDO::PARAM_STR);
+            $stmt->bindParam(3, $data['customer_prefix'], PDO::PARAM_STR);
+            $stmt->bindParam(4, $data['contract_details'], PDO::PARAM_STR);
+            $stmt->bindParam(5, $data['witness1'], PDO::PARAM_STR);
+            $stmt->bindParam(6, $data['witness2'], PDO::PARAM_STR);
+            $stmt->bindParam(7, $data['witness3'], PDO::PARAM_STR);
+            $stmt->bindParam(8, $data['customer_firstname'], PDO::PARAM_STR);
+            $stmt->bindParam(9, $data['customer_lastname'], PDO::PARAM_STR);
+            $stmt->bindParam(10, $data['customer_img'], PDO::PARAM_STR);
+            $stmt->bindParam(11, $data['date_send'], PDO::PARAM_STR);
             /*$stmt->bindParam(9, $data['contract_attachment'], PDO::PARAM_STR);*/
             /*$stmt->bindParam(9, $data['owner_status'], PDO::PARAM_INT);*/
             /*$stmt->bindParam(14, $data['sales_list_id'], PDO::PARAM_INT);*/
-            $stmt->bindParam(13, $data['contract_code'], PDO::PARAM_INT);
+            $stmt->bindParam(12, $data['contract_code'], PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
             http_response_code(500);

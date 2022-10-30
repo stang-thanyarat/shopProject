@@ -32,13 +32,13 @@ include_once "database/Employee.php";
 $contract = new Contract();
 $c = $contract->fetchById($_GET['id']);
 $employee = new Employee();
-$laber = $employee->fetchLabers();
+$laber = $employee->fetchLabers($_GET['id']);
 
 
 ?>
 
 <body>
-<form action="controller/Contract.php" name="form1" id="form1" method="POST">
+<form action="" name="form1" id="form1" >
     <input type="hidden" value="contract" name="table"/>
     <input type="hidden" value="update" name="form_action"/>
     <input type="hidden" value="<?= $_GET['id'] ?>" name="contract_code" />
@@ -221,7 +221,6 @@ $laber = $employee->fetchLabers();
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="./node_modules//sweetalert2/dist/sweetalert2.min.js"></script>
-<script src="./src/js/contract.js"></script>
-<script src="./src/js/contract.js"></script>
+<script src="./src/js/solvecontract.js"></script>
 
 </html>
