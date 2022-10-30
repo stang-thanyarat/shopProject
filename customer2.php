@@ -24,10 +24,11 @@
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar2.php'); ?></div>
             <div class="col-8" style="margin-left: 5rem;">
-                <div class="row">
-                    <div class="col-2" style="margin-right: 2rem;">
+
+                <div class="row z">
+                    <div class="col-2" >
                         <br>
-                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselExampleIndicators" class="carousel" data-bs-ride="carousel">
                             <div class="carousel-indicators">
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>

@@ -16,7 +16,9 @@ class ProductExchange
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
+        // set http 
     }
+    
 //"SELECT * FROM product_exchange_tb WHERE product_exchange_id=?";
 //"SELECT E.*,P.product_name FROM product_exchange_tb E,product_tb P WHERE E.product_id = P.product_id AND product_exchange_id=? ";
 //"SELECT E.*,P.product_name FROM product_exchange_tb E,product_tb P WHERE E.product_id = P.product_id ";
