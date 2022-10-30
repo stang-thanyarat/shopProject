@@ -41,8 +41,15 @@ $(".l").click(async function (e) {
 $(document).ready(async function () {
     let url = './controller/ProductResult.php'
     const product = await (await fetch(url)).json()
-    localStorage.clear()
-    localStorage.setItem('cart', JSON.stringify([]))
+    if (localStorage.getItem('cart') !== null) {
+        const productCart = JSON.parse(localStorage.getItem('cart'))
+        for (const p of productCart) {
+            const idx = product.findIndex(e => e.product_id == p.id)
+            product[idx].product_rm_unit = Number(product[idx].product_rm_unit) - Number(p.quantity)
+        }
+    }else{
+        localStorage.setItem('cart',JSON.stringify([]))
+    }
     setUI(product)
 });
 
@@ -64,7 +71,7 @@ function setUI(data) {
                     <div class="col-5">
                     <div class="aa">
                         <p class="fitcontent">ราคา&nbsp&nbsp ${element.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} &nbsp&nbspบาท</p>
-                        <p class="fitcontent">คงเหลือ&nbsp&nbsp ${element.product_rm_unit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} &nbsp&nbspใบ</p>
+                        <p class="fitcontent">คงเหลือ&nbsp&nbsp <span id="p${element.product_id}">${element.product_rm_unit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span> &nbsp&nbsp${element.product_unit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
                         <p><button onclick="addToCart(${element.product_id})">เพิ่มไปยังรถเข็น</button></p>
                         </div>
                     </div>
@@ -78,41 +85,49 @@ function setUI(data) {
 }
 
 function addToCart(id) {
-
-    Swal.fire({
-        title: 'Login Form',
-        html: `
+    const p = Number($(`#p${id}`).text())
+    if (p > 0) {
+        Swal.fire({
+            title: 'จำนวน',
+            html: `
         <input id="q" type="number" min="1" step="1" value="1" class="swal2-input" placeholder="จำนวนสินค้า">`,
-        confirmButtonText: 'ลงตะกร้า',
-        focusConfirm: false,
-        showCancelButton: true,
-        cancelButtonText: "ยกเลิก",
-        preConfirm: async () => {
-            const q = Swal.getPopup().querySelector('#q').value
-            const age = Swal.getPopup().querySelector('#age').value
-            const notRunOut = await (await fetch(`./controller/GetStock.php?q=${q}&id=${id}`)).text()
-            if (notRunOut === 'false') {
-                Swal.showValidationMessage(`สินค้าไม่เพียงพอ`)
+            confirmButtonText: 'ลงตะกร้า',
+            focusConfirm: false,
+            showCancelButton: true,
+            cancelButtonText: "ยกเลิก",
+            preConfirm: async () => {
+                const q = Number(Swal.getPopup().querySelector('#q').value)
+                //const age = Swal.getPopup().querySelector('#age').value
+                if (p > 0 && p >= q) {
+                    $(`#p${id}`).text(Number(p - q))
+                } else if (p > 0 && p < q) {
+                    Swal.showValidationMessage(`สินค้าไม่เพียงพอ`)
+                }
+                return {q: q, id: id}
             }
-            return {q: q, id: id, age: age}
-        }
-    }).then((result) => {
-        const cart = JSON.parse(localStorage.getItem('cart'))
-        const found = cart.findIndex(e => e.id === id)
-        //ตัวตัด stock ลอย
-        //const cart = await(await fetch(`./controller/GetCutStock.php?q=${q}&id=${id}`)).text()
-        if (found > -1) {
-            cart[found].quantity
-        } else {
-            cart.push({
-                id: result.id.value,
-                quantity: result.q.value,
+            //
 
-            })
-        }
-        localStorage.setItem('cart', JSON.stringify(cart))
+        }).then((result) => {
+            const cart = JSON.parse(localStorage.getItem('cart'))
+            const found = cart.findIndex(e => e.id === id)
+            console.log(result.value)
+            if (found > -1) {
+                cart[found].quantity += result.value.q
+            } else {
+                cart.push({
+                    id: result.value.id,
+                    quantity: result.value.q,
 
-    })
+                })
+            }
+            localStorage.setItem('cart', JSON.stringify(cart))
+        })
+    } else {
+        Swal.fire({
+            icon: 'warning',
+            text: "สินค้าไม่เพียงพอ"
+        })
+    }
 
     /* const cart = JSON.parse(localStorage.getItem('cart'))
      const found = cart.findIndex(e => e.id === id)
