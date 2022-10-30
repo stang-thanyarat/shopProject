@@ -28,9 +28,9 @@ function getFullRole($role)
     <title>Document</title>
 </head>
 <?php
+include_once('nav.php');
 include_once('database/Employee.php');
 $employee = new Employee();
-include_once('nav.php');
 if (isset($_GET['keyword'])) {
     $rows = $employee->searchByName($_GET['keyword']);
 } else {

@@ -38,7 +38,7 @@ if (!isset($_GET['id'])) {
 $e = $productexchange->fetchById($_GET['id']);
 ?>
 <body>
-<form action="controller/ProductExchange.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
+<form action="" name="form1" id="form1" >
     <input type="hidden" value="productexchange" name="table" />
     <input type="hidden" value="insert" name="form_action" />
     <input type="hidden" value="<?= $_GET['id'] ?>" name="product_exchange_id" />

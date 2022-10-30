@@ -222,3 +222,13 @@ th {
     margin-bottom: 2rem;
     font-size: 14pt;
 }
+
+.object{
+    padding: 1rem;
+}
+
+.bgs {
+    border: 0ch;
+    background-color: white;
+    margin-left: 1pt;
+}

@@ -8,13 +8,24 @@ $product = new Product();
 if (isset($_POST)) {
     if ($_POST['table'] === 'productexchange') {
         if ($_POST['form_action'] === 'update') {
+            if ($_FILES['damage_proof']['size'] > 0) {
+                $path = './file/productexchange/';
+                if (file_exists($_POST['damage_proof'])) {
+                    unlink($_POST['damage_proof']);
+                }
+                $filesname = $path . uploadImage($_FILES['damage_proof'], "." . $path);
+                if ($filesname) {
+                    $productexchange->updateimage('damage_proof',$filesname,$_POST['product_exchange_id']);
+                }
+            }
             $productexchange->update($_POST);
             redirection( "/productexchangehistory.php" );
         } else if ($_POST['form_action'] === 'delete') {
             $productexchange->delete($_POST['product_exchange_id']);
         }
         else if ($_POST['form_action'] === 'insert') {
-            if ($_FILES['damage_proof']['size'] > 0) {
+            //อัพโหลด
+            if (isset($_FILES['damage_proof']['size'])) {
                 $path = './file/productexchange/';
                 $filesname = uploadImage($_FILES['damage_proof'], "." . $path);
                 if ($filesname) {
@@ -32,7 +43,6 @@ if (isset($_POST)) {
                 $product->cutStock($_POST['product_id'],$_POST['exchange_amount']);
             }
             $productexchange->insert($_POST);
-
             redirection( "/productexchangehistory.php" );
 
         }

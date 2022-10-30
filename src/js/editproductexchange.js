@@ -82,3 +82,23 @@ function autoTab2(obj) {
         obj.value = obj.value.substr(0, pattern.length);
     }
 }
+
+$("#form1").submit(async function (event) {
+        event.preventDefault();
+        let response = await fetch('controller/ProductExchange.php', {
+            method: 'POST',
+            body: new FormData(document.form1)
+        });
+        console.log(response);
+
+        if (!response.ok) {
+            console.log(response);
+        } else {
+            await Swal.fire({
+                icon: 'success',
+                text: 'บันทึกข้อมูลเสร็จสิ้น',
+                timer: 3000
+            })
+            window.location.assign("productexchangehistory.php");
+        }
+});

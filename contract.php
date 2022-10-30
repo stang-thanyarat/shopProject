@@ -31,10 +31,9 @@ function getFullRole($role)
 include_once "./database/Employee.php";
 include_once "./database/Contract.php";
 $contract = new Contract();
-$c= $contract->fetchAll();
 $employee = new Employee();
 $laber = $employee->fetchLabers();
-
+$c = $contract->fetchAll();
 ?>
 
 <body>

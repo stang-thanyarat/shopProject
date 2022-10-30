@@ -61,13 +61,12 @@ function setUI(data) {
     })
 }
 
-async function setStatus(id, val) {
+function setStatus(id, val) {
     if (!val) {
         const status = $("#S" + id).is(':checked');
-        await (await fetch(`./controller/SetProductStatus.php?status=${status}&id=${id}`))
-        return
+        fetch(`./controller/SetProductStatus.php?status=${status}&id=${id}`).then(()=>{location.reload()})
     }
-    await (await fetch(`./controller/SetProductStatus.php?status=${val == 0 ? false : true}&id=${id}`))
+    fetch(`./controller/SetProductStatus.php?status=${val == 0 ? false : true}&id=${id}`).then(()=>{location.reload()})
 }
 
 /*function setUI(data) {

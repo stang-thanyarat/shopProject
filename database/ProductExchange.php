@@ -1,5 +1,6 @@
 <?php
 include_once("Connection.php");
+
 class ProductExchange
 {
     private $conn;
@@ -29,7 +30,7 @@ class ProductExchange
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
-            $result = $stmt->fetch( PDO::FETCH_ASSOC);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
             return $result;
         } catch (Exception $e) {
             http_response_code(500);
@@ -49,9 +50,6 @@ class ProductExchange
     //เปลี่ยนชนิดข้อมูล INT หรือ STR
     public function insert($data)
     {
-        if (!isset($_SESSION)) {
-            session_start();
-        }
         $sql = "SET FOREIGN_KEY_CHECKS=0";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
@@ -89,22 +87,50 @@ class ProductExchange
 
     public function update($data)
     {
-        $sql = "UPDATE product_exchange_tb
-        SET product_id = ?,/* customer_id = ?, exchange_date = ?, */damage_proof = ?, note = ?, /*exchange_time = ?, */exchange_amount = ?, exchange_status = ?, exchange_name = ?, exchange_tel = ?/*, exchange_period = ?*/
+        try {
+            $sql = "UPDATE product_exchange_tb
+        SET product_id = ?,damage_proof = ?, note = ?, exchange_amount = ?, exchange_status = ?
         WHERE product_exchange_id = ?";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $data['product_id'], PDO::PARAM_INT);
-        /*$stmt->bindParam(2, $data['customer_id'], PDO::PARAM_INT);*/
-        $stmt->bindParam(2, $data['exchange_date'], PDO::PARAM_STR);
-        $stmt->bindParam(3, $data['damage_proof'], PDO::PARAM_STR);
-        $stmt->bindParam(4, $data['note'], PDO::PARAM_STR);
-        /*$stmt->bindParam(6, $data['exchange_time'], PDO::PARAM_STR);*/
-        $stmt->bindParam(5, $data['exchange_amount'], PDO::PARAM_INT);
-        $stmt->bindParam(6, $data['exchange_status'], PDO::PARAM_INT);
-        /*$stmt->bindParam(9, $data['exchange_period'], PDO::PARAM_STR);*/
-        $stmt->bindParam(7, $data['exchange_name'], PDO::PARAM_STR);
-        $stmt->bindParam(8, $data['exchange_tel'], PDO::PARAM_STR);
-        $stmt->bindParam(9, $data['product_exchange_id'], PDO::PARAM_INT);
-        $stmt->execute();
+            if ($data['exchange_status'] == '0') {
+                $day_change = !isset($_SESSION['day_change']) ? 7 : $_SESSION['day_change'];
+                $sql .= ', exchange_period = ?, exchange_name = ?, exchange_tel = ?';
+                $stmt = $this->conn->prepare($sql);
+                $stmt->bindParam(1, $data['product_id'], PDO::PARAM_INT);
+                /*$stmt->bindParam(2, $data['customer_id'], PDO::PARAM_INT);*/
+                $stmt->bindParam(2, $data['damage_proof'], PDO::PARAM_STR);
+                $stmt->bindParam(3, $data['note'], PDO::PARAM_STR);
+                /*$stmt->bindParam(6, $data['exchange_time'], PDO::PARAM_STR);*/
+                $stmt->bindParam(4, $data['exchange_amount'], PDO::PARAM_INT);
+                $stmt->bindParam(5, $data['exchange_status'], PDO::PARAM_INT);
+                /*$stmt->bindParam(9, $data['exchange_period'], PDO::PARAM_STR);*/
+                $stmt->bindParam(6, $data['exchange_name'], PDO::PARAM_STR);
+                $stmt->bindParam(7, $data['exchange_tel'], PDO::PARAM_STR);
+                $stmt->bindParam(8, $data['product_exchange_id'], PDO::PARAM_INT);
+                $stmt->execute();
+            } else {
+
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
+    }
+
+
+    public function updateimage($filename, $img, $product_exchange_id)
+    {
+        try {
+            $colname = ['damage_proof'];
+            if (in_array($filename, $colname)) {
+                $sql = "UPDATE product_exchange_tb SET $filename = ? WHERE product_exchange_id=?";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->bindParam(1, $img, PDO::PARAM_STR);
+                $stmt->bindParam(2, $product_exchange_id, PDO::PARAM_INT);
+                $stmt->execute();
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 }

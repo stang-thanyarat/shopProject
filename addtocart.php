@@ -44,25 +44,15 @@ function getFullRole($role)
                     </div>
                     <table class="z">
                         <tr class="t">
-                            <th>ลำดับ</th>
-                            <th>รูปภาพ</th>
-                            <th>สินค้า</th>
-                            <th>ราคาต่อชิ้น</th>
-                            <th>จำนวน</th>
-                            <th>ราคารวม</th>
-                            <th></th>
+                            <th width="5%">ลำดับ</th>
+                            <th width="10%">รูปภาพ</th>
+                            <th width="30%">สินค้า</th>
+                            <th width="15%">ราคาต่อชิ้น</th>
+                            <th width="10%">จำนวน</th>
+                            <th width="15%">ราคารวม</th>
+                            <th width="8%"></th>
                         </tr>
-                        <tr>
-                            <th>1</th>
-                            <th><img src="./src/images/ใบตัดหญ้า01.png" width="114"></th>
-                            <th>ใบตัดหญ้า มีฟัน (แบบวงเดือน) รุ่น 10X24T</th>
-                            <th>105 บาท</th>
-                            <th>2</th>
-                            <th>210 บาท</th>
-                            <th><a type="button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1"><img class='delete' src="./src/images/icon-delete.png" width="25"></a>
-                                <a type="button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm2"><img class='pencil' src="./src/images/icon-pencil.png" width="25"></a>
-                            </th>
-                        </tr>
+                        <tbody id="addtocartTable">  </tbody>
                         <tr class="t">
                             <th colspan="2"> <select name="type" id="solutionPay" required>
                                     <option value="" selected hidden>เลือกประเภทการชำระ</option>
@@ -72,8 +62,8 @@ function getFullRole($role)
                             </th>
                             <th colspan="6">
                                 <div class=" d-flex justify-content-end">
-                                    <h5 class="a">จำนวน 2 ชิ้น &nbsp</h5>
-                                    <h5 class="a">ยอดรวมทั้งหมด : 210 บาท &nbsp &nbsp</h5>
+                                    <h5 class="a">จำนวน <span id="allquantity" >0</span> ชิ้น &nbsp</h5>
+                                    <h5 class="a">ยอดรวมทั้งหมด : <span id="allprice" >0</span> บาท &nbsp &nbsp</>
                                     <button type="button" id="mySubmit" class="r" data-bs-toggle="modal">ยืนยัน</button>
                                 </div>
                             </th>
@@ -138,21 +128,21 @@ function getFullRole($role)
                                     <div class="row">
                                         <div class="col allprice">
                                             ยอดรวมทั้งหมด :<font color="red">&nbsp*</font>
-                                            <input type="text" id="" class="inbox" required />
+                                            <input type="text" id="cashAllPrice" class="inbox" required />
                                             &nbsp&nbspบาท
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col receivecash">
                                             เงินที่รับมา :<font color="red">&nbsp*</font>
-                                            <input type="text" id="" class="inbox" required />
+                                            <input type="text" id="receivecash" class="inbox" required />
                                             &nbsp&nbspบาท
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col change">
                                             เงินทอน :&nbsp&nbsp&nbsp
-                                            <input type="text" id="" class="inbox">
+                                            <input type="text" id="change" class="inbox">
                                             &nbsp&nbspบาท
                                         </div>
                                     </div>
@@ -198,7 +188,7 @@ function getFullRole($role)
                     </div>
                     <!-- ยืนยันการซื้อแบบผ่อนชำระ -->
                     <div class="modal fade bd-example-modal-sm5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
+                        <div class="modal-dialog".>
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title2" id="exampleModalLabel">กรอกรหัสเจ้าของร้าน</h5>
