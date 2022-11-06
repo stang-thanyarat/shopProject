@@ -9,7 +9,15 @@
     <link rel="stylesheet" href="./src/css/customer2.css" />
     <title>Document</title>
 </head>
-<?php include_once('nav2.php'); ?>
+<?php
+include_once('nav2.php');
+if(isset($_GET['product'])){
+
+}else{
+    redirection('');
+}
+
+?>
 
 <body>
     <form>

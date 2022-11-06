@@ -6,28 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GetExchange.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/addtocart.php" beforeDir="false" afterPath="$PROJECT_DIR$/addtocart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/contract.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contracthistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/contracthistory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/AddtoCart.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/AddtoCart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/ProductExchange.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/ProductExchange.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Contract.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/ProductExchange.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/ProductExchange.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/editproductexchange.php" beforeDir="false" afterPath="$PROJECT_DIR$/editproductexchange.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/employee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/productexchangehistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/productexchangehistory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/PDF/PDF.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/PDF/template/order_cash.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/PDF/template/order_cash.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/solvecontract.php" beforeDir="false" afterPath="$PROJECT_DIR$/solvecontract.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/addtocart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/addtocart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/contract.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/contract.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/editproductexchange.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/editproductexchange.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/notification_amt.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/notification_amt.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/productexchangehistory.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/productexchangehistory.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/productlist.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/productlist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bar2.php" beforeDir="false" afterPath="$PROJECT_DIR$/bar2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/customer2.php" beforeDir="false" afterPath="$PROJECT_DIR$/customer2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/customer2.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/customer2.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

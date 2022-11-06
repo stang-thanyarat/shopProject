@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<?php date_default_timezone_set("Asia/Bangkok"); ?>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./src/css/bar2.css" />
@@ -24,9 +24,10 @@
             <li><a href="#">เมล็ดพันธุ์</a></li>
             <li><a href="#">ยากำจัดวัชพืช</a></li>
             <li><a href="#">ปุ๋ยเคมี</a></li>
+            <br/>
             <h5 class="ma">ผู้เยื่ยมชม : 10</h5>
             <h5 class="m">วันที่ <?php echo date("d-m-Y"); ?></h5>
-            <h5 class="ma">เวลา mn <?php echo date("H:i"); ?></h5>
+            <h5 class="ma">เวลา  <?php echo date("H:i"); ?></h5>
         </ul>
     </div>
 </body>

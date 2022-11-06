@@ -52,9 +52,11 @@
 
 @media only screen and (max-width: 375px) {
     .a{
-        width: 200%;
+        width: 250%;
     }
 }
+
+
 @media only screen and (max-width: 665px) {
     .carousel{
         position: absolute;
@@ -66,4 +68,28 @@
         margin-top: 270px;
     }
 
+}
+
+@media only screen and (max-width: 665px) {
+    .carousel{
+        margin-left: 4rem;
+    }
+}
+
+@media only screen and (max-width: 465px) {
+    .carousel{
+        margin-left: 2.7rem;
+    }
+}
+
+@media only screen and (max-width: 465px) {
+    .carousel{
+        margin-left: 2.3rem;
+    }
+}
+
+@media only screen and (max-width: 464px) {
+    .carousel{
+        margin-left: -1rem;
+    }
 }
