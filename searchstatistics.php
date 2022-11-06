@@ -1,5 +1,7 @@
 <?php
 include_once('service/auth.php');
+include_once ('./database/Search.php');
+$search = new Search();
 isLaber();
 function getFullRole($role)
 {
@@ -40,7 +42,7 @@ function getFullRole($role)
                 </div>
                 <div class="row">
                     <div class="col-1 left">
-                        <button class="buttom re" type="reset">รีเซต</button>
+                        <button class="buttom re" >รีเซต</button>
                     </div>
                 </div>
                 <table class="table col-10">

@@ -135,13 +135,13 @@ $p = $product->fetchAll();
                                 <div class="col-5 unit">
                                     หน่วยนับ :<span style="color: red; ">&nbsp*</span>
                                     <select name="product_unit" id="product_unit" class="inbox" style="background-color: #D4DDC6;" required>
-                                        <option value="envelope">ซอง</option>
-                                        <option value="bottle">ขวด</option>
-                                        <option value="item">ชิ้น</option>
-                                        <option value="box">กล่อง</option>
-                                        <option value="machine">เครื่อง</option>
-                                        <option value="bag">ถุง</option>
-                                        <option value="sack">กระสอบ</option>
+                                        <option value="ซอง">ซอง</option>
+                                        <option value="ขวด">ขวด</option>
+                                        <option value="ชิ้น">ชิ้น</option>
+                                        <option value="กล่อง">กล่อง</option>
+                                        <option value="เครื่อง">เครื่อง</option>
+                                        <option value="ถุง">ถุง</option>
+                                        <option value="กระสอบ">กระสอบ</option>
                                     </select>
                                 </div>
                                 <div class="col-3 price">
