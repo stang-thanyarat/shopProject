@@ -13,6 +13,7 @@ function getFullRole($role)
         return 'ผู้ดูแลระบบ';
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -23,44 +24,83 @@ function getFullRole($role)
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./src/css/productsearchstatistics.css" />
+    <link rel="stylesheet" href="./src/css/productsearchstatistics.css"/>
     <title>Document</title>
 </head>
-<?php include_once('nav.php'); ?>
+<?php
+include_once('nav.php');
+include_once "./database/Search_Category.php";
+$category = new Search_Category();
+$rows = $category->fetchAll();
+$data = array();
+foreach ($rows as $row) {
+    if (!isset($data[$row['category_id']])) {
+        $data[$row['category_id']]['count'] = 1;
+        $data[$row['category_id']]['name'] = $row['category_name'];
+    } else {
+        $data[$row['category_id']]['count']++;
+    }
+}
+$data = array_values($data);
+// bubble sort
+$r = -1;
+while ($r != 0) {
+    $r = 0;
+    for ($i = 0; $i < count($data); $i++) {
+        if($i+1<count($data)){
+            $low = $data[$i];
+            $up = $data[$i+1];
+            if($low['count']<$up['count']){
+                $data[$i+1] = $low;
+                $data[$i] = $up;
+                $r++;
+            }
+        }
+    }
+}
+
+?>
 
 <body>
-    <form>
-        <div class="row">
-            <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
-            <div class="col-11">
-                <div class="row main">
-                    <div class="col-10">
-                        <h1>สถิติการค้นหาโดยประเภทสินค้า</h1>
-                    </div>
+<form>
+    <div class="row">
+        <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
+        <div class="col-11">
+            <div class="row main">
+                <div class="col-10">
+                    <h1>สถิติการค้นหาโดยประเภทสินค้า</h1>
                 </div>
-                <div class="row">
-                    <div class="col-1 left">
-                        <button class="buttom re" type="reset">รีเซต</button>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col-1 left">
+                    <button type="button" class="buttom re"
+                            onclick="window.location = './controller/ResetKeywordCategory.php'">รีเซต
+                    </button>
                 </div>
+            </div>
+            <?php if (count($rows) > 0) { ?>
                 <table class="table col-10">
+                    <thead>
                     <tr>
                         <th>ลำดับ</th>
                         <th>ประเภทสินค้า</th>
                         <th>จำนวนครั้งค้นหา</th>
                     </tr>
-                    <tr>
-                        <th>1</th>
-                        <th>เมล็ดพันธ์ุ</th>
-                        <th>6</th>
-                    </tr>
-                    <tr>
-                        <th>2</th>
-                        <th>ปุ๋ย</th>
-                        <th>5</th>
-                    </tr>
+                    </thead>
+                    <tbody id="categorytable">
+                    <?php $i = 1; foreach ($data as $row) { ?>
+                        <tr>
+                            <th><?= $i ?></th>
+                            <th><?= $row['name'] ?></th>
+                            <th><?= $row['count'] ?></th>
+                        </tr>
+                        <?php $i++; } ?>
+                    </tbody>
                 </table>
-            </div>
+            <?php } else { ?>
+                <h3 style="text-align: center;">ไม่มีรายการ</h3>
+            <?php } ?>
         </div>
-    </form>
+    </div>
+</form>
 </body>

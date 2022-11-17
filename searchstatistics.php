@@ -1,5 +1,7 @@
 <?php
 include_once('service/auth.php');
+include_once ('./database/Search.php');
+$search = new Search();
 isLaber();
 function getFullRole($role)
 {
@@ -26,7 +28,38 @@ function getFullRole($role)
     <link rel="stylesheet" href="./src/css/searchstatistics.css" />
     <title>Document</title>
 </head>
-<?php include_once('nav.php'); ?>
+<?php
+include_once('nav.php');
+include_once "./database/Search.php";
+$product = new Search();
+$rows = $product->fetchAll();
+$data = array();
+foreach ($rows as $row) {
+    if (!isset($data[$row['keyword']])) {
+        $data[$row['keyword']]['count'] = 1;
+        $data[$row['keyword']]['keyword'] = $row['keyword'];
+    } else {
+        $data[$row['keyword']]['count']++;
+    }
+}
+$data = array_values($data);
+// bubble sort
+$r = -1;
+while ($r != 0) {
+    $r = 0;
+    for ($i = 0; $i < count($data); $i++) {
+        if($i+1<count($data)){
+            $low = $data[$i];
+            $up = $data[$i+1];
+            if($low['count']<$up['count']){
+                $data[$i+1] = $low;
+                $data[$i] = $up;
+                $r++;
+            }
+        }
+    }
+}
+?>
 
 <body>
     <form>
@@ -40,26 +73,31 @@ function getFullRole($role)
                 </div>
                 <div class="row">
                     <div class="col-1 left">
-                        <button class="buttom re" type="reset">รีเซต</button>
+                        <button type="button" class="buttom re" onclick="window.location = './controller/ResetKeyword.php'" >รีเซต</button>
                     </div>
                 </div>
+                <?php if (count($rows) > 0) { ?>
                 <table class="table col-10">
+                    <thead>
                     <tr>
                         <th>ลำดับ</th>
                         <th>คำค้น</th>
                         <th>จำนวนครั้งค้นหา</th>
                     </tr>
-                    <tr>
-                        <th>1</th>
-                        <th>ใบตัดหญ้า</th>
-                        <th>5</th>
-                    </tr>
-                    <tr>
-                        <th>2</th>
-                        <th>ข้าวโพด</th>
-                        <th>3</th>
-                    </tr>
+                    </thead>
+                    <tbody id="producttable">
+                    <?php $i = 1; foreach ($data as $row) { ?>
+                        <tr>
+                            <th><?= $i ?></th>
+                            <th><?= $row['keyword'] ?></th>
+                            <th><?= $row['count'] ?></th>
+                        </tr>
+                        <?php $i++; } ?>
+                    </tbody>
                 </table>
+                <?php } else { ?>
+                    <h3 style="text-align: center;">ไม่มีรายการ</h3>
+                <?php } ?>
             </div>
         </div>
     </form>

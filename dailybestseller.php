@@ -58,7 +58,7 @@ $rows = $category->fetchAll();
                 </div>
                 <div class="col-4 w">
                     <form>
-                        <input type="text" class="btn-d" placeholder="&nbsp ชื่อสินค้า">
+                        <input type="text" name="keyword" id="keyword" class="btn-d" placeholder="&nbsp ชื่อสินค้า">
                         <button type="submit" class="s">
                             <img src="./src/images/search.png" width="15">
                         </button>

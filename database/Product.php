@@ -115,6 +115,16 @@ class Product
         return $result;
     }
 
+    public function fetchByName($keyword){
+        $like = "%$keyword%";
+        $sql = "SELECT * FROM product_tb WHERE product_name LIKE ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $like, PDO::PARAM_STR);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
     public function search($keyword, $id = null)
     {
         $data = $this->fetchAll();

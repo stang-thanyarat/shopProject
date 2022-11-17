@@ -34,6 +34,8 @@ $useraccount = new UserAccount();
 $employee = new Employee();
 $rows = $useraccount->fetchById($_GET['id']);
 $e = $employee->fetchById($_GET['id']);
+var_dump($rows);
+exit();
 ?>
 
 <body>
