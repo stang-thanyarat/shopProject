@@ -12,7 +12,7 @@ class Search_Category
 
     public function fetchAll()
     {
-        $sql = "SELECT * FROM search_ category_tb ";
+        $sql = "SELECT SC.*,C.category_name FROM search_category_tb SC,category_tb C WHERE SC.category_id = C.category_id ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll();
@@ -28,11 +28,10 @@ class Search_Category
     }
 
     public function reset(){
-        $sql = "SET FOREIGN_KEY_CHECKS=0";
+        $sql = "SET FOREIGN_KEY_CHECKS=0; TRUNCATE TABLE search_category_tb;";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
-        $sql = 'TRUNCATE TABLE Categories';
         $stmt->execute();
     }
 }
+
 

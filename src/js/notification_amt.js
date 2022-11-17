@@ -35,6 +35,7 @@ $(document).ready(async function () {
 
 function setUI(data) {
     $('#notification_amtTable').html('')
+    let hide = []
     data.forEach((element, i) => {
         if (element.product_rm_unit !== "0" && element.product_rm_unit !== "1" && element.product_rm_unit !== "2" && element.product_rm_unit !== "3" && element.product_rm_unit !== "4" && element.product_rm_unit !== "5") {
             hide.push(element.product_id)
@@ -64,9 +65,9 @@ function setUI(data) {
 function setStatus(id, val) {
     if (!val) {
         const status = $("#S" + id).is(':checked');
-        fetch(`./controller/SetProductStatus.php?status=${status}&id=${id}`).then(()=>{location.reload()})
+        fetch(`./controller/SetProductStatus.php?status=${status}&id=${id}`)
     }
-    fetch(`./controller/SetProductStatus.php?status=${val == 0 ? false : true}&id=${id}`).then(()=>{location.reload()})
+    fetch(`./controller/SetProductStatus.php?status=${val == 0 ? false : true}&id=${id}`)
 }
 
 /*function setUI(data) {

@@ -6,16 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addproduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/addproduct.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bar2.php" beforeDir="false" afterPath="$PROJECT_DIR$/bar2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/customer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/customer2.php" beforeDir="false" afterPath="$PROJECT_DIR$/customer2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nav2.php" beforeDir="false" afterPath="$PROJECT_DIR$/nav2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/DailyBestSeller.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/DailyBestSeller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dailybestseller.php" beforeDir="false" afterPath="$PROJECT_DIR$/dailybestseller.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Search.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Search_Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Search_Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/productsearchstatistics.php" beforeDir="false" afterPath="$PROJECT_DIR$/productsearchstatistics.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/searchstatistics.php" beforeDir="false" afterPath="$PROJECT_DIR$/searchstatistics.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/bar2.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/bar2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/customer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/customer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/nav2.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/nav2.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/dailybestseller.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/dailybestseller.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/notification_amt.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/notification_amt.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,6 +108,7 @@
       <workItem from="1666421321886" duration="10170000" />
       <workItem from="1666518976045" duration="4976000" />
       <workItem from="1667716111423" duration="15187000" />
+      <workItem from="1668656410231" duration="12833000" />
     </task>
     <servers />
   </component>

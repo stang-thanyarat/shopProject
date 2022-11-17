@@ -29,10 +29,8 @@ class Search
     }
 
     public function reset(){
-        $sql = "SET FOREIGN_KEY_CHECKS=0";
+        $sql = "SET FOREIGN_KEY_CHECKS=0; TRUNCATE TABLE search_tb;";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
-        $sql = 'TRUNCATE TABLE search_tb';
         $stmt->execute();
     }
 }

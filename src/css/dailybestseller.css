@@ -2,6 +2,7 @@
 
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
+    font-size: 16pt;
 }
 
 .switch {
@@ -80,7 +81,7 @@ input:checked+.slider:before {
 }
 
 .mai {
-    margin-left: 67rem;
+    margin-left: 45rem;
 }
 
 .ma {
@@ -145,7 +146,7 @@ select {
 }
 
 .w {
-    margin-left: -0.5rem;
+    margin-left: -0.3rem;
 }
 
 .bgs {
