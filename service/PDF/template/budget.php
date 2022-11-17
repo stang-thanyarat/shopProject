@@ -64,9 +64,15 @@ $html = '<html>
 	color: #A36627;
 	font-size: 24pt;
 }
+table{
+border-spacing: 0px;
+}
 td{
 	font-size:18pt;
 	}
+tr{
+border: 0px;
+}
 .t {
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -81,43 +87,41 @@ td{
 </head>
 
 <body>
-<table width="1000" border="0">
+<table width="1000" border="0px" border="">
   <tr>
-    <td class="setright">วันที่ &lt;&lt;startDate&gt;&gt; - &lt;&lt;enddate&gt;&gt;</td>
+    <td class="setright" colspan="2">วันที่ &lt;&lt;startDate&gt;&gt; - &lt;&lt;enddate&gt;&gt;</td>
   </tr>
   <tr>
-    <td class="setcenter"><h2>งบแสดงฐานะการเงิน</h2></td>
+    <td class="setcenter" colspan="2"><h2>งบแสดงฐานะการเงิน</h2></td>
   </tr>
   <tr>
-    <td class="setcenter">
+    <td class="setcenter" colspan="2">
       <h2 >ร้านวรเชษฐ์เกษตรภัณฑ์</h2>
       </td>
   </tr>
   <tr>
-    <td class="setright l">
+    <td class="setright l" colspan="2">
         จำนวน(บาท)&nbsp;&nbsp;
     </td>
   </tr>
-  <tr border="1">
+  <tr>
     <td class="t" >&nbsp;&nbsp;สินทรัพย์</td>
   </tr>
-  
-  <tr class="grey">
-    <td class="grey display"><div class="a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;รวม สินทรัพย์</div>
-    <div class="a setright">&lt;&lt;summary&gt;&gt;&nbsp;</div></td>
+  <tr bgcolor="#CCC">
+    <td width="70%" stlye="">'. 'รวม สินทรัพย์'.'</div>
+    <td align="right" width="30%">&lt;&lt;summary&gt;&gt;</td>
   </tr>
   <tr>
     <td class="t">&nbsp;&nbsp;หนี้สิน+ทุน</td>
   </tr>
-  <tr >
-    <td class="grey display"><div class="a">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;รวม หนี้สิน+ทุน</div>
-    <div class="a setright">&lt;&lt;debt&gt;&gt;&nbsp;</div></td>
+  <tr  bgcolor="#CCC">
+    <td  width="70%">'. 'รวม หนี้สิน+ทุน'.' &nbsp;</td>
+    <td align="right" width="30%">&lt;&lt;debt&gt;&gt;</td>
   </tr>
 </table>
 </body>
 </html>
 ';
-
 
 $mpdf->WriteHTML($html);
 $mpdf->Output($output, 'I');
