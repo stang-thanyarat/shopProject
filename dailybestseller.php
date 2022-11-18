@@ -73,7 +73,6 @@ $rows = $category->fetchAll();
                         <th width="30%">ชื่อสินค้า</th>
                         <th width="10%">ราคา</th>
                         <th width="10%">จำนวน</th>
-                        <th width="5%"></th>
                     </tr>
                 <tbody id="dailybestsellerTable">  </tbody>
                    <!-- <tr>

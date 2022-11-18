@@ -73,7 +73,7 @@ while ($r != 0) {
                 </div>
                 <div class="row">
                     <div class="col-1 left">
-                        <button type="button" class="buttom re" onclick="window.location = './controller/ResetKeyword.php'" >รีเซต</button>
+                        <button type="button" class="buttom re" onclick="Reset()" >รีเซต</button>
                     </div>
                 </div>
                 <?php if (count($rows) > 0) { ?>
@@ -102,3 +102,6 @@ while ($r != 0) {
         </div>
     </form>
 </body>
+<script src="./node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
+<script src="./src/js/searchstatistics.js"></script>
+</html>
