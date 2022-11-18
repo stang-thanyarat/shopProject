@@ -59,7 +59,7 @@ $product = $product->fetchAll();
             </div>
             <div class="col-4 w">
                 <form>
-                    <input type="text" class="btn-d" placeholder="&nbsp ชื่อสินค้า">
+                    <input type="text" class="btn-d" id="keyword" name="keyword" placeholder="&nbsp ชื่อสินค้า">
                     <button type="submit" class="s">
                         <img src="./src/images/search.png" width="15">
                     </button>
@@ -67,10 +67,11 @@ $product = $product->fetchAll();
             </div>
         </div>
         <div class="row">
-            <div class="col maa">ใบตัดหญ้า</div>
-            <div class="col maaa">จำนวน 1 รายการ</div>
+            <div class="col maa"><span style="display: none;" id="cat"></span></div>
+            <div class="col maaa"><span id="num-list" ></span></div>
         </div>
-        <table class="ma">
+        <h3 style="text-align: center;" id="no-let">ไม่มีรายการสินค้าที่ใกล้หมด</h3>
+        <table class="ma" id="tb-let" style="display: none;">
             <thead>
             <tr>
                 <th>รูปภาพ</th>
@@ -80,7 +81,6 @@ $product = $product->fetchAll();
                 <th>สถานะการขาย</th>
             </tr>
             <tbody id="notification_amtTable">  </tbody>
-
         </table>
 
         <!-- ลบ -->
