@@ -29,7 +29,6 @@ $("#keyword").keyup(async function () {
 $(document).ready(async function () {
     let url = './controller/ProductResult.php'
     const product = await (await fetch(url)).json()
-    console.log(product);
     setUI(product)
 });
 
@@ -38,7 +37,7 @@ function setUI(data) {
     data.forEach(element => {
         $('#productResultTable').append(`
         <tr>
-        <th>${element.category_name || $("#category_id option:selected").text()}</th>
+        <th>${element.category_name }</th>
         <th>${element.product_name}</th>
         <th>${element.brand}</th>
         <th>${element.model}</th>

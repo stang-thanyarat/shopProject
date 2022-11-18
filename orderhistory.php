@@ -13,6 +13,7 @@ function getFullRole($role)
         return 'ผู้ดูแลระบบ';
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -23,67 +24,57 @@ function getFullRole($role)
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./src/css/orderhistory.css" />
+    <link rel="stylesheet" href="./src/css/orderhistory.css"/>
     <title>Document</title>
 </head>
 <?php
-include_once('./database/Order.php');
-include_once('./database/Sell.php');
-$order = new Order();
-$sell = new Sell();
 include_once('nav.php');
-if (isset($_GET['keyword'])) {
-    $rows = $order->search($_GET['keyword']);
-} else {
-    $rows = $order->fetchAll();
-}
-$rows = $order->fetchAll();
+include_once('./controller/OrderKeyword.php');
+$rows = getdata();
 ?>
 
 <body>
-    <form>
-        <div class="row">
-            <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
-            <div class="col-11">
-                <div class="row main">
-                    <div class="col-12">
-                        <h1>ประวัติใบสั่งซื้อ</h1>
-                    </div>
+<form>
+    <div class="row">
+        <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
+        <div class="col-11">
+            <div class="row main">
+                <div class="col-12">
+                    <h1>ประวัติใบสั่งซื้อ</h1>
                 </div>
-                <div class="row">
-                    <div class="col-2 c">
-                        <input type="date" name="date" id="date" class="date" required />&nbsp&nbsp&nbsp
-                    </div>
-                    <div class="col-2 b">
-                        <input type="text" class="btnd" placeholder="&nbsp ชื่อผู้ขาย" required>
-                        <button type="submit" class="s"><img src="./src/images/search.png" width="15"></button>
-                    </div>
-                </div>
-                <table class="col-11 ma">
-                    <tr>
-                        <th width="15%">วันที่สั่งซื้อ</th>
-                        <th width="60%">ชื่อผู้ขาย</th>
-                        <th width="15%">สถานะ</th>
-                        <th width="20%"></th>
-                    </tr>
-                    <tbody id="ordertable">
-                    <?php $i = 1;
-                    foreach ($rows as $row) { ?>
-                        <tr>
-                            <th><?= $row['datebill'] ?></th>
-                            <th id="text<?= $row['sell_id']?>"><?= $row['sell_name']?></th>
-                            <th><?php if( $row['order_status'] == 1 ) { echo "<a type='button' onclick='wait()'><font color=#A36627>รอของ</font></a>";} else{ echo "สำเร็จ";}?></th>
-                            <th>
-                                <button type="button" class="bgs" onclick="del(<?=$row['order_id']?>)"><img src="./src/images/icon-delete.png" width="25"></button>
-                                <a type="button" class="bgs" onclick="edit(<?=$row['order_id']?>)"><img src="./src/images/icon-pencil.png" width="25"></a>
-                            </th>
-                        </tr>
-                    <?php $i++;
-                    } ?>
-                </table>
             </div>
+            <div class="row">
+                <div class="col-2 c">
+                    <input type="date" value="<?= $_GET['date'] ?? "" ?>" name="date" id="date" class="date"/>&nbsp&nbsp&nbsp
+                </div>
+                <div class="col-2 b">
+                    <input type="text" class="btnd" value="<?= $_GET['keyword'] ?? "" ?>" name="keyword" id="keyword" placeholder="&nbsp ชื่อผู้ขาย">
+                    <button type="submit" class="s"><img src="./src/images/search.png" width="15"></button>
+                </div>
+            </div>
+            <table class="col-11 ma">
+                <tr>
+                    <th width="15%">วันที่ชำระ</th>
+                    <th width="60%">ชื่อผู้ขาย</th>
+                    <th width="15%">สถานะ</th>
+                </tr>
+                <tbody id="ordertable">
+                <?php $i = 1;
+                foreach ($rows as $row) {
+                    if ($row['order_status'] == 0) {
+                        ?>
+                        <tr>
+                            <th><?= $row['payment_dt'] ?></th>
+                            <th id="text<?= $row['sell_id'] ?>"><?= $row['sell_name'] ?></th>
+                            <th>สำเร็จ</th>
+                        </tr>
+                        <?php $i++;
+                    }
+                } ?>
+            </table>
         </div>
-    </form>
+    </div>
+</form>
 </body>
 
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>

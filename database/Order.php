@@ -24,13 +24,37 @@ class Order
         }
     }
 
-    public function search($keyword)
+
+
+    public function search($keyword, $date = null)
     {
         try {
             $like = "%$keyword%";
-            $sql = "SELECT * FROM order_tb WHERE sell_name LIKE ? ";
+            if (is_null($date)) {
+                $sql = "SELECT O.*,S.* FROM order_tb O,sell_tb S WHERE O.sell_id = S.sell_id AND S.sell_name LIKE ?";
+            } else {
+                $sql = "SELECT O.*,S.* FROM order_tb O,sell_tb S WHERE O.sell_id = S.sell_id AND S.sell_name LIKE ? AND payment_dt = ?";
+            }
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(1, $like, PDO::PARAM_STR);
+            if (is_null($date)) {
+                $stmt->bindParam(1, $like, PDO::PARAM_STR);
+            } else {
+                $stmt->bindParam(2, $date, PDO::PARAM_STR);
+            }
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
+    }
+    public function fetchByDate($date)
+    {
+        try {
+            $sql = "SELECT O.*,S.* FROM order_tb O,sell_tb S WHERE O.sell_id = S.sell_id AND payment_dt = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $date, PDO::PARAM_STR);
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $result;

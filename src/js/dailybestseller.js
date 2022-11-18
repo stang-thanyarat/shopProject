@@ -43,9 +43,6 @@ function setUI(data) {
         <th>${element.product_name}</th>
         <th>${element.price}</th>
         <th>${element.product_dlt_unit}</th>
-        <th>
-            <a  type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></a>
-        </th>
     </tr>`)
 
     });

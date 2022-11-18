@@ -13,6 +13,7 @@ function getFullRole($role)
         return 'ผู้ดูแลระบบ';
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -31,9 +32,8 @@ function getFullRole($role)
 include_once('./database/Order.php');
 include_once('./database/Sell.php');
 $order = new Order();
-$sell = new Sell();
 include_once('nav.php');
-if (isset($_GET['keyword'])) {
+if (isset($_GET['keyword']) && $_GET['keyword'] != "") {
     $rows = $order->search($_GET['keyword']);
 } else {
     $rows = $order->fetchAll();
@@ -51,7 +51,8 @@ if (isset($_GET['keyword'])) {
                 </div>
                 <div class="row">
                     <div class="col-2 z">
-                        <input type="text" id="keyword" name="keyword" class="btnd" placeholder="&nbsp ชื่อผู้ขาย">
+                        <input type="text" id="keyword" value="<?= $_GET['keyword'] ?? "" ?>"
+                               name="keyword" class="btnd" placeholder="&nbsp ชื่อผู้ขาย">
                         <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
                     </div>
                     <div class="col-2 y">
@@ -67,28 +68,29 @@ if (isset($_GET['keyword'])) {
                         <th width="20%"></th>
                     </tr>
                     <tbody id="ordertable">
-                    <?php
-                    foreach ($rows
+                    <?php foreach ($rows
 
                     as $row) { ?>
                     <tr>
                         <th><?= $row['datebill'] ?></th>
                         <th id="text<?= $row['sell_id'] ?>"><?= $row['sell_name'] ?></th>
                         <th>
-                            <?php if ($row['order_status'] == 1) {
-                                echo "<a type='button' onclick='wait()'><font color=#A36627>รอของ</font></a>";
-                            } else {
-                                echo "สำเร็จ";
-                            } ?>
+                            <?= $row['order_status'] == 1
+                                ? "<a type='button' onclick='wait()'><font color=#A36627>รอของ</font></a>"
+                                : "สำเร็จ"
+                            ?>
                         </th>
                         <th>
-                            <button type="button" class="bgs" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal"
-                                    onclick="del(<?= $row['order_id'] ?>)"><img
-                                        src="./src/images/icon-delete.png" width="25"></button>
-                            <a type="button" class="bgs"
-                               href="./editconfirm2.php?id=<?= $row['order_id']; ?>"><img
-                                        src="./src/images/icon-pencil.png" width="25"></a>
+                            <?php if ($row['order_status'] == 1) { ?>
+                                <button type="button" class="bgs" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal"
+                                        onclick="del(<?= $row['order_id'] ?>)"><img
+                                            src="./src/images/icon-delete.png" width="25"></button>
+                                <a type="button" class="bgs"
+                                   href="./editconfirm2.php?id=<?= $row['order_id']; ?>"><img
+                                            src="./src/images/icon-pencil.png" width="25"></a>
+                            <?php } ?>
+                        </th>
             </div>
             </th>
 

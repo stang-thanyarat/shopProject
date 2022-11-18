@@ -41,7 +41,7 @@ class Product
     }
 
     //การค้นหาสินค้า
-
+//ประเภทสินค้าไม่ถูกต้องแก้ด่วน ทำเป็น จอย select * from category กับ product
     //ตัวที่เมื่อกดสวิชท์ปิดสถานะการขายและจะหายไป แต่เมื่อเปลี่ยนค่า เป็น 1 ใน database จะกลับเป็น 1 ที่ sales_status
     public function fetchAddCategory()
     {

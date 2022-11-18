@@ -50,7 +50,7 @@ $rows = $category->fetchAll();
                 <div class="row">
                     <div class="col-2 z">
                         <select name="category_id" id="category_id" class="g" required>
-                            <option value="all">สินค้าทั้งหมด</option>
+                            <option value="all" selected>สินค้าทั้งหมด</option>
                             <?php foreach ($rows as $row) { ?>
                                 <option value="<?= $row['category_id'] ?>"><?= $row['category_name'] ?></option>
                             <?php } ?>
