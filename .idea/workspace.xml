@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notification_amt.php" beforeDir="false" afterPath="$PROJECT_DIR$/notification_amt.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/searchstatistics.php" beforeDir="false" afterPath="$PROJECT_DIR$/searchstatistics.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/dailybestseller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/dailybestseller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/notification_amt.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/notification_amt.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/productresult.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/productresult.js" afterDir="false" />
-    </list>
+    <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,7 +27,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2EFEuTYXbW9aeFHqtvMflcfb2C5" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -106,8 +98,6 @@
       <workItem from="1666518976045" duration="4976000" />
       <workItem from="1667716111423" duration="15187000" />
       <workItem from="1668656410231" duration="12833000" />
-      <workItem from="1668678250922" duration="724000" />
-      <workItem from="1668754315630" duration="8511000" />
     </task>
     <servers />
   </component>

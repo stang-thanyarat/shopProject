@@ -68,12 +68,12 @@ async function setStatus(id, val) {
     if (!val) {
         const status = $("#S" + id).is(':checked');
         fetch(`./controller/SetProductStatus.php?status=${status}&id=${id}`).then(() => {
-            setTimeout(()=>window.location.reload(),500)
+            setTimeout(()=>window.location.reload(),1000)
         })
     }
     fetch(`./controller/SetProductStatus.php?status=${val == 0 ? false : true}&id=${id}`)
         .then(() => {
-            setTimeout(()=>window.location.reload(),500)
+            setTimeout(()=>window.location.reload(),1000)
         })
 }
 
