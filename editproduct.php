@@ -183,9 +183,15 @@ $sells = $sell->fetchAll();
                                 </div>
                             </div>
                             <div class="row a">
+                                <div class="col-3 exchange">
+                                    <input type="checkbox" name="set_exchange" id="set_exchange"<?= $p['set_exchange'] == 0 ? "" : "checked" ?>/>
+                                    <label >&nbsp;สถานะการเปลี่ยนสินค้า</label>
+                                </div>
+                            </div>
+                            <div class="row a">
                                 <div class="col settingmin">
-                                    <input name="set_n_amt" id="set_n_amt" type="checkbox" <?= $p['set_n_amt'] == 0 ? "" : "checked" ?> />
-                                    <label for="set_n_amt">ตั้งค่าสินค้าคงคลังขั้นต่ำล่วงหน้า</label>
+                                    <input name="set_n_amt" id="set_n_amt" type="checkbox" <?= $p['set_n_amt'] == 0 ? "" : "checked" ?>/>
+                                    <label for="set_n_amt">&nbsp;ตั้งค่าสินค้าคงคลังขั้นต่ำล่วงหน้า</label>
                                 </div>
                             </div>
                             <div class="row a" id="post">
