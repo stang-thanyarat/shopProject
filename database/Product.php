@@ -137,7 +137,7 @@ class Product
                         $dataSum[] = array_merge($dataSum, $catData);
                     }
                 } else {
-                    if ($row['product_name'] == 1 && $row['product_rm_unit'] > 0) {
+                    if ($row['sales_status'] == 1 && $row['product_rm_unit'] > 0) {
                         $dataSum[] = array_merge($dataSum, $catData);
                     }
                 }
