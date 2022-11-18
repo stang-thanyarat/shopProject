@@ -36,9 +36,6 @@ $(document).ready(async function () {
 function setUI(data) {
     $('#productResultTable').html('')
     data.forEach(element => {
-        if (element.product_rm_unit == 0) {
-            lost.push(element.product_id)
-        }
         $('#productResultTable').append(`
         <tr>
         <th>${element.category_name || $("#category_id option:selected").text()}</th>
@@ -70,10 +67,14 @@ function setUI(data) {
 async function setStatus(id, val) {
     if (!val) {
         const status = $("#S" + id).is(':checked');
-        await (await fetch(`./controller/SetProductStatus.php?status=${status}&id=${id}`))
-        return
+        fetch(`./controller/SetProductStatus.php?status=${status}&id=${id}`).then(() => {
+            setTimeout(()=>window.location.reload(),500)
+        })
     }
-    await (await fetch(`./controller/SetProductStatus.php?status=${val == 0 ? false : true}&id=${id}`))
+    fetch(`./controller/SetProductStatus.php?status=${val == 0 ? false : true}&id=${id}`)
+        .then(() => {
+            setTimeout(()=>window.location.reload(),500)
+        })
 }
 
 //ลบพนักงงาน
