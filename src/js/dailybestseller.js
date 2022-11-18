@@ -1,4 +1,4 @@
-$("#category_id").change(async function () {
+/*$("#category_id").change(async function () {
     if ($("#category_id").val() !== "all") {
         let url = `./controller/ProductResult.php?category_id=${$("#category_id").val()}`
         if ($("#keyword").val() !== "") {
@@ -24,7 +24,7 @@ $("#keyword").keyup(async function () {
     }
     const product = await (await fetch(url)).json()
     setUI(product)
-});
+});*/
 
 $(document).ready(async function () {
     let url = './controller/ProductResult.php'

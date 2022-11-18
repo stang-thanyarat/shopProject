@@ -51,7 +51,7 @@ while ($r != 0) {
         if($i+1<count($data)){
             $low = $data[$i];
             $up = $data[$i+1];
-            if($low['count']<$up['count']){
+            if(strlen($low['keyword'])<strlen($up['keyword'])){
                 $data[$i+1] = $low;
                 $data[$i] = $up;
                 $r++;
