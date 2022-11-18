@@ -286,5 +286,9 @@ input:checked+.slider:before {
 }
 
 .settingmin {
-    margin-left: -0.7rem;
+    margin-left: 0rem;
+}
+
+.exchange{
+    margin-left: 0rem;
 }
