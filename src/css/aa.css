@@ -2,6 +2,7 @@
 
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
+    font-size: 16pt;
 }
 
 .row {
@@ -9,26 +10,85 @@
 }
 
 .main {
-    margin-top: 4rem;
-    margin-left: 3rem;
+    margin-top: 6rem;
+    margin-left: 5rem;
+    color: #688557;
+}
 
+.mai {
+    margin-top: 1rem;
+    margin-left: 5rem;
 }
 
 .Nbar {
     margin-top: 3.5rem;
 }
 
-.aa {
-    color: #688557;
+.line {
+    width: 550px;
+    height: 10px;
+    background-color: #E0B87E;
+    border-radius: 25px 25px 25px 25px;
 }
 
-.br {
+.button{
+    background: #7C904E;
+    color: whitesmoke;
+    border-radius: 25px 25px 25px 25px;
+    margin-top: 1rem;
+    border: 0px;
+    font-size: 16pt;
+}
+
+.textboard{
+    margin-left: 3rem;
+}
+
+.scoreboard{
+    background: #ABBE99;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    margin-left: 2rem;
+    border-radius: 25px 25px 25px 25px;
+}
+
+.search {
+    margin-left: 1rem;
+    border: 0ch;
+    width: 8%;
+    height: 66%;
+    background-color: #C4C4C4;
+    border-radius: 25px 25px 25px 25px;
+}
+
+.board{
+    margin-left: 4rem;
     margin-top: 2rem;
+
 }
 
 .brr {
     margin-top: 2rem;
-    margin-left: -0.9rem;
+    margin-left: 5rem;
+}
+
+.welcome{
+    margin-left: 0rem;
+}
+
+.result {
+    font-size: 22pt;
+}
+
+.topicdata{
+    font-size: 20pt;
+    padding: 6pt;
+}
+
+.data {
+    font-size: 18pt;
+    margin-left: 10rem;
+    padding: 6pt;
 }
 
 .box1 {
@@ -42,6 +102,11 @@
 .t {
     color: #000;
     margin-top: 0.6rem;
+    font-size: 20pt;
+}
+
+.num{
+    margin-left: 0rem;
 }
 
 .box2 {
@@ -60,26 +125,12 @@
 
 .nn {
     margin-top: 1rem;
-    margin-left: 11rem;
+    margin-left: 1rem;
 }
 
 .nnn {
     margin-top: 1rem;
 }
-
-.line {
-    width: 1600px;
-    height: 10px;
-    background-color: #E0B87E;
-    border-radius: 25px 25px 25px 25px;
-}
-
-.submit {
-    background-color: #ABBE99;
-    border: 0ch;
-    color: black;
-}
-
 .a:hover .b:hover .c:hover {
     color: white;
 }
@@ -116,13 +167,4 @@
     width: 350px;
     background-color: #ABBE99;
     border: 0in;
-}
-
-
-.s {
-    margin-left: 1rem;
-    border: 0ch;
-    width: 50px;
-    height: 28px;
-    background-color: #C4C4C4;
 }

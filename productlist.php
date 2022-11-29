@@ -36,7 +36,6 @@ $rows = $category->fetchAll();
 ?>
 
 <body>
-
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">

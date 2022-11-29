@@ -2,6 +2,7 @@
 
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
+    font-size: 16pt;
 }
 
 .row {
@@ -10,7 +11,7 @@
 
 }
 
-.col-11{
+.col-11 {
     margin-bottom: 4rem;
 }
 

@@ -2,6 +2,7 @@
 
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
+    font-size: 16pt;
 
 }
 
@@ -261,7 +262,7 @@ input:checked+.slider:before {
     margin-top: 0.1rem;
 }
 
-.label1{
+.label1 {
     margin-top: -5rem;
 }
 
@@ -297,6 +298,6 @@ input:checked+.slider:before {
     margin-left: 0rem;
 }
 
-.exchange{
+.exchange {
     margin-left: 0rem;
 }

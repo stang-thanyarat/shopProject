@@ -13,6 +13,7 @@ function getFullRole($role)
         return 'ผู้ดูแลระบบ';
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +24,7 @@ function getFullRole($role)
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./src/css/notification_amt.css" />
+    <link rel="stylesheet" href="./src/css/notification_amt.css"/>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <title>Document</title>
 </head>
@@ -31,8 +32,8 @@ function getFullRole($role)
 include_once "./database/Product.php";
 include_once "./database/Category.php";
 include_once "./database/Product.php";
-$category =  new Category();
-$product =  new Product();
+$category = new Category();
+$product = new Product();
 $rows = $category->fetchAll();
 $product = $product->fetchAll();
 ?>
@@ -43,12 +44,12 @@ $product = $product->fetchAll();
     <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
     <div class="col-11">
         <div class="row main">
-            <div class="col-4">
+            <div class="col-4 topic">
                 <h1>สินค้าใกล้หมด</h1>
             </div>
         </div>
         <div class="row mai">
-            <div class="col-3">
+            <div class="col-2 v">
                 <label for="category"></label>
                 <select name="category_id" id="category_id" style="background-color: #D4DDC6;" required>
                     <option value="all">สินค้าทั้งหมด</option>
@@ -57,31 +58,30 @@ $product = $product->fetchAll();
                     <?php } ?>
                 </select>
             </div>
-            <div class="col-4 w">
-                <form>
+            <div class="col-2 w">
                     <input type="text" class="btn-d" id="keyword" name="keyword" placeholder="&nbsp ชื่อสินค้า">
                     <button type="submit" class="s">
                         <img src="./src/images/search.png" width="15">
                     </button>
-                </form>
             </div>
         </div>
-        <div class="row">
-            <div class="col maa"><span style="display: none;" id="cat"></span></div>
-            <div class="col maaa"><span id="num-list" ></span></div>
+        <div class="col allnum">
+                <span id="cat" style="display: none;" class="all"></span>
+                <span id="num-list" class="num"></span>
         </div>
         <h3 style="text-align: center;" id="no-let">ไม่มีรายการสินค้าที่ใกล้หมด</h3>
         <table class="ma" id="tb-let" style="display: none;">
             <thead>
             <tr>
-                <th>รูปภาพ</th>
-                <th>ชื่อสินค้า</th>
-                <th>ราคา</th>
-                <th>จำนวน</th>
-                <th>สถานะการขาย</th>
+                <th width="35%">รูปภาพ</th>
+                <th width="25%">ชื่อสินค้า</th>
+                <th width="16%">ราคา</th>
+                <th width="10%">จำนวน</th>
+                <th width="14%">สถานะการขาย</th>
             </tr>
-            <tbody id="notification_amtTable">  </tbody>
+            <tbody id="notification_amtTable"></tbody>
         </table>
+        </div>
 
         <!-- ลบ -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -2,6 +2,7 @@
 
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
+    font-size: 16pt;
 
 }
 
@@ -223,7 +224,7 @@ th {
     font-size: 14pt;
 }
 
-.object{
+.object {
     padding: 1rem;
 }
 
