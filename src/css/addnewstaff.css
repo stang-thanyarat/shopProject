@@ -2,13 +2,14 @@
 
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
+    font-size: 16pt;
 }
 
 .row {
     --bs-gutter-x: 0rem;
 }
 
-.col-11{
+.col-11 {
     margin-bottom: 2rem;
 }
 

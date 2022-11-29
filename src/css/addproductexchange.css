@@ -3,8 +3,10 @@
 .ui-autocomplete {
     z-index: 1000 !important;
 }
+
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
+    font-size: 16pt;
 
 }
 

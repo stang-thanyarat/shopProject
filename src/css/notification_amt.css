@@ -2,6 +2,7 @@
 
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
+    font-size: 16pt;
 }
 
 .switch {
@@ -79,22 +80,28 @@ input:checked+.slider:before {
     margin-top: 3.5rem;
 }
 
-.mai {
-    margin-left: 70rem;
-    margin-bottom: 1rem;
+.topic{
+    margin-top: 1rem;
+    margin-left: 2rem;
 }
 
 .ma {
     margin-top: 1rem;
-    margin-left: 3rem;
+    margin-left: 5rem;
+    margin-bottom: 3rem;
 }
 
-.maa {
-    margin-left: 3rem;
+.allnum{
+    margin-top: 1rem;
+    margin-buttom: 1rem;
 }
 
-.maaa {
-    margin-left: 75rem;
+.all {
+    margin-left: 5.5rem;
+}
+
+.num {
+    margin-left: 52rem;
 }
 
 table,
@@ -102,16 +109,13 @@ td,
 th {
     border: 1px solid black;
     text-align: center;
+    height: 50px;
+    padding: 1rem;
 }
 
 table {
     border-collapse: collapse;
     width: 90%;
-}
-
-th {
-    height: 50px;
-    width: 15%;
 }
 
 select {
@@ -138,7 +142,7 @@ select {
     background-color: #F8E4C8;
     border: 0ch;
     font-size: 13pt;
-    height: 97%;
+    height: 100%;
 }
 
 .btn {
@@ -153,10 +157,13 @@ select {
     margin-left: -2rem;
 }
 
-.w {
-    margin-left: 2rem;
+.v{
+    margin-left: 50rem;
 }
 
+.w{
+    margin-left: -2rem;
+}
 .bgs {
     border: 0ch;
     background-color: white;

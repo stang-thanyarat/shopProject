@@ -72,8 +72,8 @@ input:checked+.slider:before {
 }
 
 .main {
-    margin-top: 4rem;
-    margin-left: 3rem;
+    margin-top: 6rem;
+    margin-left: 8rem;
 }
 
 .Nbar {
@@ -81,13 +81,25 @@ input:checked+.slider:before {
 }
 
 .mai {
-    margin-left: 45rem;
+    margin-left: 38rem;
 }
 
-.ma {
+.dailybestsellerTable {
     margin-top: 1rem;
-    margin-left: 3rem;
+    margin-left: 8rem;
 }
+
+.category{
+
+}
+
+.date{
+
+}
+
+.search {
+     margin-left: -0.3rem;
+ }
 
 table,
 td,
@@ -143,10 +155,6 @@ select {
     background: transparent;
     border: 0px;
     margin-left: -2rem;
-}
-
-.w {
-    margin-left: -0.3rem;
 }
 
 .bgs {

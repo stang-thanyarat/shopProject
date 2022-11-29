@@ -15,12 +15,11 @@ $lost = $product->fetchLost();
 <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #A36627;">
     <div class="container-fluid">
         <a class="navbar-brand nav-link" href="index.php"> หน้าแรก &nbsp;</a>
-        <?php if (getRole() == 'E' || getRole() == 'L') { ?><a style="display: flex;width: 80%;margin-left: -4rem;margin-top: -0.5rem;" href="notification_amt.php">
+        <?php if (getRole() == 'E' || getRole() == 'L') { ?><a style="display: flex; width: 80%; margin-left: -2.5rem; margin-top: -0.5rem;" href="notification_amt.php">
             <?php if(count($lost)>0){?><span class="bell"><?=count($lost)?></span><?php }?>
-            <img class='print' src="./src/images/bell.png" width="25">
+            <img class='print' src="./src/images/bell.png" width="30">
         </a><?php } ?>
-        <a herf="#"><img src=""/></a>
-        <div class="d-flex">
+        <div class="role">
             <button onclick="logout()"
                     style="background: transparent; border: none;"><?= $_SESSION['role'] !== 'A' ? $_SESSION['username'] : 'ผู้ดูแลระบบ' ?>&nbsp&nbsp&nbsp(<?= getFullRole($_SESSION['role']) ?>)</button>
         </div>

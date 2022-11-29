@@ -8,11 +8,10 @@ hr {
 }
 
 .bar-link {
-    font-size: 13pt;
+    font-size: 16pt;
     margin-top: -0.5rem;
     color: white;
 }
-
 
 .bar-link:hover {
     color: #ABBE99;
@@ -23,4 +22,3 @@ hr {
     min-height: 100%;
     background: #A36627;
 }
-

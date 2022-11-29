@@ -39,20 +39,22 @@ $rows = getdata();
         <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
         <div class="col-11">
             <div class="row main">
-                <div class="col-12">
+                <div class="col-6">
                     <h1>ประวัติใบสั่งซื้อ</h1>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-2 c">
+            <div class="row mai">
+                <div class="col-3 searchdate">
                     <input type="date" value="<?= $_GET['date'] ?? "" ?>" name="date" id="date" class="date"/>&nbsp&nbsp&nbsp
                 </div>
-                <div class="col-2 b">
+                <div class="col-3 box">
                     <input type="text" class="btnd" value="<?= $_GET['keyword'] ?? "" ?>" name="keyword" id="keyword" placeholder="&nbsp ชื่อผู้ขาย">
-                    <button type="submit" class="s"><img src="./src/images/search.png" width="15"></button>
+                    <button type="submit" class="search"><img src="./src/images/search.png" width="20"></button>
+                </input>
                 </div>
             </div>
-            <table class="col-11 ma">
+            <div class="ordertable">
+            <table class="col-11">
                 <tr>
                     <th width="15%">วันที่ชำระ</th>
                     <th width="60%">ชื่อผู้ขาย</th>
@@ -72,6 +74,7 @@ $rows = getdata();
                     }
                 } ?>
             </table>
+            </div>
         </div>
     </div>
 </form>

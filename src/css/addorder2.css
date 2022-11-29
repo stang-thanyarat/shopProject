@@ -2,6 +2,7 @@
 
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
+    font-size: 16pt;
 }
 
 .main {
@@ -11,7 +12,7 @@
 
 }
 
-.col-11{
+.col-11 {
     margin-bottom: 2rem;
 }
 
@@ -147,47 +148,47 @@ th {
     margin-left: 1.5rem;
 }
 
-.datebill{
+.datebill {
     margin-left: 15rem;
     margin-bottom: 2rem;
 }
 
-.company{
+.company {
     margin-left: 16rem;
     margin-bottom: 2rem;
 }
 
-.payment_sl{
+.payment_sl {
     margin-left: 13.5rem;
 }
 
-.payment{
+.payment {
     margin-left: 1rem;
     margin-bottom: 2rem;
 }
 
-.note{
+.note {
     margin-top: 1rem;
     margin-left: 15.5rem;
     margin-bottom: 2rem;
 }
 
 .h {
-margin-left: 14.5rem;
+    margin-left: 14.5rem;
 }
 
-.hh{
+.hh {
     margin-top: 1rem;
     margin-left: 14.2rem;
 
 }
 
-.q{
+.q {
     margin-left: -17.3rem;
     margin-top: 1rem;
 }
 
-.s{
+.s {
     margin-left: -14.5rem;
     margin-top: 1rem;
 }
@@ -196,30 +197,28 @@ margin-left: 14.5rem;
     width: 100px;
 }
 
-.r {
+.r {}
 
-}
-
-.topic{
+.topic {
     margin-top: 0.5rem;
 }
 
-.status{
+.status {
     margin-top: 1.5rem;
     margin-left: 14rem;
 }
 
-.print{
+.print {
     margin-top: 1.4rem;
     margin-left: 2rem;
 }
 
-.pay{
+.pay {
     margin-top: 2rem;
 }
 
 
-.font{
+.font {
     font-size: 23px;
 }
 
