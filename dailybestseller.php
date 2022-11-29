@@ -28,13 +28,19 @@ function getFullRole($role)
     <title>Document</title>
 </head>
 <?php include_once('nav.php');
+include_once "./database/Product.php";
 include_once "./database/Category.php";
-$category =  new Category();
-$rows = $category->fetchAll();
+include_once "./database/Sales.php";
+$category = new Category();
+$product = new Product();
+$sales = new Sales();
+$c = $category->fetchAll();
+$p = $product->fetchAll();
+$s = $sales->fetchAll();
 ?>
+<!--ช่วง controller dailybestseller ทำตาม ทั้งการค้นหา เลือกประเภท และ การคัดกายขายที่ดีที่สุด -->
 
 <body>
-
     <div class="row">
         <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
         <div class="col-11">
@@ -48,7 +54,7 @@ $rows = $category->fetchAll();
                     <label for="category"></label>
                     <select name="category_id" id="category_id" style="background-color: #D4DDC6;" required>
                         <option value="all">สินค้าทั้งหมด</option>
-                        <?php foreach ($rows as $row) { ?>
+                        <?php foreach ($c as $row) { ?>
                             <option value="<?= $row['category_id'] ?>"><?= $row['category_name'] ?></option>
                         <?php } ?>
                     </select>
@@ -58,7 +64,7 @@ $rows = $category->fetchAll();
                 </div>
                 <div class="col-4 search">
                     <form>
-                        <input type="text" name="keyword" id="keyword" class="btn-d" placeholder="&nbsp ชื่อสินค้า">
+                        <input type="text" class="btn-d" id="keyword" name="keyword" placeholder="&nbsp ชื่อสินค้า">
                         <button type="submit" class="s">
                             <img src="./src/images/search.png" width="15">
                         </button>
@@ -66,14 +72,15 @@ $rows = $category->fetchAll();
                 </div>
             </div>
             <div class="dailybestsellerTable">
-            <table>
+                <h3 style="text-align: center;" id="no-let">ไม่มีรายการสินค้าขายดีประจำวัน</h3>
+            <table class="col-11" id="tb-let" style="display: none;">
                 <thead>
                     <tr>
-                        <th width="10%">ลำดับ</th>
-                        <th width="10%">รูปภาพ</th>
+                        <th width="5%">ลำดับ</th>
+                        <th width="40%">รูปภาพ</th>
                         <th width="30%">ชื่อสินค้า</th>
-                        <th width="10%">ราคา</th>
-                        <th width="10%">จำนวน</th>
+                        <th width="12.5%">ราคา</th>
+                        <th width="12.5%">จำนวน</th>
                     </tr>
                 <tbody id="dailybestsellerTable"></tbody>
             </table>
