@@ -3,12 +3,6 @@
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
     font-size: 16pt;
-
-}
-
-.main {
-    margin-top: 5rem;
-    margin-left: 4rem;
 }
 
 .row {
@@ -19,9 +13,32 @@
     margin-top: 3.5rem;
 }
 
-.ma {
-    margin-top: 1.5rem;
-    margin-left: 4rem;
+.main {
+    margin-top: 6.1rem;
+    margin-left: 7rem;
+}
+
+.mai {
+    margin-left: 20rem;
+}
+
+.searchdate{
+    margin-left: 25rem;
+}
+
+.box{
+    margin-left: -3rem;
+}
+
+.search {
+    background: transparent;
+    border: 0px;
+    margin-left: -2rem;
+}
+
+.ordertable {
+    margin-top: 2rem;
+    margin-left: 7rem;
 }
 
 table,
@@ -49,22 +66,4 @@ th {
 
 .date{
     height: 115%;
-}
-
-.Nbar {
-    margin-top: 3.5rem;
-}
-
-.s {
-    background: transparent;
-    border: 0px;
-    margin-left: 1rem;
-}
-
-.c{
-    margin-left: 76rem;
-}
-
-.b{
-    margin-left: -7rem;
 }

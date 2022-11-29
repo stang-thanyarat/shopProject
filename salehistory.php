@@ -39,7 +39,7 @@ $rows = $sales->fetchAll();
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
-                    <div class="col-12">
+                    <div class="col-6">
                         <h1>ประวัติการขาย</h1>
                     </div>
                 </div>

@@ -44,7 +44,7 @@ $rows = $category->fetchAll();
                 </div>
             </div>
             <div class="row mai">
-                <div class="col-3">
+                <div class="col-3 category">
                     <label for="category"></label>
                     <select name="category_id" id="category_id" style="background-color: #D4DDC6;" required>
                         <option value="all">สินค้าทั้งหมด</option>
@@ -53,10 +53,10 @@ $rows = $category->fetchAll();
                         <?php } ?>
                     </select>
                 </div>
-                <div class="col-3">
+                <div class="col-3 date">
                     <input type="date" name="date" />
                 </div>
-                <div class="col-4 w">
+                <div class="col-4 search">
                     <form>
                         <input type="text" name="keyword" id="keyword" class="btn-d" placeholder="&nbsp ชื่อสินค้า">
                         <button type="submit" class="s">
@@ -65,7 +65,8 @@ $rows = $category->fetchAll();
                     </form>
                 </div>
             </div>
-            <table class="ma">
+            <div class="dailybestsellerTable">
+            <table>
                 <thead>
                     <tr>
                         <th width="10%">ลำดับ</th>
@@ -74,19 +75,9 @@ $rows = $category->fetchAll();
                         <th width="10%">ราคา</th>
                         <th width="10%">จำนวน</th>
                     </tr>
-                <tbody id="dailybestsellerTable">  </tbody>
-                   <!-- <tr>
-                        <th>1</th>
-                        <th><img src="./src/images/roselle.png" width="100"></th>
-                        <th>กระเจี๊ยบ-อพอลโล</th>
-                        <th>xx</th>
-                        <th>xx</th>
-                        <th>
-                            <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25"></button>
-                        </th>
-                    </tr> -->
+                <tbody id="dailybestsellerTable"></tbody>
             </table>
-
+        </div>
             <!-- ลบ -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
