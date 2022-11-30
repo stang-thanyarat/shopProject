@@ -42,18 +42,20 @@ $rows = $category->fetchAll();
                 <div class="col">
                     <h1>ประเภทสินค้า</h1>
                 </div>
-                <div class="col-2 addproducttypebutton">
-                    <button class="submit btn" name="btCategory_click()" onclick="insert()"><img src="./src/images/plus.png" width="25">&nbsp เพิ่มประเภทสินค้า</button>
+                <div class="row">
+                    <div class="col-2 addproducttypebutton">
+                        <button class="submit btn" name="btCategory_click()" onclick="insert()"><img src="./src/images/plus.png" width="25">&nbsp เพิ่มประเภทสินค้า</button>
+                    </div>
                 </div>
             </div>
             <table class="col-13 tbproducttype">
                 <thead>
                     <tr>
                         <th width=10%>ลำดับ</th>
-                        <th width=35%>ประเภทสินค้า</th>
+                        <th width=40%>ประเภทสินค้า</th>
                         <th width=20%>รายการทั้งหมด</th>
                         <th width=20%>รายการที่ขาย</th>
-                        <th width=5%></th>
+                        <th width=10%></th>
                     </tr>
                 </thead>
                 <tbody id="categorytable">
@@ -61,12 +63,12 @@ $rows = $category->fetchAll();
                     foreach ($rows as $row) { ?>
                         <tr>
                             <th width=10%><?= $i ?></th>
-                            <th width=35% id="text<?=$row['category_id']?>"><?= $row['category_name'] ?></th>
+                            <th width=35% id="text<?= $row['category_id'] ?>"><?= $row['category_name'] ?></th>
                             <th width=20%><?= $category->getCount($row['category_id'], false) ?></th>
                             <th width=20%><?= $category->getCount($row['category_id'], true) ?></th>
                             <th>
-                                <button type="button" class="bgs" name="btEdit_click()" onclick="del(<?=$row['category_id']?>)"><img src="./src/images/icon-delete.png" width="25"></button>
-                                <button type="button" class="bgs" name="btDelete_click()" onclick="edit(<?=$row['category_id']?>)"><img src="./src/images/icon-pencil.png" width="25"></button>
+                                <button type="button" class="bgs" name="btEdit_click()" onclick="del(<?= $row['category_id'] ?>)"><img src="./src/images/icon-delete.png" width="25"></button>
+                                <button type="button" class="bgs" name="btDelete_click()" onclick="edit(<?= $row['category_id'] ?>)"><img src="./src/images/icon-pencil.png" width="25"></button>
                             </th>
                         </tr>
                     <?php $i++;

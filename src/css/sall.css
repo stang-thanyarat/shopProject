@@ -11,8 +11,8 @@
 }
 
 .main {
-    margin-top: 4rem;
-    margin-left: 3rem;
+    margin-top: 5rem;
+    margin-left: 4rem;
     width: 90%;
 }
 
@@ -21,12 +21,11 @@
 }
 
 .mai {
-    margin-left: 72.5rem;
+    margin-left: 52rem;
 }
 
 .ma {
-    margin-top: 1rem;
-    margin-left: 3rem;
+    margin-left: 4rem;
 }
 
 table,
@@ -66,15 +65,16 @@ select {
     background-color: #F8E4C8;
     border: 0ch;
     margin-left: 5rem;
-    font-size: 13pt;
-    height: 97%;
+    font-size: 16pt;
+    height: 50%;
+
 
 }
 
 .btn {
     border-radius: 25px 25px 25px 25px;
-    font-size: 13pt;
-    width: 100%;
+    font-size: 16pt;
+    height: 50%;
 }
 
 .s {
@@ -84,7 +84,7 @@ select {
 }
 
 .w {
-    margin-left: 1rem;
+    margin-left: -2rem;
 }
 
 .bgs {

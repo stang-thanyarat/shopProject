@@ -53,10 +53,9 @@ $rows = getdata();
                 </input>
                 </div>
             </div>
-            <div class="ordertable">
-            <table class="col-11">
+            <table class="ordertable">
                 <tr>
-                    <th width="15%">วันที่ชำระ</th>
+                    <th width="20%">วันที่ชำระ</th>
                     <th width="60%">ชื่อผู้ขาย</th>
                     <th width="15%">สถานะ</th>
                 </tr>

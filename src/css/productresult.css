@@ -185,26 +185,20 @@ input:checked+.slider:before {
 }
 
 .q{
-    margin-top: 1rem;
+    margin-top: 2rem;
     margin-left: 4rem; 
 }
 
 .z{
-    font-size: 13pt;
-    margin-left: 60rem;
+    font-size: 16pt;
+    margin-left: 44rem;
    
 }
 
 .y{
-    font-size: 13pt;
-    margin-left: -4.5rem;
-    margin-top: 0rem;
-   
-}
-
-.x{
-    margin-top: 0rem;
+    font-size: 16pt;
     margin-left: -3rem;
+   
 }
 
 .modal-title2{
@@ -220,7 +214,7 @@ input:checked+.slider:before {
 
 .btn1 {
     border-radius: 25px 25px 25px 25px;
-    font-size: 13pt;
+    font-size: 16pt;
     width: 20%;
 }
 

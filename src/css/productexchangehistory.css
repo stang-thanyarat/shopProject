@@ -44,7 +44,6 @@ th {
 
 table {
     border-collapse: collapse;
-    width: 10%;
     margin-left: 10rem;
 }
 
@@ -58,9 +57,13 @@ th {
 }
 
 .s {
-    background: transparent;
-    border: 0px;
-    margin-left: -2rem;
+    margin-left: 1rem;
+    border: 0ch;
+    width: 15%;
+    height: 85%;
+    background-color: #C4C4C4;
+    border-radius: 25px 25px 25px 25px;
+    margin-left: 1rem;
 }
 
 .BTNP {
@@ -86,7 +89,7 @@ th {
 .btn {
     border-radius: 25px 25px 25px 25px;
     font-size: 18pt;
-    width: 40%;
+    width: 35%;
     height: 85%;
 }
 
@@ -190,15 +193,7 @@ input:checked+.slider:before {
 
 .datetodate {
     margin-top: 0.55rem;
-    margin-left: 35rem;
-}
-
-.addpdr {
-    margin-left: -26rem;
-}
-
-.s {
-    margin-left: 0.5rem;
+    margin-left: 0rem;
 }
 
 .plus {
@@ -206,8 +201,9 @@ input:checked+.slider:before {
 }
 
 .pdrtb {
-    margin-top: 1rem;
+    margin-top: 2rem;
     margin-left: -0.5rem;
+    width: 95%;
 }
 
 .btn-primary1 {
@@ -231,4 +227,12 @@ input:checked+.slider:before {
 .bgs{
     border: 0ch;
     background-color: white;
+}
+
+.signin{
+    margin-left: 37rem;
+}
+
+.ma{
+    margin-left: 2rem;
 }

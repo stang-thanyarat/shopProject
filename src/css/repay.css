@@ -37,13 +37,9 @@ th {
     width: 50%;
 }
 
-.col-12 {
-    margin-left: 1rem;
-
-}
 
 .btn-g {
-    width: 100%;
+    
     justify-content: end;
     display: flex;
     margin-top: 2rem;
@@ -127,10 +123,16 @@ th {
     color: #fff;
     border: 0in;
     border-radius: 25px;
-    height: 30px;
-    width: 5%;
+    height: 50px;
+    width: 10%;
 }
+
+
 
 .B {
     margin-right: 6.6rem;
+}
+
+.mm{
+    margin-left: 2rem;
 }

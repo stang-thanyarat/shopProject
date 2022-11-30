@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="" />
+    <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracthistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/contracthistory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/contracthistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/contracthistory.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,6 +102,7 @@
       <workItem from="1666518976045" duration="4976000" />
       <workItem from="1667716111423" duration="15187000" />
       <workItem from="1668656410231" duration="12833000" />
+      <workItem from="1669730928346" duration="820000" />
     </task>
     <servers />
   </component>
