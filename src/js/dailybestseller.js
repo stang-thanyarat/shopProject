@@ -1,14 +1,13 @@
 $("#category_id").change(async function () {
-    $('#cat').text($("#category_id option:selected").text())
     if ($("#category_id").val() !== "all") {
-        let url = `./controller/ProductResult.php?category_id=${$("#category_id").val()}`
+        let url = `./controller/DailyBestSeller.php?category_id=${$("#category_id").val()}`
         if ($("#keyword").val() !== "") {
             url += `&keyword=${$("#keyword").val()}`
         }
         const product = await (await fetch(url)).json()
         setUI(product)
     } else {
-        let url = './controller/ProductResult.php'
+        let url = './controller/DailyBestSeller.php'
         if ($("#keyword").val() !== "") {
             url += `?keyword=${$("#keyword").val()}`
         }
@@ -19,7 +18,7 @@ $("#category_id").change(async function () {
 });
 
 $("#keyword").keyup(async function () {
-    let url = `./controller/ProductResult.php?keyword=${$("#keyword").val()}`
+    let url = `./controller/DailyBestSeller.php?keyword=${$("#keyword").val()}`
     if ($("#category_id").val() !== "" && $("#category_id").val() !== "all") {
         url += `&category_id=${$("#category_id").val()}`
     }
@@ -28,7 +27,7 @@ $("#keyword").keyup(async function () {
 });
 
 async function start() {
-    let url = './controller/ProductResult.php'
+    let url = './controller/DailyBestSeller.php'
     const product = await (await fetch(url)).json()
     console.log(product);
     $('#no-let').hide()
@@ -43,8 +42,6 @@ function setUI(data) {
     let c = 0
     $('#dailybestsellerTable').html('')
     data.forEach((element, i) => {
-        if (element.sales_amt >= 10 ) {
-            c++
             $('#dailybestsellerTable').append(`<tr id="rr${i + 1}">
         <th class="index-table-bank">${i + 1}</th>
         <th><img src="${element.product_img}" width="400"></th>
@@ -52,7 +49,6 @@ function setUI(data) {
         <th>${element.price}</th>
         <th>${element.product_dlt_unit}</th>
     </tr>`)
-        }
     });
     if (c <= 0) {
         $('#no-let').show()
