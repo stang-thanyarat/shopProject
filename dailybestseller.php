@@ -28,15 +28,9 @@ function getFullRole($role)
     <title>Document</title>
 </head>
 <?php include_once('nav.php');
-include_once "./database/Product.php";
 include_once "./database/Category.php";
-include_once "./database/Sales.php";
 $category = new Category();
-$product = new Product();
-$sales = new Sales();
 $c = $category->fetchAll();
-$p = $product->fetchAll();
-$s = $sales->fetchAll();
 ?>
 <!--ช่วง controller dailybestseller ทำตาม ทั้งการค้นหา เลือกประเภท และ การคัดกายขายที่ดีที่สุด -->
 
