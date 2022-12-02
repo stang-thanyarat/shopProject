@@ -29,6 +29,9 @@ function getFullRole($role)
 </head>
 <?php include_once('nav.php');
 include_once "./database/Category.php";
+include_once "./database/Product.php";
+$product = new Product();
+$p = $product->fetchAll();
 $category = new Category();
 $c = $category->fetchAll();
 ?>

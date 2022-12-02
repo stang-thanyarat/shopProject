@@ -1,5 +1,6 @@
 <?php
 include_once('../database/Sales.php');
+
 //กรณีที่ 1 ถ้าไม่ค้นหาทั้งจาก keyword และ ตัวเลือกประเภทสินค้า จะโชว์ทั้งหมด
 if(!isset($_GET['category_id'])&&(!isset($_GET['keyword']))){
     $sales = new Sales();

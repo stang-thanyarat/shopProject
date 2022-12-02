@@ -1,5 +1,9 @@
 <?php
 include_once ("Connection.php");
+include_once ("Product.php");
+include_once ("Category.php");
+include_once ("Sales.php");
+
 
 Class Sales{
     private $conn;
@@ -9,7 +13,7 @@ Class Sales{
     }
     public function fetchAll(){
 
-        $sql = "SELECT P.*,SA.* FROM product_tb P,sales_tb SA  WHERE  P.product_id = SA.product_id ";
+        $sql = "SELECT SA.*,P.* FROM sales_tb SA,product_tb P WHERE  SA.product_id = P.product_id ";
         $stmt = $this -> conn -> prepare($sql);
         $stmt->execute();
         $result = $stmt ->fetchAll();
@@ -61,10 +65,10 @@ Class Sales{
     {
         $like = "%$keyword%";
         if(is_null($id)){
-            $sql = "SELECT C.*,P.* FROM category_tb C,product_tb P WHERE C.category_id = P.category_id AND product_name LIKE ?";
+            $sql = "SELECT C.*,P.*,SA.* FROM category_tb C,product_tb P,sales_tb SA WHERE C.category_id = P.category_id = SA.category_id AND product_name LIKE ?";
 
         }else{
-            $sql = "SELECT C.*,P.* FROM category_tb C,product_tb P WHERE C.category_id = ? ";
+            $sql = "SELECT C.*,P.*,SA.* FROM category_tb C,product_tb P,sales_tb SA WHERE C.category_id = ? ";
         }
         $stmt = $this->conn->prepare($sql);
         if(is_null($id)){
