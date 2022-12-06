@@ -28,14 +28,14 @@ function getFullRole($role)
     <title>Document</title>
 </head>
 
-<?php include_once('nav.php');
+<?php
+include_once('nav.php');
 include_once "./database/Sell.php";
 include_once "./database/Product.php";
 $sell = new Sell();
 $product = new Product();
 $sells = $sell->fetchAll();
 $product = $product->fetchAll();
-
 ?>
 
 
