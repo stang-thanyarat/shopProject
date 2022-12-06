@@ -29,6 +29,11 @@ function getFullRole($role)
 </head>
 <?php include_once('nav.php');
 include_once "./database/Category.php";
+include_once "./database/Product.php";
+//include_once('./controller/DailyBestSeller.php');
+// $rows = getdata();
+$product = new Product();
+$p = $product->fetchAll();
 $category = new Category();
 $c = $category->fetchAll();
 ?>
@@ -53,12 +58,12 @@ $c = $category->fetchAll();
                         <?php } ?>
                     </select>
                 </div>
-                <div class="col-3 date">
-                    <input type="date" name="date" />
+                <div class="col-3 searchdate">
+                    <input type="date" name="date" id="date" class="date"/>
                 </div>
                 <div class="col-4 search">
                     <form>
-                        <input type="text" class="btn-d" id="keyword" name="keyword" placeholder="&nbsp ชื่อสินค้า">
+                        <input type="text" class="btn-d" id="keyword" name="keyword" placeholder="&nbsp ชื่อสินค้า" />
                         <button type="submit" class="s">
                             <img src="./src/images/search.png" width="15">
                         </button>
@@ -77,6 +82,18 @@ $c = $category->fetchAll();
                         <th width="12.5%">จำนวน</th>
                     </tr>
                 <tbody id="dailybestsellerTable"></tbody>
+                <!--<?php $i = 1;
+                foreach ($rows as $row) {
+                        ?>
+                        <tr>
+                        <th width=10%><?= $i ?></th>
+                        <th><img src='<?= $row['product_img'] ?>' width="400"></th>
+                        <th><?= $row['product_name'] ?></th>
+                        <th><?= $row['price'] ?></th>
+                        <th><?= $row['product_dlt_unit'] ?></th>
+                        </tr>
+                        <?php $i++;
+                } ?>-->
             </table>
         </div>
             <!-- ลบ -->

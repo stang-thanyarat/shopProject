@@ -29,11 +29,15 @@
 }
 
 .category{
-    margin-left: 1rem;
+    margin-left: 5rem;
+}
+
+.searchdate{
+    margin-left: -0.1rem;
 }
 
 .date{
-    margin-left: -0.1rem;
+    height: 115%;
 }
 
 .search {

@@ -30,6 +30,7 @@ async function start() {
     let url = './controller/DailyBestSeller.php'
     const product = await (await fetch(url)).json()
     console.log(product);
+    $('#cat').text($("#category_id option:selected").text())
     $('#no-let').hide()
     setUI(product)
 }
@@ -42,7 +43,8 @@ function setUI(data) {
     let c = 0
     $('#dailybestsellerTable').html('')
     data.forEach((element, i) => {
-            $('#dailybestsellerTable').append(`<tr id="rr${i + 1}">
+        c++
+        $('#dailybestsellerTable').append(`<tr id="rr${i + 1}">
         <th class="index-table-bank">${i + 1}</th>
         <th><img src="${element.product_img}" width="400"></th>
         <th>${element.product_name}</th>
