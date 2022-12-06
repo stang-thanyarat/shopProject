@@ -14,12 +14,16 @@
 }
 
 .main {
-    margin-top: 6.1rem;
-    margin-left: 7rem;
+    margin-top: 5rem;
+    margin-left: 4rem;
 }
 
 .mai {
-    margin-left: 20rem;
+    margin-left: 30rem;
+}
+
+.ma {
+    margin-left: 4rem;
 }
 
 .searchdate{
@@ -38,7 +42,7 @@
 
 .ordertable {
     margin-top: 2rem;
-    margin-left: 7rem;
+    margin-left: 4rem;
 }
 
 table,
@@ -50,7 +54,7 @@ th {
 
 table {
     border-collapse: collapse;
-    width: 60%;
+    width: 90%;
 }
 
 th {

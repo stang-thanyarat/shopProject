@@ -51,7 +51,7 @@ if (isset($_GET['keyword'])) {
                 </div>
                 <div class="row">
                     <form action="sall.php" method="GET">
-                    <div class="col-2 mai">
+                    <div class="col-3 mai">
                         <input type="text" name="keyword" class="btn-d" placeholder="&nbsp ชื่อผู้ขาย"></input>
                         <button type="submit" class="s">
                             <img src="./src/images/search.png" width="15">
@@ -64,7 +64,7 @@ if (isset($_GET['keyword'])) {
                 </div>
                 <table class="ma">
                     <tr>
-                        <th width="30">ชื่อผู้ขาย</th>
+                        <th width="35">ชื่อผู้ขาย</th>
                         <th width="20">เลขประจำตัวผู้เสียภาษี</th>
                         <th width="20">นามบัตร</th>
                         <th width="5"></th>
@@ -74,7 +74,7 @@ if (isset($_GET['keyword'])) {
                             <tr>
                                 <th name="sell_name" id="sell_name"><?= $e['sell_name']; ?></th>
                                 <th name="sell_tax_id" id="sell_tax_id"><?= $e['sell_tax_id']; ?></th>
-                                <th name="seller_cardname" id="seller_cardname"><a href="<?= $e['seller_cardname']; ?>"><img src="<?= $e['seller_cardname']; ?>" width="100px" height="50p" /></a></th>
+                                <th name="seller_cardname" id="seller_cardname"><a href="<?= $e['seller_cardname']; ?>"><img src="<?= $e['seller_cardname']; ?>" width="100px" height="80px" /></a></th>
                                 <th>
                                     <button type="button" class="btn1" onclick="del(<?=$e['sell_id']; ?>)" ><img src="./src/images/icon-delete.png" width="25"></button>
                                     <a type="button" class="btn1" href="editseller.php?id=<?= $e['sell_id']; ?>"><img src="./src/images/icon-pencil.png" width="25"></a>

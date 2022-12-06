@@ -10,8 +10,8 @@
 }
 
 .main {
-    margin-top: 4rem;
-    margin-left: 3rem;
+    margin-top: 5rem;
+    margin-left: 4rem;
     width: 85%;
 }
 
@@ -21,12 +21,12 @@
 
 .ma {
     margin-top: 1rem;
-    margin-left: 66rem;
+    margin-left: 43rem;
 }
 
 .mai {
     margin-top: 2rem;
-    margin-left: 3rem;
+    margin-left: 4rem;
 }
 
 table,
@@ -38,12 +38,11 @@ th {
 
 table {
     border-collapse: collapse;
-    width: 95%;
+    width: 92%;
 }
 
 th {
     height: 50px;
-    width: 13%;
 }
 
 select {
@@ -77,11 +76,11 @@ option {
 }
 
 .w {
-    margin-left: -1rem;
+    margin-left: 0rem;
 }
 
 .ww {
-    margin-left: -1rem;
+    margin-left: 0rem;
 }
 
 .bgs {

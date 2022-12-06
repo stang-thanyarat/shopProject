@@ -68,14 +68,14 @@ $rows = $category->fetchAll();
             </div>
             <table class="mai">
                 <tr>
-                    <th>รูปภาพ</th>
-                    <th>ชื่อสินค้า</th>
-                    <th>วันที่ได้รับของ</th>
-                    <th>วันที่หมดอายุ</th>
-                    <th>ราคา</th>
-                    <th>คงคลัง</th>
-                    <th>จำนวน</th>
-                    <th></th>
+                    <th width="10">รูปภาพ</th>
+                    <th width="45">ชื่อสินค้า</th>
+                    <th width="5">วันที่ได้รับของ</th>
+                    <th width="5">วันที่หมดอายุ</th>
+                    <th width="10">ราคา</th>
+                    <th width="10">คงคลัง</th>
+                    <th width="10">จำนวน</th>
+                    <th width="5"></th>
                 </tr>
                 <tr>
                     <th><img src="./src/images/3.png" width="100"></th>

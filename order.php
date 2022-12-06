@@ -62,10 +62,10 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != "") {
                 </div>
                 <table class="col-11 tb">
                     <tr>
-                        <th width="15%">วันที่สั่งซื้อ</th>
-                        <th width="60%">ชื่อผู้ขาย</th>
+                        <th width="20%">วันที่สั่งซื้อ</th>
+                        <th width="30%">ชื่อผู้ขาย</th>
                         <th width="15%">สถานะ</th>
-                        <th width="20%"></th>
+                        <th width="10%"></th>
                     </tr>
                     <tbody id="ordertable">
                     <?php foreach ($rows

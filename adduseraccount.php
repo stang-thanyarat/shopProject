@@ -42,8 +42,8 @@ $rows = $employee->fetchWithOutUserId();
                 <h1>เพิ่มบัญชีผู้ใช้งาน</h1>
             </div>
             <div class="row top">
-                <div class="col-lg-4 col-md-12">
-                    <label for="employee_id">ชื่อพนักงาน:</label>
+                <div class="col-lg-4 col-md-12 employee">
+                    <label for="employee_id">ชื่อพนักงาน :</label>
                     <select name="employee_id" id="employee_id" class="bb" required onchange="readEmail()" style="background-color: #D4DDC6;">
                         <option value="" selected hidden>เลือกพนักงาน</option>
                         <?php foreach ($rows as $row) { ?>

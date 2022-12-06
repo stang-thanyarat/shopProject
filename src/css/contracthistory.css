@@ -49,8 +49,8 @@ th {
 .btn {
     border-radius: 25px 25px 25px 25px;
     font-size: 16pt;
-    width: 70%;
-    height: 95%;
+    width: 75%;
+    height: 90%;
 }
 
 .btnd {
@@ -71,17 +71,19 @@ th {
     margin-left: 4rem;
 }
 
+.x{
+    margin-left: -2rem;
+}
+
 .y{
     font-size: 13pt;
-    margin-left: 64rem;
+    margin-left: 49rem;
     margin-top: 0rem;
    
 }
 
-.x{
-    margin-top: 0rem;
-    margin-left: -3.5rem;
-   
+.v{
+    margin-left: -2rem;
 }
 
 .BTNC {
@@ -109,17 +111,4 @@ th {
 
 }
 
-.v{
-    margin-top: 0rem;
-    margin-left: -4rem;
-}
 
-.s1{
-    width: 70%;
-    height: 90%;
-}
-
-.s2{
-    width: 110%;
-    height: 90%;
-}

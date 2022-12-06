@@ -60,25 +60,24 @@ $rows = $category->fetchAll();
                         <input name="keyword" type="text" id="keyword" class="btnd" placeholder="&nbsp ชื่อสินค้า">
                         <button type="submit" class="s"><img src="./src/images/search.png" width="15"></button>
                     </div>
-                    <div class="col-1 x">
+                    <div class="col-1">
                         <a type="button" href="./addproduct.php" class="submit btn"><img src="./src/images/plus.png" width="25">&nbsp เพิ่มสินค้า</a>
                     </div>
                     <table class="col-11 q">
                         <thead>
                             <tr>
-                                <th>ประเภทสินค้า</th>
-                                <th>ชื่อสินค้า</th>
-                                <th>ยี่ห้อ</th>
-                                <th>รุ่น</th>
-                                <th>จำนวน</th>
-                                <th>คงเหลือ</th>
-                                <th>ราคา</th>
-                                <th>รูปภาพ</th>
-                                <th>สถานะการขาย</th>
-                                <th></th>
+                                <th width="20">ประเภทสินค้า</th>
+                                <th width="30">ชื่อสินค้า</th>
+                                <th width="20">ยี่ห้อ</th>
+                                <th width="5">รุ่น</th>
+                                <th width="10">จำนวน</th>
+                                <th width="10">คงเหลือ</th>
+                                <th width="10">ราคา</th>
+                                <th width="10">รูปภาพ</th>
+                                <th width="10">สถานะการขาย</th>
+                                <th width="10"></th>
                             </tr>
-                        <tbody id="productResultTable">
-                        </tbody>
+                        <tbody id="productResultTable"></tbody>
                     </table>
                 </div>
             </div>

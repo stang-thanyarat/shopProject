@@ -44,7 +44,7 @@ function setUI(data) {
         <th>${element.product_dlt_unit}</th>
         <th>${element.product_rm_unit}</th>
         <th>${element.price}</th>
-        <th><img src="${element.product_img}" width="25"></th>
+        <th><img src="${element.product_img}" width="100px" height="80px"></th>
         <th>
             <label class="switch">
                 <input ${element.product_rm_unit == 0 ? 'disabled' : ''} type="checkbox" id="S${element.product_id}" ${element.sales_status == 1 && element.product_rm_unit > 0 ? "checked" : ""} onchange="setStatus(${element.product_id})">

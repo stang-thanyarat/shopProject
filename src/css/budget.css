@@ -1,4 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&display=swap');
+
+* {
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+    font-size: 16pt;
+
+}
+
 body{
     background: white;
 }
@@ -28,7 +35,7 @@ body{
     width: 130px;
     border: 0in;
     background-color: #ABBE99;
-    margin-top: -1rem;
+    margin-top: -1.9rem;
 }
 
 .tt {
@@ -37,11 +44,11 @@ body{
 }
 
 .th {
-    width: 100.8%;
-    height: 50px;
+    width: 98.1%;
+    height: 70px;
     background-color: #ABBE99;
     box-sizing: border-box;
-    margin-left: -0.89rem;
+    margin-left: 1.5rem;
     margin-top: -2.25rem;
 }
 
@@ -50,11 +57,17 @@ body{
 }
 
 .s {
-    background-color: #fff;
-    border: 0in;
+    margin-left: 1rem;
+    border: 0ch;
+    width: 5%;
+    height: 100%;
+    background-color: #C4C4C4;
+    border-radius: 25px 25px 25px 25px;
+    margin-left: 1rem;
 }
 
 .b {
+    font-size: 16pt;
     margin-top: 1rem;
     text-align: center;
 }
@@ -69,16 +82,16 @@ body{
 
 .tp {
     color: #000;
-    margin-left: 70rem;
+    margin-left: 52rem;
     
 }
 
 .ttp {
-    width: 65%;
+    width: 70%;
     height: 50px;
     background-color: #ABBE99;
     box-sizing: border-box;
-    margin-left: 15rem;
+    margin-left: 11rem;
     margin-top: -2.5rem;
 }
 

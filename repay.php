@@ -63,7 +63,7 @@ function getFullRole($role)
                 <table class="main col-10">
                     <thead>
                         <tr>
-                            <th width="15%">วันที่ชำระ</th>
+                            <th width="10%">วันที่ชำระ</th>
                             <th width="10%">วิธีการชำระ</th>
                             <th width="10%">ไฟล์แนบ</th>
                             <th width="10%">ยอดที่ชำระ</th>
@@ -78,13 +78,13 @@ function getFullRole($role)
 
                 </table>
                 <div class="row btn-g">
-                    <div class="col-2">
+                    <div class="col-2 mm">
                         <button type="reset" class="btn-c reset" onclick="javascript:window.location='contracthistory.php';">ยกเลิก</button>
                     </div>
-                    <div class="col-2">
+                    <div class="col-2 mm">
                         <input type="submit" class="btn-c outdebt" value="หมดหนี้" />
                     </div>
-                    <div class="col-2">
+                    <div class="col-2 mm">
                         <input type="submit" class="btn-c submit" value="บันทึก" /> 
                     </div>
                 </div>

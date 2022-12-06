@@ -73,8 +73,8 @@ input:checked+.slider:before {
 }
 
 .main {
-    margin-top: 4rem;
-    margin-left: 3rem;
+    margin-top: 5rem;
+    margin-left: 4rem;
 }
 
 .Nbar {
@@ -141,8 +141,7 @@ select {
 }
 
 .addproducttypebutton {
-    margin-top: 0.25rem;
-    margin-left: -25rem;
+    margin-left: 60rem;
 }
 
 .s {
@@ -206,7 +205,7 @@ select {
 
 .tbproducttype {
     margin-top: 2rem;
-    margin-left: 3rem;
+    margin-left: 4rem;
     margin-bottom: 4rem;
 }
 .btn-primary1{
@@ -218,36 +217,36 @@ select {
 
 .btn1 {
     border-radius: 25px 25px 25px 25px;
-    font-size: 13pt;
+    font-size: 16pt;
     width: 20%;
 }
 .inbox {
     margin-left: 2rem;
 }
 .addproducttypename{
-    font-size: 15pt;
+    font-size: 16pt;
 }
 .addallproducttype{
-    font-size: 15pt;
+    font-size: 16pt;
     margin-top: 1rem;
     margin-left: 0.49rem;
 }
 .addsellproducttype{
-    font-size: 15pt;
+    font-size: 16pt;
     margin-top: 1rem;
     margin-left: 1.4rem;
     margin-bottom: 2rem;
 }
 .leftproducttype{
-    font-size: 15pt;
+    font-size: 16pt;
 }
 .leftallproducttype{
-    font-size: 15pt;
+    font-size: 16pt;
     margin-top: 1rem;
     margin-left: 0.49rem;
 }
 .leftsellproducttype{
-    font-size: 15pt;
+    font-size: 16pt;
     margin-top: 1rem;
     margin-left: 1.4rem;
     margin-bottom: 2rem;

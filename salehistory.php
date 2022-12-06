@@ -53,11 +53,11 @@ $rows = $sales->fetchAll();
                 </div>
                 <table class="col-9 q">
                     <tr>
-                        <th width=11% >วันที่และเวลาที่ขาย</th>
-                        <th width=30% >เลขที่ใบเสร็จ/ใบส่งของ</th>
-                        <th width=12.5% >จำนวนรวม</th>
-                        <th width=30% >ยอดรวมทั้งหมด</th>
-                        <th width=16% >ช่องทางการชำระ</th>
+                        <th width=15% >วันที่และเวลาที่ขาย</th>
+                        <th width=20% >เลขที่ใบเสร็จ/ใบส่งของ</th>
+                        <th width=15% >จำนวนรวม</th>
+                        <th width=15% >ยอดรวมทั้งหมด</th>
+                        <th width=15% >ช่องทางการชำระ</th>
                     </tr>
                     <tr>
                         <tbody id="salesHistory">
