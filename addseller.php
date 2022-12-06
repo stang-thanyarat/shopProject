@@ -153,6 +153,7 @@ function getFullRole($role)
 
                 </tbody>
             </table>
+            <br>
             <div class="row">
                 <div class="col leftfile2">
                     นามบัตร : <input type="file" accept="image/*" name="seller_cardname" id="seller_cardname"

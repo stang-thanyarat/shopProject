@@ -124,10 +124,6 @@ select {
     color: white;
 }
 
-.c {
-    margin-left: 55rem;
-}
-
 .btnd {
     background-color: #F8E4C8;
     border-radius: 25px;
@@ -155,17 +151,17 @@ select {
 }
 
 .c{
-    margin-left: 57rem;
-    font-size: 13pt;
+    margin-left: 37rem;
+    font-size: 16pt;
 }
 
 .b{
-    margin-left: -2rem;
+    margin-left:-4rem;
 }
 
 .a{
     margin-top: 0rem;
-    margin-left: -4.5rem;
+    margin-left: -0.5rem;
 }
 
 /*ลบ*/

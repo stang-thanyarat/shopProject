@@ -27,8 +27,8 @@
 
 
 .main {
-    margin-top: 4rem;
-    margin-left: 3rem;
+    margin-top: 5rem;
+    margin-left: 4rem;
 }
 
 .Nbar {
@@ -154,7 +154,7 @@ th {
 
 .btn {
     border-radius: 25px 25px 25px 25px;
-    font-size: 13pt;
+    font-size: 16pt;
     width: 20%;
 }
 
@@ -165,19 +165,19 @@ th {
 
 .allprice {
     margin-top: 1rem;
-    font-size: 14pt;
+    font-size: 16pt;
 }
 
 .receivecash {
     margin-top: 1rem;
     margin-left: 2.6rem;
-    font-size: 14pt;
+    font-size: 16pt;
 }
 
 .change {
     margin-top: 1rem;
     margin-left: 3.7rem;
-    font-size: 14pt;
+    font-size: 16pt;
 }
 
 .inbox {
@@ -185,17 +185,17 @@ th {
 }
 
 .exp {
-    font-size: 14pt;
+    font-size: 16pt;
 }
 
 .amount {
-    font-size: 14pt;
+    font-size: 16pt;
     margin-top: 1rem;
     margin-left: 2.2rem;
 }
 
 .importfile {
-    font-size: 11pt;
+    font-size: 16pt;
 }
 
 .notice {
@@ -204,7 +204,7 @@ th {
 }
 
 .noticetext {
-    font-size: 11pt;
+    font-size: 16pt;
     color: #000;
 }
 
@@ -214,14 +214,14 @@ th {
 }
 
 .email {
-    font-size: 14pt;
+    font-size: 16pt;
     margin-left: 0.7rem;
 }
 
 .password {
     margin-top: 1.8rem;
     margin-bottom: 2rem;
-    font-size: 14pt;
+    font-size: 16pt;
 }
 
 .object {

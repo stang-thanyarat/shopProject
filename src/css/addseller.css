@@ -27,8 +27,8 @@
 }
 
 .th {
-    width: 150px;
-    height: 50px;
+    width: 200px;
+    height: 60px;
     border: 2px solid brown;
     box-sizing: border-box;
     margin-left: 2rem;
@@ -104,7 +104,7 @@
 }
 
 .leftwebsite {
-    margin-left: 5.2rem;
+    margin-left: 5.0rem;
     margin-top: 1rem;
 }
 
@@ -164,7 +164,7 @@
 }
 
 .leftidline {
-    margin-left: 9.2rem;
+    margin-left: 9.0rem;
     margin-top: 1rem;
 }
 
@@ -185,8 +185,8 @@
 }
 
 .tb {
-    width: 220px;
-    height: 50px;
+    width: 280px;
+    height: 60px;
     border: 2px solid brown;
     margin-left: 2rem;
     margin-top: 2rem;
@@ -198,7 +198,7 @@
 }
 
 .ma {
-    margin-left: 61rem;
+    margin-left: 55rem;
 }
 
 .mai {
@@ -230,6 +230,7 @@
     background-color: #E0B87E;
     color: white;
     border: 0ch;
+    margin-left: 4rem;
 }
 
 .bgs {
@@ -291,7 +292,7 @@ th {
     background-color: #E0B87E;
     color: white;
     border: 0ch;
-    margin-left: 7rem;
+    margin-left: 4rem;
 }
 
 .ml {

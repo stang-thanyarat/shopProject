@@ -76,8 +76,8 @@ if (isset($_GET['keyword'])) {
                             <th><?= $e['employee_firstname'] . " " . $e['employee_lastname']; ?></th>
                             <th><?= $e['employee_card_id']; ?></th>
                             <th><?= $e['employee_telephone']; ?></th>
-                            <th class="copy"><a href="<?= $e['employee_card_id_copy']; ?>">ดู</a></th>
-                            <th class="copy"><a href="<?= $e['employee_address_copy']; ?>">ดู</a></th>
+                            <th><a href="<?= $e['employee_card_id_copy']; ?>">ดู</a></th>
+                            <th><a href="<?= $e['employee_address_copy']; ?>">ดู</a></th>
                             <th>
                                 <label class="switch">
                                     <input type="checkbox" id="S<?= $e['employee_id']; ?>" <?= $e['employee_status'] == 1 ? "checked" : ""; ?> onchange="setStatus(<?= $e['employee_id']; ?>)" />

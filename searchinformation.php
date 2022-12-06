@@ -36,7 +36,7 @@ function getFullRole($role)
                 <div class="row main">
                     <h1>ค้นหาข้อมูลการซื้อสินค้า </h1>
                     <div>
-                        เลขที่ใบเสร็จ :&nbsp &nbsp<input type="text" class="btnd" placeholder="&nbsp เลขที่ใบเสร็จ" required>
+                        เลขที่ใบเสร็จ :&nbsp &nbsp<input type="text" class="btnd" placeholder="&nbsp ค้นหาเลขที่ใบเสร็จ" required>
                         <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
                     </div>
                     <table class="main col-10">

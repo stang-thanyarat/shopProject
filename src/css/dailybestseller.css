@@ -81,7 +81,7 @@ input:checked+.slider:before {
 }
 
 .mai {
-    margin-left: 38rem;
+    margin-left: 45rem;
 }
 
 .dailybestsellerTable {
@@ -94,11 +94,11 @@ input:checked+.slider:before {
 }
 
 .date{
-
+margin-left: 1rem;
 }
 
 .search {
-     margin-left: -0.3rem;
+     margin-left: rem;
  }
 
 table,

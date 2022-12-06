@@ -1,4 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&display=swap');
+
+* {
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+    font-size: 16pt;
+
+}
+
 body{
     background: white;
 }
@@ -60,6 +67,7 @@ body{
 }
 
 .b {
+    font-size: 16pt;
     margin-top: 1rem;
     text-align: center;
 }
