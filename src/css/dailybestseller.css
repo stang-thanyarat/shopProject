@@ -32,8 +32,12 @@
     margin-left: 5rem;
 }
 
-.date{
+.searchdate{
     margin-left: -0.1rem;
+}
+
+.date{
+    height: 115%;
 }
 
 .search {
