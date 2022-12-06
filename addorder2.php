@@ -59,7 +59,7 @@ $product = $product->fetchAll();
                             </label>
                         </div>
                     </div>
-                    <div class="col-1 print font">
+                    <div class="col-1 printt font">
                         <button type="button" onclick="print()"><img src="./src/images/print.png" width="25"/>&nbsp&nbsp
                             print
                         </button>
@@ -275,7 +275,7 @@ $product = $product->fetchAll();
                     <center>รายการ: &nbsp;<input type="text" name="listother" id="listother" required/><br>
                         <p></p>
                     </center>
-                    <center>ราคา: &nbsp;<input type="text" name="priceother" id="priceother" required/>
+                    <center class="pr">ราคา: &nbsp;<input type="text" name="priceother" id="priceother" required/>
                         <p></p>
                     </center>
 

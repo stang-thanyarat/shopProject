@@ -8,7 +8,7 @@
 .main {
     margin-top: 5rem;
     margin-left: 4rem;
-    width: 90%;
+    width: 87%;
 
 }
 
@@ -41,8 +41,12 @@ th {
 
 }
 
+.pr{
+margin-left: 1.2rem;
+}
+
 .btn-g {
-    margin-left: 6rem;
+    margin-left: 4rem;
     width: 100%;
     justify-content: end;
     display: flex;
@@ -65,7 +69,7 @@ th {
     background-color: #E0B87E;
     color: white;
     border: 0ch;
-    margin-left: 6rem;
+    margin-left: 4rem;
 }
 
 
@@ -85,7 +89,7 @@ th {
 
 .A {
     margin-top: 3rem;
-    margin-right: 6rem;
+    margin-right: 5.5rem;
 }
 
 .Nbar {
@@ -118,7 +122,7 @@ th {
 }
 
 .btn2 {
-    margin-right: 4.3rem;
+    margin-right: 6rem;
     background-color: #7C904E;
     color: #fff;
     border: 0in;
@@ -208,9 +212,9 @@ th {
     margin-left: 14rem;
 }
 
-.print {
+.printt {
     margin-top: 1.4rem;
-    margin-left: 2rem;
+    margin-left: 65rem;
 }
 
 .pay {
