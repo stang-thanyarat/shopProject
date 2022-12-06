@@ -28,14 +28,14 @@ function getFullRole($role)
     <title>Document</title>
 </head>
 
-<?php include_once('nav.php');
+<?php
+include_once('nav.php');
 include_once "./database/Sell.php";
 include_once "./database/Product.php";
 $sell = new Sell();
 $product = new Product();
 $sells = $sell->fetchAll();
 $product = $product->fetchAll();
-
 ?>
 
 
@@ -152,9 +152,7 @@ $product = $product->fetchAll();
                                 <th width="10%"></th>
                             </tr>
                             </thead>
-                            <tbody id="list-priceother">
-
-                            </tbody>
+                            <tbody id="list-priceother"></tbody>
                         </table>
                     </div>
                     <div class="row A">
@@ -193,8 +191,7 @@ $product = $product->fetchAll();
                 <div class="modal-body">
                     <div class="col-12 r">
                         <div> ชื่อสินค้า &nbsp;&nbsp;:&nbsp;&nbsp;
-                            <select class="" id="product_id" name="product_id" style="background-color: #D4DDC6;"
-                                    required>
+                            <select class="" id="product_id" name="product_id" style="background-color: #D4DDC6;" required>
                                 <option value="all" selected hidden>เลือกสินค้า</option>
                                 <?php foreach ($product as $p) { ?>
                                     <option value="<?= $p['product_id'] ?>"><?= $p['product_name'] ?>

@@ -7,14 +7,14 @@ if (isset($_POST)) {
 
         if ($_POST['form_action'] === 'update') {
 
-            $bank->update($_POST);
+            $employeebank->update($_POST);
 
         } else if ($_POST['form_action'] === 'delete') {
 
-            $bank->delete($_POST['bank_id']);
+            $employeebank->delete($_POST['bank_id']);
         } else if ($_POST['form_action'] === 'insert') {
 
-            $bank->insert($_POST);
+            $employeebank->insert($_POST);
         }
     }
 } else {

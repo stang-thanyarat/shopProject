@@ -5,6 +5,136 @@
     font-size: 16pt;
 }
 
+.row {
+    --bs-gutter-x: 0;
+}
+
+.main {
+    margin-top: 6rem;
+    margin-left: 7rem;
+}
+
+.Nbar {
+    margin-top: 3.5rem;
+}
+
+.mai {
+    margin-left: 35rem;
+}
+
+.dailybestsellerTable {
+    margin-top: 2rem;
+    margin-left: 7rem;
+    margin-bottom: 3rem;
+}
+
+.category{
+    margin-left: 5rem;
+}
+
+.searchdate{
+    margin-left: -0.1rem;
+}
+
+.date{
+    height: 115%;
+}
+
+.search {
+     margin-left: -0.3rem;
+ }
+
+table,
+td,
+th {
+    border: 1px solid black;
+    text-align: center;
+    height: 50px;
+    padding: 1rem;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    height: 70px;
+}
+
+select {
+    background-color: #ABBE99;
+    border: 0ch;
+}
+
+.submit {
+    background-color: #7C904E;
+    border: 0ch;
+    color: white;
+}
+
+.btn:hover {
+    color: white;
+}
+
+.c {
+    margin-left: 55rem;
+}
+
+.btn-d {
+    border-radius: 25px 25px 25px 25px;
+    background-color: #F8E4C8;
+    border: 0ch;
+    font-size: 16pt;
+    height: 100%;
+}
+
+.btn {
+    border-radius: 25px 25px 25px 25px;
+    font-size: 16pt;
+    width: 150%;
+}
+
+.s {
+    background: transparent;
+    border: 0px;
+    margin-left: -2rem;
+}
+
+.bgs {
+    border: 0ch;
+    background-color: white;
+}
+
+/*ลบ*/
+
+.modal-title {
+    color: white;
+}
+
+.modal-header {
+    background-color: #688557;
+}
+
+.modal-footer {
+    background-color: white;
+}
+
+.modal-title2 {
+    color: white;
+}
+
+.btn-primary2 {
+    background-color: #7C904E;
+    color: white;
+    border: 0ch;
+    width: 10rem;
+}
+
+.modal-body {
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
 .switch {
     position: relative;
     display: inline-block;

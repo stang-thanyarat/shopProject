@@ -64,7 +64,7 @@ $rows = $sales->fetchAll();
                         <?php foreach ($rows as $row) { ?>
                             <tr>
                                 <th><?= dateFormat($row['sales_dt']) ?></th>
-                                <th><?= $row['import_files'] ?></th>
+                                <th><?= $row['sales_list_id'] ?></th>
                                 <th><?= $row['sales_amt'] ?></th>
                                 <th><?= $row['price_paid'] ?></th>
                                 <th><?= $row['payment_sl'] ?></th>
