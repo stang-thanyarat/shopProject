@@ -21,27 +21,29 @@ $("#form1").submit(async function (event) {
         event.preventDefault();
         alert('อีเมลไม่ถูกต้อง');
         return
-    }
-
-    event.preventDefault();
-    $('#bank').val(JSON.stringify(JSON.parse(localStorage.getItem("tableBank")).data))
-    let response = await fetch('controller/Sell.php', {
-        method: 'POST',
-        body: new FormData(document.form1)
-    });
-    if (!response.ok) {
-        console.log(response);
     } else {
-        await Swal.fire({
-            icon: 'success',
-            text: 'บันทึกข้อมูลเสร็จสิ้น',
-            timer: 3000
-        })
-        window.location.assign("sall.php");
-    }
-    
 
-})
+        $('#bank').val(JSON.stringify(JSON.parse(localStorage.getItem("tableBank")).data))
+        event.preventDefault();
+        let response = await fetch('controller/Sell.php', {
+            method: 'POST',
+            body: new FormData(document.form1)
+        });
+        console.log(response);
+
+        if (!response.ok) {
+            console.log(response);
+        } else {
+            await Swal.fire({
+                icon: 'success',
+                text: 'บันทึกข้อมูลเสร็จสิ้น',
+                timer: 3000
+            })
+            window.location.assign("sall.php");
+        }
+    }
+
+});
 
 //เบอร์โทรศัพท์
 function autoTab2(obj) {

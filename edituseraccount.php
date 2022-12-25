@@ -31,40 +31,25 @@ include_once('nav.php');
 include_once('database/UserAccount.php');
 include_once('database/Employee.php');
 $useraccount = new UserAccount();
-$employee = new Employee();
-$rows = $useraccount->fetchById($_GET['id']);
-$e = $employee->fetchById($_GET['id']);
-var_dump($rows);
-exit();
+$rows = $useraccount->fetchByIdWithoutAdmin($_GET['id']);
 ?>
 
 <body>
-<form action="controller/UserAccount.php" name="form1" id="form1" method="POST">
+<form action="controller/UserAccount.php" name="form1" id="form1" method="POST" >
     <input type="hidden" value="useraccount" name="table" />
     <input type="hidden" value="update" name="form_action" />
     <input type="hidden" value="<?= $_GET['id'] ?>" name="unique_id" />
-    <div class="row main">
-
+    <input type="hidden" value="<?= $rows['employee_id'] ?>" name="employee_id" />
         <div class="row main">
             <div class="row">
                 <h1>แก้ไขบัญชีผู้ใช้งาน</h1>
             </div>
             <div class="row top">
-                <div class="col-lg-4 col-md-4">
-                    <label for="employee_id">ชื่อพนักงาน:</label>
-                    <select  class="bb" required onchange="readEmail()" style="background-color: #D4DDC6;">
-                        <option value="" selected hidden>เลือกพนักงาน</option>
-                        <?php foreach ($rows as $row) { ?>
-                            <option value="<?= $row['employee_id'] ?>" <?= $row['employee_id'] == $row['employee_id'] ? "selected" : '' ?>><?= $row['employee_prefix'] ?> <?= $row['employee_firstname'] ?> <?= $row['employee_lastname'] ?></option>
-                        <?php } ?>
-                    </select>
-                    <div class="a">*</div>
-                </div>
                 <div class="col leftposition">
                     <label for="account_user_type">ตำแหน่ง : </label>
-                    <input type="radio" name="account_user_type" value="L" class="bb" checked>
+                    <input type="radio" name="account_user_type" value="L" class="bb" <?=$rows['account_user_type']=='L'? 'checked' :''?>>
                     <label for="account_user_type">เจ้าของร้าน </label>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="account_user_type" value="E">
+                    <input type="radio" name="account_user_type" value="E" <?=$rows['account_user_type']=='E'? 'checked' :''?>>
                     <label for="account_user_type">พนักงาน</label>
                     <div class="j">*</div>
                 </div>
@@ -77,17 +62,10 @@ exit();
                 </div>
                 <div class="col-lg-4 login leftpassword">
                     <label for="password">รหัสผ่าน :</label>
-                    <input  name = "account_password" id = "account_password" type = "password" onblur = 'check_num(this)' class = "bb" value = "<?= $rows['account_password']; ?> " required />
+                    <input  name = "account_password" id = "account_password" type = "password"  class = "bb" autocomplete="new-password"/>
                     <div class="e">*</div>
                 </div>
-                <div class="col-lg-4 leftstatus">
-                    <label for="account_user_status">สถานะการใช้งาน :</label>
-                    <label class="switch bb">
-                        <input type="checkbox" id="account_user_status">
-                        <span class="slider round"></span>
-                    </label>
-                    <div class="h">*</div>
-                </div>
+
             </div>
             <div class="row btn-g">
                 <div class="col-lg-2 col-md-4">
@@ -99,6 +77,9 @@ exit();
             </div>
     </form>
 </body>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="./node_modules//sweetalert2/dist/sweetalert2.min.js"></script>
 <script src="./src/js/edituseraccount.js"></script>
 
 </html>

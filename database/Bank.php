@@ -85,9 +85,6 @@ class Bank
     public function insert($data)
     {
         try {
-            $sql = "SET FOREIGN_KEY_CHECKS=0";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute();
             $sql = "INSERT INTO bank_tb (sell_id, bank_name, bank_number, bank_account) 
         VALUES (?,?,?,?)";
             $stmt = $this->conn->prepare($sql);

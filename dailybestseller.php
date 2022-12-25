@@ -76,24 +76,13 @@ $c = $category->fetchAll();
                 <thead>
                     <tr>
                         <th width="5%">ลำดับ</th>
-                        <th width="40%">รูปภาพ</th>
-                        <th width="30%">ชื่อสินค้า</th>
+                        <th width="30%">รูปภาพ</th>
+                        <th width="20%">ชื่อสินค้า</th>
                         <th width="12.5%">ราคา</th>
                         <th width="12.5%">จำนวน</th>
+                        <th width="10%">จำนวนการขาย</th>
                     </tr>
                 <tbody id="dailybestsellerTable"></tbody>
-                <!--<?php $i = 1;
-                foreach ($rows as $row) {
-                        ?>
-                        <tr>
-                        <th width=10%><?= $i ?></th>
-                        <th><img src='<?= $row['product_img'] ?>' width="400"></th>
-                        <th><?= $row['product_name'] ?></th>
-                        <th><?= $row['price'] ?></th>
-                        <th><?= $row['product_dlt_unit'] ?></th>
-                        </tr>
-                        <?php $i++;
-                } ?>-->
             </table>
         </div>
             <!-- ลบ -->
