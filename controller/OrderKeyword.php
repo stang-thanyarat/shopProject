@@ -11,5 +11,5 @@ function getdata(){
     } else if ((isset($_GET['date']) && $_GET['date'] != "") && (isset($_GET['keyword']) && $_GET['keyword'] != "")) {
         $rows = $order->search($_GET['keyword'],);
     }
-    return   $rows ;
+    return $rows ;
 }

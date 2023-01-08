@@ -45,13 +45,10 @@ table {
     --bs-gutter-x: 0rem;
 }
 
-.q {
+.saletable {
     margin: auto;
     margin-top: 2rem;
-}
-
-.col-9 {
-    width: 90%;
+    margin-bottom: 4rem;
 }
 
 .dateS{

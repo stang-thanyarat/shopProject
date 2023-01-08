@@ -29,10 +29,9 @@ function getFullRole($role)
     <title>Document</title>
 </head>
 <?php
-include_once('./database/Order.php');
-include_once('./database/Sell.php');
-$order = new Order();
 include_once('nav.php');
+include_once('./database/Order.php');
+$order = new Order();
 if (isset($_GET['keyword']) && $_GET['keyword'] != "") {
     $rows = $order->search($_GET['keyword']);
 } else {
@@ -67,7 +66,6 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != "") {
                         <th width="15%">สถานะ</th>
                         <th width="10%"></th>
                     </tr>
-                    <tbody id="ordertable">
                     <?php foreach ($rows
 
                     as $row) { ?>
@@ -93,10 +91,7 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != "") {
                         </th>
             </div>
             </th>
-
-            </tr>
-            <?php
-            } ?>
+            </tr><?php } ?>
             </table>
             <p></p>
         </div>
@@ -124,6 +119,5 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != "") {
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
 <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="./src/js/order.js"></script>
 
 </html>

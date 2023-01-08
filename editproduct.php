@@ -179,7 +179,7 @@ $sells = $sell->fetchAll();
                                     <input name="cost_price" type="text" id="cost_price" class="inbox" value="<?= $p['cost_price']; ?>" required />
                                 </div>
                                 <div class="col-2 watchcostprice">
-                                    <a type="button" href="costprice.php" class="button btn">ดูราคาทุน</a>
+                                    <a type="button" href="costprice.php?id=<?= $p['product_id']; ?>" class="button btn">ดูราคาทุน</a>
                                 </div>
                             </div>
                             <div class="row a">

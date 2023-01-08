@@ -69,7 +69,22 @@ class UserAccount
     public function fetchById($id)
     {
         try {
-            $sql = "SELECT * FROM user_account_tb WHERE employee_id=?";
+            $sql = "SELECT * FROM user_account_tb WHERE unique_id = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
+    }
+
+    public function fetchByIdWithoutAdmin($id)
+    {
+        try {
+            $sql = "SELECT * FROM user_account_tb WHERE employee_id = ? ";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
@@ -153,7 +168,7 @@ class UserAccount
         $userData = $this->fetchAddEmployee();
         $data = [];
         foreach ($userData as $user) {
-            if ($user['account_user_type'] == $type){
+            if ($user['account_user_type'] == $type) {
                 $data[] = $user;
             }
         }
@@ -163,13 +178,16 @@ class UserAccount
     public function insert($data)
     {
         try {
+            $sql = "SET FOREIGN_KEY_CHECKS=0";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
             $sql = "INSERT INTO user_account_tb (account_username, account_password, account_user_status, employee_id ,account_user_type) 
         VALUES (?,?,?,?,?)";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $data['account_username'], PDO::PARAM_STR);
             $stmt->bindParam(2, $data['account_password'], PDO::PARAM_STR);
             $stmt->bindParam(3, $data['account_user_status'], PDO::PARAM_STR);
-            $stmt->bindParam(4, $data['employee_id'], PDO::PARAM_INT);     
+            $stmt->bindParam(4, $data['employee_id'], PDO::PARAM_INT);
             $stmt->bindParam(5, $data['account_user_type'], PDO::PARAM_STR);
             $stmt->execute();
         } catch (Exception $e) {
@@ -180,20 +198,53 @@ class UserAccount
 
     public function update($data)
     {
-        try {
-            $sql = "UPDATE user_account_tb
-        SET account_username = ?, account_password = ?, account_user_status = ?, employee_id = ?
-        WHERE unique_id=?";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(1, $data['account_username'], PDO::PARAM_STR);
-            $stmt->bindParam(2, $data['account_password'], PDO::PARAM_STR);
-            $stmt->bindParam(3, $data['account_user_status'], PDO::PARAM_STR);
-            $stmt->bindParam(4, $data['employee_id'], PDO::PARAM_INT);
-            $stmt->bindParam(5, $data['unique_id'], PDO::PARAM_INT);
-            $stmt->execute();
-        } catch (Exception $e) {
-            http_response_code(500);
-            echo strval($e);
+
+        if ($data['account_password'] == "") {
+            try {
+                $sql = "SET FOREIGN_KEY_CHECKS=0";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->execute();
+                $sql = "UPDATE user_account_tb SET account_username = ?, account_user_type= ? WHERE employee_id=?";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->bindParam(1, $data['account_username'], PDO::PARAM_STR);
+                $stmt->bindParam(2, $data['account_user_type'], PDO::PARAM_STR);
+                $stmt->bindParam(3, $data['employee_id'], PDO::PARAM_INT);
+                $stmt->execute();
+                $sql = "UPDATE employee_tb SET employee_email = ? WHERE employee_id = ?";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->bindParam(1, $data['account_username'], PDO::PARAM_STR);
+                $stmt->bindParam(2, $data['employee_id'], PDO::PARAM_INT);
+                $stmt->execute();
+            } catch (Exception $e) {
+                http_response_code(500);
+                echo strval($e);
+            }
         }
+        else {
+            try {
+                $sql = "SET FOREIGN_KEY_CHECKS=0";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->execute();
+                $sql = "UPDATE user_account_tb
+            SET account_username = ?, account_password = ?,  account_user_type= ?
+            WHERE employee_id=?";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->bindParam(1, $data['account_username'], PDO::PARAM_STR);
+                $password_hash = password_hash($data['account_password'], PASSWORD_BCRYPT);
+                $stmt->bindParam(2, $password_hash, PDO::PARAM_STR);
+                $stmt->bindParam(3, $data['account_user_type'], PDO::PARAM_STR);
+                $stmt->bindParam(4, $data['employee_id'], PDO::PARAM_INT);
+                $stmt->execute();
+                $sql = "UPDATE employee_tb SET employee_email = ? WHERE employee_id = ?";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->bindParam(1, $data['account_username'], PDO::PARAM_STR);
+                $stmt->bindParam(2, $data['employee_id'], PDO::PARAM_INT);
+                $stmt->execute();
+            } catch (Exception $e) {
+                http_response_code(500);
+                echo strval($e);
+            }
+        }
+
     }
 }

@@ -43,7 +43,7 @@ function getFullRole($role)
                     <div class="col-3 c">
                         <label for="account_user_type">ตำแหน่ง :</label>
                         <select name="account_user_type" id="account_user_type" style="background-color: #D4DDC6;">
-                            <option value="position" selected hidden>&nbsp;&nbsp;เลือกตำแหน่ง</option>
+                            <option value="position" >พนักงานทั้งหมด</option>
                             <option value="L">เจ้าของร้าน</option>
                             <option value="E">พนักงาน</option>
                         </select>

@@ -3,7 +3,7 @@ include_once 'database/Sales.php';
 include_once 'Redirection.php';
 $sales = new Sales();
 if (isset($_POST)) {
-    if ($_POST['table'] === 'product') {
+    if ($_POST['table'] === 'sales') {
 
         if ($_POST['form_action'] === 'update') {
             $sales->update($_POST);

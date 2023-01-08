@@ -37,10 +37,12 @@ $rows = $employee->fetchWithOutUserId();
     <form action="controller/UserAccount.php" name="form1" id="form1" method="POST">
         <input type="hidden" value="useraccount" name="table" />
         <input type="hidden" value="insert" name="form_action" />
+        <!-- หัวข้อหลัก -->
         <div class="row main">
             <div class="row">
-                <h1>เพิ่มบัญชีผู้ใช้งาน</h1>
+                <h1>แก้ไขบัญชีผู้ใช้งาน</h1>
             </div>
+            <!--เนื้อหา-->
             <div class="row top">
                 <div class="col-lg-4 col-md-12 employee">
                     <label for="employee_id">ชื่อพนักงาน :</label>
@@ -54,7 +56,7 @@ $rows = $employee->fetchWithOutUserId();
                 </div>
                 <div class="col leftposition">
                     <label for="account_user_type">ตำแหน่ง :</label>
-                    <input type="radio" name="account_user_type" value="L" class="bb"  checked>
+                    <input type="radio" name="account_user_type" value="L" class="bb" checked>
                     <label for="account_user_type">เจ้าของร้าน </label>&nbsp;&nbsp;&nbsp;
                     <input type="radio" name="account_user_type" value="E">
                     <label for="account_user_type">พนักงาน</label>
@@ -81,6 +83,7 @@ $rows = $employee->fetchWithOutUserId();
                     <div class="h">*</div>
                 </div>
             </div>
+            <!--ปุ่มบันทึกและปุ่มยกเลิก-->
             <div class="row btn-g">
                 <div class="col-lg-2 col-md-12">
                     <button type="button" class="btn-c reset" onclick="javascript:window.location='manageuseraccounts.php';">ยกเลิก</button>
