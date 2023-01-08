@@ -41,7 +41,7 @@ class UserAccount
     public function fetchAddEmployee()
     {
         try {
-            $sql = "SELECT * FROM user_account_tb LEFT JOIN employee_tb ON user_account_tb.employee_id = employee_tb.employee_id";
+            $sql = "SELECT U.*,E.* FROM user_account_tb U,employee_tb E WHERE U.employee_id = E.employee_id";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -69,7 +69,7 @@ class UserAccount
     public function fetchById($id)
     {
         try {
-            $sql = "SELECT U.*,E.employee_prefix,E.employee_firstname,E.employee_lastname FROM user_account_tb U,employee_tb E WHERE U.employee_id = E.employee_id";
+            $sql = "SELECT * FROM user_account_tb WHERE employee_id=?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();

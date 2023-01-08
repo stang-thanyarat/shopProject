@@ -26,20 +26,16 @@ function getFullRole($role)
     <link rel="stylesheet" href="./src/css/edituseraccount.css" />
     <title>Document</title>
 </head>
+
 <?php
 include_once('nav.php');
 include_once('database/UserAccount.php');
-include_once('database/Employee.php');
 $useraccount = new UserAccount();
-$employee = new Employee();
 $rows = $useraccount->fetchById($_GET['id']);
-$e = $employee->fetchById($_GET['id']);
-var_dump($rows);
-exit();
 ?>
 
 <body>
-<form action="controller/UserAccount.php" name="form1" id="form1" method="POST">
+<form action="controller/UserAccount.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
     <input type="hidden" value="useraccount" name="table" />
     <input type="hidden" value="update" name="form_action" />
     <input type="hidden" value="<?= $_GET['id'] ?>" name="unique_id" />
