@@ -59,8 +59,7 @@ $c = $contract->fetchAll();
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col owner">
-                        นามเจ้าของร้าน :<span style="color: red; ">&nbsp&nbsp*</span>
+                    <div class="col owner">นามเจ้าของร้าน :<span style="color: red; ">&nbsp&nbsp*</span>
                         <select name="employee_id" id="employee_id" class="bb selectsis" style="background-color: #D4DDC6;" required>
                             <option value="all" selected hidden>เลือกเจ้าของร้าน</option>
                             <?php foreach ($laber as $s) { ?>
