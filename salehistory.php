@@ -60,13 +60,13 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
             </div>
         </form>
         <?php if (count($rows) > 0) { ?>
-            <table class="col-9 q">
+            <table class="col-11 saletable">
                 <tr>
-                    <th width=15%>วันที่และเวลาที่ขาย</th>
-                    <th width=20%>เลขที่ใบเสร็จ/ใบส่งของ</th>
+                    <th width=30%>วันที่และเวลาที่ขาย</th>
+                    <th width=15%>เลขที่ใบเสร็จ/ใบส่งของ</th>
                     <th width=15%>จำนวนรวม</th>
                     <th width=15%>ยอดรวมทั้งหมด</th>
-                    <th width=15%>ช่องทางการชำระ</th>
+                    <th width=25%>ช่องทางการชำระ</th>
                 </tr>
                 <tr>
                     <tbody id="salesHistory">

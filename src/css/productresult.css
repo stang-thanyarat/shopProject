@@ -38,6 +38,8 @@ td,
 th {
     border: 1px solid black;
     text-align: center;
+    padding-top: 10pt;
+    padding-bottom: 10pt;
 }
 
 table {
@@ -184,9 +186,10 @@ input:checked+.slider:before {
    
 }
 
-.q{
+.producttable{
     margin-top: 2rem;
-    margin-left: 4rem; 
+    margin-left: 4rem;
+    margin-bottom: 4rem;
 }
 
 .z{
@@ -198,7 +201,6 @@ input:checked+.slider:before {
 .y{
     font-size: 16pt;
     margin-left: -3rem;
-   
 }
 
 .modal-title2{
