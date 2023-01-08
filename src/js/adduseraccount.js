@@ -23,21 +23,18 @@ async function readEmail(){
 
 $("#form1").submit(async function (event) {
     event.preventDefault();
-            $('#bank').val(JSON.stringify(JSON.parse(localStorage.getItem("tableBank")).data))
-            let response = await fetch('controller/Employee.php', {
-                method: 'POST',
-                body: new FormData(document.form1)
-            });
-            console.log(response);
-            if (!response.ok) {
-                console.log(response);
-            } else {
-                await Swal.fire({
-                    icon: 'success',
-                    text: 'บันทึกข้อมูลเสร็จสิ้น',
-                    timer: 3000
-                })
-                console.log(await response.text());
-                window.location.assign("employee.php");
-            }
+    Swal.fire({
+        title: 'คำเตือน',
+        text: "คุณต้องการเพิ่มบัญชีผู้ใช้หรือไม่",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'ใช่',
+        cancelButtonText: 'ยกเลิก'
+    }).then(async (result) => {
+        if (result.isConfirmed) {
+            this.submit();
+        }
+    })
 });

@@ -63,7 +63,7 @@ if (isset($_GET['keyword'])) {
                     </div>
                     </form>
                 </div>
-                    <table class="col-11 q">
+                    <table class="col-11 contracttable">
                         <tr>
                             <th width=15%>วันที่ทำสัญญา</th>
                             <th width=10%>เลขที่สัญญา</th>

@@ -1,32 +1,229 @@
 <?php
-include_once ("Connection.php");
-include_once ("Product.php");
-include_once ("Category.php");
-include_once ("Sales.php");
+include_once("Connection.php");
+include_once("Product.php");
+include_once("Category.php");
+include_once("Sales.php");
 
 
-Class Sales{
+class Sales
+{
     private $conn;
+
     function __construct()
     {
-        $this -> conn = Connection();
+        $this->conn = Connection();
     }
-    public function fetchAll(){
 
-        $sql = "SELECT SA.*,P.* FROM sales_tb SA,product_tb P WHERE  SA.product_id = P.product_id ";
-        $stmt = $this -> conn -> prepare($sql);
+    public function fetchAll()
+    {
+        $sql = "SELECT SA.*,P.* FROM sales_tb SA,product_tb P WHERE  SA.product_id = P.product_id ORDER BY SA.sales_dt DESC ";
+        $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        $result = $stmt ->fetchAll();
+        $result = $stmt->fetchAll();
+        $dup = [];
+        $res = [];
+        foreach ($result as $r) {
+            if (!in_array($r['product_id'], $dup)) {
+                $r['count']=1;
+                $res[] = $r;
+                $dup[] = $r['product_id'];
+            }else{
+                $i = array_search($r['product_id'], $dup);
+                $res[$i]['count']++;
+                $res[$i]['sales_amt'] += $r['sales_amt'];
+            }
+        }
+        $result = $res;
         return $result;
-
     }
 
-    public function fetchById($id){
-        $sql = "SELECT * FROM sales_tb WHERE sales_list_id=?";
-        $stmt = $this -> conn -> prepare($sql);
-        $stmt->bindParam(1,$id, PDO::PARAM_INT);
+
+    public function fetchBetween($start,$end)
+    {
+        $sql = "SELECT SA.*,P.* FROM sales_tb SA,product_tb P WHERE  SA.product_id = P.product_id  AND  SA.sales_dt BETWEEN ? AND ? ORDER BY SA.sales_dt DESC ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $start, PDO::PARAM_STR);
+        $stmt->bindParam(2, $end, PDO::PARAM_STR);
         $stmt->execute();
-        $result = $stmt ->fetch();
+        $result = $stmt->fetchAll();
+        $dup = [];
+        $res = [];
+        foreach ($result as $r) {
+            if (!in_array($r['product_id'], $dup)) {
+                $r['count']=1;
+                $res[] = $r;
+                $dup[] = $r['product_id'];
+            }else{
+                $i = array_search($r['product_id'], $dup);
+                $res[$i]['count']++;
+                $res[$i]['sales_amt'] += $r['sales_amt'];
+            }
+        }
+        $result = $res;
+        return $result;
+    }
+
+    public function fetchAllDate($date)
+    {
+        $sql = "SELECT SA.*,P.* FROM sales_tb SA,product_tb P WHERE  SA.product_id = P.product_id  AND SA.sales_dt = ? ORDER BY SA.sales_dt DESC ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $date, PDO::PARAM_STR);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        $dup = [];
+        $res = [];
+        foreach ($result as $r) {
+            if (!in_array($r['product_id'], $dup)) {
+                $r['count']=1;
+                $res[] = $r;
+                $dup[] = $r['product_id'];
+            }else{
+                $i = array_search($r['product_id'], $dup);
+                $res[$i]['count']++;
+                $res[$i]['sales_amt'] += $r['sales_amt'];
+            }
+        }
+        $result = $res;
+        return $result;
+    }
+
+    public function fetchAllCondition($date,$id,$keyword){
+        $sql = "SELECT SA.*,P.* FROM sales_tb SA,product_tb P WHERE  SA.product_id = P.product_id  AND P.category_id = ?
+                AND SA.sales_dt = ? AND P.product_name LIKE ? ORDER BY SA.sales_dt DESC   ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $id, PDO::PARAM_INT);
+        $stmt->bindParam(2, $date, PDO::PARAM_STR);
+        $like = "%" . $keyword . "%";
+        $stmt->bindParam(3, $like, PDO::PARAM_STR);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        $dup = [];
+        $res = [];
+        foreach ($result as $r) {
+            if (!in_array($r['product_id'], $dup)) {
+                $r['count']=1;
+                $res[] = $r;
+                $dup[] = $r['product_id'];
+            }else{
+                $i = array_search($r['product_id'], $dup);
+                $res[$i]['count']++;
+                $res[$i]['sales_amt'] += $r['sales_amt'];
+            }
+        }
+        $result = $res;
+        return $result;
+    }
+
+    public function searchsales($keyword, $id = null)
+    {
+        $like = "%$keyword%";
+        if (is_null($id)) {
+            $sql = "SELECT SA.*,P.* FROM sales_tb SA,product_tb P WHERE  SA.product_id = P.product_id  AND product_name LIKE ?";
+
+        } else {
+            $sql = "SELECT SA.*,P.* FROM sales_tb SA,product_tb P WHERE  SA.product_id = P.product_id AND  P.category_id = ?  AND product_name LIKE ? ";
+        }
+        $sql .= ' ORDER BY SA.sales_dt DESC' ;
+        $stmt = $this->conn->prepare($sql);
+        if (is_null($id)) {
+            $stmt->bindParam(1, $like, PDO::PARAM_STR);
+        } else {
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->bindParam(2, $like, PDO::PARAM_STR);
+        }
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        $dup = [];
+        $res = [];
+        foreach ($result as $r) {
+            if (!in_array($r['product_id'], $dup)) {
+                $r['count']=1;
+                $res[] = $r;
+                $dup[] = $r['product_id'];
+            }else{
+                $i = array_search($r['product_id'], $dup);
+                $res[$i]['count']++;
+                $res[$i]['sales_amt'] += $r['sales_amt'];
+            }
+        }
+        $result = $res;
+        return $result;
+    }
+
+    public function fetchAllDateAndKeyword($date,$keyword)
+    {
+        $sql = "SELECT SA.*,P.* FROM sales_tb SA,product_tb P WHERE  SA.product_id = P.product_id  
+                AND SA.sales_dt = ? AND P.product_name LIKE ? ORDER BY SA.sales_dt DESC ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $date, PDO::PARAM_STR);
+        $like = "%" . $keyword . "%";
+        $stmt->bindParam(2, $like, PDO::PARAM_STR);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        $dup = [];
+        $res = [];
+        foreach ($result as $r) {
+            if (!in_array($r['product_id'], $dup)) {
+                $r['count']=1;
+                $res[] = $r;
+                $dup[] = $r['product_id'];
+            }else{
+                $i = array_search($r['product_id'], $dup);
+                $res[$i]['count']++;
+                $res[$i]['sales_amt'] += $r['sales_amt'];
+            }
+        }
+        $result = $res;
+        return $result;
+    }
+
+    public function fetchAllDateAndId($date,$id)
+    {
+        $sql = "SELECT SA.*,P.* FROM sales_tb SA,product_tb P WHERE  SA.product_id = P.product_id  AND  P.category_id = ?
+                AND SA.sales_dt = ? ORDER BY SA.sales_dt DESC ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $id, PDO::PARAM_INT);
+        $stmt->bindParam(2, $date, PDO::PARAM_STR);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        $dup = [];
+        $res = [];
+        foreach ($result as $r) {
+            if (!in_array($r['product_id'], $dup)) {
+                $r['count']=1;
+                $res[] = $r;
+                $dup[] = $r['product_id'];
+            }else{
+                $i = array_search($r['product_id'], $dup);
+                $res[$i]['count']++;
+                $res[$i]['sales_amt'] += $r['sales_amt'];
+            }
+        }
+        $result = $res;
+        return $result;
+    }
+
+    public function fetchById($id)
+    {
+        $sql = "SELECT SA.*,P.* FROM sales_tb SA,product_tb P WHERE  SA.product_id = P.product_id AND P.category_id = ? ORDER BY SA.sales_dt DESC ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        $dup = [];
+        $res = [];
+        foreach ($result as $r) {
+            if (!in_array($r['product_id'], $dup)) {
+                $r['count']=1;
+                $res[] = $r;
+                $dup[] = $r['product_id'];
+            }else{
+                $i = array_search($r['product_id'], $dup);
+                $res[$i]['count']++;
+                $res[$i]['sales_amt'] += $r['sales_amt'];
+            }
+        }
+        $result = $res;
         return $result;
 
     }
@@ -43,7 +240,7 @@ Class Sales{
             }
             //กรณีปิดก็จะปิดสถานะ
             //แต่ถ้าลบ elseif ออก จะเป็นการลบ(ซ่อนสินค้า)ออกไป
-            elseif ($row['sales_status'] == 0 && $row['product_rm_unit'] > 0){
+            elseif ($row['sales_status'] == 0 && $row['product_rm_unit'] > 0) {
                 $catData = (new Category())->fetchById($row);
                 $sumData[] = array_merge($row, $catData);
             }
@@ -61,31 +258,12 @@ Class Sales{
         return $result;
     }
 
-    public function searchsales($keyword, $id = null)
+
+    public function delete($id)
     {
-        $like = "%$keyword%";
-        if(is_null($id)){
-            $sql = "SELECT C.*,P.*,SA.* FROM category_tb C,product_tb P,sales_tb SA WHERE C.category_id = P.category_id = SA.category_id AND product_name LIKE ?";
-
-        }else{
-            $sql = "SELECT C.*,P.*,SA.* FROM category_tb C,product_tb P,sales_tb SA WHERE C.category_id = ? ";
-        }
-        $stmt = $this->conn->prepare($sql);
-        if(is_null($id)){
-            $stmt->bindParam(1, $like, PDO::PARAM_STR);
-        }else{
-            $stmt->bindParam(1, $id, PDO::PARAM_INT);
-            $stmt->bindParam(2, $like, PDO::PARAM_STR);
-        }
-        $stmt->execute();
-        $result = $stmt->fetchAll();
-        return $result;
-    }
-
-    public function delete($id){
         $sql = "DELETE FROM sales_tb WHERE sales_list_id=?;";
-        $stmt = $this -> conn -> prepare($sql);
-        $stmt->bindParam(1,$id, PDO::PARAM_INT);
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $id, PDO::PARAM_INT);
         $stmt->execute();
     }
 

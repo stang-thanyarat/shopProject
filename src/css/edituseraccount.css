@@ -116,6 +116,7 @@ option {
 }
 
 .reset {
+    margin-left: 4rem;
     background-color: #E0B87E;
     color: white;
     border: 0ch;
@@ -125,7 +126,9 @@ option {
     margin-left: 2rem;
 }
 
-
+.employee{
+    margin-left: 2.5rem;
+}
 
 .a {
     color: red;
@@ -146,7 +149,7 @@ option {
 }
 
 .leftemail {
-    margin-left: 2.5rem;
+    margin-left: 4.8rem;
 }
 
 .d {
@@ -166,7 +169,7 @@ option {
 }
 
 .leftposition {
-    margin-left: 1.3rem;
+    margin-left: 0rem;
 }
 
 .g {
@@ -176,13 +179,14 @@ option {
 }
 
 .leftstatus {
-    margin-left: 2rem;
+    margin-top: 2rem;
+    margin-left: 0rem;
 }
 
 .h {
     color: red;
     margin-left: 7.6rem;
-    margin-top: -2.5rem;
+    margin-top: -1.9rem;
 }
 
 .leftposition {

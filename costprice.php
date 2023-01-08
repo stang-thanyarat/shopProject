@@ -33,9 +33,6 @@ function getFullRole($role)
 <?php include_once('nav.php');
 include_once "./database/Product.php";
 $product = new Product();
-if (!isset($_GET['id'])) {
-    redirection('/productexchangehistory.php');
-}
 $p = $product->fetchById($_GET['id']);
 ?>
 

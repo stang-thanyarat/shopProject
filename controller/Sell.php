@@ -76,6 +76,7 @@ if (isset($_POST)) {
                 }
             }
             $sell->update($_POST);
+            Redirection("/sall.php");
         }
         else if ($_POST['form_action'] === 'delete') {
             if (file_exists($_POST['seller_card_id'])) {
@@ -142,6 +143,8 @@ if (isset($_POST)) {
                 $form['bank_account'] =  $value->name;
                 $bank->insert($form);
             }
+            $sell->insert($_POST);
+            Redirection("/sall.php");
         }
     }
 } else {
