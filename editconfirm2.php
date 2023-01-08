@@ -67,7 +67,7 @@ $product = $product->fetchAll();
                         </th>
                     </div>
                 </div>
-                <div class="col-1 print font">
+                <div class="col-1 printt font">
                     <button type="button" onclick="print()"><img src="./src/images/print.png" width="25"/>&nbsp&nbsp
                         print
                     </button>

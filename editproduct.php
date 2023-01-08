@@ -74,7 +74,7 @@ $sells = $sell->fetchAll();
                     <tr>
                         <th>
                             <div class="row a">
-                                <div class="col">
+                                <div class="col-4">
                                     ประเภทสินค้า :<span style="color: red; ">&nbsp*</span>
                                     <select name="category_id" id="category_id" class="inbox" style="background-color: #D4DDC6;" required>
                                         <option value="" selected hidden>เลือกประเภทสินค้า</option>
@@ -91,22 +91,22 @@ $sells = $sell->fetchAll();
                             </div>
 
                             <div class="row a">
-                                <div class="col productname">
+                                <div class="col-4 productname">
                                     ชื่อสินค้า :<span style="color: red; ">&nbsp*</span>
                                     <input name="product_name" type="text" id="product_name" class="inbox" value="<?= $p['product_name']; ?>" required />
                                 </div>
-                                <div class="col">
+                                <div class="col-4 brand">
                                     ยี่ห้อสินค้า :<span style="color: red; ">&nbsp*</span>
                                     <input name="brand" type="text" id="brand" class="inbox" value="<?= $p['brand']; ?>" />
                                 </div>
                             </div>
 
                             <div class="row a">
-                                <div class="col productversion">
+                                <div class="col-4 productversion">
                                     รุ่นสินค้า :<span style="color: red; ">&nbsp*</span>
                                     <input name="model" type="text" id="model" class="inbox" value="<?= $p['model']; ?>" />
                                 </div>
-                                <div class="col sellername">
+                                <div class="col-4 sellername">
                                     ชื่อผู้ขาย :<span style="color: red; ">&nbsp*</span>
                                     <select name="sell_id" id="sell_id" class="inbox" style="background-color: #D4DDC6;" required>
                                         <?php foreach ($sells as $s) { ?>
@@ -116,7 +116,7 @@ $sells = $sell->fetchAll();
                                 </div>
                             </div>
                             <div class="row a">
-                                <div class="col image">
+                                <div class="col-6 image">
                                     รูปภาพสินค้า :<span style="color: red; ">&nbsp*</span>
                                     <input type="file" accept="image/*" name="product_img1" id="product_img1" class="inbox" value="<?= $p['product_img']; ?>">
                                 </div>
@@ -127,7 +127,7 @@ $sells = $sell->fetchAll();
                             </div>
 
                             <div class="row a">
-                                <div class="col">
+                                <div class="col-6">
                                     <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
                                 </div>
                             </div>
@@ -139,7 +139,7 @@ $sells = $sell->fetchAll();
                                     <?= $p['product_detail']; ?>
                                     </textarea>
                                 </div>
-                                <div class="col amount">
+                                <div class="col-4 amount">
                                     จำนวน :<span style="color: red; ">&nbsp*</span>
                                     <input name="product_dlt_unit" type="text" id="product_dlt_unit" class="inbox" value="<?= $p['product_dlt_unit']; ?>" required />
                                 </div>
@@ -158,7 +158,7 @@ $sells = $sell->fetchAll();
                                     </select>
 
                                 </div>
-                                <div class="col-3 price">
+                                <div class="col-4 price">
                                     ราคาขาย :<span style="color: red; ">&nbsp*</span>
                                     <input name="price" type="text" id="price" class="inbox" value="<?= $p['price']; ?>" required />
                                 </div>
@@ -174,7 +174,7 @@ $sells = $sell->fetchAll();
                                     <input name="notification_amt" type="text" id="notification_amt" class="inbox" value="<?= $p['notification_amt']; ?>" />
                                     <!--notification_amt = notification amount-->
                                 </div>
-                                <div class="col-3 costprice">
+                                <div class="col-4 costprice">
                                     ราคาทุน :<span style="color: red; ">&nbsp*</span>
                                     <input name="cost_price" type="text" id="cost_price" class="inbox" value="<?= $p['cost_price']; ?>" required />
                                 </div>
@@ -189,17 +189,17 @@ $sells = $sell->fetchAll();
                                 </div>
                             </div>
                             <div class="row a">
-                                <div class="col settingmin">
+                                <div class="col-4 settingmin">
                                     <input name="set_n_amt" id="set_n_amt" type="checkbox" <?= $p['set_n_amt'] == 0 ? "" : "checked" ?>/>
                                     <label for="set_n_amt">&nbsp;ตั้งค่าสินค้าคงคลังขั้นต่ำล่วงหน้า</label>
                                 </div>
                             </div>
                             <div class="row a" id="post">
-                                <div class="col start">
+                                <div class="col-4 start">
                                     วันที่เริ่มใช้งาน :<span style="color: red; ">&nbsp*</span>
                                     <input name="date_n_amt" type="date" id="date_n_amt" class="inbox" value="<?= $p['date_n_amt']; ?>" />
                                 </div>
-                                <div class="col min2">
+                                <div class="col-4 min2">
                                     สินค้าคงคลังขั้นต่ำ :<span style="color: red; ">&nbsp*</span>
                                     <input name="notification_amt2" type="text" id="notification_amt2" class="inbox" value="<?= $p['notification_amt2']; ?>" />
                                 </div>
@@ -211,7 +211,7 @@ $sells = $sell->fetchAll();
             </table>
             <div class="row btn-g">
                 <div class="col-2">
-                    <button type="button" onclick="window.location= 'productresult.php'" class="btn-c reset">กลับ</button>
+                    <button type="button" onclick="window.location= 'productresult.php'" class="btn-c reset">ยกเลิก</button>
                 </div>
                 <div class="col-2">
                     <input type="submit" class="btn-c submit" value="บันทึก" />

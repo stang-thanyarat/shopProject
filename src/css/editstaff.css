@@ -9,7 +9,7 @@
     --bs-gutter-x: 0rem;
 }
 
-.col-11{
+.col-11 {
     margin-bottom: 2rem;
 }
 
@@ -64,7 +64,7 @@
 }
 
 .leftstartwork {
-    margin-left: 12.1rem;
+    margin-left: 8rem;
     margin-top: 1rem;
 }
 
@@ -104,7 +104,7 @@
 }
 
 .leftidcardnumber {
-    margin-left: 4.9rem;
+    margin-left: 5rem;
     margin-top: 1rem;
 }
 
@@ -115,7 +115,7 @@
 }
 
 .leftbirthday {
-    margin-left: 3.8rem;
+    margin-left: 3.3rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
@@ -138,7 +138,7 @@
 }
 
 .lefttelephone {
-    margin-left: 8.6rem;
+    margin-left: 8.5rem;
     margin-top: 1rem;
 }
 
@@ -149,7 +149,7 @@
 }
 
 .leftemail {
-    margin-left: 1rem;
+    margin-left: 2rem;
     margin-top: 1rem;
 }
 
@@ -220,8 +220,9 @@ th {
 }
 
 .d-flex {
+
     margin-top: 1rem;
-    margin-right: 5rem;
+    margin-right: 2.5rem;
 
 }
 
@@ -229,7 +230,7 @@ th {
     width: 100%;
     justify-content: end;
     display: flex;
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
 
 .btn-c {
@@ -242,15 +243,21 @@ th {
     background-color: #7C904E;
     color: white;
     border: 0ch;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .reset {
     background-color: #E0B87E;
     color: white;
     border: 0ch;
-    margin-left: 7rem;
+    margin-left: 4rem;
 }
+
+.bgs {
+    border: 0ch;
+    background-color: white;
+}
+
 
 /*modal เพิ่มบัญชีใหม่*/
 
@@ -289,16 +296,19 @@ th {
     color: white;
 }
 
-
 .modal-header {
     background-color: #688557;
 }
 
-/*.modal-footer {
-    background-color: #D4DDC6;
-}*/
+.modal-footer {
+    background-color: white;
+}
 
 /*ลบ*/
+
+.modal-title2 {
+    color: white;
+}
 
 .btn-primary2 {
     background-color: #7C904E;
@@ -309,8 +319,4 @@ th {
 .modal-body {
     margin-top: 1rem;
     margin-left: 1rem;
-}
-
-.modal-title2 {
-    color: white;
 }
