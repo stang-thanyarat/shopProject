@@ -28,9 +28,11 @@ function getFullRole($role)
     <title>addproductexchange</title>
 </head>
 
-<?php include_once('nav.php');
+<?php
+include_once('nav.php');
 include_once "./database/Product.php";
 $product = new Product();
+$rows = $product->fetchExchange1Id();
 ?>
 
 <body>
@@ -41,83 +43,77 @@ $product = new Product();
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
-                <!-- หัวข้อหลัก -->
                 <div class="row main">
-                    <div class="col">
+                    <div class="col-11">
                         <h1>การเปลี่ยนสินค้า</h1>
                     </div>
                 </div>
-                <!--ตาราง-->
                 <table class="mai">
-                    <!--เนื้อหา-->
-                    <tbody>
-                        <tr>
-                            <th>
+                    <tr>
+                        <th>
+                            <div class="row a">
+                                <div class="col productr">
+                                    สินค้าที่ต้องการเปลี่ยน :<span style="color: red; ">&nbsp*</span>
+                                    <input type="text" accept="image/*" name="product_name" id="product_name" class="inbox" required />
+                                </div>
+                            </div>
+                            <div class="row a">
+                                <div class="col productn">
+                                    จำนวนที่เปลี่ยนสินค้า :<span style="color: red; ">&nbsp*</span>
+                                    <input name="exchange_amount" min="1" step="1" value="1" type="number" id="exchange_amount" class="inbox" required />
+                                </div>
+                            </div>
+                            <div class="row a ">
+                                <div class="col ev">
+                                    หลักฐานที่เสียหาย :<font color="red">&nbsp*</font>
+                                    <input type="file" accept="image/*" name="damage_proof" id="damage_proof" class="inbox" required />
+                                </div>
+                            </div>
+                            <div class="row a">
+                                <div class="col">
+                                    <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
+                                </div>
+                            </div>
+                            <div class="row a">
+                                <div class="col comment">
+                                    หมายเหตุ :&nbsp&nbsp&nbsp&nbsp<textarea name="note" id="note" cols="80" rows="5" class="inbox" style="vertical-align:top;"></textarea>
+                                </div>
+                            </div>
+                            <div class="row a">
+                                <div class="col status">
+                                    สถานะการเปลี่ยนสินค้า :<span style="color: red; ">&nbsp*</span>
+                                    <input type="radio" name="exchange_status" id="exchange_status" class="inbox" value="complete">สำเร็จแล้ว
+
+                                    <input type="radio" name="exchange_status" id="exchange_status" class="inbox" value="wait" checked>รอของ
+
+                                </div>
+                            </div>
+                            <div class="desc" id="wait">
                                 <div class="row a">
-                                    <div class="col productr">
-                                        สินค้าที่ต้องการเปลี่ยน :<span style="color: red; ">&nbsp*</span>
-                                        <input type="text" accept="image/*" name="product_name" id="product_name" class="inbox" required />
+                                    <div class="col name">
+                                        ชื่อ :<span style="color: red; ">&nbsp*</span>
+                                        <input name="exchange_name" type="text" id="exchange_name" class="inbox">
+                                        <!--ดูชื่อ class และ id จากเพื่อน-->
                                     </div>
                                 </div>
-                                <div class="row a">
-                                    <div class="col productn">
-                                        จำนวนที่เปลี่ยนสินค้า :<span style="color: red; ">&nbsp*</span>
-                                        <input name="exchange_amount" min="1" step="1" value="1" type="number" id="exchange_amount" class="inbox" required />
-                                    </div>
-                                </div>
-                                <div class="row a ">
-                                    <div class="col ev">
-                                        หลักฐานที่เสียหาย :<font color="red">&nbsp*</font>
-                                        <input type="file" accept="image/*" name="damage_proof" id="damage_proof" class="inbox" required />
-                                    </div>
-                                </div>
-                                <div class="row a">
+                                <div class="row a tel">
                                     <div class="col">
-                                        <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
+                                        เบอร์โทรติดต่อ :<span style="color: red; ">&nbsp*</span>
+                                        <input onkeyup="autoTab2(this)" name="exchange_tel" type="text" id="exchange_tel" class="inbox">
+                                        <!--ดูชื่อ class และ id จากเพื่อน-->
                                     </div>
                                 </div>
-                                <div class="row a">
-                                    <div class="col comment">
-                                        หมายเหตุ :&nbsp&nbsp&nbsp&nbsp<textarea name="note" id="note" cols="80" rows="5" class="inbox" style="vertical-align:top;"></textarea>
-                                    </div>
-                                </div>
-                                <div class="row a">
-                                    <div class="col status">
-                                        สถานะการเปลี่ยนสินค้า :<span style="color: red; ">&nbsp*</span>
-                                        <input type="radio" name="exchange_status" id="exchange_status" class="inbox" value="complete">สำเร็จแล้ว
-
-                                        <input type="radio" name="exchange_status" id="exchange_status" class="inbox" value="wait" checked>รอของ
-
-                                    </div>
-                                </div>
-                                <div class="desc" id="wait">
-                                    <div class="row a">
-                                        <div class="col name">
-                                            ชื่อ :<span style="color: red; ">&nbsp*</span>
-                                            <input name="exchange_name" type="text" id="exchange_name" class="inbox">
-                                            <!--ดูชื่อ class และ id จากเพื่อน-->
-                                        </div>
-                                    </div>
-                                    <div class="row a tel">
-                                        <div class="col">
-                                            เบอร์โทรติดต่อ :<span style="color: red; ">&nbsp*</span>
-                                            <input onkeyup="autoTab2(this)" name="exchange_tel" type="text" id="exchange_tel" class="inbox">
-                                            <!--ดูชื่อ class และ id จากเพื่อน-->
-                                        </div>
-                                    </div>
-                                </div>
-                            </th>
-                        </tr>
-                    </tbody>
-                </table>
-                <!--ปุ่มบันทึกและปุ่มยกเลิก-->
-                <div class="row btn-g">
-                    <div class="col-2">
-                        <button type="reset" class="btn-c reset">ยกเลิก</button>
-                    </div>
-                    <div class="col-2">
-                        <button type="submit" class="btn-c submit">บันทึก</button>
-                    </div>
+                            </div>
+            </div>
+            </th>
+            </tr>
+            </table>
+            <div class="row btn-g">
+                <div class="col-2">
+                    <button type="reset" onclick="window.location= 'productexchangehistory.php'" class="btn-c reset">ยกเลิก</button>
+                </div>
+                <div class="col-2">
+                    <input type="submit" class="btn-c submit" value="บันทึก" />
                 </div>
             </div>
         </div>

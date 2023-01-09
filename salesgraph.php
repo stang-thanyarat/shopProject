@@ -32,6 +32,8 @@ function getFullRole($role)
 include_once "./database/Category.php";
 $category =  new Category();
 $rows = $category->fetchAll();
+$product =  new Product();
+$rows = $category->fetchAll();
 ?>
 
 <body>

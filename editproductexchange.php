@@ -29,24 +29,22 @@ function getFullRole($role)
     <title>editproductexchange</title>
 </head>
 
-<?php include_once('nav.php');
+<?php
+include_once('nav.php');
 include_once "./database/ProductExchange.php";
 $productexchange = new ProductExchange();
-if (!isset($_GET['id'])) {
-    redirection('/productexchangehistory.php');
-}
-$e = $productexchange->fetchById($_GET['id']);
+$e = $productexchange->fetchExchange2Id($_GET['id']);
 ?>
 <body>
-<form action="" name="form1" id="form1" >
+<form action="controller/ProductExchange.php" name="form1" id="form1" method="POST" >
     <input type="hidden" value="productexchange" name="table" />
-    <input type="hidden" value="insert" name="form_action" />
+    <input type="hidden" value="update" name="form_action" />
     <input type="hidden" value="<?= $_GET['id'] ?>" name="product_exchange_id" />
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
-                    <div class="col">
+                    <div class="col-11">
                         <h1>การเปลี่ยนสินค้า</h1>
                     </div>
                 </div>
@@ -68,7 +66,7 @@ $e = $productexchange->fetchById($_GET['id']);
                             <div class="row a ">
                                 <div class="col ev">
                                     หลักฐานที่เสียหาย :<font color="red">&nbsp*</font>
-                                    <input type="file" accept="image/*" name="damage_proof" id="damage_proof" class="inbox" value="<?= $e['damage_proof']; ?>" required />
+                                    <input type="file" accept="image/*" name="damage_proof" id="damage_proof" class="inbox" value="<?= $e['damage_proof']; ?>" />
                                 </div>
                             </div>
                             <div class="row a">
