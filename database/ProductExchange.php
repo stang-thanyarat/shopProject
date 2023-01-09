@@ -35,6 +35,17 @@ class ProductExchange
         }
     }
 
+    public function fetchBetween($start,$end)
+    {
+        $sql = "SELECT PE.*,P.* FROM product_exchange_tb PE,product_tb P WHERE PE.product_id = P.product_id  AND PE.exchange_date BETWEEN ? AND ? ORDER BY PE.exchange_date DESC ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $start, PDO::PARAM_STR);
+        $stmt->bindParam(2, $end, PDO::PARAM_STR);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        return $result;
+    }
+
     public function fetchExchange2Id($id)
     {
         try{

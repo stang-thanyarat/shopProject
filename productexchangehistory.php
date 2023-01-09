@@ -33,30 +33,37 @@ include_once('nav.php');
 include_once "./database/ProductExchange.php";
 $productexchange = new ProductExchange();
 $rows = $productexchange->fetchAll();
+if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GET['end'] != '') {
+    $rows = $productexchange->fetchBetween($_GET['start'], $_GET['end']);
+} else if ((!isset($_GET['start']) && !isset($_GET['end'])) ||($_GET['start'] != '' && $_GET['end'] != '')) {
+    $rows = $productexchange->fetchAll();
+} else {
+    $rows = [];
+}
 ?>
 
 <body>
     <form>
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
-            <div class="col-11">
+            <div class="col-11 ">
                 <div class="row main">
-                    <div class="col-3">
+                    <div class="col-4 topic">
                         <h1>การเปลี่ยนสินค้า</h1>
                     </div>
                     <form action="productexchangehistory.php" method="GET">
-                        <div class="row signin">
-                            <div class="col-4">
-                                <input type="date" name="since" id="since"> &nbsp&nbspถึง&nbsp&nbsp
-                                <input type="date" name="until" id="until">
-                                <button type="button" class="s"><img src="./src/images/search.png" width="17.5"></button>
+                            <div class="col-6 search">
+                                <input value="<?= isset($_GET['start']) ? $_GET['start']:'' ?>" class="date" type="date" name="start" id="start"> &nbsp&nbspถึง&nbsp&nbsp
+                                <input value="<?= isset($_GET['end'])? $_GET['end'] :'' ?>" class="date" type="date" name="end" id="end">
+                                <button type="submit" class="s"><img src="./src/images/search.png" width="20"></button>
+                                <button type="button" onclick="window.location= 'productexchangehistory.php'" class="btn-c reset">รีเซ็ต</button>
                             </div>
-                            <div class="col-3 ma">
+                            <div class="col-2 d-flex justify-content-end BT">
                                 <a type="button" href="./searchinformation.php" class="submit btn">
-                                    <img class='plus' src="./src/images/plus.png" width="30">&nbsp เพิ่ม</a>
+                                    <img class='plus' src="./src/images/plus.png" width="25">&nbsp เพิ่ม</a>
                             </div>
-                        </div>
                     </form>
+                </div>
                     <table class="col-11 pdrtb">
                         <thead>
                             <tr>
@@ -85,7 +92,6 @@ $rows = $productexchange->fetchAll();
                             <?php } ?>
                         </tbody>
                     </table>
-                </div>
             </div>
         </div>
     </form>

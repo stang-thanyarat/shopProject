@@ -44,7 +44,7 @@ $e = $productexchange->fetchExchange2Id($_GET['id']);
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
-                    <div class="col">
+                    <div class="col-11">
                         <h1>การเปลี่ยนสินค้า</h1>
                     </div>
                 </div>
