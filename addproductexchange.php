@@ -28,9 +28,11 @@ function getFullRole($role)
     <title>addproductexchange</title>
 </head>
 
-<?php include_once('nav.php');
+<?php
+include_once('nav.php');
 include_once "./database/Product.php";
 $product = new Product();
+$rows = $product->fetchExchange1Id();
 ?>
 
 <body>

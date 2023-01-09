@@ -20,7 +20,7 @@ function del(id) {
                 body: formdata,
                 redirect: 'follow'
             };
-            await fetch("./controller/Exchange.php?id=", requestOptions)
+            await fetch("./controller/ProductExchange.php?id=", requestOptions)
             Swal.fire(
                 {
                     title: 'ลบรายการ',

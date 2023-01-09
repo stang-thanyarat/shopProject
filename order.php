@@ -55,7 +55,7 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != "") {
                         <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
                     </div>
                     <div class="col-2 y">
-                        <a class="submit btn" href="addorder2.php"><img src="./src/images/plus.png" width="25">
+                        <a class="submit btn" href="addorder.php"><img src="./src/images/plus.png" width="25">
                             เพิ่มใบสั่งซื้อ</a>
                     </div>
                 </div>
@@ -66,9 +66,7 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != "") {
                         <th width="15%">สถานะ</th>
                         <th width="10%"></th>
                     </tr>
-                    <?php foreach ($rows
-
-                    as $row) { ?>
+                    <?php foreach ($rows as $row) { ?>
                     <tr>
                         <th><?= $row['datebill'] ?></th>
                         <th id="text<?= $row['sell_id'] ?>"><?= $row['sell_name'] ?></th>

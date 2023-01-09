@@ -19,10 +19,7 @@ class ProductExchange
         return $result;
         // set http 
     }
-    
-//"SELECT * FROM product_exchange_tb WHERE product_exchange_id=?";
-//"SELECT E.*,P.product_name FROM product_exchange_tb E,product_tb P WHERE E.product_id = P.product_id AND product_exchange_id=? ";
-//"SELECT E.*,P.product_name FROM product_exchange_tb E,product_tb P WHERE E.product_id = P.product_id ";
+
     public function fetchById($id)
     {
         try {
@@ -38,10 +35,24 @@ class ProductExchange
         }
     }
 
+    public function fetchExchange2Id($id)
+    {
+        try{
+        $sql = "SELECT * FROM product_exchange_tb WHERE product_exchange_id =?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
+    }
 
     public function delete($id)
     {
-        $sql = "DELETE FROM product_exchange_tb WHERE product_exchange_id=?;";
+        $sql = "DELETE FROM product_exchange_tb WHERE product_exchange_id = ?;";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $id, PDO::PARAM_INT);
         $stmt->execute();
@@ -59,7 +70,7 @@ class ProductExchange
                  note, 
                  exchange_amount, 
                  exchange_status ";
-        if ($data['exchange_status'] == '0') {
+        if ($data['exchange_status'] == '1') {
             $day_change = !isset($_SESSION['day_change']) ? 7 : $_SESSION['day_change'];
             $sql .= ' ,exchange_period,exchange_name,exchange_tel) VALUES (?,?,?,?,?, DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? DAY),?,?)';
             $stmt = $this->conn->prepare($sql);
@@ -89,27 +100,17 @@ class ProductExchange
     {
         try {
             $sql = "UPDATE product_exchange_tb
-        SET product_id = ?,damage_proof = ?, note = ?, exchange_amount = ?, exchange_status = ?
-        WHERE product_exchange_id = ?";
-            if ($data['exchange_status'] == '0') {
-                $day_change = !isset($_SESSION['day_change']) ? 7 : $_SESSION['day_change'];
-                $sql .= ', exchange_period = ?, exchange_name = ?, exchange_tel = ?';
+            SET damage_proof = ?, note = ?, exchange_amount = ?, exchange_status = ?, exchange_name = ?, exchange_tel = ?
+            WHERE product_exchange_id = ?";
                 $stmt = $this->conn->prepare($sql);
-                $stmt->bindParam(1, $data['product_id'], PDO::PARAM_INT);
-                /*$stmt->bindParam(2, $data['customer_id'], PDO::PARAM_INT);*/
-                $stmt->bindParam(2, $data['damage_proof'], PDO::PARAM_STR);
-                $stmt->bindParam(3, $data['note'], PDO::PARAM_STR);
-                /*$stmt->bindParam(6, $data['exchange_time'], PDO::PARAM_STR);*/
-                $stmt->bindParam(4, $data['exchange_amount'], PDO::PARAM_INT);
-                $stmt->bindParam(5, $data['exchange_status'], PDO::PARAM_INT);
-                /*$stmt->bindParam(9, $data['exchange_period'], PDO::PARAM_STR);*/
-                $stmt->bindParam(6, $data['exchange_name'], PDO::PARAM_STR);
-                $stmt->bindParam(7, $data['exchange_tel'], PDO::PARAM_STR);
-                $stmt->bindParam(8, $data['product_exchange_id'], PDO::PARAM_INT);
+                $stmt->bindParam(1, $data['damage_proof'], PDO::PARAM_STR);
+                $stmt->bindParam(2, $data['note'], PDO::PARAM_STR);
+                $stmt->bindParam(3, $data['exchange_amount'], PDO::PARAM_INT);
+                $stmt->bindParam(4, $data['exchange_status'], PDO::PARAM_INT);
+                $stmt->bindParam(5, $data['exchange_name'], PDO::PARAM_STR);
+                $stmt->bindParam(6, $data['exchange_tel'], PDO::PARAM_STR);
+                $stmt->bindParam(7, $data['product_exchange_id'], PDO::PARAM_INT);
                 $stmt->execute();
-            } else {
-
-            }
         } catch (Exception $e) {
             http_response_code(500);
             echo strval($e);

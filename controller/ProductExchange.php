@@ -18,6 +18,12 @@ if (isset($_POST)) {
                     $productexchange->updateimage('damage_proof',$filesname,$_POST['product_exchange_id']);
                 }
             }
+            if ($_POST['exchange_status']!='complete') {
+                $_POST['exchange_status'] = '1';
+            } else {
+                $_POST['exchange_status'] = '0';
+                $product->cutStock($_POST['product_id'],$_POST['exchange_amount']);
+            }
             $productexchange->update($_POST);
             redirection( "/productexchangehistory.php" );
         } else if ($_POST['form_action'] === 'delete') {
@@ -37,9 +43,9 @@ if (isset($_POST)) {
                 $_POST['damage_proof'] = '';
             }
             if ($_POST['exchange_status']!='complete') {
-                $_POST['exchange_status'] = '0';
-            } else {
                 $_POST['exchange_status'] = '1';
+            } else {
+                $_POST['exchange_status'] = '0';
                 $product->cutStock($_POST['product_id'],$_POST['exchange_amount']);
             }
             $productexchange->insert($_POST);

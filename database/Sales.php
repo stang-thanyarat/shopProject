@@ -205,7 +205,7 @@ class Sales
 
     public function fetchById($id)
     {
-        $sql = "SELECT SA.*,P.* FROM sales_tb SA,product_tb P WHERE  SA.product_id = P.product_id AND P.category_id = ? ORDER BY SA.sales_dt DESC ";
+        $sql = "SELECT SA.*,P.* FROM sales_tb SA,product_tb P WHERE  SA.product_id = P.product_id AND P.category_id = ? ORDER BY SA.sales_dt DESC  ";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $id, PDO::PARAM_INT);
         $stmt->execute();

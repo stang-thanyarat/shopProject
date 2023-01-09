@@ -73,14 +73,13 @@ $rows = $productexchange->fetchAll();
                                     <th><?= dateFormat($row['exchange_date']) ?></th>
                                     <th id="text<?= $row['product_id'] ?>"><?= $row['product_name'] ?></th>
                                     <th><?= $row['exchange_amount'] ?></th>
-                                    <th><?php if ($row['exchange_status'] == 0) {
-                                            echo "<a type='button' onclick='wait()'><font color=#A36627>รอของ</font></a>";
-                                        } else {
-                                            echo "สำเร็จ";
-                                        } ?></th>
+                                    <th><?= $row['exchange_status'] == 1 ? "<a type='button' onclick='wait()'><font color=#A36627>รอของ</font></a>" : "สำเร็จ"; ?>
+                                    </th>
                                     <th>
-                                        <button type="button" class="bgs" onclick="del(<?= $row["product_exchange_id"] ?>)"><img src="./src/images/icon-delete.png" width="25"></button>
+                                        <?php if ($row['exchange_status'] == 1) { ?>
+                                        <button type="button" class="bgs" onclick="del(<?= $row['product_exchange_id']; ?>)"><img src="./src/images/icon-delete.png" width="25"></button>
                                         <a href="editproductexchange.php?id=<?= $row['product_exchange_id']; ?>" type="button" class="bgs"><img src="./src/images/icon-pencil.png" width="25"></a>
+                                        <?php } ?>
                                     </th>
                                 </tr>
                             <?php } ?>

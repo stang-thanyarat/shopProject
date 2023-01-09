@@ -124,6 +124,7 @@ function getFullRole($role)
 
     <!-- ยืนยันการซื้อแบบเงินสด -->
     <div class="modal fade bd-example-modal-sm3" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <form action="controller/Sales.php" name="form1" id="form1" method="POST">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -160,6 +161,7 @@ function getFullRole($role)
             </div>
         </div>
     </div>
+    </form>
     <!-- ยืนยันการซื้อแบบโอนผ่านธนาคาร -->
     <div class="modal fade bd-example-modal-sm4" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
