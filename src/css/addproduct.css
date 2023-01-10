@@ -11,8 +11,9 @@
 }
 
 .main {
-    margin-top: 4rem;
-    margin-left: 3rem;
+    margin-top: 5rem;
+    margin-left: 4rem;
+
 }
 
 .Nbar {
@@ -59,7 +60,8 @@ th {
     width: 100%;
     justify-content: end;
     display: flex;
-    margin-top: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .reset {
@@ -210,6 +212,10 @@ input:checked+.slider:before {
     margin-left: 2.7rem
 }
 
+.brand {
+    margin-left: 12rem
+}
+
 .productname {
     margin-left: 1.9rem
 }
@@ -223,7 +229,7 @@ input:checked+.slider:before {
 }
 
 .sellername {
-    margin-left: 1.2rem
+    margin-left: 12.5rem
 }
 
 .image {
@@ -231,11 +237,11 @@ input:checked+.slider:before {
 }
 
 .productinformation {
-    margin-left: -6.5rem;
+    margin-left: -3rem;
 }
 
 .price {
-    margin-left: 8rem;
+    margin-left: 6rem;
 }
 
 .vax {
@@ -253,7 +259,7 @@ input:checked+.slider:before {
 }
 
 .costprice {
-    margin-left: 10.85rem;
+    margin-left: 8.8rem;
     margin-top: 0.1rem;
 }
 
@@ -271,7 +277,7 @@ input:checked+.slider:before {
 }
 
 .amount {
-    margin-left: 4rem;
+    margin-right: 10rem;
 }
 
 .unit {

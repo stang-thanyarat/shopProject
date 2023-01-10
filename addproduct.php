@@ -50,7 +50,7 @@ $p = $product->fetchAll();
             <div class="col-11">
                 <!-- หัวข้อหลัก -->
                 <div class="row main">
-                    <div class="col">
+                    <div class="col-5">
                         <h1>เพิ่มสินค้า</h1>
                     </div>
                 </div>
@@ -86,7 +86,6 @@ $p = $product->fetchAll();
                                     </label>
                                 </div>-->
                                 </div>
-
                                 <div class="row a">
                                     <div class="col productname">
                                         ชื่อสินค้า :<span style="color: red; ">&nbsp*</span>
@@ -159,7 +158,6 @@ $p = $product->fetchAll();
                                         <label class="vaxcheckboxtext">ภาษีมูลค่าเพิ่ม</label>
                                     </div>
                                 </div>
-
                                 <div class="row a">
                                     <div class="col-5 status">
                                         สถานะการขาย :<span style="color: red; ">&nbsp*</span>

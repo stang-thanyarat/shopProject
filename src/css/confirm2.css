@@ -8,11 +8,11 @@
 .main {
     margin-top: 5rem;
     margin-left: 4rem;
-    width: 90%;
+    width: 87%;
 
 }
 
-.col-11{
+.col-11 {
     margin-bottom: 2rem;
 }
 
@@ -41,8 +41,12 @@ th {
 
 }
 
+.pr{
+margin-left: 1.2rem;
+}
+
 .btn-g {
-    margin-left: 6rem;
+    margin-left: 4rem;
     width: 100%;
     justify-content: end;
     display: flex;
@@ -65,7 +69,7 @@ th {
     background-color: #E0B87E;
     color: white;
     border: 0ch;
-    margin-left: 6rem;
+    margin-left: 4rem;
 }
 
 
@@ -85,7 +89,7 @@ th {
 
 .A {
     margin-top: 3rem;
-    margin-right: 6rem;
+    margin-right: 5.5rem;
 }
 
 .Nbar {
@@ -118,7 +122,7 @@ th {
 }
 
 .btn2 {
-    margin-right: 4.3rem;
+    margin-right: 6rem;
     background-color: #7C904E;
     color: #fff;
     border: 0in;
@@ -148,26 +152,26 @@ th {
     margin-left: 1.5rem;
 }
 
-.datebill{
+.datebill {
     margin-left: 15rem;
     margin-bottom: 2rem;
 }
 
-.company{
+.company {
     margin-left: 16rem;
     margin-bottom: 2rem;
 }
 
-.payment_sl{
+.payment_sl {
     margin-left: 13.5rem;
 }
 
-.payment{
+.payment {
     margin-left: 1rem;
     margin-bottom: 2rem;
 }
 
-.note{
+.note {
     margin-top: 1rem;
     margin-left: 15.5rem;
     margin-bottom: 2rem;
@@ -177,18 +181,18 @@ th {
     margin-left: 14.5rem;
 }
 
-.hh{
+.hh {
     margin-top: 1rem;
     margin-left: 14.2rem;
 
 }
 
-.q{
+.q {
     margin-left: -17.3rem;
     margin-top: 1rem;
 }
 
-.s{
+.s {
     margin-left: -14.5rem;
     margin-top: 1rem;
 }
@@ -197,30 +201,28 @@ th {
     width: 100px;
 }
 
-.r {
+.r {}
 
-}
-
-.topic{
+.topic {
     margin-top: 0.5rem;
 }
 
-.status{
+.status {
     margin-top: 1.5rem;
     margin-left: 14rem;
 }
 
-.print{
+.printt {
     margin-top: 1.4rem;
-    margin-left: 2rem;
+    margin-left: 65rem;
 }
 
-.pay{
+.pay {
     margin-top: 2rem;
 }
 
 
-.font{
+.font {
     font-size: 23px;
 }
 
@@ -294,13 +296,4 @@ input:checked+.slider:before {
 
 .slider.round:before {
     border-radius: 50%;
-}
-
-.x {
-    margin-left: 16.5rem;
-}
-
-.f {
-    margin-left: 0.7rem;
-    margin-bottom: 2rem;
 }

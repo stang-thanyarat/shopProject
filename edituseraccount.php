@@ -26,14 +26,13 @@ function getFullRole($role)
     <link rel="stylesheet" href="./src/css/edituseraccount.css" />
     <title>Document</title>
 </head>
+
 <?php
 include_once('nav.php');
 include_once('database/UserAccount.php');
-include_once('database/Employee.php');
 $useraccount = new UserAccount();
 $rows = $useraccount->fetchByIdWithoutAdmin($_GET['id']);
 ?>
-
 <body>
 <form action="controller/UserAccount.php" name="form1" id="form1" method="POST" >
     <input type="hidden" value="useraccount" name="table" />
