@@ -1,68 +1,124 @@
 $("#category_id").change(async function () {
     if ($("#category_id").val() !== "all") {
-        let url = `./controller/ProductResult.php?category_id=${$("#category_id").val()}`
+        let url = `./controller/ExpireProduct.php?category_id=${$("#category_id").val()}`
         if ($("#keyword").val() !== "") {
             url += `&keyword=${$("#keyword").val()}`
+        }
+        if($("#date").val() !== ''){
+            url += `&date=${$("#date").val()}`
         }
         const product = await (await fetch(url)).json()
         setUI(product)
     } else {
-        let url = './controller/ProductResult.php'
+        let url = './controller/ExpireProduct.php'
         if ($("#keyword").val() !== "") {
             url += `?keyword=${$("#keyword").val()}`
         }
+        if($("#date").val() !== ''){
+            url += `&date=${$("#date").val()}`
+        }
         const product = await (await fetch(url)).json()
-        console.log(product);
         setUI(product)
     }
 });
 
 $("#keyword").keyup(async function () {
-    let url = `./controller/ProductResult.php?keyword=${$("#keyword").val()}`
+    let url = `./controller/ExpireProduct.php`
+    if($("#keyword").val() !== "" ){
+        url += `?keyword=${$("#keyword").val()}`
+    }
     if ($("#category_id").val() !== "" && $("#category_id").val() !== "all") {
-        url += `&category_id=${$("#category_id").val()}`
+        if(url.indexOf('?')==-1){
+            url+='?'
+        }else{
+            url+='&'
+        }
+        url += `category_id=${$("#category_id").val()}`
+    }
+    if ($("#date").val() !== "" ) {
+        if(url.indexOf('?')==-1){
+            url+='?'
+        }else{
+            url+='&'
+        }
+        url += `date=${$("#date").val()}`
     }
     const product = await (await fetch(url)).json()
     setUI(product)
 });
 
-$(document).ready(async function () {
-    let url = './controller/ProductResult.php'
+$("#date").change(async function(){
+    if ($("#date").val() !== "") {
+        let url = `./controller/ExpireProduct.php?date=${$("#date").val()}`
+        if ($("#keyword").val() !== "") {
+            url += `&keyword=${$("#keyword").val()}`
+        }
+        if($("#category_id").val() != 'all'){
+            url += `&category_id=${$("#category_id").val()}`
+        }
+        const product = await (await fetch(url)).json()
+        setUI(product)
+    } else {
+        let url = './controller/ExpireProduct.php'
+        if ($("#keyword").val() !== "") {
+            url += `?keyword=${$("#keyword").val()}`
+        }
+        if($("#category_id").val() != 'all'){
+            url += `&date=${$("#category_id").val()}`
+        }
+        const product = await (await fetch(url)).json()
+        setUI(product)
+    }
+})
+
+
+async function start() {
+    let url = './controller/ExpireProduct.php'
     const product = await (await fetch(url)).json()
     console.log(product);
     setUI(product)
+}
+
+$(document).ready(function () {
+    start()
 });
 
 function setUI(data) {
-    $('#productResultTable').html('')
-    data.forEach(element => {
-        console.log(element)
-        $('#productResultTable').append(`
-        <tr>
-        <th>${element.category_name || $("#category_id option:selected").text()}</th>
+    let c = 0
+    $('#expireTable').html('')
+    let r =-1
+    while(r!==0){
+        r = 0
+        for(let i = 0;i<data.length ;i++){
+            if(i+1 !== data.length ){
+                if(data[i].sales_amt < data[i+1].sales_amt){
+                    let a = data[i]
+                    let b = data[i+1]
+                    data[i] = b
+                    data[i+1] = a
+                    r++
+                }
+            }
+        }
+    }
+    data.forEach((element, i) => {
+        c++
+        $('#expireTable').append(`<tr id="rr${i + 1}">
+        <th><img src="${element.product_img}" width="400"></th>
         <th>${element.product_name}</th>
-        <th>${element.brand}</th>
-        <th>${element.model}</th>
-        <th>${element.product_dlt_unit}</th>
-        <th>${element.product_rm_unit}</th>
+        <th>${element.datereceive}</th>
+        <th>${element.exp_date}</th>
         <th>${element.price}</th>
-        <th><img src="${element.product_img}" width="25"></th>
-        <th>
-            <label class="switch">
-                <input type="checkbox" id="S${element.product_id}" ${element.sales_status == 1 ? "checked" : ""} onchange="setStatus(${element.product_id})">
-                <span class="slider round"></span>
-            </label>
-        </th>
-        <th>
-            <a  data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1"><img src="./src/images/icon-delete.png" width="25"></a>
-            <a  href="./editproduct.php?id=${element.product_id}"><img src="./src/images/icon-pencil.png" width="25"></a>
-        </th>
+        <th>${element.product_rm_unit}</th>
+        <th>${element.all_amount}</th>
+        <th>${element.all_amount}</th>
     </tr>`)
-
     });
-}
-
-async function setStatus(id) {
-    const status = $("#S" + id).is(':checked');
-    console.log(await (await fetch(`./controller/SetProductStatus.php?status=${status}&id=${id}`)))
+    if (c <= 0) {
+        $('#no-let').show()
+        $("#tb-let").hide()
+    } else {
+        $("#tb-let").show()
+        $('#no-let').hide()
+    }
 }
