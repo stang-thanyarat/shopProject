@@ -31,19 +31,20 @@ function getFullRole($role)
 include_once "./database/Order.php";
 include_once "./database/Sell.php";
 include_once "./database/Product.php";
-$order = new Order();
-$o = $order->fetchById($_GET['id']);
 $sell = new Sell();
 $product = new Product();
 $sells = $sell->fetchAll();
 $product = $product->fetchAll();
+$order = new Order();
+$o = $order->fetchById($_GET['id']);
 ?>
 
 <body>
-<form name="form1" id="form1" method="POST">
-    <input type="hidden" value="product" name="table" />
-    <input type="hidden" value="update" name="form_action" />
-    <input type="hidden" value="<?= $_GET['id'] ?>" name="order_id"/>
+<body>
+<form action="controller/Order.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="table" value="order" />
+    <input type="hidden" name="form_action" value="update" />
+    <input type="hidden" value="<?= $_GET['id'] ?>" name="order_id" />
     <div class="row">
         <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
         <div class="col-11">
@@ -58,12 +59,12 @@ $product = $product->fetchAll();
                             <input name="order_status" id="order_status" type="checkbox" checked>
                             <span name="order_status" id="order_status" class="slider round inbox"  />
                         </label>';
-                        } else {
-                            echo '<label class="switch">
+                            } else {
+                                echo '<label class="switch">
                             <input name="order_status" id="order_status" type="checkbox">
                             <span name="order_status" id="order_status" class="slider round inbox" />
                         </label>';
-                        } ?>
+                            } ?>
                         </th>
                     </div>
                 </div>
@@ -77,17 +78,17 @@ $product = $product->fetchAll();
                     <div class="row">
                         <div class="col datebill">
                             วันที่วางบิล : &nbsp;
-                            <input type="date" name="datebill" id="datebill"  value="<?= $o['datebill']; ?>"required/>
+                            <input type="date" name="datebill" id="datebill"  value="<?= $o['datebill']; ?>"/>
                         </div>
                         <div class="col">
                             &nbsp;&nbsp;วันที่รับของ : &nbsp;
-                            <input type="date" name="datereceive" id="datereceive"  value="<?= $o['datereceive']; ?>" required/>
+                            <input type="date" name="datereceive" id="datereceive"  value="<?= $o['datereceive']; ?>"/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col company">
                             ชื่อผู้ขาย : &nbsp;
-                            <select name="sell_id" id="sell_id" class="inbox" style="background-color: #D4DDC6;" required>
+                            <select name="sell_id" id="sell_id" class="inbox" style="background-color: #D4DDC6;" >
                                 <?php foreach ($sells as $s) { ?>
                                     <option value="<?= $s['sell_id'] ?>" <?= $s['sell_id'] == $s['sell_id'] ? "selected" : '' ?>><?= $s['sell_name'] ?></option>
                                 <?php } ?>

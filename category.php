@@ -67,8 +67,8 @@ $rows = $category->fetchAll();
                             <th width=20%><?= $category->getCount($row['category_id'], false) ?></th>
                             <th width=20%><?= $category->getCount($row['category_id'], true) ?></th>
                             <th>
-                                <button type="button" class="bgs" name="btEdit_click()" onclick="del(<?= $row['category_id'] ?>)"><img src="./src/images/icon-delete.png" width="25"></button>
-                                <button type="button" class="bgs" name="btDelete_click()" onclick="edit(<?= $row['category_id'] ?>)"><img src="./src/images/icon-pencil.png" width="25"></button>
+                                <button type="button" class="bgs" name="btDelete_click()" onclick="del(<?= $row['category_id'] ?>)"><img src="./src/images/icon-delete.png" width="25"></button>
+                                <button type="button" class="bgs" name="btEdit_click()" onclick="edit(<?= $row['category_id'] ?>)"><img src="./src/images/icon-pencil.png" width="25"></button>
                             </th>
                         </tr>
                     <?php $i++;

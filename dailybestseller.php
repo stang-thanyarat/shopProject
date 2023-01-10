@@ -27,17 +27,15 @@ function getFullRole($role)
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <title>Document</title>
 </head>
-<?php include_once('nav.php');
+<?php
+include_once('nav.php');
 include_once "./database/Category.php";
 include_once "./database/Product.php";
-//include_once('./controller/DailyBestSeller.php');
-// $rows = getdata();
 $product = new Product();
 $p = $product->fetchAll();
 $category = new Category();
 $c = $category->fetchAll();
 ?>
-<!--ช่วง controller dailybestseller ทำตาม ทั้งการค้นหา เลือกประเภท และ การคัดกายขายที่ดีที่สุด -->
 
 <body>
     <div class="row">
