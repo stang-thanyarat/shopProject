@@ -80,10 +80,6 @@ th {
     margin-left: 5rem;
 }
 
-.row {
-    --bs-gutter-x: 0rem;
-}
-
 .q {
     margin-left: 4rem;
     margin-top: 2rem;
@@ -131,7 +127,7 @@ th {
 }
 
 .u {
-    margin-left: 4rem;
+    margin-left: 6rem;
 }
 
 .m {
