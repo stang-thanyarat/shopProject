@@ -44,8 +44,7 @@ $rows = $category->fetchAll();
                         <h1>รายการสินค้า</h1>
                     </div>
                         <div class="col-3 u">
-                            <input name="keyword" id="keyword" type="text" class="btnd" placeholder="&nbsp ชื่อสินค้า">
-                            <button  class="l"><img src="./src/images/search.png" width="20"></button>
+                            <input name="keyword" id="keyword" type="text" class="btnd" placeholder="&nbsp&nbsp&nbsp&nbsp&nbspพิมพ์ชื่อสินค้าเพื่อค้นหาโดยอัตโนมัติ">
                         </div>
                     <div class="col-2 m">
                         <select name="category_id" id="category_id" class="n" required>

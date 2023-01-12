@@ -37,7 +37,7 @@ th {
 
 table {
     border-collapse: collapse;
-    width: 60%;
+
 }
 
 th {
@@ -101,16 +101,9 @@ th {
     margin-top: 3rem;
 }
 
-.z {
-    font-size: 16pt;
-    margin-left: 47rem;
-
-}
-
 .y {
-    margin-top: 0rem;
     margin-left: 1rem;
-
+    font-size: 16pt;
 }
 
 .submit {
@@ -128,7 +121,8 @@ th {
 
 .tb{
     margin-top: 2rem;
-    margin-left: 0rem; 
+    margin-bottom: 4rem;
+    margin-left: 4rem;
 }
 
 .btn1{
