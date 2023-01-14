@@ -63,43 +63,13 @@ $rows = $category->fetchAll();
             <p></p>
             <h3 class="tt">ยอดขายสินค้า</h3>
             <div class="row">
-                <canvas id="myChart" height="300"></canvas>
-                <script>
-                    const ctx = document.getElementById('myChart').getContext('2d');
-                    const myChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: ['เมล็ดคะน้า', 'เมล็ดพริก', 'เมล็ดข้าวโพด', 'เมล็ดกระเจี๊ยบเขียว', 'เมล็ดมะเขือ', 'เมล็ดถั่วฝักยาว'],
-                            datasets: [{
-                                label: 'ยอดขายสินค้า',
-                                data: [20, 17, 23, 35, 22, 28],
-                                backgroundColor: [
-                                    'rgb(180, 180, 180)',
-                                    'rgb(180, 180, 180)',
-                                    'rgb(180, 180, 180)',
-                                    'rgb(180, 180, 180)',
-                                    'rgb(180, 180, 180)',
-                                    'rgb(180, 180, 180)'
-                                ],
-                                borderColor: [
-                                    'rgb(120, 120, 120)',
-                                    'rgb(120, 120, 120)',
-                                    'rgb(120, 120, 120)',
-                                    'rgb(120, 120, 120)',
-                                    'rgb(120, 120, 120)',
-                                    'rgb(120, 120, 120)'
-                                ],
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            indexAxis: 'y',
-                        }
-                    });
-                </script>
+                <canvas id="myChart" height="300">
+                <script id="myChart"></script>
+                </canvas>
             </div>
         </div>
     </div>
 </body>
+<script src="./src/js/salesgraph.js"></script>
 
 </html>

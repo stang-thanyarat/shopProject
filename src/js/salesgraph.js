@@ -1,6 +1,6 @@
 $("#category_id").change(async function () {
     if ($("#category_id").val() !== "all") {
-        let url = `./controller/ExpireProduct.php?category_id=${$("#category_id").val()}`
+        let url = `./controller/DailyBestSeller.php?category_id=${$("#category_id").val()}`
         if ($("#keyword").val() !== "") {
             url += `&keyword=${$("#keyword").val()}`
         }
@@ -10,7 +10,7 @@ $("#category_id").change(async function () {
         const product = await (await fetch(url)).json()
         setUI(product)
     } else {
-        let url = './controller/ExpireProduct.php'
+        let url = './controller/DailyBestSeller.php'
         if ($("#keyword").val() !== "") {
             url += `?keyword=${$("#keyword").val()}`
         }
@@ -23,7 +23,7 @@ $("#category_id").change(async function () {
 });
 
 $("#keyword").keyup(async function () {
-    let url = `./controller/ExpireProduct.php`
+    let url = `./controller/DailyBestSeller.php`
     if($("#keyword").val() !== "" ){
         url += `?keyword=${$("#keyword").val()}`
     }
@@ -49,7 +49,7 @@ $("#keyword").keyup(async function () {
 
 $("#date").change(async function(){
     if ($("#date").val() !== "") {
-        let url = `./controller/ExpireProduct.php?date=${$("#date").val()}`
+        let url = `./controller/DailyBestSeller.php?date=${$("#date").val()}`
         if ($("#keyword").val() !== "") {
             url += `&keyword=${$("#keyword").val()}`
         }
@@ -59,7 +59,7 @@ $("#date").change(async function(){
         const product = await (await fetch(url)).json()
         setUI(product)
     } else {
-        let url = './controller/ExpireProduct.php'
+        let url = './controller/DailyBestSeller.php'
         if ($("#keyword").val() !== "") {
             url += `?keyword=${$("#keyword").val()}`
         }
@@ -71,11 +71,12 @@ $("#date").change(async function(){
     }
 })
 
-
 async function start() {
-    let url = './controller/ExpireProduct.php'
+    let url = './controller/DailyBestSeller.php'
     const product = await (await fetch(url)).json()
     console.log(product);
+    $('#cat').text($("#category_id option:selected").text())
+    $('#no-let').hide()
     setUI(product)
 }
 
@@ -84,36 +85,38 @@ $(document).ready(function () {
 });
 
 function setUI(data) {
-    let c = 0
-    $('#expireTable').html('')
-    let r =-1
-    while(r!==0){
-        r = 0
-        for(let i = 0;i<data.length ;i++){
-            if(i+1 !== data.length ){
-                if(data[i].sales_amt < data[i+1].sales_amt){
-                    let a = data[i]
-                    let b = data[i+1]
-                    data[i] = b
-                    data[i+1] = a
-                    r++
-                }
+    const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['เมล็ดคะน้า', 'เมล็ดพริก', 'เมล็ดข้าวโพด', 'เมล็ดกระเจี๊ยบเขียว', 'เมล็ดมะเขือ', 'เมล็ดถั่วฝักยาว'],
+                datasets: [{
+                    label: 'ยอดขายสินค้า',
+                    data: [20, 17, 23, 35, 22, 28],
+                    backgroundColor: [
+                        'rgb(180, 180, 180)',
+                        'rgb(180, 180, 180)',
+                        'rgb(180, 180, 180)',
+                        'rgb(180, 180, 180)',
+                        'rgb(180, 180, 180)',
+                        'rgb(180, 180, 180)'
+                    ],
+                    borderColor: [
+                        'rgb(120, 120, 120)',
+                        'rgb(120, 120, 120)',
+                        'rgb(120, 120, 120)',
+                        'rgb(120, 120, 120)',
+                        'rgb(120, 120, 120)',
+                        'rgb(120, 120, 120)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
             }
-        }
-    }
-    data.forEach((element, i) => {
-        c++
-        $('#expireTable').append(`<tr id="rr${i + 1}">
-        <th><img src="${element.product_img}" width="400"></th>
-        <th>${element.product_name}</th>
-        <th>${element.datereceive}</th>
-        <th>${element.exp_date}</th>
-        <th>${element.price}</th>
-        <th>${element.product_rm_unit}</th>
-        <th>${element.all_amount}</th>
-        <th>${element.all_amount}</th>
-    </tr>`)
-    });
+        });
+
     if (c <= 0) {
         $('#no-let').show()
         $("#tb-let").hide()
@@ -122,3 +125,4 @@ function setUI(data) {
         $('#no-let').hide()
     }
 }
+/*data.forEach((element, i,Chart) => {*/

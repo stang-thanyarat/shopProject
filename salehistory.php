@@ -51,11 +51,14 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
         </div>
         <form action="salehistory.php" method="get">
             <div class="row">
-                <div class="col-11 d-flex justify-content-end">
+                <div class="col-5 datetodate">
                     <input value="<?= isset($_GET['start']) ? $_GET['start']:'' ?>" class="dateS" type="date" name="start" id="firstdate">
                     ถึง&nbsp&nbsp&nbsp&nbsp
                     <input value="<?= isset($_GET['end'])? $_GET['end'] :'' ?>" class="star" type="date" name="end">
                     <button type="submit" class="s"><img src="./src/images/search.png" width="20"></button>
+                </div>
+                    <div class="col-1 d-flex justify-content-end BT">
+                    <button type="button" onclick="window.location= 'salehistory.php'" class="btn-c reset">รีเซ็ต</button>
                 </div>
             </div>
         </form>
@@ -74,8 +77,8 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                         <tr>
                             <th><?= $row['sales_dt'] ?></th>
                             <th><?= $row['sales_list_id'] ?></th>
-                            <th><?= $row['sales_amt'] ?></th>
-                            <th><?= $row['sales_amt'] * $row['price'] ?></th>
+                            <th><?= $row['all_quantity'] ?></th>
+                            <th><?= $row['all_price']?></th>
                             <th><?= $row['payment_sl'] ?></th>
                         </tr>
                     <?php } ?>

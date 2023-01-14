@@ -30,10 +30,19 @@ class Product
         return $result;
     }
 
+    public function fetchExchange1Id()
+    {
+        $sql = "SELECT * FROM product_tb";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
     //แจ้งเตือนสินค้าใกล้หมด
     public function fetchLost()
     {
-        $sql = "SELECT * FROM product_tb WHERE product_rm_unit <= notification_amt AND sales_status=1";
+        $sql = "SELECT * FROM product_tb WHERE product_rm_unit <= notification_amt AND sales_status = 1";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

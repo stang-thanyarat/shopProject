@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai&display=swap');
 
-.ui-autocomplete {
-    z-index: 1000 !important;
-}
-
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
     font-size: 16pt;
@@ -15,8 +11,8 @@
 }
 
 .main {
-    margin-top: 5rem;
-    margin-left: 4rem;
+    margin-top: 4rem;
+    margin-left: 3rem;
 }
 
 .Nbar {
@@ -25,7 +21,7 @@
 
 .mai {
     margin-top: 1rem;
-    margin-left: 4rem;
+    margin-left: 3rem;
 }
 
 .mm {
@@ -99,6 +95,10 @@ th {
     border-radius: 25px;
 }
 
+.row {
+    --bs-gutter-x: 0rem;
+}
+
 .u {
     width: 100px;
 }
@@ -135,7 +135,7 @@ th {
 
 .a {
     margin-top: 1rem;
-    margin-left: 4rem;
+    margin-left: 3rem;
     margin-right: -5rem;
     margin-bottom: 1rem;
 }
@@ -169,5 +169,5 @@ th {
 }
 
 .tel {
-    margin-left: 7rem;
+    margin-left: 6rem;
 }

@@ -109,9 +109,9 @@ function setUI(data) {
         <th class="index-table-bank">${i + 1}</th>
         <th><img src="${element.product_img}" width="400"></th>
         <th>${element.product_name}</th>
-        <th>${element.price * element.sales_amt }</th>
+        <th>${element.price}</th>
+        <th>${element.product_rm_unit}</th>
         <th>${element.sales_amt}</th>
-        <th>${element.count}</th>
     </tr>`)
     });
     if (c <= 0) {

@@ -15,12 +15,8 @@
 
 }
 
-.ma {
-    margin-left: 2em;
-}
-
-.m {
-    margin-left: 1rem;
+.datetime {
+    margin-left: 0.5rem;
 }
 
 #myMenu {
@@ -40,4 +36,8 @@
 
 #myMenu li a:hover {
     background-color: #ABBE99;
+}
+
+h6. {
+    margin: auto;
 }

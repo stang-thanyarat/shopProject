@@ -1,15 +1,4 @@
-const targetElement = document.getElementById('solutionPay')
-const submitElement = document.getElementById('mySubmit')
-targetElement.addEventListener('change', (e) => {
-    if (e.target.value === 'cash') {
-        submitElement.setAttribute("data-bs-target", ".bd-example-modal-sm3")
-    } else if (e.target.value === 'bankTransfer') {
-        submitElement.setAttribute("data-bs-target", ".bd-example-modal-sm4")
-    } else if (e.target.value === 'installment') {
-        submitElement.setAttribute("data-bs-target", ".bd-example-modal-sm5")
-    }
-})
-
+//ส่วนรับรายการสินค้า
 $(document).ready(async function () {
     let list = []
     let order = JSON.parse(localStorage.getItem('cart'))
@@ -29,6 +18,7 @@ $(document).ready(async function () {
     }
 });
 
+//ลบรายการสินค้าที่เลือก
 function del(id) {
     Swal.fire({
         title: 'คำเตือน',
@@ -49,6 +39,30 @@ function del(id) {
     })
 }
 
+//ส่วนเลือกชำระ
+const targetElement = document.getElementById('payment_s')
+const submitElement = document.getElementById('mySubmit')
+targetElement.addEventListener('change', (e) => {
+    if (e.target.value === 'เงินสด') {
+        submitElement.setAttribute("data-bs-target", ".bd-example-modal-sm3")
+    } else if (e.target.value === 'โอนผ่านบัญชีธนาคาร') {
+        submitElement.setAttribute("data-bs-target", ".bd-example-modal-sm4")
+    } else if (e.target.value === 'ผ่อนชำระ') {
+        submitElement.setAttribute("data-bs-target", ".bd-example-modal-sm5")
+    }
+})
+
+//ส่วนคำนวณเงินของชำระเงินสด
+$('#receivecash').keyup(()=>{
+    const change = Number($('#receivecash').val()) - Number($("#all_price").val())
+    if(change>=0){
+        $('#change').val(change)
+    }else{
+        $('#change').val('')
+    }
+})
+
+//ส่วนแสดงสินค้าและส่งข้อมูลไปที่หน้าต่างๆการชำระ
 function setUI(data) {
     let allprice = 0
     let allquantity = 0
@@ -69,18 +83,37 @@ function setUI(data) {
         </th>
     </tr>`)
         $("#allprice").text(allprice)
-        $("#cashAllPrice").val(allprice)
+        $("#all_price").val(allprice)
         $("#allquantity").text(allquantity)
+        $("#all_quantity").val(allquantity)
+        let paymentsl = 0
+        paymentsl += element.payment_sl
+        $("#paymentsl").val(paymentsl)
+        $("#payment_sl").text(paymentsl)
     });
     console.log(data)
-
 }
 
-$('#receivecash').keyup(()=>{
-    const change = Number($('#receivecash').val()) - Number($("#cashAllPrice").val())
-    if(change>=0){
-        $('#change').val(change)
-    }else{
-        $('#change').val('')
+
+//ตรวจสอบพร้อมส่งข้อมูล
+$("#form1").submit(async function (event)
+{
+    event.preventDefault();
+    $('#sales').val(JSON.stringify(JSON.parse(localStorage.getItem("cart")).data))
+    let response = await fetch('controller/Sales.php', {
+        method: 'POST',
+        body: new FormData(document.form1)
+    });
+    console.log(response);
+    if (!response.ok) {
+        console.log(response);
+    } else {
+        await Swal.fire({
+            icon: 'success',
+            text: 'การชำระเสร็จสิ้น',
+            timer: 3000
+        })
+        console.log(await response.text());
+        window.location.assign("productlist.php");
     }
-})
+});
