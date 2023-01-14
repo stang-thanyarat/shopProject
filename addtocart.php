@@ -59,7 +59,7 @@ function getFullRole($role)
                     <tbody>
                         <tr class="t">
                             <th colspan="2">
-                                <select name="paymentsl" id="paymentsl" required>
+                                <select name="payment_s" id="payment_s" required>
                                     <option value="เลือกประเภทการชำระ" selected hidden>เลือกประเภทการชำระ</option>
                                     <option value="เงินสด">เงินสด</option>
                                     <option value="โอนผ่านบัญชีธนาคาร">โอนผ่านบัญชีธนาคาร</option>

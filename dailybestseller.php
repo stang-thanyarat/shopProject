@@ -77,7 +77,7 @@ $c = $category->fetchAll();
                         <th width="30%">รูปภาพ</th>
                         <th width="20%">ชื่อสินค้า</th>
                         <th width="12.5%">ราคา</th>
-                        <th width="12.5%">จำนวน</th>
+                        <th width="12.5%">จำนวนคงเหลือ</th>
                         <th width="10%">จำนวนการขาย</th>
                     </tr>
                 <tbody id="dailybestsellerTable"></tbody>

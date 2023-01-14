@@ -40,7 +40,7 @@ function del(id) {
 }
 
 //ส่วนเลือกชำระ
-const targetElement = document.getElementById('payment_sl')
+const targetElement = document.getElementById('payment_s')
 const submitElement = document.getElementById('mySubmit')
 targetElement.addEventListener('change', (e) => {
     if (e.target.value === 'เงินสด') {

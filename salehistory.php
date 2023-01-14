@@ -77,8 +77,8 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                         <tr>
                             <th><?= $row['sales_dt'] ?></th>
                             <th><?= $row['sales_list_id'] ?></th>
-                            <th><?= $row['sales_amt'] ?></th>
-                            <th><?= $row['sales_amt'] * $row['price'] ?></th>
+                            <th><?= $row['all_quantity'] ?></th>
+                            <th><?= $row['all_price']?></th>
                             <th><?= $row['payment_sl'] ?></th>
                         </tr>
                     <?php } ?>
