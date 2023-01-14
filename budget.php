@@ -44,7 +44,7 @@ function getFullRole($role)
                         <button type="button" onclick="dowloadClick()" class="g "><img src="./src/images/download.png " width="15">&nbsp;
                             ดาวน์โหลด
                         </button>
-                        <button type="button" class="g" onclick="printClick()"><img src="./src/images/print.png" width="15">&nbsp; print
+                        <button type="button" class="g" onclick="dowloadClick()"><img src="./src/images/print.png" width="15">&nbsp; print
                         </button>
                     </div>
                 </div>

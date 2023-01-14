@@ -1,5 +1,38 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<?php
+
+require_once '../vendor/autoload.php';
+$defaultConfig = (new Mpdf\Config\ConfigVariables())->getDefaults();
+$fontDirs = $defaultConfig['fontDir'];
+$defaultFontConfig = (new Mpdf\Config\FontVariables())->getDefaults();
+$fontData = $defaultFontConfig['fontdata'];
+$mpdf = new \Mpdf\Mpdf([
+    'mode' => 'utf-8',
+    'format' => 'A4',
+    'margin_left' => 15,
+    'margin_right' => 15,
+    'margin_top' => 16,
+    'margin_bottom' => 16,
+    'margin_header' => 9,
+    'margin_footer' => 9,
+    'mirrorMargins' => true,
+
+    'fontDir' => array_merge($fontDirs, [
+        '../vendor/mpdf/mpdf/custom/font/directory',
+    ]),
+    'fontdata' => $fontData + [
+            'thsarabun' => [
+                'R' => 'THSarabunNew.ttf',
+                'I' => 'THSarabunNew Italic.ttf',
+                'B' => 'THSarabunNew Bold.ttf',
+                'U' => 'THSarabunNew BoldItalic.ttf'
+            ]
+        ],
+    'default_font' => 'thsarabun',
+    'defaultPageNumStyle' => 1
+]);
+
+include_once "../PDF.php";
+$html = '<html>
 <head>
 <style type="text/css">
 .setcenter {
@@ -8,16 +41,22 @@
 .setright {
 	text-align: right;
 }
+h2{
+  font-size: 55pt;
+  }
+  td{
+  font-size: 40pt;
+  }
 </style>
 </head>
 
 <body>
 <table  width="1000" border="0">
   <tr class="setcenter">
-    <td colspan="2"><h2>ร้านวรเชษฐ์เกษตรภัณฑ์</h2></td>
+    <td colspan="2" class="setcenter"><h2>ร้านวรเชษฐ์เกษตรภัณฑ์</h2></td>
   </tr>
-  <tr class="setcenter">
-    <td colspan="2"><h2>สัญญาซื้อขาย</h2></td>
+  <tr class="setcenter" >
+    <td colspan="2" class="setcenter"><h2>สัญญาซื้อขาย</h2></td>
   </tr>
   <tr>
     <td>ฉบับที่ : xxx</td>
@@ -64,34 +103,34 @@ xxx
     <td colspan="2">
     <table border="0">
       <tr>
-        <td width="501" class="setright">ลงชื่อ xxx  &nbsp;&nbsp;</td>
-        <td width="184">ชื่อ : xxx</td>
-        <td width="169">นามสกุล : xxx</td>
-        <td width="122">พยานคนที่ 1</td>
+        <td width="900" class="setright">ลงชื่อ xxx  &nbsp;&nbsp;</td>
+        <td width="374">ชื่อ : xxx</td>
+        <td width="406">นามสกุล : xxx</td>
+        <td width="284">พยานคนที่ 1</td>
       </tr>
       <tr>
-        <td width="501" class="setright">ลงชื่อ xxx  &nbsp;&nbsp;</td>
-        <td width="184">ชื่อ : xxx</td>
-        <td width="169">นามสกุล : xxx</td>
-        <td width="122">พยานคนที่ 2</td>
+        <td width="494" class="setright">ลงชื่อ xxx  &nbsp;&nbsp;</td>
+        <td width="374">ชื่อ : xxx</td>
+        <td width="406">นามสกุล : xxx</td>
+        <td width="284">พยานคนที่ 2</td>
       </tr>
       <tr>
-        <td width="501" class="setright">ลงชื่อ xxx  &nbsp;&nbsp;</td>
-        <td width="184">ชื่อ : xxx</td>
-        <td width="169">นามสกุล : xxx</td>
-        <td width="122">พยานคนที่ 3</td>
+        <td width="494" class="setright">ลงชื่อ xxx  &nbsp;&nbsp;</td>
+        <td width="374">ชื่อ : xxx</td>
+        <td width="406">นามสกุล : xxx</td>
+        <td width="284">พยานคนที่ 3</td>
       </tr>
       <tr>
-        <td width="501" class="setright">ลงชื่อ xxx  &nbsp;&nbsp;</td>
-        <td width="184">ชื่อ : xxx</td>
-        <td width="169">นามสกุล : xxx</td>
-        <td width="122">ผู้ขาย</td>
+        <td width="494" class="setright">ลงชื่อ xxx  &nbsp;&nbsp;</td>
+        <td width="374">ชื่อ : xxx</td>
+        <td width="406">นามสกุล : xxx</td>
+        <td width="284">ผู้ขาย</td>
       </tr>
       <tr>
-        <td width="501" class="setright">ลงชื่อ xxx  &nbsp;&nbsp;</td>
-        <td width="184">ชื่อ : xxx</td>
-        <td width="169">นามสกุล : xxx</td>
-        <td width="122">ผู้ซื้อ</td>
+        <td width="494" class="setright">ลงชื่อ xxx  &nbsp;&nbsp;</td>
+        <td width="374">ชื่อ : xxx</td>
+        <td width="406">นามสกุล : xxx</td>
+        <td width="284">ผู้ซื้อ</td>
       </tr>
       </table>
       </td>
@@ -100,7 +139,7 @@ xxx
     <td colspan="2">&nbsp;</td>
 </tr>
   <tr>
-      <td colspan="2">๑. หากผู้ขายยังไม่ได้ส่งมอบทรัพย์ให้ในเวลาทำสัญญาควรจะเติมข้อความอีก ๑ ข้อว่าตราบใดที่ผู้ขายยังไม่ส่งมอบทรัพย์ให้ ยังไม่ถือว่าได้มีการซื้อขาย มิฉะนั้นผู้ซื้ออาจเสียเปรียบผู้ขาย</td>
+      <td colspan="2">๑.หากผู้ขายยังไม่ได้ส่งมอบทรัพย์ให้ในเวลาทำสัญญาควรจะเติมข้อความอีก ๑ ข้อว่าตราบใดที่ผู้ขายยังไม่ส่งมอบทรัพย์ให้ ยังไม่ถือว่าได้มีการซื้อขาย มิฉะนั้นผู้ซื้ออาจเสียเปรียบผู้ขาย</td>
   </tr> 
   <tr>
       <td colspan="2">๒. สัญญาซื้อขายไม่ต้องปิดอากรแสตมป์ เว้นแต่จะถือว่าสัญญานี้เป็นใบรับเงินแล้ว ถ้าสัญญาซื้อขายนี้ตั้งแต่ ๑๐ บาท ถึง ๒๐ บาท ต้องติดอากรแสตมป์ ๑๐ สตางค์ ถ้าสัญญาซื้ขายนี้เกิน ๒๐ บาท ทุก ๒๐ บาท หรือเศษของ ๒๐ บาท ต่อ ๑๐ สตางค์ ถ้าสัญญาซื้อขายต่ำกว่า ๑๐ บาท ไม่ต้องติดอากรแสตมป์</td>
@@ -109,3 +148,9 @@ xxx
 </table>
 </body>
 </html>
+';
+
+$mpdf->WriteHTML($html);
+$mpdf->Output($output, 'I');
+
+?>
