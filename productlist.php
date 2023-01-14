@@ -39,24 +39,23 @@ $rows = $category->fetchAll();
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
-                <div class="row main">
-                    <div class="col-6 topic_productlist">
+                <div class="row main d-flex justify-content-start topic">
+                    <div class="col-5">
                         <h1>รายการสินค้า</h1>
                     </div>
                         <div class="col-3 u">
-                            <input name="keyword" id="keyword" type="text" class="btnd" placeholder="&nbsp ชื่อสินค้า">
-                            <button  class="l"><img src="./src/images/search.png" width="20"></button>
+                            <input name="keyword" id="keyword" type="text" class="btnd" placeholder="&nbsp&nbsp&nbsp&nbsp&nbspพิมพ์ชื่อสินค้าเพื่อค้นหาโดยอัตโนมัติ">
                         </div>
                     <div class="col-2 m">
                         <select name="category_id" id="category_id" class="n" required>
-                            <option value="all">สินค้าทั้งหมด</option>
+                            <option value="all">&nbsp&nbsp&nbsp&nbsp&nbspสินค้าทั้งหมด</option>
                             <?php foreach ($rows as $row) { ?>
                                 <option value="<?= $row['category_id'] ?>"><?= $row['category_name'] ?></option>
                             <?php } ?>
                         </select>
                     </div>
-                    <div class="col-2 d-flex justify-content-end a">
-                        <a href="./addtocart.php" ><img src="./src/images/cart.png" width="52.5"/></a>
+                    <div class="col-1 a">
+                        <a href="./addtocart.php" ><img src="./src/images/cart.png" width="44%"/></a>
                     </div>
                 </div>
                 <table class="col-11 q">

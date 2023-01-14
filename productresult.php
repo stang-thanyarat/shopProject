@@ -57,11 +57,10 @@ $rows = $category->fetchAll();
                         <?php } ?>
                     </select>
                 </div>
-                <div class="col-2 y">
-                    <input name="keyword" type="text" id="keyword" class="btnd" placeholder="&nbsp ชื่อสินค้า">
-                    <button type="submit" class="s"><img src="./src/images/search.png" width="15"></button>
+                <div class="col-3 y">
+                    <input name="keyword" id="keyword" type="text" class="btnd" placeholder="&nbsp&nbsp&nbsp&nbsp&nbspพิมพ์ชื่อสินค้าเพื่อค้นหาโดยอัตโนมัติ">
                 </div>
-                <div class="col-1">
+                <div class="col-1 x">
                     <a type="button" href="./addproduct.php" class="submit btn"><img src="./src/images/plus.png" width="25">&nbsp เพิ่มสินค้า</a>
                 </div>
             </div>

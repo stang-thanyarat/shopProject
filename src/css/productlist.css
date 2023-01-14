@@ -9,21 +9,6 @@
     --bs-gutter-x: 0;
 }
 
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-}
-
-
-/* Hide default HTML checkbox */
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
 .main {
     margin-top: 5rem;
     margin-left: 4rem;
@@ -55,8 +40,16 @@ th {
     background-color: #F8E4C8;
     border-radius: 25px;
     border: 1ch;
-    height: 80%;
+    height: 85%;
     width: 90%;
+    font-size: 16pt;
+}
+
+.n {
+    background-color: #D4DDC6;
+    height: 85%;
+    width: 70%;
+    font-size: 16pt;
 }
 
 .BTNC {
@@ -87,39 +80,10 @@ th {
     margin-left: 5rem;
 }
 
-.modal-header {
-    background-color: #7C904E;
-    height: 50px;
-}
-
-.modal-title {
-    color: #fff;
-}
-
-.modal-body1 {
-    text-align: center;
-    height: 70px;
-    margin-top: 3rem;
-}
-
-.row {
-    --bs-gutter-x: 0rem;
-}
-
-.h {
-    margin-left: 6rem;
-}
-
-.topic_productlist {
-    margin-top: 1rem;
-}
-
-
 .q {
     margin-left: 4rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
     margin-bottom: 5rem;
-
 }
 
 .topic_category {
@@ -163,39 +127,15 @@ th {
 }
 
 .u {
-    font-size: 13pt;
-    margin-left: 0rem;
-    margin-top: 1rem;
+    margin-left: 6rem;
 }
 
 .m {
     margin-left: 0rem;
-    margin-top: 1rem;
-
 }
 
-.n {
-    background-color: #D4DDC6;
-    height: 80%;
-    width: 70%;
-}
-
-.a {
-    width: fit-content;
-    margin-top: 0.8rem;
-}
-
-.btn-primary1 {
-
-    background-color: #7C904E;
-    color: #fff;
-    border: 0in;
-}
-
-.btn {
-    border-radius: 25px 25px 25px 25px;
-    font-size: 13pt;
-    width: 20%;
+.a{
+    margin-left: -1rem;
 }
 
 .inbox {

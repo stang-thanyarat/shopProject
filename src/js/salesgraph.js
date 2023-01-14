@@ -71,7 +71,6 @@ $("#date").change(async function(){
     }
 })
 
-
 async function start() {
     let url = './controller/DailyBestSeller.php'
     const product = await (await fetch(url)).json()
@@ -86,34 +85,38 @@ $(document).ready(function () {
 });
 
 function setUI(data) {
-    let c = 0
-    $('#dailybestsellerTable').html('')
-    let r =-1
-    while(r!==0){
-        r = 0
-        for(let i = 0;i<data.length ;i++){
-            if(i+1 !== data.length ){
-                if(data[i].sales_amt < data[i+1].sales_amt){
-                    let a = data[i]
-                    let b = data[i+1]
-                    data[i] = b
-                    data[i+1] = a
-                    r++
-                }
+    const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['เมล็ดคะน้า', 'เมล็ดพริก', 'เมล็ดข้าวโพด', 'เมล็ดกระเจี๊ยบเขียว', 'เมล็ดมะเขือ', 'เมล็ดถั่วฝักยาว'],
+                datasets: [{
+                    label: 'ยอดขายสินค้า',
+                    data: [20, 17, 23, 35, 22, 28],
+                    backgroundColor: [
+                        'rgb(180, 180, 180)',
+                        'rgb(180, 180, 180)',
+                        'rgb(180, 180, 180)',
+                        'rgb(180, 180, 180)',
+                        'rgb(180, 180, 180)',
+                        'rgb(180, 180, 180)'
+                    ],
+                    borderColor: [
+                        'rgb(120, 120, 120)',
+                        'rgb(120, 120, 120)',
+                        'rgb(120, 120, 120)',
+                        'rgb(120, 120, 120)',
+                        'rgb(120, 120, 120)',
+                        'rgb(120, 120, 120)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                indexAxis: 'y',
             }
-        }
-    }
-    data.forEach((element, i) => {
-        c++
-        $('#dailybestsellerTable').append(`<tr id="rr${i + 1}">
-        <th class="index-table-bank">${i + 1}</th>
-        <th><img src="${element.product_img}" width="400"></th>
-        <th>${element.product_name}</th>
-        <th>${element.price}</th>
-        <th>${element.product_rm_unit}</th>
-        <th>${element.sales_amt}</th>
-    </tr>`)
-    });
+        });
+
     if (c <= 0) {
         $('#no-let').show()
         $("#tb-let").hide()
@@ -122,3 +125,4 @@ function setUI(data) {
         $('#no-let').hide()
     }
 }
+/*data.forEach((element, i,Chart) => {*/

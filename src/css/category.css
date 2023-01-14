@@ -103,7 +103,7 @@ table {
 }
 
 th {
-    height: 50px;
+    height: 56px;
 }
 
 
@@ -138,10 +138,6 @@ select {
     background-color: #F8E4C8;
     border: 0ch;
     margin-left: 5rem;
-}
-
-.addproducttypebutton {
-    margin-left: 60rem;
 }
 
 .s {
@@ -203,9 +199,14 @@ select {
 
 }
 
-.tbproducttype {
-    margin-top: 2rem;
+.topic{
     margin-left: 4rem;
+}
+
+.tbproducttype {
+    width: 80%;
+    margin: auto;
+    margin-top: 2rem;
     margin-bottom: 4rem;
 }
 .btn-primary1{
@@ -250,4 +251,8 @@ select {
     margin-top: 1rem;
     margin-left: 1.4rem;
     margin-bottom: 2rem;
+}
+
+.addproducttypebutton {
+    margin-left: -10rem;
 }

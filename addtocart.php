@@ -31,7 +31,7 @@ function getFullRole($role)
 <?php include_once('nav.php'); ?>
 
 <body>
-    <form>
+<form>
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
@@ -58,11 +58,13 @@ function getFullRole($role)
                     <tbody id="addtocartTable"></tbody>
                     <tbody>
                         <tr class="t">
-                            <th colspan="2"> <select name="type" id="solutionPay" required>
-                                    <option value="" selected hidden>เลือกประเภทการชำระ</option>
-                                    <option value="cash">เงินสด</option>
-                                    <option value="bankTransfer">โอนผ่านบัญชีธนาคาร</option>
-                                    <option value="installment">ผ่อนชำระ</option>
+                            <th colspan="2">
+                                <select name="payment_s" id="payment_s" required>
+                                    <option value="เลือกประเภทการชำระ" selected hidden>เลือกประเภทการชำระ</option>
+                                    <option value="เงินสด">เงินสด</option>
+                                    <option value="โอนผ่านบัญชีธนาคาร">โอนผ่านบัญชีธนาคาร</option>
+                                    <option value="ผ่อนชำระ">ผ่อนชำระ</option>
+                                </select>
                             </th>
                             <th colspan="6">
                                 <div class=" d-flex justify-content-end">
@@ -78,53 +80,12 @@ function getFullRole($role)
         </div>
     </form>
 
-    <!-- ลบ -->
-    <div class="modal fade bd-example-modal-sm1" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title2" id="exampleModalLabel">ลบรายการสินค้า</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <h3>ยืนยันที่จะลบ</h3>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary1">ตกลง</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- แก้ไขจำนวน-->
-    <div class="modal fade bd-example-modal-sm2" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title2" id="exampleModalLabel">แก้ไขรายการสินค้า</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="exp">
-                        วันหมดอายุ :&nbsp<font color="red">&nbsp*</font>
-                        <input type="date" name="list" id="list" class="inbox" required />
-                    </div>
-
-                    <div class="amount">
-                        จำนวน : <font color="red">&nbsp*</font>
-                        <input type="text" name="amount" id="amount" class="inbox" required />
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary1">ตกลง</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- ยืนยันการซื้อแบบเงินสด -->
     <div class="modal fade bd-example-modal-sm3" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <form action="controller/Sales.php" name="form1" id="form1" method="POST">
+            <input type="hidden" value="sales" name="table" />
+            <input type="hidden" value="insert" name="form_action" />
+            <input type="hidden" id="sales" name="sales" />
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -133,9 +94,17 @@ function getFullRole($role)
                 </div>
                 <div class="modal-body">
                     <div class="row">
+                        <input type="text" id="payment_sl" name="payment_sl" />
+                        <div class="col allprice">
+                            จำนวนทั้งหมด :<font color="red">&nbsp*</font>
+                            <input type="text" id="all_quantity" name="all_quantity" class="inbox" required />
+                            &nbsp&nbspชิ้น
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col allprice">
                             ยอดรวมทั้งหมด :<font color="red">&nbsp*</font>
-                            <input type="text" id="cashAllPrice" class="inbox" required />
+                            <input type="text" id="all_price" name="all_price" class="inbox" required />
                             &nbsp&nbspบาท
                         </div>
                     </div>
@@ -154,7 +123,6 @@ function getFullRole($role)
                         </div>
                     </div>
                 </div>
-
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary1">ตกลง</button>
                 </div>
@@ -162,6 +130,7 @@ function getFullRole($role)
         </div>
     </div>
     </form>
+
     <!-- ยืนยันการซื้อแบบโอนผ่านธนาคาร -->
     <div class="modal fade bd-example-modal-sm4" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -194,6 +163,7 @@ function getFullRole($role)
             </div>
         </div>
     </div>
+
     <!-- ยืนยันการซื้อแบบผ่อนชำระ -->
     <div class="modal fade bd-example-modal-sm5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" .>
@@ -221,6 +191,7 @@ function getFullRole($role)
             </div>
         </div>
     </div>
+
     <!-- ยืนยันการซื้อแบบผ่อนชำระ(ต่อ 1) -->
     <div class="modal fade bd-example-modal-sm6" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -246,6 +217,7 @@ function getFullRole($role)
             </div>
         </div>
     </div>
+
     <!-- ยืนยันการซื้อแบบผ่อนชำระ(ต่อ 2) -->
     <div class="modal fade bd-example-modal-sm7" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">

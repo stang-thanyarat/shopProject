@@ -45,15 +45,16 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != "") {
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
-                    <div class="col-12">
+                    <div class="col-11">
                         <h1>รายการใบสั่งซื้อ</h1>
                     </div>
-                    <div class="row">
-                        <div class="col-2 z">
+                </div>
+                    <div class="row d-flex justify-content-end">
+                        <div class="col-2">
                             <input type="text" id="keyword" value="<?= $_GET['keyword'] ?? "" ?>" name="keyword" class="btnd" placeholder="&nbsp ชื่อผู้ขาย">
                             <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
                         </div>
-                        <div class="col-2 y">
+                        <div class="col-2">
                             <a class="submit btn" href="addorder.php"><img src="./src/images/plus.png" width="25">
                                 เพิ่มใบสั่งซื้อ</a>
                         </div>
@@ -61,8 +62,8 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != "") {
                     <table class="col-11 tb">
                         <tr>
                             <th width="20%">วันที่สั่งซื้อ</th>
-                            <th width="30%">ชื่อผู้ขาย</th>
-                            <th width="15%">สถานะ</th>
+                            <th width="53%">ชื่อผู้ขาย</th>
+                            <th width="17%">สถานะ</th>
                             <th width="10%"></th>
                         </tr>
                         <?php foreach ($rows as $row) { ?>
@@ -78,7 +79,6 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != "") {
                                         <a type="button" class="bgs" href="./editconfirm2.php?id=<?= $row['order_id']; ?>"><img src="./src/images/icon-pencil.png" width="25"></a>
                                     <?php } ?>
                                 </th>
-                </div>
                 </th>
                 </tr><?php } ?>
             </table>

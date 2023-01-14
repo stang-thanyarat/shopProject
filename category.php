@@ -39,33 +39,33 @@ $rows = $category->fetchAll();
         <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
         <div class="col-11">
             <div class="row main">
-                <div class="col">
+                <div class="col topic">
                     <h1>ประเภทสินค้า</h1>
                 </div>
-                <div class="row">
-                    <div class="col-2 addproducttypebutton">
+                <div class="row d-flex justify-content-end addproducttypebutton">
+                    <div class="col-2">
                         <button class="submit btn" name="btCategory_click()" onclick="insert()"><img src="./src/images/plus.png" width="25">&nbsp เพิ่มประเภทสินค้า</button>
                     </div>
                 </div>
             </div>
-            <table class="col-13 tbproducttype">
+            <table class="col-11 tbproducttype">
                 <thead>
                     <tr>
-                        <th width=10%>ลำดับ</th>
-                        <th width=40%>ประเภทสินค้า</th>
-                        <th width=20%>รายการทั้งหมด</th>
-                        <th width=20%>รายการที่ขาย</th>
-                        <th width=10%></th>
+                        <th width=8%>ลำดับ</th>
+                        <th width=54%>ประเภทสินค้า</th>
+                        <th width=15%>รายการทั้งหมด</th>
+                        <th width=15%>รายการที่ขาย</th>
+                        <th width=8%></th>
                     </tr>
                 </thead>
                 <tbody id="categorytable">
                     <?php $i = 1;
                     foreach ($rows as $row) { ?>
                         <tr>
-                            <th width=10%><?= $i ?></th>
-                            <th width=35% id="text<?= $row['category_id'] ?>"><?= $row['category_name'] ?></th>
-                            <th width=20%><?= $category->getCount($row['category_id'], false) ?></th>
-                            <th width=20%><?= $category->getCount($row['category_id'], true) ?></th>
+                            <th><?= $i ?></th>
+                            <th id="text<?= $row['category_id'] ?>"><?= $row['category_name'] ?></th>
+                            <th ><?= $category->getCount($row['category_id'], false) ?></th>
+                            <th ><?= $category->getCount($row['category_id'], true) ?></th>
                             <th>
                                 <button type="button" class="bgs" name="btDelete_click()" onclick="del(<?= $row['category_id'] ?>)"><img src="./src/images/icon-delete.png" width="25"></button>
                                 <button type="button" class="bgs" name="btEdit_click()" onclick="edit(<?= $row['category_id'] ?>)"><img src="./src/images/icon-pencil.png" width="25"></button>
