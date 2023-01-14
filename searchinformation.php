@@ -36,10 +36,11 @@ function getFullRole($role)
                 <div class="row main">
                     <h1>ค้นหาข้อมูลการซื้อสินค้า </h1>
                     <div>
-                        เลขที่ใบเสร็จ :&nbsp &nbsp<input type="text" class="btnd" placeholder="&nbsp ค้นหาเลขที่ใบเสร็จ" required>
+                        เลขที่ใบเสร็จ :&nbsp &nbsp<input type="text" class="btnd" id="keyword" name="keyword" placeholder="&nbsp ค้นหาเลขที่ใบเสร็จ" >
                         <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
                     </div>
                     <table class="main col-10">
+                    <h3 style="text-align: center;" id="no-let">ไม่พบเลขที่ใบเสร็จ</h3>
                         <tr class="h">
                             <th>ลำดับ</th>
                             <th>รูปภาพ</th>
