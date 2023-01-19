@@ -13,7 +13,7 @@ class Product
 
     public function fetchAll()
     {
-        $sql = "SELECT * FROM product_tb";
+        $sql = "SELECT * FROM product_tb ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -57,20 +57,25 @@ class Product
         $data = $this->fetchAll();
         $sumData = [];
         foreach ($data as $row) {
-            //กรณีเปิดจะขึ้นสินค้า
             if ($row['sales_status'] == 1 && $row['product_rm_unit'] > 0) {
                 $catData = (new Category())->fetchById($row);
                 $sumData[] = array_merge($row, $catData);
-            }
-            //กรณีปิดก็จะปิดสถานะ
-            //แต่ถ้าลบ elseif ออก จะเป็นการลบ(ซ่อนสินค้า)ออกไป
-            elseif ($row['sales_status'] == 0 && $row['product_rm_unit'] > 0){
+            } elseif ($row['sales_status'] == 0 && $row['product_rm_unit'] > 0) {
                 $catData = (new Category())->fetchById($row);
                 $sumData[] = array_merge($row, $catData);
             }
         }
         return $sumData;
     }
+
+        /* public function fetchAddCategory()
+         {
+             $sql = "SELECT P.*,C.* FROM category_tb C,product_tb P WHERE P.category_id = C.category_id ORDER BY P.product_id ASC ";
+             $stmt = $this->conn->prepare($sql);
+             $stmt->execute();
+             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+             return $result;
+         }}*/
 
     public function fetchByName($keyword){
         $like = "%$keyword%";
@@ -164,8 +169,8 @@ class Product
         $sql = "SET FOREIGN_KEY_CHECKS=0";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        $sql = "INSERT INTO product_tb (product_name, category_id, brand, model, sell_id, product_detail, product_img, product_detail_img, product_dlt_unit, product_unit, price, cost_price, notification_amt, sales_status, set_n_amt, date_n_amt, notification_amt2, product_rm_unit, vat, set_exchange) 
-        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO product_tb (product_name, category_id, brand, model, sell_id, product_detail, product_img, product_detail_img, product_dlt_unit, product_unit, price, cost_price, notification_amt, sales_status, set_n_amt, date_n_amt, notification_amt2, product_rm_unit, vat, set_exchange, category_name) 
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $data['product_name'], PDO::PARAM_STR);
         $stmt->bindParam(2, $data['category_id'], PDO::PARAM_INT);
@@ -187,6 +192,7 @@ class Product
         $stmt->bindParam(18, $data['product_dlt_unit'], PDO::PARAM_INT);
         $stmt->bindParam(19, $data['vat'], PDO::PARAM_INT);
         $stmt->bindParam(20, $data['set_exchange'], PDO::PARAM_INT);
+        $stmt->bindParam(21, $data['category_id'], PDO::PARAM_STR);
         $stmt->execute();
     }
 
@@ -222,8 +228,8 @@ class Product
         try {
             $sql = "UPDATE product_tb
         SET product_name = ?, 
-            category_id = ?, brand = ?, model = ?, sell_id = ?, product_detail = ?, product_dlt_unit = ?, product_unit = ?, price = ?, cost_price = ?, notification_amt = ?, set_n_amt = ?, date_n_amt = ?, notification_amt2 = ? , vat = ?, set_exchange = ?
-        WHERE product_id=?";
+            category_id = ?, brand = ?, model = ?, sell_id = ?, product_detail = ?, product_dlt_unit = ?, product_unit = ?, price = ?, cost_price = ?, notification_amt = ?, set_n_amt = ?, date_n_amt = ?, notification_amt2 = ? , vat = ?, set_exchange = ?, category_name = ?
+        WHERE product_id = ?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $data['product_name'], PDO::PARAM_STR);
             $stmt->bindParam(2, $data['category_id'], PDO::PARAM_INT);
@@ -241,7 +247,8 @@ class Product
             $stmt->bindParam(14, $data['notification_amt2'], PDO::PARAM_INT);
             $stmt->bindParam(15, $data['vat'], PDO::PARAM_INT);
             $stmt->bindParam(16, $data['set_exchange'], PDO::PARAM_INT);
-            $stmt->bindParam(17, $data['product_id'], PDO::PARAM_INT);
+            $stmt->bindParam(17, $data['category_id'], PDO::PARAM_STR);
+            $stmt->bindParam(18, $data['product_id'], PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
             http_response_code(500);
@@ -263,7 +270,7 @@ class Product
 
     public function fetchByCategoryId($id)
     {
-        $sql = "SELECT * FROM product_tb WHERE category_id=? AND sales_status = 1  AND product_rm_unit > 0";
+        $sql = "SELECT * FROM product_tb WHERE category_id = ? AND sales_status = 1  AND product_rm_unit > 0";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $id, PDO::PARAM_INT);
         $stmt->execute();
@@ -306,4 +313,3 @@ class Product
     }
 
 }
-

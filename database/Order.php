@@ -11,7 +11,7 @@ class Order
     public function fetchAll()
     {
         try {
-            $sql = "SELECT O.*,S.sell_name FROM order_tb O,sell_tb S WHERE O.sell_id = S.sell_id ";
+            $sql = "SELECT * FROM order_tb";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetchAll();
@@ -22,7 +22,19 @@ class Order
         }
     }
 
-
+    public function fetchAllSell()
+    {
+        try {
+            $sql = "SELECT O.*,S.* FROM order_tb O,sell_tb S WHERE O.sell_id = S.sell_id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            return $result;
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
+    }
 
     public function search($keyword, $date = null)
     {

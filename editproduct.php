@@ -79,7 +79,7 @@ $sells = $sell->fetchAll();
                                     <select name="category_id" id="category_id" class="inbox" style="background-color: #D4DDC6;" required>
                                         <option value="" selected hidden>เลือกประเภทสินค้า</option>
                                         <?php foreach ($rows as $row) { ?>
-                                            <option value="<?= $row['category_id'] ?>" <?= $p['category_id'] == $row['category_id'] ? "selected" : '' ?>><?= $row['category_name'] ?></option>
+                                            <option value="<?= $row['category_id'] ?><?= $row['category_name'] ?>" <?= $p['category_id'] == $row['category_id'] ? "selected" : '' ?>><?= $row['category_name'] ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
@@ -89,30 +89,29 @@ $sells = $sell->fetchAll();
                                     </label>
                                 </div>-->
                             </div>
-
                             <div class="row a">
                                 <div class="col-4 productname">
                                     ชื่อสินค้า :<span style="color: red; ">&nbsp*</span>
                                     <input name="product_name" type="text" id="product_name" class="inbox" value="<?= $p['product_name']; ?>" required />
                                 </div>
-                                <div class="col-4 brand">
-                                    ยี่ห้อสินค้า :<span style="color: red; ">&nbsp*</span>
-                                    <input name="brand" type="text" id="brand" class="inbox" value="<?= $p['brand']; ?>" />
-                                </div>
-                            </div>
-
-                            <div class="row a">
-                                <div class="col-4 productversion">
-                                    รุ่นสินค้า :<span style="color: red; ">&nbsp*</span>
-                                    <input name="model" type="text" id="model" class="inbox" value="<?= $p['model']; ?>" />
-                                </div>
                                 <div class="col-4 sellername">
                                     ชื่อผู้ขาย :<span style="color: red; ">&nbsp*</span>
                                     <select name="sell_id" id="sell_id" class="inbox" style="background-color: #D4DDC6;" required>
+                                        <option value="allsell" selected hidden>เลือกผู้ขาย</option>
                                         <?php foreach ($sells as $s) { ?>
-                                        <option value="<?= $s['sell_id'] ?>" <?= $s['sell_id'] == $s['sell_id'] ? "selected" : '' ?>><?= $s['sell_name'] ?></option>
+                                            <option value="<?= $s['sell_id'] ?>" <?= $p['sell_id'] == $s['sell_id'] ? "selected" : '' ?>><?= $s['sell_name'] ?></option>
                                         <?php } ?>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="row a">
+                                <div class="col-4 productversion">
+                                    รุ่นสินค้า :&nbsp&nbsp&nbsp
+                                    <input name="model" type="text" id="model" class="inbox" value="<?= $p['model']; ?>" />
+                                </div>
+                                <div class="col-4 brand">
+                                    ยี่ห้อสินค้า :&nbsp&nbsp
+                                    <input name="brand" type="text" id="brand" class="inbox" value="<?= $p['brand']; ?>" />
                                 </div>
                             </div>
                             <div class="row a">
@@ -167,7 +166,6 @@ $sells = $sell->fetchAll();
                                     <label class="vaxcheckboxtext" >ภาษีมูลค่าเพิ่ม</label>
                                 </div>
                             </div>
-
                             <div class="row a">
                                 <div class="col-5 min1">
                                     สินค้าคงคลังขั้นต่ำ :<span style="color: red; ">&nbsp*</span>

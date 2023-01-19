@@ -37,7 +37,7 @@ function setUI(data) {
     data.forEach(element => {
         $('#productResultTable').append(`
         <tr>
-        <th>${element.category_name }</th>
+        <th >${element.category_name}</th>
         <th>${element.product_name}</th>
         <th>${element.brand}</th>
         <th>${element.model}</th>

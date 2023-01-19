@@ -35,7 +35,7 @@ $order = new Order();
 if (isset($_GET['keyword']) && $_GET['keyword'] != "") {
     $rows = $order->search($_GET['keyword']);
 } else {
-    $rows = $order->fetchAll();
+    $rows = $order->fetchAllSell();
 }
 ?>
 

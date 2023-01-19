@@ -57,30 +57,38 @@ $(document).ready(async function () {
 function setUI(data) {
     let html = ''
     data.forEach((element, i) => {
-        if (i % 3 === 0) {
-            html += "<tr>"
-        }
-        html += `<th>
-                <div class="row-4 topic_product">
+            if (i % 3 === 0) {
+                html += `<tr>`
+            }
+            html += `<th class="topic_product">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-11" style="padding:25px;">
                     ${element.product_name} ${element.model === "" ? "" : "รุ่น&nbsp"}${element.model}
+                    </div>
                 </div>
                 <div class="row">
-                    <div class="col-7">
-                        <img src="${element.product_img}" class="img_position">
+                    <div class="col-6" style="margin-left: 1rem;">
+                        <div class="d-flex justify-content-end">
+                        <img src="${element.product_img}" width="250" style="margin-bottom: 2rem;" >
+                        </div>
                     </div>
-                    <div class="col-5">
-                    <div class="aa">
-                        <p class="fitcontent">ราคา&nbsp&nbsp ${element.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} &nbsp&nbspบาท</p>
-                        <p class="fitcontent">คงเหลือ&nbsp&nbsp <span id="p${element.product_id}">${element.product_rm_unit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span> &nbsp&nbsp${element.product_unit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
-                        <p><button onclick="addToCart(${element.product_id})">เพิ่มไปยังรถเข็น</button></p>
+                    <div class="col-5" style="margin-left: 0rem;">
+                        <div class="d-flex justify-content-end">
+                            <p class="fitcontent">ราคา&nbsp&nbsp ${element.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} &nbsp&nbspบาท</p>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <p class="fitcontent">คงเหลือ&nbsp&nbsp <span id="p${element.product_id}">${element.product_rm_unit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span> &nbsp&nbsp${element.product_unit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            ${element.sales_status == 1 ? `<p class="fitcontent"><button onclick="addToCart(${element.product_id})">เพิ่มไปยังรถเข็น</button></p>`:`<span style="color: red;" class="fitcontent">หยุดการขายสินค้า</span>`}
                         </div>
                     </div>
                 </div>
                 </th>`
-        if ((i + 1) % 3 === 0 && (i + 1) === data.length) {
-            html += "</tr>"
-        }
-    })
+            if ((i + 1) % 3 === 0 && (i + 1) === data.length) {
+                html += "</tr>"
+            }
+        })
     $('#productlistTable').html(html)
 }
 

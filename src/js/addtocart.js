@@ -38,17 +38,25 @@ function del(id) {
         }
     })
 }
-
-//ส่วนเลือกชำระ
+//ส่วนชำระเงินสด
 const targetElement = document.getElementById('payment_s')
 const submitElement = document.getElementById('mySubmit')
 targetElement.addEventListener('change', (e) => {
     if (e.target.value === 'เงินสด') {
-        submitElement.setAttribute("data-bs-target", ".bd-example-modal-sm3")
+        submitElement.setAttribute("data-bs-target", ".bd-example-modal-sm3");
+        let payment =  $("#payment_s").val()
+        $('#payment_s').val(payment)
+        $('#payment_sl').val(payment)
     } else if (e.target.value === 'โอนผ่านบัญชีธนาคาร') {
-        submitElement.setAttribute("data-bs-target", ".bd-example-modal-sm4")
+        submitElement.setAttribute("data-bs-target", ".bd-example-modal-sm4");
+        let payment =  $("#payment_s").val()
+        $('#payment_s').val(payment)
+        $('#payment_sl').val(payment)
     } else if (e.target.value === 'ผ่อนชำระ') {
-        submitElement.setAttribute("data-bs-target", ".bd-example-modal-sm5")
+        submitElement.setAttribute("data-bs-target", ".bd-example-modal-sm5");
+        let payment =  $("#payment_s").val()
+        $('#payment_s').val(payment)
+        $('#payment_sl').val(payment)
     }
 })
 
@@ -62,7 +70,25 @@ $('#receivecash').keyup(()=>{
     }
 })
 
-//ส่วนแสดงสินค้าและส่งข้อมูลไปที่หน้าต่างๆการชำระ
+/*$("#payment_s").change(async function () {
+    if ($("#payment_s").val() === 'เงินสด') {
+        let payment =  $("#payment_s").val()
+            $('#payment_s').val(payment)
+            $('#payment_sl').val(payment)
+
+    }
+    else if ($("#payment_s").val() === 'โอนผ่านบัญชีธนาคาร') {
+        let payment =  $("#payment_s").val()
+        $('#payment_s').val(payment)
+        $('#payment_sl').val(payment)
+    }
+    else if ($("#payment_s").val() === 'ผ่อนชำระ') {
+        let payment =  $("#payment_s").val()
+        $('#payment_s').val(payment)
+        $('#payment_sl').val(payment)
+    }
+});*/
+
 function setUI(data) {
     let allprice = 0
     let allquantity = 0
@@ -71,29 +97,30 @@ function setUI(data) {
         allprice += Number(element.price) * Number(element.quantity)
         allquantity += Number(element.quantity)
         $('#addtocartTable').append(`<tr id="rr${i + 1}">
-        <th class="index-table-addtocart">${i + 1}</th>
-        <th><img class="object" src="${element.product_img}" width="300"></th>
-        <th>${element.product_name}</th>
-        <th>${element.price}</th>
-        <th>${element.quantity}</th>
-        <th>${Number(element.price) * Number(element.quantity)}</th>
-        <th>
+        <th style="border-right: 1px;">${i + 1}</th>
+        <th style="border-left: 1px; border-right: 1px;">
+            <img class="topic_product" src="${element.product_img}">
+        </th>
+        <th style="border-left: 1px; border-right: 1px;">${element.product_name}</th>
+        <th style="border-left: 1px; border-right: 1px;">${element.price}</th>
+        <th style="border-left: 1px; border-right: 1px;">${element.quantity}</th>
+        <th style="border-left: 1px; border-right: 1px;">${Number(element.price) * Number(element.quantity)}</th>
+        <th style="border-left: 1px;" >
+        <div class="topic_BTAJ">
             <button type="button" class="bgs" onclick="del(${element.product_id})"><img src="./src/images/icon-delete.png" width="25"></button>
-            <a href="./productlist.php" class="bgs" ><img src="./src/images/icon-pencil.png" width="25" ></a>
+        </div>
+        <div class="topic_BTAJ">
+        <a href="./productlist.php" class="bgs" ><img src="./src/images/icon-pencil.png" width="25" ></a>
+        </div>
         </th>
     </tr>`)
         $("#allprice").text(allprice)
         $("#all_price").val(allprice)
         $("#allquantity").text(allquantity)
         $("#all_quantity").val(allquantity)
-        let paymentsl = 0
-        paymentsl += element.payment_sl
-        $("#paymentsl").val(paymentsl)
-        $("#payment_sl").text(paymentsl)
     });
     console.log(data)
 }
-
 
 //ตรวจสอบพร้อมส่งข้อมูล
 $("#form1").submit(async function (event)

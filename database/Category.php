@@ -22,7 +22,7 @@ class Category
 
     public function fetchById($id)
     {
-        $sql = "SELECT * FROM category_tb WHERE category_id=?";
+        $sql = "SELECT * FROM category_tb WHERE category_id = ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $id, PDO::PARAM_INT);
         $stmt->execute();

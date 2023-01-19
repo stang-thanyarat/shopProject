@@ -92,17 +92,17 @@ class Sales
         $sql = "SET FOREIGN_KEY_CHECKS=0";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        $sql = "INSERT INTO sales_tb (payment_sl ,all_price ,all_quantity )
-        VALUES (?,?,?)";
+        $sql = "INSERT INTO sales_tb (payment_sl ,all_price ,all_quantity, employee_id,import_files,note)
+        VALUES (?,?,?,?,?,?)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $data['payment_sl'], PDO::PARAM_STR);
         $stmt->bindParam(2, $data['all_price'], PDO::PARAM_STR);
         $stmt->bindParam(3, $data['all_quantity'], PDO::PARAM_STR);
-        //$stmt->bindParam(4, $data['employee_id'], PDO::PARAM_INT);
+        $stmt->bindParam(4, $data['employee_id'], PDO::PARAM_INT);
         //$stmt->bindParam(5, $data['discount'], PDO::PARAM_STR);
         //$stmt->bindParam(6, $data['sales_amt'], PDO::PARAM_INT);
-        //$stmt->bindParam(9, $data['import_files'], PDO::PARAM_STR);
-        //$stmt->bindParam(10, $data['note'], PDO::PARAM_STR);
+        $stmt->bindParam(5, $data['import_files'], PDO::PARAM_STR);
+        $stmt->bindParam(6, $data['note'], PDO::PARAM_STR);
         //$stmt->bindParam(11, $data['stock_id'], PDO::PARAM_INT);
         $stmt->execute();
     }

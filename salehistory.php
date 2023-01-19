@@ -71,7 +71,6 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                     <th width=15%>ยอดรวมทั้งหมด</th>
                     <th width=25%>ช่องทางการชำระ</th>
                 </tr>
-                <tr>
                     <tbody id="salesHistory">
                     <?php foreach ($rows as $row) { ?>
                         <tr>

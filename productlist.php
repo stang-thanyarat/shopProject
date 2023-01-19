@@ -58,10 +58,10 @@ $rows = $category->fetchAll();
                         <a href="./addtocart.php" ><img src="./src/images/cart.png" width="44%"/></a>
                     </div>
                 </div>
-                <table class="col-11 q">
+                <table class="col-11 q" style="border: 0px">
                     <thead>
-                        <tr class="topic_category">
-                            <th colspan="3">
+                        <tr style="background-color: #ABBE99">
+                            <th colspan="6" style="border: 0px">
                                 <h5 class="z">รายการสินค้าทั้งหมด</h5>
                             </th>
                         </tr>

@@ -26,7 +26,12 @@ function getFullRole($role)
     <link rel="stylesheet" href="./src/css/salesgraph.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Document</title>
-
+    <style type="text/css">
+        #ChartTable {
+            width: 70%;
+            margin: auto;
+        }
+    </style>
 </head>
 <?php include_once('nav.php');
 include_once "./database/Category.php";
@@ -49,7 +54,7 @@ $rows = $category->fetchAll();
             </div>
             <div class="row q">
                 <div class="col-1">
-                    <select name="category_id" id="category_id" class="sizeselect" style="background-color: #D4DDC6;" required>
+                    <select name="category_id" id="category_id" class="sizeselect" style="background-color: #D4DDC6;" >
                         <option value="all">สินค้าทั้งหมด</option>
                         <?php foreach ($rows as $row) { ?>
                             <option value="<?= $row['category_id'] ?>"><?= $row['category_name'] ?></option>
@@ -57,16 +62,12 @@ $rows = $category->fetchAll();
                     </select>
                 </div>
                 <div class="col-1 date">
-                    <input type="date" class="sizeselect" required>
+                    <input type="date" id="date" name="date" class="sizeselect" >
                 </div>
             </div>
             <p></p>
             <h3 class="tt">ยอดขายสินค้า</h3>
-            <div class="row">
-                <canvas id="myChart" height="300">
-                <script id="myChart"></script>
-                </canvas>
-            </div>
+            <div id="ChartTable"></div>
         </div>
     </div>
 </body>
