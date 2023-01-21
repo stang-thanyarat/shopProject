@@ -31,7 +31,6 @@ function getFullRole($role)
 <?php include_once('nav.php'); ?>
 
 <body>
-<form>
     <div class="row">
         <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
         <div class="col-11">
@@ -78,16 +77,14 @@ function getFullRole($role)
             </table>
         </div>
     </div>
-</form>
 
 <!-- ยืนยันการซื้อแบบเงินสด -->
 <div class="modal fade bd-example-modal-sm3" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form action="controller/Sales.php" name="form1" id="form1" method="POST">
+    <form action="controller/Sales.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
         <input type="hidden" value="sales" name="table" />
         <input type="hidden" value="insert" name="form_action" />
-        <input type="hidden" id="sales" name="sales" />
-        <input type="hidden" id="payment_sl" name="payment_sl" />
-        <input type="hidden" id="employee_id" name="employee_id" />
+        <input type="hidden" id="payment_sl" name="payment_sl" value="เงินสด" />
+        <input type="hidden" id="employee_id" name="employee_id" value="<?=$_SESSION['employee_id']?>">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -98,14 +95,14 @@ function getFullRole($role)
                     <div class="row">
                         <div class="col allprice">
                             จำนวนทั้งหมด :<font color="red">&nbsp*</font>
-                            <input type="text" id="all_quantity" name="all_quantity" class="inbox" required />
+                            <input type="text" name="all_quantity" class="inbox all_quantity" required />
                             &nbsp&nbspชิ้น
                         </div>
                     </div>
                     <div class="row">
                         <div class="col allprice">
                             ยอดรวมทั้งหมด :<font color="red">&nbsp*</font>
-                            <input type="text" id="all_price" name="all_price" class="inbox" required />
+                            <input type="text" name="all_price" class="inbox all_price" required />
                             &nbsp&nbspบาท
                         </div>
                     </div>
@@ -134,12 +131,11 @@ function getFullRole($role)
 
 <!-- ยืนยันการซื้อแบบโอนผ่านธนาคาร -->
 <div class="modal fade bd-example-modal-sm4" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form action="controller/Sales.php" name="form1" id="form1" method="POST">
+    <form action="controller/Sales.php" name="form2" id="form2" method="POST" enctype="multipart/form-data">
         <input type="hidden" value="sales" name="table" />
         <input type="hidden" value="insert" name="form_action" />
-        <input type="hidden" id="sales" name="sales" />
-
-        <input type="hidden" id="employee_id" name="employee_id" />
+        <input type="hidden" id="payment_sl" name="payment_sl" value="โอนผ่านบัญชีธนาคาร" />
+        <input type="hidden" id="employee_id" name="employee_id" value="<?=$_SESSION['employee_id']?>">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -148,37 +144,22 @@ function getFullRole($role)
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <input type="text" id="payment_sl" name="payment_sl" />
                     <div class="col allprice">
                         จำนวนทั้งหมด :<font color="red">&nbsp*</font>
-                        <input type="text" id="all_quantity" name="all_quantity" class="inbox" required />
+                        <input type="text" name="all_quantity" class="inbox all_quantity" required />
                         &nbsp&nbspชิ้น
                     </div>
                 </div>
                 <div class="row">
                     <div class="col allprice">
                         ยอดรวมทั้งหมด :<font color="red">&nbsp*</font>
-                        <input type="text" id="all_price" name="all_price" class="inbox" required />
-                        &nbsp&nbspบาท
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col receivecash">
-                        เงินที่รับมา :<font color="red">&nbsp*</font>
-                        <input type="text" id="receivecash" class="inbox" required />
-                        &nbsp&nbspบาท
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col change">
-                        เงินทอน :&nbsp&nbsp&nbsp
-                        <input type="text" id="change" class="inbox">
+                        <input type="text" name="all_price" class="inbox all_price" required />
                         &nbsp&nbspบาท
                     </div>
                 </div>
                 <div class="row">
                     <div class="col importfile">
-                        แนบในสลิปธนาคาร : <input type="file" class="inbox" id="" required />
+                        แนบในสลิปธนาคาร : <input type="file" class="inbox" id="import_files" name="import_files" required />
                     </div>
                 </div>
                 <div class="row">
@@ -188,7 +169,7 @@ function getFullRole($role)
                 </div>
                 <div class="row">
                     <div class="col detail">
-                        หมายเหตุ : <input type="note" class="inbox" id="">
+                        หมายเหตุ : <input type="note" class="inbox" id="note" name="note">
                     </div>
                 </div>
             </div>
@@ -203,7 +184,11 @@ function getFullRole($role)
 
 <!-- ยืนยันการซื้อแบบผ่อนชำระ -->
 <div class="modal fade bd-example-modal-sm5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" .>
+    <form action="controller/Sales.php" name="form3" id="form3" method="POST">
+        <input type="hidden" value="sales" name="table" />
+        <input type="hidden" value="insert" name="form_action" />
+        <input type="hidden" id="payment_sl" name="payment_sl" value="ผ่อนชำระ" />
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title2" id="exampleModalLabel">กรอกรหัสเจ้าของร้าน</h5>

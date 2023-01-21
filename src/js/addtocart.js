@@ -1,4 +1,6 @@
 //ส่วนรับรายการสินค้า
+
+let ALL;
 $(document).ready(async function () {
     let list = []
     let order = JSON.parse(localStorage.getItem('cart'))
@@ -14,6 +16,7 @@ $(document).ready(async function () {
             product.quantity = element.quantity
             list.push(product)
         }
+        ALL = list
         setUI(list)
     }
 });
@@ -43,26 +46,24 @@ const targetElement = document.getElementById('payment_s')
 const submitElement = document.getElementById('mySubmit')
 targetElement.addEventListener('change', (e) => {
     if (e.target.value === 'เงินสด') {
+        let payment =  $("#payment_s").val()
+        $('#payment_sl').val(payment)
         submitElement.setAttribute("data-bs-target", ".bd-example-modal-sm3");
-        let payment =  $("#payment_s").val()
-        $('#payment_s').val(payment)
-        $('#payment_sl').val(payment)
     } else if (e.target.value === 'โอนผ่านบัญชีธนาคาร') {
+        let payment =  $("#payment_s").val()
+        $('#payment_sl').val(payment)
         submitElement.setAttribute("data-bs-target", ".bd-example-modal-sm4");
-        let payment =  $("#payment_s").val()
-        $('#payment_s').val(payment)
-        $('#payment_sl').val(payment)
     } else if (e.target.value === 'ผ่อนชำระ') {
-        submitElement.setAttribute("data-bs-target", ".bd-example-modal-sm5");
         let payment =  $("#payment_s").val()
-        $('#payment_s').val(payment)
         $('#payment_sl').val(payment)
+        submitElement.setAttribute("data-bs-target", ".bd-example-modal-sm5");
+
     }
 })
 
 //ส่วนคำนวณเงินของชำระเงินสด
 $('#receivecash').keyup(()=>{
-    const change = Number($('#receivecash').val()) - Number($("#all_price").val())
+    const change = Number($('#receivecash').val()) - Number($(".all_price").val())
     if(change>=0){
         $('#change').val(change)
     }else{
@@ -115,12 +116,51 @@ function setUI(data) {
         </th>
     </tr>`)
         $("#allprice").text(allprice)
-        $("#all_price").val(allprice)
+        $(".all_price").val(allprice)
         $("#allquantity").text(allquantity)
-        $("#all_quantity").val(allquantity)
+        $(".all_quantity").val(allquantity)
     });
     console.log(data)
 }
+
+//เพิ่มข้อมูลเข้าตาราง
+/*function setUI() {
+    let salesamt = 0
+    let allquantity = 0
+    $("#salestodatabase").submit(function (event) {
+        salesamt = Number(element.price) * Number(element.quantity)
+        allquantity = Number(element.quantity)
+        event.preventDefault();
+        localStorage.setItem("cart", JSON.stringify(tableObj))
+        $('#sales_dt').val("")
+        $('#product_id').val("")
+        $('#sales_amt').val(salesamt)
+        $('#sales_pr').val(salespr)
+    });
+}*/
+
+async function loopInsert(){
+    let lastID = await (await fetch('controller/GetLastIdSales.php')).text()
+    let data = JSON.parse(localStorage.getItem('cart'))
+    for (const e of data) {
+        var formdata = new FormData();
+        let objData = ALL.filter(d => d.product_id == e.id);
+        console.log("objData:",objData)
+        formdata.append("sales_list_id", lastID);
+        formdata.append("product_id", e.id);
+        formdata.append("sales_amt", e.quantity);
+        formdata.append("sales_pr", objData[0].price);
+        formdata.append("form_action", "insert");
+        formdata.append("table", "salesdetails");
+        var requestOptions = {
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
+        };
+        await fetch("controller/SalesDetails.php", requestOptions)
+    }
+}
+
 
 //ตรวจสอบพร้อมส่งข้อมูล
 $("#form1").submit(async function (event)
@@ -130,6 +170,53 @@ $("#form1").submit(async function (event)
     let response = await fetch('controller/Sales.php', {
         method: 'POST',
         body: new FormData(document.form1)
+    });
+    console.log(response);
+    if (!response.ok) {
+        console.log(response);
+    } else {
+        await Swal.fire({
+            icon: 'success',
+            text: 'การชำระเสร็จสิ้น',
+            timer: 3000
+        })
+        console.log(await response.text());
+        loopInsert()
+        localStorage.clear()
+        window.location.assign("productlist.php");
+    }
+});
+
+$("#form2").submit(async function (event)
+{
+    event.preventDefault();
+    $('#sales').val(JSON.stringify(JSON.parse(localStorage.getItem("cart")).data))
+    let response = await fetch('controller/Sales.php', {
+        method: 'POST',
+        body: new FormData(document.form2)
+    });
+    if (!response.ok) {
+        console.log(response);
+    } else {
+        await Swal.fire({
+            icon: 'success',
+            text: 'การชำระเสร็จสิ้น',
+            timer: 3000
+        })
+        console.log(await response.text());
+        loopInsert()
+        //localStorage.clear()
+        //window.location.assign("productlist.php");
+    }
+});
+
+$("#form3").submit(async function (event)
+{
+    event.preventDefault();
+    $('#sales').val(JSON.stringify(JSON.parse(localStorage.getItem("cart")).data))
+    let response = await fetch('controller/Sales.php', {
+        method: 'POST',
+        body: new FormData(document.form3)
     });
     console.log(response);
     if (!response.ok) {

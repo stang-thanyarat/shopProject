@@ -2,6 +2,7 @@
 include_once '../database/Sell.php';
 include_once '../service/upload.php';
 include_once '../database/Bank.php';
+include_once 'Redirection.php';
 $bank = new Bank();
 $sell = new Sell();
 if (isset($_POST)) {
@@ -69,9 +70,9 @@ if (isset($_POST)) {
                 if ($value['id'] == -1) {
                     $form = [];
                     $form['sell_id'] =  $_POST['sell_id'];
-                    $form['bank_name'] = $value->bank;
-                    $form['bank_number'] =  $value->number;
-                    $form['bank_account'] =  $value->name;
+                    $form['bank_name'] = $value['bank'];
+                    $form['bank_number'] =  $value['number'];
+                    $form['bank_account'] =  $value['name'];
                     $bank->insert($form);
                 }
             }

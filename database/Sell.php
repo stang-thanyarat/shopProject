@@ -7,7 +7,12 @@ class Sell
 
     function __construct()
     {
-        $this->conn = Connection();
+        try {
+            $this->conn = Connection();
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 
     public function fetchAll()
@@ -155,8 +160,8 @@ class Sell
             $sql = "UPDATE sell_tb
         SET sell_type = ?, sell_address = ?, sell_tax_id = ?, sell_telephone = ?, sell_website = ?, sell_name = ?,
         seller_firstname = ?, seller_lastname = ?, seller_nickname = ?, seller_email = ?, seller_telephone = ?, seller_lind_id = ?, 
-        sell_note = ? WHERE sell_id=?";
-            $paramCount = 13;
+        sell_note = ? 
+        WHERE sell_id=?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $data['sell_type'], PDO::PARAM_STR);
             $stmt->bindParam(2, $data['sell_address'], PDO::PARAM_STR);

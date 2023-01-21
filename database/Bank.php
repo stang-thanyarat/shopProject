@@ -67,12 +67,13 @@ class Bank
         }
     }
 
-    public function  deleteBySellId($SellId){ //ลบธนาคารจากรหัสพนักงาน
+    public function  deleteBySellId($SellId)
+    { //ลบธนาคารจากรหัสพนักงาน
         try {
             $sql = "SET FOREIGN_KEY_CHECKS=0";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-            $sql = "DELETE FROM sell_tb WHERE sell_id=?;";
+            $sql = "DELETE FROM bank_tb WHERE sell_id=?;";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $SellId, PDO::PARAM_INT);
             $stmt->execute();
@@ -85,10 +86,13 @@ class Bank
     public function insert($data)
     {
         try {
+            $sql = "SET FOREIGN_KEY_CHECKS=0";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
             $sql = "INSERT INTO bank_tb (sell_id, bank_name, bank_number, bank_account) 
         VALUES (?,?,?,?)";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(1, $data['sell_id'], PDO::PARAM_STR);
+            $stmt->bindParam(1, $data['sell_id'], PDO::PARAM_INT);
             $stmt->bindParam(2, $data['bank_name'], PDO::PARAM_STR);
             $stmt->bindParam(3, $data['bank_number'], PDO::PARAM_STR);
             $stmt->bindParam(4, $data['bank_account'], PDO::PARAM_STR);
@@ -102,9 +106,6 @@ class Bank
     public function update($data)
     {
         try {
-            $sql = "SET FOREIGN_KEY_CHECKS=0";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute();
             $sql = "UPDATE bank_tb
         SET sell_id = ?, bank_name = ?, bank_number = ?, bank_account = ?
         WHERE bank_id=?";

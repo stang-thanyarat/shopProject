@@ -13,7 +13,7 @@ class Product
 
     public function fetchAll()
     {
-        $sql = "SELECT * FROM product_tb ";
+        $sql = "SELECT * FROM product_tb";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -49,10 +49,7 @@ class Product
         return $result;
     }
 
-    //การค้นหาสินค้า
-//ประเภทสินค้าไม่ถูกต้องแก้ด่วน ทำเป็น จอย select * from category กับ product
-    //ตัวที่เมื่อกดสวิชท์ปิดสถานะการขายและจะหายไป แต่เมื่อเปลี่ยนค่า เป็น 1 ใน database จะกลับเป็น 1 ที่ sales_status
-    public function fetchAddCategory()
+   /* public function fetchAddCategory()
     {
         $data = $this->fetchAll();
         $sumData = [];
@@ -66,16 +63,16 @@ class Product
             }
         }
         return $sumData;
-    }
+    }*/
 
-        /* public function fetchAddCategory()
+        public function fetchAddCategory()
          {
              $sql = "SELECT P.*,C.* FROM category_tb C,product_tb P WHERE P.category_id = C.category_id ORDER BY P.product_id ASC ";
              $stmt = $this->conn->prepare($sql);
              $stmt->execute();
              $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
              return $result;
-         }}*/
+         }
 
     public function fetchByName($keyword){
         $like = "%$keyword%";

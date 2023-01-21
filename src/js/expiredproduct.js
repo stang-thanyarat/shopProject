@@ -111,7 +111,7 @@ function setUI(data) {
         <th>${element.price}</th>
         <th>${element.product_rm_unit}</th>
         <th>${element.all_amount}</th>
-        <th>${element.all_amount}</th>
+        <th><button type="button" class="bgs"  onclick="del(${element.unique_id})"><img src="./src/images/icon-delete.png" width="25"></button></th>
     </tr>`)
     });
     if (c <= 0) {
@@ -121,4 +121,24 @@ function setUI(data) {
         $("#tb-let").show()
         $('#no-let').hide()
     }
+}
+
+function del(id) {
+    Swal.fire({
+        title: 'คำเตือน',
+        text: "คุณต้องการลบรายการสินค้าใช่หรือไม่",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'ใช่',
+        cancelButtonText: 'ยกเลิก'
+    }).then(async (result) => {
+        if (result.isConfirmed) {
+            let order = JSON.parse(localStorage.getItem('cart'))
+            order = order.filter(e => e.id != id)
+            localStorage.setItem('cart', JSON.stringify(order))
+            location.reload()
+        }
+    })
 }

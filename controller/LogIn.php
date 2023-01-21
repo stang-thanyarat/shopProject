@@ -21,6 +21,7 @@ if (isset($_POST)) {
                     $username = $employee->fetchById($user['employee_id']);
                     $_SESSION['role'] = $user['account_user_type'];
                     $_SESSION['username'] = $username['employee_firstname'] . " " . $username['employee_lastname'];
+                    $_SESSION['employee_id'] = $user['employee_id'];
                     redirection('/index.php');
                 } else {
                     $_SESSION['error'] = "รหัสผ่านไม่ถูกต้อง";
