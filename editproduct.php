@@ -30,20 +30,22 @@ function getFullRole($role)
 </head>
 <?php
 include_once('nav.php');
-//เริ่มทำแก้ไข//
 include_once('database/Product.php');
 include_once('database/Category.php');
 include_once "./database/Sell.php";
+include_once('database/CostPrice.php');
 include_once('controller/Redirection.php');
 $product = new Product();
 $category = new Category();
 $sell = new Sell();
+$costprice = new CostPrice();
 if (!isset($_GET['id'])) {
     redirection('/productresult.php');
 }
 $p = $product->fetchById($_GET['id']);
 $rows = $category->fetchAll();
 $sells = $sell->fetchAll();
+$c = $costprice->fetchById($_GET['id']);
 //เริ่มทำแก้ไข//
 ?>
 
@@ -79,7 +81,7 @@ $sells = $sell->fetchAll();
                                     <select name="category_id" id="category_id" class="inbox" style="background-color: #D4DDC6;" required>
                                         <option value="" selected hidden>เลือกประเภทสินค้า</option>
                                         <?php foreach ($rows as $row) { ?>
-                                            <option value="<?= $row['category_id'] ?><?= $row['category_name'] ?>" <?= $p['category_id'] == $row['category_id'] ? "selected" : '' ?>><?= $row['category_name'] ?></option>
+                                            <option value="<?= $row['category_id'] ?>" <?= $p['category_id'] == $row['category_id'] ? "selected" : '' ?>><?= $row['category_name'] ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>
@@ -177,7 +179,7 @@ $sells = $sell->fetchAll();
                                     <input name="cost_price" type="text" id="cost_price" class="inbox" value="<?= $p['cost_price']; ?>" required />
                                 </div>
                                 <div class="col-2 watchcostprice">
-                                    <a type="button" href="costprice.php?id=<?= $p['product_id']; ?>" class="button btn">ดูราคาทุน</a>
+                                    <a type="button" href="costprice.php?id=<?= $c['product_id']; ?>" class="button btn">ดูราคาทุน</a>
                                 </div>
                             </div>
                             <div class="row a">

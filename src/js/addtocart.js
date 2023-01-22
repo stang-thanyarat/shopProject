@@ -182,7 +182,7 @@ $("#form1").submit(async function (event)
         })
         console.log(await response.text());
         loopInsert()
-        localStorage.clear()
+        //localStorage.clear()
         window.location.assign("productlist.php");
     }
 });
@@ -206,7 +206,7 @@ $("#form2").submit(async function (event)
         console.log(await response.text());
         loopInsert()
         //localStorage.clear()
-        //window.location.assign("productlist.php");
+        window.location.assign("productlist.php");
     }
 });
 

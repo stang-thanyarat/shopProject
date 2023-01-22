@@ -25,18 +25,17 @@ function getFullRole($role)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/costprice.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"
-            integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg=="
-            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <title>costprice</title>
 
 
 </head>
-<?php include_once('nav.php');
-include_once "./database/Product.php";
-$product = new Product();
-$p = $product->fetchById($_GET['id']);
+<?php
+include_once('nav.php');
+include_once "./database/CostPrice.php";
+$costprice = new CostPrice();
+$p = $costprice->fetchById($_GET['id']);
 ?>
 
 
@@ -50,11 +49,11 @@ $p = $product->fetchById($_GET['id']);
         <div class="row main q">
             <div class="col-12 ">
                 <div>
-                    <h4 id="text<?= $p['product_id'] ?>"><?= $p['product_name'];?><h4>
+                    <h4><?= $p['product_name'];?><h4>
                 </div>
                 <p>
                 <div>
-                    <h4 id="text<?= $p['category_id'] ?>"><?= $p['category_name'];?><h4>
+                    <h4><?= $p['category_name'];?><h4>
                 </div>
                 <p>
                 <div>
@@ -64,9 +63,9 @@ $p = $product->fetchById($_GET['id']);
                     <div class="title page">
                         <h4 style="display: inline;">วันที่ซื้อ :</h4>
                         &nbsp &nbsp
-                        <input type="date" class="l" name="start" id="start" style=" background-color: #F8E4C8;" required>
+                        <input value="<?= isset($_GET['start']) ? $_GET['start']:'' ?>" type="date" class="l" name="start" id="start" style=" background-color: #F8E4C8;" required>
                         &nbsp ถึง &nbsp
-                        <input type="date" class="l" name="end" name="end" style=" background-color: #F8E4C8;" required>
+                        <input value="<?= isset($_GET['end'])? $_GET['end'] :'' ?>" type="date" class="l" name="end" name="end" style=" background-color: #F8E4C8;" required>
                         &nbsp &nbsp &nbsp
                         <a type="submit" class=""><img src="./src/images/search.png" width="15"></a>
                     </div>

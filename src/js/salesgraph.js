@@ -1,13 +1,13 @@
 $("#category_id").change(async function () {
     if ($("#category_id").val() !== "all") {
-        let url = `./controller/DailyBestSeller.php?category_id=${$("#category_id").val()}`
+        let url = `./controller/SalesGraph.php?category_id=${$("#category_id").val()}`
         if($("#date").val() !== ''){
             url += `&date=${$("#date").val()}`
         }
         const product = await (await fetch(url)).json()
         setUI(product)
     } else {
-        let url = './controller/DailyBestSeller.php'
+        let url = './controller/SalesGraph.php'
         if($("#date").val() !== ''){
             url += `&date=${$("#date").val()}`
         }
@@ -18,14 +18,14 @@ $("#category_id").change(async function () {
 
 $("#date").change(async function(){
     if ($("#date").val() !== "") {
-        let url = `./controller/DailyBestSeller.php?date=${$("#date").val()}`
+        let url = `./controller/SalesGraph.php?date=${$("#date").val()}`
         if($("#category_id").val() !== 'all'){
             url += `&category_id=${$("#category_id").val()}`
         }
         const product = await (await fetch(url)).json()
         setUI(product)
     } else {
-        let url = './controller/DailyBestSeller.php'
+        let url = './controller/SalesGraph.php'
         if($("#category_id").val() !== 'all'){
             url += `&date=${$("#category_id").val()}`
         }
@@ -35,7 +35,7 @@ $("#date").change(async function(){
 })
 
 async function start() {
-    let url = './controller/DailyBestSeller.php'
+    let url = './controller/SalesGraph.php'
     const product = await (await fetch(url)).json()
     console.log(product);
     setUI(product)
