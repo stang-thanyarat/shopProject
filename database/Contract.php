@@ -22,7 +22,7 @@ class Contract
     public function fetchById($id)
     {
         try {
-            $sql = "SELECT * FROM contract_tb WHERE contract_code = ?";
+            $sql = "SELECT C.*,E.*,S.* FROM contract_tb C , employee_tb E , sales_tb S  WHERE C.contract_code = ? AND E.employee_id = C.employee_id AND  E.sales_list_id  = C.sales_list_id ";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();

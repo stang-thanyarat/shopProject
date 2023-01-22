@@ -21,11 +21,16 @@
 }
 
 .mai {
-    margin-left: 52rem;
+    margin-left: 50rem;
+    margin-bottom: 2rem;
 }
 
 .ma {
     margin-left: 4rem;
+}
+
+.plus{
+    margin-top: -0.2rem;
 }
 
 table,
@@ -66,7 +71,7 @@ select {
     border: 0ch;
     margin-left: 5rem;
     font-size: 16pt;
-    height: 50%;
+    height: 90%;
 
 
 }
@@ -75,6 +80,7 @@ select {
     border-radius: 25px 25px 25px 25px;
     font-size: 16pt;
     height: 50%;
+    width: 120%;
 }
 
 .s {

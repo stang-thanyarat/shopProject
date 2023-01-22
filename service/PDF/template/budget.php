@@ -89,7 +89,7 @@ border: 0px;
 <body>
 <table width="1000" border="0px" border="">
   <tr>
-    <td class="setright" colspan="2">วันที่ &lt;&lt;startDate&gt;&gt; - &lt;&lt;enddate&gt;&gt;</td>
+    <td class="setright" colspan="2">วันที่ '.$_GET['startDate'].' - '.$_GET['endDate'].'</td>
   </tr>
   <tr>
     <td class="setcenter" colspan="2"><h2>งบแสดงฐานะการเงิน</h2></td>
@@ -109,14 +109,14 @@ border: 0px;
   </tr>
   <tr bgcolor="#CCC">
     <td width="70%" stlye="">'. 'รวม สินทรัพย์'.'</div>
-    <td align="right" width="30%">&lt;&lt;summary&gt;&gt;</td>
+    <td align="right" width="30%">'.$_GET['summary'].'</td>
   </tr>
   <tr>
     <td class="t">&nbsp;&nbsp;หนี้สิน+ทุน</td>
   </tr>
   <tr  bgcolor="#CCC">
     <td  width="70%">'. 'รวม หนี้สิน+ทุน'.' &nbsp;</td>
-    <td align="right" width="30%">&lt;&lt;debt&gt;&gt;</td>
+    <td align="right" width="30%">'.$_GET['debt'].'</td>
   </tr>
 </table>
 </body>

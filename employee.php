@@ -49,14 +49,14 @@ if (isset($_GET['keyword'])) {
                     </div>
                 </div>
                 <form action="employee.php" method="GET">
-                <div class="row d-flex justify-content-end">
-                        <div class="col-3">
+                <div class="row">
+                        <div class="col-3 mai">
                             <input type="text" name="keyword" class="btn-d" placeholder="&nbsp ชื่อ-นามสกุล">
                             <button type="submit" class="s">
                                 <img src="./src/images/search.png" width="15">
                             </button>
                         </div>
-                        <div class="col-1">
+                        <div class="col-2">
                             <a class="submit btn" href="addnewstaff.php"><img class='add' src="./src/images/plus.png" width="25">&nbsp เพิ่มพนักงาน</a>
                         </div>
                     </form>

@@ -52,7 +52,7 @@ table {
 }
 
 .dateS{
-    margin-right: 1rem;
+    margin-right: 0.5rem;
 }
 
 .dateE{
@@ -73,8 +73,8 @@ table {
 }
 
 .reset {
-    background-color: red;
-    color: white;
+    background-color: #C4C4C4;
+    color: black;
     border: 0ch;
     margin-left: 1rem;
 }
@@ -82,7 +82,7 @@ table {
 .btn-c {
     border-radius: 25px 25px 25px 25px;
     font-size: 18pt;
-    width: 70%;
+    width: 80%;
     height: 100%;
 }
 

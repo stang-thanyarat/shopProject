@@ -5,15 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/service/PDF/template/contract.html" beforeDir="false" afterPath="$PROJECT_DIR$/service/PDF/template/contract.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shopProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shopProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budget.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/contract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracthistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/contracthistory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/Sell.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Sell.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Contract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/employee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/productexchangehistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/productexchangehistory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/salehistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/salehistory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sall.php" beforeDir="false" afterPath="$PROJECT_DIR$/sall.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/PDF/template/budget.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/PDF/template/budget.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/PDF/template/contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/PDF/template/contract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/category.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/category.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/contract.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/contract.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/contracthistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/contracthistory.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/employee.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/employee.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/order.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/order.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/orderhistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/orderhistory.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/productexchangehistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/productexchangehistory.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/productresult.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/productresult.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/salehistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/salehistory.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/sall.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/sall.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/budget.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/budget.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/contract.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/contract.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -28,6 +53,13 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/mpdf/mpdf" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/setasign/fpdi" />
+    </include_path>
   </component>
   <component name="ProjectId" id="2EFEuTYXbW9aeFHqtvMflcfb2C5" />
   <component name="ProjectLevelVcsManager">
@@ -103,6 +135,8 @@
       <workItem from="1668656410231" duration="12833000" />
       <workItem from="1671884685893" duration="638000" />
       <workItem from="1673245360322" duration="74000" />
+      <workItem from="1674288034943" duration="1995000" />
+      <workItem from="1674301261556" duration="1942000" />
     </task>
     <servers />
   </component>
