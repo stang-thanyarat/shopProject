@@ -42,7 +42,7 @@ function getFullRole($role)
             </div>
             <div class="row mai">
                 <div class="col-5">
-                    <h3>ยินดีตอนรับ</h3>
+                    <h3>ยินดีต้อนรับ</h3>
                     <?php if (getRole() == 'E' || getRole() == 'L') { ?>
                     <div class="line"></div>
                     <div class="col-4">

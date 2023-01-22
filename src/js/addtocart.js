@@ -44,20 +44,25 @@ function del(id) {
 //ส่วนชำระเงินสด
 const targetElement = document.getElementById('payment_s')
 const submitElement = document.getElementById('mySubmit')
-targetElement.addEventListener('change', (e) => {
+targetElement.addEventListener('change', async (e) =>  {
     if (e.target.value === 'เงินสด') {
         let payment =  $("#payment_s").val()
         $('#payment_sl').val(payment)
-        submitElement.setAttribute("data-bs-target", ".bd-example-modal-sm3");
+        submitElement.setAttribute("data-bs-target", ".cash-form");
     } else if (e.target.value === 'โอนผ่านบัญชีธนาคาร') {
         let payment =  $("#payment_s").val()
         $('#payment_sl').val(payment)
-        submitElement.setAttribute("data-bs-target", ".bd-example-modal-sm4");
+        submitElement.setAttribute("data-bs-target", ".transfer-form");
     } else if (e.target.value === 'ผ่อนชำระ') {
-        let payment =  $("#payment_s").val()
-        $('#payment_sl').val(payment)
-        submitElement.setAttribute("data-bs-target", ".bd-example-modal-sm5");
-
+        let route = (await (await fetch('./controller/GetRolesSales.php')).text()).trim()
+        if(route !== "L") {
+            let payment = $("#payment_s").val()
+            $('#payment_sl').val(payment)
+            console.log("logic",route !== "L")
+            submitElement.setAttribute("data-bs-target", ".login-form");
+        }else{
+            submitElement.setAttribute("data-bs-target", ".search-costumer-form");
+        }
     }
 })
 

@@ -36,7 +36,8 @@
                     </div>
                     <br>
                 <?php }
-                session_destroy(); ?>
+                unset($_SESSION['error']);
+                ?>
                 <h1 class="text-login">Login</h1>
                 <label class="label" for="email">E-mail</label>
                 <input class="field input" type="email" id="email" name="email" required>

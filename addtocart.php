@@ -79,7 +79,7 @@ function getFullRole($role)
     </div>
 
 <!-- ยืนยันการซื้อแบบเงินสด -->
-<div class="modal fade bd-example-modal-sm3" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-sm3 cash-form" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <form action="controller/Sales.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
         <input type="hidden" value="sales" name="table" />
         <input type="hidden" value="insert" name="form_action" />
@@ -130,7 +130,7 @@ function getFullRole($role)
 </form>
 
 <!-- ยืนยันการซื้อแบบโอนผ่านธนาคาร -->
-<div class="modal fade bd-example-modal-sm4" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-sm4 transfer-form" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <form action="controller/Sales.php" name="form2" id="form2" method="POST" enctype="multipart/form-data">
         <input type="hidden" value="sales" name="table" />
         <input type="hidden" value="insert" name="form_action" />
@@ -183,7 +183,7 @@ function getFullRole($role)
 </form>
 
 <!-- ยืนยันการซื้อแบบผ่อนชำระ -->
-<div class="modal fade bd-example-modal-sm5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-sm5 login-form" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <form action="controller/Sales.php" name="form3" id="form3" method="POST">
         <input type="hidden" value="sales" name="table" />
         <input type="hidden" value="insert" name="form_action" />
@@ -215,7 +215,17 @@ function getFullRole($role)
 </div>
 
 <!-- ยืนยันการซื้อแบบผ่อนชำระ(ต่อ 1) -->
-<div class="modal fade bd-example-modal-sm6" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<div class="modal fade bd-example-modal-sm6 search-costumer-form" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <?php
+    include_once 'database/Contract.php';
+    $contract = new Contract();
+    if (isset($_GET['keyword'])) {
+        $rows = $contract->searchBycopyID($_GET['keyword']);
+    } else {
+        $rows = [];
+    }
+    ?>
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -225,14 +235,33 @@ function getFullRole($role)
             <div class="modal-body">
                 <div class="row">
                     <div class="col email">
-                        กรอกรหัสบัตรประชาชน : <input type="text" name="email" id="email" class="btnd inbox" required />
+                        กรอกรหัสบัตรประชาชน : <input type="text" name="keyword" id="keyword" class="btnd inbox" required />
                     </div>
                     <div class="col-1">
                         <button type="button" class="l"><img src="./src/images/search.png" width="16"></button>&nbsp &nbsp
                     </div>
                 </div>
+                <table class="col-11 contracttable">
+                    <tr>
+                        <th width=15%>วันที่ทำสัญญา</th>
+                        <th width=10%>วันที่ครบกำหนดชำระ</th>
+                        <th width=15%>สถานะ</th>
+                        <th width=15%>คงค้าง</th>
+                    </tr>
+                    <tbody id="contracttable">
+                    <?php
+                    foreach ($rows as $row) { ?>
+                        <tr>
+                            <th><?= dateFormat($row['date_contract']) ?></th>
+                            <th><?= $row['repayment_date'] ?></th>
+                            <th><?= $row['outstanding'] ?></th>
+                            <th><?= $row['slip_img'] ?></th>
+                        </tr>
+                        <?php
+                    } ?>
+                    </tbody>
+                </table>
             </div>
-
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary1">ยืนยัน</button>
             </div>

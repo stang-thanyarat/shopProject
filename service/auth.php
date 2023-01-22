@@ -59,5 +59,17 @@ function getRole()
 
 function logout()
 {
+    if (!isset($_SESSION['vat'])) {
+        $vat = 7;
+    }else{
+        $vat = $_SESSION['vat'];
+    }
+    if (!isset($_SESSION['day_change'])) {
+        $day_change = 7;
+    }else{
+        $day_change = $_SESSION['day_change'];
+    }
     session_destroy();
+    $_SESSION['vat']  = $vat;
+    $_SESSION['day_change'] = $day_change;
 }
