@@ -32,7 +32,8 @@ function getFullRole($role)
 include_once('nav.php');
 include_once "./database/Product.php";
 $product = new Product();
-$rows = $product->fetchExchange1Id();
+$rows = $product->fetchById($_GET['id']);
+
 ?>
 
 <body>
@@ -54,7 +55,7 @@ $rows = $product->fetchExchange1Id();
                             <div class="row a">
                                 <div class="col productr">
                                     สินค้าที่ต้องการเปลี่ยน :<span style="color: red; ">&nbsp*</span>
-                                    <input type="text" accept="image/*" name="product_name" id="product_name" class="inbox" value="<?= $rows['product_id']; ?>" required />
+                                    <input type="text" accept="image/*" name="product_name" id="product_name" class="inbox" value="<?= $rows['product_name']; ?>" required />
                                 </div>
                             </div>
                             <div class="row a">
