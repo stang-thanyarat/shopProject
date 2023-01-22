@@ -199,7 +199,7 @@ function getFullRole($role)
                         <div class="row">
                             <label for="bank">ธนาคาร : </label>
                             <select name="bank_name" id="bank_name" required>
-                                <option value="" selected hidden>เลือกธนาคาร</option>
+                                <option value="เลือกธนาคาร" selected hidden>เลือกธนาคาร</option>
                                 <option value="ธนาคารกรุงไทย">ธนาคารกรุงไทย</option>
                                 <option value="ธนาคารไทยพาณิชย์">ธนาคารไทยพาณิชย์</option>
                                 <option value="ธนาคารกสิกรไทย">ธนาคารกสิกรไทย</option>

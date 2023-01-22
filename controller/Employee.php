@@ -8,7 +8,6 @@ $employee = new Employee();
 if (isset($_POST)) {
     if ($_POST['table'] === 'employee') {
         if ($_POST['form_action'] === 'update') {
-            //เชคการอัพโหลดรูป
             if ($_FILES['employee_card_id_copy']['size'] > 0) {
                 $path = './file/employee/id/';
                 if (file_exists($_POST['employee_card_id_copy'])) {
@@ -36,7 +35,6 @@ if (isset($_POST)) {
                 $tempbanks[] = (array)$b;
             }
             $banks = $tempbanks;
-
             // remove bank and edit
             $recBack = $employeebank->fetchByEmployeeId($_POST['employee_id']);
             foreach ($recBack as $r) {
@@ -128,3 +126,4 @@ if (isset($_POST)) {
 } else {
     echo "Page Not found.";
 }
+?>

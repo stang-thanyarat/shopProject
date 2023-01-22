@@ -1,9 +1,5 @@
 <?php
 include_once("Connection.php");
-include_once("Product.php");
-include_once("Category.php");
-include_once("Sales.php");
-
 
 class Sales
 {
@@ -87,23 +83,55 @@ class Sales
         $stmt->execute();
     }
 
+    public function getLastId(){
+        $data = $this->fetchLast();
+        return $data['sales_list_id'];
+    }
+
+    public function fetchLast() //Sales
+    {
+        try {
+            $sql = "SELECT * FROM sales_tb ORDER BY sales_list_id DESC LIMIT 1";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetch( PDO::FETCH_ASSOC);
+            return $result;
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
+    }
+
+    public function updateimage($filename, $img, $sales_list_id)
+    {
+        try {
+            $colname = ['import_files'];
+            if (in_array($filename, $colname)) {
+                $sql = "UPDATE sales_tb SET $filename = ? WHERE sales_list_id=?";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->bindParam(1, $img, PDO::PARAM_STR);
+                $stmt->bindParam(2, $sales_list_id, PDO::PARAM_INT);
+                $stmt->execute();
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
+    }
+
     public function insert($data)
     {
-        $sql = "SET FOREIGN_KEY_CHECKS=0";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
-        $sql = "INSERT INTO sales_tb (payment_sl ,all_price ,all_quantity )
-        VALUES (?,?,?)";
+
+        $sql = "INSERT INTO sales_tb (payment_sl ,all_price ,all_quantity, employee_id ,import_files, note)
+        VALUES (?,?,?,?,?,?)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $data['payment_sl'], PDO::PARAM_STR);
         $stmt->bindParam(2, $data['all_price'], PDO::PARAM_STR);
         $stmt->bindParam(3, $data['all_quantity'], PDO::PARAM_STR);
-        //$stmt->bindParam(4, $data['employee_id'], PDO::PARAM_INT);
+        $stmt->bindParam(4, $data['employee_id'], PDO::PARAM_INT);
         //$stmt->bindParam(5, $data['discount'], PDO::PARAM_STR);
-        //$stmt->bindParam(6, $data['sales_amt'], PDO::PARAM_INT);
-        //$stmt->bindParam(9, $data['import_files'], PDO::PARAM_STR);
-        //$stmt->bindParam(10, $data['note'], PDO::PARAM_STR);
-        //$stmt->bindParam(11, $data['stock_id'], PDO::PARAM_INT);
+        $stmt->bindParam(5, $data['import_files'], PDO::PARAM_STR);
+        $stmt->bindParam(6, $data['note'], PDO::PARAM_STR);
         $stmt->execute();
     }
 
@@ -113,17 +141,13 @@ class Sales
         SET product_id = ?, sales_dt = ?, payment_sl = ?, employee_id = ?, discount = ?, sales_amt = ?, all_quantity = ?, all_price = ?, import_files = ?, note = ?, stock_id = ?
         WHERE sales_list_id = ?";
         $stmt = $this->conn->prepare($sql);
-        //$stmt->bindParam(1, $data['product_id'], PDO::PARAM_INT);
-        //$stmt->bindParam(2, $data['sales_dt'], PDO::PARAM_STR);
-        //$stmt->bindParam(3, $data['payment_sl'], PDO::PARAM_STR);
-        //$stmt->bindParam(4, $data['employee_id'], PDO::PARAM_INT);
+        $stmt->bindParam(1, $data['payment_sl'], PDO::PARAM_STR);
+        $stmt->bindParam(2, $data['all_price'], PDO::PARAM_STR);
+        $stmt->bindParam(3, $data['all_quantity'], PDO::PARAM_STR);
+        $stmt->bindParam(4, $data['employee_id'], PDO::PARAM_INT);
         //$stmt->bindParam(5, $data['discount'], PDO::PARAM_STR);
-        //$stmt->bindParam(6, $data['sales_amt'], PDO::PARAM_INT);
-        $stmt->bindParam(7, $data['all_quantity'], PDO::PARAM_STR);
-        $stmt->bindParam(8, $data['all_price'], PDO::PARAM_STR);
-        //$stmt->bindParam(9, $data['import_files'], PDO::PARAM_STR);
-        //$stmt->bindParam(10, $data['note'], PDO::PARAM_STR);
-        //$stmt->bindParam(11, $data['stock_id'], PDO::PARAM_INT);
+        $stmt->bindParam(5, $data['import_files'], PDO::PARAM_STR);
+        $stmt->bindParam(6, $data['note'], PDO::PARAM_STR);
         $stmt->bindParam(12, $data['sales_list_id'], PDO::PARAM_INT);
         $stmt->execute();
     }

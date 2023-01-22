@@ -1,50 +1,3 @@
-
-//ตรวจสอบพร้อมส่งข้อมูล
-$("#form1").submit(async function (event) {
-    event.preventDefault();
-    if (JSON.parse(localStorage.getItem("tableBank")).data.length <= 0) {
-        event.preventDefault();
-        alert('กรุณากรอกข้อมูลบัญชีธนาคาร');
-        return
-    }
-    if (!telephone2(document.form1.seller_telephone.value)) {
-        event.preventDefault();
-        alert('เบอร์โทรศัพท์ไม่ถูกต้อง');
-        return
-    }
-    if (!telephone1(document.form1.sell_telephone.value)) {
-        event.preventDefault();
-        alert('เบอร์โทรศัพท์ไม่ถูกต้อง');
-        return
-    }
-    if (!check_email(document.form1.seller_email.value)) {
-        event.preventDefault();
-        alert('อีเมลไม่ถูกต้อง');
-        return
-    } else {
-
-        $('#bank').val(JSON.stringify(JSON.parse(localStorage.getItem("tableBank")).data))
-        event.preventDefault();
-        let response = await fetch('controller/Sell.php', {
-            method: 'POST',
-            body: new FormData(document.form1)
-        });
-        console.log(response);
-
-        if (!response.ok) {
-            console.log(response);
-        } else {
-            await Swal.fire({
-                icon: 'success',
-                text: 'บันทึกข้อมูลเสร็จสิ้น',
-                timer: 3000
-            })
-            window.location.assign("sall.php");
-        }
-    }
-
-});
-
 //เบอร์โทรศัพท์
 function autoTab2(obj) {
     var pattern = new String("___-_______");
@@ -136,6 +89,7 @@ $("#addbankaccount").submit(function (event) {
         bank: $('#bank_name').val(),
         number: $('#bank_number').val(),
         name: $('#bank_account').val(),
+        id: -1
     })
     localStorage.setItem("tableBank", JSON.stringify(tableObj))
     $('#bank_name').val("")
@@ -152,6 +106,7 @@ $("#editbankaccount").submit(function (event) {
         bank: $('#editbank_name').val(),
         number: $('#editbank_number').val(),
         name: $('#editbank_account').val(),
+        id: tableObj.data[index].id
     }
     localStorage.setItem("tableBank", JSON.stringify(tableObj))
     let rows = tableObj.data
@@ -212,3 +167,49 @@ function delrow() {
     localStorage.removeItem('deleteIndex')
     $('#closedelrow').click()
 }
+
+//ตรวจสอบพร้อมส่งข้อมูล
+$("#form1").submit(async function (event) {
+    event.preventDefault();
+    if (JSON.parse(localStorage.getItem("tableBank")).data.length <= 0) {
+        event.preventDefault();
+        alert('กรุณากรอกข้อมูลบัญชีธนาคาร');
+        return
+    }
+    if (!telephone2(document.form1.seller_telephone.value)) {
+        event.preventDefault();
+        alert('เบอร์โทรศัพท์ไม่ถูกต้อง');
+        return
+    }
+    if (!telephone1(document.form1.sell_telephone.value)) {
+        event.preventDefault();
+        alert('เบอร์โทรศัพท์ไม่ถูกต้อง');
+        return
+    }
+    if (!check_email(document.form1.seller_email.value)) {
+        event.preventDefault();
+        alert('อีเมลไม่ถูกต้อง');
+        return
+    } else {
+
+        $('#bank').val(JSON.stringify(JSON.parse(localStorage.getItem("tableBank")).data))
+        event.preventDefault();
+        let response = await fetch('controller/Sell.php', {
+            method: 'POST',
+            body: new FormData(document.form1)
+        });
+        console.log(response);
+
+        if (!response.ok) {
+            console.log(response);
+        } else {
+            await Swal.fire({
+                icon: 'success',
+                text: 'บันทึกข้อมูลเสร็จสิ้น',
+                timer: 3000
+            })
+            window.location.assign("sall.php");
+        }
+    }
+
+});

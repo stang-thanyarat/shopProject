@@ -1,4 +1,3 @@
-
 //บัตรประชาชน
 function autoTab(obj) {
     var pattern = new String("_-____-_____-__-_"); // กำหนดรูปแบบในนี้
@@ -36,51 +35,6 @@ function checkID(id) {
     }
     return false;
 }
-
-//ตรวจสอบพร้อมส่งข้อมูล
-
-$("#form1").submit(async function (event) {
-    event.preventDefault();
-    if (!checkID(document.form1.employee_card_id.value)) {
-        alert('ระบุหมายเลขประจำตัวประชาชนไม่ถูกต้อง');
-        return
-    }
-    if (!telephone(document.form1.employee_telephone.value)) {
-        alert('เบอร์โทรศัพท์ไม่ถูกต้อง');
-        return
-    }
-    if (JSON.parse(localStorage.getItem("tableBank")).data.length <= 0) {
-        alert('กรุณากรอกข้อมูลบัญชีธนาคาร');
-        return
-    }
-    if (!check_email(document.form1.employee_email)) {
-        event.preventDefault();
-        alert('อีเมลไม่ถูกต้อง');
-        return
-    } else {
-
-        $('#bank').val(JSON.stringify(JSON.parse(localStorage.getItem("tableBank")).data))
-        event.preventDefault();
-        let response = await fetch('controller/Employee.php', {
-            method: 'POST',
-            body: new FormData(document.form1)
-        });
-        console.log(response);
-
-        if (!response.ok) {
-            console.log(response);
-        } else {
-            await Swal.fire({
-                icon: 'success',
-                text: 'บันทึกข้อมูลเสร็จสิ้น',
-                timer: 3000
-            })
-
-
-            window.location.assign("employee.php");
-        }
-    }
-});
 
 //เบอร์โทรศัพท์
 function autoTab2(obj) {
@@ -227,3 +181,45 @@ function delrow() {
     localStorage.removeItem('deleteIndex')
     $('#closedelrow').click()
 }
+
+//ตรวจสอบพร้อมส่งข้อมูล
+$("#form1").submit(async function (event) {
+    event.preventDefault();
+    if (!checkID(document.form1.employee_card_id.value)) {
+        alert('ระบุหมายเลขประจำตัวประชาชนไม่ถูกต้อง');
+        return
+    }
+    if (!telephone(document.form1.employee_telephone.value)) {
+        alert('เบอร์โทรศัพท์ไม่ถูกต้อง');
+        return
+    }
+    if (JSON.parse(localStorage.getItem("tableBank")).data.length <= 0) {
+        alert('กรุณากรอกข้อมูลบัญชีธนาคาร');
+        return
+    }
+    if (!check_email(document.form1.employee_email)) {
+        event.preventDefault();
+        alert('อีเมลไม่ถูกต้อง');
+        return
+    } else {
+
+        $('#bank').val(JSON.stringify(JSON.parse(localStorage.getItem("tableBank")).data))
+        event.preventDefault();
+        let response = await fetch('controller/Employee.php', {
+            method: 'POST',
+            body: new FormData(document.form1)
+        });
+        console.log(response);
+
+        if (!response.ok) {
+            console.log(response);
+        } else {
+            await Swal.fire({
+                icon: 'success',
+                text: 'บันทึกข้อมูลเสร็จสิ้น',
+                timer: 3000
+            })
+            window.location.assign("employee.php");
+        }
+    }
+});

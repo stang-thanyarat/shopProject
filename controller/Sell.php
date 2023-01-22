@@ -70,9 +70,9 @@ if (isset($_POST)) {
                 if ($value['id'] == -1) {
                     $form = [];
                     $form['sell_id'] =  $_POST['sell_id'];
-                    $form['bank_name'] = $value->bank;
-                    $form['bank_number'] =  $value->number;
-                    $form['bank_account'] =  $value->name;
+                    $form['bank_name'] = $value['bank'];
+                    $form['bank_number'] =  $value['number'];
+                    $form['bank_account'] =  $value['name'];
                     $bank->insert($form);
                 }
             }

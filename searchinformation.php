@@ -26,7 +26,12 @@ function getFullRole($role)
     <link rel="stylesheet" href="./src/css/searchinformation.css" />
     <title>Document</title>
 </head>
-<?php include_once('nav.php'); ?>
+<?php
+include_once('nav.php');
+include_once('./database/Category.php');
+$category = New Category();
+$rows = $category->fetchAll();
+?>
 
 <body>
     <form>
@@ -36,11 +41,12 @@ function getFullRole($role)
                 <div class="row main">
                     <h1>ค้นหาข้อมูลการซื้อสินค้า </h1>
                     <div>
-                        เลขที่ใบเสร็จ :&nbsp &nbsp<input type="text" class="btnd" id="keyword" name="keyword" placeholder="&nbsp ค้นหาเลขที่ใบเสร็จ" >
+                        เลขที่ใบเสร็จ :&nbsp &nbsp
+                        <input type="text" class="btnd" id="keyword" name="keyword" placeholder="&nbsp ค้นหาเลขที่ใบเสร็จ" >
                         <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
                     </div>
                     <table class="main col-10">
-                    <h3 style="text-align: center;" id="no-let">ไม่พบเลขที่ใบเสร็จ</h3>
+                        <thead>
                         <tr class="h">
                             <th>ลำดับ</th>
                             <th>รูปภาพ</th>
@@ -48,34 +54,16 @@ function getFullRole($role)
                             <th>ราคาต่อชิ้น</th>
                             <th>จำนวน</th>
                             <th>ราคารวม</th>
-                            <th></th>
+                            <th>สถานะการเปลี่ยนสินค้า</th>
                         </tr>
-                        <tr>
-                            <th>1</th>
-                            <th><img src="./src/images/1.png" width="100"></th>
-                            <th>เครื่องตัดหญ้าสะพายบ่า 4 จังหวะ 50ซี.ซี. UMK450T U2TT (จานยาว)</th>
-                            <th>9,490.00 บาท</th>
-                            <th>1</th>
-                            <th>9,490.00 บาท</th>
-                            <th><a href="./addproductexchange.php" class="BTN" type="button" >เปลี่ยนสินค้า</a></th>
-                        </tr>
-                        <tr>
-                            <th>2</th>
-                            <th><img src="./src/images/2.png" width="100"></th>
-                            <th> กระเจี๊ยบ-อพอลโล</th>
-                            <th>20.00 บาท</th>
-                            <th>1</th>
-                            <th>20.00 บาท</th>
-                            <th></th>
-                        </tr>
-                        <tr class="h">
-                            <th colspan="8">จำนวน 3 ชิ้น ยอดรวมทั้งหมด : 9,510.00 บาท</th>
-                        </tr>
+                        </thead>
+                        <tbody id="searchTable">
+                        </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </form>
 </body>
-
+<script src="./src/js/searchinformation.js"></script>
 </html>

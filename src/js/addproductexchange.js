@@ -1,3 +1,37 @@
+$(document).ready(async function () {
+    let list = []
+    let order = JSON.parse(localStorage.getItem('exchange'))
+    if (!order || order.length == 0 || localStorage.getItem('exchange') === null) {
+        $('#addtocartTable').html('<tr ><td colspan="7">ไม่มีรายการสินค้า</td></tr>')
+        $('#solutionPay').prop( "disabled", true );
+        $('#mySubmit').prop( "disabled", true );
+    } else {
+        $('#solutionPay').prop( "disabled", false );
+        $('#mySubmit').prop( "disabled", false );
+        for (const element of order) {
+            let product = await (await fetch(`./controller/GetProduct.php?id=${element.id}`)).json()
+            product.quantity = element.quantity
+            list.push(product)
+        }
+        setUI(list)
+    }
+});
+
+$(document).ready(async function () {
+    let url = `./controller/ProductResult.php`
+    const product = await (await fetch(url)).json()
+    setUI(product)
+});
+function setUI(data) {
+    let product = $("#product_id").val(id);
+    data.forEach(element => {
+        product += (element.product_name)
+        $("#product_name").text(product)
+        $("#product_name").val(product)
+    });
+    console.log(data)
+}
+
 $(document).ready(function () {
     $("input[name$='exchange_status']").click(function () {
         var test = $(this).val();

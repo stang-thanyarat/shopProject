@@ -1,6 +1,6 @@
 $("#category_id").change(async function () {
     if ($("#category_id").val() !== "all") {
-        let url = `./controller/ExpireProduct.php?category_id=${$("#category_id").val()}`
+        let url = `./controller/SearchInformation.php?category_id=${$("#category_id").val()}`
         if ($("#keyword").val() !== "") {
             url += `&keyword=${$("#keyword").val()}`
         }
@@ -10,7 +10,7 @@ $("#category_id").change(async function () {
         const product = await (await fetch(url)).json()
         setUI(product)
     } else {
-        let url = './controller/ExpireProduct.php'
+        let url = './controller/SearchInformation.php'
         if ($("#keyword").val() !== "") {
             url += `?keyword=${$("#keyword").val()}`
         }
@@ -23,7 +23,7 @@ $("#category_id").change(async function () {
 });
 
 $("#keyword").keyup(async function () {
-    let url = `./controller/ExpireProduct.php`
+    let url = `./controller/SearchInformation.php`
     if($("#keyword").val() !== "" ){
         url += `?keyword=${$("#keyword").val()}`
     }
@@ -49,7 +49,7 @@ $("#keyword").keyup(async function () {
 
 $("#date").change(async function(){
     if ($("#date").val() !== "") {
-        let url = `./controller/ExpireProduct.php?date=${$("#date").val()}`
+        let url = `./controller/SearchInformation.php?date=${$("#date").val()}`
         if ($("#keyword").val() !== "") {
             url += `&keyword=${$("#keyword").val()}`
         }
@@ -59,7 +59,7 @@ $("#date").change(async function(){
         const product = await (await fetch(url)).json()
         setUI(product)
     } else {
-        let url = './controller/ExpireProduct.php'
+        let url = './controller/DailyBestSeller.php'
         if ($("#keyword").val() !== "") {
             url += `?keyword=${$("#keyword").val()}`
         }
@@ -73,9 +73,11 @@ $("#date").change(async function(){
 
 
 async function start() {
-    let url = './controller/ExpireProduct.php'
+    let url = './controller/SearchInformation.php'
     const product = await (await fetch(url)).json()
     console.log(product);
+    $('#cat').text($("#category_id option:selected").text())
+    $('#no-let').hide()
     setUI(product)
 }
 
@@ -85,7 +87,7 @@ $(document).ready(function () {
 
 function setUI(data) {
     let c = 0
-    $('#expireTable').html('')
+    $('#searchTable').html('')
     let r =-1
     while(r!==0){
         r = 0
@@ -101,17 +103,17 @@ function setUI(data) {
             }
         }
     }
+
     data.forEach((element, i) => {
         c++
-        $('#expireTable').append(`<tr id="rr${i + 1}">
+        $('#searchTable').append(`<tr id="rr${i + 1}">
+        <th class="index">${i + 1}</th>
         <th><img src="${element.product_img}" width="400"></th>
-        <th>${element.product_name}</th>
-        <th>${element.datereceive}</th>
-        <th>${element.exp_date}</th>
+        <th><span id="p${element.product_id}">${element.product_name}</span></th>
         <th>${element.price}</th>
-        <th>${element.product_rm_unit}</th>
-        <th>${element.all_amount}</th>
-        <th><button type="button" class="bgs"  onclick="del(${element.unique_id})"><img src="./src/images/icon-delete.png" width="25"></button></th>
+        <th>${element.sales_amt}</th>
+        <th>${element.sales_pr}</th>
+        <th><a class="bgs" onclick="ClicktoExchange(${element.product_id})" href="./addproductexchange.php?id=${element.product_exchange_id}">${element.set_exchange == 1 ? 'เปลี่ยนสินค้า' : ''}</a></th>
     </tr>`)
     });
     if (c <= 0) {
@@ -123,22 +125,46 @@ function setUI(data) {
     }
 }
 
-function del(id) {
-    Swal.fire({
-        title: 'คำเตือน',
-        text: "คุณต้องการลบรายการสินค้าใช่หรือไม่",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'ใช่',
-        cancelButtonText: 'ยกเลิก'
-    }).then(async (result) => {
-        if (result.isConfirmed) {
-            let order = JSON.parse(localStorage.getItem('cart'))
-            order = order.filter(e => e.id != id)
-            localStorage.setItem('cart', JSON.stringify(order))
-            location.reload()
-        }
-    })
+function ClicktoExchange(id) {
+    const p = Number($(`#p${id}`).text())
+    if (p > 0) {
+        Swal.fire({
+            title: 'จำนวน',
+            html: `
+        <input id="q" type="number" min="1" step="1" value="1" class="swal2-input" placeholder="จำนวนสินค้า">`,
+            confirmButtonText: 'ลงตะกร้า',
+            focusConfirm: false,
+            showCancelButton: true,
+            cancelButtonText: "ยกเลิก",
+            preConfirm: async () => {
+                const q = Number(Swal.getPopup().querySelector('#q').value)
+                //const age = Swal.getPopup().querySelector('#age').value
+                if (p > 0 && p >= q) {
+                    $(`#p${id}`).text(Number(p - q))
+                }
+                return {q: q, id: id}
+            }
+            //
+
+        }).then((result) => {
+            const exchange = JSON.parse(localStorage.getItem('exchange'))
+            const found = exchange.findIndex(e => e.id === id)
+            console.log(result.value)
+            if (found > -1) {
+                exchange[found].quantity += result.value.q
+            } else {
+                exchange.push({
+                    id: result.value.id,
+                    quantity: result.value.q,
+
+                })
+            }
+            localStorage.setItem('exchange', JSON.stringify(exchange))
+        })
+    } else {
+        Swal.fire({
+            icon: 'warning',
+            text: "สินค้าไม่เพียงพอ"
+        })
+    }
 }

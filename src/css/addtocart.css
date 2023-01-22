@@ -186,7 +186,7 @@ th {
 .bgs {
     border: 0ch;
     background-color: white;
-    margin-left: 1pt;
+    padding: 4px;
 }
 
 .tablesales {
@@ -230,4 +230,43 @@ th {
 
 .modal-title2 {
     color: white
+}
+
+.topic_product {
+    background-color: #fff;
+    border: 0px solid gray;
+    color: black;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    padding-right: 25px;
+    height: max-content;
+    width: max-content;
+    overflow-wrap: break-word;
+    text-align: center;
+    font-size: 18px;
+    min-height: 300px;
+    min-width: 300px;
+    margin: 1px 1px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: inline-block;
+}
+
+.topic_BTAJ {
+    background-color: #fff;
+    border: 0px solid gray;
+    color: black;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    overflow-wrap: break-word;
+    text-align: center;
+    font-size: 18px;
+    min-height: 70px;
+    min-width: 70px;
+    width: max-content;
+    margin: 25px  1px 25px 1px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: block;
 }

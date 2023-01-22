@@ -54,7 +54,7 @@ $rows = $product->fetchExchange1Id();
                             <div class="row a">
                                 <div class="col productr">
                                     สินค้าที่ต้องการเปลี่ยน :<span style="color: red; ">&nbsp*</span>
-                                    <input type="text" accept="image/*" name="product_name" id="product_name" class="inbox" required />
+                                    <input type="text" accept="image/*" name="product_name" id="product_name" class="inbox" value="<?= $rows['product_id']; ?>" required />
                                 </div>
                             </div>
                             <div class="row a">

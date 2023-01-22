@@ -6,7 +6,6 @@ if(!isset($_GET['category_id'])&&(!isset($_GET['keyword']))){
     $rows = $product->fetchAddCategory();
     echo json_encode($rows);
 }
-//
 else if(isset($_GET['category_id'])&&(!isset($_GET['keyword']))){
     $product = new Product();
     $rows = $product->fetchByCategoryId($_GET['category_id']);

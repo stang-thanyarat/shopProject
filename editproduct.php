@@ -30,20 +30,22 @@ function getFullRole($role)
 </head>
 <?php
 include_once('nav.php');
-//เริ่มทำแก้ไข//
 include_once('database/Product.php');
 include_once('database/Category.php');
 include_once "./database/Sell.php";
+include_once('database/CostPrice.php');
 include_once('controller/Redirection.php');
 $product = new Product();
 $category = new Category();
 $sell = new Sell();
+$costprice = new CostPrice();
 if (!isset($_GET['id'])) {
     redirection('/productresult.php');
 }
 $p = $product->fetchById($_GET['id']);
 $rows = $category->fetchAll();
 $sells = $sell->fetchAll();
+$c = $costprice->fetchById($_GET['id']);
 //เริ่มทำแก้ไข//
 ?>
 
@@ -89,30 +91,29 @@ $sells = $sell->fetchAll();
                                     </label>
                                 </div>-->
                             </div>
-
                             <div class="row a">
                                 <div class="col-4 productname">
                                     ชื่อสินค้า :<span style="color: red; ">&nbsp*</span>
                                     <input name="product_name" type="text" id="product_name" class="inbox" value="<?= $p['product_name']; ?>" required />
                                 </div>
-                                <div class="col-4 brand">
-                                    ยี่ห้อสินค้า :<span style="color: red; ">&nbsp*</span>
-                                    <input name="brand" type="text" id="brand" class="inbox" value="<?= $p['brand']; ?>" />
-                                </div>
-                            </div>
-
-                            <div class="row a">
-                                <div class="col-4 productversion">
-                                    รุ่นสินค้า :<span style="color: red; ">&nbsp*</span>
-                                    <input name="model" type="text" id="model" class="inbox" value="<?= $p['model']; ?>" />
-                                </div>
                                 <div class="col-4 sellername">
                                     ชื่อผู้ขาย :<span style="color: red; ">&nbsp*</span>
                                     <select name="sell_id" id="sell_id" class="inbox" style="background-color: #D4DDC6;" required>
+                                        <option value="allsell" selected hidden>เลือกผู้ขาย</option>
                                         <?php foreach ($sells as $s) { ?>
-                                        <option value="<?= $s['sell_id'] ?>" <?= $s['sell_id'] == $s['sell_id'] ? "selected" : '' ?>><?= $s['sell_name'] ?></option>
+                                            <option value="<?= $s['sell_id'] ?>" <?= $p['sell_id'] == $s['sell_id'] ? "selected" : '' ?>><?= $s['sell_name'] ?></option>
                                         <?php } ?>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="row a">
+                                <div class="col-4 productversion">
+                                    รุ่นสินค้า :&nbsp&nbsp&nbsp
+                                    <input name="model" type="text" id="model" class="inbox" value="<?= $p['model']; ?>" />
+                                </div>
+                                <div class="col-4 brand">
+                                    ยี่ห้อสินค้า :&nbsp&nbsp
+                                    <input name="brand" type="text" id="brand" class="inbox" value="<?= $p['brand']; ?>" />
                                 </div>
                             </div>
                             <div class="row a">
@@ -167,7 +168,6 @@ $sells = $sell->fetchAll();
                                     <label class="vaxcheckboxtext" >ภาษีมูลค่าเพิ่ม</label>
                                 </div>
                             </div>
-
                             <div class="row a">
                                 <div class="col-5 min1">
                                     สินค้าคงคลังขั้นต่ำ :<span style="color: red; ">&nbsp*</span>
@@ -179,7 +179,7 @@ $sells = $sell->fetchAll();
                                     <input name="cost_price" type="text" id="cost_price" class="inbox" value="<?= $p['cost_price']; ?>" required />
                                 </div>
                                 <div class="col-2 watchcostprice">
-                                    <a type="button" href="costprice.php?id=<?= $p['product_id']; ?>" class="button btn">ดูราคาทุน</a>
+                                    <a type="button" href="costprice.php?id=<?= $c['product_id']; ?>" class="button btn">ดูราคาทุน</a>
                                 </div>
                             </div>
                             <div class="row a">

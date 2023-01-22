@@ -38,83 +38,6 @@ function checkID(id) {
     return false;
 }
 
-//ตรวจสอบพร้อมส่งข้อมูล
-$("#form1").submit(async function (event) {
-    event.preventDefault();
-    if (!checkID(document.form1.employee_card_id.value)) {
-        Swal.fire({
-            icon: 'warning',
-            title: 'คำเตือน',
-            text: 'ระบุหมายเลขประจำตัวประชาชนไม่ถูกต้อง',
-            timer: 3000
-        })
-        return
-    }
-    if (!telephone(document.form1.employee_telephone.value)) {
-        Swal.fire({
-            icon: 'warning',
-            title: 'คำเตือน',
-            text: 'เบอร์โทรศัพท์ไม่ถูกต้อง',
-            timer: 3000
-        })
-        return
-    }
-    if (!check_email(document.form1.employee_email)) {
-        event.preventDefault();
-        Swal.fire({
-            icon: 'warning',
-            title: 'คำเตือน',
-            text: 'อีเมลไม่ถูกต้อง',
-            timer: 3000
-        })
-        return
-    }
-    if (JSON.parse(localStorage.getItem("tableBank")).data.length <= 0) {
-        Swal.fire({
-            icon: 'warning',
-            title: 'คำเตือน',
-            text: 'กรุณากรอกข้อมูลบัญชีธนาคาร',
-            timer: 3000
-        })
-        return
-    } else {
-        const Employee = await (await fetch(`controller/EmailEmployeeCheck.php?email=${document.form1.employee_email.value}`)).json()
-        if (Employee.length > 0) {
-            event.preventDefault();
-            Swal.fire({
-                icon: 'warning',
-                title: 'คำเตือน',
-                text: 'อีเมลนี้มีผู้ใช้งานอยู่แล้ว',
-                timer: 3000
-            })
-            //console.log (Employee);
-            return
-        } else {
-            event.preventDefault();
-            $('#bank').val(JSON.stringify(JSON.parse(localStorage.getItem("tableBank")).data))
-            let response = await fetch('controller/Employee.php', {
-                method: 'POST',
-                body: new FormData(document.form1)
-            });
-            console.log(response);
-            if (!response.ok) {
-                console.log(response);
-            } else {
-                await Swal.fire({
-                    icon: 'success',
-                    text: 'บันทึกข้อมูลเสร็จสิ้น',
-                    timer: 3000
-                })
-                console.log(await response.text());
-                window.location.assign("employee.php");
-            }
-        }
-    }
-});
-
-
-
-
 //เบอร์โทรศัพท์
 function autoTab2(obj) {
     var pattern =new String("___-_______");
@@ -250,3 +173,77 @@ function delrow() {
     localStorage.removeItem('deleteIndex')
     $('#closedelrow').click()
 }
+
+//ตรวจสอบพร้อมส่งข้อมูล
+$("#form1").submit(async function (event) {
+    event.preventDefault();
+    if (!checkID(document.form1.employee_card_id.value)) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'ระบุหมายเลขประจำตัวประชาชนไม่ถูกต้อง',
+            timer: 3000
+        })
+        return
+    }
+    if (!telephone(document.form1.employee_telephone.value)) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'เบอร์โทรศัพท์ไม่ถูกต้อง',
+            timer: 3000
+        })
+        return
+    }
+    if (!check_email(document.form1.employee_email)) {
+        event.preventDefault();
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'อีเมลไม่ถูกต้อง',
+            timer: 3000
+        })
+        return
+    }
+    if (JSON.parse(localStorage.getItem("tableBank")).data.length <= 0) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'กรุณากรอกข้อมูลบัญชีธนาคาร',
+            timer: 3000
+        })
+        return
+    } else {
+        const Employee = await (await fetch(`controller/EmailEmployeeCheck.php?email=${document.form1.employee_email.value}`)).json()
+        if (Employee.length > 0) {
+            event.preventDefault();
+            Swal.fire({
+                icon: 'warning',
+                title: 'คำเตือน',
+                text: 'อีเมลนี้มีผู้ใช้งานอยู่แล้ว',
+                timer: 3000
+            })
+            //console.log (Employee);
+            return
+        } else {
+            event.preventDefault();
+            $('#bank').val(JSON.stringify(JSON.parse(localStorage.getItem("tableBank")).data))
+            let response = await fetch('controller/Employee.php', {
+                method: 'POST',
+                body: new FormData(document.form1)
+            });
+            console.log(response);
+            if (!response.ok) {
+                console.log(response);
+            } else {
+                await Swal.fire({
+                    icon: 'success',
+                    text: 'บันทึกข้อมูลเสร็จสิ้น',
+                    timer: 3000
+                })
+                console.log(await response.text());
+                window.location.assign("employee.php");
+            }
+        }
+    }
+});
