@@ -49,7 +49,7 @@ class Contract
     //ส่วนการค้นหาลูกค้า
     public function searchBycopyID($keyword)
     {
-        $like = "%" . $keyword . "%";
+        $like = "%$keyword%";
         $sql = "SELECT CT.*,DB.* FROM contract_tb CT,debt_payment_details_tb DB WHERE customer_img LIKE ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $like, PDO::PARAM_STR);

@@ -1,5 +1,4 @@
 //ส่วนรับรายการสินค้า
-
 let ALL;
 $(document).ready(async function () {
     let list = []
@@ -76,25 +75,6 @@ $('#receivecash').keyup(()=>{
     }
 })
 
-/*$("#payment_s").change(async function () {
-    if ($("#payment_s").val() === 'เงินสด') {
-        let payment =  $("#payment_s").val()
-            $('#payment_s').val(payment)
-            $('#payment_sl').val(payment)
-
-    }
-    else if ($("#payment_s").val() === 'โอนผ่านบัญชีธนาคาร') {
-        let payment =  $("#payment_s").val()
-        $('#payment_s').val(payment)
-        $('#payment_sl').val(payment)
-    }
-    else if ($("#payment_s").val() === 'ผ่อนชำระ') {
-        let payment =  $("#payment_s").val()
-        $('#payment_s').val(payment)
-        $('#payment_sl').val(payment)
-    }
-});*/
-
 function setUI(data) {
     let allprice = 0
     let allquantity = 0
@@ -128,21 +108,38 @@ function setUI(data) {
     console.log(data)
 }
 
-//เพิ่มข้อมูลเข้าตาราง
-/*function setUI() {
-    let salesamt = 0
-    let allquantity = 0
-    $("#salestodatabase").submit(function (event) {
-        salesamt = Number(element.price) * Number(element.quantity)
-        allquantity = Number(element.quantity)
-        event.preventDefault();
-        localStorage.setItem("cart", JSON.stringify(tableObj))
-        $('#sales_dt').val("")
-        $('#product_id').val("")
-        $('#sales_amt').val(salesamt)
-        $('#sales_pr').val(salespr)
+$("#keyword").keyup(async function () {
+    let url = `./controller/SalestoContract.php`
+    if($("#keyword").val() !== "" ){
+        url += `?keyword=${$("#keyword").val()}`
+    }
+    const keyword = await (await fetch(url)).json()
+    setU(keyword)
+});
+
+async function star() {
+    let url = './controller/SalestoContract.php'
+    const keyword = await (await fetch(url)).json()
+    console.log(keyword);
+    setU(keyword)
+}
+
+$(document).ready(function () {
+    star()
+});
+
+function setU(keyword) {
+    $('#salestocontracttable').html('')
+    keyword.forEach((element, i) => {
+        $('#salestocontracttable').append(`<tr id="rr${i + 1}">
+        <th class="index-table-bank">${i + 1}</th>
+        <th>${element.date_contract}</th>
+        <th>${element.repayment_date}</th>
+        <th>${element.outstanding}</th>
+        <th>${element.slip_img}</th>
+    </tr>`)
     });
-}*/
+}
 
 async function loopInsert(){
     let lastID = await (await fetch('controller/GetLastIdSales.php')).text()
@@ -154,7 +151,7 @@ async function loopInsert(){
         formdata.append("sales_list_id", lastID);
         formdata.append("product_id", e.id);
         formdata.append("sales_amt", e.quantity);
-        formdata.append("sales_pr", objData[0].price);
+        formdata.append("sales_pr", objData[0].price * e.quantity);
         formdata.append("form_action", "insert");
         formdata.append("table", "salesdetails");
         var requestOptions = {
@@ -188,7 +185,7 @@ $("#form1").submit(async function (event)
         console.log(await response.text());
         loopInsert()
         //localStorage.clear()
-        window.location.assign("productlist.php");
+        //window.location.assign("productlist.php");
     }
 });
 

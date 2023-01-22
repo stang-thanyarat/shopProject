@@ -184,10 +184,6 @@ function getFullRole($role)
 
 <!-- ยืนยันการซื้อแบบผ่อนชำระ -->
 <div class="modal fade bd-example-modal-sm5 login-form" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form action="controller/Sales.php" name="form3" id="form3" method="POST">
-        <input type="hidden" value="sales" name="table" />
-        <input type="hidden" value="insert" name="form_action" />
-        <input type="hidden" id="payment_sl" name="payment_sl" value="ผ่อนชำระ" />
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -197,12 +193,12 @@ function getFullRole($role)
             <div class="modal-body">
                 <div class="row">
                     <div class="col email">
-                        E-mail : <input type="text" name="email" id="email" class="btnd inbox" required />
+                        E-mail : <input type="text" name="email" id="email" class="btnd inbox" />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col password">
-                        รหัสผ่าน : <input type="text" name="password" id="password" class="btnd inbox" required />
+                        รหัสผ่าน : <input type="text" name="password" id="password" class="btnd inbox" />
                     </div>
                 </div>
             </div>
@@ -215,18 +211,12 @@ function getFullRole($role)
 </div>
 
 <!-- ยืนยันการซื้อแบบผ่อนชำระ(ต่อ 1) -->
-
-<div class="modal fade bd-example-modal-sm6 search-costumer-form" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <?php
-    include_once 'database/Contract.php';
-    $contract = new Contract();
-    if (isset($_GET['keyword'])) {
-        $rows = $contract->searchBycopyID($_GET['keyword']);
-    } else {
-        $rows = [];
-    }
-    ?>
-    <div class="modal-dialog">
+    <form action="controller/Sales.php" name="form3" id="form3" method="POST">
+<div class="modal fade bd-example-modal-xl search-costumer-form" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <input type="hidden" value="sales" name="table" />
+        <input type="hidden" value="insert" name="form_action" />
+        <input type="hidden" id="payment_sl" name="payment_sl" value="ผ่อนชำระ" />
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title2" id="exampleModalLabel">กรอกรหัสเจ้าของร้าน</h5>
@@ -238,28 +228,18 @@ function getFullRole($role)
                         กรอกรหัสบัตรประชาชน : <input type="text" name="keyword" id="keyword" class="btnd inbox" required />
                     </div>
                     <div class="col-1">
-                        <button type="button" class="l"><img src="./src/images/search.png" width="16"></button>&nbsp &nbsp
+                        <button type="submit" class="l"><img src="./src/images/search.png" width="16"></button>&nbsp &nbsp
                     </div>
                 </div>
-                <table class="col-11 contracttable">
+                <table class="col-11 salestocontracttable">
                     <tr>
+                        <th width=15%>ลำดับ</th>
                         <th width=15%>วันที่ทำสัญญา</th>
                         <th width=10%>วันที่ครบกำหนดชำระ</th>
                         <th width=15%>สถานะ</th>
                         <th width=15%>คงค้าง</th>
                     </tr>
-                    <tbody id="contracttable">
-                    <?php
-                    foreach ($rows as $row) { ?>
-                        <tr>
-                            <th><?= dateFormat($row['date_contract']) ?></th>
-                            <th><?= $row['repayment_date'] ?></th>
-                            <th><?= $row['outstanding'] ?></th>
-                            <th><?= $row['slip_img'] ?></th>
-                        </tr>
-                        <?php
-                    } ?>
-                    </tbody>
+                    <tbody id="salestocontracttable"></tbody>
                 </table>
             </div>
             <div class="modal-footer">
@@ -268,34 +248,8 @@ function getFullRole($role)
         </div>
     </div>
 </div>
+    </form>
 
-<!-- ยืนยันการซื้อแบบผ่อนชำระ(ต่อ 2) -->
-<div class="modal fade bd-example-modal-sm7" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title2" id="exampleModalLabel">กรอกรหัสเจ้าของร้าน</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col email">
-                        E-mail : <input type="text" name="email" id="email" class="btnd inbox" required />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col password">
-                        รหัสผ่าน : <input type="text" name="password" id="password" class="btnd inbox" required />
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary1">ยืนยัน</button>
-            </div>
-        </div>
-    </div>
-</div>
 </body>
 <script src="./src/js/addtocart.js"></script>
 
