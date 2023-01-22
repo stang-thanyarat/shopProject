@@ -56,10 +56,10 @@ if (isset($_GET['keyword'])) {
                         <button type="submit" class="s"><img src="./src/images/search.png" width="20"></button>
                     </div>
                     <div class="col-2 x">
-                        <a type="button" href="productlist.php" class="submit btn"><img src="./src/images/arrow.png" width="45" style="margin: left -5px;">กลับไปหน้าขาย</a>
+                        <a type="button" href="productlist.php" class="submit btn"><img src="./src/images/arrow.png" width="45" class="arrow" >กลับไปหน้าขาย</a>
                     </div>
                     <div class="col-1 v">
-                        <a type="button" href="contract.php" class="submit btn"><img src="./src/images/plus.png" width="25" style="margin: left -5px;">&nbsp;เพิ่ม</a>
+                        <a type="button" href="contract.php" class="submit btn"><img src="./src/images/plus.png" width="25" class="plus" >&nbsp;เพิ่ม</a>
                     </div>
                     </form>
                 </div>
@@ -92,7 +92,7 @@ if (isset($_GET['keyword'])) {
                                     <th></th>
                                     <th><img src="./src/images/pdf.png" width="25"></th>
                                     <th><input type="file" accept="image/*" name="contractfile"></th>
-                                    <th><img src="./src/images/print.png" width="25"></th>
+                                    <th><button type="button" onclick="window.location = './service/PDF/template/contract.php?id=<?=$row['contract_code']?>'"><img src="./src/images/print.png" class="g" width="25"></button></th>
                                     <th>
                                         <a type="button" class="bgs" href="solvecontract.php?id=<?= $row['contract_code']; ?>" ><img src="./src/images/icon-pencil.png" width="25"></a>
                                     </th>
@@ -106,5 +106,6 @@ if (isset($_GET['keyword'])) {
         </div>
     </form>
 </body>
-
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script src="./src/js/contracthistory.js"></script>
 </html>

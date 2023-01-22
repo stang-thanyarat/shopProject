@@ -95,7 +95,7 @@ th {
 .btn {
     border-radius: 25px 25px 25px 25px;
     font-size: 16pt;
-    width: 150%;
+    width: 120%;
     height: 100%;
 }
 
@@ -191,7 +191,7 @@ input:checked+.slider:before {
 
 .z{
     font-size: 16pt;
-    margin-left: 39rem;
+    margin-left: 41rem;
    
 }
 

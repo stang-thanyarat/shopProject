@@ -2,6 +2,7 @@
 include_once '../database/Sell.php';
 include_once '../service/upload.php';
 include_once '../database/Bank.php';
+include_once 'Redirection.php';
 $bank = new Bank();
 $sell = new Sell();
 if (isset($_POST)) {
