@@ -18,6 +18,14 @@
     margin-top: 3.5rem;
 }
 
+.arrow {
+    margin-top: -0.2rem;
+}
+
+.plus {
+    margin-top: -0.2rem;
+}
+
 table,
 td,
 th {
@@ -72,18 +80,18 @@ th {
     margin-bottom: 4rem;
 }
 
-.x{
+.x {
     margin-left: -2rem;
 }
 
-.y{
+.y {
     font-size: 13pt;
-    margin-left: 49rem;
+    margin-left: 50rem;
     margin-top: 0rem;
-   
+
 }
 
-.v{
+.v {
     margin-left: -2rem;
 }
 
@@ -112,4 +120,7 @@ th {
 
 }
 
-
+.g {
+    background: transparent;
+    border: 0px;
+}

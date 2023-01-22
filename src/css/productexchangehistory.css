@@ -61,21 +61,22 @@ th {
     margin-bottom: 4rem;
 }
 
-.bgs{
+.bgs {
     border: 0ch;
     background-color: white;
 }
 
-.topic{
-    margin-left: 0rem;
+.topic {
+    margin-bottom: 0rem;
 }
 
-.search{
-    margin-left: 4rem;
+.search {
+    margin-left: 33rem;
 }
 
-.BT{
-    margin-left: -8rem;
+.BT {
+    margin-top: 0.5rem;
+    margin-left: -10.5rem;
 }
 
 .submit {
@@ -85,17 +86,20 @@ th {
 }
 
 .btn {
-    margin-top: 0.3rem;
     border-radius: 25px 25px 25px 25px;
-    font-size: 18pt;
-    width: 65%;
-    height: 70%;
+    font-size: 16pt;
+    width: 45%;
+    height: 80%;
+}
 
+
+.plus {
+    margin-top: -0.4rem;
 }
 
 .reset {
-    background-color: red;
-    color: white;
+    background-color: #C4C4C4;
+    color: black;
     border: 0ch;
     margin-left: 1rem;
 }
@@ -103,7 +107,7 @@ th {
 .btn-c {
     margin-top: 0.3rem;
     border-radius: 25px 25px 25px 25px;
-    font-size: 18pt;
+    font-size: 16pt;
     width: 15%;
     height: 70%;
 }

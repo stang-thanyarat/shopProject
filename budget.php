@@ -13,6 +13,7 @@ function getFullRole($role)
         return 'ผู้ดูแลระบบ';
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -41,12 +42,9 @@ function getFullRole($role)
                     <h5 class="tt">งบแสดงฐานะการเงิน</h5>
                     <div class="th"></div>
                     <div class="d-flex flex-row-reverse ttt">
-                        <button type="button" onclick="dowloadClick()" class="g "><img src="./src/images/download.png " width="15">&nbsp;
+                        <button type="button" onclick="loadPDF()" class="g "><img src="./src/images/download.png " width="15">&nbsp;
                             ดาวน์โหลด
                         </button>
-                        <button type="button" class="g" onclick="dowloadClick()"><img src="./src/images/print.png" width="15">&nbsp; print
-                        </button>
-                    </div>
                 </div>
             </div>
             <!--
@@ -57,7 +55,7 @@ function getFullRole($role)
 
             <div class="row main q">
                 <div class="col-12 a">
-                    <input type="date" name="firstdate" required>&nbsp ถึง &nbsp<input type="date" name="lastdate"
+                    <input type="date" value="<?= date('Y-m-d')?>" id="firstdate" name="firstdate" required>&nbsp ถึง &nbsp<input type="date" value="<?= date('Y-m-d')?>" id="lastdate" name="lastdate"
                                                                                        required>
                     <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
                 </div>
@@ -115,8 +113,7 @@ function getFullRole($role)
     </div>
 </form>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
-
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./src/js/budget.js"></script>
 
 </html>

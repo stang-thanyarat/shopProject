@@ -55,12 +55,12 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                             <div class="col-6 search">
                                 <input value="<?= isset($_GET['start']) ? $_GET['start']:'' ?>" class="date" type="date" name="start" id="start"> &nbsp&nbspถึง&nbsp&nbsp
                                 <input value="<?= isset($_GET['end'])? $_GET['end'] :'' ?>" class="date" type="date" name="end" id="end">
-                                <button type="submit" class="s"><img src="./src/images/search.png" width="20"></button>
-                                <button type="button" onclick="window.location= 'productexchangehistory.php'" class="btn-c reset">รีเซ็ต</button>
+                                <button type="submit" class="s"><img src="./src/images/search.png" width="25"></button>
+                                <button type="button" onclick="window.location= 'productexchangehistory.php'" class="btn-c reset">ล้างข้อมูล</button>
                             </div>
                             <div class="col-2 d-flex justify-content-end BT">
                                 <a type="button" href="./searchinformation.php" class="submit btn">
-                                    <img class='plus' src="./src/images/plus.png" width="25">&nbsp เพิ่ม</a>
+                                    <img class='plus' src="./src/images/plus.png" width="25" class="plus">&nbsp เพิ่ม</a>
                             </div>
                     </form>
                 </div>
