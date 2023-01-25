@@ -32,7 +32,6 @@ function getFullRole($role)
 include_once('nav.php');
 include_once "./database/ProductExchange.php";
 $productexchange = new ProductExchange();
-$rows = $productexchange->fetchAll();
 if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GET['end'] != '') {
     $rows = $productexchange->fetchBetween($_GET['start'], $_GET['end']);
 } else if ((!isset($_GET['start']) && !isset($_GET['end'])) ||($_GET['start'] != '' && $_GET['end'] != '')) {
@@ -46,7 +45,7 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
     <form>
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
-            <div class="col-11 ">
+            <div class="col-11">
                 <div class="row main">
                     <div class="col-4 topic">
                         <h1>การเปลี่ยนสินค้า</h1>
@@ -64,6 +63,7 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                             </div>
                     </form>
                 </div>
+                <?php if (count($rows) > 0) { ?>
                     <table class="col-11 pdrtb">
                         <thead>
                             <tr>
@@ -92,26 +92,12 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                             <?php } ?>
                         </tbody>
                     </table>
+                <?php } else {
+                    echo '<div class="d-flex justify-content-center"><h3 style="margin-top: 9rem; margin-bottom: 9rem;">ไม่พบข้อมูล</h3></div>';
+                } ?>
             </div>
         </div>
     </form>
-    <!-- ลบ -->
-    <div class="modal fade bd-example-modal-sm1" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title2" id="exampleModalLabel">ลบประเภทสินค้า</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <h3>ยืนยันที่จะลบ</h3>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn1 btn-primary1">ตกลง</button>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
 <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>

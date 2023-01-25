@@ -32,14 +32,14 @@ function getFullRole($role)
 include_once('nav.php');
 include_once "./database/Product.php";
 $product = new Product();
-$rows = $product->fetchExchange1Id();
+$rows = $product->fetchExchange1Id($_GET["id"]);
 ?>
-
 <body>
     <form action="controller/ProductExchange.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
         <input type="hidden" value="productexchange" name="table" />
+        <input type="hidden" id="productexchange" name="productexchange" />
         <input type="hidden" value="insert" name="form_action" />
-        <input type="hidden" id="product_id" name="product_id" />
+        <input type="hidden" id="product_id" name="product_id" value="<?= $_GET['id'] ?>" />
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
@@ -54,7 +54,7 @@ $rows = $product->fetchExchange1Id();
                             <div class="row a">
                                 <div class="col productr">
                                     สินค้าที่ต้องการเปลี่ยน :<span style="color: red; ">&nbsp*</span>
-                                    <input type="text" accept="image/*" name="product_name" id="product_name" class="inbox" value="<?= $rows['product_id']; ?>" required />
+                                    <input type="text" accept="image/*" name="product_name" class="inbox product_name" value="<?= $rows["product_name"] ?>"  required />
                                 </div>
                             </div>
                             <div class="row a">

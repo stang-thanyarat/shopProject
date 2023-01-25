@@ -65,16 +65,6 @@ targetElement.addEventListener('change', async (e) =>  {
     }
 })
 
-//ส่วนคำนวณเงินของชำระเงินสด
-$('#receivecash').keyup(()=>{
-    const change = Number($('#receivecash').val()) - Number($(".all_price").val())
-    if(change>=0){
-        $('#change').val(change)
-    }else{
-        $('#change').val('')
-    }
-})
-
 function setUI(data) {
     let allprice = 0
     let allquantity = 0
@@ -85,7 +75,7 @@ function setUI(data) {
         $('#addtocartTable').append(`<tr id="rr${i + 1}">
         <th style="border-right: 1px;">${i + 1}</th>
         <th style="border-left: 1px; border-right: 1px;">
-            <img class="topic_product" src="${element.product_img}">
+            <img class="topic_product" style="width: 325px; height: 325px;" src="${element.product_img}">
         </th>
         <th style="border-left: 1px; border-right: 1px;">${element.product_name}</th>
         <th style="border-left: 1px; border-right: 1px;">${element.price}</th>
@@ -93,10 +83,10 @@ function setUI(data) {
         <th style="border-left: 1px; border-right: 1px;">${Number(element.price) * Number(element.quantity)}</th>
         <th style="border-left: 1px;" >
         <div class="topic_BTAJ">
-            <button type="button" class="bgs" onclick="del(${element.product_id})"><img src="./src/images/icon-delete.png" width="25"></button>
+            <button type="button" class="bgs" onclick="del(${element.product_id})"><img src="./src/images/icon-delete.png" class="delete" width="30"></button>
         </div>
         <div class="topic_BTAJ">
-        <a href="./productlist.php" class="bgs" ><img src="./src/images/icon-pencil.png" width="25" ></a>
+            <a href="./productlist.php" class="bgs" ><img src="./src/images/icon-pencil.png" class="edit" width="30"></a>
         </div>
         </th>
     </tr>`)
@@ -106,39 +96,6 @@ function setUI(data) {
         $(".all_quantity").val(allquantity)
     });
     console.log(data)
-}
-
-$("#keyword").keyup(async function () {
-    let url = `./controller/SalestoContract.php`
-    if($("#keyword").val() !== "" ){
-        url += `?keyword=${$("#keyword").val()}`
-    }
-    const keyword = await (await fetch(url)).json()
-    setU(keyword)
-});
-
-async function star() {
-    let url = './controller/SalestoContract.php'
-    const keyword = await (await fetch(url)).json()
-    console.log(keyword);
-    setU(keyword)
-}
-
-$(document).ready(function () {
-    star()
-});
-
-function setU(keyword) {
-    $('#salestocontracttable').html('')
-    keyword.forEach((element, i) => {
-        $('#salestocontracttable').append(`<tr id="rr${i + 1}">
-        <th class="index-table-bank">${i + 1}</th>
-        <th>${element.date_contract}</th>
-        <th>${element.repayment_date}</th>
-        <th>${element.outstanding}</th>
-        <th>${element.slip_img}</th>
-    </tr>`)
-    });
 }
 
 async function loopInsert(){
@@ -163,8 +120,19 @@ async function loopInsert(){
     }
 }
 
+///form1
+//เงินสด
+//ส่วนคำนวณเงินของชำระเงินสด
+$('#receivecash').keyup(()=>{
+    const change = Number($('#receivecash').val()) - Number($(".all_price").val())
+    if(change>=0){
+        $('#change').val(change)
+    }else{
+        $('#change').val('')
+    }
+})
 
-//ตรวจสอบพร้อมส่งข้อมูล
+//ตรวจสอบพร้อมส่งข้อมูล form1
 $("#form1").submit(async function (event)
 {
     event.preventDefault();
@@ -189,6 +157,8 @@ $("#form1").submit(async function (event)
     }
 });
 
+///form2
+//โอนผ่านบัญชีธนาคาร
 $("#form2").submit(async function (event)
 {
     event.preventDefault();
@@ -212,6 +182,48 @@ $("#form2").submit(async function (event)
     }
 });
 
+///form3
+//การผ่อนชำระ
+//คีย์ข้อมูลลูกค้าเพื่อตรวจสอบ
+$("#keyword").keyup(async function () {
+    let url = `./controller/SalestoContract.php`
+    if($("#keyword").val() !== "" ){
+        url += `?keyword=${$("#keyword").val()}`
+    }
+    else if ($("#keyword").val() == "" ) {
+        url += `?keyword=${$("#keyword").val("")}`
+    }
+    const keyword = await (await fetch(url)).json()
+    setU(keyword)
+});
+
+//ส่วนแสดงผลข้อมูลลูกค้า
+async function star() {
+    let url = './controller/SalestoContract.php'
+    const keyword = await (await fetch(url)).json()
+    console.log(keyword);
+    setU(keyword)
+}
+
+$(document).ready(function () {
+    star()
+});
+
+function setU(keyword) {
+    let c = 0
+    $('#salestocontracttable').html('')
+    keyword.forEach((element, i) => {
+        c++
+        $('#salestocontracttable').append(`<tr id="rr${i + 1}">
+        <th class="index-table-bank">${i + 1}</th>
+        <th>${element.date_contract}</th>
+        <th>${element.repayment_date}</th>
+        <th>${element.outstanding}</th>
+        <th>${element.slip_img}</th>
+    </tr>`)
+    });
+}
+
 $("#form3").submit(async function (event)
 {
     event.preventDefault();
@@ -230,6 +242,8 @@ $("#form3").submit(async function (event)
             timer: 3000
         })
         console.log(await response.text());
+        loopInsert()
+        //localStorage.clear()
         window.location.assign("productlist.php");
     }
 });

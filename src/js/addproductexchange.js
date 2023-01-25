@@ -1,79 +1,10 @@
-$(document).ready(async function () {
-    let list = []
-    let order = JSON.parse(localStorage.getItem('exchange'))
-    if (!order || order.length == 0 || localStorage.getItem('exchange') === null) {
-        $('#addtocartTable').html('<tr ><td colspan="7">ไม่มีรายการสินค้า</td></tr>')
-        $('#solutionPay').prop( "disabled", true );
-        $('#mySubmit').prop( "disabled", true );
-    } else {
-        $('#solutionPay').prop( "disabled", false );
-        $('#mySubmit').prop( "disabled", false );
-        for (const element of order) {
-            let product = await (await fetch(`./controller/GetProduct.php?id=${element.id}`)).json()
-            product.quantity = element.quantity
-            list.push(product)
-        }
-        setUI(list)
-    }
-});
-
-$(document).ready(async function () {
-    let url = `./controller/ProductResult.php`
-    const product = await (await fetch(url)).json()
-    setUI(product)
-});
-function setUI(data) {
-    let product = $("#product_id").val(id);
-    data.forEach(element => {
-        product += (element.product_name)
-        $("#product_name").text(product)
-        $("#product_name").val(product)
-    });
-    console.log(data)
-}
-
 $(document).ready(function () {
     $("input[name$='exchange_status']").click(function () {
         var test = $(this).val();
         $("div.desc").hide();
         $("#" + test).show();
     });
-    $("#product_name").autocomplete({
-        source: "./controller/ProductExchangeList.php",
-        minLength: 2,
-        select: function (event, ui) {
-            $("#product_name").val(ui.item.label);
-            $("#product_id").val(ui.item.value);
-            return false;
-        }
-    });
 });
-
-$('#form1').submit(async function (e) {
-    e.preventDefault()
-    if (!$("#product_id").val()) {
-        Swal.fire({
-            title: 'กรุณาใส่ชื่อสินค้าให้ถูกต้อง'
-            , icon: 'warning'
-            , timer: 3000
-        })
-        return
-    }
-    if ($('#exchange_status').val() === 'complete') {
-        const expass = (await (await fetch(`./controller/GetStock.php?id=${$("#product_id").val()}
-        &q=${$("#exchange_amount").val()}`)).json())
-        console.log(expass)
-        if (!expass) {
-            Swal.fire({
-                title: 'สินค้าไม่เพียงพอให้เปลี่ยน'
-                , icon: 'warning'
-                , timer: 3000
-            })
-            return
-        }
-    }
-    e.currentTarget.submit();
-})
 
 function phonePattern(obj){
     const mobile = [8,9,6]
@@ -116,3 +47,45 @@ function autoTab2(obj) {
         obj.value = obj.value.substr(0, pattern.length);
     }
 }
+
+$("#form1").submit(async function (event) {
+    event.preventDefault();
+    let response = await fetch('controller/ProductExchange.php', {
+        method: 'POST',
+        body: new FormData(document.form1)
+    });
+    console.log(response);
+        if (!response.ok) {
+            console.log(response);
+        } else {
+                await Swal.fire({
+                    icon: 'success',
+                    text: 'บันทึกข้อมูลเสร็จสิ้น',
+                    timer: 3000
+                })
+                window.location.assign("productexchangehistory.php");
+            }
+    /*if ($('#exchange_status').val() === 'complete') {
+        const expass = (await (await fetch(`./controller/GetStock.php?id=${$("#product_id").val()}
+        &q=${$("#exchange_amount").val()}`)).json())
+        console.log(expass)
+        if (!expass) {
+            Swal.fire({
+                title: 'สินค้าไม่เพียงพอให้เปลี่ยน'
+                , icon: 'warning'
+                , timer: 3000
+            })
+            return
+        }
+        else if (!expass) {
+            Swal.fire({
+                icon: 'success',
+                text: 'บันทึกข้อมูลเสร็จสิ้น',
+                timer: 3000
+            })
+            return
+            window.location.assign("productexchangehistory.php");
+        }
+    }*/
+
+});

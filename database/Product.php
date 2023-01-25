@@ -30,12 +30,13 @@ class Product
         return $result;
     }
 
-    public function fetchExchange1Id()
+    public function fetchExchange1Id($id)
     {
-        $sql = "SELECT * FROM product_tb";
+        $sql = "SELECT * FROM product_tb WHERE product_id=?";
         $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $id, PDO::PARAM_INT);
         $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
 

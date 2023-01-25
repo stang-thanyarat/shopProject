@@ -44,19 +44,19 @@ function getFullRole($role)
             <!--เนื้อหา-->
             <table class="col-11 tablesales">
                 <thead>
-                <tr class="t">
-                    <th width="5%" style="border-right: 1px; ">ลำดับ</th>
-                    <th width="10%" style="border-left: 1px; border-right: 1px;">รูปภาพ</th>
-                    <th width="30%" style="border-left: 1px; border-right: 1px; ">สินค้า</th>
-                    <th width="15%" style="border-left: 1px; border-right: 1px; ">ราคาต่อชิ้น</th>
-                    <th width="15%" style="border-left: 1px; border-right: 1px; ">จำนวน</th>
-                    <th width="15%" style="border-left: 1px; border-right: 1px; ">ราคารวม</th>
-                    <th width="10%" style="border-left: 1px; "></th>
+                <tr class="TRTOPICCSS">
+                    <th style="width : 5%; border-right: 1px; text-align: center; ">ลำดับ</th>
+                    <th style="width : 10%; border-left: 1px; border-right: 1px;">รูปภาพ</th>
+                    <th style="width : 30%; border-left: 1px; border-right: 1px; ">สินค้า</th>
+                    <th style="width : 15%; border-left: 1px; border-right: 1px; ">ราคาต่อชิ้น</th>
+                    <th style="width : 15%; border-left: 1px; border-right: 1px; ">จำนวน</th>
+                    <th style="width : 15%; border-left: 1px; border-right: 1px; ">ราคารวม</th>
+                    <th style="width : 10%; border-left: 1px; "></th>
                 </tr>
                 </thead>
                 <tbody id="addtocartTable"></tbody>
                 <tbody>
-                <tr class="t">
+                <tr class="TRTOPICCSS">
                     <th colspan="2" style="border-right: 1px">
                         <select name="payment_s" id="payment_s" required>
                             <option value="เลือกประเภทการชำระ" selected hidden>เลือกประเภทการชำระ</option>
@@ -65,13 +65,14 @@ function getFullRole($role)
                             <option value="ผ่อนชำระ">ผ่อนชำระ</option>
                         </select>
                     </th>
-                    <th colspan="6" style="border-left: 1px">
-                        <div class=" d-flex justify-content-end">
-                            <h5 class="a">จำนวน <span id="allquantity">0</span> ชิ้น &nbsp</h5>
-                            <h5 class="a">ยอดรวมทั้งหมด : <span id="allprice">0</span> บาท &nbsp &nbsp</>
-                            <button type="button" id="mySubmit" class="r" data-bs-toggle="modal">ยืนยัน</button>
+                    <th colspan="4" style="border-left: 1px; border-right: 0px;">
+                        <div class=" d-flex justify-content-end" style="margin-left: 3rem;">
+                            <h5 class="TEXTNOTICE">จำนวน <span id="allquantity">0</span> ชิ้น &nbsp</h5>
+                            <h5 class="TEXTNOTICE">ยอดรวมทั้งหมด : <span id="allprice">0</span> บาท &nbsp &nbsp</h5>
+                            <button type="button" id="mySubmit" class="TEXTNOTICE" data-bs-toggle="modal">ยืนยัน</button>
                         </div>
                     </th>
+                    <th style="border-left: 0px; "></th>
                 </tr>
                 </tbody>
             </table>

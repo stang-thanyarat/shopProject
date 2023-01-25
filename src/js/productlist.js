@@ -69,7 +69,7 @@ function setUI(data) {
                 <div class="row">
                     <div class="col-6" style="margin-left: 1rem;">
                         <div class="d-flex justify-content-end">
-                        <img src="${element.product_img}" width="250" style="margin-bottom: 2rem;" >
+                        <img src="${element.product_img}" style="margin-bottom: 2rem; width: 250px; height: 250px;" >
                         </div>
                     </div>
                     <div class="col-5" style="margin-left: 0rem;">
