@@ -70,6 +70,7 @@ function logout()
         $day_change = $_SESSION['day_change'];
     }
     session_destroy();
+    session_start();
     $_SESSION['vat']  = $vat;
     $_SESSION['day_change'] = $day_change;
 }

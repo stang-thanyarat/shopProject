@@ -28,7 +28,9 @@ function getFullRole($role)
 
     <title>addtocart</title>
 </head>
-<?php include_once('nav.php'); ?>
+<?php
+include_once('nav.php');
+?>
 
 <body>
     <div class="row">
@@ -229,22 +231,14 @@ function getFullRole($role)
                         กรอกรหัสบัตรประชาชน : <input type="text" name="keyword" id="keyword" class="btnd inbox" required />
                     </div>
                     <div class="col-1">
-                        <button type="submit" class="l"><img src="./src/images/search.png" width="16"></button>&nbsp &nbsp
+                        <click id="search" type="submit" class="l"><img src="./src/images/search.png" width="16"></click>&nbsp &nbsp
                     </div>
                 </div>
-                <table class="col-11 salestocontracttable">
-                    <tr>
-                        <th width=15%>ลำดับ</th>
-                        <th width=15%>วันที่ทำสัญญา</th>
-                        <th width=10%>วันที่ครบกำหนดชำระ</th>
-                        <th width=15%>สถานะ</th>
-                        <th width=15%>คงค้าง</th>
-                    </tr>
-                    <tbody id="salestocontracttable"></tbody>
-                </table>
+                <span id="salestocontracttable"></span>
+
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary1">ยืนยัน</button>
+                <a  id="next-add" href="#"  class="btn btn-primary1">ถัดไป</a>
             </div>
         </div>
     </div>

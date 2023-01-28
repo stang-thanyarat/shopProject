@@ -40,6 +40,32 @@ function del(id) {
         }
     })
 }
+/*
+$('#mySubmit').click(async()=>{
+    const submitElement = document.getElementById('mySubmit')
+    if ($('#payment_s').val() === 'เงินสด') {
+        let payment =  $("#payment_s").val()
+        $('#payment_sl').val(payment)
+        submitElement.setAttribute("data-bs-target", ".cash-form");
+    } else if ($('#payment_s').val() === 'โอนผ่านบัญชีธนาคาร') {
+        let payment =  $("#payment_s").val()
+        $('#payment_sl').val(payment)
+        submitElement.setAttribute("data-bs-target", ".transfer-form");
+    } else if ($('#payment_s').val() === 'ผ่อนชำระ') {
+        let route = (await (await fetch('./controller/GetRolesSales.php')).text()).trim()
+        if(route !== "L") {
+            fetch('./controller/LogOutAndClear.php').then(()=>{
+                window.location ="./login.php"
+            })
+        }else{
+            submitElement.setAttribute("data-bs-target", ".search-costumer-form");
+        }
+    }
+
+})
+
+ */
+
 //ส่วนชำระเงินสด
 const targetElement = document.getElementById('payment_s')
 const submitElement = document.getElementById('mySubmit')
@@ -55,15 +81,17 @@ targetElement.addEventListener('change', async (e) =>  {
     } else if (e.target.value === 'ผ่อนชำระ') {
         let route = (await (await fetch('./controller/GetRolesSales.php')).text()).trim()
         if(route !== "L") {
-            let payment = $("#payment_s").val()
-            $('#payment_sl').val(payment)
-            console.log("logic",route !== "L")
-            submitElement.setAttribute("data-bs-target", ".login-form");
+            //window.location ="./controller/LogOut.php"
+            fetch('./controller/LogOutAndClear.php').then(()=>{
+                window.location ="./login.php"
+            })
+
         }else{
             submitElement.setAttribute("data-bs-target", ".search-costumer-form");
         }
     }
 })
+
 
 function setUI(data) {
     let allprice = 0
@@ -185,7 +213,7 @@ $("#form2").submit(async function (event)
 ///form3
 //การผ่อนชำระ
 //คีย์ข้อมูลลูกค้าเพื่อตรวจสอบ
-$("#keyword").keyup(async function () {
+$("#search").click(async function () {
     let url = `./controller/SalestoContract.php`
     if($("#keyword").val() !== "" ){
         url += `?keyword=${$("#keyword").val()}`
@@ -194,7 +222,13 @@ $("#keyword").keyup(async function () {
         url += `?keyword=${$("#keyword").val("")}`
     }
     const keyword = await (await fetch(url)).json()
-    setU(keyword)
+    if(keyword.length >0){
+        setU(keyword)
+    }else{
+        $('#salestocontracttable').html('<br><center><h3>ไม่พบรายการการผ่อนชำระ</h3></center>')
+        $('#next-add').attr("href",'./addcontract.php')
+    }
+
 });
 
 //ส่วนแสดงผลข้อมูลลูกค้า
@@ -211,17 +245,29 @@ $(document).ready(function () {
 
 function setU(keyword) {
     let c = 0
-    $('#salestocontracttable').html('')
+    let table = `<table class="col-11 salestocontracttable">
+                    <tr>
+                        <th width=15%>ลำดับ</th>
+                        <th width=15%>วันที่ทำสัญญา</th>
+                        <th width=10%>วันที่ครบกำหนดชำระ</th>
+                        <th width=15%>สถานะ</th>
+                        <th width=15%>คงค้าง</th>
+                    </tr>
+                    <tbody>`
+    //
     keyword.forEach((element, i) => {
+        $('#next-add').attr("href",`./addcontract.php?cardID=${element.customer_img}`)
         c++
-        $('#salestocontracttable').append(`<tr id="rr${i + 1}">
+        table += `<tr id="rr${i + 1}">
         <th class="index-table-bank">${i + 1}</th>
         <th>${element.date_contract}</th>
         <th>${element.repayment_date}</th>
         <th>${element.outstanding}</th>
         <th>${element.slip_img}</th>
-    </tr>`)
-    });
+    </tr>`
+    })
+        table+='</tbody></table>`'
+    $('#salestocontracttable').html(table)
 }
 
 $("#form3").submit(async function (event)

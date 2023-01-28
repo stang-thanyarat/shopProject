@@ -55,7 +55,7 @@ $rows = $category->fetchAll();
             <div class="row q">
                 <div class="col-1">
                     <select name="category_id" id="category_id" class="sizeselect" style="background-color: #D4DDC6;" >
-                        <option value="all">สินค้าทั้งหมด</option>
+                        <option value="-1">สินค้าทั้งหมด</option>
                         <?php foreach ($rows as $row) { ?>
                             <option value="<?= $row['category_id'] ?>"><?= $row['category_name'] ?></option>
                         <?php } ?>
@@ -64,6 +64,15 @@ $rows = $category->fetchAll();
                 <div class="col-1 date">
                     <input type="date" id="date" name="date" class="sizeselect" >
                 </div>
+                <div class="col-1 search">
+                    <click type="submit" id="search" class="search"><img src="./src/images/search.png" width="20"></click>
+                </div>
+                <select name="limit" id="limit" class="sizeselect" style="background-color: #D4DDC6;" >
+                    <option value="-1">ทั้งหมด</option>
+                    <option value="1">1 รายการ</option>
+                    <option value="5">5 รายการ</option>
+                    <option value="10">10 รายการ</option>
+                </select>
             </div>
             <p></p>
             <h3 class="tt">ยอดขายสินค้า</h3>
