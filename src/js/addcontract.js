@@ -30,28 +30,6 @@ $(document).ready(async function () {
     }
 });
 
-async function loopInsert() {
-    let lastID = await (await fetch('controller/GetLastIdSales.php')).text()
-    let data = JSON.parse(localStorage.getItem('cart'))
-    for (const e of data) {
-        var formdata = new FormData();
-        let objData = ALL.filter(d => d.product_id == e.id);
-        console.log("objData:", objData)
-        formdata.append("sales_list_id", lastID);
-        formdata.append("product_id", e.id);
-        formdata.append("sales_amt", e.quantity);
-        formdata.append("sales_pr", objData[0].price * e.quantity);
-        formdata.append("form_action", "insert");
-        formdata.append("table", "salesdetails");
-        var requestOptions = {
-            method: 'POST',
-            body: formdata,
-            redirect: 'follow'
-        };
-        await fetch("controller/SalesDetails.php", requestOptions)
-    }
-}
-
 async function setStatus(id) {
     const status = $("#S" + id).is(':checked');
     console.log(await (await fetch(`./controller/SetEmployeeStatus.php?status=${status}&id=${id}`)))
@@ -73,6 +51,28 @@ function checkID(id) {
     if ((11 - sum % 11) % 10 != parseFloat(id.charAt(12)))
         return false;
     return true;
+}
+
+async function loopInsert() {
+    let lastID = await (await fetch('controller/GetLastIdSales.php')).text()
+    let data = JSON.parse(localStorage.getItem('cart'))
+    for (const e of data) {
+        var formdata = new FormData();
+        let objData = ALL.filter(d => d.product_id == e.id);
+        console.log("objData:", objData)
+        formdata.append("sales_list_id", lastID);
+        formdata.append("product_id", e.id);
+        formdata.append("sales_amt", e.quantity);
+        formdata.append("sales_pr", objData[0].price * e.quantity);
+        formdata.append("form_action", "insert");
+        formdata.append("table", "salesdetails");
+        var requestOptions = {
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
+        };
+        await fetch("controller/SalesDetails.php", requestOptions)
+    }
 }
 
 $("#form1").submit(async function (event) {
@@ -99,9 +99,9 @@ $("#form1").submit(async function (event) {
                     method: 'POST',
                     body: formdata
                 }),
-                loopInsert()
             ]
         ).then(() => {
+            loopInsert()
             Swal.fire({
                 icon: 'success',
                 text: 'บันทึกข้อมูลเสร็จสิ้น',

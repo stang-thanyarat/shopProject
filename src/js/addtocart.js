@@ -173,15 +173,15 @@ $("#form1").submit(async function (event)
     if (!response.ok) {
         console.log(response);
     } else {
-        await Swal.fire({
-            icon: 'success',
-            text: 'การชำระเสร็จสิ้น',
-            timer: 3000
-        })
-        console.log(await response.text());
         loopInsert()
-        //localStorage.clear()
-        //window.location.assign("productlist.php");
+        Swal.fire({
+            icon: 'success',
+            text: 'บันทึกข้อมูลเสร็จสิ้น',
+            timer: 3000
+        }).then(() => {
+            localStorage.clear()
+            window.location = './index.php'
+        })
     }
 });
 
@@ -198,15 +198,15 @@ $("#form2").submit(async function (event)
     if (!response.ok) {
         console.log(response);
     } else {
-        await Swal.fire({
-            icon: 'success',
-            text: 'การชำระเสร็จสิ้น',
-            timer: 3000
-        })
-        console.log(await response.text());
         loopInsert()
-        //localStorage.clear()
-        window.location.assign("productlist.php");
+        Swal.fire({
+            icon: 'success',
+            text: 'บันทึกข้อมูลเสร็จสิ้น',
+            timer: 3000
+        }).then(() => {
+            localStorage.clear()
+            window.location = './index.php'
+        })
     }
 });
 
