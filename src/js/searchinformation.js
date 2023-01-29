@@ -113,7 +113,7 @@ function setUI(data) {
         <th>${element.price}</th>
         <th>${element.sales_amt}</th>
         <th>${element.sales_pr}</th>
-        <th><a class="bgs" onclick="ClicktoExchange(${element.product_id})" href="./addproductexchange.php?id=${element.product_exchange_id}">${element.set_exchange == 1 ? 'เปลี่ยนสินค้า' : ''}</a></th>
+        <th><a class="bgs" onclick="ClicktoExchange(${element.product_id})" href="./addproductexchange.php?id=${element.product_id}">${element.set_exchange == 1 ? 'เปลี่ยนสินค้า' : ''}</a></th>
     </tr>`)
     });
     if (c <= 0) {
