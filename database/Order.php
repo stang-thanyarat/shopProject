@@ -22,6 +22,20 @@ class Order
         }
     }
 
+    public function fetchAllOrder()
+    {
+        try {
+            $sql = "SELECT O.*,OD.* FROM order_tb O,order_details_tb OD WHERE O.order_id = OD.order_id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            return $result;
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
+    }
+
     public function fetchAllSell()
     {
         try {

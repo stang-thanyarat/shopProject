@@ -28,8 +28,9 @@ function getFullRole($role)
     <link rel="stylesheet" href="./src/css/salehistory.css"/>
     <title>Document</title>
 </head>
-<?php include_once('nav.php');
-include_once 'database/Sales.php';
+<?php
+include_once('nav.php');
+include_once './database/Sales.php';
 $sales = new Sales();
 if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GET['end'] != '') {
     $rows = $sales->fetchBetween($_GET['start'], $_GET['end']);

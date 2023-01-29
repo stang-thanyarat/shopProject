@@ -50,6 +50,25 @@ class Product
         return $result;
     }
 
+    public function getCountprice($id)
+    {
+        $products = new Product();
+        $products = $products->fetchBypriceId($id);
+        $counts = 0;
+
+        return $counts;
+    }
+
+    public function fetchBypriceId($id)
+    {
+        $sql = "SELECT * FROM product_tb WHERE price = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
    /* public function fetchAddCategory()
     {
         $data = $this->fetchAll();
