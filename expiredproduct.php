@@ -59,7 +59,7 @@ $c = $category->fetchAll();
                 <div class="col-5 ww">
                     <label for="expires within">หมดอายุภายใน :</label>
                     <label for="expires"></label>
-                    <input type="date" name="date" id="date" name="expires" />
+                    <input type="date" value="<?= date('Y-m-d')?>"  name="date" id="date" name="expires" />
                 </div>
                 <div class="col-4 w">
                     <form>

@@ -34,6 +34,7 @@ include_once "./database/Product.php";
 $product = new Product();
 $rows = $product->fetchExchange1Id($_GET["id"]);
 ?>
+
 <body>
     <form action="controller/ProductExchange.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
         <input type="hidden" value="productexchange" name="table" />
@@ -54,7 +55,7 @@ $rows = $product->fetchExchange1Id($_GET["id"]);
                             <div class="row a">
                                 <div class="col productr">
                                     สินค้าที่ต้องการเปลี่ยน :<span style="color: red; ">&nbsp*</span>
-                                    <input type="text" accept="image/*" name="product_name" class="inbox product_name" value="<?= $rows["product_name"] ?>"  required />
+                                    <input type="text" accept="image/*" name="product_name" class="inbox product_name" value="<?= $rows["product_name"] ?>" required />
                                 </div>
                             </div>
                             <div class="row a">

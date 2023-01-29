@@ -1,36 +1,38 @@
+
 <?php
 require_once '../vendor/autoload.php';
 $defaultConfig = (new Mpdf\Config\ConfigVariables())->getDefaults();
 $fontDirs = $defaultConfig['fontDir'];
 $defaultFontConfig = (new Mpdf\Config\FontVariables())->getDefaults();
 $fontData = $defaultFontConfig['fontdata'];
-$mpdf = new \Mpdf\Mpdf([
-    'mode' => 'utf-8',
-    'format' => 'A4',
-    'margin_left' => 15,
-    'margin_right' => 15,
-    'margin_top' => 16,
-    'margin_bottom' => 16,
-    'margin_header' => 9,
-    'margin_footer' => 9,
-    'mirrorMargins' => true,
 
-    'fontDir' => array_merge($fontDirs, [
-        '../vendor/mpdf/mpdf/custom/font/directory',
-    ]),
-    'fontdata' => $fontData + [
-            'thsarabun' => [
-                'R' => 'THSarabunNew.ttf',
-                'I' => 'THSarabunNew Italic.ttf',
-                'B' => 'THSarabunNew Bold.ttf',
-                'U' => 'THSarabunNew BoldItalic.ttf'
-            ]
-        ],
-    'default_font' => 'thsarabun',
-    'defaultPageNumStyle' => 1
+$mpdf = new \Mpdf\Mpdf([
+  'mode' => 'utf-8',
+  'format' => 'A4',
+  'margin_left' => 15,
+  'margin_right' => 15,
+  'margin_top' => 16,
+  'margin_bottom' => 16,
+  'margin_header' => 9,
+  'margin_footer' => 9,
+  'mirrorMargins' => true,
+
+  'fontDir' => array_merge($fontDirs, [
+    '../vendor/mpdf/mpdf/custom/font/directory',
+  ]),
+  'fontdata' => $fontData + [
+    'thsarabun' => [
+      'R' => 'THSarabunNew.ttf',
+      'I' => 'THSarabunNew Italic.ttf',
+      'B' => 'THSarabunNew Bold.ttf',
+      'U' => 'THSarabunNew BoldItalic.ttf'
+    ]
+  ],
+  'default_font' => 'thsarabun',
+  'defaultPageNumStyle' => 1
 ]);
 
-include_once "../PDF.php";
+
 $html = '<html>
 <head>
 <style type="text/css">
@@ -60,15 +62,21 @@ $html = '<html>
 	float: left;
 }
 
+.grey2 {
+	background-color: #FFFFFF;
+	width: 100%;
+	float: left;
+}
+
 .t {
 	color: #A36627;
-	font-size: 24pt;
+	font-size: 55pt;
 }
 table{
 border-spacing: 0px;
 }
 td{
-	font-size:18pt;
+	font-size:40pt;
 	}
 tr{
 border: 0px;
@@ -89,7 +97,7 @@ border: 0px;
 <body>
 <table width="1000" border="0px" border="">
   <tr>
-    <td class="setright" colspan="2">วันที่ '.$_GET['startDate'].' - '.$_GET['endDate'].'</td>
+    <td class="setright" colspan="2">วันที่ xxx - xxx</td>
   </tr>
   <tr>
     <td class="setcenter" colspan="2"><h2>งบแสดงฐานะการเงิน</h2></td>
@@ -108,16 +116,40 @@ border: 0px;
     <td class="t" >&nbsp;&nbsp;สินทรัพย์</td>
   </tr>
   <tr bgcolor="#CCC">
-    <td width="70%" stlye="">'. 'รวม สินทรัพย์'.'</div>
-    <td align="right" width="30%">'.$_GET['summary'].'</td>
+    <td width="70%" stlye="">รวม สินทรัพย์</div>
+    <td align="right" width="30%">xxx</td>
   </tr>
+  <tr bgcolor="#FFFFFF">
+  <td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;สินค้าที่พร้อมขาย</div>
+  <td align="right" width="30%">xxx</td>
+</tr>
+<tr bgcolor="#FFFFFF">
+  <td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เงินที่ได้รับแล้ว</div>
+  <td align="right" width="30%">xxx</td>
+</tr>
+<tr bgcolor="#FFFFFF">
+<td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เงินที่ยังไม่ได้รับ</div>
+<td align="right" width="30%">xxx</td>
+</tr>
   <tr>
     <td class="t">&nbsp;&nbsp;หนี้สิน+ทุน</td>
   </tr>
   <tr  bgcolor="#CCC">
-    <td  width="70%">'. 'รวม หนี้สิน+ทุน'.' &nbsp;</td>
-    <td align="right" width="30%">'.$_GET['debt'].'</td>
+    <td  width="70%">รวม หนี้สิน+ทุน &nbsp;</td>
+    <td align="right" width="30%">xxx</td>
   </tr>
+  <tr bgcolor="#FFFFFF">
+<td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ทุน </div>
+<td align="right" width="30%">xxx</td>
+</tr>
+<tr bgcolor="#FFFFFF">
+<td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; หนี้สิน(เงินสด)   </div>
+<td align="right" width="30%">xxx</td>
+</tr>
+<tr bgcolor="#FFFFFF">
+<td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; หนี้สิน(เครดิต)  </div>
+<td align="right" width="30%">xxx</td>
+</tr>
 </table>
 </body>
 </html>

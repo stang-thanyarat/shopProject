@@ -135,7 +135,7 @@ $sells = $sell->fetchAll();
                             </div>
                             <div class="col-4 amount">
                                 จำนวน :<span style="color: red; ">&nbsp*</span>
-                                <input name="product_dlt_unit" type="text" id="product_dlt_unit" class="inbox" required/>
+                                <input name="product_dlt_unit" type="number" min="0" step="1" id="product_dlt_unit" class="inbox" required/>
                             </div>
                         </div>
                         <div class="row a">
@@ -154,7 +154,7 @@ $sells = $sell->fetchAll();
                             </div>
                             <div class="col-4 price">
                                 ราคาขาย :<span style="color: red; ">&nbsp*</span>
-                                <input name="price" type="text" id="price" class="inbox" required/>
+                                <input name="price" type="number" min="0" step="0.25" id="price" class="inbox" required/>
                             </div>
                             <div class="col-2 vax">
                                 <input type="checkbox" class="vaxcheckbox" name="vat"/>
@@ -164,12 +164,12 @@ $sells = $sell->fetchAll();
                         <div class="row a">
                             <div class="col-5 min1">
                                 สินค้าคงคลังขั้นต่ำ :<span style="color: red; ">&nbsp*</span>
-                                <input name="notification_amt" type="text" id="notification_amt" class="inbox" required/>
+                                <input name="notification_amt" type="number" min="0" step="1" id="notification_amt" class="inbox" required/>
                                 <!--notification_amt = notification amount-->
                             </div>
                             <div class="col-4 costprice">
                                 ราคาทุน :<span style="color: red; ">&nbsp*</span>
-                                <input name="cost_price" type="text" id="cost_price" class="inbox" required/>
+                                <input name="cost_price" type="number" min="0" step="0.25" id="cost_price" class="inbox" required/>
                             </div>
                             <div class="col-2 watchcostprice">
                                 <a type="button" href="costprice.php" class="button btn">ดูราคาทุน</a>

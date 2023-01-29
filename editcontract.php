@@ -106,38 +106,38 @@ $laber = $employee->fetchLabers();
                 <div class="row xx">ข้อ ๔ ผู้ขายและผู้ซื้อได้ทราบข้อความในสัญญานี้ดีแล้ว จึงได้ลงลายมือชื่อไว้ในสัญญานี้เป็นหลักฐาน</div>
                 <div class="row">
                     <div class="col d-flex justify-content-end rr">ลงชื่อ &nbsp; &nbsp;
-                        <select name="witness1_prefix" id="witness1_prefix" style="background-color: #D4DDC6;" required>
+                        <select name="witness1_prefix" id="witness1_prefix" style="background-color: #D4DDC6;" >
                             <option value="เลือกคำนำหน้า" selected hidden>เลือกคำนำหน้า</option>
                             <option value="นาย" <?= $c['witness1_prefix'] == "นาย" ? "selected" : '' ?>>นาย</option>
                             <option value="นาง" <?= $c['witness1_prefix'] == "นาง" ? "selected" : '' ?>>นาง</option>
                             <option value="นางสาว" <?= $c['witness1_prefix'] == "นางสาว" ? "selected" : '' ?>>นางสาว</option>
                         </select>&nbsp;&nbsp;
-                        ชื่อ : &nbsp; &nbsp;<input type="text" name="witness1_name" id="witness1_name" required />&nbsp;&nbsp;
-                        นามสกุล : &nbsp; &nbsp;<input type="text" name="witness1_lastname" id="witness1_lastname" required />&nbsp;&nbsp; พยานคนที่ 1
+                        ชื่อ : &nbsp; &nbsp;<input type="text" name="witness1_name" id="witness1_name" />&nbsp;&nbsp;
+                        นามสกุล : &nbsp; &nbsp;<input type="text" name="witness1_lastname" id="witness1_lastname" />&nbsp;&nbsp; พยานคนที่ 1
                     </div>
                 </div>
                 <div class="row">
                     <div class="col d-flex justify-content-end rr">ลงชื่อ &nbsp; &nbsp;
-                        <select name="witness2_prefix" id="witness2_prefix" style="background-color: #D4DDC6;" required>
+                        <select name="witness2_prefix" id="witness2_prefix" style="background-color: #D4DDC6;" >
                             <option value="เลือกคำนำหน้า" selected hidden>เลือกคำนำหน้า</option>
                             <option value="นาย" <?= $c['witness2_prefix'] == "นาย" ? "selected" : '' ?>>นาย</option>
                             <option value="นาง" <?= $c['witness2_prefix'] == "นาง" ? "selected" : '' ?>>นาง</option>
                             <option value="นางสาว" <?= $c['witness2_prefix'] == "นางสาว" ? "selected" : '' ?>>นางสาว</option>
                         </select>&nbsp;&nbsp;
-                        ชื่อ : &nbsp; &nbsp;<input type="text" name="witness2_name" id="witness2_name" required />&nbsp;&nbsp;
-                        นามสกุล : &nbsp; &nbsp;<input type="text" name="witness2_lastname" id="witness2_lastname" required />&nbsp;&nbsp; พยานคนที่ 2
+                        ชื่อ : &nbsp; &nbsp;<input type="text" name="witness2_name" id="witness2_name"  />&nbsp;&nbsp;
+                        นามสกุล : &nbsp; &nbsp;<input type="text" name="witness2_lastname" id="witness2_lastname" />&nbsp;&nbsp; พยานคนที่ 2
                     </div>
                 </div>
                 <div class="row">
                     <div class="col d-flex justify-content-end rr">ลงชื่อ &nbsp; &nbsp;
-                        <select name="witness3_prefix" id="witness3_prefix" style="background-color: #D4DDC6;" required>
+                        <select name="witness3_prefix" id="witness3_prefix" style="background-color: #D4DDC6;" >
                             <option value="เลือกคำนำหน้า" selected hidden>เลือกคำนำหน้า</option>
                             <option value="นาย" <?= $c['witness3_prefix'] == "นาย" ? "selected" : '' ?>>นาย</option>
                             <option value="นาง" <?= $c['witness3_prefix'] == "นาง" ? "selected" : '' ?>>นาง</option>
                             <option value="นางสาว" <?= $c['witness3_prefix'] == "นางสาว" ? "selected" : '' ?>>นางสาว</option>
                         </select>&nbsp;&nbsp;
-                        ชื่อ : &nbsp; &nbsp;<input type="text" name="witness3_name" id="witness3_name" required />&nbsp;&nbsp;
-                        นามสกุล : &nbsp; &nbsp;<input type="text" name="witness3_lastname" id="witness3_lastname" required />&nbsp;&nbsp; พยานคนที่ 3
+                        ชื่อ : &nbsp; &nbsp;<input type="text" name="witness3_name" id="witness3_name" />&nbsp;&nbsp;
+                        นามสกุล : &nbsp; &nbsp;<input type="text" name="witness3_lastname" id="witness3_lastname"  />&nbsp;&nbsp; พยานคนที่ 3
                     </div>
                 </div>
                 <div class="row xx">๑. หากผู้ขายยังไม่ส่งมอบทรัพย์ให้ในเวลาทำสัญญา ควรจะเติมข้อความอีก ๑ ข้อว่าตราบใดที่ผู้ขายยังไม่ส่งมอบทรัพย์ให้ ยังไม่ถือว่าได้มีการซื้อขาย มิฉะนั้นผู้ซื้ออาจเสียเปรียบผู้ขาย</div>
