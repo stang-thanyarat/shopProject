@@ -33,6 +33,7 @@ $mpdf = new \Mpdf\Mpdf([
 ]);
 
 
+include_once('../budget.php');
 $html = '<html>
 <head>
 <style type="text/css">
@@ -160,3 +161,4 @@ $mpdf->Output($output, 'I');
 
 
 ?>
+<script src="..../src/js/budget.js"></script>
