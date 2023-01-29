@@ -5,28 +5,18 @@
     font-size: 16pt;
 }
 
-.main{
-    margin-top: 5rem;
-    margin-left: 4rem;
-}
-
-.ma {
-    margin-top: 1rem;
+.row {
+    --bs-gutter-x: 0rem;
 }
 
 .Nbar {
     margin-top: 3.5rem;
 }
 
-.row {
-    --bs-gutter-x: 0rem;
+.main {
+    margin-top: 5rem;
+    margin-left: 4rem;
 }
-
-.bgs {
-    border: 0ch;
-    background-color: white;
-}
-
 
 table,
 td,
@@ -37,18 +27,11 @@ th {
 
 table {
     border-collapse: collapse;
-
+    width: 90%;
 }
 
 th {
     height: 50px;
-}
-
-.btnd {
-    background-color: #F8E4C8;
-    border-radius: 25px;
-    height: 95%;
-    border: 0ch;
 }
 
 .Nbar {
@@ -62,49 +45,29 @@ th {
 
 }
 
-.BTNC {
-    background-color: #7C904E;
-    color: #000;
-    border-radius: 25px;
-    font-size: 16pt;
-    display: inline-block;
-    width: 55%;
-    text-decoration: none;
-    text-align: center;
-
+.ordertable {
+    margin-top: 2rem;
+    margin-left: 4rem;
 }
 
-.s {
+.bgs {
+    border: 0ch;
+    background-color: white;
+}
+
+.btnd {
+    background-color: #F8E4C8;
+    border-radius: 25px;
+    width: 95%;
+    height: 95%;
+    border: 0ch;
+}
+
+.search {
     background: transparent;
     border: 0px;
     margin-left: -2rem;
-}
-
-.btn-primary1 {
-
-    background-color: #7C904E;
-    color: #fff;
-    border: 0in;
-}
-
-.modal-header {
-    background-color: #7C904E;
-    height: 50px;
-}
-
-.modal-title {
-    color: #fff;
-}
-
-.modal-body1 {
-    text-align: center;
-    height: 70px;
-    margin-top: 3rem;
-}
-
-.y {
-    margin-left: 1rem;
-    font-size: 16pt;
+    margin-top: auto;
 }
 
 .submit {
@@ -116,17 +79,4 @@ th {
 .btn {
     border-radius: 25px 25px 25px 25px;
     font-size: 16pt;
-    width: 75%;
-    height: 95%;
-}
-
-.tb{
-    margin-top: 2rem;
-    margin-bottom: 4rem;
-    margin-left: 4rem;
-}
-
-.btn1{
-    border: 0ch;
-    background-color: white;
 }

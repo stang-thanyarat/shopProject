@@ -26,9 +26,10 @@
                 <input type="hidden" name="table" value="useraccount" />
                 <input type="hidden" name="form_action" value="login" />
                 <?php
+
                 if (!isset($_SESSION)) {
                     session_start();
-                };
+                }
                 if (isset($_SESSION['error'])) {
                 ?>
                     <div class="alert alert-danger" role="alert">
@@ -36,7 +37,8 @@
                     </div>
                     <br>
                 <?php }
-                session_destroy(); ?>
+                unset($_SESSION['error']);
+                ?>
                 <h1 class="text-login">Login</h1>
                 <label class="label" for="email">E-mail</label>
                 <input class="field input" type="email" id="email" name="email" required>

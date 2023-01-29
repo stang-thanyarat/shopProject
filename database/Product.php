@@ -30,6 +30,16 @@ class Product
         return $result;
     }
 
+    public function fetchExchange1Id($id)
+    {
+        $sql = "SELECT * FROM product_tb WHERE product_id=?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
     //แจ้งเตือนสินค้าใกล้หมด
     public function fetchLost()
     {

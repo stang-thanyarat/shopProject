@@ -39,7 +39,7 @@ $e = $productexchange->fetchExchange2Id($_GET['id']);
 <form action="controller/ProductExchange.php" name="form1" id="form1" method="POST" >
     <input type="hidden" value="productexchange" name="table" />
     <input type="hidden" value="update" name="form_action" />
-    <input type="hidden" value="<?= $_GET['id'] ?>" name="product_exchange_id" />
+    <input type="hidden" value="<?= $_GET['id'] ?>" name="product_exchange_id" id="product_exchange_id" />
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">

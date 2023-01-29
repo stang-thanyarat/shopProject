@@ -43,7 +43,7 @@ $rows = $category->fetchAll();
                     <div>
                         เลขที่ใบเสร็จ :&nbsp &nbsp
                         <input type="text" class="btnd" id="keyword" name="keyword" placeholder="&nbsp ค้นหาเลขที่ใบเสร็จ" >
-                        <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
+                        <button type="button" id="BT" name="BT" class="s"><img src="./src/images/search.png" width="13"></button>
                     </div>
                     <table class="main col-10">
                         <thead>

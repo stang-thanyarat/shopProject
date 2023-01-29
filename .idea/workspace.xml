@@ -5,32 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shopProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shopProject.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/contract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addtocart.php" beforeDir="false" afterPath="$PROJECT_DIR$/addtocart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/addcontract.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contracthistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/contracthistory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/Sell.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Sell.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/Contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Contract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/DebtPaymentDetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/DebtPaymentDetails.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/GetRolesSales.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/GetRolesSales.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/SalesGraph.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/SalesGraph.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/costprice.php" beforeDir="false" afterPath="$PROJECT_DIR$/costprice.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/AddtoCart.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/database/Contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Contract.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/DebtPaymentDetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/DebtPaymentDetails.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/SalesGraph.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/SalesGraph.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/employee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/productexchangehistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/productexchangehistory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/salehistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/salehistory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sall.php" beforeDir="false" afterPath="$PROJECT_DIR$/sall.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/PDF/template/budget.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/PDF/template/budget.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/PDF/template/contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/PDF/template/contract.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/category.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/category.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/contract.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/contract.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/contracthistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/contracthistory.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/employee.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/employee.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/order.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/order.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/orderhistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/orderhistory.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/productexchangehistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/productexchangehistory.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/productresult.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/productresult.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/salehistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/salehistory.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/sall.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/sall.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/budget.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/budget.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/contract.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/contract.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repay.php" beforeDir="false" afterPath="$PROJECT_DIR$/repay.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/salesgraph.php" beforeDir="false" afterPath="$PROJECT_DIR$/salesgraph.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solvecontract.php" beforeDir="false" afterPath="$PROJECT_DIR$/editcontract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/contract.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/addcontract.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/solvecontract.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/editcontract.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/addtocart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/addtocart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/contract.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/addcontract.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/costprice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/costprice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/salesgraph.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/salesgraph.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/solvecontract.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/editcontract.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,8 +57,8 @@
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/mpdf/mpdf" />
-      <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/setasign/fpdi" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
     </include_path>
   </component>
   <component name="ProjectId" id="2EFEuTYXbW9aeFHqtvMflcfb2C5" />
@@ -78,6 +78,7 @@
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\PhpStorm 2022.2.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -137,6 +138,11 @@
       <workItem from="1673245360322" duration="74000" />
       <workItem from="1674288034943" duration="1995000" />
       <workItem from="1674301261556" duration="1942000" />
+      <workItem from="1674701709270" duration="10815000" />
+      <workItem from="1674745590910" duration="2465000" />
+      <workItem from="1674785725820" duration="11918000" />
+      <workItem from="1674871627745" duration="4826000" />
+      <workItem from="1674890091081" duration="20487000" />
     </task>
     <servers />
   </component>

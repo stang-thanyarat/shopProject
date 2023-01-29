@@ -4,7 +4,7 @@ $(document).ready(function () {
         $("div.desc").hide();
         $("#" + test).show();
     });
-    $("#product_name").autocomplete({
+    /*$("#product_name").autocomplete({
         source: "./controller/ProductExchangeList.php",
         minLength: 2,
         select: function (event, ui) {
@@ -12,7 +12,7 @@ $(document).ready(function () {
             $("#product_id").val(ui.item.value);
             return false;
         }
-    });
+    });*/
 });
 
 /*$('#form1').submit(async function (e) {

@@ -4,7 +4,7 @@ include_once '../../../database/Contract.php';
 include_once '../../bahtText.php';
 $Contract = new Contract();
 $id = $_GET['id'];
-$data = $Contract->fetchById($id);
+$data = $Contract->fetchByPDFId($id);
 $defaultConfig = (new Mpdf\Config\ConfigVariables())->getDefaults();
 $fontDirs = $defaultConfig['fontDir'];
 $defaultFontConfig = (new Mpdf\Config\FontVariables())->getDefaults();

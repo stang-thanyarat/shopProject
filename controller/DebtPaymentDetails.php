@@ -1,5 +1,6 @@
 <?php
-include_once 'database/DebtPaymentDetails.php';
+include_once '../database/DebtPaymentDetails.php';
+include_once '../service/upload.php';
 include_once 'Redirection.php';
 $debtPaymentDetails = new DebtPaymentDetails();
 if (isset($_POST)) {

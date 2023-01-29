@@ -59,7 +59,7 @@ if (isset($_GET['keyword'])) {
                         <a type="button" href="productlist.php" class="submit btn"><img src="./src/images/arrow.png" width="45" class="arrow" >กลับไปหน้าขาย</a>
                     </div>
                     <div class="col-1 v">
-                        <a type="button" href="contract.php" class="submit btn"><img src="./src/images/plus.png" width="25" class="plus" >&nbsp;เพิ่ม</a>
+                        <a type="button" href="addcontract.php" class="submit btn"><img src="./src/images/plus.png" width="25" class="plus" >&nbsp;เพิ่ม</a>
                     </div>
                     </form>
                 </div>
@@ -67,34 +67,34 @@ if (isset($_GET['keyword'])) {
                         <tr>
                             <th width=15%>วันที่ทำสัญญา</th>
                             <th width=10%>เลขที่สัญญา</th>
-                            <th width=15%>ชื่อ-นามสกุล</th>
+                            <th width=20%>ชื่อ-นามสกุล</th>
                             <th width=15%>มูลค่าสินค้าทั้งหมด</th>
                             <th width=10%>ยอดคงเหลือ</th>
                             <th width=10%>ใบส่งของ</th>
-                            <th width=5%>ไฟล์สัญญา</th>
-                            <th width=15%>พิมพ์</th>
-                            <th width=10%></th>
+                            <th width=10%>ไฟล์สัญญา</th>
+                            <th width=5%>พิมพ์</th>
+                            <th width=5%></th>
                         </tr>
                         <tbody id="contracttable">
                             <?php
                             foreach ($rows as $row) { ?>
                                 <tr>
-                                    <th><?= dateFormat($row['date_contract']) ?></th>
+                                    <th><?= $row['date_contract'] ?></th>
                                     <th><?= $row['contract_code'] ?></th>
                                     <th>
                                         <div class="r">
-                                            <a class="submit BTNP" href="repay.php"><img class='confirm'>
-                                                <?= $row['customer_firstname'] ?> <?= $row['customer_lastname'] ?>
+                                            <a class="submit BTNP" href="repay.php?id=<?= $row['contract_code']; ?>"><img class='confirm'>
+                                                <?= $row['customer_prefix'] ?> <?= $row['customer_firstname'] ?> <?= $row['customer_lastname'] ?>
                                             </a>
                                         </div>
                                     </th>
                                     <th></th>
                                     <th></th>
                                     <th><img src="./src/images/pdf.png" width="25"></th>
-                                    <th><input type="file" accept="image/*" name="contractfile"></th>
+                                    <th><img src="./src/images/pdf.png" width="25"><!--<input type="file" accept="image/*" name="contractfile">--></th>
                                     <th><button type="button" onclick="window.location = './service/PDF/template/contract.php?id=<?=$row['contract_code']?>'"><img src="./src/images/print.png" class="g" width="25"></button></th>
                                     <th>
-                                        <a type="button" class="bgs" href="solvecontract.php?id=<?= $row['contract_code']; ?>" ><img src="./src/images/icon-pencil.png" width="25"></a>
+                                        <a type="button" class="bgs" href="editcontract.php?id=<?= $row['contract_code']; ?>" ><img src="./src/images/icon-pencil.png" width="25"></a>
                                     </th>
                                 </tr>
                             <?php

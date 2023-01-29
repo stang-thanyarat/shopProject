@@ -83,24 +83,6 @@ $c = $category->fetchAll();
                 <tbody id="dailybestsellerTable"></tbody>
             </table>
         </div>
-            <!-- ลบ -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title2" id="exampleModalLabel">ลบรายการ</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <h3>ยืนยันที่จะลบ</h3>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary2">ตกลง</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
 </body>
 <script src="./src/js/dailybestseller.js"></script>
 

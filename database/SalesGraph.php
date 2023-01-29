@@ -20,10 +20,10 @@ class SalesGraph
         $res = [];
         foreach ($result as $r) {
             if (!in_array($r['product_id'], $dup)) {
-                $r['count']=1;
+                $r['count'] = 1;
                 $res[] = $r;
                 $dup[] = $r['product_id'];
-            }else{
+            } else {
                 $i = array_search($r['product_id'], $dup);
                 $res[$i]['count']++;
                 $res[$i]['sales_amt'] += $r['sales_amt'];
@@ -44,10 +44,10 @@ class SalesGraph
         $res = [];
         foreach ($result as $r) {
             if (!in_array($r['product_id'], $dup)) {
-                $r['count']=1;
+                $r['count'] = 1;
                 $res[] = $r;
                 $dup[] = $r['product_id'];
-            }else{
+            } else {
                 $i = array_search($r['product_id'], $dup);
                 $res[$i]['count']++;
                 $res[$i]['sales_amt'] += $r['sales_amt'];
@@ -57,30 +57,51 @@ class SalesGraph
         return $result;
     }
 
-    public function fetchAllDateAndId($date,$id)
+    public function fetchAllDateAndId($date, $id, $limit = -1)
     {
-        $sql = "SELECT SAD.*,P.* FROM sales_details_tb SAD,product_tb P WHERE SAD.product_id = P.product_id AND P.category_id = ?
+        $sql = "SELECT SAD.*,P.* FROM sales_details_tb SAD,product_tb P WHERE SAD.product_id = P.product_id 
                 AND SAD.sales_dt = ?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $id, PDO::PARAM_INT);
-        $stmt->bindParam(2, $date, PDO::PARAM_STR);
+        $stmt->bindParam(1, $date, PDO::PARAM_STR);
         $stmt->execute();
         $result = $stmt->fetchAll();
         $dup = [];
         $res = [];
+        $ro = 0;
         foreach ($result as $r) {
-            if (!in_array($r['product_id'], $dup)) {
-                $r['count']=1;
-                $res[] = $r;
-                $dup[] = $r['product_id'];
-            }else{
-                $i = array_search($r['product_id'], $dup);
-                $res[$i]['count']++;
-                $res[$i]['sales_amt'] += $r['sales_amt'];
+            if ($r['category_id'] == $id && $id != -1) {
+                $ro++;
+                if (!in_array($r['product_id'], $dup)) {
+                    $r['count'] = 1;
+                    $res[] = $r;
+                    $dup[] = $r['product_id'];
+                } else {
+                    $i = array_search($r['product_id'], $dup);
+                    $res[$i]['count']++;
+                    $res[$i]['sales_amt'] += $r['sales_amt'];
+                }
+                if ($limit != -1 && $ro == $limit) {
+                    break;
+                }
+            } else if ($id == -1) {
+                $ro++;
+                if (!in_array($r['product_id'], $dup)) {
+                    $r['count'] = 1;
+                    $res[] = $r;
+                    $dup[] = $r['product_id'];
+                } else {
+                    $i = array_search($r['product_id'], $dup);
+                    $res[$i]['count']++;
+                    $res[$i]['sales_amt'] += $r['sales_amt'];
+                }
+                if ($limit != -1 && $ro == $limit) {
+                    break;
+                }
             }
         }
         $result = $res;
         return $result;
+
     }
 
     public function fetchById($id)
@@ -94,10 +115,10 @@ class SalesGraph
         $res = [];
         foreach ($result as $r) {
             if (!in_array($r['product_id'], $dup)) {
-                $r['count']=1;
+                $r['count'] = 1;
                 $res[] = $r;
                 $dup[] = $r['product_id'];
-            }else{
+            } else {
                 $i = array_search($r['product_id'], $dup);
                 $res[$i]['count']++;
                 $res[$i]['sales_amt'] += $r['sales_amt'];

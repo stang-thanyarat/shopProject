@@ -39,39 +39,33 @@ $rows = getdata();
         <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
         <div class="col-11">
             <div class="row main">
-                <div class="col-6">
                     <h1>ประวัติใบสั่งซื้อ</h1>
-                </div>
-            </div>
-            <div class="row mai">
-                <div class="col-3 searchdate">
+                <div class="d-flex justify-content-end" style="margin-left: -6rem">
                     <input type="date" value="<?= $_GET['date'] ?? "" ?>" name="date" id="date" class="date"/>&nbsp&nbsp&nbsp
-                </div>
-                <div class="col-3 box">
-                    <input type="text" class="btnd" value="<?= $_GET['keyword'] ?? "" ?>" name="keyword" id="keyword" placeholder="&nbsp ชื่อผู้ขาย">
-                    <button type="submit" class="search"><img src="./src/images/search.png" width="20"></button>
-                </input>
+                    <div class="d-flex justify-content-end">
+                        <input type="text" value="<?= $_GET['keyword'] ?? "" ?>" name="keyword" id="keyword" class="btnd" placeholder="&nbsp ชื่อผู้ขาย">
+                        <button type="submit" class="search"><img src="./src/images/search.png" width="20"></button>
+                    </div>
                 </div>
             </div>
+            <?php if (count($rows) <= 0) { echo '<div class="d-flex justify-content-center"><h3 style="margin-top: 9rem; margin-bottom: 9rem;">ไม่พบข้อมูล</h3></div>'; ?>
+            <?php } else { ?>
             <table class="ordertable">
                 <tr>
                     <th width="20%">วันที่ชำระ</th>
                     <th width="60%">ชื่อผู้ขาย</th>
                     <th width="15%">สถานะ</th>
                 </tr>
-                <tbody id="ordertable">
-                <?php $i = 1;
-                foreach ($rows as $row) {
-                    if ($row['order_status'] == 0) {
-                        ?>
+                <?php } ?>
+                <?php foreach ($rows as $row) {
+                    if ($row['order_status'] == 0) {?>
                         <tr>
                             <th><?= $row['payment_dt'] ?></th>
                             <th id="text<?= $row['sell_id'] ?>"><?= $row['sell_name'] ?></th>
                             <th>สำเร็จ</th>
                         </tr>
-                        <?php $i++;
-                    }
-                } ?>
+                        <?php  }
+                }?>
             </table>
             </div>
         </div>
@@ -84,3 +78,5 @@ $rows = getdata();
 <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
 </html>
+
+

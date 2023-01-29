@@ -12,7 +12,7 @@ if (isset($_POST)) {
             $contract->delete($_POST['contract_code']);
         } else if ($_POST['form_action'] === 'insert') {
             $contract->insert($_POST);
-            Redirection('/contracthistory.php');
+            redirection('/contracthistory.php');
         }
     }
 }else{

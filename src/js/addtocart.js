@@ -1,5 +1,4 @@
 //ส่วนรับรายการสินค้า
-
 let ALL;
 $(document).ready(async function () {
     let list = []
@@ -41,54 +40,58 @@ function del(id) {
         }
     })
 }
+/*
+$('#mySubmit').click(async()=>{
+    const submitElement = document.getElementById('mySubmit')
+    if ($('#payment_s').val() === 'เงินสด') {
+        let payment =  $("#payment_s").val()
+        $('#payment_sl').val(payment)
+        submitElement.setAttribute("data-bs-target", ".cash-form");
+    } else if ($('#payment_s').val() === 'โอนผ่านบัญชีธนาคาร') {
+        let payment =  $("#payment_s").val()
+        $('#payment_sl').val(payment)
+        submitElement.setAttribute("data-bs-target", ".transfer-form");
+    } else if ($('#payment_s').val() === 'ผ่อนชำระ') {
+        let route = (await (await fetch('./controller/GetRolesSales.php')).text()).trim()
+        if(route !== "L") {
+            fetch('./controller/LogOutAndClear.php').then(()=>{
+                window.location ="./login.php"
+            })
+        }else{
+            submitElement.setAttribute("data-bs-target", ".search-costumer-form");
+        }
+    }
+
+})
+
+ */
+
 //ส่วนชำระเงินสด
 const targetElement = document.getElementById('payment_s')
 const submitElement = document.getElementById('mySubmit')
-targetElement.addEventListener('change', (e) => {
+targetElement.addEventListener('change', async (e) =>  {
     if (e.target.value === 'เงินสด') {
         let payment =  $("#payment_s").val()
         $('#payment_sl').val(payment)
-        submitElement.setAttribute("data-bs-target", ".bd-example-modal-sm3");
+        submitElement.setAttribute("data-bs-target", ".cash-form");
     } else if (e.target.value === 'โอนผ่านบัญชีธนาคาร') {
         let payment =  $("#payment_s").val()
         $('#payment_sl').val(payment)
-        submitElement.setAttribute("data-bs-target", ".bd-example-modal-sm4");
+        submitElement.setAttribute("data-bs-target", ".transfer-form");
     } else if (e.target.value === 'ผ่อนชำระ') {
-        let payment =  $("#payment_s").val()
-        $('#payment_sl').val(payment)
-        submitElement.setAttribute("data-bs-target", ".bd-example-modal-sm5");
+        let route = (await (await fetch('./controller/GetRolesSales.php')).text()).trim()
+        if(route !== "L") {
+            //window.location ="./controller/LogOut.php"
+            fetch('./controller/LogOutAndClear.php').then(()=>{
+                window.location ="./login.php"
+            })
 
+        }else{
+            submitElement.setAttribute("data-bs-target", ".search-costumer-form");
+        }
     }
 })
 
-//ส่วนคำนวณเงินของชำระเงินสด
-$('#receivecash').keyup(()=>{
-    const change = Number($('#receivecash').val()) - Number($(".all_price").val())
-    if(change>=0){
-        $('#change').val(change)
-    }else{
-        $('#change').val('')
-    }
-})
-
-/*$("#payment_s").change(async function () {
-    if ($("#payment_s").val() === 'เงินสด') {
-        let payment =  $("#payment_s").val()
-            $('#payment_s').val(payment)
-            $('#payment_sl').val(payment)
-
-    }
-    else if ($("#payment_s").val() === 'โอนผ่านบัญชีธนาคาร') {
-        let payment =  $("#payment_s").val()
-        $('#payment_s').val(payment)
-        $('#payment_sl').val(payment)
-    }
-    else if ($("#payment_s").val() === 'ผ่อนชำระ') {
-        let payment =  $("#payment_s").val()
-        $('#payment_s').val(payment)
-        $('#payment_sl').val(payment)
-    }
-});*/
 
 function setUI(data) {
     let allprice = 0
@@ -100,7 +103,7 @@ function setUI(data) {
         $('#addtocartTable').append(`<tr id="rr${i + 1}">
         <th style="border-right: 1px;">${i + 1}</th>
         <th style="border-left: 1px; border-right: 1px;">
-            <img class="topic_product" src="${element.product_img}">
+            <img class="topic_product" style="width: 325px; height: 325px;" src="${element.product_img}">
         </th>
         <th style="border-left: 1px; border-right: 1px;">${element.product_name}</th>
         <th style="border-left: 1px; border-right: 1px;">${element.price}</th>
@@ -108,10 +111,10 @@ function setUI(data) {
         <th style="border-left: 1px; border-right: 1px;">${Number(element.price) * Number(element.quantity)}</th>
         <th style="border-left: 1px;" >
         <div class="topic_BTAJ">
-            <button type="button" class="bgs" onclick="del(${element.product_id})"><img src="./src/images/icon-delete.png" width="25"></button>
+            <button type="button" class="bgs" onclick="del(${element.product_id})"><img src="./src/images/icon-delete.png" class="delete" width="30"></button>
         </div>
         <div class="topic_BTAJ">
-        <a href="./productlist.php" class="bgs" ><img src="./src/images/icon-pencil.png" width="25" ></a>
+            <a href="./productlist.php" class="bgs" ><img src="./src/images/icon-pencil.png" class="edit" width="30"></a>
         </div>
         </th>
     </tr>`)
@@ -123,22 +126,6 @@ function setUI(data) {
     console.log(data)
 }
 
-//เพิ่มข้อมูลเข้าตาราง
-/*function setUI() {
-    let salesamt = 0
-    let allquantity = 0
-    $("#salestodatabase").submit(function (event) {
-        salesamt = Number(element.price) * Number(element.quantity)
-        allquantity = Number(element.quantity)
-        event.preventDefault();
-        localStorage.setItem("cart", JSON.stringify(tableObj))
-        $('#sales_dt').val("")
-        $('#product_id').val("")
-        $('#sales_amt').val(salesamt)
-        $('#sales_pr').val(salespr)
-    });
-}*/
-
 async function loopInsert(){
     let lastID = await (await fetch('controller/GetLastIdSales.php')).text()
     let data = JSON.parse(localStorage.getItem('cart'))
@@ -149,7 +136,7 @@ async function loopInsert(){
         formdata.append("sales_list_id", lastID);
         formdata.append("product_id", e.id);
         formdata.append("sales_amt", e.quantity);
-        formdata.append("sales_pr", objData[0].price);
+        formdata.append("sales_pr", objData[0].price * e.quantity);
         formdata.append("form_action", "insert");
         formdata.append("table", "salesdetails");
         var requestOptions = {
@@ -161,8 +148,19 @@ async function loopInsert(){
     }
 }
 
+///form1
+//เงินสด
+//ส่วนคำนวณเงินของชำระเงินสด
+$('#receivecash').keyup(()=>{
+    const change = Number($('#receivecash').val()) - Number($(".all_price").val())
+    if(change>=0){
+        $('#change').val(change)
+    }else{
+        $('#change').val('')
+    }
+})
 
-//ตรวจสอบพร้อมส่งข้อมูล
+//ตรวจสอบพร้อมส่งข้อมูล form1
 $("#form1").submit(async function (event)
 {
     event.preventDefault();
@@ -175,18 +173,20 @@ $("#form1").submit(async function (event)
     if (!response.ok) {
         console.log(response);
     } else {
-        await Swal.fire({
-            icon: 'success',
-            text: 'การชำระเสร็จสิ้น',
-            timer: 3000
-        })
-        console.log(await response.text());
         loopInsert()
-        //localStorage.clear()
-        window.location.assign("productlist.php");
+        Swal.fire({
+            icon: 'success',
+            text: 'บันทึกข้อมูลเสร็จสิ้น',
+            timer: 3000
+        }).then(() => {
+            localStorage.clear()
+            window.location = './index.php'
+        })
     }
 });
 
+///form2
+//โอนผ่านบัญชีธนาคาร
 $("#form2").submit(async function (event)
 {
     event.preventDefault();
@@ -198,17 +198,77 @@ $("#form2").submit(async function (event)
     if (!response.ok) {
         console.log(response);
     } else {
-        await Swal.fire({
-            icon: 'success',
-            text: 'การชำระเสร็จสิ้น',
-            timer: 3000
-        })
-        console.log(await response.text());
         loopInsert()
-        //localStorage.clear()
-        window.location.assign("productlist.php");
+        Swal.fire({
+            icon: 'success',
+            text: 'บันทึกข้อมูลเสร็จสิ้น',
+            timer: 3000
+        }).then(() => {
+            localStorage.clear()
+            window.location = './index.php'
+        })
     }
 });
+
+///form3
+//การผ่อนชำระ
+//คีย์ข้อมูลลูกค้าเพื่อตรวจสอบ
+$("#search").click(async function () {
+    let url = `./controller/SalestoContract.php`
+    if($("#keyword").val() !== "" ){
+        url += `?keyword=${$("#keyword").val()}`
+    }
+    else if ($("#keyword").val() == "" ) {
+        url += `?keyword=${$("#keyword").val("")}`
+    }
+    const keyword = await (await fetch(url)).json()
+    if(keyword.length >0){
+        setU(keyword)
+    }else{
+        $('#salestocontracttable').html('<br><center><h3>ไม่พบรายการการผ่อนชำระ</h3></center>')
+        $('#next-add').attr("href",'./addcontract.php')
+    }
+
+});
+
+//ส่วนแสดงผลข้อมูลลูกค้า
+async function star() {
+    let url = './controller/SalestoContract.php'
+    const keyword = await (await fetch(url)).json()
+    console.log(keyword);
+    setU(keyword)
+}
+
+$(document).ready(function () {
+    star()
+});
+
+function setU(keyword) {
+    let c = 0
+    let table = `<table class="col-11 salestocontracttable">
+                    <tr>
+                        <th width=15%>ลำดับ</th>
+                        <th width=15%>วันที่ทำสัญญา</th>
+                        <th width=10%>วันที่ครบกำหนดชำระ</th>
+                        <th width=15%>สถานะ</th>
+                        <th width=15%>คงค้าง</th>
+                    </tr>
+                    <tbody>`
+    //
+    keyword.forEach((element, i) => {
+        $('#next-add').attr("href",`./addcontract.php?cardID=${element.customer_img}`)
+        c++
+        table += `<tr id="rr${i + 1}">
+        <th class="index-table-bank">${i + 1}</th>
+        <th>${element.date_contract}</th>
+        <th>${element.repayment_date}</th>
+        <th>${element.outstanding}</th>
+        <th>${element.slip_img}</th>
+    </tr>`
+    })
+        table+='</tbody></table>`'
+    $('#salestocontracttable').html(table)
+}
 
 $("#form3").submit(async function (event)
 {
@@ -228,6 +288,8 @@ $("#form3").submit(async function (event)
             timer: 3000
         })
         console.log(await response.text());
+        loopInsert()
+        //localStorage.clear()
         window.location.assign("productlist.php");
     }
 });

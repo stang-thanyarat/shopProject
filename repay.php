@@ -28,10 +28,40 @@ function getFullRole($role)
 
     <title>Document</title>
 </head>
-<?php include_once('nav.php'); ?>
+<?php
+include_once('nav.php');
+include_once ('./database/Contract.php');
+include_once ('./database/DebtPaymentDetails.php');
+$c = new Contract();
+$pay = new DebtPaymentDetails();
+$rows = $c->fetchById($_GET['id']);
+$rowa = $pay->fetchById($_GET['id']);
+//var_dump($rows);
+//exit();
+/*$json = '';
+for ($i = 0; $i < count($$rows); $i++) {
+    $cd = $$rows[$i];
+    $json .= "{
+        bank: \"" . $cd['repayment_date'] . "\",
+        number: \"" . $cd['payment'] . "\",
+        name: \"" . $cd['slip_img'] . "\",
+        id:\"" . $cd['payment_amount'] . "\"
+        id:\"" . $cd['deduct_principal'] . "\"
+        id:\"" . $cd['less_interest'] . "\"
+        id:\"" . $cd['outstanding'] . "\"
+    }";
+    if ($i + 1 != count($$rows)) {
+        $json .= ",";
+    }
+}*/
+?>
 
 <body>
-    <form>
+    <form action="controller/DebtPaymentDetails.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
+        <input type="hidden" value="debt" name="table" />
+        <input type="hidden" value="update" name="form_action" />
+        <input type="hidden" value="<?= $_GET['id'] ?>" name="unique_id" />
+        <input type="hidden" value="contract_code" name="contract_code" id="contract_code" />
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
@@ -41,19 +71,19 @@ function getFullRole($role)
                     </div>
                 </div>
                 <div class="row c">
-                    <div class="col-xl-6">ชื่อ-นามสกุล:สมชาย พักดี </div>
-                    <div class="col-xl-6">รหัสบัตรประชาชน:1234567890345</div>
+                    <div class="col-xl-6">ชื่อ-นามสกุล: <?= $rows['customer_prefix'] ?> <?= $rows['customer_firstname'] ?> <?= $rows['customer_lastname'] ?></div>
+                    <div class="col-xl-6">รหัสบัตรประชาชน: <?= $rows['customer_img'] ?></div>
                 </div>
                 <div class="row c">
-                    <div class="col-xl-6">วันที่ทำสัญญา:26/12/2021</div>
-                    <div class="col-xl-6">วันที่ครบกำหนด:26/03/2022</div>
+                    <div class="col-xl-6">วันที่ทำสัญญา: <?= $rows['date_contract'] ?></div>
+                    <div class="col-xl-6">วันที่ครบกำหนด: <?= $rows['date_contract'] ?></div>
                 </div>
                 <div class="row c">
-                    <div class="col-xl-6">เงินต้น:220 บาท</div>
+                    <div class="col-xl-6">เงินต้น: <?= $rows['deduct_principal'] ?></div>
                 </div>
                 <div class="row c">
-                    <div class="col-xl-6 ">คงค้าง:0 บาท</div>
-                    <div class="col-xl-6 ">ดอกเบี้ย:0 บาท</div>
+                    <div class="col-xl-6 ">คงค้าง: <?= $rows['less_interest'] ?></div>
+                    <div class="col-xl-6 ">ดอกเบี้ย: <?= $rows['outstanding'] ?></div>
                 </div>
                 <div class="row B">
                     <div class=" col-12 d-flex justify-content-end">
@@ -73,9 +103,17 @@ function getFullRole($role)
                         </tr>
                     </thead>
                     <tbody id="list-repay">
+                        <tr>
+                            <th><?= $rowa['repayment_date'] ?></th>
+                            <th><?= $rowa['payment'] ?></th>
+                            <th><?= $rowa['slip_img'] ?></th>
+                            <th><?= $rowa['payment_amount'] ?></th>
+                            <th><?= $rowa['deduct_principal'] ?></th>
+                            <th><?= $rowa['less_interest'] ?></th>
+                            <th><?= $rowa['outstanding'] ?></th>
+                        </tr>
 
                     </tbody>
-
                 </table>
                 <div class="row btn-g">
                     <div class="col-2 mm">
@@ -124,7 +162,6 @@ function getFullRole($role)
                         หักเงินต้น: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="deduct" id="deduct" required /></div>
                         หักดอกเบี้ย: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0" step="0.25" name="lessinterest" id="lessinterest" required /></div>
                         คงค้าง: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="outstanding" id="outstanding" required /></div>
-
 
                         <div class="modal-footer">
                             <button type="submit" id="addtable" class="btn btn-primary1">ตกลง</button>

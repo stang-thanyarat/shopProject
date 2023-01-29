@@ -18,28 +18,6 @@
     margin-left: 4rem;
 }
 
-.mai {
-    margin-left: 29rem;
-}
-
-.ma {
-    margin-left: 4rem;
-}
-
-.searchdate{
-    margin-left: 25rem;
-}
-
-.box{
-    margin-left: -3rem;
-}
-
-.search {
-    background: transparent;
-    border: 0px;
-    margin-left: -2rem;
-}
-
 .ordertable {
     margin-top: 2rem;
     margin-left: 4rem;
@@ -59,7 +37,6 @@ table {
 
 th {
     height: 50px;
-
 }
 
 .btnd {
@@ -69,6 +46,14 @@ th {
     border: 0ch;
 }
 
+.search {
+    background: transparent;
+    border: 0px;
+    margin-left: -2rem;
+    margin-top: auto;
+}
+
 .date{
     height: 115%;
+    margin-right: 2rem
 }

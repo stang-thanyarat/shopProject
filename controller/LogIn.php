@@ -19,6 +19,18 @@ if (isset($_POST)) {
                         redirection('/login.php');
                     }
                     $username = $employee->fetchById($user['employee_id']);
+                    if (!isset($_SESSION['vat'])) {
+                        $vat = 7;
+                    }else{
+                        $vat = $_SESSION['vat'];
+                    }
+                    if (!isset($_SESSION['day_change'])) {
+                        $day_change = 7;
+                    }else{
+                        $day_change = $_SESSION['day_change'];
+                    }
+                    $_SESSION['vat']  = $vat;
+                    $_SESSION['day_change'] = $day_change;
                     $_SESSION['role'] = $user['account_user_type'];
                     $_SESSION['username'] = $username['employee_firstname'] . " " . $username['employee_lastname'];
                     $_SESSION['employee_id'] = $user['employee_id'];
