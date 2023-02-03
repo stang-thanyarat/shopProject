@@ -60,7 +60,7 @@ function setUI(data) {
         if (i % 3 === 0) {
             html += `<tr>`
         }
-        if (element.sales_status === "1") {
+        if (element.sales_status == "1") {
             html += `<th style="border: 0px">
                 <div class="topic_product" >
                 <div class="row d-flex justify-content-center" style="margin: auto;">

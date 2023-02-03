@@ -58,13 +58,13 @@ $html = '<html>
 	width: 50%;
 }
 .grey {
-	background-color: #CCC;
+	background-color: #FBEDD8;
 	width: 100%;
 	float: left;
 }
 
 .grey2 {
-	background-color: #FFFFFF;
+	background-color: #FFF8ED;
 	width: 100%;
 	float: left;
 }
@@ -98,58 +98,66 @@ border: 0px;
 <body>
 <table width="1000" border="0px" border="">
   <tr>
-    <td class="setright" colspan="2">วันที่ xxx - xxx</td>
+    <td class="setright" colspan="3">วันที่ออกเอกสาร xxx - xxx</td>
   </tr>
   <tr>
-    <td class="setcenter" colspan="2"><h2>งบแสดงฐานะการเงิน</h2></td>
+    <td class="setcenter" colspan="3"><h2>งบแสดงฐานะการเงิน</h2></td>
   </tr>
   <tr>
-    <td class="setcenter" colspan="2">
+    <td class="setcenter" colspan="3">
       <h2 >ร้านวรเชษฐ์เกษตรภัณฑ์</h2>
       </td>
   </tr>
   <tr>
-    <td class="setright l" colspan="2">
-        จำนวน(บาท)&nbsp;&nbsp;
-    </td>
+  <tr>
+    <td class="setcenter"  colspan="3">วันที่ xxx - xxx</td>
+  </tr>
   </tr>
   <tr>
     <td class="t" >&nbsp;&nbsp;สินทรัพย์</td>
   </tr>
-  <tr bgcolor="#CCC">
+  <tr bgcolor="#FBEDD8">
     <td width="70%" stlye="">รวม สินทรัพย์</div>
-    <td align="right" width="30%">xxx</td>
+    <td align="right" width="20%">xxx</td>
+    <td width="20%">บาท</td>
   </tr>
-  <tr bgcolor="#FFFFFF">
+  <tr bgcolor="#FFF8ED">
   <td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;สินค้าที่พร้อมขาย</div>
-  <td align="right" width="30%">xxx</td>
+  <td align="right" width="20%">xxx</td>
+  <td width="20%">บาท</td>
 </tr>
-<tr bgcolor="#FFFFFF">
+<tr bgcolor="#FBEDD8">
   <td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เงินที่ได้รับแล้ว</div>
-  <td align="right" width="30%">xxx</td>
+  <td align="right" width="20%">xxx</td>
+  <td width="20%">บาท</td>
 </tr>
-<tr bgcolor="#FFFFFF">
+<tr bgcolor="#FFF8ED">
 <td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เงินที่ยังไม่ได้รับ</div>
-<td align="right" width="30%">xxx</td>
+<td align="right" width="20%">xxx</td>
+<td width="20%">บาท</td>
 </tr>
   <tr>
     <td class="t">&nbsp;&nbsp;หนี้สิน+ทุน</td>
   </tr>
-  <tr  bgcolor="#CCC">
+  <tr  bgcolor="#FBEDD8">
     <td  width="70%">รวม หนี้สิน+ทุน &nbsp;</td>
-    <td align="right" width="30%">xxx</td>
+    <td align="right" width="20%">xxx</td>
+    <td width="20%">บาท</td>
   </tr>
-  <tr bgcolor="#FFFFFF">
+  <tr bgcolor="#FFF8ED">
 <td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ทุน </div>
-<td align="right" width="30%">xxx</td>
+<td align="right" width="20%">xxx</td>
+<td width="20%">บาท</td>
 </tr>
-<tr bgcolor="#FFFFFF">
+<tr bgcolor="#FBEDD8">
 <td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; หนี้สิน(เงินสด)   </div>
-<td align="right" width="30%">xxx</td>
+<td align="right" width="20%">xxx</td>
+<td width="20%">บาท</td>
 </tr>
-<tr bgcolor="#FFFFFF">
+<tr bgcolor="#FFF8ED">
 <td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; หนี้สิน(เครดิต)  </div>
-<td align="right" width="30%">xxx</td>
+<td align="right" width="20%">xxx</td>
+<td width="20%">บาท</td>
 </tr>
 </table>
 </body>
