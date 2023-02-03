@@ -54,30 +54,19 @@ $b = $budget->fetchAll();
                             </button>
                         </div>
                     </div>
-                    <!--
-            <div class="d-flex flex-row-reverse">
-                <button type="submit" class="g "><img src="./src/images/download.png " width="15">&nbsp; ดาวน์โหลด</button>
-                <button type="submit" class="g"><img src="./src/images/print.png" width="15">&nbsp; print</button>
-            </div>-->
                     <div class="row main q">
                         <div class="col-12 a">
                             <input type="date" value="<?= date('Y-m-d') ?>" id="firstdate" name="firstdate" required>&nbsp
                             ถึง &nbsp<input type="date" value="<?= date('Y-m-d') ?>" id="lastdate" name="lastdate" required>
                             <button type="submit" class="s" id="search" name="search"><img src="./src/images/search.png" width="13"></button>
                         </div>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <br>
                         <div class="row f">
-                            <div class="col">
-                                <h4 class="c">สินทรัพย์</h4>
+                            <div class="col-12">
+                                <h4>สินทรัพย์</h4>
                             </div>
                         </div>
-                        <p></p>
-                        <div class="table1">
-                            <table>
+                        <div class="t">
+                            <table class="table1">
                                 <tr>
                                     <th>รวม สินทรัพย์</th>
                                     <th>10000 บาท</th>
@@ -92,6 +81,32 @@ $b = $budget->fetchAll();
                                 </tr>
                                 <tr>
                                     <th>เงินที่ยังไม่ได้รับ</th>
+                                    <th>10000 บาท</th>
+                                </tr>
+
+                            </table>
+                        </div>
+                        <div class="row f">
+                            <div class="col-12">
+                                <h4 class="c">หนี้สิน+ทุน</h4>
+                            </div>
+                        </div>
+                        <div class="t">
+                            <table class="table1">
+                                <tr>
+                                    <th>รวม หนี้สิน+ทุน</th>
+                                    <th class="d-flex justify-content-right">10000 บาท</th>
+                                </tr>
+                                <tr>
+                                    <th>ทุน</th>
+                                    <th><?= $b['all_price_odr'] ?> บาท</th>
+                                </tr>
+                                <tr>
+                                    <th>หนี้สิน(เงินสด)</th>
+                                    <th><?= $b['all_price_odr'] ?> บาท</th>
+                                </tr>
+                                <tr>
+                                    <th>หนี้สิน(เครดิต)</th>
                                     <th>10000 บาท</th>
                                 </tr>
 
@@ -124,13 +139,9 @@ $b = $budget->fetchAll();
                                 1,000,000.00
                             </div>
                         </div>
-                    </div>--->
+                    </div>
                         <br>
-                        <div class="row f">
-                            <div class="col">
-                                <h4 class="c">หนี้สิน+ทุน</h4>
-                            </div>
-                        </div>
+                        
                         <p></p>
                         <div class="row">
                             <div class="col y">
@@ -144,7 +155,7 @@ $b = $budget->fetchAll();
                             <div class="row">
                                 <div class="col">ทุน</div>
                                 <div class="col mamm">
-                                    <?= $b['all_price_odr'] ?>
+                                    
                                     <span id="all_price_odr" class="all_price_odr" name="all_price_odr">0</span>
                                 </div>
                             </div>
@@ -152,7 +163,7 @@ $b = $budget->fetchAll();
                                 <div class="row">
                                     <div class="col">หนี้สิน(เครดิต)</div>
                                     <div class="col mamm">
-                                        <?= $b['all_price_odr'] ?>
+                                        
                                         <span id="all_price_odr" class="all_price_odr" name="all_price_odr">0</span>
                                     </div>
                                 </div>
@@ -163,7 +174,7 @@ $b = $budget->fetchAll();
                                     1,000,000.00
                                 </div>
                             </div>
-                        </div>
+                        </div>--->
                     </div>
                 </div>
             </div>
