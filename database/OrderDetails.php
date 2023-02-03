@@ -188,6 +188,7 @@ Class OrderDetails{
         $stmt->execute();
     }
 
+
     public function insert($data)
     {
         $sql = "INSERT INTO order_details_tb (order_id, product_id, unitprice, amount, all_amount, listother, priceother, net_price) VALUES (?,?,?,?,?,?,?,?)";

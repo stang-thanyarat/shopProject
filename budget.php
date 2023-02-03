@@ -1,8 +1,6 @@
 <?php
 include_once('service/auth.php');
-include_once('./database/Order.php');
 isLaber();
-$order = new Order;
 
 function getFullRole($role)
 {
@@ -31,19 +29,11 @@ function getFullRole($role)
     <link rel="stylesheet" href="./src/css/budget.css"/>
     <title>Document</title>
 </head>
-<?php include_once('nav.php');
-include_once('./database/Order.php');
-include_once('./database/Sales.php');
-include_once('./database/Product.php');
-
-$order = new Order();
-$sales = new Sales();
-$product = new Product();
-
-$o = $order->fetchAll();
-$s = $sales->fetchAll();
-$p = $product->fetchAll();
-
+<?php
+include_once('nav.php');
+include_once ('./database/Budget.php');
+$budget = new Budget();
+$b = $budget->fetchAll();
 ?>
 
 <body>
@@ -75,7 +65,7 @@ $p = $product->fetchAll();
                     <div class="col-12 a">
                         <input type="date" value="<?= date('Y-m-d') ?>" id="firstdate" name="firstdate" required>&nbsp
                         ถึง &nbsp<input type="date" value="<?= date('Y-m-d') ?>" id="lastdate" name="lastdate" required>
-                        <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
+                        <button type="submit" class="s" id="search" name="search"><img src="./src/images/search.png" width="13"></button>
                     </div>
                     <div class="content" id="content">
                         <div class="col-12 b">
@@ -149,7 +139,8 @@ $p = $product->fetchAll();
                             <div class="row">
                                 <div class="col">ทุน</div>
                                 <div class="col mamm">
-                                    <?= $s[""] ?>
+                                    <?= $b['all_price_odr']?>
+                                    <span id="all_price_odr" class="all_price_odr" name="all_price_odr">0</span>
                                 </div>
                             </div>
                             <div class="row">
@@ -173,6 +164,6 @@ $p = $product->fetchAll();
 </form>
 </body>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-<script src="./src/js/budget.js"></script>
+<script src="./src/js/budge.js"></script>
 
 </html>
