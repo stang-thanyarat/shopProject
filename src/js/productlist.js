@@ -60,17 +60,18 @@ function setUI(data) {
         if (i % 3 === 0) {
             html += `<tr>`
         }
-        html += `<th style="border: 0px">
+        if (element.sales_status === "1") {
+            html += `<th style="border: 0px">
                 <div class="topic_product" >
-                <div class="row d-flex justify-content-center">
+                <div class="row d-flex justify-content-center" style="margin: auto;">
                     <div class="col-11" style="padding:25px;">
-                    ${element.product_name} ${element.model === "" ? "" : "รุ่น&nbsp"}${element.model}
+                    ${element.product_name} ${element.model === "-" ? '' : "รุ่น&nbsp"}${element.model === "-" ? "" : element.model}
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-6" style="margin :auto;">
+                    <div class="col-6" style="margin-left :auto;">
                         <div class="d-flex justify-content-start">
-                        <img src="${element.product_img}" style="width: 250px; height: 250px;" >
+                        <a href="${element.product_img}" ><img src="${element.product_img}"  style="width: 225px; height: 250px;" ></a>
                         </div>
                     </div>
                     <div class="row col-5 d-flex justify-content-end" style="margin-right: auto;">
@@ -87,12 +88,47 @@ function setUI(data) {
                     <p class="d-flex justify-content-start">${element.product_unit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
                     </div>
                         <div class="d-flex justify-content-start">
-                            ${element.sales_status == 1 ? `<p class="fitcontent"><button onclick="addToCart(${element.product_id})">เพิ่มไปยังรถเข็น</button></p>` : `<span style="color: red;" class="fitcontent">หยุดการขายสินค้า</span>`}
+                           <button onclick="addToCart(${element.product_id})" class="dynamicBT">เพิ่มไปยังรถเข็น</button>
                         </div>
                     </div>
                 </div>
                 </div>
                 </th>`
+        } else {
+            html += `<th style="border: 0px; " >
+                <div class="topic_product" style="background-color: red; color: white;" >
+                <div class="row d-flex justify-content-center" style="margin: auto;">
+                    <div class="col-11" style="padding:25px;">
+                    ${element.product_name} ${element.model === "-" ? '' : "รุ่น&nbsp"}${element.model === "-" ? "" : element.model}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6" style="margin-left :auto;">
+                        <div class="d-flex justify-content-start">
+                        <img src="${element.product_img}" style="width: 225px; height: 250px;" >
+                        </div>
+                    </div>
+                    <div class="row col-5 d-flex justify-content-end" style="margin-right: auto;">
+                    <div class="col-3" style="margin-right: auto;">
+                    <p class="d-flex justify-content-start">ราคา</p>
+                    <p class="d-flex justify-content-start">เหลือ</p>
+                    </div>
+                    <div class="col-5">
+                    <p class="d-flex justify-content-end">${element.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+                    <p class="d-flex justify-content-end"><span id="p${element.product_id}">${element.product_rm_unit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span></p>
+                    </div>
+                    <div class="col-3" style="margin-left: auto;">
+                    <p class="d-flex justify-content-start">บาท</p>
+                    <p class="d-flex justify-content-start">${element.product_unit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
+                    </div>
+                        <div class="d-flex justify-content-start">
+                            <span style=" font-size: 25px;" class="fitcontent">หยุดการขายสินค้า</span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                </th>`
+        }
         if ((i + 1) % 3 === 0 && (i + 1) === data.length) {
             html += "</tr>"
         }
