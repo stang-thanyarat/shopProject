@@ -110,6 +110,40 @@ th {
     display: block;
 }
 
+.dynamicBT {
+    background-color: whitesmoke;
+    font-size: 21px;
+    color: black;
+    solid-color: black;
+    height: 55%;
+    width: 130%;
+    border-radius: 25px 25px 25px 25px;
+    border: 0px;
+    transition: background-color 0.5s ease-out;
+    box-shadow: 0px 0px 2px 2px rgba(0.6, 0.6, 0.6, 0.6), 0px 0px 6px 6px rgba(0.2, 0.2, 0.2, 0.2)
+
+}
+
+.dynamicBT:hover {
+    background-color: black;
+    font-size: 21px;
+    color: white;
+    solid-color: white;
+    height: 55%;
+    width: 130%;
+    border-radius: 25px 25px 25px 25px;
+    border: 0px;
+    cursor: pointer;
+}
+
+.dynamicPT:hover {
+    background-color: gray;
+    font-size: 21px;
+    color: white;
+    cursor: pointer;
+}
+
+
 .bb {
     margin-left: 0rem;
 }
@@ -129,7 +163,7 @@ th {
     margin-left: 0rem;
 }
 
-.a{
+.a {
     margin-left: -1rem;
 }
 
