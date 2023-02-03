@@ -76,7 +76,7 @@ async function setStatus(id, val) {
         })
 }
 
-//ลบพนักงงาน
+//ลบสินค้า
 function del(id) {
     Swal.fire({
         title: 'คำเตือน',

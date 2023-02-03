@@ -1,8 +1,6 @@
 <?php
 include_once('service/auth.php');
-include_once('./database/Order.php');
 isLaber();
-$order = new Order;
 
 function getFullRole($role)
 {
@@ -31,19 +29,11 @@ function getFullRole($role)
     <link rel="stylesheet" href="./src/css/budget.css" />
     <title>Document</title>
 </head>
-<?php include_once('nav.php');
-include_once('./database/Order.php');
-include_once('./database/Sales.php');
-include_once('./database/Product.php');
-
-$order = new Order();
-$sales = new Sales();
-$product = new Product();
-
-$o = $order->fetchAll();
-$s = $sales->fetchAll();
-$p = $product->fetchAll();
-
+<?php
+include_once('nav.php');
+include_once('./database/Budget.php');
+$budget = new Budget();
+$b = $budget->fetchAll();
 ?>
 
 <body>
@@ -69,47 +59,45 @@ $p = $product->fetchAll();
                 <button type="submit" class="g "><img src="./src/images/download.png " width="15">&nbsp; ดาวน์โหลด</button>
                 <button type="submit" class="g"><img src="./src/images/print.png" width="15">&nbsp; print</button>
             </div>-->
-
                     <div class="row main q">
                         <div class="col-12 a">
                             <input type="date" value="<?= date('Y-m-d') ?>" id="firstdate" name="firstdate" required>&nbsp
                             ถึง &nbsp<input type="date" value="<?= date('Y-m-d') ?>" id="lastdate" name="lastdate" required>
-                            <button type="submit" class="s"><img src="./src/images/search.png" width="13"></button>
+                            <button type="submit" class="s" id="search" name="search"><img src="./src/images/search.png" width="13"></button>
                         </div>
-                    </div>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="row f">
-                        <div class="col">
-                            <h4 class="c">สินทรัพย์</h4>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="row f">
+                            <div class="col">
+                                <h4 class="c">สินทรัพย์</h4>
+                            </div>
                         </div>
-                    </div>
-                    <p></p>
-                    <div class="table1">
-                        <table>
-                            <tr>
-                                <th>รวม สินทรัพย์</th>
-                                <th>10000 บาท</th>
-                            </tr>
-                            <tr>
-                                <th>สินค้าที่พร้อมขาย</th>
-                                <th>10000 บาท</th>
-                            </tr>
-                            <tr>
-                                <th>เงินที่ได้รับแล้ว</th>
-                                <th>10000 บาท</th>
-                            </tr>
-                            <tr>
-                                <th>เงินที่ยังไม่ได้รับ</th>
-                                <th>10000 บาท</th>
-                            </tr>
+                        <p></p>
+                        <div class="table1">
+                            <table>
+                                <tr>
+                                    <th>รวม สินทรัพย์</th>
+                                    <th>10000 บาท</th>
+                                </tr>
+                                <tr>
+                                    <th>สินค้าที่พร้อมขาย</th>
+                                    <th>10000 บาท</th>
+                                </tr>
+                                <tr>
+                                    <th>เงินที่ได้รับแล้ว</th>
+                                    <th>10000 บาท</th>
+                                </tr>
+                                <tr>
+                                    <th>เงินที่ยังไม่ได้รับ</th>
+                                    <th>10000 บาท</th>
+                                </tr>
 
-                        </table>
-                    </div>
-                    <!--- <div class="row ">
+                            </table>
+                        </div>
+                        <!--- <div class="row ">
                         <div class="col y">
                             <h5 class="cb">รวม สินทรัพย์</h5>
                         </div>
@@ -137,48 +125,52 @@ $p = $product->fetchAll();
                             </div>
                         </div>
                     </div>--->
-                    <br>
-                    <div class="row f">
-                        <div class="col">
-                            <h4 class="c">หนี้สิน+ทุน</h4>
-                        </div>
-                    </div>
-                    <p></p>
-                    <div class="row">
-                        <div class="col y">
-                            <h5 class="cb">รวม หนี้สิน+ทุน</h5>
-                        </div>
-                        <div class="col kk">
-                            250,000.00
-                        </div>
-                    </div>
-                    <div class="mam">
-                        <div class="row">
-                            <div class="col">ทุน</div>
-                            <div class="col mamm">
-                                <span id="priceorder" class="priceorder" name="priceorder">0</span>
+                        <br>
+                        <div class="row f">
+                            <div class="col">
+                                <h4 class="c">หนี้สิน+ทุน</h4>
                             </div>
                         </div>
+                        <p></p>
                         <div class="row">
-                            <div class="col">หนี้สิน(เงินสด)</div>
-                            <div class="col mamm">
-                                1,000,000.00
+                            <div class="col y">
+                                <h5 class="cb">รวม หนี้สิน+ทุน</h5>
+                            </div>
+                            <div class="col kk">
+                                250,000.00
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col">หนี้สิน(เครดิต)</div>
-                            <div class="col mamm">
-                                1,000,000.00
+                        <div class="mam">
+                            <div class="row">
+                                <div class="col">ทุน</div>
+                                <div class="col mamm">
+                                    <?= $b['all_price_odr'] ?>
+                                    <span id="all_price_odr" class="all_price_odr" name="all_price_odr">0</span>
+                                </div>
+                            </div>
+                            <div class="mam">
+                                <div class="row">
+                                    <div class="col">หนี้สิน(เครดิต)</div>
+                                    <div class="col mamm">
+                                        <?= $b['all_price_odr'] ?>
+                                        <span id="all_price_odr" class="all_price_odr" name="all_price_odr">0</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">หนี้สิน(เครดิต)</div>
+                                <div class="col mamm">
+                                    1,000,000.00
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
     </form>
 </body>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-<script src="./src/js/budget.js"></script>
+<script src="./src/js/budge.js"></script>
 
 </html>
