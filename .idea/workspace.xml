@@ -6,15 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/Budget.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Budget.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/DebtPaymentDetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/DebtPaymentDetails.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Budget.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Budget.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Contract.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/DebtPaymentDetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/DebtPaymentDetails.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repay.php" beforeDir="false" afterPath="$PROJECT_DIR$/repay.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/addcontract.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/addcontract.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/repay.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/repay.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/CostPrice.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/CostPrice.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/editproduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/editproduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/costprice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/costprice.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +121,7 @@
       <workItem from="1674785725820" duration="11918000" />
       <workItem from="1674871627745" duration="4826000" />
       <workItem from="1674890091081" duration="20487000" />
-      <workItem from="1675582522410" duration="11689000" />
+      <workItem from="1675582522410" duration="14770000" />
     </task>
     <servers />
   </component>
