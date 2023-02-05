@@ -185,7 +185,7 @@ $("#form1").submit(async function (event)
             localStorage.clear()
             let lastID = await (await fetch('controller/GetLastIdSales.php')).text()
             window.location = './service/PDF/template/receipt.php?id='+lastID
-            window.location = 'productlist.php'
+            //window.location = 'productlist.php'
         })
     }
 });

@@ -33,7 +33,19 @@ function getFullRole($role)
 include_once('nav.php');
 include_once('./database/Budget.php');
 $budget = new Budget();
-$b = $budget->AllBG();
+$firstdate = "";
+$lastdate = "";
+if(isset($_GET['firstdate'])&&(isset($_GET['lastdate']))){
+    $b = (array)$budget->fetchBetween($_GET['firstdate'],$_GET['lastdate']);
+    $firstdate = $_GET['firstdate'];
+    $lastdate = $_GET['lastdate'];
+}else{
+    $b = (array)$budget->fetchBetween();
+    $firstdate = date('d/m/Y');
+    $lastdate = date('d/m/Y');
+}
+
+
 ?>
 
 <body>
@@ -56,8 +68,8 @@ $b = $budget->AllBG();
                     </div>
                     <div class="row main q">
                         <div class="col-12 a">วันที่ขาย : 
-                            <input type="date" value="<?= date('Y-m-d') ?>" id="firstdate" name="firstdate" required>&nbsp
-                            ถึง &nbsp<input type="date" value="<?= date('Y-m-d') ?>" id="lastdate" name="lastdate" required>
+                            <input type="date" value="<?= $firstdate ?>" id="firstdate" name="firstdate" required>&nbsp
+                            ถึง &nbsp<input type="date" value="<?= $lastdate ?>" id="lastdate" name="lastdate" required>
                             <button type="submit" class="s" id="search" name="search"><img src="./src/images/search.png" width="13"></button>
                         </div>
                         <div class="row f">
@@ -77,19 +89,19 @@ $b = $budget->AllBG();
                                 <tr>
                                     <th></th>
                                     <th>&nbsp&nbsp&nbsp&nbspสินค้าที่พร้อมขาย</th>
-                                    <th style="text-align: end;"><?= $budget->AllBG();?> </th>
+                                    <th style="text-align: end;"><?= $b['BG1']?> </th>
                                     <th>บาท</th>
                                 </tr>
                                 <tr>
                                     <th></th>
                                     <th>&nbsp&nbsp&nbsp&nbspเงินที่ได้รับแล้ว</th>
-                                    <th style="text-align: end;">10000</th>
+                                    <th style="text-align: end;"><?= $b['BG2']?></th>
                                     <th>บาท</th>
                                 </tr>
                                 <tr>
                                     <th></th>
                                     <th>&nbsp&nbsp&nbsp&nbspเงินที่ยังไม่ได้รับ</th>
-                                    <th style="text-align: end;">10000</th>
+                                    <th style="text-align: end;"><?= $b['BG2']?></th>
                                     <th>บาท</th>
                                 </tr>
 
@@ -105,7 +117,7 @@ $b = $budget->AllBG();
                                 <tr>
                                     <th width='10%'></th>
                                     <th width='50%' >รวม หนี้สิน+ทุน</th>
-                                    <th width='25%' style="text-align: end;">10000</th>
+                                    <th width='25%' style="text-align: end;"><?= $b['BG3']?></th>
                                     <th width='10%'>บาท</th>
                                 </tr>
                                 <tr>
@@ -129,69 +141,6 @@ $b = $budget->AllBG();
 
                             </table>
                         </div>
-                        <!--- <div class="row ">
-                        <div class="col y">
-                            <h5 class="cb">รวม สินทรัพย์</h5>
-                        </div>
-                        <div class="col d-flex justify-content-around">
-                            1,000,000.00
-                        </div>
-                    </div>
-                    <div class="mam">
-                        <div class="row">
-                            <div class="col">สินค้าที่พร้อมขาย</div>
-                            <div class="col mamm">
-                                <span id="price" class="price" name="price">0</span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">เงินที่ได้รับแล้ว</div>
-                            <div class="col mamm">
-                                <span id="pricesales" class="pricesales" name="pricesales">0</span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">เงินที่ยังไม่ได้รับ</div>
-                            <div class="col mamm">
-                                1,000,000.00
-                            </div>
-                        </div>
-                    </div>
-                        <br>
-                        
-                        <p></p>
-                        <div class="row">
-                            <div class="col y">
-                                <h5 class="cb">รวม หนี้สิน+ทุน</h5>
-                            </div>
-                            <div class="col kk">
-                                250,000.00
-                            </div>
-                        </div>
-                        <div class="mam">
-                            <div class="row">
-                                <div class="col">ทุน</div>
-                                <div class="col mamm">
-                                    
-                                    <span id="all_price_odr" class="all_price_odr" name="all_price_odr">0</span>
-                                </div>
-                            </div>
-                            <div class="mam">
-                                <div class="row">
-                                    <div class="col">หนี้สิน(เครดิต)</div>
-                                    <div class="col mamm">
-                                        <?= $b['all_price_odr'] ?>
-                                        <span id="all_price_odr" class="all_price_odr" name="all_price_odr">0</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col">หนี้สิน(เครดิต)</div>
-                                <div class="col mamm">
-                                    1,000,000.00
-                                </div>
-                            </div>
-                        </div>--->
                     </div>
                 </div>
             </div>
@@ -200,5 +149,22 @@ $b = $budget->AllBG();
 </body>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./src/js/budget.js"></script>
+<script>
+    function loadPDF() {
+    if ($('#firstdate').val() && $('#firstdate').val() != "" && $('#lastdate').val() && $('#lastdate').val() != "") {
+        var form = $('<form action="./service/PDF/template/budget.php" method="post">' +
+        '<input type="hidden" name="BG1" value="<?=$b['BG1']?>" />' +
+        '<input type="hidden" name="BG2" value="<?=$b['BG2']?>" />' +
+        '<input type="hidden" name="BG3" value="<?=$b['BG3']?>" />' +
+        '<input type="hidden" name="firstdate" value="<?=$firstdate?>" />' +
+        '<input type="hidden" name="lastdate" value="<?=$lastdate?>" />' +
+        '<input type="hidden" name="credit" value="<?=$b['credit']?>" />' +
+        '<input type="hidden" name="cash" value="<?=$b['cash']?>" />' +
+        '</form>');
+        $('body').append(form);
+        $(form).submit();
+    }
+}
+</script>
 
 </html>
