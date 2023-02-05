@@ -21,7 +21,7 @@
 }
 
 .mai {
-    margin-left: 50rem;
+    margin-left: 56rem;
     margin-bottom: 2rem;
 }
 
@@ -68,7 +68,6 @@ select {
 .btn-d {
     border-radius: 25px 25px 25px 25px;
     background-color: #F8E4C8;
-    border: 0ch;
     margin-left: 5rem;
     font-size: 16pt;
     height: 90%;

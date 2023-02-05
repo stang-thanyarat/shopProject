@@ -53,13 +53,13 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
         <form action="salehistory.php" method="get">
             <div class="row">
                 <div class="col-5 datetodate">
-                    <input value="<?= isset($_GET['start']) ? $_GET['start']:'' ?>" class="dateS" type="date" name="start" id="firstdate">
+                    <input value="<?= date('Y-m-d') ?>" value="<?= isset($_GET['start']) ? $_GET['start']:'' ?>" class="dateS" type="date" name="start" id="firstdate">
                     ถึง&nbsp&nbsp
-                    <input value="<?= isset($_GET['end'])? $_GET['end'] :'' ?>" class="star" type="date" name="end">
+                    <input value="<?= date('Y-m-d') ?>" value="<?= isset($_GET['end'])? $_GET['end'] :'' ?>" class="star" type="date" name="end">
                     <button type="submit" class="s"><img src="./src/images/search.png" width="20"></button>
                 </div>
-                    <div class="col-1 d-flex justify-content-end BT">
-                    <button type="button" onclick="window.location= 'salehistory.php'" class="btn-c reset">ล้างข้อมูล</button>
+                    <div class="col-2 d-flex justify-content-end BT">
+                    <button type="button" onclick="window.location= 'salehistory.php'" class="btn-c reset">ล้างข้อมูลการค้นหา</button>
                 </div>
             </div>
         </form>

@@ -82,7 +82,7 @@ function getFullRole($role)
                         <input type="text" name="sell_website" id="sell_website" class="bb" />
                     </div>
                 </div>
-                <div class="row th">
+                <div class="row-6 th">
                     <h5 class="tt">ข้อมูลผู้ติดต่อ</h5>
                 </div>
                 <div class="row">
@@ -129,7 +129,7 @@ function getFullRole($role)
                 <div class="row-3 leftpng">
                     <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB </h5>
                 </div>
-                <div class="row tb">
+                <div class="row-6 tb">
                     <h5 class="ttb">บัญชีรับเงินของผู้ขาย</h5>
                 </div>
                 <div class="row-2 ma">
@@ -163,6 +163,7 @@ function getFullRole($role)
                 <div class="row leftpng">
                     <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
                 </div>
+                 
                 <div class="row">
                     <div class="col leftnote">
                         <label for="note">หมายเหตุ :&nbsp;</label>

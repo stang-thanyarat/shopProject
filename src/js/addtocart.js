@@ -1,6 +1,7 @@
 //ส่วนรับรายการสินค้า
 let ALL;
 $(document).ready(async function () {
+    $('#pay_C').hide()
     let list = []
     let order = JSON.parse(localStorage.getItem('cart'))
     if (!order || order.length == 0 || localStorage.getItem('cart') === null) {
@@ -155,8 +156,10 @@ $('#receivecash').keyup(()=>{
     const change = Number($('#receivecash').val()) - Number($(".all_price").val())
     if(change>=0){
         $('#change').val(change)
+        $('#pay_C').show()
     }else{
         $('#change').val('')
+        $('#pay_C').hide()
     }
 })
 
@@ -178,9 +181,11 @@ $("#form1").submit(async function (event)
             icon: 'success',
             text: 'บันทึกข้อมูลเสร็จสิ้น',
             timer: 3000
-        }).then(() => {
+        }).then(async () => {
             localStorage.clear()
-            window.location = './index.php'
+            let lastID = await (await fetch('controller/GetLastIdSales.php')).text()
+            window.location = './service/PDF/template/receipt.php?id='+lastID
+            window.location = 'productlist.php'
         })
     }
 });

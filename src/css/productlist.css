@@ -38,7 +38,6 @@ th {
 .btnd {
     background-color: #F8E4C8;
     border-radius: 25px;
-    border: 1ch;
     height: 85%;
     width: 90%;
     font-size: 16pt;
@@ -73,7 +72,7 @@ th {
 .btn-d {
     border-radius: 25px 25px 25px 25px;
     background-color: #F8E4C8;
-    border: 0ch;
+    border-radius: 25px;
     width: 65%;
     margin-left: 5rem;
 }

@@ -59,7 +59,7 @@ $sells = $sell->fetchAll();
                 <thead>
                 <tr>
                     <div class="row">
-                        <div class="col-11">
+                        <div class="col-11 mm">
                             <th>&nbsp รายละเอียดสินค้า</th>
                         </div>
                     </div>

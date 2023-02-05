@@ -125,7 +125,7 @@ include_once('nav.php');
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary1">ตกลง</button>
+                    <button type="submit" id="pay_C" class="btn btn-primary1">ตกลง</button>
                 </div>
             </div>
         </div>

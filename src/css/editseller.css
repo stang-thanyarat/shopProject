@@ -26,18 +26,18 @@
     margin-top: 3.5rem;
 }
 
-.th {
+/*.th {
     width: 200px;
     height: 60px;
     border: 2px solid brown;
     box-sizing: border-box;
     margin-left: 2rem;
     margin-top: 2rem;
-}
+}*/
 
 .tt {
-    margin-top: 0.5rem;
-    margin-left: 1rem;
+    margin-top: 2rem;
+    margin-left: 3rem;
 }
 
 .bb {
@@ -184,21 +184,21 @@
     margin-top: 1rem;
 }
 
-.tb {
+/*.tb {
     width: 280px;
     height: 60px;
     border: 2px solid brown;
     margin-left: 2rem;
     margin-top: 2rem;
-}
+}*/
 
 .ttb {
-    margin-top: 0.5rem;
-    margin-left: 1rem;
+    margin-top: 2rem;
+    margin-left: 3rem;
 }
 
 .ma {
-    margin-left: 55rem;
+    margin-left: 52rem;
 }
 
 .mai {

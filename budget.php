@@ -48,7 +48,7 @@ $b = $budget->fetchAll();
                     <div class="col">
                         <h5 class="tt">งบแสดงฐานะการเงิน</h5>
                         <div class="th"></div>
-                        <div class="d-flex flex-row-reverse ttt">
+                        <div class="d-flex justify-content-end">
                             <button type="button" onclick="loadPDF()" class="g "><img src="./src/images/download.png " width="25">&nbsp;
                                 ดาวน์โหลด
                             </button>
@@ -199,6 +199,6 @@ $b = $budget->fetchAll();
     </form>
 </body>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-<script src="./src/js/budge.js"></script>
+<script src="./src/js/budget.js"></script>
 
 </html>
