@@ -55,7 +55,7 @@ $b = $budget->fetchAll();
                         </div>
                     </div>
                     <div class="row main q">
-                        <div class="col-12 a">
+                        <div class="col-12 a">วันที่ขาย : 
                             <input type="date" value="<?= date('Y-m-d') ?>" id="firstdate" name="firstdate" required>&nbsp
                             ถึง &nbsp<input type="date" value="<?= date('Y-m-d') ?>" id="lastdate" name="lastdate" required>
                             <button type="submit" class="s" id="search" name="search"><img src="./src/images/search.png" width="13"></button>
