@@ -2,8 +2,7 @@
 include_once('../database/Budget.php');
 if(!isset($_GET['firstdate'])&&(!isset($_GET['lastdate']))){
     $budget = new Budget();
-    $rows = $budget->fetchAll();
-    echo json_encode($rows);
+    echo $budget->AllBG();
 }
 else if(isset($_GET['firstdate'])&&(isset($_GET['lastdate']))){
     $budget = new Budget();

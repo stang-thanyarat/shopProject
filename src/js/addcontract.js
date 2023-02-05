@@ -100,12 +100,21 @@ $("#form1").submit(async function (event) {
                     body: formdata
                 }),
             ]
-        ).then(() => {
+        ).then( async () => {
             loopInsert()
+            let lastID = await (await fetch('controller/GetLastIdContract.php')).text()
+            var formdata1 = new FormData();
+            formdata1.append("contract_code", lastID);
+            formdata1.append("payment_amount", AllPrice);
+            formdata1.append("form_action", "insertInit");
+            formdata1.append("table", "debtPaymentDetails");
+           await fetch('controller/DebtPaymentDetails.php', {
+                method: 'POST',
+                body: formdata1
+            }),
             Swal.fire({
                 icon: 'success',
                 text: 'บันทึกข้อมูลเสร็จสิ้น',
-                timer: 3000
             }).then(() => {
                 localStorage.clear()
                 window.location = './index.php'

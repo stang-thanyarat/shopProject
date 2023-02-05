@@ -1,3 +1,10 @@
+let AllPrice =0;
+
+function getAllprice(price) {
+    AllPrice = price
+}
+
+
 $(document).ready(function () {
     $("#slip_upload").hide()
     localStorage.clear()
@@ -5,43 +12,28 @@ $(document).ready(function () {
 });
 
 //เพิ่มสินค้า
-$("#addrepay").submit(function (event) {
+$("#addrepay").submit( async function (event) {
     event.preventDefault();
-    let tableObj = JSON.parse(localStorage.getItem("tableRepay"))
-    const i = $('#list-repay').children().length + 1
-    if ($('#typeproduct').val() === "" || $('#listproduct').val() === "" || $('#brand').val() === "" || $('#productmodel').val() === "" || $('#unitprice').val() === "" || $('#amount').val() === "") {
-        $('#addtable').blur()
+    if ($('#paymentamount').val() === "" || $('#payment_sl').val() === "" || $('#deduct').val() === "" || $('#lessinterest').val() === "" || $('#lessinterest').val() === "" || $('#outstanding').val() === "") {
         return
     }
-    $('#list-repay').append(`<tr id="rr${i}">
-                    <th>${$('#repaymentdate').val()}</th>
-                    <th>${$('#payment').val()}</th>
-                    <th>${$('#slip').val()}</th>
-                    <th>${$('#paymentamount').val()}</th>
-                    <th>${$('#deduct').val()}</th>
-                    <th>${$('#lessinterest').val()}</th>
-                    <th>${$('#outstanding').val()}</th>
-                    
-                </tr>`)
-    $('#addclose').click()
-    tableObj.data.push({
-        repay: $('#repaymentdate').val(),
-        pay: $('#payment').val(),
-        slip: $('#slip').val(),
-        payAmount: $('#paymentamount').val(),
-        deduct: $('#deduct').val(),
-        lessinterest: $('#lessinterest').val(),
-        outstanding: $('#outstanding').val(),
-        //outstanding: Number($('#paymentamount').val()) - Number($('#deduct').val()) - Number($('#lessinterest').val())
-    })
-    localStorage.setItem("tableRepay", JSON.stringify(tableObj))
-    $('#repaymentdate').val("")
-    $('#payment').val("")
-    $('#slip').val("")
-    $('#paymentamount').val("")
-    $('#deduct').val("")
-    $('#lessinterest').val("")
-    $('#outstanding').val("")
+    let lastID = await (await fetch('controller/GetLastIdContract.php')).text()
+    var formdata1 = new FormData();
+    formdata1.append("contract_code", lastID);
+    formdata1.append("payment_amount", $('#paymentamount').val());
+    formdata1.append("payment", $('#payment_sl').val());
+    formdata1.append("deduct_principal", $('#deduct').val());
+    formdata1.append("less_interest", $('#lessinterest').val());
+    formdata1.append("outstanding", $('#outstanding').val());
+    formdata1.append("form_action", "insert");
+    formdata1.append("table", "debtPaymentDetails");
+    var requestOptions = {
+        method: 'POST',
+        body: formdata1,
+        redirect: 'follow'
+    };
+    await fetch("controller/DebtPaymentDetails.php", requestOptions)
+    //location.reload()
 });
 
 

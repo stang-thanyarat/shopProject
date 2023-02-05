@@ -33,7 +33,7 @@ function getFullRole($role)
 include_once('nav.php');
 include_once('./database/Budget.php');
 $budget = new Budget();
-$b = $budget->fetchAll();
+$b = $budget->AllBG();
 ?>
 
 <body>
@@ -77,7 +77,7 @@ $b = $budget->fetchAll();
                                 <tr>
                                     <th></th>
                                     <th>&nbsp&nbsp&nbsp&nbspสินค้าที่พร้อมขาย</th>
-                                    <th style="text-align: end;">10000 </th>
+                                    <th style="text-align: end;"><?= $budget->AllBG();?> </th>
                                     <th>บาท</th>
                                 </tr>
                                 <tr>
@@ -199,6 +199,6 @@ $b = $budget->fetchAll();
     </form>
 </body>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-<script src="./src/js/budge.js"></script>
+<script src="./src/js/budget.js"></script>
 
 </html>
