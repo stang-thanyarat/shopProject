@@ -1,6 +1,18 @@
 <?php
-
+require_once '../../../database/DailyBestSeller.php';
+require_once '../../bahtText.php';
 require_once '../vendor/autoload.php';
+require_once '../../../controller/Redirection.php';
+if (!isset($_GET['id'])) {
+  echo "Not found.";
+  exit;
+}
+$d = new DailyBestSeller();
+$data = $d->fetchBySalesListId($_GET['id']);
+if (count($data) <= 0) {
+  echo "Not found.";
+  exit;
+}
 $defaultConfig = (new Mpdf\Config\ConfigVariables())->getDefaults();
 $fontDirs = $defaultConfig['fontDir'];
 $defaultFontConfig = (new Mpdf\Config\FontVariables())->getDefaults();
@@ -31,7 +43,21 @@ $mpdf = new \Mpdf\Mpdf([
   'defaultPageNumStyle' => 1
 ]);
 
-include_once "../PDF.php";
+
+$r = '';
+$c = 1;
+$p = 0;
+foreach ($data as $row) {
+  $r .= '<tr>
+  <td width="140" class="setcenter">' . $c . '</td>
+  <td width="426">&nbsp; ' . $row['product_name'] . '</td>
+  <td width="162" class="setcenter">' . $row['product_name'] . '</td>
+  <td width="304" class="setright"> ' . $row['sales_amt'] . ' &nbsp;</td>
+  <td width="238" class="setright"> ' . $row['price'] * $row['sales_amt'] . ' &nbsp;</td>
+</tr>';
+  $c++;
+  $p += $row['price'] * $row['sales_amt'];
+}
 $html = '<html>
 <head>
 <style type="text/css">
@@ -81,19 +107,9 @@ h2{
  <td>
  <table width="1138" border="0">
       <tr>
-        <td width="546">ลูกค้า : xxx </td>
-        <td width="373">เล่มที่ : xxx </td>
-        <td width="205">เลขที่ : xxx </td>
-      </tr>
-      <tr>
-        <td>ที่อยู่ : xxx </td>
-        <td>วันที่ : xxx</td>
-        <td>เวลา : xxx</td>
-      </tr>
-      <tr>
-        <td>เลขประจำตัวผู้เสียภาษี : xxx </td>
-        <td>เบอร์โทรติดต่อ : xxx</td>
-        
+        <td>ฉบับที่ : ' . $_GET['id'] . '</td>
+        <td>&nbsp;&nbsp;วันที่ : ' . date('d/m') . (date('Y') + 543) . '</td>
+        <td>&nbsp;&nbsp;เวลา : ' . date('H:i') . '</td>
       </tr>
     </table>
     </td>
@@ -112,33 +128,25 @@ h2{
     <td width="128" class="setcenter">จำนวนเงิน </td>
   </tr>
       </tr>
+      ' . $r . '
       <tr>
-      <td width="140" class="setcenter"> 1</td>
-      <td width="426">&nbsp; ใบตัดหญ้า</td>
-      <td width="162" class="setcenter"> 3</td>
-      <td width="304" class="setright"> 150 &nbsp;</td>
-      <td width="238" class="setright"> 450 &nbsp;</td>
-      </tr>
-      <tr>
-      <td  colspan="3">หมายเหตุ : xxx</td>
-      <td width="304" class="setright">ยอดรวม : xxx &nbsp;</td>
-      <td width="238" class="setright">xxx &nbsp;</td>
-    </tr>
-     <tr>
-      <td colspan="3">&nbsp;</td>
-      <td width="304" class="setright">ยอดรวมสุทธิ : xxx &nbsp;</td>
-      <td width="238" class="setright">xxx &nbsp;</td>
+      <td  colspan="3">หมายเหตุ : </td>
+      <td width="304" class="setright">ยอดรวมสุทธิ : &nbsp;</td>
+      <td width="238" class="setright">' . $p . ' &nbsp;</td>
     </tr>
    </table>
       </td>
    </tr>
-   <tr>
-       <td colspan="2" class="setright">สองร้อยสิบบาทถ้วน &nbsp;</td>
-   </tr>
+   
    </table>
+   <br>
+   <div class="setright" style="font-size:20pt;">
+    ' . bahtText($p) . ' &nbsp;
+  </div>
 </body>
 </html>
 ';
 
 $mpdf->WriteHTML($html);
-$mpdf->Output($output, 'I');
+$mpdf->Output($output, 'D');
+

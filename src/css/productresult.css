@@ -54,7 +54,6 @@ th {
 .btnd{
     background-color: #F8E4C8;
     border-radius: 25px;
-    border: 1ch;
     width: 85%;
     height: 100%;
 }
@@ -191,7 +190,7 @@ input:checked+.slider:before {
 
 .z{
     font-size: 16pt;
-    margin-left: 41rem;
+    margin-left: 45rem;
    
 }
 
