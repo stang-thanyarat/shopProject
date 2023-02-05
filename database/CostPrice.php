@@ -36,7 +36,7 @@ class CostPrice
         $stmt->bindParam(1, $start, PDO::PARAM_STR);
         $stmt->bindParam(2, $end, PDO::PARAM_STR);
         $stmt->execute();
-        $result = $stmt->fetchAll();
+        $result = $stmt->fetch();
         return $result;
     }
 }

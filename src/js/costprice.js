@@ -1,14 +1,10 @@
-$("#start"), $("#end").change(async function () {
-    if ($("#start").val(), $("#end").val() !== "") {
-        let url = `./controller/CostPrice.php?date=${$("#start").val()}&${$("#end").val("")}`
-        const product = await (await fetch(url)).json()
-        setUI(product)
-    } else {
-        let url = './controller/CostPrice.php'
+$("#search").click(async function () {
+    if ($("#start").val() !== "" && $("#end").val() !== "") {
+        let url = `./controller/Costprice.php?&start=${$("#start").val()}&end=${$("#end").val()}`
         const product = await (await fetch(url)).json()
         setUI(product)
     }
-})
+});
 
 async function start() {
     let url = './controller/CostPrice.php'
