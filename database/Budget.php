@@ -12,7 +12,7 @@ class Budget
 
     public function fetchAll()
     {
-        $sql = "SELECT SUM(all_price_odr) FROM order_tb WHERE all_price_odr";
+        $sql = "SELECT P.*,SA.*,O.* FROM product_tb P,sales_tb SA,order_tb O WHERE P.product_id = SA.sales_list_id = O.order_id ";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll();
