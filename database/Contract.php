@@ -123,29 +123,18 @@ class Contract
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             $sql = "INSERT INTO contract_tb (date_contract, employee_id, /*sales_list_id,*/ customer_prefix, contract_details, 
-                    witness1_prefix, witness1_name, witness1_lastname,
-                    witness2_prefix, witness2_name, witness2_lastname,
-                    witness3_prefix, witness3_name, witness3_lastname,
-            customer_firstname, customer_lastname, customer_img, date_send/*, contract_attachment*/) 
-            VALUES (DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? DAY),?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?/*,?,?*/)";
+            customer_firstname,date_send, customer_lastname, customer_img, product_detail/*, contract_attachment*/) 
+            VALUES (DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? DAY),?,?,?,?,?,?,?,?/*,?,?*/)";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $data['date_contract'], PDO::PARAM_STR);
             $stmt->bindParam(2, $data['employee_id'], PDO::PARAM_INT);
             $stmt->bindParam(3, $data['customer_prefix'], PDO::PARAM_STR);
             $stmt->bindParam(4, $data['contract_details'], PDO::PARAM_STR);
-            $stmt->bindParam(5, $data['witness1_prefix'], PDO::PARAM_STR);
-            $stmt->bindParam(6, $data['witness1_name'], PDO::PARAM_STR);
-            $stmt->bindParam(7, $data['witness1_lastname'], PDO::PARAM_STR);
-            $stmt->bindParam(8, $data['witness2_prefix'], PDO::PARAM_STR);
-            $stmt->bindParam(9, $data['witness2_name'], PDO::PARAM_STR);
-            $stmt->bindParam(10, $data['witness2_lastname'], PDO::PARAM_STR);
-            $stmt->bindParam(11, $data['witness3_prefix'], PDO::PARAM_STR);
-            $stmt->bindParam(12, $data['witness3_name'], PDO::PARAM_STR);
-            $stmt->bindParam(13, $data['witness3_lastname'], PDO::PARAM_STR);
-            $stmt->bindParam(14, $data['customer_firstname'], PDO::PARAM_STR);
-            $stmt->bindParam(15, $data['customer_lastname'], PDO::PARAM_STR);
-            $stmt->bindParam(16, $data['customer_img'], PDO::PARAM_STR);
-            $stmt->bindParam(17, $data['date_send'], PDO::PARAM_STR);
+            $stmt->bindParam(5, $data['customer_firstname'], PDO::PARAM_STR);
+            $stmt->bindParam(6, $data['customer_lastname'], PDO::PARAM_STR);
+            $stmt->bindParam(7, $data['customer_img'], PDO::PARAM_STR);
+            $stmt->bindParam(8, $data['date_send'], PDO::PARAM_STR);
+            $stmt->bindParam(9, $data['product_detail'], PDO::PARAM_STR);
             //$stmt->bindParam(12, $data['contract_attachment'], PDO::PARAM_STR);
             //$stmt->bindParam(12, $data['sales_list_id'], PDO::PARAM_INT);
             $stmt->execute();
@@ -169,9 +158,6 @@ class Contract
             $stmt->bindParam(2, $data['employee_id'], PDO::PARAM_INT);
             $stmt->bindParam(3, $data['customer_prefix'], PDO::PARAM_STR);
             $stmt->bindParam(4, $data['contract_details'], PDO::PARAM_STR);
-            $stmt->bindParam(5, $data['witness1'], PDO::PARAM_STR);
-            $stmt->bindParam(6, $data['witness2'], PDO::PARAM_STR);
-            $stmt->bindParam(7, $data['witness3'], PDO::PARAM_STR);
             $stmt->bindParam(8, $data['customer_firstname'], PDO::PARAM_STR);
             $stmt->bindParam(9, $data['customer_lastname'], PDO::PARAM_STR);
             $stmt->bindParam(10, $data['customer_img'], PDO::PARAM_STR);

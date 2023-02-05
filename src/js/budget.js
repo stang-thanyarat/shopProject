@@ -1,9 +1,4 @@
-function loadPDF() {
-    if ($('#firstdate').val() && $('#firstdate').val() != "" && $('#lastdate').val() && $('#lastdate').val() != "") {
-        let path = `./service/PDF/template/budget.php?startDate=${$('#firstdate').val() && $('#firstdate').val() != "" ? $('#firstdate').val() : ""}&endDate=${$('#lastdate').val() && $('#lastdate').val() != "" ? $('#lastdate').val() : ""}&summary=1000000&debt=250000`
-        window.location = path
-    }
-}
+
 
 /*$("#search").click(async function () {
     if ($('#firstdate').val() !== "" && $('#lastdate').val() !== "") {
@@ -12,7 +7,7 @@ function loadPDF() {
         setUI(product)
     }
 });*/
-
+/*
 async function start() {
     let url = './controller/Budget.php'
     const product = await (await fetch(url)).json()
@@ -34,7 +29,7 @@ function setUI() {
         $("#priceorder").val(allpriceorder)
 
 }
-
+*/
 /*function setUI(data) {
     let c = 0
     $('#dailybestsellerTable').html('')
