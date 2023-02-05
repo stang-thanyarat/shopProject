@@ -184,6 +184,7 @@ for ($i = 0; $i < count($banks); $i++) {
                         } ?>
                     </tbody>
                 </table>
+                <br>
                 <div class="row">
                     <div class="col leftfile2">
                         นามบัตร : <input type="file" accept="image/*" name="seller_cardname" id="seller_cardname" class="bb">
@@ -195,6 +196,7 @@ for ($i = 0; $i < count($banks); $i++) {
                 <div class="row leftpng">
                     <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
                 </div>
+                <br>
                 <div class="row">
                     <div class="col leftnote">
                         <label for="sell_note">หมายเหตุ :&nbsp;</label>

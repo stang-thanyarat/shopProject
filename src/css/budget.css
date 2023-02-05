@@ -48,7 +48,7 @@ body{
     width: 130px;
     border: 0in;
     background-color: #ABBE99;
-    margin-top: -1.9rem;
+    margin-top: -3.4rem;
 }
 
 .tt {
@@ -63,10 +63,6 @@ body{
     box-sizing: border-box;
     margin-left: 0.7rem;
     margin-top: -2.5rem;
-}
-
-.ttt {
-    margin-top: -1.2rem;
 }
 
 .s {

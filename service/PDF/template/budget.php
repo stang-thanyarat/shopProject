@@ -136,6 +136,7 @@ border: 0px;
 <td align="right" width="20%">xxx</td>
 <td width="20%">บาท</td>
 </tr>
+
   <tr>
     <td class="t">&nbsp;&nbsp;หนี้สิน+ทุน</td>
   </tr>

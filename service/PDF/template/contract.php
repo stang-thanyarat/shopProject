@@ -63,20 +63,20 @@ h2{
     <td colspan="2" class="setcenter"><h2>สัญญาซื้อขาย</h2></td>
   </tr>
   <tr>
-    <td>ฉบับที่ : '.$data['contract_code'].'</td>
-    <td class="setright">วันที่ทำสัญญา : '.$data['date_contract'].'</td>
+    <td>ฉบับที่ : ' . $_GET['id'] . '</td>
+    <td class="setright">วันที่ทำสัญญา : ' . date('d/m') . (date('Y') + 543) . '</td>
   </tr>
   <tr>
-    <td colspan="2">ข้าพเจ้า '.$data['employee_prefix'].$data['employee_firstname'].'  '.$data['employee_lastname'].' ซึ่งต่อไปในหนังสือสัญญานี้เรียกว่าผู้ขายฝ่ายหนึ่งกับ</td>
+    <td colspan="2">ข้าพเจ้า ' . $_GET['employee_prefix'] . $_GET['employee_firstname'] . $_GET['employee_lastname'] .' ซึ่งต่อไปในหนังสือสัญญานี้เรียกว่าผู้ขายฝ่ายหนึ่งกับ</td>
   </tr>
   <tr class="setcenter">
     <td colspan="2">
     <table border="0">
       <tr>
-        <td width="454">ข้าพเจ้า : '.$data['customer_prefix'].'</td>
-        <td width="530">ชื่อ : '.$data['customer_firstname'].'</td>
-        <td width="454">นามสกุล : '.$data['customer_lastname'].'</td>
-        <td width="530">รหัสบัตรประชาชน : '.$data['customer_img'].'</td>
+        <td width="454">ข้าพเจ้า : ' . $_GET['customer_prefix'] . '</td>
+        <td width="530">ชื่อ : ' . $_GET['customer_firstname'] . '</td>
+        <td width="454">นามสกุล : ' . $_GET['customer_lastname'] . '</td>
+        <td width="530">รหัสบัตรประชาชน : ' . $_GET['customer_img'] . '</td>
       </tr>
       </table>
       </td>
@@ -84,16 +84,16 @@ h2{
      <tr>
     <td colspan="2">ซึ่งต่อไปในหนังสือสัญญานี้เรียกว่าผู้ซื้อฝ่ายหนึ่ง ทั้งสองฝ่ายตกลงทำสัญญาซื้อขายทรัพย์สินมีดังข้อความต่อไปนี้</td>
   <tr>
-      <td colspan="2">ข้อ ๑ ผู้ขายได้ขาย : xxx</td>
+      <td colspan="2">ข้อ ๑ ผู้ขายได้ขาย : ' . $_GET['product'] . '</td>
   </tr>
   <tr>
-      <td colspan="2">ให้แก่ผู้ซื้อเป็นจำนวนเงิน xxx บาท '.number_format($date['all_price'], 2, '.', '').' สตางค์ ('.bahtText($date['all_price']).')</td>
+      <td colspan="2">ให้แก่ผู้ซื้อเป็นจำนวนเงิน xxx บาท xxx สตางค์ (xxx)</td>
   </tr>
   <tr>
-      <td colspan="2">และยอมส่งมอบทรัพย์สินที่ขายให้แก่ผู้ซื้อวันที่ '.$data['date_send'].' และผู้ขายได้รับราคาดังกล่าวแล้วไปจากผู้ซื้อเสร็จแล้วตั้งแต่วันที่ '.$data['	contract_details'].' </td>
+      <td colspan="2">และยอมส่งมอบทรัพย์สินที่ขายให้แก่ผู้ซื้อวันที่ xxx และผู้ขายได้รับราคาดังกล่าวแล้วไปจากผู้ซื้อเสร็จแล้วตั้งแต่วันที่ xxx </td>
   </tr>
   <tr>
-      <td colspan="2">ข้อ ๓ : '.$data['contract_details'].'</td>
+      <td colspan="2">ข้อ ๓ : xxx</td>
   </tr>
 <tr>
       <td colspan="2">ข้อ ๔ ผู้ขายและผู้ซื้อได้ทราบข้อความในสัญญานี้ดีแล้ว จึงได้ลงลายมือชื่อไว้ในสัญญานี้เป็นหลักฐาน</td>
@@ -105,33 +105,33 @@ h2{
     <td colspan="2">
     <table border="0">
       <tr>
-        <td width="900" class="setright">ลงชื่อ '.json_decode($data['	witness1'])['prefix'].'  &nbsp;&nbsp;</td>
-        <td width="374">ชื่อ : '.json_decode($data['witness1'])['name'].'</td>
-        <td width="406">นามสกุล : '.json_decode($data['witness1'])['lastname'].'</td>
+        <td width="900" class="setright">ลงชื่อ xxx  &nbsp;&nbsp;</td>
+        <td width="374">ชื่อ : xxx</td>
+        <td width="406">นามสกุล : xxx</td>
         <td width="284">พยานคนที่ 1</td>
       </tr>
       <tr>
-        <td width="494" class="setright">ลงชื่อ '.json_decode($data['	witness2'])['prefix'].' &nbsp;&nbsp;</td>
-        <td width="374">ชื่อ : '.json_decode($data['witness2'])['name'].'</td>
-        <td width="406">นามสกุล : '.json_decode($data['witness2'])['lastname'].'</td>
+        <td width="494" class="setright">ลงชื่อ xxx &nbsp;&nbsp;</td>
+        <td width="374">ชื่อ : xxx</td>
+        <td width="406">นามสกุล : xxx</td>
         <td width="284">พยานคนที่ 2</td>
       </tr>
       <tr>
-        <td width="494" class="setright">ลงชื่อ '.json_decode($data['	witness3'])['prefix'].'  &nbsp;&nbsp;</td>
-        <td width="374">ชื่อ : '.json_decode($data['witness3'])['name'].'</td>
-        <td width="406">นามสกุล : '.json_decode($data['witness3'])['lastname'].'</td>
+        <td width="494" class="setright">ลงชื่อ xxx  &nbsp;&nbsp;</td>
+        <td width="374">ชื่อ : xxx</td>
+        <td width="406">นามสกุล : xxx</td>
         <td width="284">พยานคนที่ 3</td>
       </tr>
       <tr>
-        <td width="494" class="setright">ลงชื่อ '.$data['employee_prefix'].'  &nbsp;&nbsp;</td>
-        <td width="374">ชื่อ : '.$data['employee_firstname'].'</td>
-        <td width="406">นามสกุล : '.$data['employee_lastname'].'</td>
+        <td width="494" class="setright">ลงชื่อ xxx  &nbsp;&nbsp;</td>
+        <td width="374">ชื่อ : xxx</td>
+        <td width="406">นามสกุล : xxx</td>
         <td width="284">ผู้ขาย</td>
       </tr>
       <tr>
-        <td width="494" class="setright">ลงชื่อ '.$data['customer_prefix'].'  &nbsp;&nbsp;</td>
-        <td width="374">ชื่อ : '.$data['customer_firstname'].'</td>
-        <td width="406">นามสกุล : '.$data['customer_lastname'].'</td>
+        <td width="494" class="setright">ลงชื่อ xxx  &nbsp;&nbsp;</td>
+        <td width="374">ชื่อ : xxx</td>
+        <td width="406">นามสกุล : xxx</td>
         <td width="284">ผู้ซื้อ</td>
       </tr>
       </table>

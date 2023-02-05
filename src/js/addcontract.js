@@ -23,10 +23,11 @@ $(document).ready(async function () {
         baht = Number((price + '').split('.')[0])
         stang = Number((price + '').split('.')[1]) ? Number((price + '').split('.')[1]) : 0
         baht_text = bahttext(price)
-        $("#product").html(text)
+        $("#product_detail").html(text)
         $("#baht").val(baht)
         $("#stang").val(stang)
         $("#stangt").val(baht_text)
+
     }
 });
 
@@ -102,14 +103,14 @@ $("#form1").submit(async function (event) {
             ]
         ).then(() => {
             loopInsert()
-            Swal.fire({
+           /* Swal.fire({
                 icon: 'success',
                 text: 'บันทึกข้อมูลเสร็จสิ้น',
                 timer: 3000
             }).then(() => {
                 localStorage.clear()
                 window.location = './index.php'
-            })
+            })*/
 
         })
     }
