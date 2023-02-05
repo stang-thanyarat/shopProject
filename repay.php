@@ -103,16 +103,17 @@ for ($i = 0; $i < count($$rows); $i++) {
                         </tr>
                     </thead>
                     <tbody id="list-repay">
+                    <?php foreach ($rowa as $r){ ?>
                         <tr>
-                            <th><?= $rowa['repayment_date'] ?></th>
-                            <th><?= $rowa['payment'] ?></th>
-                            <th><?= $rowa['slip_img'] ?></th>
-                            <th><?= $rowa['payment_amount'] ?></th>
-                            <th><?= $rowa['deduct_principal'] ?></th>
-                            <th><?= $rowa['less_interest'] ?></th>
-                            <th><?= $rowa['outstanding'] ?></th>
+                            <th><?= $r['repayment_date'] ?></th>
+                            <th><?= $r['payment'] ?></th>
+                            <th><?= $r['slip_img'] ?></th>
+                            <th><?= $r['payment_amount'] ?></th>
+                            <th><?= $r['deduct_principal'] ?></th>
+                            <th><?= $r['less_interest'] ?></th>
+                            <th><?= $r['outstanding'] ?></th>
                         </tr>
-
+                    <?php }?>
                     </tbody>
                 </table>
                 <div class="row btn-g">
@@ -174,5 +175,5 @@ for ($i = 0; $i < count($$rows); $i++) {
 </body>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./src/js/repay.js"></script>
-
+<script> getAllprice(<?=$rows['less_interest']?>) </script>
 </html>

@@ -22,11 +22,30 @@ class Contract
     public function fetchById($id)
     {
         try {
-            $sql = "SELECT * FROM contract_tb WHERE contract_code = ?";
+            $sql = "SELECT C.*,D.* FROM contract_tb C, debt_payment_details_tb D WHERE C.contract_code = D.contract_code AND C.contract_code = ?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
+    }
+
+    public function getLastId(){
+        $data = $this->fetchLast();
+        return $data['contract_code'];
+    }
+
+    public function fetchLast() //Contract
+    {
+        try {
+            $sql = "SELECT * FROM contract_tb ORDER BY contract_code DESC LIMIT 1";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetch( PDO::FETCH_ASSOC);
             return $result;
         } catch (Exception $e) {
             http_response_code(500);

@@ -13,6 +13,9 @@ if (isset($_POST)) {
         } else if ($_POST['form_action'] === 'insert') {
             $debtPaymentDetails->insert($_POST);
         }
+        else if ($_POST['form_action'] === 'insertInit') {
+            $debtPaymentDetails->insertinit($_POST);
+        }
     }
 }else{
     echo "Page Not found.";
