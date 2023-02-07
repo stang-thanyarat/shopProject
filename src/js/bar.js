@@ -3,7 +3,7 @@ $(document).ready(function () {
     const href = url[url.length - 1]
     $('.bar-link').each(function (index) {
         if ($(this).attr('href') === href) {
-            $(this).css("color", "#ABBE99")
+            $(this).css("color", "#ffffff")
         }
     })
 });

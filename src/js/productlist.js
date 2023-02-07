@@ -57,10 +57,9 @@ $(document).ready(async function () {
 function setUI(data) {
     let html = ''
     data.forEach((element, i) => {
-        if (i % 3 === 0) {
-            html += `<tr>`
+        if (i % 3 === 0 ) {
+                html += `<tr>`
         }
-        if (element.sales_status == "1") {
             html += `<th style="border: 0px">
                 <div class="topic_product" >
                 <div class="row d-flex justify-content-center" style="margin: auto;">
@@ -94,8 +93,8 @@ function setUI(data) {
                 </div>
                 </div>
                 </th>`
-        } else {
-            html += `<th style="border: 0px; " >
+        /*(element.sales_status == 0 ? 'hide' : ''){
+            html += `<th style="border: 0px;">
                 <div class="topic_product" style="background-color: red; color: white;" >
                 <div class="row d-flex justify-content-center" style="margin: auto;">
                     <div class="col-11" style="padding:25px;">
@@ -127,10 +126,10 @@ function setUI(data) {
                     </div>
                 </div>
                 </div>
-                </th>`
-        }
+                </th>`*/
+
         if ((i + 1) % 3 === 0 && (i + 1) === data.length) {
-            html += "</tr>"
+                html += `<tr>`
         }
     })
     $('#productlistTable').html(html)

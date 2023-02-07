@@ -54,7 +54,7 @@ th {
 .btnd{
     background-color: #F8E4C8;
     border-radius: 25px;
-    width: 85%;
+    width: 70%;
     height: 100%;
 }
 .BTNC{
@@ -94,7 +94,7 @@ th {
 .btn {
     border-radius: 25px 25px 25px 25px;
     font-size: 16pt;
-    width: 120%;
+    width: 80%;
     height: 100%;
 }
 
@@ -179,7 +179,6 @@ input:checked+.slider:before {
     margin-left: 1rem;
     height: 100%;
     width: 60%;
-   
 }
 
 .producttable{
@@ -191,7 +190,7 @@ input:checked+.slider:before {
 .z{
     font-size: 16pt;
     margin-left: 45rem;
-   
+
 }
 
 .y{

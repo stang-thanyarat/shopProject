@@ -51,16 +51,16 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
             </div>
         </div>
         <form action="salehistory.php" method="get">
-            <div class="row">
-                <div class="col-5 datetodate">
+            <div class="row d-flex justify-content-end" style="margin-right: 2rem;">
+                <div class="col-4" >
                     <input value="<?= date('Y-m-d') ?>" value="<?= isset($_GET['start']) ? $_GET['start']:'' ?>" class="dateS" type="date" name="start" id="firstdate">
                     ถึง&nbsp&nbsp
                     <input value="<?= date('Y-m-d') ?>" value="<?= isset($_GET['end'])? $_GET['end'] :'' ?>" class="star" type="date" name="end">
                     <button type="submit" class="s"><img src="./src/images/search.png" width="20"></button>
                 </div>
-                    <div class="col-2 d-flex justify-content-end BT">
+                    <div class="col-2" >
                     <button type="button" onclick="window.location= 'salehistory.php'" class="btn-c reset">ล้างข้อมูลการค้นหา</button>
-                </div>
+                    </div>
             </div>
         </form>
         <?php if (count($rows) > 0) { ?>
@@ -85,7 +85,7 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                     </tbody>
             </table>
         <?php } else {
-            echo "<h3>ไม่พบข้อมูล</h3>";
+            echo '<div class="d-flex justify-content-center"><h3 style="margin-top: 9rem; margin-bottom: 9rem;">ไม่พบข้อมูล</h3></div>';
         } ?>
     </div>
 </div>
