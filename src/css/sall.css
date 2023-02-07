@@ -20,13 +20,9 @@
     margin-top: 3.5rem;
 }
 
-.mai {
-    margin-left: 56rem;
-    margin-bottom: 2rem;
-}
-
 .ma {
-    margin-left: 4rem;
+    margin :auto;
+    margin-top: 2rem;
 }
 
 .plus{
@@ -68,18 +64,15 @@ select {
 .btn-d {
     border-radius: 25px 25px 25px 25px;
     background-color: #F8E4C8;
-    margin-left: 5rem;
     font-size: 16pt;
-    height: 90%;
-
-
+    height: 100%;
 }
 
 .btn {
     border-radius: 25px 25px 25px 25px;
     font-size: 16pt;
-    height: 50%;
-    width: 120%;
+    height: 100%;
+    width: 80%;
 }
 
 .s {

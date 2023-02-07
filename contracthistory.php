@@ -49,17 +49,14 @@ if (isset($_GET['keyword'])) {
                         <h1>ประวัติสัญญาซื้อขาย</h1>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row d-flex justify-content-end">
                     <form action="contracthistory.php" method="GET">
-                    <div class="col-2 y">
+                    <div class="col-2">
                         <input name="keyword" type="text" id="keyword" class="btnd" placeholder="&nbsp ชื่อ-นามสกุล">
                         <button type="submit" class="s"><img src="./src/images/search.png" width="20"></button>
                     </div>
-                    <div class="col-2 x">
-                        <a type="button" href="productlist.php" class="submit btn"><img src="./src/images/arrow.png" width="45" class="arrow" >กลับไปหน้าขาย</a>
-                    </div>
-                    <div class="col-1 v">
-                        <a type="button" href="addcontract.php" class="submit btn"><img src="./src/images/plus.png" width="25" class="plus" >&nbsp;เพิ่ม</a>
+                    <div class="col-2">
+                        <a type="button" href="productlist.php" class="submit btn"><img src="./src/images/arrow.png" width="45" class="arrow">กลับไปหน้าขาย</a>
                     </div>
                     </form>
                 </div>

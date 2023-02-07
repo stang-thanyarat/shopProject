@@ -50,15 +50,6 @@ $product = $product->fetchAll();
                     <div class="col-4 topic">
                         <h1>ใบสั่งซื้อ</h1>
                     </div>
-                    <div class="col-5 d-flex justify-content-end signin status">
-                        <div class="col-5">
-                            <label class="font">สถานะใบสั่งซื้อ &nbsp;&nbsp;:</label>
-                            <label class="switch">
-                                <input name="order_status" id="order_status" type="checkbox">
-                                <span name="order_status" id="order_status" class="slider round inbox"></span>
-                            </label>
-                        </div>
-                    </div>
                     <div class="col-1 print font">
                         <button type="button" onclick="print()"><img src="./src/images/print.png" width="25" />&nbsp&nbsp
                             print

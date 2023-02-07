@@ -119,8 +119,8 @@ class Order
         $sql = "SET FOREIGN_KEY_CHECKS=0";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        $sql = "INSERT INTO order_tb (datebill, datereceive, sell_id, payment_sl, payment_dt, note, bank_slip, order_status) 
-        VALUES (DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? DAY),DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? DAY),?,DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? DAY),?,?,?,?)";
+        $sql = "INSERT INTO order_tb (datebill, datereceive, sell_id, payment_sl, payment_dt, note, bank_slip/*, order_status*/) 
+        VALUES (DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? DAY),DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? DAY),?,DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? DAY),?,?,?/*,?*/)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $data['datebill'], PDO::PARAM_STR);
         $stmt->bindParam(2, $data['datereceive'], PDO::PARAM_STR);
@@ -129,7 +129,7 @@ class Order
         $stmt->bindParam(5, $data['payment_dt'], PDO::PARAM_STR);
         $stmt->bindParam(6, $data['note'], PDO::PARAM_STR);
         $stmt->bindParam(7, $data['bank_slip'], PDO::PARAM_STR);
-        $stmt->bindParam(8, $data['order_status'], PDO::PARAM_INT);
+        //$stmt->bindParam(8, $data['order_status'], PDO::PARAM_INT);
         $stmt->execute();
     }
 

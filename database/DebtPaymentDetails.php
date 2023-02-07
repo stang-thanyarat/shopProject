@@ -12,7 +12,7 @@ class DebtPaymentDetails
 
     public function fetchAll()
     {
-        $sql = "SELECT D.*,C.* FROM debt_payment_details_tb D, contract_tb C WHERE D.contract_id = C.contract_id ";
+        $sql = "SELECT D.*,C.* FROM debt_payment_details_tb D, contract_tb C WHERE D.contract_code = C.contract_code";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll();

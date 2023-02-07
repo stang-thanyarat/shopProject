@@ -35,6 +35,7 @@ include_once('nav.php');
 include_once "./database/CostPrice.php";
 $costprice = new CostPrice();
 $p = $costprice->fetchById($_GET['id']);
+$pp = $costprice->fetchByProductId($_GET['id']);
 ?>
 
 
@@ -66,7 +67,7 @@ $p = $costprice->fetchById($_GET['id']);
                         &nbsp ถึง &nbsp
                         <input value="<?= isset($_GET['end'])? $_GET['end'] :'' ?>" type="date" class="l" name="end" name="end" style=" background-color: #F8E4C8;" required>
                         &nbsp &nbsp &nbsp
-                        <a type="submit" class=""><img src="./src/images/search.png" width="15"></a>
+                        <click type="submit" id="search" name = "search" class=""><img src="./src/images/search.png" width="15"></click>
                     </div>
             </div>
             <!-- กราฟ-->

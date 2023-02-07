@@ -122,9 +122,8 @@ class Contract
             $sql = "SET FOREIGN_KEY_CHECKS=0";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-            $sql = "INSERT INTO contract_tb (date_contract, employee_id, /*sales_list_id,*/ customer_prefix, contract_details, 
-            customer_firstname,date_send, customer_lastname, customer_img, product_detail/*, contract_attachment*/) 
-            VALUES (DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? DAY),?,?,?,?,?,?,?,?/*,?,?*/)";
+            $sql = "INSERT INTO contract_tb (date_contract, employee_id, customer_prefix, contract_details, customer_firstname,date_send, customer_lastname, customer_img, product_detail /*, contract_attachment sales_list_id,*/) 
+            VALUES (DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? DAY),?,?,?,?,DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? DAY),?,?,?/*,?,?*/)";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $data['date_contract'], PDO::PARAM_STR);
             $stmt->bindParam(2, $data['employee_id'], PDO::PARAM_INT);

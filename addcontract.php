@@ -62,9 +62,6 @@ if (isset($_GET['cardID'])) {
     <form action="controller/Contract.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="table" value="contract" />
         <input type="hidden" name="form_action" value="insert" />
-        <!-- <input type="hidden" name="witnees1" value="witness1" id="witness1"/>
-     <input type="hidden" name="witnees2" value="witness2" id="witness2"/>
-     <input type="hidden" name="witnees3" value="witness3" id="witness3"/> -->
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">

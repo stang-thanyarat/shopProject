@@ -25,7 +25,6 @@ function getFullRole($role)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src=" ./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-
     <link rel="stylesheet" href="./src/css/productresult.css"/>
 
     <title>productresult</title>
@@ -46,22 +45,22 @@ $rows = $category->fetchAll();
             <div class="row main">
                 <div class="col-12">
                     <h1>รายการสินค้าทั้งหมด</h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-2 z">
+            <div class="row d-flex justify-content-end" style="margin-right: 1rem;">
+                <div class="col-2 d-flex justify-content-end" >
                     <select name="category_id" id="category_id" class="g" required>
-                        <option value="all" selected>สินค้าทั้งหมด</option>
+                        <option value="all" selected>&nbsp;&nbsp;&nbsp;สินค้าทั้งหมด</option>
                         <?php foreach ($rows as $row) { ?>
                             <option value="<?= $row['category_id'] ?>"><?= $row['category_name'] ?></option>
                         <?php } ?>
                     </select>
                 </div>
-                <div class="col-3 y">
+                <div class="col-4 d-flex justify-content-center" style="margin-left: -2rem; margin-right: -2rem;">
                     <input name="keyword" id="keyword" type="text" class="btnd" placeholder="&nbsp&nbsp&nbsp&nbsp&nbspพิมพ์ชื่อสินค้าเพื่อค้นหาโดยอัตโนมัติ">
                 </div>
-                <div class="col-1 x">
+                <div class="col-2 d-flex justify-content-start">
                     <a type="button" href="./addproduct.php" class="submit btn"><img src="./src/images/plus.png" width="25">&nbsp เพิ่มสินค้า</a>
+                </div>
+                </div>
                 </div>
             </div>
             <table class="col-11 producttable">
