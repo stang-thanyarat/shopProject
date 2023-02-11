@@ -118,7 +118,7 @@ $("#form1").submit(async function (event) {
                 text: 'บันทึกข้อมูลเสร็จสิ้น',
             }).then(() => {
                 localStorage.clear()
-                window.location = './index.php'
+                window.location = './contracthistory.php'
             })
 
         })

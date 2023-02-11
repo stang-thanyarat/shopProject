@@ -75,7 +75,7 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                     <tbody id="salesHistory">
                     <?php foreach ($rows as $row) { ?>
                         <tr>
-                            <th><?= $row['sales_dt'] ?></th>
+                            <th><?= dateFormat($row['sales_dt']) ?></th>
                             <th><?= $row['sales_list_id'] ?></th>
                             <th><?= $row['all_quantity'] ?></th>
                             <th><?= $row['all_price']?></th>

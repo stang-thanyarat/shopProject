@@ -9,16 +9,25 @@ $(document).ready(function () {
 $("#addproduct").submit(function (event) {
     event.preventDefault();
     let tableObj = JSON.parse(localStorage.getItem("tableProduct"))
+    /*if (!(!order || order.length == 0 || localStorage.getItem("tableProduct") === null)) {
+        for (const element of order) {
+            let product = await (await fetch(`./controller/GetProduct.php?id=${element.id}`)).json()
+            price += Number(product.price) * Number(element.quantity)
+            text += product.product_name + '&#13;&#10;'
+            product.quantity = element.quantity
+            AllQuantity += element.quantity
+            list.push(product)
+        }*/
     const i = tableObj.data.length
-    if ($('#product_name').val() === "" || $('#unitprice').val() === "" || $('#amount').val() === "") {
+    if ($('#product_id').val() === "" || $('#order_pr').val() === "" || $('#order_amt').val() === "") {
         $('#addtable').blur()
         return
     }
     $('#list-product').append(`<tr id="rr${i}">
-                    <th>${$('#product_name').val() || $("#product_id option:selected").text()}</th>
-                    <th>${$('#unitprice').val()}</th>
-                    <th>${$('#amount').val()}</th>
-                    <th>${Number($('#unitprice').val()) * Number($('#amount').val())}</th>
+                    <th>${$('#product_id').val() || $("#product_id option:selected").text()}</th>
+                    <th>${$('#order_pr').val()}</th>
+                    <th>${$('#order_amt').val()}</th>
+                    <th>${Number($('#order_pr').val()) * Number($('#order_amt').val())}</th>
                     <th>
                         <button type="button" class="btn1 " data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(${i})"></button>
                         <button type="button" class="btn1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
@@ -26,15 +35,16 @@ $("#addproduct").submit(function (event) {
                 </tr>`)
     $('#addclose').click()
     tableObj.data.push({
-        list: $('#product_name').val(),
-        price: $('#unitprice').val(),
-        amount: $('#amount').val(),
-        allPrice: Number($('#unitprice').val()) * Number($('#amount').val())
+        list: $('#product_id').val(),
+        price: $('#order_pr').val(),
+        amount: $('#order_amt').val(),
+        allPrice: Number($('#order_pr').val()) * Number($('#order_amt').val())
     })
     localStorage.setItem("tableProduct", JSON.stringify(tableObj))
-    $('#product_name').val("")
-    $('#unitprice').val("")
-    $('#amount').val("")
+    $('#product_id').val("")
+    $('#order_pr').val("")
+    $('#order_amt').val("")
+
 });
 
 
@@ -52,7 +62,7 @@ function saveIndexEdit(i) {
     $('#editamount').val(rows[i].amount)
 }
 
-//ลบแถว
+//ลบแถวสินค้า
 function delrow() {
     let tableObj = JSON.parse(localStorage.getItem("tableProduct"))
     const index = localStorage.getItem('deleteIndex')
@@ -77,7 +87,7 @@ function delrow() {
     $('#closedelrow').click()
 }
 
-//แก้ไขบัญชี
+//แก้ไขสินค้า
 $("#editaddproduct").submit(function (event) {
     event.preventDefault();
     let tableObj = JSON.parse(localStorage.getItem("tableProduct"))
@@ -175,7 +185,7 @@ function delrow2() {
     $('#closedelrow2').click()
 }
 
-//แก้ไข
+//แก้ไขรายการอื่นๆ
 $("#editaddprice").submit(function (event) {
     event.preventDefault();
     let tableObj = JSON.parse(localStorage.getItem("tablePrice"))
@@ -209,4 +219,49 @@ $("#payment_sl").change(function () {
     } else {
         $("#creditupload").hide()
     }
+});
+
+async function loopproduct() {
+    let lastID = await (await fetch('controller/GetLastIdOrder.php')).text()
+    let rows = (JSON.parse(localStorage.getItem("tableProduct"))).data
+    var formdata = new FormData();
+    formdata.append("order_id", lastID);
+    formdata.append("product_id", $('#product_id').val(rows.list));
+    formdata.append("order_amt", $('#order_amt').val(rows.price));
+    formdata.append("order_pr", $('#order_pr').val(rows.amount));
+    formdata.append("listother", $('#listother').val());
+    formdata.append("priceother", $('#priceother').val());
+    formdata.append("form_action", "insert");
+    formdata.append("table", "orderdetails");
+    var requestOptions = {
+        method: 'POST',
+        body: formdata,
+        redirect: 'follow'
+    };
+    await fetch("controller/OrderDetails.php", requestOptions)
+}
+
+//ตรวจสอบพร้อมส่งข้อมูล
+$("#form1").submit(async function (event) {
+    event.preventDefault();
+    let response = await fetch('controller/Order.php', {
+        method: 'POST',
+        body: new FormData(document.form1)
+    });
+    console.log(response);
+    if (!response.ok) {
+        console.log(response);
+    } else {
+        await Swal.fire({
+            icon: 'success',
+            text: 'บันทึกข้อมูลเสร็จสิ้น',
+        }).then(async () => {
+            loopproduct().then(() => {
+                localStorage.clear()
+                window.location = './order.php'
+            })
+
+        })
+    }
+
 });

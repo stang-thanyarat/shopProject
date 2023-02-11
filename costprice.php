@@ -33,14 +33,18 @@ function getFullRole($role)
 <?php
 include_once('nav.php');
 include_once "./database/CostPrice.php";
+include_once "./database/Product.php";
 $costprice = new CostPrice();
-$p = $costprice->fetchById($_GET['id']);
+$product = new Product();
+$category = new Category();
+$p = $product->fetchById($_GET['id']);
+$c = $product->fetchByCategoryName($_GET['id']);
 $pp = $costprice->fetchByProductId($_GET['id']);
 ?>
 
-
 <body>
 <div class="row">
+    <input type="hidden" value="<?= $_GET['id'] ?>" name="product_id" id="product_id" />
     <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
     <div class="col-11">
         <div class="row main">
@@ -53,7 +57,7 @@ $pp = $costprice->fetchByProductId($_GET['id']);
                 </div>
                 <p>
                 <div>
-                    <h4><?= $p['category_name'];?><h4>
+                    <h4 id="text<?= $c['category_id'] ?>"><?=  $c['category_name'];?><h4>
                 </div>
                 <p>
                 <div>
@@ -65,7 +69,7 @@ $pp = $costprice->fetchByProductId($_GET['id']);
                         &nbsp &nbsp
                         <input value="<?= isset($_GET['start']) ? $_GET['start']:'' ?>" type="date" class="l" name="start" id="start" style=" background-color: #F8E4C8;" required>
                         &nbsp ถึง &nbsp
-                        <input value="<?= isset($_GET['end'])? $_GET['end'] :'' ?>" type="date" class="l" name="end" name="end" style=" background-color: #F8E4C8;" required>
+                        <input value="<?= isset($_GET['end'])? $_GET['end'] :'' ?>" type="date" class="l" name="end" id="end" style=" background-color: #F8E4C8;" required>
                         &nbsp &nbsp &nbsp
                         <click type="submit" id="search" name = "search" class=""><img src="./src/images/search.png" width="15"></click>
                     </div>

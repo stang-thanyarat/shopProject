@@ -33,7 +33,7 @@ $("#addrepay").submit( async function (event) {
         redirect: 'follow'
     };
     await fetch("controller/DebtPaymentDetails.php", requestOptions)
-    //location.reload()
+    location.reload()
 });
 
 
@@ -129,3 +129,4 @@ $("#payment_sl").change(function () {
         $("#slip_upload").hide()
     }
 });
+

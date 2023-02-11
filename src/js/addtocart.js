@@ -223,7 +223,7 @@ $("#search").click(async function () {
     if($("#keyword").val() !== "" ){
         url += `?keyword=${$("#keyword").val()}`
     }
-    else if ($("#keyword").val() == "" ) {
+    else if ($("#keyword").val() === "" ) {
         url += `?keyword=${$("#keyword").val("")}`
     }
     const keyword = await (await fetch(url)).json()
@@ -239,7 +239,7 @@ $("#search").click(async function () {
 //ส่วนแสดงผลข้อมูลลูกค้า
 async function star() {
     let url = './controller/SalestoContract.php'
-    const keyword = await (await fetch(url)).json()
+    const keyword = await(await fetch(url)).json()
     console.log(keyword);
     setU(keyword)
 }
@@ -259,14 +259,13 @@ function setU(keyword) {
                         <th width=15%>คงค้าง</th>
                     </tr>
                     <tbody>`
-    //
     keyword.forEach((element, i) => {
         $('#next-add').attr("href",`./addcontract.php?cardID=${element.customer_img}`)
         c++
         table += `<tr id="rr${i + 1}">
         <th class="index-table-bank">${i + 1}</th>
         <th>${element.date_contract}</th>
-        <th>${element.repayment_date}</th>
+        <th>${element.date_due}</th>
         <th>${element.outstanding}</th>
         <th>${element.slip_img}</th>
     </tr>`

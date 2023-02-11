@@ -30,6 +30,26 @@ class Product
         return $result;
     }
 
+    public function fetchByCategoryName($id)
+    {
+        $sql = "SELECT P.*,C.category_name FROM product_tb P, category_tb C WHERE P.category_id = C.category_id AND P.product_id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function fetchBypriceId($id)
+    {
+        $sql = "SELECT * FROM product_tb WHERE price = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
     public function fetchExchange1Id($id)
     {
         $sql = "SELECT * FROM product_tb WHERE product_id=?";
@@ -59,16 +79,6 @@ class Product
         return $counts;
     }
 
-    public function fetchBypriceId($id)
-    {
-        $sql = "SELECT * FROM product_tb WHERE price = ?";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $id, PDO::PARAM_INT);
-        $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
-    }
-
    /* public function fetchAddCategory()
     {
         $data = $this->fetchAll();
@@ -87,7 +97,7 @@ class Product
 
         public function fetchAddCategory()
          {
-             $sql = "SELECT P.*,C.* FROM category_tb C,product_tb P WHERE P.category_id = C.category_id ORDER BY P.product_name ASC ";
+             $sql = "SELECT P.*,C.* FROM category_tb C,product_tb P WHERE P.category_id = C.category_id ORDER BY P.product_name ASC";
              $stmt = $this->conn->prepare($sql);
              $stmt->execute();
              $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -96,7 +106,7 @@ class Product
 
     public function fetchByName($keyword){
         $like = "%$keyword%";
-        $sql = "SELECT * FROM product_tb WHERE product_name LIKE ?";
+        $sql = "SELECT P.*,C.* FROM category_tb C,product_tb P WHERE P.category_id = C.category_id AND P.product_name LIKE ? ORDER BY P.product_name ASC";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $like, PDO::PARAM_STR);
         $stmt->execute();
@@ -108,10 +118,10 @@ class Product
     {
         $like = "%$keyword%";
         if(is_null($id)){
-            $sql = "SELECT C.*,P.* FROM category_tb C,product_tb P WHERE C.category_id = P.category_id AND product_name LIKE ?";
+            $sql = "SELECT C.*,P.* FROM category_tb C,product_tb P WHERE C.category_id = P.category_id AND P.product_name LIKE ? ORDER BY P.product_name ASC";
 
         }else{
-            $sql = "SELECT C.*,P.* FROM category_tb C,product_tb P WHERE C.category_id = ? ";
+            $sql = "SELECT C.*,P.* FROM category_tb C,product_tb P WHERE C.category_id = ? ORDER BY P.product_name ASC";
         }
         $stmt = $this->conn->prepare($sql);
         if(is_null($id)){
@@ -122,6 +132,16 @@ class Product
         }
         $stmt->execute();
         $result = $stmt->fetchAll();
+        return $result;
+    }
+
+    public function fetchByCategoryId($id)
+    {
+        $sql = "SELECT C.*,P.* FROM category_tb C,product_tb P WHERE C.category_id = P.category_id AND C.category_id = ? AND sales_status = 1  AND product_rm_unit > 0 ORDER BY P.product_name ASC";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(1, $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
 
@@ -280,16 +300,6 @@ class Product
         $stmt->bindParam(1, $id, PDO::PARAM_INT);
         $stmt->execute();
         $result = $stmt->rowCount();
-        return $result;
-    }
-
-    public function fetchByCategoryId($id)
-    {
-        $sql = "SELECT * FROM product_tb WHERE category_id = ? AND sales_status = 1  AND product_rm_unit > 0";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $id, PDO::PARAM_INT);
-        $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
 
