@@ -59,7 +59,7 @@ for ($i = 0; $i < count($banks); $i++) {
         <input type="hidden" name="bank" value="" id="bank" />
         <input type="hidden" name="table" value="employee" />
         <input type="hidden" name="form_action" value="update" />
-        <input type="hidden" value="<?= $_GET['id'] ?>" name="employee_id" />
+        <input type="hidden" value="<?= $_GET['id'] ?>" name="employee_id" id="employee_id"/>
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">

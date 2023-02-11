@@ -70,6 +70,17 @@ for ($i = 0; $i < count($od); $i++) {
         $json .= ",";
     }
 }
+for ($i = 0; $i < count($op); $i++) {
+    $b = $od[$i];
+    $json .= "{
+        listOther: " . $b['listother'] . ",
+        priceOther: " . $b['priceother'] . ",
+        id: " . $b['unique_id'] . "
+    }";
+    if ($i + 1 != count($od)) {
+        $json .= ",";
+    }
+}
 ?>
 
 <body>
@@ -77,7 +88,7 @@ for ($i = 0; $i < count($od); $i++) {
 <form action="controller/Order.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="table" value="order" />
     <input type="hidden" name="form_action" value="update" />
-    <input type="hidden" value="<?= $_GET['id'] ?>" name="order_id" />
+    <input type="hidden" value="<?= $_GET['id'] ?>" name="order_id" id="order_id" />
     <input type="hidden" value="<?= $_GET['id'] ?>" name="product_id" />
     <div class="row">
         <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
@@ -410,7 +421,9 @@ for ($i = 0; $i < count($od); $i++) {
     $(document).ready(function() {
         $("#slipupload").hide()
         localStorage.clear()
-        localStorage.setItem("tablePrice", JSON.stringify({data: []}))
+        localStorage.setItem("tablePrice", JSON.stringify({
+            data: [<?php echo $json; ?>]
+        }))
         localStorage.setItem("tableProduct", JSON.stringify({
             data: [<?php echo $json; ?>]
         }))

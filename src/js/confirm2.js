@@ -226,12 +226,12 @@ async function loopproduct() {
     let rows = (JSON.parse(localStorage.getItem("tableProduct"))).data
     for (let d of rows) {
         var formdata = new FormData();
-        formdata.append("order_id", lastID);
+        formdata.append("order_id", $("#order_id").val());
         formdata.append("product_id", Number(d.list));
         formdata.append("order_amt", Number(d.price));
         formdata.append("order_pr", Number(d.amount));
-        //formdata.append("unique_id", Number(d.id));
-        formdata.append("form_action", "insert");
+        formdata.append("unique_id", d.id);
+        formdata.append("form_action", "update");
         formdata.append("table", "orderdetails");
         var requestOptions = {
             method: 'POST',
@@ -247,9 +247,10 @@ async function loopother() {
     let rows = (JSON.parse(localStorage.getItem("tablePrice"))).data
     for (let d of rows) {
         var formdata = new FormData();
-        formdata.append("order_id", lastID);
+        formdata.append("order_id", $("#order_id").val());
         formdata.append("listother", d.listOther);
         formdata.append("priceother", Number(d.priceOther));
+        formdata.append("unique_id", d.id);
         formdata.append("form_action", "update");
         formdata.append("table", "otherprice");
         var requestOptions = {
@@ -266,7 +267,7 @@ async function loopexp() {
     let rows = (JSON.parse(localStorage.getItem("tableProduct"))).data
     for (let d of rows) {
         var formdata = new FormData();
-        formdata.append("order_id", lastID);
+        formdata.append("order_id", $("#order_id").val());
         formdata.append("product_id", Number(d.list));
         formdata.append("amount_exp", Number(d.price));
         formdata.append("exp_date", d.expdate);
@@ -297,8 +298,8 @@ $("#form1").submit(async function (event) {
             icon: 'success',
             text: 'บันทึกข้อมูลเสร็จสิ้น',
         }).then(async () => {
-            //await loopproduct()
-            //await loopother()
+            await loopproduct()
+            await loopother()
             await loopexp()
             //localStorage.clear()
             // window.location = './order.php'
