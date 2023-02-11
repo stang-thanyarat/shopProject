@@ -61,11 +61,11 @@ $product = $product->fetchAll();
                         <div class="row">
                             <div class="col datebill">
                                 วันที่วางบิล : &nbsp;
-                                <input type="date" name="datebill" id="datebill" required />
+                                <input type="date" name="datebill" id="datebill" value="<?= date('Y-m-d') ?>" required />
                             </div>
                             <div class="col">
                                 &nbsp;&nbsp;วันที่รับของ : &nbsp;
-                                <input type="date" name="datereceive" id="datereceive" required />
+                                <input type="date" name="datereceive" id="datereceive" value="<?= date('Y-m-d') ?>" required />
                             </div>
                         </div>
                         <div class="row">
@@ -90,7 +90,7 @@ $product = $product->fetchAll();
                             </div>
                             <div class="col payment">
                                 วันที่ชำระเงิน : &nbsp;
-                                <input type="date" name="payment_dt" id="payment_dt">
+                                <input type="date" name="payment_dt" id="payment_dt" value="<?= date('Y-m-d') ?>">
                             </div>
                         </div>
                         <div id="creditupload">

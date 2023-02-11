@@ -13,6 +13,12 @@ function getFullRole($role)
         return 'ผู้ดูแลระบบ';
     }
 }
+
+if(!isset($_GET['id'])){
+    echo "not found.";
+    exit;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -27,16 +33,43 @@ function getFullRole($role)
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <title>Document</title>
 </head>
-<?php include_once('nav.php');
+<?php
 include_once "./database/Order.php";
+include_once "./database/OrderDetails.php";
+include_once "./database/OtherPrice.php";
 include_once "./database/Sell.php";
 include_once "./database/Product.php";
 $sell = new Sell();
 $product = new Product();
-$sells = $sell->fetchAll();
-$product = $product->fetchAll();
 $order = new Order();
+$orderdetails = new OrderDetails();
+$otherprice = new OtherPrice();
+$sells = $sell->fetchAll();
+$products = $product->fetchAll();
 $o = $order->fetchById($_GET['id']);
+$od = $orderdetails->fetchByODId($_GET['id']);
+$op = $otherprice->fetchById($_GET['id']);
+if(!$o){
+    echo "not found.";
+    exit;
+}
+
+include_once('nav.php');
+$json = '';
+for ($i = 0; $i < count($od); $i++) {
+    $b = $od[$i];
+    $json .= "{
+        list: " . $b['product_id'] . ",
+        price: " . $b['order_pr'] . ",
+        amount: " . $b['order_amt'] . ",
+        expdate:\"" . "" . "\",
+        allprice:" . ($b['order_pr']*$b['order_amt']) . ",
+        id:\"" . $b['unique_id'] . "\"
+    }";
+    if ($i + 1 != count($od)) {
+        $json .= ",";
+    }
+}
 ?>
 
 <body>
@@ -45,6 +78,7 @@ $o = $order->fetchById($_GET['id']);
     <input type="hidden" name="table" value="order" />
     <input type="hidden" name="form_action" value="update" />
     <input type="hidden" value="<?= $_GET['id'] ?>" name="order_id" />
+    <input type="hidden" value="<?= $_GET['id'] ?>" name="product_id" />
     <div class="row">
         <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
         <div class="col-11">
@@ -107,15 +141,32 @@ $o = $order->fetchById($_GET['id']);
                         <table class="main col-10">
                             <thead>
                             <tr>
-                                <th width="40%">รายการสินค้า</th>
+                                <th width="5%">ลำดับ</th>
+                                <th width="25%">รายการสินค้า</th>
                                 <th width="15%">ราคาต่อหน่วย (บาท)</th>
                                 <th width="15%">จำนวน</th>
                                 <th width="15%">ราคา (บาท)</th>
+                                <th width="15%">วันหมดอายุ</th>
                                 <th width="10%"></th>
                             </tr>
                             </thead>
                             <tbody id="list-product">
-
+                            <?php $i = 0;
+                            foreach ($od as $b) { ?>
+                                <tr id="rr<?= $i ?>">
+                                    <th class="index-table-bank"><?= $i + 1 ?></th>
+                                    <th id="text<?= $b['product_id'] ?>"><?= $b['product_name'] ?></th>
+                                    <th><?= $b['order_pr'] ?></th>
+                                    <th><?= $b['order_amt'] ?></th>
+                                    <th><?= $b['order_amt']*$b['order_pr'] ?></th>
+                                    <th></th>
+                                    <th>
+                                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(<?= $i ?>)"></button>
+                                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(<?= $i ?>)"></button>
+                                    </th>
+                                </tr>
+                                <?php $i++;
+                            } ?>
                             </tbody>
                         </table>
                     </div>
@@ -129,13 +180,25 @@ $o = $order->fetchById($_GET['id']);
                         <table class="main col-10">
                             <thead>
                             <tr>
+                                <th width="5%">ลำดับ</th>
                                 <th width="45%">รายการ</th>
-                                <th width="45%">ราคา</th>
+                                <th width="40%">ราคา</th>
                                 <th width="10%"></th>
                             </tr>
                             </thead>
                             <tbody id="list-priceother">
-
+                            <?php  foreach ($op as $b) { ?>
+                                <tr id="rr<?= $i ?>">
+                                    <th class="index-table-bank"><?= $i + 1 ?></th>
+                                    <th><?= $b['listother'] ?></th>
+                                    <th><?= $b['priceother'] ?></th>
+                                    <th>
+                                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel1(<?= $i ?>)"></button>
+                                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl1"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit1(<?= $i ?>)"></button>
+                                    </th>
+                                </tr>
+                                <?php
+                            } ?>
                             </tbody>
                         </table>
                     </div>
@@ -175,21 +238,23 @@ $o = $order->fetchById($_GET['id']);
                 <div class="modal-body">
                     <div class="col-12 r">
                         <div> ชื่อสินค้า &nbsp;&nbsp;:&nbsp;&nbsp;
-                            <select class="" id="product_id" name="product_id" style="background-color: #D4DDC6;"
-                                    required>
+                            <select class="" id="product_id" name="product_id" style="background-color: #D4DDC6;" >
                                 <option value="all" selected hidden>เลือกสินค้า</option>
-                                <?php foreach ($product as $p) { ?>
+                                <?php foreach ($products as $p) {  ?>
                                     <option value="<?= $p['product_id'] ?>"><?= $p['product_name'] ?>
                                         &nbsp;<?= $p['brand'] ?>&nbsp;&nbsp;<?= $p['model'] ?></option>
                                 <?php } ?>
                             </select>
                         </div>
                         <div class="q"> ราคาต่อหน่วย &nbsp;&nbsp;:&nbsp;&nbsp;
-                            <input type="number" class="u" min="0.25" step="0.25" name="unitprice" id="unitprice"
+                            <input type="number" class="u" min="0.25" step="0.25" name="order_pr" id="order_pr"
                                    required/>
                         </div>
                         <div class="s"> จำนวน &nbsp;&nbsp;:&nbsp;&nbsp;
-                            <input type="number" class="u" min="1" name="amount" id="amount" required/>
+                            <input type="number" class="u" min="1" name="order_amt" id="order_amt" required/>
+                        </div>
+                        <div class="s"> วันหมดอายุ &nbsp;&nbsp;:&nbsp;&nbsp;
+                            <input type="date" class="u" min="1" name="exp_date" id="exp_date" required/>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -217,23 +282,26 @@ $o = $order->fetchById($_GET['id']);
                     <div class="col-12 r">
                         <div> ชื่อสินค้า &nbsp;&nbsp;:&nbsp;&nbsp;
                             <select class="" id="editproduct_id" name="editproduct_id"
-                                    style="background-color: #D4DDC6;" required>
-                                <?php foreach ($product as $p) { ?>
-                                    <option value="<?= $p['product_id'] ?>" <?= $p['product_id'] == $p['product_id'] ? "selected" : '' ?>><?= $p['product_name'] ?>
+                                    style="background-color: #D4DDC6;" >
+                                <?php foreach ($products as $p) {  ?>
+                                    <option value="<?= $p['product_id'] ?>" <?= $_GET['id']==$p['product_id']?"selected":"" ?>><?= $p['product_name'] ?>
                                         &nbsp;<?= $p['brand'] ?>&nbsp;&nbsp;<?= $p['model'] ?></option>
                                 <?php } ?>
                             </select>
                         </div>
                         <div class="q"> ราคาต่อหน่วย &nbsp;&nbsp;:&nbsp;&nbsp;
-                            <input type="number" class="u" min="0.25" step="0.25" name="editunitprice"
-                                   id="editunitprice" required/>
+                            <input type="number" class="u" min="0.25" step="0.25" name="editorder_pr"
+                                   id="editorder_pr" required/>
                         </div>
                         <div class="s"> จำนวน &nbsp;&nbsp;:&nbsp;&nbsp;
-                            <input type="number" class="u" min="1" name="editamount" id="editamount" required/>
+                            <input type="number" class="u" min="1" name="editorder_amt" id="editorder_amt" required/>
+                        </div>
+                        <div class="s"> วันหมดอายุ &nbsp;&nbsp;:&nbsp;&nbsp;
+                            <input type="date" class="u" min="1" name="editexp_date" id="editexp_date" required/>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" id="addtable" class="btn btn-primary1">ตกลง</button>
+                        <button type="submit" class="btn btn-primary1">ตกลง</button>
                     </div>
                 </div>
             </div>
@@ -338,6 +406,16 @@ $o = $order->fetchById($_GET['id']);
 </div>
 </body>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#slipupload").hide()
+        localStorage.clear()
+        localStorage.setItem("tablePrice", JSON.stringify({data: []}))
+        localStorage.setItem("tableProduct", JSON.stringify({
+            data: [<?php echo $json; ?>]
+        }))
+    });
+</script>
 <script src="./src/js/confirm2.js"></script>
 
 </html>
