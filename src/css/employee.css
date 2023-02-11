@@ -82,7 +82,11 @@ input:checked+.slider:before {
 }
 
 .mai {
-    margin-left: 46rem;
+    margin-left: 55rem;
+}
+
+.w{
+    margin-right: -4rem;
 }
 
 .ma {
