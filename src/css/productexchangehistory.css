@@ -42,19 +42,14 @@ th {
 }
 
 .s {
-    margin-left: 1rem;
     border: 0ch;
-    width: 15%;
-    height: 70%;
+    width: 10%;
+    height: 50%;
     background-color: #C4C4C4;
     border-radius: 25px 25px 25px 25px;
     margin-left: 1rem;
+    margin-right: 0.5rem;
 }
-
-.plus {
-    margin-left: -1rem;
-}
-
 .pdrtb {
     margin-top: 2rem;
     margin-left: 4rem;
@@ -74,11 +69,6 @@ th {
     margin-left: 43rem;
 }
 
-.BT {
-    margin-top: 0.5rem;
-    margin-left: -10.5rem;
-}
-
 .submit {
     background-color: #7C904E;
     border: 0ch;
@@ -88,26 +78,26 @@ th {
 .btn {
     border-radius: 25px 25px 25px 25px;
     font-size: 16pt;
-    width: 45%;
-    height: 80%;
-}
-
-
-.plus {
-    margin-top: -0.4rem;
+    width: 15%;
+    height: 50%;
 }
 
 .reset {
     background-color: #C4C4C4;
     color: black;
     border: 0ch;
-    margin-left: 1rem;
 }
 
 .btn-c {
-    margin-top: 0.3rem;
     border-radius: 25px 25px 25px 25px;
     font-size: 16pt;
     width: 15%;
-    height: 70%;
+    height: 50%;
+    margin-left: 0.5rem;
+    margin-right: 1rem;
+
+}
+
+.date {
+    height: 50%;
 }

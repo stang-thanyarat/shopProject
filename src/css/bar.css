@@ -10,15 +10,15 @@ hr {
 .bar-link {
     font-size: 16pt;
     margin-top: -0.5rem;
-    color: white;
+    color: black;
 }
 
 .bar-link:hover {
-    color: #ABBE99;
+    color: white;
 }
 
 .bar {
     width: 9rem;
     min-height: 100%;
-    background: #D28434;
+    background: #edb083;
 }

@@ -2,6 +2,7 @@
 
 <link rel="stylesheet" href="./src/css/bar.css">
 <nav class="nav flex-column bar">
+    <h6></h6>
     <?php if (getRole() == 'E' || getRole() == 'L') { ?><h5>$ ขาย</h5>
         <hr /><?php } ?>
     <?php if (getRole() == 'E' || getRole() == 'L') { ?> <a class="nav-link bar-link" href="productlist.php">รายการขาย</a><?php } ?>

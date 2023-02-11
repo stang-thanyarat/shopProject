@@ -49,16 +49,16 @@ if (isset($_GET['keyword'])) {
                         <h1>ผู้ขาย</h1>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row col-11 d-flex justify-content-end">
                     <form action="sall.php" method="GET">
-                    <div class="col-3 mai">
+                    <div class="col-3 d-flex justify-content-end">
                         <input type="text" name="keyword" class="btn-d" placeholder="&nbsp ชื่อผู้ขาย"></input>
                         <button type="submit" class="s">
                             <img src="./src/images/search.png" width="15">
                         </button>
                     </div>
-                    <div class="col-1 w">
-                        <a mame="btadd" class="submit btn" href="addseller.php"><img src="./src/images/plus.png" width="25" class='plus'>&nbsp เพิ่มผู้ขาย</a>
+                    <div class="col-2 d-flex justify-content-end">
+                        <a name="btadd" class="submit btn" href="addseller.php"><img src="./src/images/plus.png" width="25" class='plus'>&nbsp เพิ่มผู้ขาย</a>
                     </div>
                     </form>
                 </div>

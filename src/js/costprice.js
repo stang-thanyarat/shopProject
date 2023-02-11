@@ -1,6 +1,6 @@
 $("#search").click(async function () {
     if ($("#start").val() !== "" && $("#end").val() !== "") {
-        let url = `./controller/Costprice.php?&start=${$("#start").val()}&end=${$("#end").val()}`
+        let url = `./controller/Costprice.php?id=${$("#product_id").val()}&start=${$("#start").val()}&end=${$("#end").val()}`
         const product = await (await fetch(url)).json()
         setUI(product)
     }

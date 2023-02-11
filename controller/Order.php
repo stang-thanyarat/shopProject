@@ -39,11 +39,11 @@ if (isset($_POST)) {
             } else {
                 $_POST['bankslip'] = '';
             }
-            if (empty($_POST['order_status'])) {
+           /* if (empty($_POST['order_status'])) {
                 $_POST['order_status'] = '0';
             } else {
                 $_POST['order_status'] = '1';
-            }
+            }*/
         }
         $order->insert($_POST);
         Redirection("/order.php");

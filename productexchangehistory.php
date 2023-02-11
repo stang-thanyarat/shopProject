@@ -34,7 +34,7 @@ include_once "./database/ProductExchange.php";
 $productexchange = new ProductExchange();
 if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GET['end'] != '') {
     $rows = $productexchange->fetchBetween($_GET['start'], $_GET['end']);
-} else if ((!isset($_GET['start']) && !isset($_GET['end'])) ||($_GET['start'] != '' && $_GET['end'] != '')) {
+} else if ((!isset($_GET['start']) && !isset($_GET['end'])) || ($_GET['start'] != '' && $_GET['end'] != '')) {
     $rows = $productexchange->fetchAll();
 } else {
     $rows = [];
@@ -47,21 +47,20 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
-                    <div class="col-4 topic">
+                    <div class="col-3 d-flex justify-content-start">
                         <h1>การเปลี่ยนสินค้า</h1>
                     </div>
-                    <form action="productexchangehistory.php" method="GET">
-                            <div class="col-5 search">
-                                <input value="<?= isset($_GET['start']) ? $_GET['start']:'' ?>" class="date" type="date" name="start" id="start"> &nbsp&nbspถึง&nbsp&nbsp
-                                <input value="<?= isset($_GET['end'])? $_GET['end'] :'' ?>" class="date" type="date" name="end" id="end">
+                    <span class="col-9 d-flex justify-content-end">
+                        <form action="productexchangehistory.php" method="GET">
+                            <div class="col-11 d-flex justify-content-end" style="margin: auto; margin-left: 0rem;">
+                                <input value="<?= isset($_GET['start']) ? $_GET['start'] : '' ?>" class="date" type="date" name="start" id="start"> &nbsp&nbspถึง&nbsp&nbsp
+                                <input value="<?= isset($_GET['end']) ? $_GET['end'] : '' ?>" class="date" type="date" name="end" id="end">
                                 <button type="submit" class="s"><img src="./src/images/search.png" width="25"></button>
                                 <button type="button" onclick="window.location= 'productexchangehistory.php'" class="btn-c reset">ล้างข้อมูล</button>
+                                <a type="button" href="./searchinformation.php" class="submit btn" style="margin-top: -0.3rem;"><img src="./src/images/plus.png" width="25" style="margin:auto;">&nbsp เพิ่ม</a>
                             </div>
-                            <div class="col-2 d-flex justify-content-end BT">
-                                <a type="button" href="./searchinformation.php" class="submit btn">
-                                    <img class='plus' src="./src/images/plus.png" width="25" class="plus">&nbsp เพิ่ม</a>
-                            </div>
-                    </form>
+                        </form>
+                    </span>
                 </div>
                 <?php if (count($rows) > 0) { ?>
                     <table class="col-11 pdrtb">
@@ -84,8 +83,8 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                                     </th>
                                     <th>
                                         <?php if ($row['exchange_status'] == 1) { ?>
-                                        <button type="button" class="bgs" onclick="del(<?= $row['product_exchange_id']; ?>)"><img src="./src/images/icon-delete.png" width="25"></button>
-                                        <a href="editproductexchange.php?id=<?= $row['product_exchange_id']; ?>" type="button" class="bgs"><img src="./src/images/icon-pencil.png" width="25"></a>
+                                            <button type="button" class="bgs" onclick="del(<?= $row['product_exchange_id']; ?>)"><img src="./src/images/icon-delete.png" width="25"></button>
+                                            <a href="editproductexchange.php?id=<?= $row['product_exchange_id']; ?>" type="button" class="bgs"><img src="./src/images/icon-pencil.png" width="25"></a>
                                         <?php } ?>
                                     </th>
                                 </tr>

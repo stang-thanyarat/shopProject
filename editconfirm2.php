@@ -78,11 +78,11 @@ $o = $order->fetchById($_GET['id']);
                     <div class="row">
                         <div class="col datebill">
                             วันที่วางบิล : &nbsp;
-                            <input type="date" name="datebill" id="datebill"  value="<?= $o['datebill']; ?>"/>
+                            <?= $o['datebill']; ?>
                         </div>
                         <div class="col">
                             &nbsp;&nbsp;วันที่รับของ : &nbsp;
-                            <input type="date" name="datereceive" id="datereceive"  value="<?= $o['datereceive']; ?>"/>
+                            <?= $o['datereceive']; ?>
                         </div>
                     </div>
                     <div class="row">
