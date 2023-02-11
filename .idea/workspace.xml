@@ -6,9 +6,35 @@
   <component name="ChangeListManager">
     <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addcontract.php" beforeDir="false" afterPath="$PROJECT_DIR$/addcontract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addorder.php" beforeDir="false" afterPath="$PROJECT_DIR$/addorder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracthistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/contracthistory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/CostPrice.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/CostPrice2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/OrderDetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/OrderDetails.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/costprice.php" beforeDir="false" afterPath="$PROJECT_DIR$/costprice.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Contract.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/CostPrice.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/CostPrice.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/OrderDetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/OrderDetails.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/editconfirm2.php" beforeDir="false" afterPath="$PROJECT_DIR$/editconfirm2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/editcontract.php" beforeDir="false" afterPath="$PROJECT_DIR$/editcontract.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/editproduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/editproduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order.php" beforeDir="false" afterPath="$PROJECT_DIR$/order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/orderhistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/orderhistory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repay.php" beforeDir="false" afterPath="$PROJECT_DIR$/repay.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/salehistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/salehistory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/addcontract.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/addcontract.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/addorder3.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/addorder3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/addproduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/addproduct.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/addtocart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/addtocart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/confirm2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/confirm2.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/costprice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/costprice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/editcontract.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/editcontract.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/editproduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/editproduct.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/repay.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/repay.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,6 +148,12 @@
       <workItem from="1674871627745" duration="4826000" />
       <workItem from="1674890091081" duration="20487000" />
       <workItem from="1675582522410" duration="14770000" />
+      <workItem from="1675826651925" duration="12960000" />
+      <workItem from="1675869337545" duration="12910000" />
+      <workItem from="1675917468828" duration="5132000" />
+      <workItem from="1675957126980" duration="2732000" />
+      <workItem from="1675993511331" duration="15818000" />
+      <workItem from="1676051641469" duration="8261000" />
     </task>
     <servers />
   </component>

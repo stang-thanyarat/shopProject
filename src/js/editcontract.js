@@ -22,23 +22,21 @@ $("#form1").submit(async function (event) {
         alert('ระบุหมายเลขประจำตัวประชาชนไม่ถูกต้อง');
         return
     } else {
-
         event.preventDefault();
         let response = await fetch('controller/Contract.php', {
             method: 'POST',
             body: new FormData(document.form1)
         });
         console.log(response);
-
         if (!response.ok) {
             console.log(response);
         } else {
             await Swal.fire({
                 icon: 'success',
                 text: 'บันทึกข้อมูลเสร็จสิ้น',
-                timer: 3000
             })
-            window.location.assign("contract.php");
+            console.log(await response.text());
+            window.location.assign("contracthistory.php");
         }
     }
 });

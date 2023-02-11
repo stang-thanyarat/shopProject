@@ -99,7 +99,7 @@ class Contract
     public function searchBycopyID($keyword)
     {
         $like = "$keyword";
-        $sql = "SELECT CT.*,DB.* FROM contract_tb CT,debt_payment_details_tb DB WHERE customer_img = ?";
+        $sql = "SELECT * FROM contract_tb WHERE customer_img like ?";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $like, PDO::PARAM_STR);
         $stmt->execute();
@@ -122,18 +122,26 @@ class Contract
             $sql = "SET FOREIGN_KEY_CHECKS=0";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-            $sql = "INSERT INTO contract_tb (date_contract, employee_id, customer_prefix, contract_details, customer_firstname,date_send, customer_lastname, customer_img, product_detail /*, contract_attachment sales_list_id,*/) 
-            VALUES (DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? DAY),?,?,?,?,DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? DAY),?,?,?/*,?,?*/)";
+            $date_contract = $_GET['date_contract'];
+            $interest_month = !isset($_SESSION['interest_month']) ? 4 : $_SESSION['interest_month'];
+            $interest = !isset($_SESSION['interest']) ? 15 : $_SESSION['interest'];
+            $sql = "INSERT INTO contract_tb (date_contract, employee_id, customer_prefix, contract_details, customer_firstname, customer_lastname, customer_img ,date_send, price_send, product_detail, date_due,baht,stang,stangt/*, contract_attachment sales_list_id,*/) 
+            VALUES (TIMESTAMP(?, CURRENT_TIME()),?,?,?,?,?,?,TIMESTAMP (?, CURRENT_TIME()),TIMESTAMP (?, CURRENT_TIME()),?,DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? MONTH ),?,?,?/*,?,?*/)";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(1, $data['date_contract'], PDO::PARAM_STR);
-            $stmt->bindParam(2, $data['employee_id'], PDO::PARAM_INT);
-            $stmt->bindParam(3, $data['customer_prefix'], PDO::PARAM_STR);
-            $stmt->bindParam(4, $data['contract_details'], PDO::PARAM_STR);
-            $stmt->bindParam(5, $data['customer_firstname'], PDO::PARAM_STR);
-            $stmt->bindParam(6, $data['customer_lastname'], PDO::PARAM_STR);
-            $stmt->bindParam(7, $data['customer_img'], PDO::PARAM_STR);
-            $stmt->bindParam(8, $data['date_send'], PDO::PARAM_STR);
-            $stmt->bindParam(9, $data['product_detail'], PDO::PARAM_STR);
+            $stmt->bindParam(1, $data['date_contract'], PDO::PARAM_STR);//วันที่ทำสัญญา
+            $stmt->bindParam(2, $data['employee_id'], PDO::PARAM_INT);//รหัสข้อมูลพนักงาน
+            $stmt->bindParam(3, $data['customer_prefix'], PDO::PARAM_STR);//คำนำหน้า
+            $stmt->bindParam(4, $data['contract_details'], PDO::PARAM_STR);//ข้อตกลงของสัญญา
+            $stmt->bindParam(5, $data['customer_firstname'], PDO::PARAM_STR);//ชื่อลูกค้า
+            $stmt->bindParam(6, $data['customer_lastname'], PDO::PARAM_STR);//นามสกุลลูกค้า
+            $stmt->bindParam(7, $data['customer_img'], PDO::PARAM_STR);//รหัสบัตรประชาชนลูกค้า
+            $stmt->bindParam(8, $data['date_send'], PDO::PARAM_STR);//วันที่ส่งมอบ
+            $stmt->bindParam(9, $data['price_send'], PDO::PARAM_STR);//ราคาที่ตกลง
+            $stmt->bindParam(10, $data['product_detail'], PDO::PARAM_STR);//รายละเอียดสินค้าที่ซื้อ
+            $stmt->bindParam(11, $interest_month, PDO::PARAM_STR);//วันที่ครบชำระ
+            $stmt->bindParam(12, $data['baht'], PDO::PARAM_INT);//บาท
+            $stmt->bindParam(13, $data['stang'], PDO::PARAM_INT);//สตางค์
+            $stmt->bindParam(14, $data['stangt'], PDO::PARAM_STR);//สตางค์ไทย
             //$stmt->bindParam(12, $data['contract_attachment'], PDO::PARAM_STR);
             //$stmt->bindParam(12, $data['sales_list_id'], PDO::PARAM_INT);
             $stmt->execute();
@@ -150,20 +158,17 @@ class Contract
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             $sql = "UPDATE contract_tb
-            SET date_contract = ?, employee_id = ?, /*sales_list_id=?,*/customer_prefix = ?,contract_details = ?,witness1 = ?,witness2 = ?,witness3 = ?,
-            contract_attachment = ?,customer_firstname = ?,customer_lastname = ?,customer_img = ?,date_send = ?
-            WHERE contract_code=?";
-            $stmt->bindParam(1, $data['date_contract'], PDO::PARAM_STR);
-            $stmt->bindParam(2, $data['employee_id'], PDO::PARAM_INT);
-            $stmt->bindParam(3, $data['customer_prefix'], PDO::PARAM_STR);
-            $stmt->bindParam(4, $data['contract_details'], PDO::PARAM_STR);
-            $stmt->bindParam(8, $data['customer_firstname'], PDO::PARAM_STR);
-            $stmt->bindParam(9, $data['customer_lastname'], PDO::PARAM_STR);
-            $stmt->bindParam(10, $data['customer_img'], PDO::PARAM_STR);
-            $stmt->bindParam(11, $data['date_send'], PDO::PARAM_STR);
-            $stmt->bindParam(12, $data['contract_attachment'], PDO::PARAM_STR);
-            /*$stmt->bindParam(14, $data['sales_list_id'], PDO::PARAM_INT);*/
-            $stmt->bindParam(13, $data['contract_code'], PDO::PARAM_INT);
+            SET employee_id = ?,customer_prefix = ?,contract_details = ?,customer_firstname = ?,customer_lastname = ?,customer_img = ? ,product_detail = ?
+            WHERE contract_code = ? ";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $data['employee_id'], PDO::PARAM_INT);
+            $stmt->bindParam(2, $data['customer_prefix'], PDO::PARAM_STR);
+            $stmt->bindParam(3, $data['contract_details'], PDO::PARAM_STR);
+            $stmt->bindParam(4, $data['customer_firstname'], PDO::PARAM_STR);
+            $stmt->bindParam(5, $data['customer_lastname'], PDO::PARAM_STR);
+            $stmt->bindParam(6, $data['customer_img'], PDO::PARAM_STR);
+            $stmt->bindParam(7, $data['product_detail'], PDO::PARAM_STR);
+            $stmt->bindParam(8, $data['contract_code'], PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
             http_response_code(500);

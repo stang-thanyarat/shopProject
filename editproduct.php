@@ -55,8 +55,8 @@ $c = $costprice->fetchById($_GET['id']);
         <input type="hidden" name="product_detail_img" value="<?= $p['product_detail_img']; ?>" />
         <input type="hidden" value="product" name="table" />
         <input type="hidden" value="update" name="form_action" />
-        <input type="hidden" value="<?= $_GET['id'] ?>" name="product_id" />
-
+        <input type="hidden" value="<?= $_GET['id'] ?>" name="product_id" id="product_id" />
+        <input type="hidden" name="category_name" id="category_name" />
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
@@ -78,10 +78,10 @@ $c = $costprice->fetchById($_GET['id']);
                             <div class="row a">
                                 <div class="col-4">
                                     ประเภทสินค้า :<span style="color: red; ">&nbsp*</span>
-                                    <select name="category_id" id="category_id" class="inbox" style="background-color: #D4DDC6;" required>
+                                    <select name="category_id" id="category_id"  class="inbox" style="background-color: #D4DDC6;" required>
                                         <option value="" selected hidden>เลือกประเภทสินค้า</option>
                                         <?php foreach ($rows as $row) { ?>
-                                            <option value="<?= $row['category_id'] ?>" <?= $p['category_id'] == $row['category_id'] ? "selected" : '' ?>><?= $row['category_name'] ?></option>
+                                            <option  value="<?= $row['category_id'] ?>" <?= $p['category_id'] == $row['category_id'] ? "selected" : '' ?> ><?=  $row['category_name'] ?></option>
                                         <?php } ?>
                                     </select>
                                 </div>

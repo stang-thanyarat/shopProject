@@ -55,17 +55,7 @@ $o = $order->fetchById($_GET['id']);
                 <div class="col-5 d-flex justify-content-end signin status">
                     <div class="col-5">
                         <label class="font">สถานะใบสั่งซื้อ &nbsp;&nbsp;:</label>
-                        <th id="text<?= $o['order_id']?>"><?php if ($o['order_status'] == 1) {echo '<label class="switch">
-                            <input name="order_status" id="order_status" type="checkbox" checked>
-                            <span name="order_status" id="order_status" class="slider round inbox"  />
-                        </label>';
-                            } else {
-                                echo '<label class="switch">
-                            <input name="order_status" id="order_status" type="checkbox">
-                            <span name="order_status" id="order_status" class="slider round inbox" />
-                        </label>';
-                            } ?>
-                        </th>
+                            <input name="order_status" id="order_status" type="checkbox" >
                     </div>
                 </div>
                 <div class="col-1 printt font">

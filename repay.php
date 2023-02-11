@@ -71,19 +71,19 @@ for ($i = 0; $i < count($$rows); $i++) {
                     </div>
                 </div>
                 <div class="row c">
-                    <div class="col-xl-6">ชื่อ-นามสกุล: <?= $rows['customer_prefix'] ?> <?= $rows['customer_firstname'] ?> <?= $rows['customer_lastname'] ?></div>
-                    <div class="col-xl-6">รหัสบัตรประชาชน: <?= $rows['customer_img'] ?></div>
+                    <div class="col-xl-6">ชื่อ-นามสกุล&nbsp;: <b><?= $rows['customer_prefix'] ?> <?= $rows['customer_firstname'] ?> <?= $rows['customer_lastname'] ?></b></div>
+                    <div class="col-xl-6">รหัสบัตรประชาชน&nbsp;: <b><?= $rows['customer_img'] ?></b></div>
                 </div>
                 <div class="row c">
-                    <div class="col-xl-6">วันที่ทำสัญญา: <?= $rows['date_contract'] ?></div>
-                    <div class="col-xl-6">วันที่ครบกำหนด: <?= $rows['date_contract'] ?></div>
+                    <div class="col-xl-6">วันที่ทำสัญญา&nbsp;: <b><?= $rows['date_contract'] ?></b></div>
+                    <div class="col-xl-6">วันที่ครบกำหนด&nbsp;: <b><?= $rows['date_due'] ?></b></div>
                 </div>
                 <div class="row c">
-                    <div class="col-xl-6">เงินต้น: <?= $rows['deduct_principal'] ?></div>
+                    <div class="col-xl-6">เงินต้น&nbsp;: <b><?= $rows['deduct_principal'] ?></b></div>
                 </div>
                 <div class="row c">
-                    <div class="col-xl-6 ">คงค้าง: <?= $rows['less_interest'] ?></div>
-                    <div class="col-xl-6 ">ดอกเบี้ย: <?= $rows['outstanding'] ?></div>
+                    <div class="col-xl-6 ">คงค้าง&nbsp;: <b><?= $rows['less_interest'] ?></b></div>
+                    <div class="col-xl-6 ">ดอกเบี้ย&nbsp;: <b><?= $rows['outstanding'] ?></b></div>
                 </div>
                 <div class="row B">
                     <div class=" col-12 d-flex justify-content-end">
@@ -165,7 +165,7 @@ for ($i = 0; $i < count($$rows); $i++) {
                         คงค้าง: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="outstanding" id="outstanding" required /></div>
 
                         <div class="modal-footer">
-                            <button type="submit" id="addtable" class="btn btn-primary1">ตกลง</button>
+                            <button type="submit" id="addrepay" class="btn btn-primary1">ตกลง</button>
                         </div>
                     </div>
                 </div>

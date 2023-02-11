@@ -87,7 +87,6 @@ class Order
             return [];
         }
     }
-//"SELECT O.*,S.sell_name FROM order_tb O,sell_tb S WHERE O.sell_id = S.sell_id AND O.order_id=?";
     public function fetchById($id)
     {
         try{
@@ -96,6 +95,25 @@ class Order
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
+    }
+
+    public function getLastId(){
+        $data = $this->fetchLast();
+        return $data['order_id'];
+    }
+
+    public function fetchLast() //Order
+    {
+        try {
+            $sql = "SELECT * FROM order_tb ORDER BY order_id DESC LIMIT 1";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetch( PDO::FETCH_ASSOC);
             return $result;
         } catch (Exception $e) {
             http_response_code(500);
@@ -119,8 +137,8 @@ class Order
         $sql = "SET FOREIGN_KEY_CHECKS=0";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        $sql = "INSERT INTO order_tb (datebill, datereceive, sell_id, payment_sl, payment_dt, note, bank_slip/*, order_status*/) 
-        VALUES (DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? DAY),DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? DAY),?,DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? DAY),?,?,?/*,?*/)";
+        $sql = "INSERT INTO order_tb (datebill, datereceive, sell_id, payment_sl, payment_dt, note, bank_slip) 
+        VALUES (TIMESTAMP(?, CURRENT_TIME()),TIMESTAMP(?, CURRENT_TIME()),?,?,TIMESTAMP(?, CURRENT_TIME()),?,?)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $data['datebill'], PDO::PARAM_STR);
         $stmt->bindParam(2, $data['datereceive'], PDO::PARAM_STR);
@@ -129,7 +147,6 @@ class Order
         $stmt->bindParam(5, $data['payment_dt'], PDO::PARAM_STR);
         $stmt->bindParam(6, $data['note'], PDO::PARAM_STR);
         $stmt->bindParam(7, $data['bank_slip'], PDO::PARAM_STR);
-        //$stmt->bindParam(8, $data['order_status'], PDO::PARAM_INT);
         $stmt->execute();
     }
 
@@ -163,15 +180,13 @@ class Order
     {
         try {
             $sql = "UPDATE order_tb
-            SET datebill = ?, datereceive = ?, note = ?, receiptorinvoice = ?, order_status = ?
+            SET  note = ?, receiptorinvoice = ?, order_status = ?
             WHERE order_id = ?";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(1, $data['datebill'], PDO::PARAM_STR);
-            $stmt->bindParam(2, $data['datereceive'], PDO::PARAM_STR);
-            $stmt->bindParam(3, $data['note'], PDO::PARAM_STR);
-            $stmt->bindParam(4, $data['receiptorinvoice'], PDO::PARAM_STR);
-            $stmt->bindParam(5, $data['order_status'], PDO::PARAM_INT);
-            $stmt->bindParam(6, $data['order_id'], PDO::PARAM_INT);
+            $stmt->bindParam(1, $data['note'], PDO::PARAM_STR);
+            $stmt->bindParam(2, $data['receiptorinvoice'], PDO::PARAM_STR);
+            $stmt->bindParam(3, $data['order_status'], PDO::PARAM_INT);
+            $stmt->bindParam(4, $data['order_id'], PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
             http_response_code(500);

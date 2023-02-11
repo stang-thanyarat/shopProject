@@ -1,5 +1,6 @@
 <?php
 include_once('service/auth.php');
+include_once('service/dateFormat.php');
 isLaber();
 function getFullRole($role)
 {
@@ -60,7 +61,7 @@ $rows = getdata();
                 <?php foreach ($rows as $row) {
                     if ($row['order_status'] == 0) {?>
                         <tr>
-                            <th><?= $row['payment_dt'] ?></th>
+                            <th><?= dateFormat($row['payment_dt']) ?></th>
                             <th id="text<?= $row['sell_id'] ?>"><?= $row['sell_name'] ?></th>
                             <th>สำเร็จ</th>
                         </tr>

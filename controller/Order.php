@@ -18,9 +18,9 @@ if (isset($_POST)) {
                 }
             }
             if (empty($_POST['order_status'])) {
-                $_POST['order_status'] = '0';
-            } else {
                 $_POST['order_status'] = '1';
+            } else {
+                $_POST['order_status'] = '0';
             }
             $order->update($_POST);
             Redirection("/order.php");

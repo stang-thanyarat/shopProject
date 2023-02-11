@@ -76,7 +76,7 @@ if (isset($_GET['keyword'])) {
                             <?php
                             foreach ($rows as $row) { ?>
                                 <tr>
-                                    <th><?= $row['date_contract'] ?></th>
+                                    <th><?= dateFormat($row['date_contract']) ?></th>
                                     <th><?= $row['contract_code'] ?></th>
                                     <th>
                                         <div class="r">

@@ -137,7 +137,7 @@ if (isset($_GET['cardID'])) {
                 <div class="row-1 xx">ให้แก่ผู้ซื้อเป็นจำนวนเงิน <input type="text" name="baht" id="baht" class="baht" /> บาท <input type="text" name="stang" id="stang" class="stang" /> สตางค์ (<input type="text" name="stangt" id="stangt" class="stangt" />)
                 </div>
                 <div class="col-12 xx">และยอมส่งมอบทรัพย์สินที่ขายให้แก่ผู้ซื้อวันที่&nbsp;<span>&nbsp;<input type="date" value="<?= date('Y-m-d') ?>" name="date_send" id="date_send" required></span>
-                    และผู้ขายได้รับราคาดังกล่าวแล้วไปจากผู้ซื้อเสร็จแล้วตั้งแต่วันที่<span class="z">*</span>&nbsp;<span>&nbsp;<input type="date" name=""></span></div>
+                    และผู้ขายได้รับราคาดังกล่าวแล้วไปจากผู้ซื้อเสร็จแล้วตั้งแต่วันที่<span class="z">*</span>&nbsp;<span>&nbsp;<input type="date" value="<?= date('Y-m-d') ?>" id="price_send" name="price_send"></span></div>
                     
                 <div class="row xx">ข้อ ๒ ผู้ขายยอมสัญญาว่า
                     ทรัพย์สินซ่งผู้ขายนำมาขายให้แก่ผู้ซื้อนี้เป็นทรัพย์สินของผู้ขายคนเดียว และไม่เคยนำไปขาย จำนำ

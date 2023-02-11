@@ -43,6 +43,7 @@ $product = $product->fetchAll();
     <form action="controller/Order.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="table" value="order" />
         <input type="hidden" name="form_action" value="insert" />
+        <input type="hidden" id="orderdetails" name="orderdetails" />
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
@@ -185,10 +186,10 @@ $product = $product->fetchAll();
                                 </select>
                             </div>
                             <div class="q"> ราคาต่อหน่วย &nbsp;&nbsp;:&nbsp;&nbsp;
-                                <input type="number" class="u" min="0.25" step="0.25" name="unitprice" id="unitprice" required />
+                                <input type="number" class="u" min="0.25" step="0.25" name="order_pr" id="order_pr" required />
                             </div>
                             <div class="s"> จำนวน &nbsp;&nbsp;:&nbsp;&nbsp;
-                                <input type="number" class="u" min="1" name="amount" id="amount" required />
+                                <input type="number" class="u" min="1" name="order_amt" id="order_amt" required />
                             </div>
                         </div>
                         <div class="modal-footer">

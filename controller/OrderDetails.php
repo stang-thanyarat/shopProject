@@ -1,16 +1,16 @@
 <?php
-include_once 'database/OrderDetail.php';
+include_once '../database/OrderDetails.php';
 include_once 'Redirection.php';
-$orderDetails = new OrderDetails();
+$orderdetails = new OrderDetails();
 if (isset($_POST)) {
-    if ($_POST['table'] === 'orderDetails') {
+    if ($_POST['table'] === 'orderdetails') {
         if ($_POST['form_action'] === 'update') {
-            $orderDetails->update($_POST);
+            $orderdetails->update($_POST);
             //redirection('aaa.php');
         } else if ($_POST['form_action'] === 'delete') {
-            $orderDetails->delete($_POST['unique_id']);
+            $orderdetails->delete($_POST['unique_id']);
         } else if ($_POST['form_action'] === 'insert') {
-            $orderDetails->insert($_POST);
+            $orderdetails->insert($_POST);
         }
     }
 }else{

@@ -5,6 +5,29 @@ $(document).ready(function () {
     localStorage.setItem("tablePrice", JSON.stringify({ data: [] }))
 });
 
+$("#addrepay").submit( async function (event) {
+    event.preventDefault();
+    if ($('#paymentamount').val() === "" || $('#payment_sl').val() === "" || $('#deduct').val() === "" || $('#lessinterest').val() === "" || $('#lessinterest').val() === "" || $('#outstanding').val() === "") {
+        return
+    }
+    let lastID = await (await fetch('controller/GetLastIdContract.php')).text()
+    var formdata1 = new FormData();
+    formdata1.append("contract_code", lastID);
+    formdata1.append("payment_amount", $('#paymentamount').val());
+    formdata1.append("payment", $('#payment_sl').val());
+    formdata1.append("deduct_principal", $('#deduct').val());
+    formdata1.append("less_interest", $('#lessinterest').val());
+    formdata1.append("outstanding", $('#outstanding').val());
+    formdata1.append("form_action", "insert");
+    formdata1.append("table", "debtPaymentDetails");
+    var requestOptions = {
+        method: 'POST',
+        body: formdata1,
+        redirect: 'follow'
+    };
+    await fetch("controller/DebtPaymentDetails.php", requestOptions)
+    //location.reload()
+});
 //เพิ่มสินค้า
 $("#addproduct").submit(function (event) {
     event.preventDefault();
@@ -146,4 +169,45 @@ $("#payment_sl").change(function () {
     } else {
         $("#slipupload").hide()
     }
+});
+
+async function loopproduct() {
+    let lastID = await (await fetch('controller/GetLastIdOrder.php')).text()
+    var formdata = new FormData();
+    formdata.append("order_id", $("#order_id").val());
+    formdata.append("product_id", $("#product_id").val());
+    formdata.append("order_amt", $("#order_amt").val());
+    formdata.append("order_pr", $("#order_pr").val());
+    formdata.append("listother", $("#listother").val());
+    formdata.append("priceother", $("#priceother").val());
+    formdata.append("form_action", "update");
+    formdata.append("table", "orderdetails");
+    var requestOptions = {
+        method: 'POST',
+        body: formdata,
+        redirect: 'follow'
+    };
+    await fetch("controller/OrderDetails.php", requestOptions)
+}
+
+//ตรวจสอบพร้อมส่งข้อมูล
+$("#form1").submit(async function (event) {
+    event.preventDefault();
+    let response = await fetch('controller/Order.php', {
+        method: 'POST',
+        body: new FormData(document.form1)
+    });
+    console.log(response);
+    if (!response.ok) {
+        console.log(response);
+    } else {
+        loopproduct()
+        await Swal.fire({
+            icon: 'success',
+            text: 'บันทึกข้อมูลเสร็จสิ้น',
+        })
+        console.log(await response.text());
+        window.location.assign("order.php");
+    }
+
 });

@@ -60,7 +60,6 @@ if (isset($_POST)) {
         } else if ($_POST['form_action'] === 'delete') {
             $product->delete($_POST['product_id']);
         } else if ($_POST['form_action'] === 'insert') {
-
             if (!empty($_POST['vat'])) {
                 $_POST['price'] = $_POST['price'] + ceil($_POST['price'] * $_SESSION['vat'] / 100);
             }
