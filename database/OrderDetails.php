@@ -186,6 +186,21 @@ class OrderDetails
 
     }
 
+    public function fetchByODId($id)
+    {
+        try {
+            $sql = "SELECT O.*,P.* FROM order_details_tb O, product_tb P WHERE P.product_id = O.product_id AND O.order_id = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (Exception $e) {
+            return [];
+        }
+    }
+
+
     public function delete($id)
     {
         $sql = "DELETE FROM order_details_tb WHERE unique_id=?;";
@@ -200,15 +215,12 @@ class OrderDetails
             $sql = "SET FOREIGN_KEY_CHECKS=0";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-            $sql = "INSERT INTO order_details_tb (order_id, product_id, order_pr, order_amt, listother, priceother, net_price) VALUES (?,?,?,?,?,?,?)";
+            $sql = "INSERT INTO order_details_tb (order_id, product_id, order_pr, order_amt) VALUES (?,?,?,?)";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $data['order_id'], PDO::PARAM_INT);
             $stmt->bindParam(2, $data['product_id'], PDO::PARAM_INT);
             $stmt->bindParam(3, $data['order_pr']);
             $stmt->bindParam(4, $data['order_amt'], PDO::PARAM_INT);
-            $stmt->bindParam(5, $data['listother'], PDO::PARAM_STR);
-            $stmt->bindParam(6, $data['priceother'], PDO::PARAM_INT);
-            $stmt->bindParam(7, $data['net_price']);
             $stmt->execute();
         } catch (Exception $e) {
             http_response_code(500);
@@ -218,19 +230,24 @@ class OrderDetails
 
     public function update($data)
     {
-        $sql = "UPDATE order_details_tb
-        SET  order_id = ?, product_id = ?, order_pr = ?, order_amt = ?, listother = ?, priceother = ?, net_price = ?
+        try {
+            $sql = "SET FOREIGN_KEY_CHECKS=0";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $sql = "UPDATE order_details_tb
+        SET  order_id = ?, product_id = ?, order_pr = ?, order_amt = ?
         WHERE unique_id=?";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $data['order_id'], PDO::PARAM_INT);
-        $stmt->bindParam(2, $data['product_id'], PDO::PARAM_INT);
-        $stmt->bindParam(3, $data['order_pr']);
-        $stmt->bindParam(4, $data['order_amt'], PDO::PARAM_INT);
-        $stmt->bindParam(5, $data['listother'], PDO::PARAM_STR);
-        $stmt->bindParam(6, $data['priceother'], PDO::PARAM_INT);
-        $stmt->bindParam(7, $data['net_price']);
-        $stmt->bindParam(8, $data['unique_id'], PDO::PARAM_INT);
-        $stmt->execute();
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $data['order_id'], PDO::PARAM_INT);
+            $stmt->bindParam(2, $data['product_id'], PDO::PARAM_INT);
+            $stmt->bindParam(3, $data['order_pr']);
+            $stmt->bindParam(4, $data['order_amt'], PDO::PARAM_INT);
+            $stmt->bindParam(5, $data['unique_id'], PDO::PARAM_INT);
+            $stmt->execute();
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 }
 
