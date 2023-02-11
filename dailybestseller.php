@@ -56,7 +56,7 @@ $c = $category->fetchAll();
                         <?php } ?>
                     </select>
                 </div>
-                <div class="col-3 searchdate">
+                <div class="col-2 searchdate">
                     <input type="date" value="<?= date('Y-m-d')?>" name="date" id="date" class="date"/>
                 </div>
                 <div class="col-4 search">

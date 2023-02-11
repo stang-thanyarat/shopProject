@@ -51,7 +51,7 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                         <h1>การเปลี่ยนสินค้า</h1>
                     </div>
                     <form action="productexchangehistory.php" method="GET">
-                            <div class="col-6 search">
+                            <div class="col-5 search">
                                 <input value="<?= isset($_GET['start']) ? $_GET['start']:'' ?>" class="date" type="date" name="start" id="start"> &nbsp&nbspถึง&nbsp&nbsp
                                 <input value="<?= isset($_GET['end'])? $_GET['end'] :'' ?>" class="date" type="date" name="end" id="end">
                                 <button type="submit" class="s"><img src="./src/images/search.png" width="25"></button>
