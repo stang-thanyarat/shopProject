@@ -8,8 +8,8 @@ if (!isset($_SESSION)) {
 }
 
 if (isset($_POST)) {
-    if ($_POST['table'] === 'product') {
-        if ($_POST['form_action'] === 'update') {
+    if ($_POST['table'] == 'product') {
+        if ($_POST['form_action'] == 'update') {
             $vat = $product->fetchVat($_POST['product_id']);
             $vatCheck = empty($_POST['vat']) ? 0 : 1;
             if (!$vatCheck == $vat) {
@@ -57,9 +57,9 @@ if (isset($_POST)) {
             }
             $product->update($_POST);
             redirection('/productresult.php');
-        } else if ($_POST['form_action'] === 'delete') {
+        } else if ($_POST['form_action'] == 'delete') {
             $product->delete($_POST['product_id']);
-        } else if ($_POST['form_action'] === 'insert') {
+        } else if ($_POST['form_action'] == 'insert') {
             if (!empty($_POST['vat'])) {
                 $_POST['price'] = $_POST['price'] + ceil($_POST['price'] * $_SESSION['vat'] / 100);
             }
@@ -110,6 +110,9 @@ if (isset($_POST)) {
             $_POST['product_img2'] = str_replace("-", "", $_POST['product_img2']);
             $product->insert($_POST);
             Redirection("/productresult.php");
+        }
+        else if($_POST['form_action'] == 'cut'){
+            $product->cutStock($_POST['product_id'],$_POST['q']);
         }
     }
 } else {

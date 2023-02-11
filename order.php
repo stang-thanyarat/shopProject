@@ -1,6 +1,7 @@
 <?php
 include_once('service/auth.php');
 include_once('service/dateFormat.php');
+include_once"./service/datetimeDisplay.php";
 isLaber();
 function getFullRole($role)
 {
@@ -66,7 +67,7 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != "") {
                     </tr>
                     <?php foreach ($rows as $row) { ?>
                         <tr>
-                        <th><?= dateFormat($row['datebill']) ?></th>
+                        <th><?= dateTimeDisplay($row['datebill']) ?></th>
                         <th id="text<?= $row['sell_id'] ?>"><?= $row['sell_name'] ?></th>
                         <th>
                             <?= $row['order_status'] == 1 ? "<a type='button' onclick='wait()'><font color=#A36627>รอของ</font></a>" : "สำเร็จ" ?>

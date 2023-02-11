@@ -333,5 +333,6 @@ $product = $product->fetchAll();
 <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="./src/js/printThis.js"></script>
 <script src="./src/js/addorder3.js"></script>
+<script>window.onload = () =>document.querySelector('.btn-close > span').remove()</script>
 
 </html>

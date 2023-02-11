@@ -76,7 +76,7 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                     <?php foreach ($rows as $row) { ?>
                         <tr>
                             <th><?= dateFormat($row['sales_dt']) ?></th>
-                            <th><?= $row['sales_list_id'] ?></th>
+                            <th><a href="<?= $row['payment_sl'] != 'ผ่อนชำระ' ? './service/PDF/template/receipt.php?id='.$row['sales_list_id']: './service/PDF/template/invoice.php?id='.$row['sales_list_id'] ?>"><img src="./src/images/print.png" class="g" width="25"></a></th>
                             <th><?= $row['all_quantity'] ?></th>
                             <th><?= $row['all_price']?></th>
                             <th><?= $row['payment_sl'] ?></th>

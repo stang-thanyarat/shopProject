@@ -51,8 +51,8 @@ foreach ($data as $row) {
   $r .= '<tr>
   <td width="140" class="setcenter">' . $c . '</td>
   <td width="426">&nbsp; ' . $row['product_name'] . '</td>
-  <td width="162" class="setcenter">' . $row['product_name'] . '</td>
-  <td width="304" class="setright"> ' . $row['sales_amt'] . ' &nbsp;</td>
+  <td width="162" class="setcenter">' . $row['sales_amt'] . '</td>
+  <td width="304" class="setright"> ' . $row['price'] . ' &nbsp;</td>
   <td width="238" class="setright"> ' . $row['price'] * $row['sales_amt'] . ' &nbsp;</td>
 </tr>';
   $c++;
@@ -148,5 +148,5 @@ h2{
 ';
 
 $mpdf->WriteHTML($html);
-$mpdf->Output($output, 'D');
+$mpdf->Output($output, 'I');
 

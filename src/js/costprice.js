@@ -39,6 +39,7 @@ function setUI(data) {
                         data: marks,
                         backgroundColor: ['rgb(180, 120, 120)',],
                         borderColor: ['rgb(120, 120, 120)',],
+
                         borderWidth: 1,
                     }
                 ]

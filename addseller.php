@@ -26,7 +26,7 @@ function getFullRole($role)
     <link rel="stylesheet" href="./src/css/addseller.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <title>Document</title>
+    <title>เพิ่มผู้ขาย</title>
 </head>
 <?php include_once('nav.php'); ?>
 
@@ -286,5 +286,6 @@ function getFullRole($role)
 </body>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./src/js/addseller.js"></script>
+<script>window.onload = () =>document.querySelector('.btn-close > span').remove()</script>
 
 </html>

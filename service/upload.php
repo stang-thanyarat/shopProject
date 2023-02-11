@@ -12,6 +12,9 @@ function generateRandomString($length = 25)
 
 function uploadImage($file, $dir)
 {
+    if (!is_dir($dir)) {
+        mkdir($dir, 0777, true);
+    }
     $ext = pathinfo($file["name"], PATHINFO_EXTENSION);
     $imagename = generateRandomString() . "." . $ext;
     $filename = $dir . $imagename;
