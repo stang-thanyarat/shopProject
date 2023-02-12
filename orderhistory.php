@@ -1,6 +1,7 @@
 <?php
 include_once('service/auth.php');
 include_once('service/dateFormat.php');
+include_once"./service/datetimeDisplay.php";
 isLaber();
 function getFullRole($role)
 {
@@ -61,7 +62,7 @@ $rows = getdata();
                 <?php foreach ($rows as $row) {
                     if ($row['order_status'] == 0) {?>
                         <tr>
-                            <th><?= dateFormat($row['payment_dt']) ?></th>
+                            <th><?= dateTimeDisplay($row['payment_dt']) ?></th>
                             <th id="text<?= $row['sell_id'] ?>"><?= $row['sell_name'] ?></th>
                             <th>สำเร็จ</th>
                         </tr>

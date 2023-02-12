@@ -37,7 +37,7 @@ class SalesDetails
     public function fetchBySalesId($id)
     {
         try {
-            $sql = "SELECT * FROM sales_details_tb WHERE sales_list_id = ?";
+            $sql = "SELECT * FROM sales_details_tb WHERE unique_id = ?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();

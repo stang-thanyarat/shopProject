@@ -1,6 +1,20 @@
 <?php
-
 require_once   '../vendor/autoload.php';
+include_once '../../../database/order_detaills_tb';
+include_once '../../bahtText.php';
+include_once '../../datetimeDisplay.php';
+
+$OrderDetails = new OrderDetails();
+if(!isset($_GET['id'])){
+  echo "Not found.";
+  exit();
+}
+$id = $_GET['id'];
+$data = $OrderDetails->fetchByPDFId($id);
+if(count($data)<=0){
+  echo "Not found.";
+  exit();
+}
 $defaultConfig = (new Mpdf\Config\ConfigVariables())->getDefaults();
 $fontDirs = $defaultConfig['fontDir'];
 $defaultFontConfig = (new Mpdf\Config\FontVariables())->getDefaults();

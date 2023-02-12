@@ -137,9 +137,11 @@ for ($i = 0; $i < count($banks); $i++) {
                         <input type="text" name="seller_telephone" id="seller_telephone" value="<?= $e['seller_telephone']; ?>" onkeyup="autoTab2(this)" class="bb" required />
                         <div class="j">*</div>
                     </div>
-                    <div class="col leftidline">
-                        <label for="seller_lind_id">ไอดีไลน์ :</label>
-                        <input type="text" name="seller_lind_id" id="seller_lind_id" class="bb" value="<?= $e['seller_lind_id']; ?>" />
+                </div>
+                <div class="row col-10">
+                    <div class="col leftnumber2">
+                        <label for="seller_telephone">ช่องทางการติดต่ออื่นๆ :</label>
+                        <input type="text" name="seller_channel" id="seller_channel" class="bb" value="<?= $e['seller_channel']; ?>" />
                     </div>
                 </div>
                 <div class="row">

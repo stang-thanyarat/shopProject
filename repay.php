@@ -83,7 +83,7 @@ for ($i = 0; $i < count($$rows); $i++) {
                 </div>
                 <div class="row c">
                     <div class="col-xl-6 ">คงค้าง&nbsp;: <b><?= $rows['less_interest'] ?></b></div>
-                    <div class="col-xl-6 ">ดอกเบี้ย&nbsp;: <b><?= $rows['outstanding'] ?></b></div>
+                    <div class="col-xl-6 ">ดอกเบี้ย&nbsp;: <b><?= $rows['outstanding'] ?> %</b></div>
                 </div>
                 <div class="row B">
                     <div class=" col-12 d-flex justify-content-end">

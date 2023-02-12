@@ -64,17 +64,17 @@ if (isset($_GET['keyword'])) {
                 </div>
                 <table class="ma">
                     <tr>
-                        <th width="35">ชื่อผู้ขาย</th>
-                        <th width="20">เลขประจำตัวผู้เสียภาษี</th>
-                        <th width="20">นามบัตร</th>
-                        <th width="5"></th>
+                        <th width="20%">ชื่อผู้ขาย</th>
+                        <th width="20%">เลขประจำตัวผู้เสียภาษี</th>
+                        <th width="15%">นามบัตร</th>
+                        <th width="5%"></th>
                     </tr>
                     <tbody id="sellTable">
                         <?php foreach ($rows as $e) { ?>
                             <tr>
                                 <th name="sell_name" id="sell_name"><?= $e['sell_name']; ?></th>
                                 <th name="sell_tax_id" id="sell_tax_id"><?= $e['sell_tax_id']; ?></th>
-                                <th name="seller_cardname" id="seller_cardname"><a href="<?= $e['seller_cardname']; ?>"><img src="<?= $e['seller_cardname']; ?>" width="100px" height="80px" /></a></th>
+                                <th name="seller_cardname" id="seller_cardname"><a href="<?= $e['seller_cardname']; ?>"><img src="<?= $e['seller_cardname']; ?>" width="300" height="200" /></a></th>
                                 <th>
                                     <button type="button" class="btn1" onclick="del(<?=$e['sell_id']; ?>)" ><img src="./src/images/icon-delete.png" width="25"></button>
                                     <a type="button" class="btn1" href="editseller.php?id=<?= $e['sell_id']; ?>"><img src="./src/images/icon-pencil.png" width="25"></a>
