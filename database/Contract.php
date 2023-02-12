@@ -52,6 +52,9 @@ class Contract
 
     public function getLastId(){
         $data = $this->fetchLast();
+        if(count($data)<=0){
+            return 1;
+        }
         return $data['contract_code'];
     }
 

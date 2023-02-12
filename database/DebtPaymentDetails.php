@@ -79,10 +79,10 @@ class DebtPaymentDetails
             $sql = "SET FOREIGN_KEY_CHECKS=0";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-            $sql = "INSERT INTO debt_payment_details_tb (contract_code, payment_amount) VALUES (?,?)";
+            $sql = "INSERT INTO debt_payment_details_tb (contract_code, outstanding) VALUES (?,?)";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $data['contract_code'], PDO::PARAM_INT);
-            $stmt->bindParam(2, $data['payment_amount'], PDO::PARAM_STR);
+            $stmt->bindParam(2, $data['outstanding'], PDO::PARAM_STR);
             $stmt->execute();
         } catch (Exception $e) {
             http_response_code(500);
