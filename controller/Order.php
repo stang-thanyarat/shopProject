@@ -7,16 +7,27 @@ if (isset($_POST)) {
     if ($_POST['table'] === 'order') {
         if ($_POST['form_action'] === 'update') {
             //เชคการอัพโหลดรูป
-            if ($_FILES['receiptorinvoice']['size'] > 0) {
+            if (isset($_FILES['receiptorinvoice'])) {
+                $path = './file/order/receiptorinvoice/';
+                $filesname = uploadImage($_FILES['receiptorinvoice'], "." . $path);
+                if ($filesname) {
+                    $_POST['receiptorinvoice'] = $path . $filesname;
+                } else {
+                    $_POST['receiptorinvoice'] = '';
+                }
+            } else {
+                $_POST['receiptorinvoice'] = '';
+            }
+            /*if ($_FILES['receiptorinvoice']['size'] > 0) {
                 $path = './file/order/receiptorinvoice/';
                 if (file_exists($_POST['receiptorinvoice'])) {
-                    unlink($_POST['receiptorinvoice']);
+                    ($_POST['receiptorinvoice']);
                 }
                 $filesname = $path . uploadImage($_FILES['receiptorinvoice'], "." . $path);
                 if ($filesname) {
                     $order->updateimage('receiptorinvoice', $filesname,$_POST['order_id']);
                 }
-            }
+            }*/
             if (empty($_POST['order_status'])) {
                 $_POST['order_status'] = '1';
             } else {

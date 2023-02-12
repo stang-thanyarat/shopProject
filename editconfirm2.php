@@ -48,7 +48,7 @@ $sells = $sell->fetchAll();
 $products = $product->fetchAll();
 $o = $order->fetchById($_GET['id']);
 $od = $orderdetails->fetchByODId($_GET['id']);
-$op = $otherprice->fetchById($_GET['id']);
+$op = $otherprice->fetchByOPId($_GET['id']);
 if(!$o){
     echo "not found.";
     exit;
@@ -64,26 +64,26 @@ for ($i = 0; $i < count($od); $i++) {
         amount: " . $b['order_amt'] . ",
         expdate:\"" . "" . "\",
         allprice:" . ($b['order_pr']*$b['order_amt']) . ",
-        id:\"" . $b['unique_id'] . "\"
+        id:" . $b['unique_id'] . "
     }";
     if ($i + 1 != count($od)) {
         $json .= ",";
     }
 }
+$json1 = '';
 for ($i = 0; $i < count($op); $i++) {
-    $b = $od[$i];
-    $json .= "{
-        listOther: " . $b['listother'] . ",
+    $b = $op[$i];
+    $json1 .= "{
+        listOther: \"" . $b['listother'] . "\",
         priceOther: " . $b['priceother'] . ",
         id: " . $b['unique_id'] . "
     }";
-    if ($i + 1 != count($od)) {
-        $json .= ",";
+    if ($i + 1 != count($op)) {
+        $json1 .= ",";
     }
 }
 ?>
 
-<body>
 <body>
 <form action="controller/Order.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="table" value="order" />
@@ -134,14 +134,12 @@ for ($i = 0; $i < count($op); $i++) {
                         <label for="note">หมายเหตุ : &nbsp;</label>
                         <textarea name="note" id="note" cols="50" rows="5" style="vertical-align:top;" class="bb"  value="<?= $o['note']; ?>"></textarea>
                     </div>
-                    <div class="row x">
-                        <div class="col">
-                            ใบเสร็จ : &nbsp;<input type="file" accept="image/*" name="slip">
-                        </div>
-                        <div class="col f">
-                            ใบส่งของ : &nbsp;<input type="file" accept="image/*" name="invoice">
+                    <div class="row">
+                        <div class="col d-flex justify-content-center">
+                            ใบเสร็จหรือใบส่งของ : &nbsp;<input type="file" accept="image/*" name="receiptorinvoice" id="receiptorinvoice">
                         </div>
                     </div>
+                    <br>
                     <div class="col-12 C">
                         รายการสินค้า
                         <div class=" col-12 d-flex justify-content-end">
@@ -165,7 +163,7 @@ for ($i = 0; $i < count($op); $i++) {
                             <?php $i = 0;
                             foreach ($od as $b) { ?>
                                 <tr id="rr<?= $i ?>">
-                                    <th class="index-table-bank"><?= $i + 1 ?></th>
+                                    <th class="index-table-product"><?= $i + 1 ?></th>
                                     <th id="text<?= $b['product_id'] ?>"><?= $b['product_name'] ?></th>
                                     <th><?= $b['order_pr'] ?></th>
                                     <th><?= $b['order_amt'] ?></th>
@@ -200,15 +198,15 @@ for ($i = 0; $i < count($op); $i++) {
                             <tbody id="list-priceother">
                             <?php  foreach ($op as $b) { ?>
                                 <tr id="rr<?= $i ?>">
-                                    <th class="index-table-bank"><?= $i + 1 ?></th>
+                                    <th class="index-table-price"><?= $i + 1 ?></th>
                                     <th><?= $b['listother'] ?></th>
                                     <th><?= $b['priceother'] ?></th>
                                     <th>
-                                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel1(<?= $i ?>)"></button>
-                                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl1"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit1(<?= $i ?>)"></button>
+                                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModalother"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel1(<?= $i ?>)"></button>
+                                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm4"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit1(<?= $i ?>)"></button>
                                     </th>
                                 </tr>
-                                <?php
+                                <?php $i++;
                             } ?>
                             </tbody>
                         </table>
@@ -352,7 +350,7 @@ for ($i = 0; $i < count($op); $i++) {
 <!--แก้ไขค่าใช้จ่ายอื่นๆ-->
 <div class="modal fade bd-example-modal-sm4" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
      aria-hidden="true">
-    <form name="addprice" id="editaddprice" method="post">
+    <form name="editaddprice" id="editaddprice" method="post">
         <div class="modal-dialog modal-sm4">
             <div class="modal-content">
                 <div class="modal-header">
@@ -363,10 +361,10 @@ for ($i = 0; $i < count($op); $i++) {
                     </button>
                 </div>
                 <div class="modal-body">
-                    <center>รายการ: &nbsp;<input type="text" name="listother" id="editlistother" required/><br>
+                    <center>รายการ: &nbsp;<input type="text" name="editlistother" id="editlistother" required/><br>
                         <p></p>
                     </center>
-                    <center>ราคา: &nbsp;<input type="text" name="priceother" id="editpriceother" required/>
+                    <center>ราคา: &nbsp;<input type="text" name="editpriceother" id="editpriceother" required/>
                         <p></p>
                     </center>
 
@@ -421,11 +419,11 @@ for ($i = 0; $i < count($op); $i++) {
     $(document).ready(function() {
         $("#slipupload").hide()
         localStorage.clear()
-        localStorage.setItem("tablePrice", JSON.stringify({
-            data: [<?php echo $json; ?>]
-        }))
         localStorage.setItem("tableProduct", JSON.stringify({
             data: [<?php echo $json; ?>]
+        }))
+        localStorage.setItem("tablePrice", JSON.stringify({
+            data: [<?php echo $json1; ?>]
         }))
     });
 </script>

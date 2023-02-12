@@ -2,7 +2,10 @@
 file/seller/card/
 file/seller/documents/
 file/seller/id/
-.idea/workspace.xml
+file/order/receiptorinvoice/
+file/order/bankslip/
+*.idea/workspace.xml
+*.idea\workspace.xml
 .idea\workspace.xml
 src/images/
 file/product/image1/
@@ -10,6 +13,6 @@ file/product/image2/
 file/productexchange/
 file/employee/id/
 file/employee/address/
-.idea/workspace.xml
 *.xml
-.idea/workspace.xml
+
+*.xml

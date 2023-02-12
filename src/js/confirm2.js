@@ -1,4 +1,3 @@
-
 //เพิ่มสินค้า
 $("#addproduct").submit(function (event) {
     event.preventDefault();
@@ -126,7 +125,7 @@ $("#addprice").submit(function (event) {
         $('#addtable2').blur()
         return
     }
-    $('#list-priceother').append(`<tr id="rr${i}">
+                    $('#list-priceother').append(`<tr id="rr${i + 1}">
                     <th class="index-table-price">${i + 1}</th>          
                     <th>${$('#listother').val()}</th>
                     <th>${$('#priceother').val()}</th>
@@ -139,6 +138,7 @@ $("#addprice").submit(function (event) {
     tableObj.data.push({
         listOther: $('#listother').val(),
         priceOther: $('#priceother').val(),
+        id: -1
 
     })
     localStorage.setItem("tablePrice", JSON.stringify(tableObj))
@@ -168,13 +168,13 @@ function delrow2() {
     rows.splice(index, 1)
     $('#list-priceother').html("")
     rows.forEach((e, i) => {
-        $('#list-priceother').append(`<tr id="rr${i + 1}">
-                    <th class="index-table-price">${i + 1}</th> 
+                    $('#list-priceother').append(`<tr id="rr${i + 1}">
+                    <th class="index-table-price">${i + 1}</th>   
                     <th>${e.listOther}</th>
                     <th>${e.priceOther}</th>
                     <th>
                     <button type="button" class="btn1 " data-bs-toggle="modal" data-bs-target="#exampleModalother"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel1(${i})"></button>
-                    <button type="button" class="btn1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm4"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit1(${i})"></button>
+                        <button type="button" class="btn1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm4"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit1(${i})"></button>
                     </th>
                 </tr>`)
     });
@@ -192,13 +192,14 @@ $("#editaddprice").submit(function (event) {
     tableObj.data[index] = {
         listOther: $('#editlistother').val(),
         priceOther: $('#editpriceother').val(),
+        id: tableObj.data[index].id
     }
     localStorage.setItem("tablePrice", JSON.stringify(tableObj))
     let rows = tableObj.data
     $('#list-priceother').html("")
     rows.forEach((e, i) => {
         $('#list-priceother').append(`<tr id="rr${i + 1}">
-        <th class="index-table-price">${i + 1}</th> 
+        <th class="index-table-price">${i + 1}</th>   
         <th>${e.listOther}</th>
         <th>${e.priceOther}</th>
         <th>
