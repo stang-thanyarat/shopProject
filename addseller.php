@@ -115,9 +115,11 @@ function getFullRole($role)
                         <input type="text" name="seller_telephone" id="seller_telephone" onkeyup="autoTab2(this)" class="bb" />
                         <div class="j">*</div>
                     </div>
-                    <div class="col leftidline">
-                        <label for="seller_lind_id">ไอดีไลน์ :</label>
-                        <input type="text" name="seller_lind_id" id="seller_lind_id" class="bb" />
+                </div>
+                <div class="row">
+                    <div class="col leftnumber2">
+                        <label for="seller_telephone">ช่องทางการติดต่ออื่นๆ :</label>
+                        <input type="text" name="seller_channel" id="seller_channel" class="bb" />
                     </div>
                 </div>
                 <div class="row">

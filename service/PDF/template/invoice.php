@@ -80,7 +80,7 @@ h2{
 </td>
   </tr>
    <tr class="setcenter">
-    <td colspan="2" class="setcenter">เลขประจำตัวผู้เสียภาษี : xxx </td>
+    <td colspan="2" class="setcenter">เลขประจำตัวผู้เสียภาษี : &nbsp; </td>
   </tr>
    <tr class="setcenter">
     <td colspan="2" class="setcenter">เบอร์โทรติดต่อ : 035-801059 , 083-9108289</td>
@@ -126,10 +126,10 @@ h2{
         <td width="517">&nbsp; ' . $data['product_detail'] . '</td>
         <td width="162" class="setcenter"> ' . $detail['sales_pr'] . '</td>
         <td width="290" class="setright"> ' . $detail['sales_amt'] . ' &nbsp;</td>
-        <td width="290" class="setright"> ' . $detail['sales_amt'] * $detail['sales_pr'] . ' &nbsp;</td>
+      
       </tr>
       <tr>
-        <td  colspan="3">หมายเหตุ : xxx</td>
+        <td  colspan="3">หมายเหตุ : &nbsp;</td>
         <td width="290" class="setright">ยอดรวมสุทธิ :  &nbsp;</td>
         <td width="238" class="setright">' . $data['baht'] . ' &nbsp;</td>
       </tr>

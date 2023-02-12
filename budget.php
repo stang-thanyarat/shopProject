@@ -36,10 +36,12 @@ $budget = new Budget();
 $firstdate = "";
 $lastdate = "";
 if(isset($_GET['firstdate'])&&(isset($_GET['lastdate']))){
-    $b = (array)$budget->fetchBetween($_GET['firstdate'],$_GET['lastdate']);
+    $b = (array)$budget->fetchBetweenSales($_GET['firstdate'],$_GET['lastdate']);
+    $c = (array)$budget->fetchBetweenOrder($_GET['firstdate'],$_GET['lastdate']);
+    $p = (array)$budget->fetchBetweenProduct();
     $firstdate = $_GET['firstdate'];
-    $lastdate = $_GET['lastdate'];
-}else{
+    $lastdate = $_GET['lastdate'];}
+else{
     $b = (array)$budget->fetchBetween();
     $firstdate = date('d/m/Y');
     $lastdate = date('d/m/Y');
@@ -82,14 +84,14 @@ if(isset($_GET['firstdate'])&&(isset($_GET['lastdate']))){
                                 <tr>
                                     <th width='10%'></th>
                                     <th width='50%'>รวม สินทรัพย์</th>
-                                    <th width='25%' style="text-align: end;">10000 </th>
+                                    <th width='25%' style="text-align: end;"><?= $p['BG1']+$b['BG2']+$b['BG2']?></th>
                                     <th width='10%'>บาท</th>
 
                                 </tr>
                                 <tr>
                                     <th></th>
                                     <th>&nbsp&nbsp&nbsp&nbspสินค้าที่พร้อมขาย</th>
-                                    <th style="text-align: end;"><?= $b['BG1']?> </th>
+                                    <th style="text-align: end;"><?= $p['BG1']?> </th>
                                     <th>บาท</th>
                                 </tr>
                                 <tr>
@@ -117,7 +119,7 @@ if(isset($_GET['firstdate'])&&(isset($_GET['lastdate']))){
                                 <tr>
                                     <th width='10%'></th>
                                     <th width='50%' >รวม หนี้สิน+ทุน</th>
-                                    <th width='25%' style="text-align: end;"><?= $b['BG3']?></th>
+                                    <th width='25%' style="text-align: end;"><?= $c['BG3']?></th>
                                     <th width='10%'>บาท</th>
                                 </tr>
                                 <tr>
@@ -129,13 +131,13 @@ if(isset($_GET['firstdate'])&&(isset($_GET['lastdate']))){
                                 <tr>
                                     <th></th>
                                     <th>&nbsp&nbsp&nbsp&nbspหนี้สิน(เงินสด)</th>
-                                    <th width='25%' style="text-align: end;">10000</th>
+                                    <th width='25%' style="text-align: end;"><?= $c['cash']?></th>
                                     <th>บาท</th>
                                 </tr>
                                 <tr>
                                     <th></th>
                                     <th>&nbsp&nbsp&nbsp&nbspหนี้สิน(เครดิต)</th>
-                                    <th width='25%' style="text-align: end;">10000</th>
+                                    <th width='25%' style="text-align: end;"><?= $c['credit']?></th>
                                     <th>บาท</th>
                                 </tr>
 
@@ -153,13 +155,13 @@ if(isset($_GET['firstdate'])&&(isset($_GET['lastdate']))){
     function loadPDF() {
     if ($('#firstdate').val() && $('#firstdate').val() != "" && $('#lastdate').val() && $('#lastdate').val() != "") {
         var form = $('<form action="./service/PDF/template/budget.php" method="post">' +
-        '<input type="hidden" name="BG1" value="<?=$b['BG1']?>" />' +
+        '<input type="hidden" name="BG1" value="<?=$p['BG1']?>" />' +
         '<input type="hidden" name="BG2" value="<?=$b['BG2']?>" />' +
-        '<input type="hidden" name="BG3" value="<?=$b['BG3']?>" />' +
+        '<input type="hidden" name="BG3" value="<?=$c['BG3']?>" />' +
         '<input type="hidden" name="firstdate" value="<?=$firstdate?>" />' +
         '<input type="hidden" name="lastdate" value="<?=$lastdate?>" />' +
-        '<input type="hidden" name="credit" value="<?=$b['credit']?>" />' +
-        '<input type="hidden" name="cash" value="<?=$b['cash']?>" />' +
+        '<input type="hidden" name="credit" value="<?=$c['credit']?>" />' +
+        '<input type="hidden" name="cash" value="<?=$c['cash']?>" />' +
         '</form>');
         $('body').append(form);
         $(form).submit();

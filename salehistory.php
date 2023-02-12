@@ -31,6 +31,7 @@ function getFullRole($role)
 <?php
 include_once('nav.php');
 include_once './database/Sales.php';
+include_once './service/datetimeDisplay.php';
 $sales = new Sales();
 if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GET['end'] != '') {
     $rows = $sales->fetchBetween($_GET['start'], $_GET['end']);
@@ -66,7 +67,8 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
         <?php if (count($rows) > 0) { ?>
             <table class="col-11 saletable">
                 <tr>
-                    <th width=30%>วันที่และเวลาที่ขาย</th>
+                    <th width=20%>วันที่</th>
+                    <th width=20%>เวลาที่ขาย</th>
                     <th width=15%>เลขที่ใบเสร็จ/ใบส่งของ</th>
                     <th width=15%>จำนวนรวม</th>
                     <th width=15%>ยอดรวมทั้งหมด</th>
@@ -75,7 +77,8 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                     <tbody id="salesHistory">
                     <?php foreach ($rows as $row) { ?>
                         <tr>
-                            <th><?= dateFormat($row['sales_dt']) ?></th>
+                            <th><?= dateTimeDisplay($row['sales_dt']) ?></th>
+                            <th><?= ShowTime($row['sales_dt']) ?></th>
                             <th><a href="<?= $row['payment_sl'] != 'ผ่อนชำระ' ? './service/PDF/template/receipt.php?id='.$row['sales_list_id']: './service/PDF/template/invoice.php?id='.$row['sales_list_id'] ?>"><img src="./src/images/print.png" class="g" width="25"></a></th>
                             <th><?= $row['all_quantity'] ?></th>
                             <th><?= $row['all_price']?></th>

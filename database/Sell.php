@@ -110,7 +110,7 @@ class Sell
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             $sql = "INSERT INTO sell_tb (sell_type, sell_name, sell_address, sell_tax_id, sell_telephone, sell_website, seller_firstname, 
-        seller_lastname, seller_nickname, seller_email, seller_telephone, seller_lind_id, seller_card_id, seller_cardname, sell_documents, sell_note) 
+        seller_lastname, seller_nickname, seller_email, seller_telephone, seller_channel, seller_card_id, seller_cardname, sell_documents, sell_note) 
         VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $data['sell_type'], PDO::PARAM_STR);
@@ -124,7 +124,7 @@ class Sell
             $stmt->bindParam(9, $data['seller_nickname'], PDO::PARAM_STR);
             $stmt->bindParam(10, $data['seller_email'], PDO::PARAM_STR);
             $stmt->bindParam(11, $data['seller_telephone'], PDO::PARAM_STR);
-            $stmt->bindParam(12, $data['seller_lind_id'], PDO::PARAM_STR);
+            $stmt->bindParam(12, $data['seller_channel'], PDO::PARAM_STR);
             $stmt->bindParam(13, $data['seller_card_id'], PDO::PARAM_STR);
             $stmt->bindParam(14, $data['seller_cardname'], PDO::PARAM_STR);
             $stmt->bindParam(15, $data['sell_documents'], PDO::PARAM_STR);
@@ -159,7 +159,7 @@ class Sell
         try {
             $sql = "UPDATE sell_tb
         SET sell_type = ?, sell_address = ?, sell_tax_id = ?, sell_telephone = ?, sell_website = ?, sell_name = ?,
-        seller_firstname = ?, seller_lastname = ?, seller_nickname = ?, seller_email = ?, seller_telephone = ?, seller_lind_id = ?, 
+        seller_firstname = ?, seller_lastname = ?, seller_nickname = ?, seller_email = ?, seller_telephone = ?, seller_channel = ?, 
         sell_note = ? 
         WHERE sell_id=?";
             $stmt = $this->conn->prepare($sql);
@@ -174,7 +174,7 @@ class Sell
             $stmt->bindParam(9, $data['seller_nickname'], PDO::PARAM_STR);
             $stmt->bindParam(10, $data['seller_email'], PDO::PARAM_STR);
             $stmt->bindParam(11, $data['seller_telephone'], PDO::PARAM_STR);
-            $stmt->bindParam(12, $data['seller_lind_id'], PDO::PARAM_STR);
+            $stmt->bindParam(12, $data['seller_channel'], PDO::PARAM_STR);
             $stmt->bindParam(13, $data['sell_note'], PDO::PARAM_STR);
             $stmt->bindParam(14, $data['sell_id'], PDO::PARAM_INT);
             $stmt->execute();

@@ -1,6 +1,20 @@
 <?php
 
 require_once '../vendor/autoload.php';
+require_once '../../../database/Order.php';
+$Order = new Order();
+$orderl = new Order();
+if (!isset($_GET['id'])) {
+  echo "Not found.";
+  exit();
+}
+$id = $_GET['id'];
+$data = $Order->fetchAllOrder($id);
+
+if (count($data) <= 0) {
+  echo "Not found.";
+  exit();
+}
 $defaultConfig = (new Mpdf\Config\ConfigVariables())->getDefaults();
 $fontDirs = $defaultConfig['fontDir'];
 $defaultFontConfig = (new Mpdf\Config\FontVariables())->getDefaults();
@@ -59,18 +73,18 @@ font-size: 28pt;
     <td colspan="2" class="setcenter"><h2 >ใบสั่งซื้อ</h2></td>
   </tr>
   <tr>
-    <td>วันที่วางบิล :&nbsp;xxx</td>
-    <td class="setright">วันที่รับของ : xxx</td>
+    <td>วันที่วางบิล :&nbsp;'. $data['datebill'] . '</td>
+    <td class="setright">วันที่รับของ : '. $data['datereceive'] . '</td>
   </tr>
   <tr>
-    <td colspan="2">ชื่อผู้ขาย : xxx</td>
+    <td colspan="2">ชื่อผู้ขาย : '. $data['sell_name'] . '</td>
   </tr>
   <tr>
-    <td>วิธีการชำระเงิน : เงินสด</td>
-    <td class="setright">วันที่ชำระเงิน : xxx</td>
+    <td>วิธีการชำระเงิน : '. $data['payment_sl'] . '</td>
+    <td class="setright">วันที่ชำระเงิน : '. $data['payment_dt'] . '</td>
   </tr>
   <tr>
-    <td colspan="2">หมายเหตุ :</td>
+    <td colspan="2">หมายเหตุ : '. $data['note'] . '</td>
   </tr>
   <br>
   <tr>
@@ -83,10 +97,10 @@ font-size: 28pt;
           <td width="200">ราคา (บาท)</td>
         </tr>
         <tr>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
-          <td>&nbsp;</td>
+          <td>'. $data['product_id'] . '</td>
+          <td>'. $data['order_pr'] . '</td>
+          <td>'. $data['order_amt'] . '</td>
+          <td>'. $data['order_pr'] . '</td>
         </tr>
       </table>
     </td>
@@ -100,15 +114,15 @@ font-size: 28pt;
         <td width="530">ราคา</td>
       </tr>
       <tr>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
+        <td>'. $data['listother'] . '</td>
+        <td>'. $data['priceother'] . '</td>
       </tr>
     </table>
     </td>
   </tr>
   <br>
   <tr>
-    <td colspan="2" class="setright">ยอดสุทธิ : xxx</td>
+    <td colspan="2" class="setright">ยอดสุทธิ : '. $data['priceother'] . '</td>
   </tr>
 </table>
 </body>
