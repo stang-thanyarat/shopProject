@@ -106,8 +106,9 @@ $("#form1").submit(async function (event) {
             method: 'POST',
             body: formdata
         })
-        let lastID = await (await fetch('controller/GetLastIdSales.php')).text()
-        document.form1.sales_list_id = lastID
+        let lastID = await (await fetch('controller/GetLastIdContract.php')).text()
+        let lastID1 = await (await fetch('controller/GetLastIdSales.php')).text()
+        document.form1.sales_list_id = lastID1
         await fetch('controller/Contract.php', {
             method: 'POST',
             body: new FormData(document.form1)
@@ -115,7 +116,7 @@ $("#form1").submit(async function (event) {
         loopInsert()
         var formdata1 = new FormData();
         formdata1.append("contract_code", lastID);
-        formdata1.append("payment_amount", AllPrice);
+        formdata1.append("outstanding", AllPrice);
         formdata1.append("form_action", "insertInit");
         formdata1.append("table", "debtPaymentDetails");
         await fetch('controller/DebtPaymentDetails.php', {

@@ -13,11 +13,20 @@ class Category
 
     public function fetchAll()
     {
-        $sql = "SELECT * FROM category_tb";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
-        return $result;
+        try{
+            $sql = "SELECT * FROM category_tb";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        }catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 
     public function fetchById($id)

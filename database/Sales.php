@@ -85,6 +85,9 @@ class Sales
 
     public function getLastId(){
         $data = $this->fetchLast();
+        if(count($data)<=0){
+            return 1;
+        }
         return $data['sales_list_id'];
     }
 
@@ -95,7 +98,11 @@ class Sales
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetch( PDO::FETCH_ASSOC);
-            return $result;
+            if($result == false){
+                return [];
+            }else{
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];

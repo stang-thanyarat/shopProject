@@ -279,27 +279,3 @@ function setU(keyword) {
         table+='</tbody></table>`'
     $('#salestocontracttable').html(table)
 }
-
-$("#form3").submit(async function (event)
-{
-    event.preventDefault();
-    $('#sales').val(JSON.stringify(JSON.parse(localStorage.getItem("cart")).data))
-    let response = await fetch('controller/Sales.php', {
-        method: 'POST',
-        body: new FormData(document.form3)
-    });
-    console.log(response);
-    if (!response.ok) {
-        console.log(response);
-    } else {
-        await Swal.fire({
-            icon: 'success',
-            text: 'การชำระเสร็จสิ้น',
-            timer: 3000
-        })
-        console.log(await response.text());
-        loopInsert()
-        localStorage.clear()
-        window.location.assign("productlist.php");
-    }
-});
