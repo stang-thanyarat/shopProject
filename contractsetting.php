@@ -86,7 +86,7 @@ $labers = $employee->fetchLabers();
                             <?php for ($i = 1; $i <= 12; $i++) { ?>
                                 <option value="<?= $i ?>" <?= $i == $_SESSION['interest_month'] ? 'selected' : '' ?>><?= $i ?></option>
                             <?php } ?>
-                        </select>&nbsp &nbsp นับจากวันที่ลูกค้าซื้อสินค้า
+                        </select>&nbsp &nbsp% นับจากวันที่ลูกค้าซื้อสินค้า
                     </div>
                     <p></p>
                     <p></p>

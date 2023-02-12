@@ -39,7 +39,7 @@ if (isset($_POST['vat'])) {
 include_once('nav.php'); ?>
 
 <body>
-    <form>
+    <form method="post" action="vat.php">
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">

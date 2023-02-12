@@ -162,7 +162,7 @@ $p = (array)$budget->fetchBetweenProduct();
                 '<input type="hidden" name="lastdate" value="<?=$lastdate?>" />' +
                 '<input type="hidden" name="credit" value="<?=$c['credit']?>" />' +
                 '<input type="hidden" name="cash" value="<?=$c['cash']?>" />' +
-                '<input type="hidden" name="complete" value="<?=$c['complete']?>" />'
+                '<input type="hidden" name="complete" value="<?=$c['complete']?>" />'+
             '</form>'
         )
             ;

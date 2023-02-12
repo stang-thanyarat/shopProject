@@ -1,3 +1,13 @@
+
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+if (!isset($_SESSION['shop_name'])) {
+    $_SESSION['shop_name'] = "ร้าน ABC";
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +27,7 @@
         <div class="BgLeft col-md-6">
             <div class="wrap d-md-flex inLeft no-gutter">
                 <img src="./src/images/icon-head.png" class="icon" width="150" />
-                <h3 class="head">ร้านวรเชษฐ์เกษตรภัณฑ์</h3>
+                <h3 class="head"><?=$_SESSION['shop_name']?></h3>
             </div>
         </div>
         <div class="BgRight col-md-6">
@@ -27,9 +37,6 @@
                 <input type="hidden" name="form_action" value="login" />
                 <?php
 
-                if (!isset($_SESSION)) {
-                    session_start();
-                }
                 if (isset($_SESSION['error'])) {
                 ?>
                     <div class="alert alert-danger" role="alert">

@@ -90,9 +90,17 @@ if (isset($_GET['keyword'])) {
                                     </th>
                                     <th></th>
                                     <th></th>
-                                    <th><img src="./src/images/pdf.png" width="25"></th>
-                                    <th><img src="./src/images/pdf.png" width="25"><!--<input type="file" accept="image/*" name="contractfile">--></th>
-                                    <th><button type="button" onclick="window.location = './service/PDF/template/contract.php?id=<?=$row['contract_code']?>'"><img src="./src/images/print.png" class="g" width="25"></button></th>
+                                    <th>
+                                        <a type="button" class="bgs" href="./service/PDF/template/invoice.php?id=<?= $row['contract_code']; ?>" ><img src="./src/images/print.png" width="25"></a>
+                                    </th>
+                                    <th><?php  if(!isset($row['contract_attachment'])){?>
+                                            <button type="button" onclick="setID(<?= $row['contract_code'] ?>)" class="btn btn-primary1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm"><img src="./src/images/cloud-upload-alt.png"  width="25">
+                                            </button>
+                                        <?php }else{?>
+                                            <a href="<?=$row['contract_attachment']?>">ดู</a>
+                                        <?php }?>
+                                    </th>
+                                    <th><a href="./service/PDF/template/contract.php?id=<?=$row['contract_code']?>"><img src="./src/images/print.png" class="g" width="25"></a></th>
                                     <th>
                                         <a type="button" class="bgs" href="editcontract.php?id=<?= $row['contract_code']; ?>" ><img src="./src/images/icon-pencil.png" width="25"></a>
                                     </th>
@@ -127,7 +135,7 @@ if (isset($_GET['keyword'])) {
                             <input type="hidden" name="form_action" value="upload">
                             <input type="hidden" name="contract_code" id='upload_contract_code'>
                             <div class="col ">
-                                เพิ่มไฟล์สัญญา : <input type="file" accept="image" name="contract_attachment" required>
+                                เพิ่มไฟล์สัญญา : <input type="file"  name="contract_attachment" required>
                                 <div class="k">*</div>
                                 <br>
                             </div>
