@@ -12,14 +12,24 @@ class Contract
 
     public function fetchAll()
     {
-        $sql = "SELECT * FROM contract_tb WHERE contract_code";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->fetchAll();
-        return $result;
+        try{
+            $sql = "SELECT * FROM contract_tb WHERE contract_code";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        }catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 
-    public function upload($data){
+    public function upload($data)
+    {
         try {
             $sql = "SET FOREIGN_KEY_CHECKS=0";
             $stmt = $this->conn->prepare($sql);
@@ -43,19 +53,29 @@ class Contract
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];
         }
     }
 
-    public function getLastId(){
-        $data = $this->fetchLast();
-        if(count($data)<=0){
-            return 1;
+    public function getLastId()
+    {
+        try{
+            $data = $this->fetchLast();
+            if(count($data)<=0){
+                return 1;
+            }
+            return $data['contract_code'];
+        }catch (Exception $e) {
+            http_response_code(500);
+            return [];
         }
-        return $data['contract_code'];
     }
 
     public function fetchLast() //Contract
@@ -65,7 +85,11 @@ class Contract
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetch( PDO::FETCH_ASSOC);
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];
@@ -80,7 +104,11 @@ class Contract
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];
@@ -95,7 +123,11 @@ class Contract
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];
@@ -104,35 +136,50 @@ class Contract
 
     public function searchByName($keyword)
     {
-        $like = "%" . $keyword . "%";
-        $sql = "SELECT * FROM contract_tb WHERE customer_firstname LIKE ? OR customer_lastname LIKE ?";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $like, PDO::PARAM_STR);
-        $stmt->bindParam(2, $like, PDO::PARAM_STR);
-        $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
+       try{
+           $like = "%" . $keyword . "%";
+           $sql = "SELECT * FROM contract_tb WHERE customer_firstname LIKE ? OR customer_lastname LIKE ?";
+           $stmt = $this->conn->prepare($sql);
+           $stmt->bindParam(1, $like, PDO::PARAM_STR);
+           $stmt->bindParam(2, $like, PDO::PARAM_STR);
+           $stmt->execute();
+           $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+           return $result;
+       }catch (Exception $e) {
+           http_response_code(500);
+           return [];
+       }
     }
 
     //ส่วนการค้นหาลูกค้า
     public function searchBycopyID($keyword)
     {
-        $like = "$keyword";
-        $sql = "SELECT * FROM contract_tb WHERE customer_img like ?";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $like, PDO::PARAM_STR);
-        $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
+       try{
+           $like = "$keyword";
+           $sql = "SELECT * FROM contract_tb WHERE customer_img like ?";
+           $stmt = $this->conn->prepare($sql);
+           $stmt->bindParam(1, $like, PDO::PARAM_STR);
+           $stmt->execute();
+           $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+           return $result;
+       }catch (Exception $e) {
+           http_response_code(500);
+           echo strval($e);
+       }
     }
 
 
     public function delete($id)
     {
-        $sql = "DELETE FROM contract_tb WHERE contract_code=?;";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $id, PDO::PARAM_INT);
-        $stmt->execute();
+        try{
+            $sql = "DELETE FROM contract_tb WHERE contract_code=?;";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->execute();
+        }catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 
     public function insert($data)

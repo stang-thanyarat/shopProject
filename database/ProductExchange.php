@@ -12,12 +12,20 @@ class ProductExchange
 
     public function fetchAll()
     {
-        $sql = "SELECT E.*,P.product_name FROM product_exchange_tb E,product_tb P WHERE E.product_id = P.product_id ";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
-        // set http 
+        try{
+            $sql = "SELECT E.*,P.product_name FROM product_exchange_tb E,product_tb P WHERE E.product_id = P.product_id ";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 
     public function fetchById($id)
@@ -28,7 +36,11 @@ class ProductExchange
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];
@@ -37,13 +49,22 @@ class ProductExchange
 
     public function fetchBetween($start, $end)
     {
-        $sql = "SELECT PE.*,P.* FROM product_exchange_tb PE,product_tb P WHERE PE.product_id = P.product_id  AND PE.exchange_date BETWEEN ? AND ? ORDER BY PE.exchange_date DESC ";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $start, PDO::PARAM_STR);
-        $stmt->bindParam(2, $end, PDO::PARAM_STR);
-        $stmt->execute();
-        $result = $stmt->fetchAll();
-        return $result;
+        try{
+            $sql = "SELECT PE.*,P.* FROM product_exchange_tb PE,product_tb P WHERE PE.product_id = P.product_id  AND PE.exchange_date BETWEEN ? AND ? ORDER BY PE.exchange_date DESC ";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $start, PDO::PARAM_STR);
+            $stmt->bindParam(2, $end, PDO::PARAM_STR);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 
     public function fetchExchange2Id($id)
@@ -54,7 +75,11 @@ class ProductExchange
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];
@@ -63,48 +88,57 @@ class ProductExchange
 
     public function delete($id)
     {
-        $sql = "DELETE FROM product_exchange_tb WHERE product_exchange_id = ?;";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $id, PDO::PARAM_INT);
-        $stmt->execute();
+        try{
+            $sql = "DELETE FROM product_exchange_tb WHERE product_exchange_id = ?;";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->execute();
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 
     //เปลี่ยนชนิดข้อมูล INT หรือ STR
     public function insert($data)
     {
-        $sql = "SET FOREIGN_KEY_CHECKS=0";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
-        $sql = "INSERT INTO product_exchange_tb
+       try{
+           $sql = "SET FOREIGN_KEY_CHECKS=0";
+           $stmt = $this->conn->prepare($sql);
+           $stmt->execute();
+           $sql = "INSERT INTO product_exchange_tb
                 (product_id, 
                  damage_proof, 
                  note, 
                  exchange_amount, 
                  exchange_status ";
-        if ($data['exchange_status'] == '1') {
-            $day_change = !isset($_SESSION['day_change']) ? 7 : $_SESSION['day_change'];
-            $sql .= ' ,exchange_period,exchange_name,exchange_tel) VALUES (?,?,?,?,?, DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? DAY),?,?)';
-            $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(1, $data['product_id'], PDO::PARAM_INT);
-            $stmt->bindParam(2, $data['damage_proof'], PDO::PARAM_STR);
-            $stmt->bindParam(3, $data['note'], PDO::PARAM_STR);
-            $stmt->bindParam(4, $data['exchange_amount'], PDO::PARAM_INT);
-            $stmt->bindParam(5, $data['exchange_status'], PDO::PARAM_INT);
-            $stmt->bindParam(6, $day_change, PDO::PARAM_INT);
-            $stmt->bindParam(7, $data['exchange_name'], PDO::PARAM_STR);
-            $stmt->bindParam(8, $data['exchange_tel'], PDO::PARAM_STR);
-            $stmt->execute();
-        } else {
-            $sql .= ") VALUES (?,?,?,?,?)";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(1, $data['product_id'], PDO::PARAM_INT);
-            $stmt->bindParam(2, $data['damage_proof'], PDO::PARAM_STR);
-            $stmt->bindParam(3, $data['note'], PDO::PARAM_STR);
-            $stmt->bindParam(4, $data['exchange_amount'], PDO::PARAM_INT);
-            $stmt->bindParam(5, $data['exchange_status'], PDO::PARAM_INT);
-            $stmt->execute();
-        }
-
+           if ($data['exchange_status'] == '1') {
+               $day_change = !isset($_SESSION['day_change']) ? 7 : $_SESSION['day_change'];
+               $sql .= ' ,exchange_period,exchange_name,exchange_tel) VALUES (?,?,?,?,?, DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? DAY),?,?)';
+               $stmt = $this->conn->prepare($sql);
+               $stmt->bindParam(1, $data['product_id'], PDO::PARAM_INT);
+               $stmt->bindParam(2, $data['damage_proof'], PDO::PARAM_STR);
+               $stmt->bindParam(3, $data['note'], PDO::PARAM_STR);
+               $stmt->bindParam(4, $data['exchange_amount'], PDO::PARAM_INT);
+               $stmt->bindParam(5, $data['exchange_status'], PDO::PARAM_INT);
+               $stmt->bindParam(6, $day_change, PDO::PARAM_INT);
+               $stmt->bindParam(7, $data['exchange_name'], PDO::PARAM_STR);
+               $stmt->bindParam(8, $data['exchange_tel'], PDO::PARAM_STR);
+               $stmt->execute();
+           } else {
+               $sql .= ") VALUES (?,?,?,?,?)";
+               $stmt = $this->conn->prepare($sql);
+               $stmt->bindParam(1, $data['product_id'], PDO::PARAM_INT);
+               $stmt->bindParam(2, $data['damage_proof'], PDO::PARAM_STR);
+               $stmt->bindParam(3, $data['note'], PDO::PARAM_STR);
+               $stmt->bindParam(4, $data['exchange_amount'], PDO::PARAM_INT);
+               $stmt->bindParam(5, $data['exchange_status'], PDO::PARAM_INT);
+               $stmt->execute();
+           }
+       } catch (Exception $e) {
+           http_response_code(500);
+           echo strval($e);
+       }
     }
 
     public function update($data)

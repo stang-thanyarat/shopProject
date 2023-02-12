@@ -12,11 +12,20 @@ class SalesDetails
 
     public function fetchAll()
     {
-        $sql = "SELECT * FROM sales_details_tb";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->fetchAll();
-        return $result;
+        try{
+            $sql = "SELECT * FROM sales_details_tb";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 
     public function fetchById($id)
@@ -27,7 +36,11 @@ class SalesDetails
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetch( PDO::FETCH_ASSOC);
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];
@@ -42,7 +55,11 @@ class SalesDetails
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];
@@ -82,29 +99,40 @@ class SalesDetails
 
     public function insert($data)
     {
-
-        $sql = "INSERT INTO sales_details_tb (sales_list_id, product_id, sales_amt, sales_pr)
-        VALUES (?,?,?,?)";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $data['sales_list_id'], PDO::PARAM_INT);
-        $stmt->bindParam(2, $data['product_id'], PDO::PARAM_INT);
-        $stmt->bindParam(3, $data['sales_amt'], PDO::PARAM_STR);
-        $stmt->bindParam(4, $data['sales_pr'], PDO::PARAM_STR);
-        $stmt->execute();
+        try{
+            $sql = "UPDATE sales_details_tb
+        SET sales_list_id = ?, product_id = ?, sales_amt = ?, sales_pr = ?
+        WHERE unique_id = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $data['sales_list_id'], PDO::PARAM_INT);
+            $stmt->bindParam(2, $data['product_id'], PDO::PARAM_INT);
+            $stmt->bindParam(3, $data['sales_amt'], PDO::PARAM_STR);
+            $stmt->bindParam(4, $data['sales_pr'], PDO::PARAM_STR);
+            $stmt->bindParam(5, $data['unique_id'], PDO::PARAM_INT);
+            $stmt->execute();
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 
     public function update($data)
     {
-        $sql = "UPDATE sales_details_tb
+        try{
+            $sql = "UPDATE sales_details_tb
         SET sales_list_id = ?, product_id = ?, sales_amt = ?, sales_pr = ?
         WHERE unique_id = ?";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $data['sales_list_id'], PDO::PARAM_INT);
-        $stmt->bindParam(2, $data['product_id'], PDO::PARAM_INT);
-        $stmt->bindParam(3, $data['sales_amt'], PDO::PARAM_STR);
-        $stmt->bindParam(4, $data['sales_pr'], PDO::PARAM_STR);
-        $stmt->bindParam(5, $data['unique_id'], PDO::PARAM_INT);
-        $stmt->execute();
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $data['sales_list_id'], PDO::PARAM_INT);
+            $stmt->bindParam(2, $data['product_id'], PDO::PARAM_INT);
+            $stmt->bindParam(3, $data['sales_amt'], PDO::PARAM_STR);
+            $stmt->bindParam(4, $data['sales_pr'], PDO::PARAM_STR);
+            $stmt->bindParam(5, $data['unique_id'], PDO::PARAM_INT);
+            $stmt->execute();
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 }
 

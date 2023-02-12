@@ -57,7 +57,11 @@ class Budget
             if (!$result) {
                 return [];
             } else {
-                return $result;
+                if (!$result) {
+                    return [];
+                } else {
+                    return $result;
+                }
             }
         } catch (Exception $e) {
             http_response_code(500);
@@ -67,22 +71,32 @@ class Budget
 
     public function AllBG()
     {
-        $data1 = $this->fetchAll1();
-        $Allprice = 0;
-        foreach ($data1 as $rows) {
-            $Allprice += $rows['price'];
+        try{
+            $data1 = $this->fetchAll1();
+            $Allprice = 0;
+            foreach ($data1 as $rows) {
+                $Allprice += $rows['price'];
+            }
+            return $Allprice;
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
         }
-        return $Allprice;
     }
 
     public function AllBG1()
     {
-        $data2 = $this->fetchAll2();
-        $Allprice = 0;
-        foreach ($data2 as $rowss) {
-            $Allprice += $rowss['all_price'];
+        try{
+            $data2 = $this->fetchAll2();
+            $Allprice = 0;
+            foreach ($data2 as $rowss) {
+                $Allprice += $rowss['all_price'];
+            }
+            return $Allprice;
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
         }
-        return $Allprice;
     }
 
 
@@ -106,7 +120,11 @@ class Budget
             if (!$result) {
                 return [];
             } else {
-                return $result;
+                if (!$result) {
+                    return [];
+                } else {
+                    return $result;
+                }
             }
             $Allprice2 = 0;
             foreach ($result as $rowss) {
@@ -198,7 +216,11 @@ class Budget
             if (!$result) {
                 return [];
             } else {
-                return $result;
+                if (!$result) {
+                    return [];
+                } else {
+                    return $result;
+                }
             }
             $Allprice1 = 0;
             foreach ($result as $rows) {
