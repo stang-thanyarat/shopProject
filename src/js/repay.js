@@ -1,18 +1,73 @@
-let AllPrice =0;
+let AllPrice = 0;
+let diff = 0;
+let interest_ = 0;
+
+function getInterest(interest) {
+    interest_ = interest / 100
+}
 
 function getAllprice(price) {
     AllPrice = price
 }
 
+function getDiff(date) {
+    const days = (date_1, date_2) => {
+        let difference = date_1.getTime() - date_2.getTime();
+        let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
+        return TotalDays;
+    }
+    diff = days(new Date(), new Date(date))
+}
+
+function clearDebt(){
+    $('#paymentamount').val(0)
+    $('#deduct').val(0)
+    $('#outstanding').val(0)
+    $('#lessinterest').val(0)
+    let interestAll = 0;
+    if (diff > 120) {
+        let m = Math.abs(Math.round((diff / 30))-4)
+        console.log("m:",m)
+        m = m == 0 ? 1 : m
+        $('#lessinterest').val(Math.round(AllPrice * (interest_ * m)))
+        interestAll = Math.round(AllPrice * (interest_ * m))
+    } else {
+        $('#lessinterest').val(0)
+        interestAll = 0
+    }
+    $('#paymentamount').val(AllPrice+interestAll)
+    $('#deduct').val(AllPrice-interestAll)
+    $('#outstanding').val(0)
+}
+
+
+$('#paymentamount').keyup((e) => {
+    let pay = $('#paymentamount').val()
+    if (pay > AllPrice) {
+        $('#paymentamount').val(AllPrice)
+        pay = AllPrice
+    }
+    if (diff > 120) {
+        let m = Math.abs(Math.round((diff / 30))-4)
+        console.log("m:",m)
+        m = m == 0 ? 1 : m
+        $('#lessinterest').val(Math.round(pay * (interest_ * m)))
+        pay -= Math.round(pay * (interest_ * m))
+    } else {
+        $('#lessinterest').val(0)
+    }
+    $('#deduct').val(pay)
+    $('#outstanding').val(Math.round(AllPrice - pay))
+})
 
 $(document).ready(function () {
     $("#slip_upload").hide()
     localStorage.clear()
-    localStorage.setItem("tableRepay", JSON.stringify({ data: [] }))
+    localStorage.setItem("tableRepay", JSON.stringify({data: []}))
 });
 
 //เพิ่มสินค้า
-$("#addrepay").submit( async function (event) {
+$("#addrepay").submit(async function (event) {
     event.preventDefault();
     if ($('#paymentamount').val() === "" || $('#payment_sl').val() === "" || $('#deduct').val() === "" || $('#lessinterest').val() === "" || $('#lessinterest').val() === "" || $('#outstanding').val() === "") {
         return

@@ -1,5 +1,15 @@
 <?php
 include_once('service/auth.php');
+$outstanding = 0;
+if (!isset($_SESSION)) {
+    session_start();
+}
+if (!isset($_SESSION['interest'])) {
+    $_SESSION['interest'] = 2;
+}
+if (!isset($_SESSION['interest_month'])) {
+    $_SESSION['interest_month'] = 4;
+}
 isLaber();
 function getFullRole($role)
 {
@@ -103,7 +113,7 @@ for ($i = 0; $i < count($$rows); $i++) {
                         </tr>
                     </thead>
                     <tbody id="list-repay">
-                    <?php foreach ($rowa as $r){ ?>
+                    <?php foreach ($rowa as $r){ $outstanding= $r['outstanding']; ?>
                         <tr>
                             <th><?= $r['repayment_date'] ?></th>
                             <th><?= $r['payment'] ?></th>
@@ -118,13 +128,7 @@ for ($i = 0; $i < count($$rows); $i++) {
                 </table>
                 <div class="row btn-g">
                     <div class="col-2 mm">
-                        <button type="reset" class="btn-c reset" onclick="javascript:window.location='contracthistory.php';">ยกเลิก</button>
-                    </div>
-                    <div class="col-2 mm">
-                        <input type="submit" class="btn-c outdebt" value="หมดหนี้" />
-                    </div>
-                    <div class="col-2 mm">
-                        <input type="submit" class="btn-c submit" value="บันทึก" /> 
+                       <?php if($outstanding>0){ ?> <input data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm" type="button" class="btn-c outdebt" value="หมดหนี้"  onclick="clearDebt()" /><?php }?>
                     </div>
                 </div>
         </div>
@@ -144,7 +148,7 @@ for ($i = 0; $i < count($$rows); $i++) {
 
                         <div class="col-12 p">
                             วันที่ชำระ: &nbsp;
-                            <input type="date" class="t" name="repaymentdate" id="repaymentdate" required />
+                            <input value="<?=date('Y-m-d')?>" type="date" class="t" name="repaymentdate" id="repaymentdate" required />
                         </div>
 
                         <div class="col-12 p">
@@ -160,9 +164,9 @@ for ($i = 0; $i < count($$rows); $i++) {
                         </div>
 
                         ยอดที่ชำระ: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="paymentamount" id="paymentamount" required /></div>
-                        หักเงินต้น: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="deduct" id="deduct" required /></div>
-                        หักดอกเบี้ย: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0" step="0.25" name="lessinterest" id="lessinterest" required /></div>
-                        คงค้าง: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="outstanding" id="outstanding" required /></div>
+                        หักเงินต้น: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="deduct" id="deduct" required readonly/></div>
+                        หักดอกเบี้ย: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0" step="0.25" name="lessinterest" id="lessinterest" required readonly/></div>
+                        คงค้าง: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="outstanding" id="outstanding" required readonly/></div>
 
                         <div class="modal-footer">
                             <button type="submit" id="addrepay" class="btn btn-primary1">ตกลง</button>
@@ -175,5 +179,5 @@ for ($i = 0; $i < count($$rows); $i++) {
 </body>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./src/js/repay.js"></script>
-<script> getAllprice(<?=$rows['less_interest']?>) </script>
+<script> getAllprice(<?=$outstanding?>);getDiff('<?= $rows['date_contract'] ?>');getInterest(<?=$_SESSION['interest']?>) </script>
 </html>

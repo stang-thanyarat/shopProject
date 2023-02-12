@@ -63,7 +63,7 @@ class OtherPrice
     public function fetchByOPId($id)
     {
         try {
-            $sql = "SELECT * FROM otherprice_tb WHERE order_id = order_id AND order_id = ?";
+            $sql = "SELECT * FROM otherprice_tb WHERE order_id = ?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();

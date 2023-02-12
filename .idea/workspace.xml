@@ -6,29 +6,20 @@
   <component name="ChangeListManager">
     <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Budget.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Budget.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Contract.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Contract.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/CostPrice.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/CostPrice.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Customer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/DailyBestSeller.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/DailyBestSeller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/DebtPaymentDetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/DebtPaymentDetails.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Employee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bar.php" beforeDir="false" afterPath="$PROJECT_DIR$/bar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/LogIn.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/LogIn.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/LogOut.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/LogOut.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/OrderDetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/OrderDetails.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/OtherPrice.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/OtherPrice.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/ProductExchange.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/ProductExchange.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Sales.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Sales.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/SalesDetails.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/SalesDetails.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/SalesGraph.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/SalesGraph.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Search.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Search.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Search_Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Search_Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Search_Sales_Product_Exchange.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Search_Sales_Product_Exchange.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Sell.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Sell.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Stock.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Stock.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/UserAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/UserAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/contact_channels.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/contact_channels.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repay.php" beforeDir="false" afterPath="$PROJECT_DIR$/repay.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/PDF/template/invoice.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/PDF/template/invoice.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/PDF/template/order_cash.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/PDF/template/order_cash.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/PDF/template/receipt.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/PDF/template/receipt.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/auth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/addcontract.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/addcontract.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/nav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/repay.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/repay.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

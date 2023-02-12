@@ -26,11 +26,12 @@ class Order
         }
     }
 
-    public function fetchAllOrder()
+    public function fetchAllOrder($id)
     {
         try {
-            $sql = "SELECT O.*,OD.* FROM order_tb O,order_details_tb OD WHERE O.order_id = OD.order_id";
+            $sql = "SELECT O.*,OD.*, S.sell_name,S.sell_id FROM order_tb O,order_details_tb OD,sell_tb S WHERE O.order_id = OD.order_id AND O.order_id AND O.sell_id = S.sell_id AND O.order_id = ?";
             $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetchAll();
             if (!$result) {

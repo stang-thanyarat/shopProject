@@ -12,12 +12,24 @@ if (!isset($_GET['id'])) {
 }
 $id = $_GET['id'];
 $data = $Contract->fetchByPDFId($id);
+$list1 = '';
+
 
 if (count($data) <= 0) {
   echo "Not found.";
   exit();
 }
 $detail = $salesDetail->fetchBySalesId($data['sales_list_id']);
+foreach ($detail as $de){
+    $list1.='<tr>
+        <td width="140" class="setcenter"> 1</td>
+        <td width="517">&nbsp; ' . $data['product_detail'] . '</td>
+        <td width="162" class="setcenter"> ' .number_format($de['sales_pr']) . '</td>
+        <td width="290" class="setright"> ' .number_format($de['sales_amt']) . '</td>
+         <td width="290" class="setright"> ' .number_format($de['sales_pr']* $de['sales_amt']) . '</td>
+      
+      </tr>';
+}
 $defaultConfig = (new Mpdf\Config\ConfigVariables())->getDefaults();
 $fontDirs = $defaultConfig['fontDir'];
 $defaultFontConfig = (new Mpdf\Config\FontVariables())->getDefaults();
@@ -121,17 +133,11 @@ h2{
         <td width="290" class="setcenter">หน่วยละ </td>
         <td width="238" class="setcenter">จำนวนเงิน </td>
       </tr>
-      <tr>
-        <td width="140" class="setcenter"> 1</td>
-        <td width="517">&nbsp; ' . $data['product_detail'] . '</td>
-        <td width="162" class="setcenter"> ' . $detail['sales_pr'] . '</td>
-        <td width="290" class="setright"> ' . $detail['sales_amt'] . ' &nbsp;</td>
-      
-      </tr>
+      '.$list1.'
       <tr>
         <td  colspan="3">หมายเหตุ : &nbsp;</td>
         <td width="290" class="setright">ยอดรวมสุทธิ :  &nbsp;</td>
-        <td width="238" class="setright">' . $data['baht'] . ' &nbsp;</td>
+        <td width="238" class="setright">' . number_format($data['baht']) . ' &nbsp;</td>
       </tr>
     </table>
    </td>
