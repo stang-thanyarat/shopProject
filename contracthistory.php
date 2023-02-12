@@ -62,50 +62,49 @@ if (isset($_GET['keyword'])) {
                         </div>
                     </form>
                 </div>
-                <table class="col-11 contracttable">
-                    <tr>
-                        <th width=15%>วันที่ทำสัญญา</th>
-                        <th width=10%>เลขที่สัญญา</th>
-                        <th width=20%>ชื่อ-นามสกุล</th>
-                        <th width=15%>มูลค่าสินค้าทั้งหมด</th>
-                        <th width=10%>ยอดคงเหลือ</th>
-                        <th width=10%>ใบส่งของ</th>
-                        <th width=10%>ไฟล์สัญญา</th>
-                        <th width=5%>พิมพ์</th>
-                        <th width=5%></th>
-                    </tr>
-                    <tbody id="contracttable">
-                        <?php
-                        foreach ($rows as $row) { ?>
-                            <tr>
-                                <th><?= dateTimeDisplay($row['date_contract']) ?></th>
-                                <th><?= $row['contract_code'] ?></th>
-                                <th>
-                                    <div class="r">
-                                        <a class="submit BTNP" href="repay.php?id=<?= $row['contract_code']; ?>"><img class='confirm'>
-                                            <?= $row['customer_prefix'] ?><?= $row['customer_firstname'] ?> <?= $row['customer_lastname'] ?>
-                                        </a>
-                                    </div>
-                                </th>
-                                <th></th>
-                                <th></th>
-                                <th><a href="./service/PDF/template/invoice.php?id=<?= $row['contract_code'] ?>"><img src="./src/images/print.png" class="g" width="25"></a></th>
-                                <th><?php
-                                    if (isset($row['contract_attachment'])) { ?>
-                                    <a class="a" href="<?=$row['contract_attachment']?>">ดู</a>
-                                    <?php } else { ?>
-                                        <button onclick="setID(<?= $row['contract_code'] ?>)" type="button" class="btn btn-primary1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm"><img src="./src/images/cloud-upload-alt.png" width="25"></button>
-                                    <?php } ?>
-                                </th>
-                                <th><a href="./service/PDF/template/contract.php?id=<?= $row['contract_code'] ?>"><img src="./src/images/print.png" class="g" width="25"></a></th>
-                                <th>
-                                    <a type="button" class="bgs" href="editcontract.php?id=<?= $row['contract_code']; ?>"><img src="./src/images/icon-pencil.png" width="25"></a>
-                                </th>
-                            </tr>
-                        <?php
-                        } ?>
-                    </tbody>
-                </table>
+                <?php if (count($rows) > 0) { ?>
+                    <table class="col-11 contracttable">
+                        <tr>
+                            <th width=15%>วันที่ทำสัญญา</th>
+                            <th width=10%>เลขที่สัญญา</th>
+                            <th width=20%>ชื่อ-นามสกุล</th>
+                            <th width=15%>มูลค่าสินค้าทั้งหมด</th>
+                            <th width=10%>ยอดคงเหลือ</th>
+                            <th width=10%>ใบส่งของ</th>
+                            <th width=10%>ไฟล์สัญญา</th>
+                            <th width=5%>พิมพ์</th>
+                            <th width=5%></th>
+                        </tr>
+                        <tbody id="contracttable">
+                            <?php
+                            foreach ($rows as $row) { ?>
+                                <tr>
+                                    <th><?= dateFormat($row['date_contract']) ?></th>
+                                    <th><?= $row['contract_code'] ?></th>
+                                    <th>
+                                        <div class="r">
+                                            <a class="submit BTNP" href="repay.php?id=<?= $row['contract_code']; ?>"><img class='confirm'>
+                                                <?= $row['customer_prefix'] ?> <?= $row['customer_firstname'] ?> <?= $row['customer_lastname'] ?>
+                                            </a>
+                                        </div>
+                                    </th>
+                                    <th></th>
+                                    <th></th>
+                                    <th><img src="./src/images/pdf.png" width="25"></th>
+                                    <th><img src="./src/images/pdf.png" width="25"><!--<input type="file" accept="image/*" name="contractfile">--></th>
+                                    <th><button type="button" onclick="window.location = './service/PDF/template/contract.php?id=<?=$row['contract_code']?>'"><img src="./src/images/print.png" class="g" width="25"></button></th>
+                                    <th>
+                                        <a type="button" class="bgs" href="editcontract.php?id=<?= $row['contract_code']; ?>" ><img src="./src/images/icon-pencil.png" width="25"></a>
+                                    </th>
+                                </tr>
+                            <?php
+                            } ?>
+                        </tbody>
+                    </table>
+                <?php } else {
+                    echo '<div class="d-flex justify-content-center"><h3 style="margin-top: 9rem; margin-bottom: 9rem;">ไม่พบข้อมูล</h3></div>';
+                } ?>
+                </div>
             </div>
         </div>
         </div>

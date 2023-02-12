@@ -53,8 +53,8 @@ $rows = $category->fetchAll();
                 </div>
             </div>
             <div class="row q">
-                <div class="col-2">
-                    ประเภทสินค้า :
+                <div class="col-3">
+                    ประเภทสินค้า &nbsp;:&nbsp;&nbsp;
                     <select name="category_id" id="category_id" class="sizeselect" style="background-color: #D4DDC6;" >
                         <option value="-1">ทั้งหมด</option>
                         <?php foreach ($rows as $row) { ?>
@@ -62,8 +62,8 @@ $rows = $category->fetchAll();
                         <?php } ?>
                     </select>
                 </div>
-                <div class="col-1 date">
-                    วันที่ขาย :
+                <div class="col-3">
+                    วันที่ขาย &nbsp;:&nbsp;&nbsp;
                     <input type="date" id="date" name="date" class="sizeselect" >
                 </div>
                 <div class="col-1 search" style="margin-left: -2rem;">

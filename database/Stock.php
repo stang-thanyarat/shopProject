@@ -12,17 +12,16 @@ class Stock
     }
 
     public function fetchAll(){
-        $sql = "SELECT S.*,OD.*,O.order_id,O.datereceive,P.* FROM stock_tb S,order_details_tb OD,order_tb O,product_tb P WHERE S.stock_id = OD.unique_id = O.order_id = P.product_id ORDER BY S.exp_date DESC";
+        $sql = "SELECT S.*,P.*,O.* FROM stock_tb S,product_tb P, order_tb O WHERE S.product_id =  P.product_id AND S.order_id = O.order_id ORDER BY S.exp_date DESC";
         $stmt = $this -> conn -> prepare($sql);
         $stmt->execute();
         $result = $stmt ->fetchAll();
         return $result;
-
     }
 
     public function fetchAllDate($date)
     {
-        $sql = "SELECT S.*,OD.*,O.order_id,O.datereceive,P.* FROM stock_tb S,order_details_tb OD,order_tb O,product_tb P WHERE S.stock_id = OD.unique_id = O.order_id = P.product_id AND S.exp_date = ? ORDER BY S.exp_date DESC";
+        $sql = "SELECT S.*,P.*,O.* FROM stock_tb S,product_tb P, order_tb O WHERE S.product_id =  P.product_id AND S.order_id = O.order_id AND S.exp_date = ? ORDER BY S.exp_date DESC";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $date, PDO::PARAM_STR);
         $stmt->execute();

@@ -12,7 +12,7 @@ class OrderDetails
 
     public function fetchAll()
     {
-        $sql = "SELECT O.*,OD.*,P.*,S.* FROM order_tb O,order_details_tb OD,product_tb P,stock_tb S WHERE O.order_id = OD.unique_id = P.product_id = S.stock_id ORDER BY S.exp_date DESC";
+        $sql = "SELECT O.*,P.*,S.* FROM order_tb O,product_tb P,stock_tb S WHERE O.order_id = P.product_id = S.order_id ORDER BY S.exp_date DESC";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll();

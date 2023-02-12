@@ -1,4 +1,3 @@
-
 //เพิ่มสินค้า
 $("#addproduct").submit(function (event) {
     event.preventDefault();
@@ -126,7 +125,7 @@ $("#addprice").submit(function (event) {
         $('#addtable2').blur()
         return
     }
-    $('#list-priceother').append(`<tr id="rr${i}">
+                    $('#list-priceother').append(`<tr id="rr${i + 1}">
                     <th class="index-table-price">${i + 1}</th>          
                     <th>${$('#listother').val()}</th>
                     <th>${$('#priceother').val()}</th>
@@ -139,6 +138,7 @@ $("#addprice").submit(function (event) {
     tableObj.data.push({
         listOther: $('#listother').val(),
         priceOther: $('#priceother').val(),
+        id: -1
 
     })
     localStorage.setItem("tablePrice", JSON.stringify(tableObj))
@@ -168,13 +168,13 @@ function delrow2() {
     rows.splice(index, 1)
     $('#list-priceother').html("")
     rows.forEach((e, i) => {
-        $('#list-priceother').append(`<tr id="rr${i + 1}">
-                    <th class="index-table-price">${i + 1}</th> 
+                    $('#list-priceother').append(`<tr id="rr${i + 1}">
+                    <th class="index-table-price">${i + 1}</th>   
                     <th>${e.listOther}</th>
                     <th>${e.priceOther}</th>
                     <th>
                     <button type="button" class="btn1 " data-bs-toggle="modal" data-bs-target="#exampleModalother"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel1(${i})"></button>
-                    <button type="button" class="btn1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm4"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit1(${i})"></button>
+                        <button type="button" class="btn1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm4"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit1(${i})"></button>
                     </th>
                 </tr>`)
     });
@@ -192,13 +192,14 @@ $("#editaddprice").submit(function (event) {
     tableObj.data[index] = {
         listOther: $('#editlistother').val(),
         priceOther: $('#editpriceother').val(),
+        id: tableObj.data[index].id
     }
     localStorage.setItem("tablePrice", JSON.stringify(tableObj))
     let rows = tableObj.data
     $('#list-priceother').html("")
     rows.forEach((e, i) => {
         $('#list-priceother').append(`<tr id="rr${i + 1}">
-        <th class="index-table-price">${i + 1}</th> 
+        <th class="index-table-price">${i + 1}</th>   
         <th>${e.listOther}</th>
         <th>${e.priceOther}</th>
         <th>
@@ -226,12 +227,12 @@ async function loopproduct() {
     let rows = (JSON.parse(localStorage.getItem("tableProduct"))).data
     for (let d of rows) {
         var formdata = new FormData();
-        formdata.append("order_id", lastID);
+        formdata.append("order_id", $("#order_id").val());
         formdata.append("product_id", Number(d.list));
         formdata.append("order_amt", Number(d.price));
         formdata.append("order_pr", Number(d.amount));
-        //formdata.append("unique_id", Number(d.id));
-        formdata.append("form_action", "insert");
+        formdata.append("unique_id", d.id);
+        formdata.append("form_action", "update");
         formdata.append("table", "orderdetails");
         var requestOptions = {
             method: 'POST',
@@ -247,9 +248,10 @@ async function loopother() {
     let rows = (JSON.parse(localStorage.getItem("tablePrice"))).data
     for (let d of rows) {
         var formdata = new FormData();
-        formdata.append("order_id", lastID);
+        formdata.append("order_id", $("#order_id").val());
         formdata.append("listother", d.listOther);
         formdata.append("priceother", Number(d.priceOther));
+        formdata.append("unique_id", d.id);
         formdata.append("form_action", "update");
         formdata.append("table", "otherprice");
         var requestOptions = {
@@ -266,7 +268,7 @@ async function loopexp() {
     let rows = (JSON.parse(localStorage.getItem("tableProduct"))).data
     for (let d of rows) {
         var formdata = new FormData();
-        formdata.append("order_id", lastID);
+        formdata.append("order_id", $("#order_id").val());
         formdata.append("product_id", Number(d.list));
         formdata.append("amount_exp", Number(d.price));
         formdata.append("exp_date", d.expdate);
@@ -297,8 +299,8 @@ $("#form1").submit(async function (event) {
             icon: 'success',
             text: 'บันทึกข้อมูลเสร็จสิ้น',
         }).then(async () => {
-            //await loopproduct()
-            //await loopother()
+            await loopproduct()
+            await loopother()
             await loopexp()
             //localStorage.clear()
             // window.location = './order.php'
