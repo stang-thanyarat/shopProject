@@ -1,74 +1,121 @@
-$(document).ready(function () {
-    $("#slipupload").hide()
-    localStorage.clear()
-    localStorage.setItem("tableProduct", JSON.stringify({ data: [] }))
-    localStorage.setItem("tablePrice", JSON.stringify({ data: [] }))
-});
 
-$("#addrepay").submit( async function (event) {
-    event.preventDefault();
-    if ($('#paymentamount').val() === "" || $('#payment_sl').val() === "" || $('#deduct').val() === "" || $('#lessinterest').val() === "" || $('#lessinterest').val() === "" || $('#outstanding').val() === "") {
-        return
-    }
-    let lastID = await (await fetch('controller/GetLastIdContract.php')).text()
-    var formdata1 = new FormData();
-    formdata1.append("contract_code", lastID);
-    formdata1.append("payment_amount", $('#paymentamount').val());
-    formdata1.append("payment", $('#payment_sl').val());
-    formdata1.append("deduct_principal", $('#deduct').val());
-    formdata1.append("less_interest", $('#lessinterest').val());
-    formdata1.append("outstanding", $('#outstanding').val());
-    formdata1.append("form_action", "insert");
-    formdata1.append("table", "debtPaymentDetails");
-    var requestOptions = {
-        method: 'POST',
-        body: formdata1,
-        redirect: 'follow'
-    };
-    await fetch("controller/DebtPaymentDetails.php", requestOptions)
-    //location.reload()
-});
 //เพิ่มสินค้า
 $("#addproduct").submit(function (event) {
     event.preventDefault();
     let tableObj = JSON.parse(localStorage.getItem("tableProduct"))
     const i = tableObj.data.length
-    if ($('#typeproduct').val() === "" || $('#product_name').val() === "" || $('#brand').val() === "" || $('#model').val() === "" || $('#unitprice').val() === "" || $('#amount').val() === "") {
+    if ($('#product_id').val() === "" || $('#order_pr').val() === "" || $('#order_amt').val() === "" || $('#exp_date').val() === "" || $('#all_price_odr').val() === "") {
         $('#addtable').blur()
         return
     }
-    $('#list-product').append(`<tr id="rr${i}">
-                    <th>${$('#typeproduct').val()}</th>
-                    <th>${$('#product_name').val()}</th>
-                    <th>${$('#brand').val()}</th>
-                    <th>${$('#model').val()}</th>
-                    <th>${$('#unitprice').val()}</th>
-                    <th>${$('#amount').val()}</th>
+    $('#list-product').append(`<tr id="rr${i + 1}">
+                    <th class="index-table-product">${i + 1}</th>
+                    <th>${$('#product_name').val() || $("#product_id option:selected").text()}</th>
+                    <th>${$('#order_pr').val()}</th>
+                    <th>${$('#order_amt').val()}</th>
+                    <th>${Number($('#order_pr').val()) * Number($('#order_amt').val())}</th>
                     <th>${$('#exp_date').val()}</th>
-                    <th>${Number($('#unitprice').val()) * Number($('#amount').val())}</th>
+                    <th>
+                        <button type="button" class="btn1 " data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(${i})"></button>
+                        <button type="button" class="btn1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
+                    </th>
                 </tr>`)
     $('#addclose').click()
     tableObj.data.push({
-        type: $('#typeproduct').val(),
-        list: $('#product_name').val(),
-        brand: $('#brand').val(),
-        model: $('#model').val(),
-        price: $('#unitprice').val(),
-        amount: $('#amount').val(),
-        amount: $('#exp_date').val(),
-        allPrice: Number($('#unitprice').val()) * Number($('#amount').val())
+        list: $('#product_id').val(),
+        price: $('#order_pr').val(),
+        amount: $('#order_amt').val(),
+        expdate: $('#exp_date').val(),
+        allPrice: Number($('#order_pr').val()) * Number($('#order_amt').val()),
+        id: -1
     })
     localStorage.setItem("tableProduct", JSON.stringify(tableObj))
-    $('#typeproduct').val("")
-    $('#product_name').val("")
-    $('#brand').val("")
-    $('#model').val("")
-    $('#unitprice').val("")
-    $('#amount').val("")
+    $('#product_id').val("")
+    $('#order_pr').val("")
+    $('#order_amt').val("")
     $('#exp_date').val("")
+    $('#all_price_odr').val("")
+
 });
 
+//กำหนดแถวที่จะลบ
+function saveIndexDel(i) {
+    localStorage.setItem('deleteIndex', i)
+}
 
+//กำหนดแถวที่จะแก้ไข พร้อมข้อมูลเริ่มต้น
+function saveIndexEdit(i) {
+    localStorage.setItem('editIndex', i)
+    let rows = (JSON.parse(localStorage.getItem("tableProduct"))).data
+    $('#editproduct_id').val(rows[i].list)
+    $('#editorder_pr').val(rows[i].price)
+    $('#editorder_amt').val(rows[i].amount)
+    $('#editexp_date').val(rows[i].expdate)
+    $('#editall_price_odr').val(rows[i].allPrice)
+}
+
+//ลบแถวสินค้า
+function delrow() {
+    let tableObj = JSON.parse(localStorage.getItem("tableProduct"))
+    const index = localStorage.getItem('deleteIndex')
+    let rows = tableObj.data
+    rows.splice(index, 1)
+    $('#list-product').html("")
+    rows.forEach((e, i) => {
+        $('#list-product').append(`<tr id="rr${i + 1}">
+                    <th class="index-table-product">${i + 1}</th>
+                    <th>${e.list}</th>
+                    <th>${e.price}</th>
+                    <th>${e.amount}</th>
+                     <th>${Number(e.price)*Number(e.amount)}</th>
+                    <th>${e.expdate}</th>
+                    <th>
+                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(${i})"></button>
+                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
+                    </th>
+                </tr>`)
+    });
+    tableObj.data = rows
+    localStorage.setItem("tableProduct", JSON.stringify(tableObj))
+    localStorage.removeItem('deleteIndex')
+    $('#closedelrow').click()
+}
+
+//แก้ไขสินค้า
+$("#editaddproduct").submit(function (event) {
+    event.preventDefault();
+    let tableObj = JSON.parse(localStorage.getItem("tableProduct"))
+    const index = localStorage.getItem('editIndex')
+    tableObj.data[index] = {
+        list: $('#editproduct_id').val(),
+        price: $('#editorder_pr').val(),
+        amount: $('#editorder_amt').val(),
+        expdate: $('#editexp_date').val(),
+        allPrice: $('#editall_price_odr').val(),
+        id: tableObj.data[index].id
+    }
+    localStorage.setItem("tableProduct", JSON.stringify(tableObj))
+    let rows = tableObj.data
+    $('#list-product').html("")
+    rows.forEach((e, i) => {
+        $('#list-product').append(`<tr id="rr${i + 1}">
+                    <th class="index-table-product">${i + 1}</th>
+                    <th>${e.list}</th>
+                    <th>${e.price}</th>
+                    <th>${e.amount}</th>
+                    <th>${Number(e.price)*Number(e.amount)}</th>
+                    <th>${e.expdate}</th>
+                    <th>
+                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(${i})"></button>
+                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
+                    </th>
+                </tr>`)
+    });
+    localStorage.setItem("tableProduct", JSON.stringify(tableObj))
+    localStorage.removeItem('editIndex')
+    $('#editclose').click()
+
+})
 
 //เพิ่มรายการอื่นๆ
 $("#addprice").submit(function (event) {
@@ -80,6 +127,7 @@ $("#addprice").submit(function (event) {
         return
     }
     $('#list-priceother').append(`<tr id="rr${i}">
+                    <th class="index-table-price">${i + 1}</th>          
                     <th>${$('#listother').val()}</th>
                     <th>${$('#priceother').val()}</th>
                     <th>
@@ -117,10 +165,11 @@ function delrow2() {
     let tableObj = JSON.parse(localStorage.getItem("tablePrice"))
     const index = localStorage.getItem('deleteIndex')
     let rows = tableObj.data
-    rows.splice(index , 1)
+    rows.splice(index, 1)
     $('#list-priceother').html("")
     rows.forEach((e, i) => {
         $('#list-priceother').append(`<tr id="rr${i + 1}">
+                    <th class="index-table-price">${i + 1}</th> 
                     <th>${e.listOther}</th>
                     <th>${e.priceOther}</th>
                     <th>
@@ -149,6 +198,7 @@ $("#editaddprice").submit(function (event) {
     $('#list-priceother').html("")
     rows.forEach((e, i) => {
         $('#list-priceother').append(`<tr id="rr${i + 1}">
+        <th class="index-table-price">${i + 1}</th> 
         <th>${e.listOther}</th>
         <th>${e.priceOther}</th>
         <th>
@@ -173,22 +223,64 @@ $("#payment_sl").change(function () {
 
 async function loopproduct() {
     let lastID = await (await fetch('controller/GetLastIdOrder.php')).text()
-    var formdata = new FormData();
-    formdata.append("order_id", $("#order_id").val());
-    formdata.append("product_id", $("#product_id").val());
-    formdata.append("order_amt", $("#order_amt").val());
-    formdata.append("order_pr", $("#order_pr").val());
-    formdata.append("listother", $("#listother").val());
-    formdata.append("priceother", $("#priceother").val());
-    formdata.append("form_action", "update");
-    formdata.append("table", "orderdetails");
-    var requestOptions = {
-        method: 'POST',
-        body: formdata,
-        redirect: 'follow'
-    };
-    await fetch("controller/OrderDetails.php", requestOptions)
+    let rows = (JSON.parse(localStorage.getItem("tableProduct"))).data
+    for (let d of rows) {
+        var formdata = new FormData();
+        formdata.append("order_id", lastID);
+        formdata.append("product_id", Number(d.list));
+        formdata.append("order_amt", Number(d.price));
+        formdata.append("order_pr", Number(d.amount));
+        //formdata.append("unique_id", Number(d.id));
+        formdata.append("form_action", "insert");
+        formdata.append("table", "orderdetails");
+        var requestOptions = {
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
+        };
+        await fetch("controller/OrderDetails.php", requestOptions)
+    }
 }
+
+async function loopother() {
+    let lastID = await (await fetch('controller/GetLastIdOrder.php')).text()
+    let rows = (JSON.parse(localStorage.getItem("tablePrice"))).data
+    for (let d of rows) {
+        var formdata = new FormData();
+        formdata.append("order_id", lastID);
+        formdata.append("listother", d.listOther);
+        formdata.append("priceother", Number(d.priceOther));
+        formdata.append("form_action", "update");
+        formdata.append("table", "otherprice");
+        var requestOptions = {
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
+        };
+        await fetch("controller/OtherPrice.php", requestOptions)
+    }
+}
+
+async function loopexp() {
+    let lastID = await (await fetch('controller/GetLastIdOrder.php')).text()
+    let rows = (JSON.parse(localStorage.getItem("tableProduct"))).data
+    for (let d of rows) {
+        var formdata = new FormData();
+        formdata.append("order_id", lastID);
+        formdata.append("product_id", Number(d.list));
+        formdata.append("amount_exp", Number(d.price));
+        formdata.append("exp_date", d.expdate);
+        formdata.append("form_action", "insert");
+        formdata.append("table", "stock");
+        var requestOptions = {
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
+        };
+        await fetch("controller/Stock.php", requestOptions)
+    }
+}
+
 
 //ตรวจสอบพร้อมส่งข้อมูล
 $("#form1").submit(async function (event) {
@@ -201,13 +293,17 @@ $("#form1").submit(async function (event) {
     if (!response.ok) {
         console.log(response);
     } else {
-        loopproduct()
         await Swal.fire({
             icon: 'success',
             text: 'บันทึกข้อมูลเสร็จสิ้น',
+        }).then(async () => {
+            //await loopproduct()
+            //await loopother()
+            await loopexp()
+            //localStorage.clear()
+            // window.location = './order.php'
+
         })
-        console.log(await response.text());
-        window.location.assign("order.php");
     }
 
 });

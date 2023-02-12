@@ -201,26 +201,26 @@ class Stock
         $sql = "SET FOREIGN_KEY_CHECKS=0";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
-        $sql = "INSERT INTO stock_tb (order_id, product_id, exp_date, amount) 
+        $sql = "INSERT INTO stock_tb (order_id, product_id, exp_date, amount_exp) 
         VALUES (?,?,?,?)";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $data['order_id'], PDO::PARAM_STR);
+        $stmt->bindParam(1, $data['order_id'], PDO::PARAM_INT);
         $stmt->bindParam(2, $data['product_id'], PDO::PARAM_INT);
-        $stmt->bindParam(3, $data['exp_date'], PDO::PARAM_INT);
-        $stmt->bindParam(4, $data['amount'], PDO::PARAM_INT);
+        $stmt->bindParam(3, $data['exp_date'], PDO::PARAM_STR);
+        $stmt->bindParam(4, $data['amount_exp'], PDO::PARAM_INT);
         $stmt->execute();
     }
 
     public function update($data)
     {
         $sql = "UPDATE stock_tb
-        SET order_id = ?, product_id = ?, exp_date = ?, amount = ?
+        SET order_id = ?, product_id = ?, exp_date = ?, amount_exp = ?
         WHERE stock_id = ?";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $data['order_id'], PDO::PARAM_STR);
+        $stmt->bindParam(1, $data['order_id'], PDO::PARAM_INT);
         $stmt->bindParam(2, $data['product_id'], PDO::PARAM_INT);
         $stmt->bindParam(3, $data['exp_date'], PDO::PARAM_INT);
-        $stmt->bindParam(4, $data['amount'], PDO::PARAM_INT);
+        $stmt->bindParam(4, $data['amount_exp'], PDO::PARAM_STR);
         $stmt->bindParam(5, $data['stock_id'], PDO::PARAM_INT);
         $stmt->execute();
     }
