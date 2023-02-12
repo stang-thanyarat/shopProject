@@ -13,7 +13,7 @@ class Product
 
     public function fetchAll()
     {
-        try{
+        try {
             $sql = "SELECT * FROM product_tb";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
@@ -31,7 +31,7 @@ class Product
 
     public function fetchById($id)
     {
-        try{
+        try {
             $sql = "SELECT * FROM product_tb WHERE product_id=?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
@@ -50,26 +50,26 @@ class Product
 
     public function fetchByCategoryName($id)
     {
-      try{
-          $sql = "SELECT P.*,C.category_name FROM product_tb P, category_tb C WHERE P.category_id = C.category_id AND P.product_id = ?";
-          $stmt = $this->conn->prepare($sql);
-          $stmt->bindParam(1, $id, PDO::PARAM_INT);
-          $stmt->execute();
-          $result = $stmt->fetch(PDO::FETCH_ASSOC);
-          if (!$result) {
-              return [];
-          } else {
-              return $result;
-          }
-      } catch (Exception $e) {
-          http_response_code(500);
-          echo strval($e);
-      }
+        try {
+            $sql = "SELECT P.*,C.category_name FROM product_tb P, category_tb C WHERE P.category_id = C.category_id AND P.product_id = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 
     public function fetchBypriceId($id)
     {
-        try{
+        try {
             $sql = "SELECT * FROM product_tb WHERE price = ?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
@@ -108,25 +108,25 @@ class Product
     //แจ้งเตือนสินค้าใกล้หมด
     public function fetchLost()
     {
-      try{
-          $sql = "SELECT * FROM product_tb WHERE product_rm_unit <= notification_amt AND sales_status = 1";
-          $stmt = $this->conn->prepare($sql);
-          $stmt->execute();
-          $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-          if (!$result) {
-              return [];
-          } else {
-              return $result;
-          }
-      } catch (Exception $e) {
-          http_response_code(500);
-          echo strval($e);
-      }
+        try {
+            $sql = "SELECT * FROM product_tb WHERE product_rm_unit <= notification_amt AND sales_status = 1";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 
     public function getCountprice($id)
     {
-        try{
+        try {
             $products = new Product();
             $products = $products->fetchBypriceId($id);
             $counts = 0;
@@ -139,26 +139,26 @@ class Product
     }
 
     public function fetchAddCategory()
-         {
-             try{
-                 $sql = "SELECT P.*,C.* FROM category_tb C,product_tb P WHERE P.category_id = C.category_id ORDER BY P.product_name ASC";
-                 $stmt = $this->conn->prepare($sql);
-                 $stmt->execute();
-                 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                 if (!$result) {
-                     return [];
-                 } else {
-                     return $result;
-                 }
-             } catch (Exception $e) {
-                 http_response_code(500);
-                 echo strval($e);
-             }
-         }
+    {
+        try {
+            $sql = "SELECT P.*,C.* FROM category_tb C,product_tb P WHERE P.category_id = C.category_id ORDER BY P.product_name ASC";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
+    }
 
     public function fetchByName($keyword)
     {
-        try{
+        try {
             $like = "%$keyword%";
             $sql = "SELECT P.*,C.* FROM category_tb C,product_tb P WHERE P.category_id = C.category_id AND P.product_name LIKE ? ORDER BY P.product_name ASC";
             $stmt = $this->conn->prepare($sql);
@@ -178,37 +178,37 @@ class Product
 
     public function search($keyword, $id = null)
     {
-      try{
-          $like = "%$keyword%";
-          if(is_null($id)){
-              $sql = "SELECT C.*,P.* FROM category_tb C,product_tb P WHERE C.category_id = P.category_id AND P.product_name LIKE ? ORDER BY P.product_name ASC";
+        try {
+            $like = "%$keyword%";
+            if (is_null($id)) {
+                $sql = "SELECT C.*,P.* FROM category_tb C,product_tb P WHERE C.category_id = P.category_id AND P.product_name LIKE ? ORDER BY P.product_name ASC";
 
-          }else{
-              $sql = "SELECT C.*,P.* FROM category_tb C,product_tb P WHERE C.category_id = ? ORDER BY P.product_name ASC";
-          }
-          $stmt = $this->conn->prepare($sql);
-          if(is_null($id)){
-              $stmt->bindParam(1, $like, PDO::PARAM_STR);
-          }else{
-              $stmt->bindParam(1, $id, PDO::PARAM_INT);
-              $stmt->bindParam(2, $like, PDO::PARAM_STR);
-          }
-          $stmt->execute();
-          $result = $stmt->fetchAll();
-          if (!$result) {
-              return [];
-          } else {
-              return $result;
-          }
-      } catch (Exception $e) {
-          http_response_code(500);
-          echo strval($e);
-      }
+            } else {
+                $sql = "SELECT C.*,P.* FROM category_tb C,product_tb P WHERE C.category_id = ? ORDER BY P.product_name ASC";
+            }
+            $stmt = $this->conn->prepare($sql);
+            if (is_null($id)) {
+                $stmt->bindParam(1, $like, PDO::PARAM_STR);
+            } else {
+                $stmt->bindParam(1, $id, PDO::PARAM_INT);
+                $stmt->bindParam(2, $like, PDO::PARAM_STR);
+            }
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 
     public function fetchByCategoryId($id)
     {
-        try{
+        try {
             $sql = "SELECT C.*,P.* FROM category_tb C,product_tb P WHERE C.category_id = P.category_id AND C.category_id = ? AND sales_status = 1  AND product_rm_unit > 0 ORDER BY P.product_name ASC";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
@@ -227,33 +227,33 @@ class Product
 
     public function autoComplete($keyword)
     {
-       try{
-           $like = $keyword . "%";
-           $sql = "SELECT * FROM product_tb WHERE product_name LIKE ?";
-           $stmt = $this->conn->prepare($sql);
-           $stmt->bindParam(1, $like, PDO::PARAM_STR);
-           $stmt->execute();
-           $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-           $json = [];
+        try {
+            $like = $keyword . "%";
+            $sql = "SELECT * FROM product_tb WHERE product_name LIKE ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $like, PDO::PARAM_STR);
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $json = [];
 
-           foreach($result as $row){
-               $object = new stdClass();
-               $object->label = $row['product_name'];
-               $object->value = $row['product_id'];
-               $json[]=$object;
-           }
-           return json_encode($json);
-       } catch (Exception $e) {
-           http_response_code(500);
-           echo strval($e);
-       }
+            foreach ($result as $row) {
+                $object = new stdClass();
+                $object->label = $row['product_name'];
+                $object->value = $row['product_id'];
+                $json[] = $object;
+            }
+            return json_encode($json);
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 
     //สต็อกสินค้า
 
     public function getStockQuantity($id)
     {
-        try{
+        try {
             $sql = "SELECT product_rm_unit FROM product_tb WHERE product_id=?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
@@ -270,10 +270,10 @@ class Product
     }
 
 
-    public function cutStock($id, $amount) //อันตราย
+    /*public function cutStock($id, $amount) //อันตราย
     {
         try{
-            $sql = "UPDATE product_tb SET product_rm_unit = product_rm_unit - $amount  WHERE product_id = $id";
+            $sql = "UPDATE product_tb SET product_rm_unit = product_rm_unit - $amount WHERE product_id = $id";
             $servername = "localhost";
             $username = "root";
             $username = "";
@@ -283,11 +283,28 @@ class Product
             http_response_code(500);
             echo strval($e);
         }
+    }*/
+
+    public function cutStock($q,$id)
+    {
+        try {
+            $sql = "SET FOREIGN_KEY_CHECKS=0";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $sql = "UPDATE product_tb SET product_rm_unit = product_rm_unit - ? WHERE product_id = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $q, PDO::PARAM_INT);
+            $stmt->bindParam(2, $id, PDO::PARAM_INT);
+            $stmt->execute();
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 
     public function addStock($id)
     {
-        try{
+        try {
             $sql = "SET FOREIGN_KEY_CHECKS=0";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
@@ -306,7 +323,7 @@ class Product
 
     public function insert($data)
     {
-        try{
+        try {
             $sql = "SET FOREIGN_KEY_CHECKS=0";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
@@ -360,7 +377,7 @@ class Product
 
     function updateStatus($status, $id)
     {
-        try{
+        try {
             $sql = "UPDATE product_tb SET sales_status = ? WHERE product_id=?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $status, PDO::PARAM_INT);
@@ -403,9 +420,10 @@ class Product
             echo strval($e);
         }
     }
+
     public function countCategoryId($id, $on)
     {
-        try{
+        try {
             $sql = "SELECT * FROM product_tb LEFT JOIN category_tb ON product_tb.category_id = category_tb.category_id ";
             if ($on) {
                 $sql .= " AND product_tb.sales_status=1";
@@ -427,7 +445,7 @@ class Product
 
     public function fetchVat($id)
     {
-        try{
+        try {
             $sql = "SELECT vat FROM product_tb WHERE product_id=?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
@@ -442,7 +460,7 @@ class Product
 
     public function deleteByCategoryId($id)
     {
-        try{
+        try {
             $sql = "SET FOREIGN_KEY_CHECKS=0";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
@@ -464,7 +482,7 @@ class Product
 
     public function delete($id)
     {
-        try{
+        try {
             $sql = "SET FOREIGN_KEY_CHECKS=0";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();

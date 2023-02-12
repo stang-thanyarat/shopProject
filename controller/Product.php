@@ -112,7 +112,7 @@ if (isset($_POST)) {
             Redirection("/productresult.php");
         }
         else if($_POST['form_action'] == 'cut'){
-            $product->cutStock($_POST['product_id'],$_POST['q']);
+            $product->cutStock($_POST['q'],$_POST['product_id']);
         }
     }
 } else {

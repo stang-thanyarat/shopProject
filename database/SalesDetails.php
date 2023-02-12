@@ -100,15 +100,13 @@ class SalesDetails
     public function insert($data)
     {
         try{
-            $sql = "UPDATE sales_details_tb
-        SET sales_list_id = ?, product_id = ?, sales_amt = ?, sales_pr = ?
-        WHERE unique_id = ?";
+            $sql = "INSERT INTO sales_details_tb (sales_list_id ,product_id ,sales_amt, sales_pr)
+        VALUES (?,?,?,?)";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $data['sales_list_id'], PDO::PARAM_INT);
             $stmt->bindParam(2, $data['product_id'], PDO::PARAM_INT);
             $stmt->bindParam(3, $data['sales_amt'], PDO::PARAM_STR);
             $stmt->bindParam(4, $data['sales_pr'], PDO::PARAM_STR);
-            $stmt->bindParam(5, $data['unique_id'], PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
             http_response_code(500);
