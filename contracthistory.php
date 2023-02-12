@@ -60,6 +60,7 @@ if (isset($_GET['keyword'])) {
                     </div>
                     </form>
                 </div>
+                <?php if (count($rows) > 0) { ?>
                     <table class="col-11 contracttable">
                         <tr>
                             <th width=15%>วันที่ทำสัญญา</th>
@@ -98,6 +99,9 @@ if (isset($_GET['keyword'])) {
                             } ?>
                         </tbody>
                     </table>
+                <?php } else {
+                    echo '<div class="d-flex justify-content-center"><h3 style="margin-top: 9rem; margin-bottom: 9rem;">ไม่พบข้อมูล</h3></div>';
+                } ?>
                 </div>
             </div>
         </div>

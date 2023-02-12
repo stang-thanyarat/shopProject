@@ -61,6 +61,7 @@ if (isset($_GET['keyword'])) {
                         </div>
                     </form>
                 </div>
+            <?php if (count($rows) > 0) { ?>
                 <table class="ma">
                     <tr>
                         <th>ชื่อ-นามสกุล</th>
@@ -91,6 +92,9 @@ if (isset($_GET['keyword'])) {
                         </tr>
                     <?php } ?>
                 </table>
+            <?php } else {
+                echo '<div class="d-flex justify-content-center"><h3 style="margin-top: 9rem; margin-bottom: 9rem;">ไม่พบข้อมูล</h3></div>';
+            } ?>
             </div>
         </div>
     </form>
