@@ -1,6 +1,6 @@
 <?php
 include_once('service/auth.php');
-include_once ('service/dateFormat.php');
+include_once('service/dateFormat.php');
 isLaber();
 function getFullRole($role)
 {
@@ -26,11 +26,13 @@ function getFullRole($role)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/contracthistory.css" />
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <title>สัญญาซื้อขาย</title>
 </head>
 <?php
 include_once('nav.php');
 include_once "./database/Contract.php";
+include_once './service/datetimeDisplay.php';
 $contract =  new Contract();
 if (isset($_GET['keyword'])) {
     $rows = $contract->searchByName($_GET['keyword']);
@@ -51,13 +53,13 @@ if (isset($_GET['keyword'])) {
                 </div>
                 <div class="row d-flex justify-content-end">
                     <form action="contracthistory.php" method="GET">
-                    <div class="col-2">
-                        <input name="keyword" type="text" id="keyword" class="btnd" placeholder="&nbsp ชื่อ-นามสกุล">
-                        <button type="submit" class="s"><img src="./src/images/search.png" width="20"></button>
-                    </div>
-                    <div class="col-2">
-                        <a type="button" href="productlist.php" class="submit btn"><img src="./src/images/arrow.png" width="45" class="arrow">กลับไปหน้าขาย</a>
-                    </div>
+                        <div class="col-2">
+                            <input name="keyword" type="text" id="keyword" class="btnd" placeholder="&nbsp ชื่อ-นามสกุล">
+                            <button type="submit" class="s"><img src="./src/images/search.png" width="20"></button>
+                        </div>
+                        <div class="col-2">
+                            <a type="button" href="productlist.php" class="submit btn"><img src="./src/images/arrow.png" width="45" class="arrow">กลับไปหน้าขาย</a>
+                        </div>
                     </form>
                 </div>
                 <?php if (count($rows) > 0) { ?>
@@ -105,8 +107,43 @@ if (isset($_GET['keyword'])) {
                 </div>
             </div>
         </div>
+        </div>
     </form>
+
+    <!---modal เพิ่มไฟล์สัญญา-->
+    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <form name="addcontract_attachment" method="post" action="./controller/Contract.php"  enctype="multipart/form-data" >
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">เพิ่มไฟล์สัญญา</h5>
+                        <button type="button" id="addclose" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <input type="hidden" name="table" value="contract" >
+                            <input type="hidden" name="form_action" value="upload">
+                            <input type="hidden" name="contract_code" id='upload_contract_code'>
+                            <div class="col ">
+                                เพิ่มไฟล์สัญญา : <input type="file" accept="image" name="contract_attachment" required>
+                                <div class="k">*</div>
+                                <br>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="modal-footer">
+                            <button type="submit" id="addtable" class="btn btn-primary2">ตกลง</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
 </body>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./src/js/contracthistory.js"></script>
+<script>window.onload = () =>document.querySelector('.btn-close > span').remove()</script>
 </html>

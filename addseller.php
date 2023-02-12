@@ -26,7 +26,7 @@ function getFullRole($role)
     <link rel="stylesheet" href="./src/css/addseller.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <title>Document</title>
+    <title>เพิ่มผู้ขาย</title>
 </head>
 <?php include_once('nav.php'); ?>
 
@@ -115,9 +115,11 @@ function getFullRole($role)
                         <input type="text" name="seller_telephone" id="seller_telephone" onkeyup="autoTab2(this)" class="bb" />
                         <div class="j">*</div>
                     </div>
-                    <div class="col leftidline">
-                        <label for="seller_lind_id">ไอดีไลน์ :</label>
-                        <input type="text" name="seller_lind_id" id="seller_lind_id" class="bb" />
+                </div>
+                <div class="row">
+                    <div class="col leftnumber2">
+                        <label for="seller_telephone">ช่องทางการติดต่ออื่นๆ :</label>
+                        <input type="text" name="seller_channel" id="seller_channel" class="bb" />
                     </div>
                 </div>
                 <div class="row">
@@ -286,5 +288,6 @@ function getFullRole($role)
 </body>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./src/js/addseller.js"></script>
+<script>window.onload = () =>document.querySelector('.btn-close > span').remove()</script>
 
 </html>

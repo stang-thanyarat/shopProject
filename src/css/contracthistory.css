@@ -26,6 +26,11 @@
     margin-top: -0.2rem;
 }
 
+a {
+    color: #A36627;
+    text-decoration: none;
+}
+
 table,
 td,
 th {
@@ -123,4 +128,74 @@ th {
 .g {
     background: transparent;
     border: 0px;
+}
+
+.k {
+    color: red;
+    margin-left: 7rem;
+    margin-top: -3.5rem;
+}
+
+
+
+/*modal เพิ่มบัญชีใหม่*/
+
+.leftnumber {
+    margin-top: 1rem;
+    margin-left: 4rem;
+}
+
+.leftbank {
+    margin-top: 1rem;
+    margin-left: 3.1rem;
+}
+
+
+.leftanb {
+    margin-top: 1rem;
+    margin-left: 2.9rem;
+}
+
+.leftan {
+    margin-top: 1rem;
+    margin-left: 3.2rem;
+    margin-bottom: 1rem;
+}
+
+/*.btn-primary1 {
+    color: white;
+    background-color: #A36627;
+}*/
+
+.btn-primary1:hover {
+    color: white;
+}
+
+.modal-title {
+    color: white;
+}
+
+.modal-header {
+    background-color: #688557;
+}
+
+.modal-footer {
+    background-color: white;
+}
+
+/*ลบ*/
+
+.btn-primary2 {
+    background-color: #7C904E;
+    color: white;
+    border: 0ch;
+}
+
+.modal-body {
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.modal-title2 {
+    color: white;
 }

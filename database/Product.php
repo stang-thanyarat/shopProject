@@ -176,15 +176,14 @@ class Product
     }
 
 
-    public function cutStock($id, $amount)
+    public function cutStock($id, $amount) //อันตราย
     {
-        $sql = "SET FOREIGN_KEY_CHECKS=0";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
-        $sql = "UPDATE Orders SET product_rm_unit = product_rm_unit - ? WHERE product_id=?";
-        $stmt->bindParam(1, $id, PDO::PARAM_INT); //Boolean ใช้ INT
-        $stmt->bindParam(2, $amount, PDO::PARAM_INT);
-        $stmt->execute();
+        $sql = "UPDATE product_tb SET product_rm_unit = product_rm_unit - $amount  WHERE product_id = $id";
+        $servername = "localhost";
+        $username = "root";
+        $username = "";
+        $database = "shop_pj";
+        mysqli_query( mysqli_connect( $servername, $username, $username,$database),$sql);
     }
 
     public function addStock($id)
@@ -193,7 +192,7 @@ class Product
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $q = $this->getStockQuantity($id);
-        $sql = "UPDATE Orders SET product_dlt_unit = product_dlt_unit + ? WHERE product_id=?";
+        $sql = "UPDATE product_tb SET product_dlt_unit = product_dlt_unit + ? WHERE product_id=?";
         $stmt->bindParam(1, $id, PDO::PARAM_INT); //Boolean ใช้ INT
         $stmt->bindParam(2, $q['product_rm_unit'], PDO::PARAM_INT);
         $stmt->execute();

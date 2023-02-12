@@ -1,6 +1,23 @@
 <?php
-
 require_once '../vendor/autoload.php';
+include_once '../../../database/Contract.php';
+include_once '../../../database\SalesDetails.php';
+include_once '../../bahtText.php';
+include_once '../../datetimeDisplay.php';
+$Contract = new Contract();
+$salesDetail = new SalesDetails();
+if (!isset($_GET['id'])) {
+  echo "Not found.";
+  exit();
+}
+$id = $_GET['id'];
+$data = $Contract->fetchByPDFId($id);
+
+if (count($data) <= 0) {
+  echo "Not found.";
+  exit();
+}
+$detail = $salesDetail->fetchBySalesId($data['sales_list_id']);
 $defaultConfig = (new Mpdf\Config\ConfigVariables())->getDefaults();
 $fontDirs = $defaultConfig['fontDir'];
 $defaultFontConfig = (new Mpdf\Config\FontVariables())->getDefaults();
@@ -63,7 +80,7 @@ h2{
 </td>
   </tr>
    <tr class="setcenter">
-    <td colspan="2" class="setcenter">เลขประจำตัวผู้เสียภาษี : xxx </td>
+    <td colspan="2" class="setcenter">เลขประจำตัวผู้เสียภาษี : &nbsp; </td>
   </tr>
    <tr class="setcenter">
     <td colspan="2" class="setcenter">เบอร์โทรติดต่อ : 035-801059 , 083-9108289</td>
@@ -81,19 +98,12 @@ h2{
 <td>
 <table width="1373" border="0">
 <tr>
-  <td width="597">ลูกค้า : xxx </td>
-  <td width="502">เล่มที่ : xxx </td>
-  <td width="260">เลขที่ : xxx </td>
+  <td width="597">ลูกค้า : ' . $data['customer_prefix'] . $data['customer_firstname'] . "  " . $data['customer_lastname'] . ' </td>
+  <td width="502">เล่มที่ : ' . $_GET['id'] . ' </td>
 </tr>
 <tr>
-  <td>ที่อยู่ : xxx </td>
-  <td>วันที่ : xxx</td>
-  <td>เวลา : xxx</td>
-</tr>
-<tr>
-  <td>เลขประจำตัวผู้เสียภาษี : xxx </td>
-  <td>เบอร์โทรติดต่อ : xxx</td>
-  
+  <td>วันที่ : ' . toDay() . '</td>
+  <td>เวลา : ' . ShowTime($data['price_send']) . '</td>
 </tr>
 </table>
    </td>
@@ -113,27 +123,20 @@ h2{
       </tr>
       <tr>
         <td width="140" class="setcenter"> 1</td>
-        <td width="517">&nbsp; ใบตัดหญ้า</td>
-        <td width="162" class="setcenter"> 3</td>
-        <td width="290" class="setright"> 150 &nbsp;</td>
-        <td width="238" class="setright"> 450 &nbsp;</td>
+        <td width="517">&nbsp; ' . $data['product_detail'] . '</td>
+        <td width="162" class="setcenter"> ' . $detail['sales_pr'] . '</td>
+        <td width="290" class="setright"> ' . $detail['sales_amt'] . ' &nbsp;</td>
+      
       </tr>
       <tr>
-        <td  colspan="3">หมายเหตุ : xxx</td>
-        <td width="290" class="setright">ยอดรวม : xxx &nbsp;</td>
-        <td width="238" class="setright">xxx &nbsp;</td>
-      </tr>
-       <tr>
-        <td colspan="3">&nbsp;</td>
-        <td width="290" class="setright">ยอดรวมสุทธิ : xxx &nbsp;</td>
-        <td width="238" class="setright">xxx &nbsp;</td>
+        <td  colspan="3">หมายเหตุ : &nbsp;</td>
+        <td width="290" class="setright">ยอดรวมสุทธิ :  &nbsp;</td>
+        <td width="238" class="setright">' . $data['baht'] . ' &nbsp;</td>
       </tr>
     </table>
    </td>
 </tr>
-<tr>
-    <td colspan="2" class="setright">สี่ร้อยห้าสิบบาทถ้วน &nbsp;</td>
-</tr>
+
   <tr class="setcenter">
     <td colspan="2">&nbsp;</td>
 </tr>
@@ -141,9 +144,10 @@ h2{
 <td>
 <table width="1000" border="0">
 <tr class="setcenter">>
-<td>ลงชื่อ.................................ผู้ส่งของ</td>
-<td>&nbsp;</td>
-<td>ลงชื่อ..................................ผู้รับของ</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>ลงชื่อ&nbsp;' . $data['employee_prefix'] . $data['employee_firstname'] . "&nbsp;" . $data['employee_lastname'] . '&nbsp;ผู้ส่งของ</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>ลงชื่อ&nbsp;' . $data['customer_prefix'] . $data['customer_firstname'] . "  " . $data['customer_lastname'] . '&nbsp;ผู้รับของ</td>
 </tr>
 </table>
 </td>

@@ -31,6 +31,7 @@ function getFullRole($role)
 <?php
 include_once('nav.php');
 include_once "./database/ProductExchange.php";
+include_once"./service/datetimeDisplay.php";
 $productexchange = new ProductExchange();
 if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GET['end'] != '') {
     $rows = $productexchange->fetchBetween($_GET['start'], $_GET['end']);
@@ -76,7 +77,7 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                         <tbody id="productExchangeTable">
                             <?php foreach ($rows as $row) { ?>
                                 <tr>
-                                    <th><?= dateFormat($row['exchange_date']) ?></th>
+                                    <th><?= dateTimeDisplay($row['exchange_date']) ?></th>
                                     <th id="text<?= $row['product_id'] ?>"><?= $row['product_name'] ?></th>
                                     <th><?= $row['exchange_amount'] ?></th>
                                     <th><?= $row['exchange_status'] == 1 ? "<a type='button' onclick='wait()'><font color=#A36627>รอของ</font></a>" : "สำเร็จ"; ?>

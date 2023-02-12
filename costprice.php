@@ -53,15 +53,15 @@ $pp = $costprice->fetchByProductId($_GET['id']);
         <div class="row main q">
             <div class="col-12 ">
                 <div>
-                    <h4><?= $p['product_name'];?><h4>
+                    <h4>ชื่อสินค้า : <?= $p['product_name'];?><h4>
                 </div>
                 <p>
                 <div>
-                    <h4 id="text<?= $c['category_id'] ?>"><?=  $c['category_name'];?><h4>
+                    <h4 id="text <?= $c['category_id'] ?>">ประเภทสินค้า : <?=  $c['category_name'];?><h4>
                 </div>
                 <p>
                 <div>
-                    <h4><?= $p['brand'];?><h4>
+                    <h4>รุ่น : <?= $p['brand'];?><h4>
                 </div>
                 <p>
                     <div class="title page">

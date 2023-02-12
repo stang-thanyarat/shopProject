@@ -73,6 +73,17 @@ async function loopInsert() {
             redirect: 'follow'
         };
         await fetch("controller/SalesDetails.php", requestOptions)
+        var formdata1 = new FormData();
+        formdata1.append("q", e.quantity);
+        formdata1.append("product_id", e.id);
+        formdata1.append("form_action", "cut");
+        formdata1.append("table", "product");
+        var requestOptions = {
+            method: 'POST',
+            body: formdata1,
+            redirect: 'follow'
+        };
+        await fetch("controller/Product.php", requestOptions)
     }
 }
 
@@ -91,28 +102,26 @@ $("#form1").submit(async function (event) {
         formdata.append("employee_id", employee_id);
         formdata.append("form_action", "insert");
         formdata.append("table", "sales");
-        Promise.all([
-                fetch('controller/Contract.php', {
-                    method: 'POST',
-                    body: new FormData(document.form1)
-                }),
-                fetch('controller/Sales.php', {
-                    method: 'POST',
-                    body: formdata
-                }),
-            ]
-        ).then( async () => {
-            loopInsert()
-            let lastID = await (await fetch('controller/GetLastIdContract.php')).text()
-            var formdata1 = new FormData();
-            formdata1.append("contract_code", lastID);
-            formdata1.append("payment_amount", AllPrice);
-            formdata1.append("form_action", "insertInit");
-            formdata1.append("table", "debtPaymentDetails");
-           await fetch('controller/DebtPaymentDetails.php', {
-                method: 'POST',
-                body: formdata1
-            }),
+        await fetch('controller/Sales.php', {
+            method: 'POST',
+            body: formdata
+        })
+        let lastID = await (await fetch('controller/GetLastIdSales.php')).text()
+        document.form1.sales_list_id = lastID
+        await fetch('controller/Contract.php', {
+            method: 'POST',
+            body: new FormData(document.form1)
+        })
+        loopInsert()
+        var formdata1 = new FormData();
+        formdata1.append("contract_code", lastID);
+        formdata1.append("payment_amount", AllPrice);
+        formdata1.append("form_action", "insertInit");
+        formdata1.append("table", "debtPaymentDetails");
+        await fetch('controller/DebtPaymentDetails.php', {
+            method: 'POST',
+            body: formdata1
+        }),
             Swal.fire({
                 icon: 'success',
                 text: 'บันทึกข้อมูลเสร็จสิ้น',
@@ -121,6 +130,5 @@ $("#form1").submit(async function (event) {
                 window.location = './contracthistory.php'
             })
 
-        })
     }
 });

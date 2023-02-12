@@ -51,8 +51,8 @@ if (isset($_GET['product'])) {
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="<?= file_exists($r['product_img']) ? $r['product_img'] : "./src/images/logo.png" ?>"
-                                     width="200">
+                                <a href="<?= file_exists($r['product_img']) ? $r['product_img'] : "./src/images/logo.png" ?>" ><img src="<?= file_exists($r['product_img']) ? $r['product_img'] : "./src/images/logo.png" ?>"
+                                        width="200"></a>
                             </div>
                             <div class="carousel-item">
                                 <img src="<?= file_exists($r['product_detail_img'])?$r['product_detail_img']:"./src/images/logo.png" ?>" width="200">

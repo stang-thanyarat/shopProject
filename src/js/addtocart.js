@@ -146,6 +146,17 @@ async function loopInsert(){
             redirect: 'follow'
         };
         await fetch("controller/SalesDetails.php", requestOptions)
+        var formdata1 = new FormData();
+        formdata1.append("q", e.quantity);
+        formdata1.append("product_id", e.id);
+        formdata1.append("form_action", "cut");
+        formdata1.append("table", "product");
+        var requestOptions = {
+            method: 'POST',
+            body: formdata1,
+            redirect: 'follow'
+        };
+        await fetch("controller/Product.php", requestOptions)
     }
 }
 
@@ -180,12 +191,9 @@ $("#form1").submit(async function (event)
         Swal.fire({
             icon: 'success',
             text: 'บันทึกข้อมูลเสร็จสิ้น',
-            timer: 3000
         }).then(async () => {
-            localStorage.clear()
-            let lastID = await (await fetch('controller/GetLastIdSales.php')).text()
-            window.location = './service/PDF/template/receipt.php?id='+lastID
-            //window.location = 'productlist.php'
+            localStorage.clear()            
+            window.location = 'productlist.php'
         })
     }
 });
@@ -210,7 +218,7 @@ $("#form2").submit(async function (event)
             timer: 3000
         }).then(() => {
             localStorage.clear()
-            window.location = './index.php'
+            window.location = 'productlist.php'
         })
     }
 });
@@ -244,9 +252,7 @@ async function star() {
     setU(keyword)
 }
 
-$(document).ready(function () {
-    star()
-});
+
 
 function setU(keyword) {
     let c = 0
@@ -293,7 +299,7 @@ $("#form3").submit(async function (event)
         })
         console.log(await response.text());
         loopInsert()
-        //localStorage.clear()
+        localStorage.clear()
         window.location.assign("productlist.php");
     }
 });
