@@ -73,7 +73,7 @@ function logout()
     if (!isset($_SESSION['shop_name'])) {
         $name = "ร้าน ABC";
     }
-    if (isset($_POST['shop_name'])) {
+    if (isset($_SESSION['shop_name'])) {
         $name = $_SESSION['shop_name'] ;
     }
     if (!isset($_SESSION['interest'])) {

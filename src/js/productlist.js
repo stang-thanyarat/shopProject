@@ -97,41 +97,6 @@ function setUI(data) {
                 </div>
                 </div>
                 </th>`
-            /*(element.sales_status == 0 ? 'hide' : ''){
-                html += `<th style="border: 0px;">
-                    <div class="topic_product" style="background-color: red; color: white;" >
-                    <div class="row d-flex justify-content-center" style="margin: auto;">
-                        <div class="col-11" style="padding:25px;">
-                        ${element.product_name} ${element.model === "-" ? '' : "รุ่น&nbsp"}${element.model === "-" ? "" : element.model}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6" style="margin-left :auto;">
-                            <div class="d-flex justify-content-start">
-                            <img src="${element.product_img}" style="width: 225px; height: 250px;" >
-                            </div>
-                        </div>
-                        <div class="row col-5 d-flex justify-content-end" style="margin-right: auto;">
-                        <div class="col-3" style="margin-right: auto;">
-                        <p class="d-flex justify-content-start">ราคา</p>
-                        <p class="d-flex justify-content-start">เหลือ</p>
-                        </div>
-                        <div class="col-5">
-                        <p class="d-flex justify-content-end">${element.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
-                        <p class="d-flex justify-content-end"><span id="p${element.product_id}">${element.product_rm_unit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</span></p>
-                        </div>
-                        <div class="col-3" style="margin-left: auto;">
-                        <p class="d-flex justify-content-start">บาท</p>
-                        <p class="d-flex justify-content-start">${element.product_unit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>
-                        </div>
-                            <div class="d-flex justify-content-start">
-                                <span style=" font-size: 25px;" class="fitcontent">หยุดการขายสินค้า</span>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                    </th>`*/
-
             if ((k + 1) % 3 === 0 && (k + 1) === data.length) {
                 html += `<tr>`
             }
@@ -141,8 +106,10 @@ function setUI(data) {
     $('#productlistTable').html(html)
 }
 
-function addToCart(id) {
+async function addToCart(id) {
     const p = Number($(`#p${id}`).text())
+    let expireList = await(await fetch('./controller/GetExpireProduct.php?product_id='+id)).json()
+    console.log(expireList)
     if (p > 0) {
         Swal.fire({
             title: 'จำนวน',

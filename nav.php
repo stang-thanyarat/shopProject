@@ -8,6 +8,7 @@ $product = new Product();
 $lost = $product->fetchLost();
 ?>
 <html>
+<link rel="shortcut icon" href="./src/images/892917.ico"/>
 <link rel="stylesheet" href="./node_modules/sweetalert2/dist/sweetalert2.min.css"/>
 <link rel="stylesheet" href="./src/css/nav.css"/>
 <nav class="navbar fixed-top navbar-expand-lg navbar-light navbar1" >

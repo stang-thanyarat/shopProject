@@ -25,7 +25,7 @@ function getFullRole($role)
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/employee.css" />
     <link href="./node_modules/sweetalert2/dist/sweetalert2.css" rel="stylesheet"></link>
-    <title>Document</title>
+    
 </head>
 <?php
 include_once('nav.php');

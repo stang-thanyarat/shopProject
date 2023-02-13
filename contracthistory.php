@@ -27,7 +27,7 @@ function getFullRole($role)
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/contracthistory.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <title>สัญญาซื้อขาย</title>
+    
 </head>
 <?php
 include_once('nav.php');

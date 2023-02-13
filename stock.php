@@ -26,7 +26,7 @@ function getFullRole($role)
     <link rel="stylesheet" href="./src/css/stock.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <title>Stock</title>
+    
 </head>
 <?php include_once('nav.php');
 include_once "./database/Product.php";
