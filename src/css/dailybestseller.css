@@ -23,8 +23,8 @@
 }
 
 .dailybestsellerTable {
+    margin-left: 10rem;
     margin-top: 2rem;
-    margin-left: 4em;
     margin-bottom: 3rem;
 }
 
@@ -34,10 +34,6 @@
 
 .searchdate{
     margin-left: -0.1rem;
-}
-
-.date{
-    height: 115%;
 }
 
 .search {

@@ -45,9 +45,10 @@ class DailyBestSeller
     public function fetchAllDate($date)
     {
         try{
-            $sql = "SELECT SAD.*,P.* FROM sales_details_tb SAD,product_tb P WHERE SAD.product_id = P.product_id AND SAD.sales_dt = ? ORDER BY SAD.sales_amt DESC";
+            $like = "%$date%";
+            $sql = "SELECT SAD.*,P.* FROM sales_details_tb SAD,product_tb P WHERE SAD.product_id = P.product_id AND SAD.sales_dt like ? ORDER BY SAD.sales_amt DESC";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(1, $date, PDO::PARAM_STR);
+            $stmt->bindParam(1, $like, PDO::PARAM_STR);
             $stmt->execute();
             $result = $stmt->fetchAll();
             $dup = [];

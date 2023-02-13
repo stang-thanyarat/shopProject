@@ -88,20 +88,18 @@ $labers = $employee->fetchLabers();
                         </select>&nbsp &nbsp นับจากวันที่ลูกค้าซื้อสินค้า
                     </div>
                     <p></p>
-                    <p></p>
                     <div class="col-12">
                         ดอกเบี้ยต่อเดือน: &nbsp &nbsp
-                        <input type="text" value="<?= $_SESSION['interest']?>" name="interest" id="interest" required>
+                        <input type="text" value="<?= $_SESSION['interest']?>" name="interest" id="interest" required>&nbsp;%
                     </div>
                     <p></p>
-                    <p></p>
                     <div class="col-12">
-                        ดอกเบี้ยสูงสุดต่อปี: &nbsp &nbsp
-                        <input type="text" value="<?= ($_SESSION['interest']*(12-$_SESSION['interest_month'])-1)?>" name="interest_year" id="interest_year" readonly> &nbsp &nbsp ตามกฎหมาย
+                        ดอกเบี้ยสูงสุดต่อปี:&nbsp;&nbsp;&nbsp;<?= ($_SESSION['interest']*(12-$_SESSION['interest_month'])-1)?>&nbsp;%
+                        <input type="hidden" value="<?= ($_SESSION['interest']*(12-$_SESSION['interest_month'])-1)?>" name="interest_year" id="interest_year" readonly> ตามกฎหมาย
                     </div>
                     <div class="row btn-g">
                         <div class="col-2">
-                            <button type="button" class="btn-c reset">ยกเลิก</button>
+                            <button type="button" class="btn-c reset" onclick="javascript:window.location='index.php';">ยกเลิก</button>
                         </div>
                         <div class="col-2">
                             <input type="submit" class="btn-c submit" value="บันทึก"/>

@@ -1,5 +1,14 @@
 <?php
 include_once("Connection.php");
+if (!isset($_SESSION)) {
+    session_start();
+};
+if (!isset($_SESSION['day_change'])) {
+    $_SESSION['day_change'] = 7;
+}
+if (isset($_POST['day_change'])) {
+    $_SESSION['day_change'] = $_POST['day_change'];
+}
 
 class ProductExchange
 {
@@ -121,7 +130,7 @@ class ProductExchange
                $stmt->bindParam(3, $data['note'], PDO::PARAM_STR);
                $stmt->bindParam(4, $data['exchange_amount'], PDO::PARAM_INT);
                $stmt->bindParam(5, $data['exchange_status'], PDO::PARAM_INT);
-               $stmt->bindParam(6, $day_change, PDO::PARAM_INT);
+               $stmt->bindParam(6, $day_change, PDO::PARAM_STR);
                $stmt->bindParam(7, $data['exchange_name'], PDO::PARAM_STR);
                $stmt->bindParam(8, $data['exchange_tel'], PDO::PARAM_STR);
                $stmt->execute();

@@ -40,21 +40,22 @@ $rows = $category->fetchAll();
             <div class="col-11">
                 <div class="row main">
                     <h1>ค้นหาข้อมูลการซื้อสินค้า </h1>
-                    <div>
+                    <div class="col-12">
                         เลขที่ใบเสร็จ :&nbsp &nbsp
                         <input type="text" class="btnd" id="keyword" name="keyword" placeholder="&nbsp ค้นหาเลขที่ใบเสร็จ" >
-                        <button type="button" id="BT" name="BT" class="s"><img src="./src/images/search.png" width="13"></button>
+                        <click type="button" id="search" name="search" class="s"><img src="./src/images/search.png" width="13"></click>
                     </div>
-                    <table class="main col-10">
+                    <h3 style="text-align: center; margin-top:9rem;margin-bottom:9rem;" id="no-let">กรอกเลขที่ใบเสร็จเพื่อค้นหา</h3>
+                    <table class="main col-10" id="tb-let" style="margin-bottom: 4rem;">
                         <thead>
                         <tr class="h">
-                            <th>ลำดับ</th>
-                            <th>รูปภาพ</th>
-                            <th>สินค้า</th>
-                            <th>ราคาต่อชิ้น</th>
-                            <th>จำนวน</th>
-                            <th>ราคารวม</th>
-                            <th>สถานะการเปลี่ยนสินค้า</th>
+                            <th width="7.5%">ลำดับ</th>
+                            <th width="20%">รูปภาพ</th>
+                            <th width="25%">สินค้า</th>
+                            <th width="12.5%">ราคาต่อชิ้น</th>
+                            <th width="10%">จำนวน</th>
+                            <th width="12.5%">ราคารวม</th>
+                            <th width="12.5%">สถานะเปลี่ยนสินค้า</th>
                         </tr>
                         </thead>
                         <tbody id="searchTable">

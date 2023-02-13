@@ -71,7 +71,7 @@ $pp = $costprice->fetchByProductId($_GET['id']);
                         &nbsp ถึง &nbsp
                         <input value="<?= isset($_GET['end'])? $_GET['end'] :'' ?>" type="date" class="l" name="end" id="end" style=" background-color: #F8E4C8;" required>
                         &nbsp &nbsp &nbsp
-                        <click type="submit" id="search" name = "search" class=""><img src="./src/images/search.png" width="15"></click>
+                        <click type="submit" id="search" name="search" class=""><img src="./src/images/search.png" width="15"></click>
                     </div>
             </div>
             <!-- กราฟ-->
