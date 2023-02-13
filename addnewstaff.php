@@ -143,7 +143,7 @@ function getFullRole($role)
                                     <div class="k">*</div>
                                 </div>
                                 <div class="row leftpng">
-                                    <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
+                                    <h6><span style="color: red; ">&nbsp*</span>ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h6>
                                 </div>
                     <tr>
                         <th class="mm">บัญชีรับเงิน</th>
@@ -162,7 +162,7 @@ function getFullRole($role)
                         <th>ธนาคาร</th>
                         <th>เลขบัญชี</th>
                         <th>ชื่อบัญชี</th>
-                        <th></th>
+                        <th><img src="./src/images/edit.png" width="25"></th>
                     </tr>
                 </thead>
                 <tbody id="banktable">

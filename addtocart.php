@@ -222,18 +222,20 @@ include_once('nav.php');
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title2" id="exampleModalLabel">กรอกรหัสเจ้าของร้าน</h5>
+                <h5 class="modal-title2" id="exampleModalLabel">ค้นหาลูกค้า</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+            <br>
                 <div class="row">
                     <div class="col email">
                         กรอกรหัสบัตรประชาชน : <input type="text" name="keyword" id="keyword" class="btnd inbox" required />
                     </div>
                     <div class="col-1">
-                        <click id="search" type="submit" class="l"><img src="./src/images/search.png" width="16"></click>&nbsp &nbsp
+                        <click id="search" type="submit" ><img src="./src/images/search.png" width="25" class="l"></click>&nbsp &nbsp
                     </div>
                 </div>
+                <br>
                 <span id="salestocontracttable"></span>
 
             </div>

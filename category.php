@@ -56,7 +56,7 @@ $rows = $category->fetchAll();
                         <th width=54%>ประเภทสินค้า</th>
                         <th width=15%>รายการทั้งหมด</th>
                         <th width=15%>รายการที่ขาย</th>
-                        <th width=8%></th>
+                        <th width=8%><img src="./src/images/edit.png" width="25"></th>
                     </tr>
                 </thead>
                 <tbody id="categorytable">

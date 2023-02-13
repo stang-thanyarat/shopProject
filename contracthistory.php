@@ -33,6 +33,7 @@ function getFullRole($role)
 include_once('nav.php');
 include_once "./database/Contract.php";
 include_once './service/datetimeDisplay.php';
+include_once './service/datetimeDisplay.php';
 $contract =  new Contract();
 if (isset($_GET['keyword'])) {
     $rows = $contract->searchByName($_GET['keyword']);
@@ -51,7 +52,7 @@ if (isset($_GET['keyword'])) {
                         <h1>ประวัติสัญญาซื้อขาย</h1>
                     </div>
                 </div>
-                <div class="row d-flex justify-content-end">
+                <div class="row d-flex justify-content-end" style="margin-left: 4rem;">
                     <form action="contracthistory.php" method="GET">
                         <div class="col-2">
                             <input name="keyword" type="text" id="keyword" class="btnd" placeholder="&nbsp ชื่อ-นามสกุล">
@@ -73,36 +74,36 @@ if (isset($_GET['keyword'])) {
                             <th width=10%>ใบส่งของ</th>
                             <th width=10%>ไฟล์สัญญา</th>
                             <th width=5%>พิมพ์</th>
-                            <th width=5%></th>
+                            <th width=5%><img src="./src/images/edit.png" width="25"></th>
                         </tr>
                         <tbody id="contracttable">
                             <?php
                             foreach ($rows as $row) { ?>
                                 <tr>
-                                    <th><?= dateFormat($row['date_contract']) ?></th>
+                                    <th><?= dateTimeDisplay($row['date_contract']) ?></th>
                                     <th><?= $row['contract_code'] ?></th>
                                     <th>
                                         <div class="r">
                                             <a class="submit BTNP" href="repay.php?id=<?= $row['contract_code']; ?>"><img class='confirm'>
-                                                <?= $row['customer_prefix'] ?> <?= $row['customer_firstname'] ?> <?= $row['customer_lastname'] ?>
+                                                <?= $row['customer_prefix'] ?><?= $row['customer_firstname'] ?> <?= $row['customer_lastname'] ?>
                                             </a>
                                         </div>
                                     </th>
                                     <th></th>
                                     <th></th>
                                     <th>
-                                        <a type="button" class="bgs" href="./service/PDF/template/invoice.php?id=<?= $row['contract_code']; ?>" ><img src="./src/images/print.png" width="25"></a>
+                                        <a type="button" class="bgs" href="./service/PDF/template/invoice.php?id=<?= $row['contract_code']; ?>"><img src="./src/images/print.png" width="25"></a>
                                     </th>
-                                    <th><?php  if(!isset($row['contract_attachment'])){?>
-                                            <button type="button" onclick="setID(<?= $row['contract_code'] ?>)" class="btn btn-primary1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm"><img src="./src/images/cloud-upload-alt.png"  width="25">
+                                    <th><?php if (!isset($row['contract_attachment'])) { ?>
+                                            <button type="button" onclick="setID(<?= $row['contract_code'] ?>)" class="btn btn-primary1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm"><img src="./src/images/cloud-upload-alt.png" width="25">
                                             </button>
-                                        <?php }else{?>
-                                            <a href="<?=$row['contract_attachment']?>">ดู</a>
-                                        <?php }?>
+                                        <?php } else { ?>
+                                            <a href="<?= $row['contract_attachment'] ?>">ดู</a>
+                                        <?php } ?>
                                     </th>
-                                    <th><a href="./service/PDF/template/contract.php?id=<?=$row['contract_code']?>"><img src="./src/images/print.png" class="g" width="25"></a></th>
+                                    <th><a href="./service/PDF/template/contract.php?id=<?= $row['contract_code'] ?>"><img src="./src/images/print.png" class="g" width="25"></a></th>
                                     <th>
-                                        <a type="button" class="bgs" href="editcontract.php?id=<?= $row['contract_code']; ?>" ><img src="./src/images/icon-pencil.png" width="25"></a>
+                                        <a type="button" class="bgs" href="editcontract.php?id=<?= $row['contract_code']; ?>"><img src="./src/images/icon-pencil.png" width="25"></a>
                                     </th>
                                 </tr>
                             <?php
@@ -112,15 +113,15 @@ if (isset($_GET['keyword'])) {
                 <?php } else {
                     echo '<div class="d-flex justify-content-center"><h3 style="margin-top: 9rem; margin-bottom: 9rem;">ไม่พบข้อมูล</h3></div>';
                 } ?>
-                </div>
             </div>
+        </div>
         </div>
         </div>
     </form>
 
     <!---modal เพิ่มไฟล์สัญญา-->
     <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <form name="addcontract_attachment" method="post" action="./controller/Contract.php"  enctype="multipart/form-data" >
+        <form name="addcontract_attachment" method="post" action="./controller/Contract.php" enctype="multipart/form-data">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -131,11 +132,11 @@ if (isset($_GET['keyword'])) {
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <input type="hidden" name="table" value="contract" >
+                            <input type="hidden" name="table" value="contract">
                             <input type="hidden" name="form_action" value="upload">
                             <input type="hidden" name="contract_code" id='upload_contract_code'>
                             <div class="col ">
-                                เพิ่มไฟล์สัญญา : <input type="file"  name="contract_attachment" required>
+                                เพิ่มไฟล์สัญญา : <input type="file" name="contract_attachment" required>
                                 <div class="k">*</div>
                                 <br>
                             </div>
@@ -153,5 +154,8 @@ if (isset($_GET['keyword'])) {
 </body>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./src/js/contracthistory.js"></script>
-<script>window.onload = () =>document.querySelector('.btn-close > span').remove()</script>
+<script>
+    window.onload = () => document.querySelector('.btn-close > span').remove()
+</script>
+
 </html>

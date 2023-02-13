@@ -31,7 +31,7 @@ function getFullRole($role)
 <?php
 include_once('nav.php');
 include_once "./database/ProductExchange.php";
-include_once"./service/datetimeDisplay.php";
+include_once "./service/datetimeDisplay.php";
 $productexchange = new ProductExchange();
 if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GET['end'] != '') {
     $rows = $productexchange->fetchBetween($_GET['start'], $_GET['end']);
@@ -51,9 +51,11 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                     <div class="col-3 d-flex justify-content-start">
                         <h1>การเปลี่ยนสินค้า</h1>
                     </div>
-                    <span class="col-9 d-flex justify-content-end">
+                </div>
+                <div class="row mai">
+                    <span>
                         <form action="productexchangehistory.php" method="GET">
-                            <div class="col-11 d-flex justify-content-end" style="margin: auto; margin-left: 0rem;">
+                            <div class="col">
                                 <input value="<?= isset($_GET['start']) ? $_GET['start'] : '' ?>" class="date" type="date" name="start" id="start"> &nbsp&nbspถึง&nbsp&nbsp
                                 <input value="<?= isset($_GET['end']) ? $_GET['end'] : '' ?>" class="date" type="date" name="end" id="end">
                                 <button type="submit" class="s"><img src="./src/images/search.png" width="25"></button>
@@ -71,7 +73,7 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                                 <th width=40%>ชื่อสินค้า</th>
                                 <th width=10%>จำนวน</th>
                                 <th width=20%>สถานะการขาย</th>
-                                <th width=10%></th>
+                                <th width=10%><img src="./src/images/edit.png" width="25"></th>
                             </tr>
                         </thead>
                         <tbody id="productExchangeTable">

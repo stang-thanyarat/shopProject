@@ -75,7 +75,7 @@ function getFullRole($role)
                 <div class="row">
                     <div class="col leftaddress">
                         ที่อยู่ :<span style="color: red; ">&nbsp*</span>
-                        <textarea name="sell_address" id="sell_address" cols="40" rows="5" class="cc" style="vertical-align:top;" required></textarea>
+                        <textarea name="sell_address" id="sell_address" cols="22" rows="4" class="cc" style="vertical-align:top;" required></textarea>
                     </div>
                     <div class="col leftwebsite">
                         <label for="sell_website">เว็บไซต์ :</label>
@@ -115,11 +115,9 @@ function getFullRole($role)
                         <input type="text" name="seller_telephone" id="seller_telephone" onkeyup="autoTab2(this)" class="bb" />
                         <div class="j">*</div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col leftnumber2">
-                        <label for="seller_telephone">ช่องทางการติดต่ออื่นๆ :</label>
-                        <input type="text" name="seller_channel" id="seller_channel" class="bb" />
+                    <div class="col channel">
+                        ช่องทางการติดต่ออื่นๆ : </span>
+                        <textarea name="seller_channel" id="seller_channel" cols="22" rows="2" class="cc" style="vertical-align:top;"></textarea>
                     </div>
                 </div>
                 <div class="row">
@@ -128,10 +126,10 @@ function getFullRole($role)
                         <div class="k">*</div>
                     </div>
                 </div>
-                <div class="row-3 leftpng">
-                    <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB </h5>
+                <div class="row-3">
+                    <h6 class="leftpng"><span style="color: red; ">&nbsp*</span>ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB </h6>
                 </div>
-                <div class="row-6 tb">
+                <div class="row-6">
                     <h5 class="ttb">บัญชีรับเงินของผู้ขาย</h5>
                 </div>
                 <div class="row-2 ma">
@@ -142,11 +140,11 @@ function getFullRole($role)
                 <table class="mai">
                     <thead>
                         <tr>
-                            <th>ลำดับ</th>
-                            <th>ธนาคาร</th>
-                            <th>เลขบัญชี</th>
-                            <th>ชื่อบัญชี</th>
-                            <th></th>
+                            <th width="5%">ลำดับ</th>
+                            <th width="5%">ธนาคาร</th>
+                            <th width="5%">เลขบัญชี</th>
+                            <th width="5%">ชื่อบัญชี</th>
+                            <th width="5%"><img src="./src/images/edit.png" width="25"></th>
                         </tr>
                     </thead>
                     <tbody id="banktable">
@@ -162,14 +160,13 @@ function getFullRole($role)
                         เอกสารอื่นๆ : <input type="file" accept="image/*" name="sell_documents" id="sell_documents" class="bb">
                     </div>
                 </div>
-                <div class="row leftpng">
-                    <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
+                <div class="row-3">
+                    <h6 class="leftpng"><span style="color: red; ">&nbsp*</span>ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB </h6>
                 </div>
-                 
                 <div class="row">
                     <div class="col leftnote">
                         <label for="note">หมายเหตุ :&nbsp;</label>
-                        <textarea name="sell_note" id="sell_note" cols="50" rows="5" style="vertical-align:top;" class="bb"></textarea>
+                        <textarea name="sell_note" id="sell_note" cols="40" rows="4" style="vertical-align:top;" class="bb"></textarea>
                     </div>
                 </div>
                 <div class="row btn-g">
@@ -288,6 +285,8 @@ function getFullRole($role)
 </body>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./src/js/addseller.js"></script>
-<script>window.onload = () =>document.querySelector('.btn-close > span').remove()</script>
+<script>
+    window.onload = () => document.querySelector('.btn-close > span').remove()
+</script>
 
 </html>
