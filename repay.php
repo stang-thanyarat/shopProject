@@ -82,8 +82,8 @@ for ($i = 0; $i < count($$rows); $i++) {
                     <div class="col-xl-6">เงินต้น&nbsp;: <b><?= $rows['deduct_principal'] ?></b></div>
                 </div>
                 <div class="row c">
-                    <div class="col-xl-6 ">คงค้าง&nbsp;: <b><?= $rows['less_interest'] ?></b></div>
-                    <div class="col-xl-6 ">ดอกเบี้ย&nbsp;: <b><?= $rows['outstanding'] ?> %</b></div>
+                    <div class="col-xl-6 ">คงค้าง&nbsp;: <b><?= $rows['outstanding'] ?></b></div>
+                    <div class="col-xl-6 ">ดอกเบี้ย&nbsp;: <b><?= $rows['less_interest'] ?>&nbsp;%</b></div>
                 </div>
                 <div class="row B">
                     <div class=" col-12 d-flex justify-content-end">

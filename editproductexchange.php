@@ -35,11 +35,12 @@ include_once "./database/ProductExchange.php";
 $productexchange = new ProductExchange();
 $e = $productexchange->fetchExchange2Id($_GET['id']);
 ?>
+
 <body>
-<form action="controller/ProductExchange.php" name="form1" id="form1" method="POST" >
-    <input type="hidden" value="productexchange" name="table" />
-    <input type="hidden" value="update" name="form_action" />
-    <input type="hidden" value="<?= $_GET['id'] ?>" name="product_exchange_id" id="product_exchange_id" />
+    <form action="controller/ProductExchange.php" name="form1" id="form1" method="POST">
+        <input type="hidden" value="productexchange" name="table" />
+        <input type="hidden" value="update" name="form_action" />
+        <input type="hidden" value="<?= $_GET['id'] ?>" name="product_exchange_id" id="product_exchange_id" />
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
@@ -53,13 +54,13 @@ $e = $productexchange->fetchExchange2Id($_GET['id']);
                         <th>
                             <div class="row a">
                                 <div class="col productr">
-                                    สินค้าที่ต้องการเปลี่ยน :<span style="color: red; ">&nbsp*</span>
+                                    สินค้าที่ต้องการเปลี่ยน : &nbsp&nbsp</span>
                                     <input type="text" accept="image/*" name="product_name" id="product_name" value="<?= $e['product_name']; ?>" class="inbox" required />
                                 </div>
                             </div>
                             <div class="row a">
                                 <div class="col productn">
-                                    จำนวนที่เปลี่ยนสินค้า :<span style="color: red; ">&nbsp*</span>
+                                    จำนวนที่เปลี่ยนสินค้า : &nbsp&nbsp</span>
                                     <input name="exchange_amount" min="1" step="1" value="1" type="number" id="exchange_amount" class="inbox" value="<?= $e['exchange_amount']; ?>" required />
                                 </div>
                             </div>

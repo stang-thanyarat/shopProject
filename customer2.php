@@ -32,7 +32,7 @@ if (isset($_GET['product'])) {
         </div>
         <div class="col d-flex justify-content-end">
             <button type="button" class="back" onclick="javascript:window.location='customer.php';"><img
-                        src="./src/images/back-button.png" width="40"></button>
+                        src="./src/images/left-arrow.png" width="40" style="margin-top: 0.7rem;"></button>
         </div>
     </div>
     <div class="row">
@@ -81,8 +81,7 @@ if (isset($_GET['product'])) {
                         ยี่ห้อ : <?= $r['brand'] ?> <br>
                         คงเหลือ : <?= $r['product_rm_unit'] ?> <?= $r['product_unit'] ?> <br><br>
                     </div>
-                    <div class="f">
-                        <?= $r['product_detail'] ?>
+                    <div class="f">รายละเอียดสินค้า : <?= $r['product_detail'] ?>
                     </div>
 
                 </div>

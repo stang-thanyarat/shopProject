@@ -47,7 +47,7 @@ $c = $category->fetchAll();
                 </div>
             </div>
             <div class="row mai">
-                <div class="col-3 category">
+                <div class="col-3">
                     <label for="category"></label>
                     <select name="category_id" id="category_id" style="background-color: #D4DDC6;" required>
                         <option value="all">สินค้าทั้งหมด</option>

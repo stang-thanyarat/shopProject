@@ -16,8 +16,8 @@
 }
 
 .main {
-    margin-top: 4rem;
-    margin-left: 3rem;
+    margin-top: 5rem;
+    margin-left: 4rem;
     width: 70%;
 
 }
@@ -37,7 +37,9 @@
 
 .tt {
     margin-top: 2rem;
-    margin-left: 3rem;
+    margin-left: 4rem;
+    color: black;
+    margin-bottom: 1rem;
 }
 
 .bb {
@@ -49,7 +51,7 @@
 }
 
 .leftseller {
-    margin-left: 6.8rem;
+    margin-left: 10.8rem;
     margin-top: 2rem;
 }
 
@@ -60,7 +62,7 @@
 }
 
 .leftsellername {
-    margin-left: 6.7rem;
+    margin-left: 10.7rem;
     margin-top: 1rem;
 }
 
@@ -71,7 +73,7 @@
 }
 
 .leftidentification {
-    margin-left: 2.9rem;
+    margin-left: 6.9rem;
     margin-top: 1rem;
 }
 
@@ -82,7 +84,7 @@
 }
 
 .leftaddress {
-    margin-left: 10.3rem;
+    margin-left: 14.2rem;
     margin-top: 1rem;
 }
 
@@ -93,7 +95,7 @@
 }
 
 .lefttelephone {
-    margin-left: 7.2rem;
+    margin-left: 11.2rem;
     margin-top: 1rem;
 }
 
@@ -104,12 +106,12 @@
 }
 
 .leftwebsite {
-    margin-left: 5.0rem;
+    margin-left: 9.0rem;
     margin-top: 1rem;
 }
 
 .leftfirst {
-    margin-left: 11rem;
+    margin-left: 15rem;
     margin-top: 1rem;
 }
 
@@ -120,7 +122,7 @@
 }
 
 .leftlast {
-    margin-left: 4rem;
+    margin-left: 8rem;
     margin-top: 1rem;
 }
 
@@ -131,7 +133,7 @@
 }
 
 .leftnick {
-    margin-left: 9.5rem;
+    margin-left: 13.5rem;
     margin-top: 1rem;
 }
 
@@ -142,7 +144,7 @@
 }
 
 .leftemail {
-    margin-left: 7.2rem;
+    margin-left: 11.2rem;
 
 }
 
@@ -153,7 +155,7 @@
 }
 
 .leftnumber2 {
-    margin-left: 6.6rem;
+    margin-left: 10.6rem;
     margin-top: 1rem;
 }
 
@@ -163,13 +165,18 @@
     margin-top: -1.8rem;
 }
 
+.channel {
+    margin-left: 2rem;
+    margin-top: 1rem;
+}
+
 .leftidline {
     margin-left: 9.0rem;
     margin-top: 1rem;
 }
 
 .leftfile {
-    margin-left: 6.6rem;
+    margin-left: 10.6rem;
     margin-top: 1rem;
 }
 
@@ -180,30 +187,24 @@
 }
 
 .leftpng {
-    margin-left: 7.3rem;
+    margin-left: 10rem;
     margin-top: 1rem;
+    color: black;
 }
-
-/*.tb {
-    width: 280px;
-    height: 60px;
-    border: 2px solid brown;
-    margin-left: 2rem;
-    margin-top: 2rem;
-}*/
 
 .ttb {
     margin-top: 2rem;
-    margin-left: 3rem;
+    margin-left: 4rem;
+    color: black;
 }
 
 .ma {
-    margin-left: 52rem;
+    margin-left: 52.5rem;
 }
 
 .mai {
     margin-top: 1rem;
-    margin-left: 14.1rem;
+    margin-left: 19rem;
 }
 
 .btn-g {
@@ -223,7 +224,6 @@
     background-color: #7C904E;
     color: white;
     border: 0ch;
-    margin-bottom: 1rem;
 }
 
 .reset {
@@ -250,23 +250,18 @@ table {
     width: 50%;
 }
 
-th {
-    height: 50px;
-    width: 20%;
-}
-
 .leftfile2 {
-    margin-left: 8.8rem;
+    margin-left: 12.8rem;
     margin-top: 1rem;
 }
 
 .leftfile3 {
-    margin-left: 4rem;
+    margin-left: 8rem;
     margin-top: 1rem;
 }
 
 .leftnote {
-    margin-left: 8rem;
+    margin-left: 12rem;
     margin-top: 1rem;
 }
 

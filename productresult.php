@@ -75,7 +75,7 @@ $rows = $category->fetchAll();
                     <th width="9%">ราคา</th>
                     <th width="14%">รูปภาพ</th>
                     <th width="7%">การขาย</th>
-                    <th width="7%"></th>
+                    <th width="7%"><img src="./src/images/edit.png" width="25"></th>
                 </tr>
                 <tbody id="productResultTable"></tbody>
             </table>

@@ -129,7 +129,7 @@ $c = $costprice->fetchById($_GET['id']);
 
                             <div class="row a">
                                 <div class="col-6">
-                                    <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
+                                    <h6><span style="color: red; ">&nbsp*</span>ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h6>
                                 </div>
                             </div>
 

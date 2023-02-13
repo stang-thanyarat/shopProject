@@ -97,14 +97,14 @@ for ($i = 0; $i < count($banks); $i++) {
                 <div class="row">
                     <div class="col leftaddress">
                         ที่อยู่ :<font color="red">&nbsp*</font>
-                        <textarea name="sell_address" id="sell_address" cols="40" rows="5" class="cc" style="vertical-align:top;" required><?= $e['sell_address']; ?></textarea>
+                        <textarea name="sell_address" id="sell_address" cols="22" rows="4" class="cc" style="vertical-align:top;" required><?= $e['sell_address']; ?></textarea>
                     </div>
                     <div class="col leftwebsite">
                         <label for="sell_website">เว็บไซต์ :</label>
                         <input type="text" name="sell_website" id="sell_website" class="bb" value="<?= $e['sell_website']; ?>" />
                     </div>
                 </div>
-                <div class="row th">
+                <div class="row-3 ">
                     <h5 class="tt">ข้อมูลผู้ติดต่อ</h5>
                 </div>
                 <div class="row">
@@ -137,23 +137,22 @@ for ($i = 0; $i < count($banks); $i++) {
                         <input type="text" name="seller_telephone" id="seller_telephone" value="<?= $e['seller_telephone']; ?>" onkeyup="autoTab2(this)" class="bb" required />
                         <div class="j">*</div>
                     </div>
-                </div>
-                <div class="row col-10">
-                    <div class="col leftnumber2">
-                        <label for="seller_telephone">ช่องทางการติดต่ออื่นๆ :</label>
-                        <input type="text" name="seller_channel" id="seller_channel" class="bb" value="<?= $e['seller_channel']; ?>" />
+                    <div class="col channel">
+                        <label for="seller_channel">ช่องทางการติดต่ออื่นๆ :</label>
+                        <textarea name="seller_channel" id="seller_channel" cols="22" rows="2" class="cc" style="vertical-align:top;" ><?= $e['seller_channel']; ?></textarea>
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="col leftfile">
                         บัตรประชาชน : <input type="file" accept="image/*" name="seller_card_id" id="seller_card_id" class="bb">
                         <div class="k">*</div>
                     </div>
                 </div>
-                <div class="row-3 leftpng">
-                    <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB </h5>
+                <div class="row-3 ">
+                    <h6 class="leftpng"><span style="color: red; ">&nbsp*</span>ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB </h6>
                 </div>
-                <div class="row tb">
+                <div class="row-4">
                     <h5 class="ttb">บัญชีรับเงินของผู้ขาย</h5>
                 </div>
                 <div class="row-2 ma">
@@ -162,11 +161,11 @@ for ($i = 0; $i < count($banks); $i++) {
                 <table class="mai">
                     <thead>
                         <tr>
-                            <th>ลำดับ</th>
-                            <th>ธนาคาร</th>
-                            <th>เลขบัญชี</th>
-                            <th>ชื่อบัญชี</th>
-                            <th></th>
+                            <th width="5%">ลำดับ</th>
+                            <th width="5%">ธนาคาร</th>
+                            <th width="5%">เลขบัญชี</th>
+                            <th width="5%">ชื่อบัญชี</th>
+                            <th width="5%"><img src="./src/images/edit.png" width="25"></th>
                         </tr>
                     </thead>
                     <tbody id="banktable">
@@ -195,14 +194,14 @@ for ($i = 0; $i < count($banks); $i++) {
                         เอกสารอื่นๆ : <input type="file" accept="image/*" name="sell_documents" id="sell_documents" class="bb">
                     </div>
                 </div>
-                <div class="row leftpng">
-                    <h5>*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h5>
+                <div class="row-3">
+                    <h6 class="leftpng"><span style="color: red; ">&nbsp*</span>ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB </h6>
                 </div>
                 <br>
                 <div class="row">
                     <div class="col leftnote">
                         <label for="sell_note">หมายเหตุ :&nbsp;</label>
-                        <textarea name="sell_note" id="sell_note" cols="50" rows="5" style="vertical-align:top;" class="bb"><?= $e['sell_note']; ?></textarea>
+                        <textarea name="sell_note" id="sell_note" cols="40" rows="4" style="vertical-align:top;" class="bb"><?= $e['sell_note']; ?></textarea>
                     </div>
                 </div>
                 <div class="row btn-g">
@@ -327,5 +326,5 @@ for ($i = 0; $i < count($banks); $i++) {
 </script>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./src/js/editseller.js"></script>
-
+<script>window.onload = () =>document.querySelector('.btn-close > span').remove()</script>
 </html>

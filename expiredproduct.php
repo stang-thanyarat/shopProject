@@ -56,7 +56,7 @@ $c = $category->fetchAll();
                     <?php } ?>
                 </select>
             </div>
-            <div class="col-5 ww">
+            <div class="col-5">
                 <label for="expires within">หมดอายุภายใน :</label>
                 <label for="expires"></label>
                 <input type="date" name="date" id="date" name="expires"/>

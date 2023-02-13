@@ -44,7 +44,7 @@ function setUI(data) {
     let c = 0
     $('#notification_amtTable').html('')
     data.forEach((element, i) => {
-        if (element.product_rm_unit <= 5 && element.sales_status == 1) {
+        if (element.product_rm_unit <= element.notification_amt) {
             c++
             $('#notification_amtTable').append(`<tr id="rr${i}">
         <th><img src="${element.product_img}" width="350"></th>

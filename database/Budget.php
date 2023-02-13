@@ -95,7 +95,7 @@ class Budget
             if (is_null($lastdate)) {
                 $lastdate = date('Y-m-d');
             }
-            $sql = "SELECT * FROM sales_tb SA WHERE sales_list_id AND SA.payment_dt BETWEEN ? AND ? OR SA.payment_dt BETWEEN ? AND ?";
+            $sql = "SELECT * FROM sales_tb SA WHERE SA.sales_list_id AND SA.payment_dt BETWEEN ? AND ? OR SA.payment_dt BETWEEN ? AND ?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $firstdate, PDO::PARAM_STR);
             $stmt->bindParam(2, $lastdate, PDO::PARAM_STR);
@@ -103,31 +103,19 @@ class Budget
             $stmt->bindParam(4, $lastdate, PDO::PARAM_STR);
             $stmt->execute();
             $result = $stmt->fetchAll();
-            if (!$result) {
+            /*if (!$result) {
                 return [];
             } else {
                 return $result;
-            }
+            }*/
             $Allprice2 = 0;
             foreach ($result as $rowss) {
                 $Allprice2 += $rowss['all_price'];
             }
-            $credit = 0;
-            foreach ($result as $rowsss) {
-                if ($rowsss['payment_sl_order'] == 'เครดิต') {
-                    $credit += $rowsss['all_price_odr'];
-                }
-            }
-            $cash = 0;
-            foreach ($result as $rowsss) {
-                if ($rowsss['payment_sl_order'] == 'เงินสด') {
-                    $cash += $rowsss['all_price_odr'];
-                }
                 $object = new stdClass();
                 $object->BG2 = $Allprice2;
                 $object->result = $result;
                 return $object;
-            }
         } catch (Exception $e) {
             http_response_code(500);
             echo strval($e);
@@ -195,11 +183,11 @@ class Budget
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetchAll();
-            if (!$result) {
+            /*if (!$result) {
                 return [];
             } else {
                 return $result;
-            }
+            }*/
             $Allprice1 = 0;
             foreach ($result as $rows) {
                 $Allprice1 += $rows['price'];

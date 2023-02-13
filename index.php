@@ -16,6 +16,10 @@ function getFullRole($role)
     }
 }
 
+if (!isset($_SESSION['shop_name'])) {
+    $_SESSION['shop_name'] = "ร้าน ABC";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -29,15 +33,32 @@ function getFullRole($role)
     <link rel="stylesheet" href="./src/css/aa.css" />
     <title>Document</title>
 </head>
-<?php include_once('nav.php'); ?>
+<?php include_once('nav.php');
+include_once('./database/Budget.php');
+$budget = new Budget();
+$firstdate = date('d/m/Y');
+$lastdate = date('d/m/Y');
+$firstdate_text = date('Y-m-d');
+$lastdate_text = date('Y-m-d');
+if (isset($_GET['firstdate']) && (isset($_GET['lastdate']))) {
+    $firstdate = $_GET['firstdate'];
+    $lastdate = $_GET['lastdate'];
+    $firstdate_text = $_GET['firstdate'];
+    $lastdate_text = $_GET['lastdate'];
+}
+$b = (array)$budget->fetchBetweenSales($firstdate, $lastdate);
+$c = (array)$budget->fetchBetweenOrder($firstdate, $lastdate);
+$p = (array)$budget->fetchBetweenProduct();
+?>
 
 <body>
+<form method="get" action="index.php">
     <div class="row">
         <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
         <div class="col-11">
             <div class="row main">
                 <div class="col-6">
-                    <h1>ร้านวรเชษฐ์เกษตรภัณฑ์</h1>
+                    <h1><?=$_SESSION['shop_name']?></h1>
                 </div>
             </div>
             <div class="row mai">
@@ -70,10 +91,9 @@ function getFullRole($role)
                 <div class="col-6 scoreboard">
                     <div class="textboard">
                         <label class="result">ข้อมูลสรุป&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</label>
-                        <input type="date" name="Summary" id="Summary" required>
-                        &nbsp;-&nbsp;
-                        <input type="date" name="Summary" id="Summary" required>
-                        <button type="submit" class="search"><img src="./src/images/search.png" width="13"></button>
+                        <input type="date" value="<?= $firstdate_text ?>" id="firstdate" name="firstdate" required>&nbsp
+                        ถึง &nbsp<input type="date" value="<?= $lastdate_text ?>" id="lastdate" name="lastdate" required>
+                        <button type="submit" class="search" id="search" name="search"><img src="./src/images/search.png" width="13"></button>
                     </div>
                     <div class="board">
                         <label class="col-5">
@@ -82,16 +102,39 @@ function getFullRole($role)
                             <div class="topicdata">กำไรสุทธิ</div>
                         </label>
                         <label class="col-2">
-                            <div class="data">0.00</div>
-                            <div class="data">0.00</div>
-                            <div class="data">0.00</div>
+                            <div class="data"><?=$b['BG2']?></div>
+                            <div class="data"><?=$c['BG3']?></div>
+                            <div class="data"><?=$b['BG2']?></div>
                         </label>
                     </div>
                 </div>
+
             </div>
             <?php } ?>
         </div>
     </div>
+</form>
 </body>
+<script src="./node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+    function loadPDF() {
+        if ($('#firstdate').val() && $('#firstdate').val() != "" && $('#lastdate').val() && $('#lastdate').val() != "") {
+            var form = $('<form action="./service/PDF/template/budget.php" method="post">' +
+                '<input type="hidden" name="BG1" value="<?=$p['BG1']?>" />' +
+                '<input type="hidden" name="BG2" value="<?=$b['BG2']?>" />' +
+                '<input type="hidden" name="BG3" value="<?=$c['BG3']?>" />' +
+                '<input type="hidden" name="firstdate" value="<?=$firstdate?>" />' +
+                '<input type="hidden" name="lastdate" value="<?=$lastdate?>" />' +
+                '<input type="hidden" name="credit" value="<?=$c['credit']?>" />' +
+                '<input type="hidden" name="cash" value="<?=$c['cash']?>" />' +
+                '<input type="hidden" name="complete" value="<?=$c['complete']?>" />'+
+            '</form>'
+        )
+            ;
+            $('body').append(form);
+            $(form).submit();
+        }
+    }
+</script>
 
 </html>

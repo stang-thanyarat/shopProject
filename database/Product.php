@@ -63,7 +63,7 @@ class Product
     //แจ้งเตือนสินค้าใกล้หมด
     public function fetchLost()
     {
-        $sql = "SELECT * FROM product_tb WHERE product_rm_unit <= notification_amt AND sales_status = 1";
+        $sql = "SELECT * FROM product_tb WHERE product_rm_unit <= notification_amt";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

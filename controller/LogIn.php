@@ -29,8 +29,29 @@ if (isset($_POST)) {
                     }else{
                         $day_change = $_SESSION['day_change'];
                     }
+                    if (!isset($_SESSION['shop_name'])) {
+                        $name = "ร้าน ABC";
+                    }
+                    if (isset($_SESSION['shop_name'])) {
+                        $name = $_SESSION['shop_name'] ;
+                    }
+                    if (!isset($_SESSION['interest'])) {
+                        $interest  = 15;
+                    }
+                    if (!isset($_SESSION['interest_month'])) {
+                        $interest_month = 4;
+                    }
+                    if (isset($_SESSION['interest'])) {
+                        $interest  = $_SESSION['interest'];
+                    }
+                    if (isset($_SESSION['interest_month'])) {
+                        $interest_month = $_SESSION['interest_month'] ;
+                    }
                     $_SESSION['vat']  = $vat;
                     $_SESSION['day_change'] = $day_change;
+                    $_SESSION['shop_name'] =$name;
+                    $_SESSION['interest'] = $interest;
+                    $_SESSION['interest_month'] = $interest_month;
                     $_SESSION['role'] = $user['account_user_type'];
                     $_SESSION['username'] = $username['employee_firstname'] . " " . $username['employee_lastname'];
                     $_SESSION['employee_id'] = $user['employee_id'];

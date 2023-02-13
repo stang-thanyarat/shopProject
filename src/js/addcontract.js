@@ -106,7 +106,6 @@ $("#form1").submit(async function (event) {
             method: 'POST',
             body: formdata
         })
-        let lastID = await (await fetch('controller/GetLastIdContract.php')).text()
         let lastID1 = await (await fetch('controller/GetLastIdSales.php')).text()
         document.form1.sales_list_id = lastID1
         await fetch('controller/Contract.php', {
@@ -114,6 +113,7 @@ $("#form1").submit(async function (event) {
             body: new FormData(document.form1)
         })
         loopInsert()
+        let lastID = await (await fetch('controller/GetLastIdContract.php')).text()
         var formdata1 = new FormData();
         formdata1.append("contract_code", lastID);
         formdata1.append("outstanding", AllPrice);
@@ -122,7 +122,7 @@ $("#form1").submit(async function (event) {
         await fetch('controller/DebtPaymentDetails.php', {
             method: 'POST',
             body: formdata1
-        }),
+        })
             Swal.fire({
                 icon: 'success',
                 text: 'บันทึกข้อมูลเสร็จสิ้น',

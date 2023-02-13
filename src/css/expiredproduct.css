@@ -21,7 +21,7 @@
 
 .ma {
     margin-top: 1rem;
-    margin-left: 43rem;
+    margin-left: 35rem;
 }
 
 .mai {
@@ -75,12 +75,9 @@ option {
 }
 
 .w {
-    margin-left: 0rem;
+    margin-left: -2rem;
 }
 
-.ww {
-    margin-left: 0rem;
-}
 
 .bgs {
     border: 0ch;
