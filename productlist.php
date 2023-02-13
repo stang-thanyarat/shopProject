@@ -26,7 +26,7 @@ function getFullRole($role)
     <link rel="stylesheet" href="./node_modules/sweetalert2/dist/sweetalert2.min.css"></link>
     <link rel="stylesheet" href="./src/css/productlist.css" />
 
-    <title>productlist</title>
+    
 
 </head>
 <?php include_once('nav.php');

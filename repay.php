@@ -36,7 +36,7 @@ function getFullRole($role)
     <link rel="stylesheet" href="./src/css/repay.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <title>Document</title>
+    
 </head>
 <?php
 include_once('nav.php');
@@ -89,15 +89,15 @@ for ($i = 0; $i < count($$rows); $i++) {
                     <div class="col-xl-6">วันที่ครบกำหนด&nbsp;: <b><?= $rows['date_due'] ?></b></div>
                 </div>
                 <div class="row c">
-                    <div class="col-xl-6">เงินต้น&nbsp;: <b><?= $rows['deduct_principal'] ?></b></div>
+                    <div class="col-xl-6">เงินต้น&nbsp;: <b><?= $rowa[0]['outstanding'] ?></b></div>
                 </div>
                 <div class="row c">
-                    <div class="col-xl-6 ">คงค้าง&nbsp;: <b><?= $rows['outstanding'] ?></b></div>
-                    <div class="col-xl-6 ">ดอกเบี้ย&nbsp;: <b><?= $rows['less_interest'] ?>&nbsp;%</b></div>
+                    <div class="col-xl-6 ">คงค้าง&nbsp;: <b><?= end($rowa)['outstanding'] ?></b></div>
+                    <div class="col-xl-6 ">ดอกเบี้ย&nbsp;: <b><?=$_SESSION['interest']?>&nbsp;%</b></div>
                 </div>
                 <div class="row B">
                     <div class=" col-12 d-flex justify-content-end">
-                        <button type="button" class="btn1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm">เพิ่ม</button>
+                        <button type="button" onclick="payMode()" class="btn1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm">เพิ่ม</button>
                     </div>
                 </div>
                 <table class="main col-10">
@@ -134,7 +134,7 @@ for ($i = 0; $i < count($$rows); $i++) {
         </div>
     </form>
     <!---modal เพิ่มการชำระหนี้-->
-    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    <div id="payment_modal" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
         <form id="addrepay">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
@@ -179,5 +179,5 @@ for ($i = 0; $i < count($$rows); $i++) {
 </body>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./src/js/repay.js"></script>
-<script> getAllprice(<?=$outstanding?>);getDiff('<?= $rows['date_contract'] ?>');getInterest(<?=$_SESSION['interest']?>) </script>
+<script> getAllprice(<?=$outstanding?>);getDate('<?= $rows['date_contract'] ?>');getInterest(<?=$_SESSION['interest']?>);getDiff() </script>
 </html>

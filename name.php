@@ -24,14 +24,16 @@ function getFullRole($role)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/vat.css" />
-    <title>Document</title>
+    
 </head>
 <?php
 if (!isset($_SESSION)) {
     session_start();
-};
+}
 if (!isset($_SESSION['shop_name'])) {
-    $_SESSION['shop_name'] = "ร้าน ABC";
+    $name = "ร้าน ABC";
+}else{
+    $name =  $_SESSION['shop_name'];
 }
 if (isset($_POST['shop_name'])) {
     $_SESSION['shop_name'] = $_POST['shop_name'];
@@ -47,7 +49,7 @@ include_once('nav.php'); ?>
                 <h1>ตั้งค่าชื่อร้าน</h1>
                 <table class="main col-10">
                     <tr>
-                        <th>ชื่อร้าน &nbsp<input type="text" name="shop_name" id="shop_name" value="<?= $_SESSION['shop_name']; ?>" required></th>
+                        <th>ชื่อร้าน &nbsp<input type="text" name="shop_name" id="shop_name" value="<?= $name;?>" required></th>
                     </tr>
                 </table>
                 <div class="row btn-g">

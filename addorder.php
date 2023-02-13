@@ -25,7 +25,7 @@ function getFullRole($role)
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/addorder.css" />
 
-    <title>Document</title>
+    
 </head>
 
 <?php

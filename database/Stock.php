@@ -190,6 +190,9 @@ class Stock
            $stmt->bindParam(2, $date, PDO::PARAM_STR);
            $stmt->execute();
            $result = $stmt->fetchAll();
+           if (!$result) {
+               return [];
+           }
            $dup = [];
            $res = [];
            foreach ($result as $r) {
@@ -204,11 +207,7 @@ class Stock
                }
            }
            $result = $res;
-           if (!$result) {
-               return [];
-           } else {
-               return $result;
-           }
+           return $result;
        } catch (Exception $e) {
            http_response_code(500);
            return [];
@@ -223,6 +222,9 @@ class Stock
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetchAll();
+            if (!$result) {
+                return [];
+            }
             $dup = [];
             $res = [];
             foreach ($result as $r) {
@@ -233,24 +235,25 @@ class Stock
                 }
             }
             $result = $res;
-            if (!$result) {
-                return [];
-            } else {
-                return $result;
-            }
+            return  $result;
         } catch (Exception $e) {
             http_response_code(500);
             return [];
         }
     }
 
-    public function fetchByStockId($id)
+    public function fetchByProductId($id)
     {
         try{
-            $sql = "SELECT FROM stock_tb WHERE stock_id=?;";
+            $sql = "SELECT * FROM stock_tb WHERE product_id = ?";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(1, $id, PDO::PARAM_INT);
-            $stmt->execute();
+            $stmt->bindParam(1, $id, PDO::PARAM_STR);
+            $result = $stmt->fetchAll();
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];

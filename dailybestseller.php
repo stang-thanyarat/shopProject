@@ -25,7 +25,7 @@ function getFullRole($role)
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/dailybestseller.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <title>Document</title>
+    
 </head>
 <?php
 include_once('nav.php');
@@ -46,7 +46,7 @@ $c = $category->fetchAll();
                     <h1>สินค้าขายดีประจำวัน</h1>
                 </div>
             </div>
-            <div class="row mai">
+            <div class="row d-flex justify-content-end">
                 <div class="col-3">
                     <label for="category"></label>
                     <select name="category_id" id="category_id" style="background-color: #D4DDC6;" required>
@@ -55,8 +55,9 @@ $c = $category->fetchAll();
                             <option value="<?= $row['category_id'] ?>"><?= $row['category_name'] ?></option>
                         <?php } ?>
                     </select>
-                    <input type="date" value="<?= date('Y-m-d')?>" style="margin-left: 2rem;" name="date" id="date" /></div>
-                <div class="col-3" style="margin-left: 0rem;">
+                    <input type="date" value="<?= date('Y-m-d')?>" style="margin-left: 2rem;" name="date" id="date" />
+                </div>
+                <div class="col-3" style="margin-left: 1rem;">
                     <form>
                         <input type="text" class="btn-d" id="keyword" name="keyword" placeholder="&nbsp ชื่อสินค้า" />
                         <button type="submit" class="s">

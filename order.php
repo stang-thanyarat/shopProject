@@ -28,7 +28,7 @@ function getFullRole($role)
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/order.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <title>Document</title>
+    
 </head>
 <?php
 include_once('nav.php');
@@ -73,7 +73,7 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != "") {
                                     <?= $row['order_status'] == 1 ? "<a type='button' onclick='wait()'><font color=#A36627>รอของ</font></a>" : "สำเร็จ" ?>
                                 </th>
                                 <th>
-                                    <a type="button" class="bgs" href="./service/PDF/template/order_cash?id=<?= $row['order_id']; ?>"><img src="./src/images/print.png" width="25"></a>
+                                    <a type="button" class="bgs" href="./service/PDF/template/order_cash.php?id=<?= $row['order_id']; ?>"><img src="./src/images/print.png" width="25"></a>
                                 </th>
                                 <th>
                                     <?php if ($row['order_status'] == 1) { ?>

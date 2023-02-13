@@ -25,7 +25,7 @@ function getFullRole($role)
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/salesgraph.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <title>Document</title>
+    
     <style type="text/css">
         #ChartTable {
             width: 70%;
@@ -56,25 +56,24 @@ $rows = $category->fetchAll();
                 <div class="col-3">
                     ประเภทสินค้า &nbsp;:&nbsp;&nbsp;
                     <select name="category_id" id="category_id" class="sizeselect" style="background-color: #D4DDC6;" >
-                        <option value="-1">ทั้งหมด</option>
+                        <option value="all">ทั้งหมด</option>
                         <?php foreach ($rows as $row) { ?>
                             <option value="<?= $row['category_id'] ?>"><?= $row['category_name'] ?></option>
                         <?php } ?>
                     </select>
                 </div>
-                <div class="col-3">
+                <div class="col-3" style="margin-left: -2rem;">
                     วันที่ขาย &nbsp;:&nbsp;&nbsp;
-                    <input type="date" id="date" name="date" class="sizeselect" >
+                    <input type="date" id="date" name="date" value="<?= date('Y-m-d')?>" style="height: 102%; margin-top: auto;" class="sizeselect" >
                 </div>
-                <div class="col-1 search" style="margin-left: -2rem;">
+                <div class="col-1 search" style="margin-left: -3rem;">
                 <select name="limit" id="limit" class="sizeselect" style="background-color: #D4DDC6;" >
-                    <option value="1">1 อันดับแรก</option>
                     <option value="5">5 อันดับแรก</option>
                     <option value="10">10 อันดับแรก</option>
                 </select>
                 </div>
-                <div class="col-1 search" style="margin-left: 2rem;">
-                    <click type="submit" id="search" class="search"><img src="./src/images/search.png" width="20"></click>
+                <div class="col-1 search" style="margin-left: 3rem;">
+                    <click type="submit" id="search" class="search"><img src="./src/images/search.png" width="35"></click>
                 </div>
             </div>
             <p></p>

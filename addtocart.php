@@ -26,7 +26,7 @@ function getFullRole($role)
     <link rel="stylesheet" href="./src/css/addtocart.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <title>addtocart</title>
+    
 </head>
 <?php
 include_once('nav.php');
