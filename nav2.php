@@ -5,6 +5,9 @@ if (!isset($_SESSION)) {
 if (!isset($_SESSION['shop_name'])) {
     $_SESSION['shop_name'] = "ร้าน ABC";
 }
+if (isset($_POST['shop_name'])) {
+    $_SESSION['shop_name'] = $_POST['shop_name'];
+}
 ?>
 
 <!DOCTYPE html>

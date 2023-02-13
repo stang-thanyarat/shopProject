@@ -117,6 +117,14 @@ class Budget
             $stmt->bindParam(4, $lastdate, PDO::PARAM_STR);
             $stmt->execute();
             $result = $stmt->fetchAll();
+            $Allprice2 = 0;
+            foreach ($result as $rowss) {
+                $Allprice2 += $rowss['all_price'];
+            }
+            $object = new stdClass();
+            $object->BG2 = $Allprice2;
+            $object->result = $result;
+            return $object;
             /*if (!$result) {
                 return [];
             } else {
@@ -126,15 +134,7 @@ class Budget
                     return $result;
                 }
             }*/
-            return $result;
-            $Allprice2 = 0;
-            foreach ($result as $rowss) {
-                $Allprice2 += $rowss['all_price'];
-            }
-                $object = new stdClass();
-                $object->BG2 = $Allprice2;
-                $object->result = $result;
-                return $object;
+
         } catch (Exception $e) {
             http_response_code(500);
             echo strval($e);
@@ -202,6 +202,14 @@ class Budget
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetchAll();
+            $Allprice1 = 0;
+            foreach ($result as $rows) {
+                $Allprice1 += $rows['price'];
+            }
+            $object = new stdClass();
+            $object->BG1 = $Allprice1;
+            $object->result = $result;
+            return $object;
              /*if (!$result) {
                 return [];
             } else {
@@ -211,15 +219,7 @@ class Budget
                     return $result;
                 }
             }*/
-            return $result;
-            $Allprice1 = 0;
-            foreach ($result as $rows) {
-                $Allprice1 += $rows['price'];
-            }
-            $object = new stdClass();
-            $object->BG1 = $Allprice1;
-            $object->result = $result;
-            return $object;
+
         } catch (Exception $e) {
             http_response_code(500);
             echo strval($e);
