@@ -27,14 +27,13 @@ function getFullRole($role)
     <title>Document</title>
 </head>
 <?php
-
 include_once('nav.php');
 include_once('database/Employee.php');
 if (!isset($_SESSION)) {
     session_start();
 }
 if (!isset($_SESSION['interest'])) {
-    $_SESSION['interest'] = 15;
+    $_SESSION['interest'] = 2;
 }
 if (!isset($_SESSION['interest_month'])) {
     $_SESSION['interest_month'] = 4;
@@ -91,8 +90,14 @@ $labers = $employee->fetchLabers();
                     <p></p>
                     <p></p>
                     <div class="col-12">
+                        ดอกเบี้ยต่อเดือน: &nbsp &nbsp
+                        <input type="text" value="<?= $_SESSION['interest']?>" name="interest" id="interest" required>
+                    </div>
+                    <p></p>
+                    <p></p>
+                    <div class="col-12">
                         ดอกเบี้ยสูงสุดต่อปี: &nbsp &nbsp
-                        <input type="text" value="<?= $_SESSION['interest']?>" name="interest" id="interest" required> &nbsp &nbsp ตามกฎหมาย
+                        <input type="text" value="<?= ($_SESSION['interest']*(12-$_SESSION['interest_month'])-1)?>" name="interest_year" id="interest_year" readonly> &nbsp &nbsp ตามกฎหมาย
                     </div>
                     <div class="row btn-g">
                         <div class="col-2">
