@@ -12,6 +12,10 @@
 
 }
 
+.ma{
+    margin-left: 10rem;
+}
+
 .col-11 {
     margin-bottom: 2rem;
 }
@@ -46,7 +50,7 @@ margin-left: 1.2rem;
 }
 
 .btn-g {
-    margin-left: 4rem;
+    margin-left: 0rem;
     width: 100%;
     justify-content: end;
     display: flex;
@@ -72,6 +76,10 @@ margin-left: 1.2rem;
     margin-left: 4rem;
 }
 
+.inbox3{
+    width: 20%;
+}
+
 
 .col-6 {
     text-align: center;
@@ -88,8 +96,8 @@ margin-left: 1.2rem;
 }
 
 .A {
-    margin-top: 3rem;
-    margin-right: 5.5rem;
+    margin-top: 1rem;
+    margin-left: -30rem;
 }
 
 .Nbar {
@@ -121,16 +129,8 @@ margin-left: 1.2rem;
     margin-top: 2rem;
 }
 
-.inbox3{
-    width: 20%;
-}
-
-.r{
-    margin-left: -3rem;
-}
-
 .btn2 {
-    margin-right: 6rem;
+    
     background-color: #7C904E;
     color: #fff;
     border: 0in;
@@ -139,6 +139,13 @@ margin-left: 1.2rem;
     width: 150px;
 }
 
+.cc{
+    margin-left: 4rem;
+}
+
+.ccc{
+    margin-left: -2.5rem;
+}
 
 .btn1 {
     background-color: #fff;
@@ -161,28 +168,37 @@ margin-left: 1.2rem;
 }
 
 .datebill {
-    margin-left: 16rem;
-    margin-bottom: 2rem;
+    margin-left: 15rem;
+    margin-bottom: 1rem;
 }
 
 .company {
     margin-left: 16rem;
+}
+
+.rein{
+    margin-left: 16.5rem;
+}
+
+.leftpng{
+    margin-top: 1rem;
+    margin-left: 16.5rem;
     margin-bottom: 2rem;
 }
 
 .payment_sl {
-    margin-left: 13.2rem;
+    margin-left: 13.5rem;
 }
 
 .payment {
-    margin-left: 2rem;
-    margin-bottom: 2rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
 }
 
 .note {
     margin-top: 1rem;
     margin-left: 15.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .h {
@@ -196,14 +212,25 @@ margin-left: 1.2rem;
 }
 
 .q {
-    margin-left: -4.5rem;
+    margin-left: -4.9rem;
     margin-top: 1rem;
 }
 
 .s {
-    margin-left: -1.8rem;
+    margin-left: -2rem;
     margin-top: 1rem;
 }
+
+.ss {
+    margin-left: -0.3rem;
+    margin-top: 1rem;
+}
+
+.u {
+    width: 100px;
+}
+
+
 
 .listother{
     margin-left: 2rem;
@@ -211,10 +238,6 @@ margin-left: 1.2rem;
 
 .priceother{
     margin-left: 3rem;
-}
-
-.u {
-    width: 100px;
 }
 
 
@@ -225,11 +248,6 @@ margin-left: 1.2rem;
 .status {
     margin-top: 1.5rem;
     margin-left: 10rem;
-}
-
-.printt {
-    margin-top: 1.4rem;
-    margin-left: 65rem;
 }
 
 .pay {
@@ -243,15 +261,6 @@ margin-left: 1.2rem;
 
 .inbox {
     width: 16%;
-}
-
-.inbox2 {
-    width: 31%;
-}
-
-
-.bb {
-    margin-left: 0.5rem
 }
 
 .switch {

@@ -85,7 +85,11 @@ th {
 
 .modal-header {
     background-color: #7C904E;
-    height: 50px;
+    height: 60px;
+}
+
+.l{
+    margin-bottom: -1rem;
 }
 
 .modal-title {

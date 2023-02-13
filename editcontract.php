@@ -48,19 +48,19 @@ $laber = $employee->fetchLabers();
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
                 <div class="row main">
-                    <h1>สัญญาซื้อขาย</h1>
+                    <h1>แก้ไขสัญญาซื้อขาย</h1>
                 </div>
                 <div class="row">
                     <div class="col no">
                         ฉบับที่ :
-                        <b class="bb"><?= $c['contract_code']; ?></b>
+                        <b class="bbb"><?= $c['contract_code']; ?></b>
                     </div>
                     <div class="col datec">
                         วันที่ทำสัญญา :
-                        <b class="bb"><?= dateTimeDisplay($c['date_contract']) ?></b>
+                        <b class="bbb"><?= dateTimeDisplay($c['date_contract']) ?></b>
                     </div>
                 </div>
-                <div class="row-3 xx">ข้าพเจ้า <select name="employee_id" id="employee_id" class="bb selectsis" style="background-color: #D4DDC6;" required>
+                <div class="row-3 xx">ข้าพเจ้า <select name="employee_id" id="employee_id" class="bbb" style="background-color: #D4DDC6;" required>
                         <option value="all" selected hidden>เลือกเจ้าของร้าน</option>
                         <?php $count = 1;
                         foreach ($laber as $s) {
@@ -68,7 +68,7 @@ $laber = $employee->fetchLabers();
                             <option value="<?= $s['employee_id']; ?>" <?= $s['employee_id'] == $s['employee_id'] ? "selected" : '' ?>><?= $s['employee_prefix'] ?><?= $s['employee_firstname'] ?>
                                 &nbsp&nbsp<?= $s['employee_lastname'] ?></option>
                         <?php } ?>
-                    </select> ซึ่งต่อไปในหนังสือสัญญานี้เรียกว่าผู้ขายฝ่ายหนึ่งกับ
+                    </select> &nbsp;ซึ่งต่อไปในหนังสือสัญญานี้เรียกว่าผู้ขายฝ่ายหนึ่งกับ
                 </div>
                 <div class="row">
                     <div class="col customerp">ข้าพเจ้า :
@@ -94,20 +94,19 @@ $laber = $employee->fetchLabers();
                     </div>
                 </div>
 
-                <div class="row xx">ซึ่งต่อไปในหนังสือสัญญานี้เรียกว่าผู้ซื้อฝ่ายหนึ่ง
-                    ทั้งสองฝ่ายตกลงทำสัญญาซื้อขายทรัพย์สินมีดังข้อความต่อไปนี้
+                <div class="row xxx">ซึ่งต่อไปในหนังสือสัญญานี้เรียกว่าผู้ซื้อฝ่ายหนึ่งทั้งสองฝ่ายตกลงทำสัญญาซื้อขายทรัพย์สินมีดังข้อความต่อไปนี้
                 </div>
                 <div class="col ct">
                     ข้อ 1 ผู้ขายได้ขาย : <span style="color: red; ">&nbsp*&nbsp&nbsp&nbsp&nbsp</span>
                         <textarea id="product_detail" name="product_detail" cols="50" rows="5" style="vertical-align:top;"><?= $c['product_detail']; ?></textarea>
                 </div>
-                <div class="row-1 xx">ให้แก่ผู้ซื้อเป็นจำนวนเงิน <b class="baht"><?= $c['baht']; ?></b> บาท <b class="stang"><?= $c['baht']; ?></b> สตางค์ (<b class="stangt"><?= $c['stangt']; ?></b>)
+                <div class="row-1 xxx">ให้แก่ผู้ซื้อเป็นจำนวนเงิน <b class="baht"><?= $c['baht']; ?></b> บาท <b class="stang"><?= $c['baht']; ?></b> สตางค์ (&nbsp;<b class="stangt"><?= $c['stangt']; ?></b>&nbsp;)
                 </div>
-                <div class="col-12 xx">และยอมส่งมอบทรัพย์สินที่ขายให้แก่ผู้ซื้อวันที่&nbsp;<b><?= dateTimeDisplay($c['date_send']) ?></b>
+                <div class="col-11 xxx">และยอมส่งมอบทรัพย์สินที่ขายให้แก่ผู้ซื้อวันที่&nbsp;<b><?= dateTimeDisplay($c['date_send']) ?></b>
                     และผู้ขายได้รับราคาดังกล่าวแล้วไปจากผู้ซื้อเสร็จแล้วตั้งแต่วันที่ <b><?= dateTimeDisplay($c['price_send'])?></b>
                 </div>
 
-                <div class="row xx">ข้อ 2 ผู้ขายยอมสัญญาว่า
+                <div class="row xxx">ข้อ 2 ผู้ขายยอมสัญญาว่า
                     ทรัพย์สินซ่งผู้ขายนำมาขายให้แก่ผู้ซื้อนี้เป็นทรัพย์สินของผู้ขายคนเดียว และไม่เคยนำไปขาย จำนำ
                     หรือทำสัญญาผูกพันธ์ใด ๆ แก่ผู้ใดเลย
                 </div>
@@ -115,16 +114,16 @@ $laber = $employee->fetchLabers();
                     ข้อ 3 : <span style="color: red; ">&nbsp*&nbsp&nbsp&nbsp&nbsp</span>
                         <textarea name="contract_details" id="contract_details" cols="50" rows="5" style="vertical-align:top;"><?= $c['contract_details']; ?></textarea>
                 </div>
-                <div class="row xx">ข้อ 4 ผู้ขายและผู้ซื้อได้ทราบข้อความในสัญญานี้ดีแล้ว
+                <div class="row xxx">ข้อ 4 ผู้ขายและผู้ซื้อได้ทราบข้อความในสัญญานี้ดีแล้ว
                     จึงได้ลงลายมือชื่อไว้ในสัญญานี้เป็นหลักฐาน
                 </div>
-                <div class="row xx">1. หากผู้ขายยังไม่ส่งมอบทรัพย์ให้ในเวลาทำสัญญา ควรจะเติมข้อความอีก 1
+                <div class="row xxx">1. หากผู้ขายยังไม่ส่งมอบทรัพย์ให้ในเวลาทำสัญญา ควรจะเติมข้อความอีก 1
                     ข้อว่าตราบใดที่ผู้ขายยังไม่ส่งมอบทรัพย์ให้ ยังไม่ถือว่าได้มีการซื้อขาย
                     มิฉะนั้นผู้ซื้ออาจเสียเปรียบผู้ขาย
                 </div>
-                <div class="row xx">2. สัญญาซื้อขายไม่ต้องปิดอากรแสตมป์ เว้นแต่จะถือว่าสัญญานี้เป็นใบรับเงินแล้ว
-                    ถ้าสัญญาซื้อขายนี้ตั้งแต่ 10 บาท ถึง 20 บาท ต้องติดอากรแสตมป์ 10 สตางค์ ถ้าสัญญาซื้ขายนี้เกิน 20 บาท ทุก
-                    20 บาท หรือเศษของ 20 บาท ต่อ 10 สตางค์ ถ้าสัญญาซื้อขายต่ำกว่า 10 บาท ไม่ต้องติดอากรแสตมป์
+                <div class="row xxx">2. สัญญาซื้อขายไม่ต้องปิดอากรแสตมป์ เว้นแต่จะถือว่าสัญญานี้เป็นใบรับเงินแล้ว
+                    ถ้าสัญญาซื้อขายนี้ตั้งแต่ 10 บาท ถึง 20 บาท ต้องติดอากรแสตมป์ 10 สตางค์ ถ้าสัญญาซื้ขายนี้
+                    เกิน 20 บาท ทุก 20 บาท หรือเศษของ 20 บาท ต่อ 10 สตางค์ ถ้าสัญญาซื้อขายต่ำกว่า 10 บาท ไม่ต้องติดอากรแสตมป์
                 </div>
                 <div class="row btn-g">
                     <div class="col-2 buttom">

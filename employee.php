@@ -70,7 +70,7 @@ if (isset($_GET['keyword'])) {
                         <th class="copy">สำเนาบัตรประชาชน</th>
                         <th class="copy">สำเนาทะเบียนบ้าน</th>
                         <th>สถานะการใช้งาน</th>
-                        <th></th>
+                        <th><img src="./src/images/edit.png" width="25"></th>
                     </tr>
                     <?php foreach ($rows as $e) { ?>
                         <tr>

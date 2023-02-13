@@ -46,9 +46,10 @@ $c = $category->fetchAll();
                     <h1>สินค้าขายดีประจำวัน</h1>
                 </div>
             </div>
-            <div class="row d-flex justify-content-end" >
-                <div class="col-3" style="margin-left: 0rem;">
-                    <select name="category_id" id="category_id" style="margin-left: -2rem;" style="background-color: #D4DDC6;" required>
+            <div class="row mai">
+                <div class="col-3">
+                    <label for="category"></label>
+                    <select name="category_id" id="category_id" style="background-color: #D4DDC6;" required>
                         <option value="all">สินค้าทั้งหมด</option>
                         <?php foreach ($c as $row) { ?>
                             <option value="<?= $row['category_id'] ?>"><?= $row['category_name'] ?></option>

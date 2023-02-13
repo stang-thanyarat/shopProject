@@ -40,7 +40,7 @@ $rows = $category->fetchAll();
             <div class="col-11">
                 <div class="row main">
                     <h1>ค้นหาข้อมูลการซื้อสินค้า </h1>
-                    <div class="col-12">
+                    <div style="text-align: center;">
                         เลขที่ใบเสร็จ :&nbsp &nbsp
                         <input type="text" class="btnd" id="keyword" name="keyword" placeholder="&nbsp ค้นหาเลขที่ใบเสร็จ" >
                         <click type="button" id="search" name="search" class="s"><img src="./src/images/search.png" width="13"></click>

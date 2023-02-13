@@ -51,12 +51,6 @@ $product = $product->fetchAll();
                     <div class="col-4 topic">
                         <h1>ใบสั่งซื้อ</h1>
                     </div>
-                    <div class="col-1 print font">
-                        <button type="button" onclick="print()"><img src="./src/images/print.png" width="25" />&nbsp&nbsp
-                            print
-                        </button>
-                    </div>
-                    <p></p>
                     <div class="pay">
                         <div class="row">
                             <div class="col datebill">
@@ -64,15 +58,15 @@ $product = $product->fetchAll();
                                 <input type="date" name="datebill" id="datebill" value="<?= date('Y-m-d') ?>" required />
                             </div>
                             <div class="col">
-                                &nbsp;&nbsp;วันที่รับของ : &nbsp;
-                                <input type="date" name="datereceive" id="datereceive" value="<?= date('Y-m-d') ?>" required />
+                                &nbsp;&nbsp;วันที่รับของ : <span style="color: red; ">&nbsp*</span>
+                                <input type="date" class="bb" name="datereceive" id="datereceive" value="<?= date('Y-m-d') ?>" required />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col company">
-                                ชื่อผู้ขาย : &nbsp;
-                                <select name="sell_id" id="sell_id" class="inbox" style="background-color: #D4DDC6;" required>
-                                    <option value="all" selected hidden>เลือกผู้ขาย</option>
+                                ชื่อผู้ขาย : <span style="color: red; ">&nbsp*</span>
+                                <select name="sell_id" id="sell_id" class="inbox bb" style="background-color: #D4DDC6;" width="10%" required>
+                                    <option value="all" selected hidden >เลือกผู้ขาย</option>
                                     <?php foreach ($sells as $s) { ?>
                                         <option value="<?= $s['sell_id'] ?>"><?= $s['sell_name'] ?></option>
                                     <?php } ?>
@@ -81,24 +75,25 @@ $product = $product->fetchAll();
                         </div>
                         <div class="row">
                             <div class="col j payment_sl">
-                                วิธีการชำระเงิน : &nbsp;
-                                <select name="payment_sl" id="payment_sl" style="background-color: #D4DDC6;">
+                                วิธีการชำระเงิน : <span style="color: red; ">&nbsp*</span>
+                                <select name="payment_sl" id="payment_sl" class="inbox2 bb" style="background-color: #D4DDC6;">
                                     <option value="all" selected hidden>เลือกวิธีการชำระ</option>
                                     <option value="เงินสด">เงินสด</option>
                                     <option value="เครดิต">เครดิต</option>
                                 </select>
                             </div>
                             <div class="col payment">
-                                วันที่ชำระเงิน : &nbsp;
-                                <input type="date" name="payment_dt" id="payment_dt" value="<?= date('Y-m-d') ?>">
+                                วันที่ชำระเงิน : <span style="color: red; ">&nbsp*
+                                <input type="date" name="payment_dt" id="payment_dt" class="bb" value="<?= date('Y-m-d') ?>">
                             </div>
                         </div>
                         <div id="creditupload">
                             <div class="col h">
-                                สลิปธนาคาร : &nbsp; <input accept="image/*" type="file" id="bank_slip" name="bank_slip">
+                                สลิปธนาคาร : <span style="color: red; ">&nbsp*</span>
+                                <input accept="image/*" type="file" id="bank_slip" name="bank_slip" class="bb">
                             </div>
-                            <div class="col hh">
-                                *ประเภทไฟล์ที่ยอมรับ : .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB
+                            <div class="col">
+                            <h6 class="hh"><span style="color: red; ">&nbsp*</span>ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB </h6>
                             </div>
                         </div>
                         <div class="col note">
@@ -177,7 +172,7 @@ $product = $product->fetchAll();
                     <div class="modal-body">
                         <div class="col-12 r">
                             <div> ชื่อสินค้า &nbsp;&nbsp;:&nbsp;&nbsp;
-                                <select class="" id="product_id" name="product_id" style="background-color: #D4DDC6;" required>
+                                <select id="product_id" name="product_id" style="background-color: #D4DDC6;" class="inbox3" required>
                                     <option value="all" selected hidden>เลือกสินค้า</option>
                                     <?php foreach ($product as $p) { ?>
                                         <option value="<?= $p['product_id'] ?>"><?= $p['product_name'] ?>
@@ -250,12 +245,12 @@ $product = $product->fetchAll();
                         </button>
                     </div>
                     <div class="modal-body">
-                        <center>รายการ: &nbsp;<input type="text" name="listother" id="listother" required /><br>
+                        <div class="listother">รายการ: &nbsp;<input type="text" name="listother" id="listother" required /><br>
                             <p></p>
-                        </center>
-                        <center>ราคา: &nbsp;<input type="text" name="priceother" id="priceother" required />
+                        </div>
+                        <div class="priceother">ราคา: &nbsp;<input type="text" name="priceother" id="priceother" required />
                             <p></p>
-                        </center>
+                        </div>
 
                         <div class="modal-footer">
                             <button type="submit" id="addtable2" class="btn btn-primary1">ตกลง</button>

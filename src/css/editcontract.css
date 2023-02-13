@@ -116,8 +116,12 @@
     margin-left: 2rem;
 }
 
+.bbb {
+    margin-left: 0.5rem;
+}
+
 .no {
-    margin-left: 6.6rem;
+    margin-left: 10.6rem;
     margin-top: 2rem;
 }
 
@@ -128,24 +132,17 @@
 }
 
 .datec {
-    margin-top: 1rem;
-    margin-left: 2rem;
+    margin-top: 2rem;
+    margin-left: 10rem;
 }
 
-.b {
-    color: red;
-    margin-left: 6.6rem;
-    margin-top: -1.8rem;
-}
+
 
 .owner {
     margin-top: 1rem;
     margin-left: 2.7rem;
 }
 
-.selectsis{
-    margin-left: 1.05rem;
-}
 
 .c {
     color: red;
@@ -170,11 +167,16 @@
 
 .xx {
     margin-top: 1rem;
-    margin-left: 7.3rem;
+    margin-left: 10rem;
+}
+
+.xxx{
+    margin-top: 1rem;
+    margin-left: 6rem;
 }
 
 .customerp {
-    margin-left: 5.8rem;
+    margin-left: 10rem;
     margin-top: 1rem;
 }
 
@@ -185,7 +187,7 @@
 }
 
 .namec{
-    margin-left: 11.7em;
+    margin-left: 20em;
     margin-top: 1rem;
 }
 
@@ -196,7 +198,7 @@
 }
 
 .lastc{
-    margin-left: 5.5rem;
+    margin-left: 9.6rem;
     margin-top: 1rem;
 }
 
@@ -207,7 +209,7 @@
 }
 
 .idcard{
-    margin-left: -0.3rem;
+    margin-left: 8rem;
     margin-top: 1rem;
 }
 
@@ -220,19 +222,19 @@
 
 .ct{
     margin-top: 1rem;
-    margin-left: 1.9rem;
+    margin-left: 6rem;
 }
 
 .ctc{
     margin-top: 1rem;
-    margin-left: 6.6rem;
+    margin-left: 11rem;
 }
 
 .btn-g {
     width: 100%;
     justify-content: end;
     display: flex;
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
 
 .btn-c {

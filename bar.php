@@ -29,6 +29,7 @@
         <hr /><?php } ?>
     <?php if (getRole() == 'L') { ?> <a class="nav-link bar-link" href="contractsetting.php">สัญญาซื้อขาย</a><?php } ?>
     <?php if (getRole() == 'A') { ?> <a class="nav-link bar-link" href="manageuseraccounts.php">การจัดการ</a><?php } ?>
+    <?php if (getRole() == 'A') { ?> <a class="nav-link bar-link" href="name.php">ชื่อร้าน</a><?php } ?>
     <?php if (getRole() == 'A') { ?> <a class="nav-link bar-link" href="shop_detail.php">การจัดการข้อมูลร้าน</a><?php } ?>
     <?php if (getRole() == 'L') { ?> <a class="nav-link bar-link" href="changeproduct.php">การเปลียนสินค้า</a><?php } ?>
     <?php if (getRole() == 'L') { ?> <a class="nav-link bar-link" href="vat.php">ภาษีมูลค่าเพิ่ม</a><?php } ?>

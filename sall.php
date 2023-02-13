@@ -49,7 +49,7 @@ if (isset($_GET['keyword'])) {
                         <h1>ผู้ขาย</h1>
                     </div>
                 </div>
-                <div class="row col-11 d-flex justify-content-end">
+                <div class="row col-11 d-flex justify-content-end" style="margin-left: 3rem;">
                     <form action="sall.php" method="GET">
                     <div class="col-3 d-flex justify-content-end">
                         <input type="text" name="keyword" class="btn-d" placeholder="&nbsp ชื่อผู้ขาย"></input>
@@ -68,7 +68,7 @@ if (isset($_GET['keyword'])) {
                         <th width="20%">ชื่อผู้ขาย</th>
                         <th width="20%">เลขประจำตัวผู้เสียภาษี</th>
                         <th width="15%">นามบัตร</th>
-                        <th width="5%"></th>
+                        <th width="5%"><img src="./src/images/edit.png" width="25"></th>
                     </tr>
                     <tbody id="sellTable">
                         <?php foreach ($rows as $e) { ?>

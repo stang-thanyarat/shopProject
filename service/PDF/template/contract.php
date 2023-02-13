@@ -103,7 +103,7 @@ h2{
       <td colspan="2">ข้อ 1 ผู้ขายได้ขาย : ' . $data['product_detail'] . '</td>
   </tr>
   <tr>
-      <td colspan="2">ให้แก่ผู้ซื้อเป็นจำนวนเงิน ' . $data['baht'] . ' บาท ' . $data['stang'] . ' สตางค์ (' . $data['stangt'] . ')</td>
+      <td colspan="2">ให้แก่ผู้ซื้อเป็นจำนวนเงิน ' . $data['baht'] . ' บาท ' . $data['stang'] . ' สตางค์ (&nbsp;' . $data['stangt'] . '&nbsp;)</td>
   </tr>
   <tr>
       <td colspan="2" width="2300">และยอมส่งมอบทรัพย์สินที่ขายให้แก่ผู้ซื้อวันที่ ' . dateTimeDisplay($data['date_send']) . ' และผู้ขายได้รับราคาดังกล่าวแล้วไปจากผู้ซื้อเสร็จแล้วตั้งแต่วันที่ ' . dateTimeDisplay($data['price_send']) . ' </td>

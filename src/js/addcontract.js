@@ -123,13 +123,12 @@ $("#form1").submit(async function (event) {
             method: 'POST',
             body: formdata1
         })
-        Swal.fire({
-            icon: 'success',
-            text: 'บันทึกข้อมูลเสร็จสิ้น',
-        }).then(() => {
-            localStorage.clear()
-            window.location = './contracthistory.php'
-        })
-
+            Swal.fire({
+                icon: 'success',
+                text: 'บันทึกข้อมูลเสร็จสิ้น',
+            }).then(() => {
+                localStorage.clear()
+                window.location = './contracthistory.php'
+            })
     }
 });
