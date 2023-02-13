@@ -45,15 +45,20 @@ if (isset($_POST)) {
                     $product->updateimage('product_img2', $filesname, $_POST['product_id']);
                 }
             }
-            if (($_POST['sales_status'])) {
-                $_POST['sales_status'] = '1';
-            } else {
+            if (empty($_POST['sales_status'])) {
                 $_POST['sales_status'] = '0';
+            } else {
+                $_POST['sales_status'] = '1';
             }
             if (empty($_POST['set_n_amt'])) {
                 $_POST['set_n_amt'] = '0';
             } else {
                 $_POST['set_n_amt'] = '1';
+            }
+            if (empty($_POST['set_exchange'])) {
+                $_POST['set_exchange'] = '0';
+            } else {
+                $_POST['set_exchange'] = '1';
             }
             $product->update($_POST);
             redirection('/productresult.php');
@@ -112,7 +117,7 @@ if (isset($_POST)) {
             Redirection("/productresult.php");
         }
         else if($_POST['form_action'] == 'cut'){
-            $product->cutStock($_POST['product_id'],$_POST['q']);
+            $product->cutStock($_POST['q'],$_POST['product_id']);
         }
     }
 } else {

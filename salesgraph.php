@@ -68,6 +68,7 @@ $rows = $category->fetchAll();
                 </div>
                 <div class="col-1 search" style="margin-left: -2rem;">
                 <select name="limit" id="limit" class="sizeselect" style="background-color: #D4DDC6;" >
+                    <option value="1">1 อันดับแรก</option>
                     <option value="5">5 อันดับแรก</option>
                     <option value="10">10 อันดับแรก</option>
                 </select>

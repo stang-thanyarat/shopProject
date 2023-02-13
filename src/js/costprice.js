@@ -29,14 +29,14 @@ function setUI(data) {
     }
     const ctx = $("#graphCanvas");
     const myChart = new Chart(ctx, {
-        type: 'bar',
+        type: 'line',
         data: {
-            labels: name,
+            labels: marks,
             datasets:
                 [
                     {
                         label: 'ยอดขายสินค้า',
-                        data: marks,
+                        data: name,
                         backgroundColor: ['rgb(180, 120, 120)',],
                         borderColor: ['rgb(120, 120, 120)',],
 

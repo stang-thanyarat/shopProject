@@ -15,7 +15,7 @@ $("#category_id").change(async function () {
             url += `?keyword=${$("#keyword").val()}`
         }
         if($("#date").val() !== ''){
-            url += `&date=${$("#date").val()}`
+            url += `?date=${$("#date").val()}`
         }
         const product = await (await fetch(url)).json()
         setUI(product)
@@ -64,7 +64,7 @@ $("#date").change(async function(){
             url += `?keyword=${$("#keyword").val()}`
         }
         if($("#category_id").val() != 'all'){
-            url += `&date=${$("#category_id").val()}`
+            url += `?category_id=${$("#category_id").val()}`
         }
         const product = await (await fetch(url)).json()
         setUI(product)
@@ -107,7 +107,7 @@ function setUI(data) {
         c++
         $('#dailybestsellerTable').append(`<tr id="rr${i + 1}">
         <th class="index-table-bank">${i + 1}</th>
-        <th><img src="${element.product_img}" width="400"></th>
+        <th><img src="${element.product_img}" width="250"></th>
         <th>${element.product_name}</th>
         <th>${element.price}</th>
         <th>${element.product_rm_unit}</th>

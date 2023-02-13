@@ -12,42 +12,72 @@ class DebtPaymentDetails
 
     public function fetchAll()
     {
-        $sql = "SELECT D.*,C.* FROM debt_payment_details_tb D, contract_tb C WHERE D.contract_code = C.contract_code";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->fetchAll();
-        return $result;
+       try{
+           $sql = "SELECT D.*,C.* FROM debt_payment_details_tb D, contract_tb C WHERE D.contract_code = C.contract_code";
+           $stmt = $this->conn->prepare($sql);
+           $stmt->execute();
+           $result = $stmt->fetchAll();
+           if (!$result) {
+               return [];
+           } else {
+               return $result;
+           }
+       }catch (Exception $e) {
+           http_response_code(500);
+           echo strval($e);
+       }
 
     }
 
     public function fetchById($id)
     {
-        $sql = "SELECT * FROM debt_payment_details_tb WHERE contract_code = ?";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $id, PDO::PARAM_INT);
-        $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
-
+        try{
+            $sql = "SELECT * FROM debt_payment_details_tb WHERE contract_code = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        }catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 
     public function fetchByPayId($id)
     {
-        $sql = "SELECT D.*,C.* FROM debt_payment_details_tb D, contract_tb C WHERE  D.unique_id = ?";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $id, PDO::PARAM_INT);
-        $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $result;
-
+        try{
+            $sql = "SELECT D.*,C.* FROM debt_payment_details_tb D, contract_tb C WHERE  D.unique_id = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        }catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 
     public function delete($id)
     {
-        $sql = "DELETE FROM debt_payment_details_tb WHERE unique_id=?;";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $id, PDO::PARAM_INT);
-        $stmt->execute();
+        try{
+            $sql = "DELETE FROM debt_payment_details_tb WHERE unique_id=?;";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->execute();
+        }catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 
     public function insert($data)

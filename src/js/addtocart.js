@@ -62,9 +62,7 @@ $('#mySubmit').click(async()=>{
             submitElement.setAttribute("data-bs-target", ".search-costumer-form");
         }
     }
-
 })
-
  */
 
 //ส่วนชำระเงินสด
@@ -192,7 +190,7 @@ $("#form1").submit(async function (event)
             icon: 'success',
             text: 'บันทึกข้อมูลเสร็จสิ้น',
         }).then(async () => {
-            localStorage.clear()            
+            localStorage.clear()
             window.location = 'productlist.php'
         })
     }
@@ -276,6 +274,6 @@ function setU(keyword) {
         <th>${element.slip_img}</th>
     </tr>`
     })
-        table+='</tbody></table>`'
+    table+='</tbody></table>`'
     $('#salestocontracttable').html(table)
 }

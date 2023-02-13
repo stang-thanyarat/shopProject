@@ -3,6 +3,7 @@ require_once '../../../database/DailyBestSeller.php';
 require_once '../../bahtText.php';
 require_once '../vendor/autoload.php';
 require_once '../../../controller/Redirection.php';
+include_once '../../datetimeDisplay.php';
 if (!isset($_GET['id'])) {
   echo "Not found.";
   exit;
@@ -51,9 +52,9 @@ foreach ($data as $row) {
   $r .= '<tr>
   <td width="140" class="setcenter">' . $c . '</td>
   <td width="426">&nbsp; ' . $row['product_name'] . '</td>
-  <td width="162" class="setcenter">' . $row['sales_amt'] . '</td>
-  <td width="304" class="setright"> ' . $row['price'] . ' &nbsp;</td>
-  <td width="238" class="setright"> ' . $row['price'] * $row['sales_amt'] . ' &nbsp;</td>
+  <td width="162" class="setcenter">' . number_format($row['sales_amt'] ). '</td>
+  <td width="304" class="setright"> ' . number_format($row['price'] ). ' &nbsp;</td>
+  <td width="238" class="setright"> ' . number_format($row['price'] * $row['sales_amt'] ). ' &nbsp;</td>
 </tr>';
   $c++;
   $p += $row['price'] * $row['sales_amt'];
@@ -108,8 +109,8 @@ h2{
  <table width="1138" border="0">
       <tr>
         <td>ฉบับที่ : ' . $_GET['id'] . '</td>
-        <td>&nbsp;&nbsp;วันที่ : ' . date('d/m') . (date('Y') + 543) . '</td>
-        <td>&nbsp;&nbsp;เวลา : ' . date('H:i') . '</td>
+        <td>&nbsp;&nbsp;วันที่ : ' . toDay() . '</td>
+        <td>&nbsp;&nbsp;เวลา : ' . date('H:i:s') . '</td>
       </tr>
     </table>
     </td>

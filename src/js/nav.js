@@ -11,7 +11,7 @@ function logout() {
     }).then(async (result) => {
         if (result.isConfirmed) {
             await fetch('./controller/LogOut.php')
-            window.location = 'login.php'
+            window.location = 'index.php'
         }
     })
 }

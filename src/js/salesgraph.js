@@ -1,9 +1,20 @@
 $("#search").click(async function () {
-    if ($("#date").val() != "") {
+    if ($("#date").val() !== "") {
         let url = `./controller/SalesGraph.php?category_id=${$("#category_id").val()}&date=${$("#date").val()}&limit=${$("#limit").val()}`
         const product = await (await fetch(url)).json()
         setUI(product)
     }
+});
+
+async function start() {
+    let url = './controller/SalesGraph.php'
+    const product = await (await fetch(url)).json()
+    console.log(product);
+    setUI(product)
+}
+
+$(document).ready(function () {
+    start()
 });
 
 

@@ -22,7 +22,11 @@ class Sell
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];
@@ -38,7 +42,11 @@ class Sell
             $stmt->bindParam(1, $like, PDO::PARAM_STR);
             $stmt->execute();
             $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];
@@ -53,7 +61,11 @@ class Sell
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetch( PDO::FETCH_ASSOC);
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];
@@ -68,7 +80,11 @@ class Sell
             $stmt->bindParam(1, $email, PDO::PARAM_STR);
             $stmt->execute();
             $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];

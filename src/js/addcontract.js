@@ -130,6 +130,5 @@ $("#form1").submit(async function (event) {
                 localStorage.clear()
                 window.location = './contracthistory.php'
             })
-
     }
 });

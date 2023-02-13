@@ -47,6 +47,24 @@ if (isset($_POST)) {
                     if (isset($_SESSION['interest_month'])) {
                         $interest_month = $_SESSION['interest_month'] ;
                     }
+                    if (!isset($_SESSION['address'])) {
+                        $_SESSION['address'] = 'xxxxxxxxx';
+                    }
+                    if (isset($_SESSION['address'])) {
+                        $address = $_SESSION['address'];
+                    }
+                    if (!isset($_SESSION['vat_no'])) {
+                        $_SESSION['vat_no'] = "xxxxxxxxxxxxx";
+                    }
+                    if (isset($_SESSION['vat_no'])) {
+                        $vat_no = $_SESSION['vat_no'];
+                    }
+                    if (!isset($_SESSION['tel'])) {
+                        $tel = "xxxxxxxx";
+                    }
+                    if (isset($_SESSION['tel'])) {
+                        $tel = $_SESSION['tel'];
+                    }
                     $_SESSION['vat']  = $vat;
                     $_SESSION['day_change'] = $day_change;
                     $_SESSION['shop_name'] =$name;
@@ -55,6 +73,9 @@ if (isset($_POST)) {
                     $_SESSION['role'] = $user['account_user_type'];
                     $_SESSION['username'] = $username['employee_firstname'] . " " . $username['employee_lastname'];
                     $_SESSION['employee_id'] = $user['employee_id'];
+                    $_SESSION['tel'] =$tel ;
+                    $_SESSION['vat_no']=$vat_no ;
+                    $_SESSION['address']=$address  ;
                     redirection('/index.php');
                 } else {
                     $_SESSION['error'] = "รหัสผ่านไม่ถูกต้อง";

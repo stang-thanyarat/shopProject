@@ -1,5 +1,6 @@
 <?php
 include_once('service/auth.php');
+isLogin();
 if (!isset($_SESSION)) {
     session_start();
 }

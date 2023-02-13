@@ -17,7 +17,11 @@ class UserAccount
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];
@@ -31,7 +35,11 @@ class UserAccount
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];
@@ -45,7 +53,11 @@ class UserAccount
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];
@@ -74,7 +86,11 @@ class UserAccount
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];
@@ -89,7 +105,11 @@ class UserAccount
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];
@@ -136,7 +156,11 @@ class UserAccount
             $stmt->bindParam(1, $email, PDO::PARAM_STR);
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];
@@ -146,33 +170,43 @@ class UserAccount
 
     public function search($keyword, $type = null)  // sql ผิดอยู่
     {
-        $userData = $this->fetchAddEmployee();
-        $data = [];
-        foreach ($userData as $user) {
-            if (strpos($user['employee_firstname'], $keyword) !== false
-                || strpos($user['employee_lastname'], $keyword) !== false) {
-                if (is_null($type)) {
-                    $data[] = $user;
-                } else {
-                    if (strpos($user['account_user_type'], $type) !== false) {
-                        $data[] = $user;
-                    }
-                }
-            }
-        }
-        return $data;
+      try{
+          $userData = $this->fetchAddEmployee();
+          $data = [];
+          foreach ($userData as $user) {
+              if (strpos($user['employee_firstname'], $keyword) !== false
+                  || strpos($user['employee_lastname'], $keyword) !== false) {
+                  if (is_null($type)) {
+                      $data[] = $user;
+                  } else {
+                      if (strpos($user['account_user_type'], $type) !== false) {
+                          $data[] = $user;
+                      }
+                  }
+              }
+          }
+          return $data;
+      }catch (Exception $e) {
+          http_response_code(500);
+          return [];
+      }
     }
 
     public function findByType($type)
     {
-        $userData = $this->fetchAddEmployee();
-        $data = [];
-        foreach ($userData as $user) {
-            if ($user['account_user_type'] == $type) {
-                $data[] = $user;
+        try{
+            $userData = $this->fetchAddEmployee();
+            $data = [];
+            foreach ($userData as $user) {
+                if ($user['account_user_type'] == $type) {
+                    $data[] = $user;
+                }
             }
+            return $data;
+        }catch (Exception $e) {
+            http_response_code(500);
+            return [];
         }
-        return $data;
     }
 
     public function insert($data)

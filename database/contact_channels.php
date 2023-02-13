@@ -22,7 +22,11 @@ class contact_channels
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];
@@ -38,7 +42,11 @@ class contact_channels
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetch( PDO::FETCH_ASSOC);
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];
@@ -72,7 +80,6 @@ class contact_channels
 
     public function update($data)
     {
-
         try {
             $sql = "UPDATE contact_channels_tb
         SET sell_id = ?, name_contact = ?, note = ?, 

@@ -42,7 +42,7 @@ $c = $category->fetchAll();
         <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
         <div class="col-11">
             <div class="row main">
-                <div class="col-4">
+                <div class="col-6">
                     <h1>สินค้าขายดีประจำวัน</h1>
                 </div>
             </div>
@@ -55,11 +55,8 @@ $c = $category->fetchAll();
                             <option value="<?= $row['category_id'] ?>"><?= $row['category_name'] ?></option>
                         <?php } ?>
                     </select>
-                </div>
-                <div class="col-2 searchdate">
-                    <input type="date" value="<?= date('Y-m-d')?>" name="date" id="date" class="date"/>
-                </div>
-                <div class="col-4 search">
+                    <input type="date" value="<?= date('Y-m-d')?>" style="margin-left: 2rem;" name="date" id="date" /></div>
+                <div class="col-3" style="margin-left: 0rem;">
                     <form>
                         <input type="text" class="btn-d" id="keyword" name="keyword" placeholder="&nbsp ชื่อสินค้า" />
                         <button type="submit" class="s">
@@ -73,16 +70,18 @@ $c = $category->fetchAll();
             <table class="col-11" id="tb-let" style="display: none;">
                 <thead>
                     <tr>
-                        <th width="5%">ลำดับ</th>
-                        <th width="30%">รูปภาพ</th>
+                        <th width="10%">ลำดับ</th>
+                        <th width="28%">รูปภาพ</th>
                         <th width="20%">ชื่อสินค้า</th>
-                        <th width="12.5%">ราคา</th>
-                        <th width="12.5%">จำนวนคงเหลือ</th>
-                        <th width="10%">จำนวนการขาย</th>
+                        <th width="15%">ราคา</th>
+                        <th width="12%">คงเหลือ</th>
+                        <th width="15%">จำนวนที่ขาย</th>
                     </tr>
                 <tbody id="dailybestsellerTable"></tbody>
             </table>
         </div>
+        </div>
+    </div>
 </body>
 <script src="./src/js/dailybestseller.js"></script>
 

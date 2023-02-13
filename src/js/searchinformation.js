@@ -1,13 +1,9 @@
-$("#keyword").keyup(async function () {
-    let url = `./controller/SearchInformation.php`
-    if($("#keyword").val() !== ""){
-        url += `?keyword=${$("#keyword").val()}`
+$("#search").click(async function () {
+    if ($("#keyword").val() !== "") {
+        let url = `./controller/SearchInformation.php?keyword=${$("#keyword").val()}`
+        const product = await (await fetch(url)).json()
+        setUI(product)
     }
-    else if ($("#keyword").val() === "" ) {
-        url += `?keyword=${$("#keyword").val("")}`
-    }
-    const product = await (await fetch(url)).json()
-    setUI(product)
 });
 
 async function start() {
@@ -28,7 +24,7 @@ function setUI(data) {
         c++
         $('#searchTable').append(`<tr id="rr${i + 1}">
         <th class="index">${i + 1}</th>
-        <th><img src="${element.product_img}" width="400"></th>
+        <th><img src="${element.product_img}" style="width: 200px; padding: 10px"></th>
         <th><span id="p${element.product_id}">${element.product_name}</span></th>
         <th>${element.price}</th>
         <th>${element.sales_amt}</th>
@@ -36,6 +32,13 @@ function setUI(data) {
         <th><a class="bgs" href="./addproductexchange.php?id=${element.product_id}">${element.set_exchange == 1 ? 'เปลี่ยนสินค้า' : ''}</a></th>
     </tr>`)
     });
+    if (c <= 0) {
+        $('#no-let').show()
+        $("#tb-let").hide()
+    } else {
+        $("#tb-let").show()
+        $('#no-let').hide()
+    }
 }
 
 //ส่วนเผื่อใช้

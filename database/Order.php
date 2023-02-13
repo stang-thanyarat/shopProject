@@ -15,21 +15,30 @@ class Order
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetchAll();
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];
         }
     }
 
-    public function fetchAllOrder()
+    public function fetchAllOrder($id)
     {
         try {
-            $sql = "SELECT O.*,OD.* FROM order_tb O,order_details_tb OD WHERE O.order_id = OD.order_id";
+            $sql = "SELECT O.*,OD.*, S.sell_name,S.sell_id FROM order_tb O,order_details_tb OD,sell_tb S WHERE O.order_id = OD.order_id AND O.order_id AND O.sell_id = S.sell_id AND O.order_id = ?";
             $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetchAll();
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];
@@ -43,7 +52,11 @@ class Order
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetchAll();
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];
@@ -67,7 +80,11 @@ class Order
             }
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];
@@ -81,7 +98,11 @@ class Order
             $stmt->bindParam(1, $date, PDO::PARAM_STR);
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];
@@ -95,16 +116,26 @@ class Order
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            return $result;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
         } catch (Exception $e) {
             http_response_code(500);
             return [];
         }
     }
 
-    public function getLastId(){
-        $data = $this->fetchLast();
-        return $data['order_id'];
+    public function getLastId()
+    {
+        try{
+            $data = $this->fetchLast();
+            return $data['order_id'];
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
     }
 
     public function fetchLast() //Order
@@ -123,40 +154,55 @@ class Order
 
     public function delete($id)
     {
-        $sql = "DELETE FROM order_tb WHERE order_id=?;";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $id, PDO::PARAM_INT);
-        $stmt->execute();
+        try{
+            $sql = "DELETE FROM order_tb WHERE order_id=?;";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->execute();
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
     }
 
     public function insert($data)
     {
-        if (!isset($_SESSION)) {
-            session_start();
-        }
-        $sql = "SET FOREIGN_KEY_CHECKS=0";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
-        $sql = "INSERT INTO order_tb (datebill, datereceive, sell_id, payment_sl, payment_dt, note, bank_slip) 
+       try{
+           if (!isset($_SESSION)) {
+               session_start();
+           }
+           $sql = "SET FOREIGN_KEY_CHECKS=0";
+           $stmt = $this->conn->prepare($sql);
+           $stmt->execute();
+           $sql = "INSERT INTO order_tb (datebill, datereceive, sell_id, payment_sl, payment_dt, note, bank_slip) 
         VALUES (TIMESTAMP(?, CURRENT_TIME()),TIMESTAMP(?, CURRENT_TIME()),?,?,TIMESTAMP(?, CURRENT_TIME()),?,?)";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $data['datebill'], PDO::PARAM_STR);
-        $stmt->bindParam(2, $data['datereceive'], PDO::PARAM_STR);
-        $stmt->bindParam(3, $data['sell_id'], PDO::PARAM_INT);
-        $stmt->bindParam(4, $data['payment_sl'], PDO::PARAM_STR);
-        $stmt->bindParam(5, $data['payment_dt'], PDO::PARAM_STR);
-        $stmt->bindParam(6, $data['note'], PDO::PARAM_STR);
-        $stmt->bindParam(7, $data['bank_slip'], PDO::PARAM_STR);
-        $stmt->execute();
+           $stmt = $this->conn->prepare($sql);
+           $stmt->bindParam(1, $data['datebill'], PDO::PARAM_STR);
+           $stmt->bindParam(2, $data['datereceive'], PDO::PARAM_STR);
+           $stmt->bindParam(3, $data['sell_id'], PDO::PARAM_INT);
+           $stmt->bindParam(4, $data['payment_sl'], PDO::PARAM_STR);
+           $stmt->bindParam(5, $data['payment_dt'], PDO::PARAM_STR);
+           $stmt->bindParam(6, $data['note'], PDO::PARAM_STR);
+           $stmt->bindParam(7, $data['bank_slip'], PDO::PARAM_STR);
+           $stmt->execute();
+       } catch (Exception $e) {
+           http_response_code(500);
+           echo strval($e);
+       }
     }
 
     function updateStatus($status, $id)
     {
-        $sql = "UPDATE order_tb SET order_status = ? WHERE order_id=?";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $status, PDO::PARAM_INT);
-        $stmt->bindParam(2, $id, PDO::PARAM_INT);
-        $stmt->execute();
+        try{
+            $sql = "UPDATE order_tb SET order_status = ? WHERE order_id=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $status, PDO::PARAM_INT);
+            $stmt->bindParam(2, $id, PDO::PARAM_INT);
+            $stmt->execute();
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 
     public function updateimage($filename, $img, $order_id)

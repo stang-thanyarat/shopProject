@@ -16,38 +16,65 @@ class CostPrice
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll();
-        return $result;
+        if (!$result) {
+            return [];
+        } else {
+            return $result;
+        }
     }
 
     public function fetchByProductId($id)
     {
-        $sql = "SELECT CP.*,P.*,C.category_name FROM costprice_tb CP,product_tb P,category_tb C WHERE CP.category_id = C.category_id = P.product_id AND P.product_id = ? ORDER BY CP.costprice_dt DESC";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $id, PDO::PARAM_INT);
-        $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $result;
+        try{
+            $sql = "SELECT CP.*,P.*,C.category_name FROM costprice_tb CP,product_tb P,category_tb C WHERE CP.category_id = C.category_id = P.product_id AND P.product_id = ? ORDER BY CP.costprice_dt DESC";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        }catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
     public function fetchById($id)
     {
-        $sql = "SELECT * FROM costprice_tb WHERE product_id = ?";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $id, PDO::PARAM_INT);
-        $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
+       try{
+           $sql = "SELECT * FROM costprice_tb WHERE product_id = ?";
+           $stmt = $this->conn->prepare($sql);
+           $stmt->bindParam(1, $id, PDO::PARAM_INT);
+           $stmt->execute();
+           $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+           return $result;
+       }catch (Exception $e) {
+           http_response_code(500);
+           echo strval($e);
+       }
     }
 
     public function fetchBetween($id,$start,$end)
     {
-        $sql = "SELECT * FROM costprice_tb WHERE product_id = ? AND costprice_dt BETWEEN ? AND ? ORDER BY costprice_dt DESC";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $id, PDO::PARAM_INT);
-        $stmt->bindParam(2, $start, PDO::PARAM_STR);
-        $stmt->bindParam(3, $end, PDO::PARAM_STR);
-        $stmt->execute();
-        $result = $stmt->fetchAll();
-        return $result;
+        try{
+            $sql = "SELECT * FROM costprice_tb WHERE product_id = ? AND costprice_dt BETWEEN ? AND ? ORDER BY costprice_dt DESC";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->bindParam(2, $start, PDO::PARAM_STR);
+            $stmt->bindParam(3, $end, PDO::PARAM_STR);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        }catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 
     public function insert($data)
