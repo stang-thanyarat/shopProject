@@ -96,7 +96,7 @@ for ($i = 0; $i < count($banks); $i++) {
                 </div>
                 <div class="row">
                     <div class="col leftaddress">
-                        ที่อยู่ :<font color="red">&nbsp*</font>
+                        ที่อยู่ :<span style="color: red; ">&nbsp*</span>
                         <textarea name="sell_address" id="sell_address" cols="22" rows="4" class="cc" style="vertical-align:top;" required><?= $e['sell_address']; ?></textarea>
                     </div>
                     <div class="col leftwebsite">

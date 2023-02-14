@@ -29,7 +29,7 @@ function getFullRole($role)
 <?php
 if (!isset($_SESSION)) {
     session_start();
-};
+}
 if (!isset($_SESSION['shop_name'])) {
     $_SESSION['shop_name'] = "ร้าน ABC";
 }

@@ -66,7 +66,7 @@ $product = $product->fetchAll();
                             <div class="col company">
                                 ชื่อผู้ขาย : <span style="color: red; ">&nbsp*</span>
                                 <select name="sell_id" id="sell_id" class="inbox bb" style="background-color: #D4DDC6;" width="10%" required>
-                                    <option value="all" selected hidden >เลือกผู้ขาย</option>
+                                    <option value="all" selected hidden>เลือกผู้ขาย</option>
                                     <?php foreach ($sells as $s) { ?>
                                         <option value="<?= $s['sell_id'] ?>"><?= $s['sell_name'] ?></option>
                                     <?php } ?>
@@ -84,7 +84,7 @@ $product = $product->fetchAll();
                             </div>
                             <div class="col payment">
                                 วันที่ชำระเงิน : <span style="color: red; ">&nbsp*
-                                <input type="date" name="payment_dt" id="payment_dt" class="bb" value="<?= date('Y-m-d') ?>">
+                                    <input type="date" name="payment_dt" id="payment_dt" class="bb" value="<?= date('Y-m-d') ?>">
                             </div>
                         </div>
                         <div id="creditupload">
@@ -93,7 +93,7 @@ $product = $product->fetchAll();
                                 <input accept="image/*" type="file" id="bank_slip" name="bank_slip" class="bb">
                             </div>
                             <div class="col">
-                            <h6 class="hh"><span style="color: red; ">&nbsp*</span>ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB </h6>
+                                <h6 class="hh"><span style="color: red; ">&nbsp*</span>ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB </h6>
                             </div>
                         </div>
                         <div class="col note">
@@ -328,6 +328,8 @@ $product = $product->fetchAll();
 <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="./src/js/printThis.js"></script>
 <script src="./src/js/addorder3.js"></script>
-<script>window.onload = () =>document.querySelector('.btn-close > span').remove()</script>
+<script>
+    window.onload = () => document.querySelector('.btn-close > span').remove()
+</script>
 
 </html>

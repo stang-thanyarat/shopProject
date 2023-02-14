@@ -70,9 +70,10 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                         <thead>
                             <tr>
                                 <th width=20%>วันที่เปลี่ยนสินค้า</th>
-                                <th width=40%>ชื่อสินค้า</th>
+                                <th width=20%>เวลาเปลี่ยนสินค้า</th>
+                                <th width=30%>ชื่อสินค้า</th>
                                 <th width=10%>จำนวน</th>
-                                <th width=20%>สถานะการขาย</th>
+                                <th width=10%>สถานะการขาย</th>
                                 <th width=10%><img src="./src/images/edit.png" width="25"></th>
                             </tr>
                         </thead>
@@ -80,6 +81,7 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                             <?php foreach ($rows as $row) { ?>
                                 <tr>
                                     <th><?= dateTimeDisplay($row['exchange_date']) ?></th>
+                                    <th><?= ShowTime($row['exchange_date']) ?></th>
                                     <th id="text<?= $row['product_id'] ?>"><?= $row['product_name'] ?></th>
                                     <th><?= $row['exchange_amount'] ?></th>
                                     <th><?= $row['exchange_status'] == 1 ? "<a type='button' onclick='wait()'><font color=#A36627>รอของ</font></a>" : "สำเร็จ"; ?>

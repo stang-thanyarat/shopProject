@@ -29,7 +29,7 @@ if (!isset($_GET['id'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./src/css/editconfirm2.css" />
+    <link rel="stylesheet" href="./src/css/editconfirm.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <title>Document</title>
 </head>
@@ -96,13 +96,7 @@ for ($i = 0; $i < count($op); $i++) {
             <div class="col-11">
                 <div class="row main">
                     <div class="col-4 topic">
-                        <h1>ใบสั่งซื้อ</h1>
-                    </div>
-                </div>
-                <div class="col-9 d-flex justify-content-end signin status">
-                    <div class="col-6">
-                        <label class="font">สถานะใบสั่งซื้อ &nbsp;&nbsp;:</label>
-                        <input name="order_status" id="order_status" type="checkbox"> &nbsp;สำเสร็จแล้ว
+                        <h1>แก้ไขใบสั่งซื้อ</h1>
                     </div>
                 </div>
                 <div class="pay">
@@ -127,20 +121,19 @@ for ($i = 0; $i < count($op); $i++) {
                         </select>
                     </div>
                 </div>
+                <div class="row ">
+                    <div class="col j payment_sl">
+                        วิธีการชำระเงิน : &nbsp;
+                        <?= $o['payment_sl']; ?>
+                    </div>
+                    <div class="col payment">
+                        วันที่ชำระเงิน : &nbsp;
+                        <?= toDay($o['payment_dt']); ?>
+                    </div>
+                </div>
                 <div class="col note">
                     <label for="note">หมายเหตุ : &nbsp;</label>
                     <textarea name="note" id="note" cols="40" rows="4" style="vertical-align:top;" class="bb" value="<?= $o['note']; ?>"></textarea>
-                </div>
-                <div class="row">
-                    <div class="col rein">
-                        ใบเสร็จ : &nbsp;&nbsp;<input type="file" accept="image/*" name="receiptorinvoice" id="receiptorinvoice">
-                    </div>
-                    <div class="col">
-                        ใบส่งของ : &nbsp;&nbsp;<input type="file" accept="image/*" name="invoice" id="invoice">
-                    </div>
-                </div>
-                <div class="row-3">
-                    <h6 class="leftpng"><span style="color: red; ">&nbsp*</span>ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB </h6>
                 </div>
                 <br>
                 <div class="col-11 C">
@@ -152,7 +145,7 @@ for ($i = 0; $i < count($op); $i++) {
                     <table class="ma col-10">
                         <thead>
                             <tr>
-                                <th width="10%">ลำดับ</th>
+                                <th width="5%">ลำดับ</th>
                                 <th width="25%">รายการสินค้า</th>
                                 <th width="15%">ราคาต่อหน่วย (บาท)</th>
                                 <th width="15%">จำนวน</th>
@@ -417,6 +410,6 @@ for ($i = 0; $i < count($op); $i++) {
         }))
     });
 </script>
-<script src="./src/js/confirm2.js"></script>
+<script src="./src/js/confirm.js"></script>
 
 </html>

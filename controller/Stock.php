@@ -13,7 +13,7 @@ if (isset($_POST)) {
             $stock->delete($_POST['stock_id']);
         } else if ($_POST['form_action'] === 'insert') {
             $stock->insert($_POST);
-            redirection("../stock.php");
+            redirection("./stock.php");
         }
     }
 } else {

@@ -73,14 +73,14 @@ $c = $category->fetchAll();
             <table class="col-11" id="tb-let" style="display: none;">
                 <thead>
                 <tr>
-                    <th width="10">รูปภาพ</th>
-                    <th width="45">ชื่อสินค้า</th>
-                    <th width="5">วันที่ได้รับของ</th>
-                    <th width="5">วันที่หมดอายุ</th>
-                    <th width="10">ราคา</th>
-                    <th width="10">คงคลัง</th>
-                    <th width="10">จำนวน</th>
-                    <th width="5"></th>
+                    <th width="10%">รูปภาพ</th>
+                    <th width="45%">ชื่อสินค้า</th>
+                    <th width="5%">วันที่ได้รับของ</th>
+                    <th width="5%">วันที่หมดอายุ</th>
+                    <th width="10%">ราคา</th>
+                    <th width="10%">คงคลัง</th>
+                    <th width="10%">จำนวน</th>
+                    <th width="5%"><img src="./src/images/edit.png" width="25"></th>
                 </tr>
                 </thead>
                 <tbody id="expireTable"></tbody>

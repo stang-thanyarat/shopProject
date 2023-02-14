@@ -73,12 +73,12 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != "") {
                                     <?= $row['order_status'] == 1 ? "<a type='button' onclick='wait()'><font color=#A36627>รอของ</font></a>" : "สำเร็จ" ?>
                                 </th>
                                 <th>
-                                    <a type="button" class="bgs" href="./service/PDF/template/order_cash?id=<?= $row['order_id']; ?>"><img src="./src/images/print.png" width="25"></a>
+                                    <a type="button" class="bgs" href="./service/PDF/template/order_cash.php?id=<?= $row['order_id']; ?>"><img src="./src/images/print.png" width="25"></a>
                                 </th>
                                 <th>
                                     <?php if ($row['order_status'] == 1) { ?>
                                         <button type="button" class="bgs" name="btDelete_click()" onclick="del(<?= $row['order_id'] ?>)"><img src="./src/images/icon-delete.png" width="25"></button>
-                                        <a type="button" class="bgs" href="./editconfirm2.php?id=<?= $row['order_id']; ?>"><img src="./src/images/icon-pencil.png" width="25"></a>
+                                        <a type="button" class="bgs" href="./editconfirm.php?id=<?= $row['order_id']; ?>"><img src="./src/images/icon-pencil.png" width="25"></a>
                                     <?php } ?>
                                 </th>
                                 </th>
