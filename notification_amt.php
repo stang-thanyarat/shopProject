@@ -72,8 +72,8 @@ $product = $product->fetchAll();
         <table class="ma" id="tb-let" style="display: none;">
             <thead>
             <tr>
-                <th width="35%">รูปภาพ</th>
-                <th width="25%">ชื่อสินค้า</th>
+                <th width="30%">รูปภาพ</th>
+                <th width="30%">ชื่อสินค้า</th>
                 <th width="16%">ราคา</th>
                 <th width="10%">จำนวน</th>
                 <th width="14%">สถานะการขาย</th>

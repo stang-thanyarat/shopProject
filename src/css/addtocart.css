@@ -189,19 +189,18 @@ th {
 
 .bgs {
     background-color: #fff;
-    border: 0px solid gray;
+    border: 2px solid gray;
     color: black;
-    padding-top: 13px;
-    padding-bottom: 13px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     padding-left: 15px;
     padding-right: 15px;
-    overflow-wrap: break-word;
     text-align: center;
     min-height: 90px;
     min-width: 90px;
     width: max-content;
     margin: 10px 10px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 1px 1px 1px 1px rgba(0.19, 0.19, 0.19, 0.19);
     display: block;
 }
 
@@ -264,8 +263,7 @@ th {
     overflow-wrap: break-word;
     text-align: center;
     font-size: 18px;
-    margin: 10px 10px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     display: inline-block;
 }
 

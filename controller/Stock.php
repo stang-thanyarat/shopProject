@@ -1,9 +1,7 @@
 <?php
 include_once '../database/Stock.php';
-include_once '../database/Product.php';
 include_once 'Redirection.php';
 $stock = new Stock();
-$product = new Product();
 if (isset($_POST)) {
     if ($_POST['table'] === 'stock') {
         if ($_POST['form_action'] === 'update') {
@@ -14,6 +12,8 @@ if (isset($_POST)) {
         } else if ($_POST['form_action'] === 'insert') {
             $stock->insert($_POST);
             redirection("../stock.php");
+        }else if($_POST['form_action'] == 'cut'){
+            $stock->cut($_POST['q'],$_POST['stock_id']);
         }
     }
 } else {
