@@ -12,7 +12,7 @@
 
 }
 
-.ma{
+.ma {
     margin-left: 10rem;
 }
 
@@ -45,8 +45,8 @@ th {
 
 }
 
-.pr{
-margin-left: 1.2rem;
+.pr {
+    margin-left: 1.2rem;
 }
 
 .btn-g {
@@ -76,7 +76,7 @@ margin-left: 1.2rem;
     margin-left: 4rem;
 }
 
-.inbox3{
+.inbox3 {
     width: 20%;
 }
 
@@ -130,7 +130,7 @@ margin-left: 1.2rem;
 }
 
 .btn2 {
-    
+
     background-color: #7C904E;
     color: #fff;
     border: 0in;
@@ -139,11 +139,11 @@ margin-left: 1.2rem;
     width: 150px;
 }
 
-.cc{
+.cc {
     margin-left: 4rem;
 }
 
-.ccc{
+.ccc {
     margin-left: -2.5rem;
 }
 
@@ -176,11 +176,11 @@ margin-left: 1.2rem;
     margin-left: 16rem;
 }
 
-.rein{
+.rein {
     margin-left: 16.5rem;
 }
 
-.leftpng{
+.leftpng {
     margin-top: 1rem;
     margin-left: 16.5rem;
     margin-bottom: 2rem;
@@ -202,6 +202,7 @@ margin-left: 1.2rem;
 }
 
 .h {
+    margin-top: 1rem;
     margin-left: 14.5rem;
 }
 
@@ -209,6 +210,10 @@ margin-left: 1.2rem;
     margin-top: 1rem;
     margin-left: 14.2rem;
 
+}
+
+.j{
+    margin-top: 1rem;
 }
 
 .q {
@@ -232,11 +237,11 @@ margin-left: 1.2rem;
 
 
 
-.listother{
+.listother {
     margin-left: 2rem;
 }
 
-.priceother{
+.priceother {
     margin-left: 3rem;
 }
 

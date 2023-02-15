@@ -5,10 +5,6 @@ $(document).ready(function () {
 $('#set_n_amt').on('click', function(e) {
     $('#post').toggle();
 });
-function addToCart(id){
-let p = ($(`#p${id}`).text())
-$('#category_name').val(p)
-}
 
 async function loopcostprice() {
     let lastID = await (await fetch('controller/GetLastIdOrder.php')).text()

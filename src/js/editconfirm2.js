@@ -72,7 +72,7 @@ function delrow() {
     let tableObj = JSON.parse(localStorage.getItem("tableProduct"))
     const index = localStorage.getItem('deleteIndex')
     let rows = tableObj.data
-        rows.splice(index,1)
+    rows.splice(index, 1)
     $('#list-product').html("")
     rows.forEach((e, i) => {
         $('#list-product').append(`<tr id="rr${i + 1}">
@@ -185,7 +185,7 @@ function delrow2() {
     let tableObj = JSON.parse(localStorage.getItem("tablePrice"))
     const index = localStorage.getItem('deleteIndex')
     let rows = tableObj.data
-    rows.splice(index , 1)
+    rows.splice(index, 1)
     $('#list-priceother').html("")
     rows.forEach((e, i) => {
         $('#list-priceother').append(`<tr id="rr${i + 1}">
