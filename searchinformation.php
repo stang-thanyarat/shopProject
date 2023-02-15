@@ -24,7 +24,7 @@ function getFullRole($role)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/searchinformation.css" />
-    <title>Document</title>
+    
 </head>
 <?php
 include_once('nav.php');
@@ -40,13 +40,13 @@ $rows = $category->fetchAll();
             <div class="col-11">
                 <div class="row main">
                     <h1>ค้นหาข้อมูลการซื้อสินค้า </h1>
-                    <div style="text-align: center;">
+                    <div class="col-11" style="text-align: center;">
                         เลขที่ใบเสร็จ :&nbsp &nbsp
-                        <input type="text" class="btnd" id="keyword" name="keyword" placeholder="&nbsp ค้นหาเลขที่ใบเสร็จ" >
+                        <input type="text" class="btnd" id="keyword" name="keyword" placeholder="&nbsp;&nbsp; ค้นหาเลขที่ใบเสร็จ" >
                         <click type="button" id="search" name="search" class="s"><img src="./src/images/search.png" width="13"></click>
                     </div>
-                    <h3 style="text-align: center; margin-top:9rem;margin-bottom:9rem;" id="no-let">กรอกเลขที่ใบเสร็จเพื่อค้นหา</h3>
-                    <table class="main col-10" id="tb-let" style="margin-bottom: 4rem;">
+                    <h3 class="notification" id="no-let">กรอกเลขที่ใบเสร็จเพื่อค้นหา</h3>
+                    <table class="col-11 tablesearch" id="tb-let" >
                         <thead>
                         <tr class="h">
                             <th width="7.5%">ลำดับ</th>

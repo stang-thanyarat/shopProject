@@ -1,5 +1,14 @@
-<?php include_once('service/auth.php'); ?>
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+include_once('service/auth.php');
 
+if (!isset($_SESSION['shop_name'])) {
+    $_SESSION['shop_name'] = "ร้าน ABC";
+}
+?>
+<title><?=$_SESSION['shop_name']?></title>
 <link rel="stylesheet" href="./src/css/bar.css">
 <nav class="nav flex-column bar">
     <h6></h6>

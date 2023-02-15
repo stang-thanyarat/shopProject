@@ -190,6 +190,9 @@ class Stock
            $stmt->bindParam(2, $date, PDO::PARAM_STR);
            $stmt->execute();
            $result = $stmt->fetchAll();
+           if (!$result) {
+               return [];
+           }
            $dup = [];
            $res = [];
            foreach ($result as $r) {
@@ -204,11 +207,7 @@ class Stock
                }
            }
            $result = $res;
-           if (!$result) {
-               return [];
-           } else {
-               return $result;
-           }
+           return $result;
        } catch (Exception $e) {
            http_response_code(500);
            return [];
@@ -223,6 +222,9 @@ class Stock
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetchAll();
+            if (!$result) {
+                return [];
+            }
             $dup = [];
             $res = [];
             foreach ($result as $r) {
@@ -233,27 +235,44 @@ class Stock
                 }
             }
             $result = $res;
-            if (!$result) {
-                return [];
-            } else {
-                return $result;
-            }
+            return  $result;
         } catch (Exception $e) {
             http_response_code(500);
             return [];
         }
     }
 
-    public function fetchByStockId($id)
+    public function fetchByProductId($id)
     {
-        try{
-            $sql = "SELECT FROM stock_tb WHERE stock_id=?;";
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $database = "shop_pj";
+        $conn = mysqli_connect( $servername, $username, $password,$database);
+        $id = mysqli_real_escape_string($conn,$id);
+        $sql = "SELECT * FROM stock_tb WHERE product_id = $id";
+        $q = mysqli_query($conn,$sql);
+        $result = [];
+        while ($r=mysqli_fetch_assoc($q)){
+            $result[]=$r;
+        }
+        return $result;
+    }
+
+    public function cut($q,$id)
+    {
+        try {
+            $sql = "SET FOREIGN_KEY_CHECKS=0";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $sql = "UPDATE stock_tb SET amount_exp = amount_exp - ? WHERE stock_id = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $q, PDO::PARAM_INT);
+            $stmt->bindParam(2, $id, PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
             http_response_code(500);
-            return [];
+            echo strval($e);
         }
     }
 

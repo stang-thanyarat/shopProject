@@ -26,7 +26,7 @@ function getFullRole($role)
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/notification_amt.css"/>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <title>Document</title>
+    
 </head>
 <?php include_once('nav.php');
 include_once "./database/Product.php";
@@ -72,8 +72,8 @@ $product = $product->fetchAll();
         <table class="ma" id="tb-let" style="display: none;">
             <thead>
             <tr>
-                <th width="35%">รูปภาพ</th>
-                <th width="25%">ชื่อสินค้า</th>
+                <th width="30%">รูปภาพ</th>
+                <th width="30%">ชื่อสินค้า</th>
                 <th width="16%">ราคา</th>
                 <th width="10%">จำนวน</th>
                 <th width="14%">สถานะการขาย</th>

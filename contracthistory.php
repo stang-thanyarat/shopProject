@@ -27,7 +27,7 @@ function getFullRole($role)
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/contracthistory.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <title>สัญญาซื้อขาย</title>
+    
 </head>
 <?php
 include_once('nav.php');
@@ -59,7 +59,7 @@ if (isset($_GET['keyword'])) {
                             <button type="submit" class="s"><img src="./src/images/search.png" width="20"></button>
                         </div>
                         <div class="col-2">
-                            <a type="button" href="productlist.php" class="submit btn"><img src="./src/images/arrow.png" width="45" class="arrow">กลับไปหน้าขาย</a>
+                            <a type="button" href="productlist.php" class="submit btn"><img src="./src/images/arrow.png" width="35" class="arrow">กลับไปหน้าขาย</a>
                         </div>
                     </form>
                 </div>

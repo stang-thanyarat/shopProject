@@ -1,7 +1,12 @@
 let AllPrice = 0;
 let diff = 0;
 let interest_ = 0;
+let mode = 'stop'
+let D = '';
 
+function getDate(date) {
+    D = date
+}
 function getInterest(interest) {
     interest_ = interest / 100
 }
@@ -10,54 +15,77 @@ function getAllprice(price) {
     AllPrice = price
 }
 
-function getDiff(date) {
+function getDiff() {
     const days = (date_1, date_2) => {
         let difference = date_1.getTime() - date_2.getTime();
         let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
         return TotalDays;
     }
-    diff = days(new Date(), new Date(date))
+    diff = days(new Date($('#repaymentdate').val()), new Date(D))
+}
+
+$('#repaymentdate').change((e) => {
+    getDiff();
+    setDebt();
+})
+
+
+function setDebt(){
+    if(mode==='clear'){
+        $('#paymentamount').val(0)
+        $('#deduct').val(0)
+        $('#outstanding').val(0)
+        $('#lessinterest').val(0)
+        let interestAll = 0;
+        if (diff > 120) {
+            let m = Math.abs(Math.round((diff / 30))-4)
+            console.log("m:",m)
+            m = m == 0 ? 1 : m
+            $('#lessinterest').val(Math.round(AllPrice * (interest_ * m)))
+            interestAll = Math.round(AllPrice * (interest_ * m))
+        } else {
+            $('#lessinterest').val(0)
+            interestAll = 0
+        }
+        $('#paymentamount').val(AllPrice+interestAll)
+        $('#deduct').val(AllPrice-interestAll)
+        $('#outstanding').val(0)
+    }else if(mode=='pay'){
+        let pay = $('#paymentamount').val()
+        if (pay > AllPrice) {
+            $('#paymentamount').val(AllPrice)
+            pay = AllPrice
+        }
+        if (diff > 120) {
+            let m = Math.abs(Math.round((diff / 30))-4)
+            console.log("m:",m)
+            m = m == 0 ? 1 : m
+            $('#lessinterest').val(Math.round(pay * (interest_ * m)))
+            pay -= Math.round(pay * (interest_ * m))
+        } else {
+            $('#lessinterest').val(0)
+        }
+        $('#deduct').val(pay)
+        $('#outstanding').val(Math.round(AllPrice - pay))
+    }
+}
+
+$("#payment_modal").on("hidden.bs.modal", function () {
+    mode = "stop"
+});
+
+function payMode(){
+    mode = "pay"
 }
 
 function clearDebt(){
-    $('#paymentamount').val(0)
-    $('#deduct').val(0)
-    $('#outstanding').val(0)
-    $('#lessinterest').val(0)
-    let interestAll = 0;
-    if (diff > 120) {
-        let m = Math.abs(Math.round((diff / 30))-4)
-        console.log("m:",m)
-        m = m == 0 ? 1 : m
-        $('#lessinterest').val(Math.round(AllPrice * (interest_ * m)))
-        interestAll = Math.round(AllPrice * (interest_ * m))
-    } else {
-        $('#lessinterest').val(0)
-        interestAll = 0
-    }
-    $('#paymentamount').val(AllPrice+interestAll)
-    $('#deduct').val(AllPrice-interestAll)
-    $('#outstanding').val(0)
+    mode = 'clear'
+    setDebt();
 }
 
 
 $('#paymentamount').keyup((e) => {
-    let pay = $('#paymentamount').val()
-    if (pay > AllPrice) {
-        $('#paymentamount').val(AllPrice)
-        pay = AllPrice
-    }
-    if (diff > 120) {
-        let m = Math.abs(Math.round((diff / 30))-4)
-        console.log("m:",m)
-        m = m == 0 ? 1 : m
-        $('#lessinterest').val(Math.round(pay * (interest_ * m)))
-        pay -= Math.round(pay * (interest_ * m))
-    } else {
-        $('#lessinterest').val(0)
-    }
-    $('#deduct').val(pay)
-    $('#outstanding').val(Math.round(AllPrice - pay))
+    setDebt();
 })
 
 $(document).ready(function () {

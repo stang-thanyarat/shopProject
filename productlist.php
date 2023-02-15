@@ -26,7 +26,7 @@ function getFullRole($role)
     <link rel="stylesheet" href="./node_modules/sweetalert2/dist/sweetalert2.min.css"></link>
     <link rel="stylesheet" href="./src/css/productlist.css" />
 
-    <title>productlist</title>
+    
 
 </head>
 <?php include_once('nav.php');
@@ -60,10 +60,13 @@ $rows = $category->fetchAll();
                 </div>
                 <table class="col-11 q" style="border: 0px">
                     <thead>
-                        <tr style="background-color: #ABBE99">
+                        <tr>
                             <th colspan="6" style="border: 0px">
+                                <div class="topic_all" style="background-color: #ABBE99">
                                 <h5 class="z">รายการสินค้าทั้งหมด</h5>
+                                </div>
                             </th>
+
                         </tr>
                     </thead>
                     <tbody id="productlistTable"></tbody>

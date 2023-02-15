@@ -27,7 +27,7 @@ function getFullRole($role)
     <script src=" ./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="./src/css/productresult.css"/>
 
-    <title>productresult</title>
+    
 </head>
 
 <?php include_once('nav.php');

@@ -12,13 +12,12 @@
 
 
 .main {
-    margin-top: 5rem;
     margin-left: 4rem;
+    margin-top: 5rem;
 }
 
 .mai {
-    margin-left: 38rem;
-    margin-top: 1rem;
+    margin-top: 0.8rem;
 }
 
 .Nbar {
@@ -49,7 +48,7 @@ th {
 .s {
     border: 0ch;
     width: 10%;
-    height: 50%;
+    height: 80%;
     background-color: #C4C4C4;
     border-radius: 25px 25px 25px 25px;
     margin-left: 1rem;
@@ -67,14 +66,6 @@ th {
     background-color: white;
 }
 
-.topic {
-    margin-bottom: 0rem;
-}
-
-.search {
-    margin-left: 43rem;
-}
-
 .submit {
     background-color: #7C904E;
     border: 0ch;
@@ -85,25 +76,27 @@ th {
     border-radius: 25px 25px 25px 25px;
     font-size: 16pt;
     width: 15%;
-    height: 50%;
+    height: 80%;
 }
 
 .reset {
     background-color: #C4C4C4;
     color: black;
     border: 0ch;
+    width: 15%;
+    height: 80%;
 }
 
 .btn-c {
     border-radius: 25px 25px 25px 25px;
     font-size: 16pt;
     width: 15%;
-    height: 50%;
+    height: 80%;
     margin-left: 0.5rem;
     margin-right: 1rem;
 
 }
 
 .date {
-    height: 50%;
+    height: 80%;
 }
