@@ -155,6 +155,19 @@ async function loopInsert(){
             redirect: 'follow'
         };
         await fetch("controller/Product.php", requestOptions)
+        if(!!e.stock_id){
+            var formdata2 = new FormData();
+            formdata2.append("q", e.quantity);
+            formdata2.append("stock_id", e.stock_id);
+            formdata2.append("form_action", "cut");
+            formdata2.append("table", "stock");
+            var requestOptions = {
+                method: 'POST',
+                body: formdata2,
+                redirect: 'follow'
+            };
+            await fetch("controller/Stock.php", requestOptions)
+        }
     }
 }
 

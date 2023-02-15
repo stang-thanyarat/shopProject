@@ -56,8 +56,8 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                     <span>
                         <form action="productexchangehistory.php" method="GET">
                             <div class="col">
-                                <input value="<?= isset($_GET['start']) ? $_GET['start'] : '' ?>" class="date" type="date" name="start" id="start"> &nbsp&nbspถึง&nbsp&nbsp
-                                <input value="<?= isset($_GET['end']) ? $_GET['end'] : '' ?>" class="date" type="date" name="end" id="end">
+                                <input value="<?= date('Y-m-d') ?>" value="<?= isset($_GET['start']) ? $_GET['start'] : '' ?>" class="date" type="date" name="start" id="start"> &nbsp&nbspถึง&nbsp&nbsp
+                                <input value="<?= date('Y-m-d') ?>" value="<?= isset($_GET['end']) ? $_GET['end'] : '' ?>" class="date" type="date" name="end" id="end">
                                 <button type="submit" class="s"><img src="./src/images/search.png" width="25"></button>
                                 <button type="button" onclick="window.location= 'productexchangehistory.php'" class="btn-c reset">ล้างข้อมูล</button>
                                 <a type="button" href="./searchinformation.php" class="submit btn" style="margin-top: -0.3rem;"><img src="./src/images/plus.png" width="25" style="margin:auto;">&nbsp เพิ่ม</a>

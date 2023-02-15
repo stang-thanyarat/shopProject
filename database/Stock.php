@@ -244,19 +244,35 @@ class Stock
 
     public function fetchByProductId($id)
     {
-        try{
-            $sql = "SELECT * FROM stock_tb WHERE product_id = ?";
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $database = "shop_pj";
+        $conn = mysqli_connect( $servername, $username, $password,$database);
+        $id = mysqli_real_escape_string($conn,$id);
+        $sql = "SELECT * FROM stock_tb WHERE product_id = $id";
+        $q = mysqli_query($conn,$sql);
+        $result = [];
+        while ($r=mysqli_fetch_assoc($q)){
+            $result[]=$r;
+        }
+        return $result;
+    }
+
+    public function cut($q,$id)
+    {
+        try {
+            $sql = "SET FOREIGN_KEY_CHECKS=0";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(1, $id, PDO::PARAM_STR);
-            $result = $stmt->fetchAll();
-            if (!$result) {
-                return [];
-            } else {
-                return $result;
-            }
+            $stmt->execute();
+            $sql = "UPDATE stock_tb SET amount_exp = amount_exp - ? WHERE stock_id = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $q, PDO::PARAM_INT);
+            $stmt->bindParam(2, $id, PDO::PARAM_INT);
+            $stmt->execute();
         } catch (Exception $e) {
             http_response_code(500);
-            return [];
+            echo strval($e);
         }
     }
 

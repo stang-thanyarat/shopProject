@@ -58,7 +58,7 @@ function setUI(data) {
     let html = ''
     let k = 0
     data.forEach((element) => {
-        if(element.product_rm_unit > 0 && element.sales_status == 1) {
+        if (element.product_rm_unit > 0 && element.sales_status == 1) {
             console.log(element.product_id)
 
             if (k % 3 === 0) {
@@ -106,51 +106,87 @@ function setUI(data) {
     $('#productlistTable').html(html)
 }
 
+
+function getDiff(date) {
+    const days = (date_1, date_2) => {
+        let difference = date_1.getTime() - date_2.getTime();
+        let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
+        return TotalDays;
+    }
+    return  days(new Date(), new Date(date))
+}
+
 async function addToCart(id) {
     const p = Number($(`#p${id}`).text())
-    let expireList = await(await fetch('./controller/GetExpireProduct.php?product_id='+id)).json()
-    console.log(expireList)
-    if (p > 0) {
-        Swal.fire({
-            title: 'จำนวน',
-            html: `
-        <input id="q" type="number" min="1" step="1" value="1" class="swal2-input" placeholder="จำนวนสินค้า">`,
-            confirmButtonText: 'ลงตะกร้า',
-            focusConfirm: false,
-            showCancelButton: true,
-            cancelButtonText: "ยกเลิก",
-            preConfirm: async () => {
-                const q = Number(Swal.getPopup().querySelector('#q').value)
-                //const age = Swal.getPopup().querySelector('#age').value
-                if (p > 0 && p >= q) {
-                    $(`#p${id}`).text(Number(p - q))
-                } else if (p > 0 && p < q) {
-                    Swal.showValidationMessage(`สินค้าไม่เพียงพอ`)
-                }
-                return {q: q, id: id}
+    let exlist = '';
+    let l = 0;
+    let expireList = await (await fetch('./controller/GetExpireProduct.php?product_id=' + id)).json()
+    if (!(!expireList || expireList.length <= 0)) {
+        let exdate = ''
+        let k = 0
+        for (let e of expireList) {
+            if (getDiff(e.exp_date) < 0) {
+                exdate += `<option value="${e.stock_id}" ${k == 0 ? "selected" : ""}>${e.exp_date}</option>`
+                l++
             }
-            //
-
-        }).then((result) => {
-            const cart = JSON.parse(localStorage.getItem('cart'))
-            const found = cart.findIndex(e => e.id === id)
-            console.log(result.value)
-            if (found > -1) {
-                cart[found].quantity += result.value.q
-            } else {
-                cart.push({
-                    id: result.value.id,
-                    quantity: result.value.q,
-
-                })
-            }
-            localStorage.setItem('cart', JSON.stringify(cart))
-        })
-    } else {
+            k++
+        }
+        exlist = `<label>วันหมดอายุ
+                    <select class="swal2-input" id="ex-id">
+                       ${exdate}
+                    </select>
+                    </label>
+            `
+    }else{
+        l=1;
+    }
+    if (l<=0){
         Swal.fire({
             icon: 'warning',
-            text: "สินค้าไม่เพียงพอ"
         })
+    }else{
+        if (p > 0) {
+            Swal.fire({
+                title: 'จำนวน',
+                html: `
+        <input id="q" type="number" min="1" step="1" value="1" class="swal2-input" placeholder="จำนวนสินค้า">${exlist}`,
+                confirmButtonText: 'ลงตะกร้า',
+                focusConfirm: false,
+                showCancelButton: true,
+                cancelButtonText: "ยกเลิก",
+                preConfirm: async () => {
+                    const q = Number(Swal.getPopup().querySelector('#q').value)
+                    //const age = Swal.getPopup().querySelector('#age').value
+                    if (p > 0 && p >= q) {
+                        $(`#p${id}`).text(Number(p - q))
+                    } else if (p > 0 && p < q) {
+                        Swal.showValidationMessage(`สินค้าไม่เพียงพอ`)
+                    }
+                    return {q: q, id: id}
+                }
+                //
+
+            }).then((result) => {
+                const cart = JSON.parse(localStorage.getItem('cart'))
+                const found = cart.findIndex(e => e.id === id)
+                console.log(result.value)
+                if (found > -1) {
+                    cart[found].quantity += result.value.q
+                } else {
+                    cart.push({
+                        id: result.value.id,
+                        quantity: result.value.q,
+                        stock_id: Number($('#ex-id').val())
+                    })
+                }
+                localStorage.setItem('cart', JSON.stringify(cart))
+            })
+        } else {
+            Swal.fire({
+                icon: 'warning',
+                text: "สินค้าไม่เพียงพอ"
+            })
+        }
     }
 
     /* const cart = JSON.parse(localStorage.getItem('cart'))
