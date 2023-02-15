@@ -88,7 +88,7 @@ for ($i = 0; $i < count($op); $i++) {
 <body>
     <form action="controller/Order.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="table" value="order" />
-        <input type="hidden" name="form_action" value="update" />
+        <input type="hidden" name="form_action" value="updateconfirm" />
         <input type="hidden" value="<?= $_GET['id'] ?>" name="order_id" id="order_id" />
         <input type="hidden" value="<?= $_GET['id'] ?>" name="product_id" />
         <div class="row">
@@ -96,7 +96,7 @@ for ($i = 0; $i < count($op); $i++) {
             <div class="col-11">
                 <div class="row main">
                     <div class="col-4 topic">
-                        <h1>ใบสั่งซื้อ</h1>
+                        <h1>ยืนยันใบสั่งซื้อ</h1>
                     </div>
                 </div>
                 <div class="col-9 d-flex justify-content-end signin status">
@@ -214,7 +214,7 @@ for ($i = 0; $i < count($op); $i++) {
                 </div>
                 <div class="row A">
                     <div class=" col-11 d-flex justify-content-end">
-                        ยอดสุทธิ : &nbsp;&nbsp;<input type="text" name="net_price" id="net_price">
+                        ยอดสุทธิ : &nbsp;&nbsp;<input type="text" name="all_price_odr" id="all_price_odr">
                     </div>
                 </div>
 

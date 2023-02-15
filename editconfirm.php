@@ -101,13 +101,13 @@ for ($i = 0; $i < count($op); $i++) {
                 </div>
                 <div class="pay">
                     <div class="row">
-                        <div class="col datebill">
+                        <div class="col-5 datebill">
                             วันที่วางบิล : &nbsp;
                             <?= toDay($o['datebill']); ?>
                         </div>
                         <div class="col">
-                            &nbsp;&nbsp;วันที่รับของ : &nbsp;
-                            <?= toDay($o['datereceive']); ?>
+                            <!--วันที่รับของล่าสุด : &nbsp;<?= toDay($o['datereceive']); ?>-->
+                            วันที่รับของที่เปลี่ยน : &nbsp;<input id="datereceive" name="datereceive" type="date" value="<?= $o['datereceive']; ?>">
                         </div>
                     </div>
                 </div>
@@ -124,11 +124,16 @@ for ($i = 0; $i < count($op); $i++) {
                 <div class="row ">
                     <div class="col j payment_sl">
                         วิธีการชำระเงิน : &nbsp;
-                        <?= $o['payment_sl']; ?>
+                        <select name="payment_sl" id="payment_sl" class="inbox" style="background-color: #D4DDC6;" value="<?= $o['payment_sl']; ?>">
+                                <option value="all" selected hidden>เลือกวิธีการชำระ</option>
+                                <option value="เงินสด" <?= $o['payment_sl'] == "ซอง" ? "selected" : '' ?>>เงินสด</option>
+                                <option value="เครดิต" <?= $o['payment_sl'] == "เครดิต" ? "selected" : '' ?>>เครดิต</option>
+                            </select>
                     </div>
                     <div class="col payment">
-                        วันที่ชำระเงิน : &nbsp;
-                        <?= toDay($o['payment_dt']); ?>
+                        &nbsp;&nbsp;&nbsp;&nbsp;วันที่ชำระเงิน : &nbsp;
+                        <!--<?= toDay($o['payment_dt']); ?>-->
+                         &nbsp;<input id="payment_dt" name="payment_dt" type="date" value="<?= $o['payment_dt']; ?>">
                     </div>
                 </div>
                 <div class="col note">
@@ -150,7 +155,6 @@ for ($i = 0; $i < count($op); $i++) {
                                 <th width="15%">ราคาต่อหน่วย (บาท)</th>
                                 <th width="15%">จำนวน</th>
                                 <th width="15%">ราคา (บาท)</th>
-                                <th width="15%">วันหมดอายุ</th>
                                 <th width="10%"></th>
                             </tr>
                         </thead>
@@ -163,7 +167,6 @@ for ($i = 0; $i < count($op); $i++) {
                                     <th><?= $b['order_pr'] ?></th>
                                     <th><?= $b['order_amt'] ?></th>
                                     <th><?= $b['order_amt'] * $b['order_pr'] ?></th>
-                                    <th></th>
                                     <th>
                                         <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(<?= $i ?>)"></button>
                                         <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(<?= $i ?>)"></button>
@@ -207,7 +210,7 @@ for ($i = 0; $i < count($op); $i++) {
                 </div>
                 <div class="row A">
                     <div class=" col-11 d-flex justify-content-end">
-                        ยอดสุทธิ : &nbsp;&nbsp;<input type="text" name="net_price" id="net_price">
+                        ยอดสุทธิ : &nbsp;&nbsp;<input type="text" name="all_price_odr" id="all_price_odr">
                     </div>
                 </div>
 
@@ -409,7 +412,8 @@ for ($i = 0; $i < count($op); $i++) {
             data: [<?php echo $json1; ?>]
         }))
     });
+
 </script>
-<script src="./src/js/confirm.js"></script>
+<script src="./src/js/confirm2.js"></script>
 
 </html>
