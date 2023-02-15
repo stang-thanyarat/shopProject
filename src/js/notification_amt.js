@@ -47,7 +47,7 @@ function setUI(data) {
         if (element.product_rm_unit <= element.notification_amt) {
             c++
             $('#notification_amtTable').append(`<tr id="rr${i}">
-        <th><img src="${element.product_img}" width="350"></th>
+        <th><img src="${element.product_img}" width="250"></th>
         <th>${element.product_name}</th>
         <th>${element.price}</th>
         <th>${element.product_rm_unit}</th>

@@ -65,7 +65,7 @@ function setUI(data) {
                 html += `<tr>`
             }
             html += `<th style="border: 0px">
-                <div class="topic_product" >
+                <div class="topic_product">
                 <div class="row d-flex justify-content-center" style="margin: auto;">
                     <div class="col-11" style="padding:25px;">
                     ${element.product_name} ${element.model === "-" ? '' : "รุ่น&nbsp"}${element.model === "-" ? "" : element.model}

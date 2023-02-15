@@ -41,29 +41,6 @@ function del(id) {
         }
     })
 }
-/*
-$('#mySubmit').click(async()=>{
-    const submitElement = document.getElementById('mySubmit')
-    if ($('#payment_s').val() === 'เงินสด') {
-        let payment =  $("#payment_s").val()
-        $('#payment_sl').val(payment)
-        submitElement.setAttribute("data-bs-target", ".cash-form");
-    } else if ($('#payment_s').val() === 'โอนผ่านบัญชีธนาคาร') {
-        let payment =  $("#payment_s").val()
-        $('#payment_sl').val(payment)
-        submitElement.setAttribute("data-bs-target", ".transfer-form");
-    } else if ($('#payment_s').val() === 'ผ่อนชำระ') {
-        let route = (await (await fetch('./controller/GetRolesSales.php')).text()).trim()
-        if(route !== "L") {
-            fetch('./controller/LogOutAndClear.php').then(()=>{
-                window.location ="./login.php"
-            })
-        }else{
-            submitElement.setAttribute("data-bs-target", ".search-costumer-form");
-        }
-    }
-})
- */
 
 //ส่วนชำระเงินสด
 const targetElement = document.getElementById('payment_s')
@@ -99,21 +76,21 @@ function setUI(data) {
     data.forEach((element, i) => {
         allprice += Number(element.price) * Number(element.quantity)
         allquantity += Number(element.quantity)
-        $('#addtocartTable').append(`<tr id="rr${i + 1}">
+        $('#addtocartTable').append(`<tr id="rr${i + 1}" >
         <th style="border-right: 1px;">${i + 1}</th>
         <th style="border-left: 1px; border-right: 1px;">
-            <img class="topic_product" style="width: 325px; height: 325px;" src="${element.product_img}">
+            <img style="width: 275px; height: 275px; padding-top: 15px; padding-bottom: 15px; padding-left: 15px; padding-right: 15px;" src="${element.product_img}">
         </th>
         <th style="border-left: 1px; border-right: 1px;">${element.product_name}</th>
         <th style="border-left: 1px; border-right: 1px;">${element.price}</th>
         <th style="border-left: 1px; border-right: 1px;">${element.quantity}</th>
         <th style="border-left: 1px; border-right: 1px;">${Number(element.price) * Number(element.quantity)}</th>
         <th style="border-left: 1px;" >
-        <div class="topic_BTAJ">
-            <button type="button" class="bgs" onclick="del(${element.product_id})"><img src="./src/images/icon-delete.png" class="delete" width="30"></button>
+        <div class="d-flex justify-content-center">
+            <button type="button" class="bgs topic_BTAJ" onclick="del(${element.product_id})"><img src="./src/images/icon-delete.png" class="delete" width="30"></button>
         </div>
-        <div class="topic_BTAJ">
-            <a href="./productlist.php" class="bgs" ><img src="./src/images/icon-pencil.png" class="edit" width="30"></a>
+        <div class="d-flex justify-content-center">
+            <a href="./productlist.php" class="bgs topic_BTAJ" ><img src="./src/images/icon-pencil.png" class="edit" width="30"></a>
         </div>
         </th>
     </tr>`)

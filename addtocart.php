@@ -44,16 +44,16 @@ include_once('nav.php');
             </div>
             <!--ตาราง-->
             <!--เนื้อหา-->
-            <table class="col-11 tablesales">
+            <table class="col-11 tablesales topic_product">
                 <thead>
                 <tr class="TRTOPICCSS">
-                    <th style="width : 5%; border-right: 1px; text-align: center; ">ลำดับ</th>
-                    <th style="width : 10%; border-left: 1px; border-right: 1px;">รูปภาพ</th>
-                    <th style="width : 30%; border-left: 1px; border-right: 1px; ">สินค้า</th>
+                    <th style="width : 10%; border-right: 1px; text-align: center; ">ลำดับ</th>
+                    <th style="width : 15%; border-left: 1px; border-right: 1px;">รูปภาพ</th>
+                    <th style="width : 25%; border-left: 1px; border-right: 1px; ">สินค้า</th>
                     <th style="width : 15%; border-left: 1px; border-right: 1px; ">ราคาต่อชิ้น</th>
-                    <th style="width : 15%; border-left: 1px; border-right: 1px; ">จำนวน</th>
+                    <th style="width : 12%; border-left: 1px; border-right: 1px; ">จำนวน</th>
                     <th style="width : 15%; border-left: 1px; border-right: 1px; ">ราคารวม</th>
-                    <th style="width : 10%; border-left: 1px; "></th>
+                    <th style="width : 8%; border-left: 1px; "></th>
                 </tr>
                 </thead>
                 <tbody id="addtocartTable"></tbody>
