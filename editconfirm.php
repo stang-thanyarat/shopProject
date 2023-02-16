@@ -31,7 +31,6 @@ if (!isset($_GET['id'])) {
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/editconfirm.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <title>Document</title>
 </head>
 <?php
 include_once "./database/Order.php";
@@ -414,6 +413,6 @@ for ($i = 0; $i < count($op); $i++) {
     });
 
 </script>
-<script src="./src/js/confirm2.js"></script>
+<script src="./src/js/confirm.js"></script>
 
 </html>

@@ -60,7 +60,6 @@ function setUI(data) {
     data.forEach((element) => {
         if (element.product_rm_unit > 0 && element.sales_status == 1) {
             console.log(element.product_id)
-
             if (k % 3 === 0) {
                 html += `<tr>`
             }
@@ -98,7 +97,7 @@ function setUI(data) {
                 </div>
                 </th>`
             if ((k + 1) % 3 === 0 && (k + 1) === data.length) {
-                html += `<tr>`
+                html += `</tr>`
             }
             k++;
         }
@@ -134,6 +133,7 @@ async function addToCart(id) {
         exlist = `<label>วันหมดอายุ
                     <select class="swal2-input" id="ex-id">
                        ${exdate}
+                       <option value="">ไม่ทราบวันหมดอายุ/ไม่มีวันหมดอายุ</option>
                     </select>
                     </label>
             `
@@ -142,6 +142,9 @@ async function addToCart(id) {
     }
     if (l<=0){
         Swal.fire({
+            width: 1700,
+            title: '<span style="font-size: 50px; color: red;">เป็นสินค้าที่หมดอายุแล้วหรือเป็นสินค้าที่ไม่ทราบวันหมดอายุ</span>' +
+                '<p></p><span style="font-size: 35px; color: black;">กรุณานำสินค้าหมดอายุออกจากคลังหรือจัดการจำนวนสินค้า</span>',
             icon: 'warning',
         })
     }else{

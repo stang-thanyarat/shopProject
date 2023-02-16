@@ -20,7 +20,7 @@ if (isset($_POST)) {
             $order->update($_POST);
             Redirection("/order.php");
         }
-        else if ($_POST['form_action'] === 'updatecomfirm') {
+        else if ($_POST['form_action'] === 'updateconfirm') {
             //เชคการอัพโหลดรูป
             if ($_FILES['receipt']['size'] > 0) {
                 $path = './file/order/receipt/';
@@ -47,7 +47,7 @@ if (isset($_POST)) {
                     } else {
                         $_POST['order_status'] = '0';
                     }
-                    $order->updatecomfirm($_POST);
+                    $order->updateconfirm($_POST);
                     Redirection("/order.php");
                 } else if ($_POST['form_action'] === 'delete') {
                     if (file_exists($_POST['bank_slip'])) {

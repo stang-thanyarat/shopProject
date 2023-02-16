@@ -46,24 +46,25 @@ $c = $category->fetchAll();
                     <h1>สินค้าขายดีประจำวัน</h1>
                 </div>
             </div>
-            <div class="row d-flex justify-content-end">
-                <div class="col-3">
-                    <label for="category"></label>
-                    <select name="category_id" id="category_id" style="background-color: #D4DDC6;" required>
-                        <option value="all">สินค้าทั้งหมด</option>
-                        <?php foreach ($c as $row) { ?>
-                            <option value="<?= $row['category_id'] ?>"><?= $row['category_name'] ?></option>
-                        <?php } ?>
-                    </select>
-                    <input type="date" value="<?= date('Y-m-d')?>" style="margin-left: 2rem;" name="date" id="date" />
+            <div class="row d-flex justify-content-end" style="margin-right: 3rem; margin-top: 1rem">
+                <div class="col-4 date">
+                    <label for="expires"></label>
+                    <input type="date" style="height: 100%" value="<?= date('Y-m-d') ?>" name="date" id="date" name="expires"/>
                 </div>
-                <div class="col-3" style="margin-left: 1rem;">
+                <div class="col-3 category">
                     <form>
-                        <input type="text" class="btn-d" id="keyword" name="keyword" placeholder="&nbsp ชื่อสินค้า" />
-                        <button type="submit" class="s">
-                            <img src="./src/images/search.png" width="15">
-                        </button>
+                        <select name="category_id" id="category_id" style="background-color: #D4DDC6;  margin-right: 1rem;" required>
+                            <option value="all">สินค้าทั้งหมด</option>
+                            <?php foreach ($c as $row) { ?>
+                                <option value="<?= $row['category_id'] ?>"><?= $row['category_name'] ?></option>
+                            <?php } ?>
+                        </select>
+                        <input type="text" id="keyword" name="keyword" class="btn-d" placeholder="&nbsp ชื่อสินค้า">
                     </form>
+                </div>
+                <div class="col-3" style="margin-top: 0.15rem;">
+                    <click type="submit" name="search" id="search" class="btn-c reset"><img src="./src/images/search.png" style="margin-left: 1.4rem; " width="25"></click>
+                    <button type="button" onclick="window.location= 'dailybestseller.php'" class="btn-c1 reset" style="margin-left: 1.4rem; " width="25">ล้างการค้นหา</button>
                 </div>
             </div>
             <div class="dailybestsellerTable">
@@ -72,11 +73,11 @@ $c = $category->fetchAll();
                 <thead>
                     <tr>
                         <th width="10%">ลำดับ</th>
-                        <th width="28%">รูปภาพ</th>
-                        <th width="20%">ชื่อสินค้า</th>
-                        <th width="15%">ราคา</th>
-                        <th width="12%">คงเหลือ</th>
-                        <th width="15%">จำนวนที่ขาย</th>
+                        <th width="20%">รูปภาพ</th>
+                        <th width="25%">ชื่อสินค้า</th>
+                        <th width="20%">ราคา</th>
+                        <th width="15%">คงเหลือ</th>
+                        <th width="10%">จำนวนที่ขาย</th>
                     </tr>
                 <tbody id="dailybestsellerTable"></tbody>
             </table>
