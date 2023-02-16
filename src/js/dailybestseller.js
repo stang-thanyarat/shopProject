@@ -1,75 +1,45 @@
-$("#category_id").change(async function () {
-    if ($("#category_id").val() !== "all") {
+$("#search").click(async function () {
+    if ($("#category_id").val() == "all" && $("#keyword").val() !== "" && $("#date").val() == "") {
+        let url = `./controller/DailyBestSeller.php?keyword=${$("#keyword").val()}`
+        const product = await (await fetch(url)).json()
+        setUI(product)
+    }
+    else if ($("#category_id").val() !== "all" && $("#keyword").val() == "" && $("#date").val() == "") {
         let url = `./controller/DailyBestSeller.php?category_id=${$("#category_id").val()}`
-        if ($("#keyword").val() !== "") {
-            url += `&keyword=${$("#keyword").val()}`
-        }
-        if($("#date").val() !== ''){
-            url += `&date=${$("#date").val()}`
-        }
-        const product = await (await fetch(url)).json()
-        setUI(product)
-    } else {
-        let url = './controller/DailyBestSeller.php'
-        if ($("#keyword").val() !== "") {
-            url += `?keyword=${$("#keyword").val()}`
-        }
-        if($("#date").val() !== ''){
-            url += `?date=${$("#date").val()}`
-        }
         const product = await (await fetch(url)).json()
         setUI(product)
     }
-});
-
-$("#keyword").keyup(async function () {
-    let url = `./controller/DailyBestSeller.php`
-    if($("#keyword").val() !== "" ){
-        url += `?keyword=${$("#keyword").val()}`
-    }
-    if ($("#category_id").val() !== "" && $("#category_id").val() !== "all") {
-        if(url.indexOf('?')==-1){
-            url+='?'
-        }else{
-            url+='&'
-        }
-        url += `category_id=${$("#category_id").val()}`
-    }
-    if ($("#date").val() !== "" ) {
-        if(url.indexOf('?')==-1){
-            url+='?'
-        }else{
-            url+='&'
-        }
-        url += `date=${$("#date").val()}`
-    }
-    const product = await (await fetch(url)).json()
-    setUI(product)
-});
-
-$("#date").change(async function(){
-    if ($("#date").val() !== "") {
+    else if ($("#category_id").val() == "all" && $("#keyword").val() == "" && $("#date").val() !== "") {
         let url = `./controller/DailyBestSeller.php?date=${$("#date").val()}`
-        if ($("#keyword").val() !== "") {
-            url += `&keyword=${$("#keyword").val()}`
-        }
-        if($("#category_id").val() != 'all'){
-            url += `&category_id=${$("#category_id").val()}`
-        }
-        const product = await (await fetch(url)).json()
-        setUI(product)
-    } else {
-        let url = './controller/DailyBestSeller.php'
-        if ($("#keyword").val() !== "") {
-            url += `?keyword=${$("#keyword").val()}`
-        }
-        if($("#category_id").val() != 'all'){
-            url += `?category_id=${$("#category_id").val()}`
-        }
         const product = await (await fetch(url)).json()
         setUI(product)
     }
-})
+    else if ($("#category_id").val() !== "all" && $("#keyword").val() !== "" && $("#date").val() == "") {
+        let url = `./controller/DailyBestSeller.php?category_id=${$("#category_id").val()}&keyword=${$("#keyword").val()}`
+        const product = await (await fetch(url)).json()
+        setUI(product)
+    }
+    else if ($("#category_id").val() !== "all" && $("#keyword").val() == "" && $("#date").val() !== "") {
+        let url = `./controller/DailyBestSeller.php?category_id=${$("#category_id").val()}&date=${$("#date").val()}`
+        const product = await (await fetch(url)).json()
+        setUI(product)
+    }
+    else if ($("#category_id").val() == "all" && $("#keyword").val() !== "" && $("#date").val() !== "") {
+        let url = `./controller/DailyBestSeller.php?keyword=${$("#keyword").val()}&date=${$("#date").val()}`
+        const product = await (await fetch(url)).json()
+        setUI(product)
+    }
+    else if ($("#category_id").val() !== "all" && $("#keyword").val() !== "" && $("#date").val() !== "") {
+        let url = `./controller/DailyBestSeller.php?category_id=${$("#category_id").val()}&keyword=${$("#keyword").val()}&date=${$("#date").val()}`
+        const product = await (await fetch(url)).json()
+        setUI(product)
+    }
+    else if ($("#category_id").val() == "all" && $("#keyword").val() == "" && $("#date").val() == "") {
+        let url = `./controller/DailyBestSeller.php`
+        const product = await (await fetch(url)).json()
+        setUI(product)
+    }
+});
 
 
 async function start() {

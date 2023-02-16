@@ -29,9 +29,8 @@ if (!isset($_GET['id'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./src/css/editconfirm2.css" />
+    <link rel="stylesheet" href="./src/css/editconfirm.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    
 </head>
 <?php
 include_once "./database/Order.php";
@@ -88,7 +87,7 @@ for ($i = 0; $i < count($op); $i++) {
 <body>
     <form action="controller/Order.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="table" value="order" />
-        <input type="hidden" name="form_action" value="updateconfirm" />
+        <input type="hidden" name="form_action" value="update" />
         <input type="hidden" value="<?= $_GET['id'] ?>" name="order_id" id="order_id" />
         <input type="hidden" value="<?= $_GET['id'] ?>" name="product_id" />
         <div class="row">
@@ -96,24 +95,18 @@ for ($i = 0; $i < count($op); $i++) {
             <div class="col-11">
                 <div class="row main">
                     <div class="col-4 topic">
-                        <h1>ยืนยันใบสั่งซื้อ</h1>
-                    </div>
-                </div>
-                <div class="col-9 d-flex justify-content-end signin status">
-                    <div class="col-6">
-                        <label class="font">สถานะใบสั่งซื้อ &nbsp;&nbsp;:</label>
-                        <input name="order_status" id="order_status" type="checkbox"> &nbsp;สำเสร็จแล้ว
+                        <h1>แก้ไขใบสั่งซื้อ</h1>
                     </div>
                 </div>
                 <div class="pay">
                     <div class="row">
-                        <div class="col datebill">
+                        <div class="col-5 datebill">
                             วันที่วางบิล : &nbsp;
                             <?= toDay($o['datebill']); ?>
                         </div>
                         <div class="col">
-                            &nbsp;&nbsp;วันที่รับของ : &nbsp;
-                            <?= toDay($o['datereceive']); ?>
+                            <!--วันที่รับของล่าสุด : &nbsp;<?= toDay($o['datereceive']); ?>-->
+                            วันที่รับของที่เปลี่ยน : &nbsp;<input id="datereceive" name="datereceive" type="date" value="<?= $o['datereceive']; ?>">
                         </div>
                     </div>
                 </div>
@@ -127,20 +120,24 @@ for ($i = 0; $i < count($op); $i++) {
                         </select>
                     </div>
                 </div>
+                <div class="row ">
+                    <div class="col j payment_sl">
+                        วิธีการชำระเงิน : &nbsp;
+                        <select name="payment_sl" id="payment_sl" class="inbox" style="background-color: #D4DDC6;" value="<?= $o['payment_sl']; ?>">
+                                <option value="all" selected hidden>เลือกวิธีการชำระ</option>
+                                <option value="เงินสด" <?= $o['payment_sl'] == "ซอง" ? "selected" : '' ?>>เงินสด</option>
+                                <option value="เครดิต" <?= $o['payment_sl'] == "เครดิต" ? "selected" : '' ?>>เครดิต</option>
+                            </select>
+                    </div>
+                    <div class="col payment">
+                        &nbsp;&nbsp;&nbsp;&nbsp;วันที่ชำระเงิน : &nbsp;
+                        <!--<?= toDay($o['payment_dt']); ?>-->
+                         &nbsp;<input id="payment_dt" name="payment_dt" type="date" value="<?= $o['payment_dt']; ?>">
+                    </div>
+                </div>
                 <div class="col note">
                     <label for="note">หมายเหตุ : &nbsp;</label>
                     <textarea name="note" id="note" cols="40" rows="4" style="vertical-align:top;" class="bb" value="<?= $o['note']; ?>"></textarea>
-                </div>
-                <div class="row">
-                    <div class="col rein">
-                        ใบเสร็จ : &nbsp;&nbsp;<input type="file" accept="image/*" name="receipt" id="receipt">
-                    </div>
-                    <div class="col">
-                        ใบส่งของ : &nbsp;&nbsp;<input type="file" accept="image/*" name="invoice" id="invoice">
-                    </div>
-                </div>
-                <div class="row-3">
-                    <h6 class="leftpng"><span style="color: red; ">&nbsp*</span>ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB </h6>
                 </div>
                 <br>
                 <div class="col-11 C">
@@ -152,12 +149,11 @@ for ($i = 0; $i < count($op); $i++) {
                     <table class="ma col-10">
                         <thead>
                             <tr>
-                                <th width="10%">ลำดับ</th>
+                                <th width="5%">ลำดับ</th>
                                 <th width="25%">รายการสินค้า</th>
                                 <th width="15%">ราคาต่อหน่วย (บาท)</th>
                                 <th width="15%">จำนวน</th>
                                 <th width="15%">ราคา (บาท)</th>
-                                <th width="15%">วันหมดอายุ</th>
                                 <th width="10%"></th>
                             </tr>
                         </thead>
@@ -170,7 +166,6 @@ for ($i = 0; $i < count($op); $i++) {
                                     <th><?= $b['order_pr'] ?></th>
                                     <th><?= $b['order_amt'] ?></th>
                                     <th><?= $b['order_amt'] * $b['order_pr'] ?></th>
-                                    <th></th>
                                     <th>
                                         <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(<?= $i ?>)"></button>
                                         <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(<?= $i ?>)"></button>
@@ -416,7 +411,8 @@ for ($i = 0; $i < count($op); $i++) {
             data: [<?php echo $json1; ?>]
         }))
     });
+
 </script>
-<script src="./src/js/confirm2.js"></script>
+<script src="./src/js/confirm.js"></script>
 
 </html>

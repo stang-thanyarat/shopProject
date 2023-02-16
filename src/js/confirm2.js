@@ -26,7 +26,7 @@ $("#addproduct").submit(function (event) {
         amount: $('#order_amt').val(),
         expdate: $('#exp_date').val(),
         allPrice: Number($('#order_pr').val()) * Number($('#order_amt').val()),
-        id: -1
+        id: -1,
     })
     localStorage.setItem("tableProduct", JSON.stringify(tableObj))
     $('#product_id').val("")
@@ -91,7 +91,7 @@ $("#editaddproduct").submit(function (event) {
         amount: $('#editorder_amt').val(),
         expdate: $('#editexp_date').val(),
         allPrice: $('#editall_price_odr').val(),
-        id: tableObj.data[index].id
+        id: tableObj.data[index].id,
     }
     localStorage.setItem("tableProduct", JSON.stringify(tableObj))
     let rows = tableObj.data
@@ -138,7 +138,7 @@ $("#addprice").submit(function (event) {
     tableObj.data.push({
         listOther: $('#listother').val(),
         priceOther: $('#priceother').val(),
-        id: -1
+        id: -1,
 
     })
     localStorage.setItem("tablePrice", JSON.stringify(tableObj))
@@ -192,7 +192,7 @@ $("#editaddprice").submit(function (event) {
     tableObj.data[index] = {
         listOther: $('#editlistother').val(),
         priceOther: $('#editpriceother').val(),
-        id: tableObj.data[index].id
+        id: tableObj.data[index].id,
     }
     localStorage.setItem("tablePrice", JSON.stringify(tableObj))
     let rows = tableObj.data

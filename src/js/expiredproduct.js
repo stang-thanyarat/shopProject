@@ -1,27 +1,4 @@
-/*$("#search").click(async function () {
-    if ($("#date").val() != "" && $("#category_id").val() !== "all") {
-        let url = `./controller/ExpireProduct.php?category_id=${$("#category_id").val()}&date=${$("#date").val()}`
-        const product = await (await fetch(url)).json()
-        setUI(product)
-    }
-    else if ($("#date").val() != "" && $("#keyword").val() !== "") {
-        let url = `./controller/ExpireProduct.php`
-        const product = await (await fetch(url)).json()
-        setUI(product)
-    }else {
-        let url = './controller/ExpireProduct.php'
-        if ($("#keyword").val() !== "") {
-            url += `?keyword=${$("#keyword").val()}`
-        }
-        if($("#date").val() !== ''){
-            url += `&date=${$("#date").val()}`
-        }
-        const product = await (await fetch(url)).json()
-        setUI(product)
-    }
-});*/
-
-$("#category_id").change(async function () {
+/*$("#category_id").change(async function () {
     if ($("#category_id").val() !== "all") {
         let url = `./controller/ExpireProduct.php?category_id=${$("#category_id").val()}`
         if ($("#keyword").val() !== "") {
@@ -71,11 +48,54 @@ $("#keyword").keyup(async function () {
 });
 
 $("#date").change(async function(){
-        const product = await (await fetch('./controller/ExpireProduct.php')).json()
-        setUI(product,true)
-})
+    const product = await (await fetch('./controller/ExpireProduct.php')).json()
+    setUI(product,true)
+})*/
 
-function getDiff(T,D) {
+$("#search").click(async function () {
+    if ($("#category_id").val() == "all" && $("#keyword").val() !== "" && $("#date").val() == "") {
+        let url = `./controller/ExpireProduct.php?keyword=${$("#keyword").val()}`
+        const product = await (await fetch(url)).json()
+        setUI(product,true)
+    }
+    else if ($("#category_id").val() !== "all" && $("#keyword").val() == "" && $("#date").val() == "") {
+        let url = `./controller/ExpireProduct.php?category_id=${$("#category_id").val()}`
+        const product = await (await fetch(url)).json()
+        setUI(product,true)
+    }
+    else if ($("#category_id").val() == "all" && $("#keyword").val() == "" && $("#date").val() !== "") {
+        let url = `./controller/ExpireProduct.php?date=${$("#date").val()}`
+        const product = await (await fetch(url)).json()
+        setUI(product,true)
+    }
+    else if ($("#category_id").val() !== "all" && $("#keyword").val() !== "" && $("#date").val() == "") {
+        let url = `./controller/ExpireProduct.php?category_id=${$("#category_id").val()}&keyword=${$("#keyword").val()}`
+        const product = await (await fetch(url)).json()
+        setUI(product,true)
+    }
+    else if ($("#category_id").val() !== "all" && $("#keyword").val() == "" && $("#date").val() !== "") {
+        let url = `./controller/ExpireProduct.php?category_id=${$("#category_id").val()}&date=${$("#date").val()}`
+        const product = await (await fetch(url)).json()
+        setUI(product,true)
+    }
+    else if ($("#category_id").val() == "all" && $("#keyword").val() !== "" && $("#date").val() !== "") {
+        let url = `./controller/ExpireProduct.php?keyword=${$("#keyword").val()}&date=${$("#date").val()}`
+        const product = await (await fetch(url)).json()
+        setUI(product,true)
+    }
+    else if ($("#category_id").val() !== "all" && $("#keyword").val() !== "" && $("#date").val() !== "") {
+        let url = `./controller/ExpireProduct.php?category_id=${$("#category_id").val()}&keyword=${$("#keyword").val()}&date=${$("#date").val()}`
+        const product = await (await fetch(url)).json()
+        setUI(product,true)
+    }
+    else if ($("#category_id").val() == "all" && $("#keyword").val() == "" && $("#date").val() == "") {
+        let url = `./controller/ExpireProduct.php`
+        const product = await (await fetch(url)).json()
+        setUI(product,true)
+    }
+});
+
+function getDiff(T, D) {
     const days = (date_1, date_2) => {
         let difference = date_1.getTime() - date_2.getTime();
         let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
@@ -95,15 +115,15 @@ $(document).ready(function () {
     start()
 });
 
-function setUI(data,f=false) {
+function setUI(data, f = false) {
     let c = 0
     $('#expireTable').html('')
     data.forEach((element, i) => {
-     if(f){
-         if(getDiff($('#date').val(),element.exp_date)==0){
-             c++
-             $('#expireTable').append(`<tr id="rr${i + 1}">
-        <th><img src="${element.product_img}" width="400"></th>
+        if (f) {
+            if (getDiff(new Date().toDateString(), element.exp_date) >= -20000) {
+                c++
+                $('#expireTable').append(`<tr id="rr${i + 1}">
+        <th><img src="${element.product_img}" style="width: 250px; padding: 10px;" ></th>
         <th>${element.product_name}</th>
         <th>${element.datereceive}</th>
         <th>${element.exp_date}</th>
@@ -112,12 +132,12 @@ function setUI(data,f=false) {
         <th>${element.amount_exp}</th>
         <th><button type="button" class="bgs"  onclick="del(${element.stock_id},${element.amount_exp},${element.product_id})"><img src="./src/images/icon-delete.png" width="25"></button></th>
     </tr>`)
-         }
-     }else{
-         if(getDiff(new Date().toDateString(),element.exp_date)>=-60){
-             c++
-             $('#expireTable').append(`<tr id="rr${i + 1}">
-        <th><img src="${element.product_img}" width="400"></th>
+            }
+        } else {
+            if (getDiff(new Date().toDateString(), element.exp_date) >= -60) {
+                c++
+                $('#expireTable').append(`<tr id="rr${i + 1}">
+        <th><img src="${element.product_img}" style="width: 250px; padding: 10px;"></th>
         <th>${element.product_name}</th>
         <th>${element.datereceive}</th>
         <th>${element.exp_date}</th>
@@ -126,8 +146,8 @@ function setUI(data,f=false) {
         <th>${element.amount_exp}</th>
         <th><button type="button" class="bgs"  onclick="del(${element.stock_id},${element.amount_exp},${element.product_id})"><img src="./src/images/icon-delete.png" width="25"></button></th>
     </tr>`)
-         }
-     }
+            }
+        }
     });
     if (c <= 0) {
         $('#no-let').show()
@@ -138,7 +158,7 @@ function setUI(data,f=false) {
     }
 }
 
-function del(id,q,product_id) {
+function del(id, q, product_id) {
     Swal.fire({
         title: 'คำเตือน',
         text: "คุณต้องการรายการใบสั่งซื้อใช่หรือไม่",
@@ -164,7 +184,7 @@ function del(id,q,product_id) {
             await fetch("./controller/Stock.php", requestOptions)
             var formdata1 = new FormData();
             formdata1.append("q", q);
-            formdata1.append("product_id", product_id );
+            formdata1.append("product_id", product_id);
             formdata1.append("form_action", "cut");
             formdata1.append("table", "product");
             requestOptions = {
