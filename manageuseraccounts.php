@@ -63,7 +63,7 @@ function getFullRole($role)
                         <th>นามสกุล</th>
                         <th>ตำแหน่ง</th>
                         <th>สถานะการใช้งาน</th>
-                        <th></th>
+                        <th><img src="./src/images/edit.png" width="25"></th>
                     </tr>
                     <tbody id='useraccountTable'></tbody>
                 </table>

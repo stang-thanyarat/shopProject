@@ -49,8 +49,8 @@ function setUI(data) {
             $('#notification_amtTable').append(`<tr id="rr${i}">
         <th><img src="${element.product_img}" width="250"></th>
         <th>${element.product_name}</th>
-        <th>${element.price}</th>
-        <th>${element.product_rm_unit}</th>
+        <th>${element.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+        <th>${element.product_rm_unit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
         <th>
             <label class="switch">
             <input type="checkbox" id="${element.product_id}" ${element.sales_status == 1 && element.product_rm_unit > 0 ? "checked" : ""} ${element.sales_status == 0 ? 'disabled' : ''} onchange="setStatus(${element.product_id})">

@@ -90,7 +90,7 @@ while ($r != 0) {
                         <tr>
                             <th><?= $i ?></th>
                             <th><?= $row['name'] ?></th>
-                            <th><?= $row['count'] ?></th>
+                            <th><?= number_format($row['count'])?></th>
                         </tr>
                         <?php $i++; } ?>
                     </tbody>

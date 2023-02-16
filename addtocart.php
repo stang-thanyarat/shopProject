@@ -97,21 +97,21 @@ include_once('nav.php');
                 <div class="modal-body">
                     <div class="row">
                         <div class="col allprice">
-                            จำนวนทั้งหมด :<font color="red">&nbsp*</font>
+                            จำนวนทั้งหมด :<span style="color: red; ">&nbsp*</span>
                             <input type="text" name="all_quantity" class="inbox all_quantity" required />
                             &nbsp&nbspชิ้น
                         </div>
                     </div>
                     <div class="row">
                         <div class="col allprice">
-                            ยอดรวมทั้งหมด :<font color="red">&nbsp*</font>
+                            ยอดรวมทั้งหมด :<span style="color: red; ">&nbsp*</span>
                             <input type="text" name="all_price" class="inbox all_price" required />
                             &nbsp&nbspบาท
                         </div>
                     </div>
                     <div class="row">
                         <div class="col receivecash">
-                            เงินที่รับมา :<font color="red">&nbsp*</font>
+                            เงินที่รับมา :<span style="color: red; ">&nbsp*</span>
                             <input type="text" id="receivecash" class="inbox" required />
                             &nbsp&nbspบาท
                         </div>
@@ -148,14 +148,14 @@ include_once('nav.php');
             <div class="modal-body">
                 <div class="row">
                     <div class="col allprice">
-                        จำนวนทั้งหมด :<font color="red">&nbsp*</font>
+                        จำนวนทั้งหมด :<span style="color: red; ">&nbsp*</span>
                         <input type="text" name="all_quantity" class="inbox all_quantity" required />
                         &nbsp&nbspชิ้น
                     </div>
                 </div>
                 <div class="row">
                     <div class="col allprice">
-                        ยอดรวมทั้งหมด :<font color="red">&nbsp*</font>
+                        ยอดรวมทั้งหมด :<span style="color: red; ">&nbsp*</span>
                         <input type="text" name="all_price" class="inbox all_price" required />
                         &nbsp&nbspบาท
                     </div>

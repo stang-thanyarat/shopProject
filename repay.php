@@ -36,12 +36,13 @@ function getFullRole($role)
     <link rel="stylesheet" href="./src/css/repay.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    
+
 </head>
 <?php
 include_once('nav.php');
-include_once ('./database/Contract.php');
-include_once ('./database/DebtPaymentDetails.php');
+include_once('./database/Contract.php');
+include_once('./database/DebtPaymentDetails.php');
+include_once './service/datetimeDisplay.php';
 $c = new Contract();
 $pay = new DebtPaymentDetails();
 $rows = $c->fetchById($_GET['id']);
@@ -85,18 +86,18 @@ for ($i = 0; $i < count($$rows); $i++) {
                     <div class="col-xl-6">รหัสบัตรประชาชน&nbsp;: <b><?= $rows['customer_img'] ?></b></div>
                 </div>
                 <div class="row c">
-                    <div class="col-xl-6">วันที่ทำสัญญา&nbsp;: <b><?= $rows['date_contract'] ?></b></div>
-                    <div class="col-xl-6">วันที่ครบกำหนด&nbsp;: <b><?= $rows['date_due'] ?></b></div>
+                    <div class="col-xl-6">วันที่ทำสัญญา&nbsp;: <b><?= dateTimeDisplay($rows['date_contract']) ?></b></div>
+                    <div class="col-xl-6">วันที่ครบกำหนด&nbsp;: <b><?= dateTimeDisplay($rows['date_due']) ?></b></div>
                 </div>
                 <div class="row c">
-                    <div class="col-xl-6">เงินต้น&nbsp;: <b><?= $rowa[0]['outstanding'] ?></b></div>
+                    <div class="col-xl-6">เงินต้น&nbsp;: <b><?= number_format($rowa[0]['outstanding']) ?></b></div>
                 </div>
                 <div class="row c">
-                    <div class="col-xl-6 ">คงค้าง&nbsp;: <b><?= end($rowa)['outstanding'] ?></b></div>
-                    <div class="col-xl-6 ">ดอกเบี้ย&nbsp;: <b><?=$_SESSION['interest']?>&nbsp;%</b></div>
+                    <div class="col-xl-6 ">คงค้าง&nbsp;: <b><?= number_format(end($rowa)['outstanding']) ?></b></div>
+                    <div class="col-xl-6 ">ดอกเบี้ย&nbsp;: <b><?= $_SESSION['interest'] ?>&nbsp;%</b></div>
                 </div>
                 <div class="row B">
-                    <div class=" col-12 d-flex justify-content-end">
+                    <div class=" col-12 d-flex justify-content-end" style="margin-left: 3.5rem;">
                         <button type="button" onclick="payMode()" class="btn1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm">เพิ่ม</button>
                     </div>
                 </div>
@@ -113,25 +114,26 @@ for ($i = 0; $i < count($$rows); $i++) {
                         </tr>
                     </thead>
                     <tbody id="list-repay">
-                    <?php foreach ($rowa as $r){ $outstanding= $r['outstanding']; ?>
-                        <tr>
-                            <th><?= $r['repayment_date'] ?></th>
-                            <th><?= $r['payment'] ?></th>
-                            <th><?= $r['slip_img'] ?></th>
-                            <th><?= $r['payment_amount'] ?></th>
-                            <th><?= $r['deduct_principal'] ?></th>
-                            <th><?= $r['less_interest'] ?></th>
-                            <th><?= $r['outstanding'] ?></th>
-                        </tr>
-                    <?php }?>
+                        <?php foreach ($rowa as $r) {
+                            $outstanding = $r['outstanding']; ?>
+                            <tr>
+                                <th><?= toDay($r['repayment_date']) ?></th>
+                                <th><?= $r['payment'] ?></th>
+                                <th><?= $r['slip_img'] ?></th>
+                                <th><?= number_format($r['payment_amount']) ?></th>
+                                <th><?= number_format($r['deduct_principal']) ?></th>
+                                <th><?= number_format($r['less_interest']) ?></th>
+                                <th><?= number_format($r['outstanding']) ?></th>
+                            </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
                 <div class="row btn-g">
-                    <div class="col-2 mm">
-                       <?php if($outstanding>0){ ?> <input data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm" type="button" class="btn-c outdebt" value="หมดหนี้"  onclick="clearDebt()" /><?php }?>
+                    <div class="col-2">
+                        <?php if ($outstanding > 0) { ?> <input data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm" type="button" class="btn-c outdebt" value="หมดหนี้" onclick="clearDebt()" /><?php } ?>
                     </div>
                 </div>
-        </div>
+            </div>
     </form>
     <!---modal เพิ่มการชำระหนี้-->
     <div id="payment_modal" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
@@ -146,28 +148,35 @@ for ($i = 0; $i < count($$rows); $i++) {
                     </div>
                     <div class="modal-body">
 
-                        <div class="col-12 p">
-                            วันที่ชำระ: &nbsp;
-                            <input value="<?=date('Y-m-d')?>" type="date" class="t" name="repaymentdate" id="repaymentdate" required />
+                        <div class="row-12 t">
+                            วันที่ชำระ : &nbsp;
+                            <input value="<?= date('Y-m-d') ?>" type="date" class="uu" name="repaymentdate" id="repaymentdate" required />
                         </div>
-
-                        <div class="col-12 p">
-                            วิธีการชำระ: &nbsp;
-                            <select name="payment_sl" id="payment_sl" style="background-color: #7C904E;">
+                        <div class="row-12">
+                            วิธีการชำระ : &nbsp;
+                            <select name="payment_sl" id="payment_sl" class="u" style="background-color: #D4DDC6;">
                                 <option value="เงินสด">เงินสด</option>
                                 <option value="โอนเงิน">โอนเงิน</option>
                             </select>
                         </div>
-                        <div class="col-12 r" id="slip_upload">
-                            ไฟล์แนบ: &nbsp;
-                            <input accept="image/*" type="file" name="slip" id="slip" />
+                        <div class="row-12 r" id="slip_upload">
+                            ไฟล์แนบ : &nbsp;
+                            <input accept="image/*" class="tt" type="file" name="slip" id="slip" />
+                            <h6 class="tt d-flex text-align: center;"><span style="color: red; ">&nbsp*</span>ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h6>
                         </div>
-
-                        ยอดที่ชำระ: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="paymentamount" id="paymentamount" required /></div>
-                        หักเงินต้น: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="deduct" id="deduct" required readonly/></div>
-                        หักดอกเบี้ย: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0" step="0.25" name="lessinterest" id="lessinterest" required readonly/></div>
-                        คงค้าง: &nbsp;<div class="col-12 p"> <input type="number" class="u" min="0.25" step="0.25" name="outstanding" id="outstanding" required readonly/></div>
-
+                        <br>
+                        <div class="row-12 t">
+                        ยอดที่ชำระ : &nbsp;<input type="number" class="u" min="0.25" step="0.25" name="paymentamount" id="paymentamount" required />
+                        </div>
+                        <div class="row-12 t">
+                        &nbsp;&nbsp;หักเงินต้น : &nbsp;<input type="number" class="u" min="0.25" step="0.25" name="deduct" id="deduct" required readonly />
+                        </div>
+                        <div class="row-12 t">
+                        หักดอกเบี้ย : &nbsp;<input type="number" class="u" min="0" step="0.25" name="lessinterest" id="lessinterest" required readonly />
+                        </div>
+                        <div class="row-12 t">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;คงค้าง : &nbsp;<input type="number" class="u" min="0.25" step="0.25" name="outstanding" id="outstanding" required readonly />
+                        </div>
                         <div class="modal-footer">
                             <button type="submit" id="addrepay" class="btn btn-primary1">ตกลง</button>
                         </div>
@@ -179,5 +188,11 @@ for ($i = 0; $i < count($$rows); $i++) {
 </body>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./src/js/repay.js"></script>
-<script> getAllprice(<?=$outstanding?>);getDate('<?= $rows['date_contract'] ?>');getInterest(<?=$_SESSION['interest']?>);getDiff() </script>
+<script>
+    getAllprice(<?= $outstanding ?>);
+    getDate('<?= $rows['date_contract'] ?>');
+    getInterest(<?= $_SESSION['interest'] ?>);
+    getDiff()
+</script>
+
 </html>

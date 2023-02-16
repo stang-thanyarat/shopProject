@@ -82,9 +82,9 @@ function setUI(data) {
             <img style="width: 275px; height: 275px; padding-top: 15px; padding-bottom: 15px; padding-left: 15px; padding-right: 15px;" src="${element.product_img}">
         </th>
         <th style="border-left: 1px; border-right: 1px;">${element.product_name}</th>
-        <th style="border-left: 1px; border-right: 1px;">${element.price}</th>
-        <th style="border-left: 1px; border-right: 1px;">${element.quantity}</th>
-        <th style="border-left: 1px; border-right: 1px;">${Number(element.price) * Number(element.quantity)}</th>
+        <th style="border-left: 1px; border-right: 1px;">${element.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+        <th style="border-left: 1px; border-right: 1px;">${element.quantity.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+        <th style="border-left: 1px; border-right: 1px;">${(Number(element.price) * Number(element.quantity)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
         <th style="border-left: 1px;" >
         <div class="d-flex justify-content-center">
             <button type="button" class="bgs topic_BTAJ" onclick="del(${element.product_id})"><img src="./src/images/icon-delete.png" class="delete" width="30"></button>

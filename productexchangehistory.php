@@ -81,7 +81,7 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                                     <th><?= dateTimeDisplay($row['exchange_date']) ?></th>
                                     <th><?= ShowTime($row['exchange_date']) ?></th>
                                     <th id="text<?= $row['product_id'] ?>"><?= $row['product_name'] ?></th>
-                                    <th><?= $row['exchange_amount'] ?></th>
+                                    <th><?= number_format($row['exchange_amount']) ?></th>
                                     <th><?= $row['exchange_status'] == 1 ? "<a type='button' onclick='wait()'><font color=#A36627>รอของ</font></a>" : "สำเร็จ"; ?>
                                     </th>
                                     <th>

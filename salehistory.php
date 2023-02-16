@@ -80,8 +80,8 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                             <th><?= dateTimeDisplay($row['sales_dt']) ?></th>
                             <th><?= ShowTime($row['sales_dt']) ?></th>
                             <th><a href="<?= $row['payment_sl'] != 'ผ่อนชำระ' ? './service/PDF/template/receipt.php?id='.$row['sales_list_id']: './service/PDF/template/invoice.php?id='.$row['contract_code'] ?>"><img src="./src/images/print.png" class="g" width="25"></a></th>
-                            <th><?= $row['all_quantity'] ?></th>
-                            <th><?= $row['all_price']?></th>
+                            <th><?= number_format($row['all_quantity']) ?></th>
+                            <th><?= number_format($row['all_price'])?></th>
                             <th><?= $row['payment_sl'] ?></th>
                         </tr>
                     <?php } ?>

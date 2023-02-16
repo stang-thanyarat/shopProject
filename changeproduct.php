@@ -47,7 +47,7 @@ include_once('nav.php'); ?>
                 <h1>ตั้งค่าการเปลี่ยนสินค้า</h1>
                 <table class="main col-10">
                     <tr>
-                        <th>ระยะเวลาที่รับเปลี่ยนสินค้า &nbsp<input type="text" name="day_change" id="day_change" value="<?= $_SESSION['day_change']; ?>" required>
+                        <th>ระยะเวลาที่รับเปลี่ยนสินค้า &nbsp<input type="text" name="day_change" id="day_change" style="width: 3%; text-align: right;" value="<?= $_SESSION['day_change']; ?> " >
                             &nbsp วัน
                         </th>
                     </tr>
