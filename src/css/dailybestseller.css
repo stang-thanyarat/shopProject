@@ -11,26 +11,24 @@
 
 .main {
     margin-top: 6rem;
-    margin-left: 4rem;
+    margin-left: 7rem;
 }
 
 .Nbar {
     margin-top: 3.5rem;
 }
 
-.mai {
-    margin-left: 30rem;
+.date{
+    text-align: end;
+    margin-right: 2rem;
 }
 
 .dailybestsellerTable {
-    margin-left: 10rem;
+    margin-left: 7rem;
     margin-top: 2rem;
     margin-bottom: 3rem;
 }
 
-.searchdate{
-    margin-left: 1rem;
-}
 
 .search {
      margin-left: 3.5rem;
@@ -42,7 +40,29 @@ th {
     border: 1px solid black;
     text-align: center;
     height: 50px;
-    padding: 1rem;
+    padding: 10px;
+}
+
+.reset {
+    background-color: #C4C4C4;
+    color: black;
+    border: 0ch;
+    margin-left: 0rem;
+}
+
+.btn-c {
+    border-radius: 25px 25px 25px 25px;
+    width: 20%;
+}
+
+.btn-c1 {
+    border-radius: 25px 25px 25px 25px;
+    width: 50%;
+}
+
+.category{
+    margin-right: 2rem;
+    text-align: center;
 }
 
 table {
@@ -77,6 +97,7 @@ select {
     background-color: #F8E4C8;
     font-size: 16pt;
     height: 100%;
+    width: 48%;
 }
 
 .btn {

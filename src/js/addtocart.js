@@ -94,10 +94,10 @@ function setUI(data) {
         </div>
         </th>
     </tr>`)
-        $("#allprice").text(allprice)
-        $(".all_price").val(allprice)
-        $("#allquantity").text(allquantity)
-        $(".all_quantity").val(allquantity)
+        $("#allprice").text(allprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
+        $(".all_price").val(allprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
+        $("#allquantity").text(allquantity.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
+        $(".all_quantity").val(allquantity.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
     });
     console.log(data)
 }

@@ -12,21 +12,17 @@
 .main {
     margin-top: 5rem;
     margin-left: 4rem;
-    width: 85%;
 }
 
 .Nbar {
     margin-top: 3.5rem;
 }
 
-.ma {
-    margin-top: 1rem;
-    margin-left: 35rem;
-}
-
-.mai {
+.tb{
     margin-top: 2rem;
     margin-left: 4rem;
+    margin-bottom: 6rem;
+    width: 93%;
 }
 
 table,
@@ -38,12 +34,23 @@ th {
 
 table {
     border-collapse: collapse;
-    width: 92%;
+    width: 100%;
+
 }
 
 th {
     height: 50px;
 }
+
+.date{
+    text-align: end;
+    margin-left: -3rem;
+}
+
+.category{
+    text-align: end;
+}
+
 
 select {
     background-color: #ABBE99;
@@ -64,18 +71,8 @@ option {
     border-radius: 25px 25px 25px 25px;
     background-color: #F8E4C8;
     font-size: 13pt;
-    height: 97%;
-
-}
-
-.search {
-    background: transparent;
-    border: 0px;
-    margin-left: -2rem;
-}
-
-.w {
-    margin-left: -2rem;
+    height: 120%;
+    margin-right: 1rem;
 }
 
 
@@ -112,4 +109,21 @@ option {
 .modal-body {
     margin-top: 1rem;
     margin-left: 1rem;
+}
+
+.reset {
+    background-color: #C4C4C4;
+    color: black;
+    border: 0ch;
+    margin-left: 0rem;
+}
+
+.btn-c {
+    border-radius: 25px 25px 25px 25px;
+    width: 20%;
+}
+
+.btn-c1 {
+    border-radius: 25px 25px 25px 25px;
+    width: 50%;
 }

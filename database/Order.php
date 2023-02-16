@@ -225,7 +225,7 @@ class Order
         }
     }
 
-    public function updatecomfirm($data)
+    public function updateconfirm($data)
     {
         try {
             $sql = "UPDATE order_tb

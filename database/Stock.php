@@ -32,25 +32,12 @@ class Stock
     public function fetchAllDate($date)
     {
        try{
-           $sql = "SELECT S.*,P.*,O.* FROM stock_tb S,product_tb P, order_tb O WHERE S.product_id =  P.product_id AND S.order_id = O.order_id AND S.exp_date = ? ORDER BY S.exp_date DESC";
+           $sql = "SELECT S.*,P.*,O.* FROM stock_tb S,product_tb P, order_tb O WHERE S.product_id =  P.product_id AND S.order_id = O.order_id AND S.exp_date LIKE ? ORDER BY S.exp_date DESC";
            $stmt = $this->conn->prepare($sql);
-           $stmt->bindParam(1, $date, PDO::PARAM_STR);
+           $like = "%$date%";
+           $stmt->bindParam(1, $like, PDO::PARAM_STR);
            $stmt->execute();
            $result = $stmt->fetchAll();
-           $dup = [];
-           $res = [];
-           foreach ($result as $r) {
-               if (!in_array($r['product_id'], $dup)) {
-                   $r['count']=1;
-                   $res[] = $r;
-                   $dup[] = $r['product_id'];
-               }else{
-                   $i = array_search($r['product_id'], $dup);
-                   $res[$i]['count']++;
-                   $res[$i]['amount_exp'] += $r['amount_exp'];
-               }
-           }
-           $result = $res;
            if (!$result) {
                return [];
            } else {
@@ -65,29 +52,16 @@ class Stock
     public function fetchAllCondition($date,$id,$keyword)
     {
     try{
-        $sql = "SELECT S.*,OD.*,O.order_id,O.datereceive,P.* FROM stock_tb S,order_details_tb OD,order_tb O,product_tb P WHERE S.stock_id = OD.unique_id = O.order_id = P.product_id AND P.category_id = ?
-                AND S.exp_date = ? AND P.product_name LIKE ? ORDER BY S.exp_date DESC   ";
+        $sql = "SELECT S.*,P.*,O.* FROM stock_tb S,product_tb P, order_tb O WHERE S.product_id =  P.product_id AND S.order_id = O.order_id AND P.category_id = ?
+                AND S.exp_date LIKE ? AND P.product_name LIKE ? ORDER BY S.exp_date DESC   ";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(1, $id, PDO::PARAM_INT);
-        $stmt->bindParam(2, $date, PDO::PARAM_STR);
-        $like = "%" . $keyword . "%";
-        $stmt->bindParam(3, $like, PDO::PARAM_STR);
+        $like = "%$date%";
+        $stmt->bindParam(2, $like, PDO::PARAM_STR);
+        $like2 = "%$keyword%";
+        $stmt->bindParam(3, $like2, PDO::PARAM_STR);
         $stmt->execute();
         $result = $stmt->fetchAll();
-        $dup = [];
-        $res = [];
-        foreach ($result as $r) {
-            if (!in_array($r['product_id'], $dup)) {
-                $r['count']=1;
-                $res[] = $r;
-                $dup[] = $r['product_id'];
-            }else{
-                $i = array_search($r['product_id'], $dup);
-                $res[$i]['count']++;
-                $res[$i]['amount_exp'] += $r['amount_exp'];
-            }
-        }
-        $result = $res;
         if (!$result) {
             return [];
         } else {
@@ -104,10 +78,10 @@ class Stock
        try{
            $like = "%$keyword%";
            if (is_null($id)) {
-               $sql = "SELECT S.*,OD.*,O.order_id,O.datereceive,P.* FROM stock_tb S,order_details_tb OD,order_tb O,product_tb P WHERE S.stock_id = OD.unique_id = O.order_id = P.product_id  AND product_name LIKE ?";
+               $sql = "SELECT S.*,P.*,O.* FROM stock_tb S,product_tb P, order_tb O WHERE S.product_id =  P.product_id AND S.order_id = O.order_id AND P.product_name LIKE ?";
 
            } else {
-               $sql = "SELECT S.*,OD.*,O.order_id,O.datereceive,P.* FROM stock_tb S,order_details_tb OD,order_tb O,product_tb P WHERE S.stock_id = OD.unique_id = O.order_id = P.product_id AND  P.category_id = ?  AND product_name LIKE ? ";
+               $sql = "SELECT S.*,P.*,O.* FROM stock_tb S,product_tb P, order_tb O WHERE S.product_id =  P.product_id AND S.order_id = O.order_id AND P.category_id = ?  AND P.product_name LIKE ? ";
            }
            $sql .= ' ORDER BY S.exp_date DESC' ;
            $stmt = $this->conn->prepare($sql);
@@ -119,20 +93,6 @@ class Stock
            }
            $stmt->execute();
            $result = $stmt->fetchAll();
-           $dup = [];
-           $res = [];
-           foreach ($result as $r) {
-               if (!in_array($r['product_id'], $dup)) {
-                   $r['count']=1;
-                   $res[] = $r;
-                   $dup[] = $r['product_id'];
-               }else{
-                   $i = array_search($r['product_id'], $dup);
-                   $res[$i]['count']++;
-                   $res[$i]['amount_exp'] += $r['amount_exp'];
-               }
-           }
-           $result = $res;
            if (!$result) {
                return [];
            } else {
@@ -147,28 +107,15 @@ class Stock
     public function fetchAllDateAndKeyword($date,$keyword)
     {
         try{
-            $sql = "SELECT S.*,OD.*,O.order_id,O.datereceive,P.* FROM stock_tb S,order_details_tb OD,order_tb O,product_tb P WHERE S.stock_id = OD.unique_id = O.order_id = P.product_id  
-                AND S.exp_date = ? AND P.product_name LIKE ? ORDER BY S.exp_date DESC ";
+            $sql = "SELECT S.*,P.*,O.* FROM stock_tb S,product_tb P, order_tb O WHERE S.product_id =  P.product_id AND S.order_id = O.order_id  
+                AND S.exp_date LIKE ? AND P.product_name LIKE ? ORDER BY S.exp_date DESC ";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(1, $date, PDO::PARAM_STR);
-            $like = "%" . $keyword . "%";
-            $stmt->bindParam(2, $like, PDO::PARAM_STR);
+            $like = "%$date%";
+            $stmt->bindParam(1, $like, PDO::PARAM_STR);
+            $like2 = "%$keyword%";
+            $stmt->bindParam(2, $like2, PDO::PARAM_STR);
             $stmt->execute();
             $result = $stmt->fetchAll();
-            $dup = [];
-            $res = [];
-            foreach ($result as $r) {
-                if (!in_array($r['product_id'], $dup)) {
-                    $r['count']=1;
-                    $res[] = $r;
-                    $dup[] = $r['product_id'];
-                }else{
-                    $i = array_search($r['product_id'], $dup);
-                    $res[$i]['count']++;
-                    $res[$i]['amount_exp'] += $r['amount_exp'];
-                }
-            }
-            $result = $res;
             if (!$result) {
                 return [];
             } else {
@@ -183,31 +130,18 @@ class Stock
     public function fetchAllDateAndId($date,$id)
     {
        try{
-           $sql = "SELECT S.*,OD.*,O.order_id,O.datereceive,P.* FROM stock_tb S,order_details_tb OD,order_tb O,product_tb P WHERE S.stock_id = OD.unique_id = O.order_id = P.product_id AND  P.category_id = ?
-                AND S.exp_date = ? ORDER BY S.exp_date DESC ";
+           $sql = "SELECT S.*,P.*,O.* FROM stock_tb S,product_tb P, order_tb O WHERE S.product_id =  P.product_id AND S.order_id = O.order_id AND P.category_id = ? AND S.exp_date LIKE ? ORDER BY S.exp_date DESC ";
            $stmt = $this->conn->prepare($sql);
            $stmt->bindParam(1, $id, PDO::PARAM_INT);
-           $stmt->bindParam(2, $date, PDO::PARAM_STR);
+           $like = "%$date%";
+           $stmt->bindParam(2, $like, PDO::PARAM_STR);
            $stmt->execute();
            $result = $stmt->fetchAll();
            if (!$result) {
                return [];
+           } else {
+               return $result;
            }
-           $dup = [];
-           $res = [];
-           foreach ($result as $r) {
-               if (!in_array($r['product_id'], $dup)) {
-                   $r['count']=1;
-                   $res[] = $r;
-                   $dup[] = $r['product_id'];
-               }else{
-                   $i = array_search($r['product_id'], $dup);
-                   $res[$i]['count']++;
-                   $res[$i]['amount_exp'] += $r['amount_exp'];
-               }
-           }
-           $result = $res;
-           return $result;
        } catch (Exception $e) {
            http_response_code(500);
            return [];
@@ -217,25 +151,16 @@ class Stock
     public function fetchById($id)
     {
         try{
-            $sql = "SELECT P.*,O.order_id,O.datereceive,S.* FROM order_tb O,stock_tb S,product_tb P WHERE P.product_id = S.product_id AND P.category_id = ? ORDER BY S.exp_date DESC";
+            $sql = "SELECT S.*,P.*,O.* FROM stock_tb S,product_tb P, order_tb O WHERE S.product_id =  P.product_id AND S.order_id = O.order_id AND P.category_id = ? ORDER BY S.exp_date DESC";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
             $result = $stmt->fetchAll();
             if (!$result) {
                 return [];
+            } else {
+                return $result;
             }
-            $dup = [];
-            $res = [];
-            foreach ($result as $r) {
-                if (!in_array($r['stock_id'], $dup)) {
-                    $r['count']=1;
-                    $res[] = $r;
-                    $dup[] = $r['stock_id'];
-                }
-            }
-            $result = $res;
-            return  $result;
         } catch (Exception $e) {
             http_response_code(500);
             return [];

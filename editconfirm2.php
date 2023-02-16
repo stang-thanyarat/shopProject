@@ -133,7 +133,7 @@ for ($i = 0; $i < count($op); $i++) {
                 </div>
                 <div class="row">
                     <div class="col rein">
-                        ใบเสร็จ : &nbsp;&nbsp;<input type="file" accept="image/*" name="receiptorinvoice" id="receiptorinvoice">
+                        ใบเสร็จ : &nbsp;&nbsp;<input type="file" accept="image/*" name="receipt" id="receipt">
                     </div>
                     <div class="col">
                         ใบส่งของ : &nbsp;&nbsp;<input type="file" accept="image/*" name="invoice" id="invoice">
