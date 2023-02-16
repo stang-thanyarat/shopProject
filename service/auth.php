@@ -71,13 +71,13 @@ function logout()
         $day_change = $_SESSION['day_change'];
     }
     if (!isset($_SESSION['shop_name'])) {
-        $name = "ร้าน ABC";
+        $name = "วรเชษฐ์เกษตรภัณฑ์";
     }
     if (isset($_SESSION['shop_name'])) {
         $name = $_SESSION['shop_name'] ;
     }
     if (!isset($_SESSION['interest'])) {
-        $interest  = 15;
+        $interest  = 2;
     }
     if (!isset($_SESSION['interest_month'])) {
         $interest_month = 4;
