@@ -39,9 +39,9 @@ th {
 
 
 .btn-g {
-    
     justify-content: end;
     display: flex;
+    margin-right: 4rem;
     margin-top: 2rem;
 }
 
@@ -88,26 +88,30 @@ th {
 }
 
 .r {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-top: 0.5rem;
     width: 200px;
+    margin-bottom: -1rem;
 }
 
 .u {
-    width: 100px;
+    width: 100px ;
 }
 
-.p {
-    width: 120px;
+.uu {
+    width: 149px;
+}
+
+.tt{
+    margin-top: 0.5rem;
 }
 
 .t {
-    width: 120px;
+    margin-bottom: 1rem;
 }
 
 .modal-header {
     background-color: #7C904E;
-    height: 50px;
+    height: 55px;
 }
 
 .modal-title {
@@ -115,7 +119,7 @@ th {
 }
 
 .modal-body {
-    background-color: #D4DDC6;
+    background-color: #fff;
 }
 
 .btn1 {
@@ -131,6 +135,7 @@ th {
 
 .B {
     margin-right: 6.6rem;
+    
 }
 
 .mm{

@@ -26,9 +26,9 @@ function setUI(data) {
         <th class="index">${i + 1}</th>
         <th><img src="${element.product_img}" style="width: 200px; padding: 10px"></th>
         <th><span id="p${element.product_id}">${element.product_name}</span></th>
-        <th>${element.price}</th>
-        <th>${element.sales_amt}</th>
-        <th>${element.sales_pr}</th>
+        <th>${element.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+        <th>${element.sales_amt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+        <th>${element.sales_pr.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
         <th><a class="bgs" href="./addproductexchange.php?id=${element.product_id}">${element.set_exchange == 1 ? 'เปลี่ยนสินค้า' : ''}</a></th>
     </tr>`)
     });

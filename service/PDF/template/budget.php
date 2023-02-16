@@ -37,6 +37,7 @@ $mpdf = new \Mpdf\Mpdf([
 
 
 include_once('../budget.php');
+include_once '../../datetimeDisplay.php';
 $html = '<html>
 <head>
 <style type="text/css">
@@ -101,7 +102,7 @@ border: 0px;
 <body>
 <table width="1000" border="0px" border="">
   <tr>
-    <td class="setright" colspan="3">วันที่ออกเอกสาร ' . date('d/m/Y') . '</td>
+    <td class="setright" colspan="3">วันที่ออกเอกสาร ' . toDay() . '</td>
   </tr>
   <tr>
     <td class="setcenter" colspan="3"><h2>งบแสดงฐานะการเงิน</h2></td>
@@ -113,7 +114,7 @@ border: 0px;
   </tr>
   <tr>
   <tr>
-    <td class="setcenter"  colspan="3">วันที่ ' . $_POST['firstdate'] . ' - ' . $_POST['lastdate'] . '</td>
+    <td class="setcenter"  colspan="3">วันที่ ' . dateTimeDisplay($_POST['firstdate']) . ' - ' .dateTimeDisplay($_POST['lastdate']) . '</td>
   </tr>
   </tr>
   <tr>
@@ -121,22 +122,22 @@ border: 0px;
   </tr>
   <tr bgcolor="#FBEDD8">
     <td width="70%" stlye="">รวม สินทรัพย์</div>
-    <td align="right" width="20%">' . $_POST['BG1'] + $_POST['BG2'] . '</td>
+    <td align="right" width="20%">' . number_format($_POST['BG1'] + $_POST['BG2']) . '</td>
     <td width="20%">บาท</td>
   </tr>
   <tr bgcolor="#FFF8ED">
   <td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;สินค้าที่พร้อมขาย</div>
-  <td align="right" width="20%">' . $_POST['BG1'] . '</td>
+  <td align="right" width="20%">' . number_format($_POST['BG1']) . '</td>
   <td width="20%">บาท</td>
 </tr>
 <tr bgcolor="#FBEDD8">
   <td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เงินที่ได้รับแล้ว</div>
-  <td align="right" width="20%">' . $_POST['BG2'] . '</td>
+  <td align="right" width="20%">' . number_format($_POST['BG2']) . '</td>
   <td width="20%">บาท</td>
 </tr>
 <tr bgcolor="#FFF8ED">
 <td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เงินที่ยังไม่ได้รับ</div>
-<td align="right" width="20%">' . $_POST['BG2'] . '</td>
+<td align="right" width="20%">' . number_format($_POST['BG2']) . '</td>
 <td width="20%">บาท</td>
 </tr>
 
@@ -145,22 +146,22 @@ border: 0px;
   </tr>
   <tr  bgcolor="#FBEDD8">
     <td  width="70%">รวม หนี้สิน+ทุน &nbsp;</td>
-    <td align="right" width="20%">' . $_POST['BG3'] . '</td>
+    <td align="right" width="20%">' . number_format($_POST['BG3']) . '</td>
     <td width="20%">บาท</td>
   </tr>
   <tr bgcolor="#FFF8ED">
 <td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ทุน </div>
-<td align="right" width="20%">10000</td>
+<td align="right" width="20%">'.number_format($_POST['complete']).'</td>
 <td width="20%">บาท</td>
 </tr>
 <tr bgcolor="#FBEDD8">
 <td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; หนี้สิน(เงินสด)   </div>
-<td align="right" width="20%">'.$_POST['cash'].'</td>
+<td align="right" width="20%">'.number_format($_POST['cash']).'</td>
 <td width="20%">บาท</td>
 </tr>
 <tr bgcolor="#FFF8ED">
 <td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; หนี้สิน(เครดิต)  </div>
-<td align="right" width="20%">' . $_POST['credit'] . '</td>
+<td align="right" width="20%">' . number_format($_POST['credit']) . '</td>
 <td width="20%">บาท</td>
 </tr>
 </table>

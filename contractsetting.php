@@ -24,7 +24,7 @@ function getFullRole($role)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/contractsetting.css" />
-    
+
 </head>
 <?php
 include_once('nav.php');
@@ -74,37 +74,38 @@ $labers = $employee->fetchLabers();
                             <?php } ?>
                         </table>
                     </div>
-                    <p></p>
-                    <p></p>
+                </div>
+                <div class="row mai">
                     <h4>ตั้งค่าการคิดดอกเบี้ย</h4>
-                    <div class="row">
-                        <div class="col-12">เดือนที่เริ่มคิดดอกเบี้ย: &nbsp &nbsp
-                            <select name="interest_month" style="background-color: #D4DDC6;">
-                                <?php for ($i = 1; $i <= 12; $i++) { ?>
-                                    <option value="<?= $i ?>" <?= $i == $_SESSION['interest_month'] ? 'selected' : '' ?>><?= $i ?></option>
-                                <?php } ?>
-                            </select>&nbsp &nbsp% นับจากวันที่ลูกค้าซื้อสินค้า
-                        </div>
-                        <p></p>
-                        <div class="col-12">
-                            ดอกเบี้ยต่อเดือน: &nbsp &nbsp
-                            <input type="text" value="<?= $_SESSION['interest'] ?>" name="interest" id="interest" required>&nbsp;%
-                        </div>
-                        <p></p>
-                        ดอกเบี้ยสูงสุดต่อปี:&nbsp;&nbsp;&nbsp;<?= ($_SESSION['interest'] * (12 - $_SESSION['interest_month']) - 1) ?>&nbsp;%
+                </div>
+                <div class="row mmm">
+                    <div class="col-6">เริ่มคิดดอกเบี้ยเดือนที่ : &nbsp &nbsp
+                        <select name="interest_month" style="background-color: #D4DDC6;">
+                            <?php for ($i = 1; $i <= 12; $i++) { ?>
+                                <option value="<?= $i ?>" <?= $i == $_SESSION['interest_month'] ? 'selected' : '' ?>><?= $i ?></option>
+                            <?php } ?>
+                        </select>&nbsp &nbspนับจากวันที่ลูกค้าซื้อสินค้า
+                    </div>
+                    <p></p>
+                    <div class="col-6">
+                        ดอกเบี้ยต่อเดือน : &nbsp &nbsp
+                        <input type="text" value="<?= $_SESSION['interest'] ?>" name="interest" id="interest" style="width: 8%; text-align: right;">&nbsp;%
+                    </div>
+                    <p></p>
+                    <div class="col-6">
+                        ดอกเบี้ยสูงสุดต่อปี :&nbsp;&nbsp;&nbsp;<?= ($_SESSION['interest'] * (12 - $_SESSION['interest_month']) - 1) ?>&nbsp;&nbsp;%
                         <input type="hidden" value="<?= ($_SESSION['interest'] * (12 - $_SESSION['interest_month']) - 1) ?>" name="interest_year" id="interest_year" readonly> ตามกฎหมาย
                     </div>
-                    <div class="row btn-g">
-                        <div class="col-2">
-                            <button type="button" class="btn-c reset" onclick="javascript:window.location='index.php';">ยกเลิก</button>
-                        </div>
-                        <div class="col-2">
-                            <input type="submit" class="btn-c submit" value="บันทึก" />
-                        </div>
+                </div>
+                <div class="row btn-g">
+                    <div class="col-2">
+                        <button type="button" class="btn-c reset" onclick="javascript:window.location='index.php';">ยกเลิก</button>
+                    </div>
+                    <div class="col-2">
+                        <input type="submit" class="btn-c submit" value="บันทึก" />
                     </div>
                 </div>
             </div>
-        </div>
 
     </form>
 </body>

@@ -49,10 +49,10 @@ else {
                 <?php foreach ($row as $r) { ?>
                     <a href="customer2.php?product=<?= $r['product_id'] ?>" class="button" style="margin:10px;">
                         <span style="font-size: 15pt !important; "><?= $r['product_name'] ?></span><br><br>
-                        <img src="<?= file_exists($r['product_img']) ? $r['product_img'] : "./src/images/logo.png" ?>" width="150"><br>
+                        <img src="<?= file_exists($r['product_img']) ? $r['product_img'] : "./src/images/logo.png" ?>" width="150" height="150"><br>
                         <p></p>
                         <div class="d-flex justify-content-end">
-                            <span style="font-size: medium; "><?= $r['price'] ?>&nbsp;บาท&nbsp;&nbsp;</span>
+                            <span style="font-size: medium; "><?= number_format($r['price']) ?>&nbsp;บาท&nbsp;&nbsp;</span>
                         </div>
                         <div class="d-flex justify-content-end">
                             <span style="font-size: medium; "><?= $r['product_rm_unit'] ?>&nbsp;<?= $r['product_unit'] ?>&nbsp;&nbsp;</span>

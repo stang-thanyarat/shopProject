@@ -47,7 +47,7 @@ include_once('nav.php'); ?>
                     <h1>ตั้งค่าภาษีมูลค่าเพิ่ม</h1>
                     <table class="main col-10">
                         <tr>
-                            <th>ภาษีมูลค่าเพิ่ม &nbsp<input type="text" name="vat" id="vat" value="<?= $_SESSION['vat']; ?>" required> &nbsp %</th>
+                            <th>ภาษีมูลค่าเพิ่ม &nbsp<input type="text" name="vat" id="vat" value="<?= $_SESSION['vat']; ?> " style="width: 3%; text-align: right;"> &nbsp %</th>
                         </tr>
                     </table>
                     <div class="row btn-g">

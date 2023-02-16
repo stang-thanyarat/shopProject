@@ -109,9 +109,9 @@ function setUI(data) {
         <th class="index-table-bank">${i + 1}</th>
         <th><img src="${element.product_img}" width="250"></th>
         <th>${element.product_name}</th>
-        <th>${element.price}</th>
-        <th>${element.product_rm_unit}</th>
-        <th>${element.sales_amt}</th>
+        <th>${element.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+        <th>${element.product_rm_unit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+        <th>${element.sales_amt.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
     </tr>`)
     });
     if (c <= 0) {
