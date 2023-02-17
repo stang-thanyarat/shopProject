@@ -1,3 +1,39 @@
+//บัตรประชาชน
+function autoTab(obj) {
+    var pattern = new String("_-____-_____-__-_"); // กำหนดรูปแบบในนี้
+    var pattern_ex = new String("-"); // กำหนดสัญลักษณ์หรือเครื่องหมายที่ใช้แบ่งในนี้
+    var returnText = new String("");
+    var obj_l = obj.value.length;
+    var obj_l2 = obj_l - 1;
+    for (i = 0; i < pattern.length; i++) {
+        if (obj_l2 == i && pattern.charAt(i + 1) == pattern_ex) {
+            returnText += obj.value + pattern_ex;
+            obj.value = returnText;
+        }
+    }
+    if (obj_l >= pattern.length) {
+        obj.value = obj.value.substr(0, pattern.length);
+    }
+    let id = document.form1.employee_card_id.value.split(/ /)[0].replace(/[^\d]/g, '')
+}
+//เช็คเลข13หลัก
+function checkID(id) {
+    //alert(id);
+    id = id.replace(/-/g, "");
+    //alert(id);
+    if (id.length != 13) return false;
+    for (i = 0, sum = 0; i < 12; i++) {
+        sum += parseInt(id.charAt(i)) * (13 - i);
+    }
+    let mod = sum % 11;
+    let check = (11 - mod) % 10;
+    if (check == parseInt(id.charAt(12))) {
+        return true;
+    }
+    return false;
+}
+
+
 //ส่วนรับรายการสินค้า
 let ALL;
 $(document).ready(async function () {
@@ -95,9 +131,9 @@ function setUI(data) {
         </th>
     </tr>`)
         $("#allprice").text(allprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
-        $(".all_price").val(allprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
+        $(".all_price").val(allprice.toString())
         $("#allquantity").text(allquantity.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
-        $(".all_quantity").val(allquantity.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
+        $(".all_quantity").val(allquantity.toString())
     });
     console.log(data)
 }

@@ -1,7 +1,7 @@
 <?php
 require_once '../vendor/autoload.php';
 include_once '../../../database/Contract.php';
-include_once '../../../database\SalesDetails.php';
+include_once '../../../database/SalesDetails.php';
 include_once '../../bahtText.php';
 include_once '../../datetimeDisplay.php';
 $Contract = new Contract();
@@ -78,7 +78,6 @@ h2{
   }
 </style>
 </head>
-
 <body>
 <table  width="1000" border="0">
   <tr class="setcenter">
@@ -142,7 +141,6 @@ h2{
     </table>
    </td>
 </tr>
-
   <tr class="setcenter">
     <td colspan="2">&nbsp;</td>
 </tr>
