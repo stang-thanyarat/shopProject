@@ -171,9 +171,9 @@ $sells = $sell->fetchAll();
                                 ราคาทุน :<span style="color: red; ">&nbsp*</span>
                                 <input name="cost_price" type="number" min="0" step="0.25" id="cost_price" class="inbox" required/>
                             </div>
-                            <div class="col-2 watchcostprice">
+                            <!--<div class="col-2 watchcostprice">
                                 <a type="button" href="costprice.php" class="button btn">ดูราคาทุน</a>
-                            </div>
+                            </div>-->
                         </div>
                         <div class="row a">
                             <div class="col-3 status">

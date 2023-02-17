@@ -60,6 +60,7 @@ if (isset($_GET['cardID'])) {
 
 <body>
     <form action="controller/Contract.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="sales_list_id" id="sales_list_id" />
         <input type="hidden" name="table" value="contract" />
         <input type="hidden" name="form_action" value="insert" />
         <div class="row">
@@ -85,8 +86,7 @@ if (isset($_GET['cardID'])) {
                         <?php $count = 1;
                         foreach ($laber as $s) {
                             $count++; ?>
-                            <option value="<?= $s['employee_id'] ?>" id="S<?= $s['employee_id']; ?>" <?= $s['employee_status'] == 0 ? "disabled" : ""; ?> onchange="setStatus(<?= $s['employee_id']; ?>)"> <?= $s['employee_prefix'] ?><?= $s['employee_firstname'] ?>
-                                &nbsp&nbsp<?= $s['employee_lastname'] ?></option>
+                            <option value="<?= $s['employee_id'] ?>" id="S<?= $s['employee_id']; ?>" <?= $s['employee_status'] == 0 ? "disabled" : ""; ?> <?= $s['employee_firstname'] === "วิทูรย์" ? "selected" : '' ?> onchange="setStatus(<?= $s['employee_id']; ?>)"> <?= $s['employee_prefix'] ?><?= $s['employee_firstname'] ?>&nbsp&nbsp<?= $s['employee_lastname'] ?></option>
                         <?php } ?>
                     </select> &nbsp;ซึ่งต่อไปในหนังสือสัญญานี้เรียกว่าผู้ขายฝ่ายหนึ่งกับ
                     <div class="b">*</div>

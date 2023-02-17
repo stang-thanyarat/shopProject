@@ -120,7 +120,7 @@ $("#form1").submit(async function (event) {
             body: formdata
         })
         let lastID1 = await (await fetch('controller/GetLastIdSales.php')).text()
-        document.form1.sales_list_id = lastID1
+        $("#sales_list_id").val(lastID1)
         await fetch('controller/Contract.php', {
             method: 'POST',
             body: new FormData(document.form1)

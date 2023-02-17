@@ -59,13 +59,13 @@ include_once('nav.php'); ?>
                 <h1>ตั้งค่าข้อมูลร้านค้า</h1>
                 <table class="main col-10">
                     <tr>
-                        <th>ที่อยู่ &nbsp<input type="text" name="address" id="address" value="<?= $_SESSION['address']; ?>" required> &nbsp </th>
+                        <th>ที่อยู่ : &nbsp<input type="text" name="address" id="address" value="<?= $_SESSION['address']; ?>"> &nbsp </th>
                     </tr>
                     <tr>
-                        <th>เลขประจำตัวผู้เสียภาษี  &nbsp<input type="text" name="vat_no" id="vat_no" value="<?= $_SESSION['vat_no']; ?>" required> &nbsp </th>
+                        <th>เลขประจำตัวผู้เสียภาษี : &nbsp<input type="text" name="vat_no" id="vat_no" value="<?= $_SESSION['vat_no']; ?>" style=" margin-right: 8rem;" > &nbsp </th>
                     </tr>
                     <tr>
-                        <th>เบอร์โทรติดต่อ &nbsp<input type="text" name="tel" id="tel" value="<?= $_SESSION['tel']; ?>" required> &nbsp </th>
+                        <th>เบอร์โทรติดต่อ : &nbsp<input type="text" name="tel" id="tel" value="<?= $_SESSION['tel']; ?>" style=" margin-right: 5rem;" > &nbsp </th>
                     </tr>
                 </table>
                 <div class="row btn-g">

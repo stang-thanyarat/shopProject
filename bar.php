@@ -5,7 +5,7 @@ if (!isset($_SESSION)) {
 include_once('service/auth.php');
 
 if (!isset($_SESSION['shop_name'])) {
-    $_SESSION['shop_name'] = "ร้าน ABC";
+    $_SESSION['shop_name'] = "วรเชษฐ์เกษตรภัณฑ์";
 }
 ?>
 <title><?=$_SESSION['shop_name']?></title>

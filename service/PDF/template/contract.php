@@ -48,6 +48,7 @@ $mpdf = new \Mpdf\Mpdf([
 include_once "../PDF.php";
 $html = '<html>
 <head>
+<title>สัญญาซื้อขาย</title>
 <style type="text/css">
 .setcenter {
 	text-align: center;

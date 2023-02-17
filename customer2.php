@@ -74,7 +74,7 @@ if (isset($_GET['product'])) {
                 <div class="col-7"><br>
                     <div class="d-flex justify-content-between">
                         <p class="c"><?= $r['product_name'] ?></p>
-                        <p class="f"><?= $r['price'] ?> บาท</p>
+                        <p class="f"><?= number_format($r['price']) ?> บาท</p>
                     </div>
                     <div class="f">
                         ประเภทสินค้า : <?= $cx['category_name'] ?><br>

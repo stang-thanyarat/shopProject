@@ -401,7 +401,7 @@ class Product
         try {
             $sql = "UPDATE product_tb
         SET product_name = ?, 
-            category_id = ?, brand = ?, model = ?, sell_id = ?, product_detail = ?, product_dlt_unit = ?, product_unit = ?, price = ?, cost_price = ?, notification_amt = ?, set_n_amt = ?, date_n_amt = ?, notification_amt2 = ? , vat = ?, set_exchange = ?
+            category_id = ?, brand = ?, model = ?, sell_id = ?, product_detail = ?, product_dlt_unit = ?, product_unit = ?, price = ?, cost_price = ?, notification_amt = ?, set_n_amt = ?, date_n_amt = ?, notification_amt2 = ? , vat = ?, set_exchange = ? , product_rm_unit = ?
         WHERE product_id = ?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $data['product_name'], PDO::PARAM_STR);
@@ -420,7 +420,8 @@ class Product
             $stmt->bindParam(14, $data['notification_amt2'], PDO::PARAM_INT);
             $stmt->bindParam(15, $data['vat'], PDO::PARAM_INT);
             $stmt->bindParam(16, $data['set_exchange'], PDO::PARAM_INT);
-            $stmt->bindParam(17, $data['product_id'], PDO::PARAM_INT);
+            $stmt->bindParam(17, $data['product_dlt_unit'], PDO::PARAM_INT);
+            $stmt->bindParam(18, $data['product_id'], PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
             http_response_code(500);

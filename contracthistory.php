@@ -133,10 +133,10 @@ if (isset($_GET['keyword'])) {
                     <div class="modal-body">
                         <div class="row">
                             <input type="hidden" name="table" value="contract">
-                            <input type="hidden" name="form_action" value="upload">
+                            <input type="hidden" name="form_action" value="update">
                             <input type="hidden" name="contract_code" id='upload_contract_code'>
                             <div class="col ">
-                                เพิ่มไฟล์สัญญา : <input type="file" name="contract_attachment" required>
+                                เพิ่มไฟล์สัญญา : <input type="file" class="tt" name="contract_attachment" required>
                                 <div class="k">*</div>
                                 <br>
                             </div>

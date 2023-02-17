@@ -80,26 +80,26 @@ $p = (array)$budget->fetchBetweenProduct();
                                 <tr>
                                     <th width='10%'></th>
                                     <th width='50%'>รวม สินทรัพย์</th>
-                                    <th width='25%' style="text-align: end;"><?= $p['BG1'] + $b['BG2'] + $b['BG2'] ?></th>
+                                    <th width='25%' style="text-align: end;"><?= number_format($p['BG1'] + $b['BG2'] + $b['BG2']) ?></th>
                                     <th width='10%'>บาท</th>
 
                                 </tr>
                                 <tr>
                                     <th></th>
                                     <th>&nbsp&nbsp&nbsp&nbspสินค้าที่พร้อมขาย</th>
-                                    <th style="text-align: end;"><?= $p['BG1'] ?> </th>
+                                    <th style="text-align: end;"><?= number_format($p['BG1']) ?> </th>
                                     <th>บาท</th>
                                 </tr>
                                 <tr>
                                     <th></th>
                                     <th>&nbsp&nbsp&nbsp&nbspเงินที่ได้รับแล้ว</th>
-                                    <th style="text-align: end;"><?= $b['BG2'] ?></th>
+                                    <th style="text-align: end;"><?= number_format($b['BG2']) ?></th>
                                     <th>บาท</th>
                                 </tr>
                                 <tr>
                                     <th></th>
                                     <th>&nbsp&nbsp&nbsp&nbspเงินที่ยังไม่ได้รับ</th>
-                                    <th style="text-align: end;"><?= $b['BG2'] ?></th>
+                                    <th style="text-align: end;"><?= number_format($b['BG2']) ?></th>
                                     <th>บาท</th>
                                 </tr>
 
@@ -115,25 +115,25 @@ $p = (array)$budget->fetchBetweenProduct();
                                 <tr>
                                     <th width='10%'></th>
                                     <th width='50%'>รวม หนี้สิน+ทุน</th>
-                                    <th width='25%' style="text-align: end;"><?= $c['BG3'] ?></th>
+                                    <th width='25%' style="text-align: end;"><?= number_format($c['BG3']) ?></th>
                                     <th width='10%'>บาท</th>
                                 </tr>
                                 <tr>
                                     <th></th>
                                     <th>&nbsp&nbsp&nbsp&nbspทุน</th>
-                                    <th width='25%' style="text-align: end;"><?= $c['complete'] ?></th>
+                                    <th width='25%' style="text-align: end;"><?= number_format($c['complete']) ?></th>
                                     <th>บาท</th>
                                 </tr>
                                 <tr>
                                     <th></th>
                                     <th>&nbsp&nbsp&nbsp&nbspหนี้สิน(เงินสด)</th>
-                                    <th width='25%' style="text-align: end;"><?= $c['cash'] ?></th>
+                                    <th width='25%' style="text-align: end;"><?= number_format($c['cash']) ?></th>
                                     <th>บาท</th>
                                 </tr>
                                 <tr>
                                     <th></th>
                                     <th>&nbsp&nbsp&nbsp&nbspหนี้สิน(เครดิต)</th>
-                                    <th width='25%' style="text-align: end;"><?= $c['credit'] ?></th>
+                                    <th width='25%' style="text-align: end;"><?= number_format($c['credit']) ?></th>
                                     <th>บาท</th>
                                 </tr>
 

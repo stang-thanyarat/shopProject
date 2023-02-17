@@ -21,51 +21,58 @@ function getDiff() {
         let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
         return TotalDays;
     }
-    diff = days(new Date($('#repaymentdate').val()), new Date(D))
+    diff = days(new Date($('#repayment_date').val()), new Date(D))
 }
 
-$('#repaymentdate').change((e) => {
+$('#repayment_date').change((e) => {
     getDiff();
     setDebt();
 })
 
+$("#payment").change(function () {
+    if ($("#payment").val() === 'โอนเงิน') {
+        $("#slip_upload").show()
+    } else {
+        $("#slip_upload").hide()
+    }
+});
 
 function setDebt(){
     if(mode==='clear'){
-        $('#paymentamount').val(0)
-        $('#deduct').val(0)
+        $('#payment_amount').val(0)
+        $('#deduct_principal').val(0)
         $('#outstanding').val(0)
-        $('#lessinterest').val(0)
+        $('#less_interest').val(0)
         let interestAll = 0;
         if (diff > 120) {
             let m = Math.abs(Math.round((diff / 30))-4)
             console.log("m:",m)
             m = m == 0 ? 1 : m
-            $('#lessinterest').val(Math.round(AllPrice * (interest_ * m)))
+            $('#less_interest').val(Math.round(AllPrice * (interest_ * m)))
             interestAll = Math.round(AllPrice * (interest_ * m))
         } else {
-            $('#lessinterest').val(0)
+            $('#less_interest').val(0)
             interestAll = 0
         }
-        $('#paymentamount').val(AllPrice+interestAll)
-        $('#deduct').val(AllPrice-interestAll)
+        $('#payment_amount').val(AllPrice+interestAll)
+        $('#deduct_principal').val(AllPrice-interestAll)
         $('#outstanding').val(0)
     }else if(mode=='pay'){
-        let pay = $('#paymentamount').val()
+        let pay = $('#payment_amount').val()
         if (pay > AllPrice) {
-            $('#paymentamount').val(AllPrice)
+            $('#payment_amount').val(AllPrice)
             pay = AllPrice
         }
         if (diff > 120) {
             let m = Math.abs(Math.round((diff / 30))-4)
             console.log("m:",m)
             m = m == 0 ? 1 : m
-            $('#lessinterest').val(Math.round(pay * (interest_ * m)))
+            $('#less_interest').val(Math.round(pay * (interest_ * m)))
             pay -= Math.round(pay * (interest_ * m))
         } else {
-            $('#lessinterest').val(0)
+            $('#less_interest').val(0)
         }
-        $('#deduct').val(pay)
+        $('#deduct_principal').val(pay)
         $('#outstanding').val(Math.round(AllPrice - pay))
     }
 }
@@ -84,132 +91,71 @@ function clearDebt(){
 }
 
 
-$('#paymentamount').keyup((e) => {
+$('#payment_amount').keyup((e) => {
     setDebt();
 })
 
-$(document).ready(function () {
-    $("#slip_upload").hide()
-    localStorage.clear()
-    localStorage.setItem("tableRepay", JSON.stringify({data: []}))
+$("#form1").submit(async function (event) {
+    event.preventDefault();
+    let response = await fetch('controller/DebtPaymentDetails.php', {
+        method: 'POST',
+        body: new FormData(document.form1)
+    });
+    console.log(response);
+    if (!response.ok) {
+        console.log(response);
+    } else {
+        await Swal.fire({
+            icon: 'success',
+            text: 'บันทึกข้อมูลเสร็จสิ้น',
+        })
+        console.log(await response.text())
+        location.reload()
+    }
 });
 
-//เพิ่มสินค้า
-$("#addrepay").submit(async function (event) {
+/*
+$("#addslip_img").submit(async function (event) {
     event.preventDefault();
-    if ($('#paymentamount').val() === "" || $('#payment_sl').val() === "" || $('#deduct').val() === "" || $('#lessinterest').val() === "" || $('#lessinterest').val() === "" || $('#outstanding').val() === "") {
+    let response = await fetch('controller/DebtPaymentDetails.php', {
+        method: 'POST',
+        body: new FormData(document.addslip_img)
+    });
+    console.log(response);
+    if (!response.ok) {
+        console.log(response);
+    } else {
+        await Swal.fire({
+            icon: 'success',
+            text: 'บันทึกข้อมูลเสร็จสิ้น',
+        })
+        console.log(await response.text())
+        location.reload()
+    }
+});
+*/
+
+//เพิ่มสินค้า
+/*$("#form1").submit(async function (event) {
+    event.preventDefault();
+    if ($('#payment_amount').val() === "" || $('#payment').val() === "" || $('#deduct_principal').val() === "" || $('#less_interest').val() === "" || $('#less_interest').val() === "" || $('#outstanding').val() === "") {
         return
     }
-    let lastID = await (await fetch('controller/GetLastIdContract.php')).text()
     var formdata1 = new FormData();
-    formdata1.append("contract_code", lastID);
-    formdata1.append("payment_amount", $('#paymentamount').val());
-    formdata1.append("payment", $('#payment_sl').val());
-    formdata1.append("deduct_principal", $('#deduct').val());
-    formdata1.append("less_interest", $('#lessinterest').val());
+    formdata1.append("contract_code", $('#contract_code').val());
+    formdata1.append("payment_amount", $('#payment_amount').val());
+    formdata1.append("payment", $('#payment').val());
+    formdata1.append("deduct_principal_principal", $('#deduct_principal').val());
+    formdata1.append("less_interest", $('#less_interest').val());
     formdata1.append("outstanding", $('#outstanding').val());
     formdata1.append("form_action", "insert");
     formdata1.append("table", "debtPaymentDetails");
     var requestOptions = {
         method: 'POST',
-        body: formdata1,
+        body: formdata1 + new FormData(document.form1),
         redirect: 'follow'
     };
     await fetch("controller/DebtPaymentDetails.php", requestOptions)
-    location.reload()
-});
-
-
-//กำหนดแถวที่จะลบ
-function saveIndexDel(i) {
-    localStorage.setItem('deleteIndex', i)
-}
-
-//กำหนดแถวที่จะแก้ไข พร้อมข้อมูลเริ่มต้น
-function saveIndexEdit(i) {
-    localStorage.setItem('editIndex', i)
-    let rows = (JSON.parse(localStorage.getItem("tableProduct"))).data
-    $('#edittypeproduct').val(rows[i - 1].type)
-    $('#editlistproduct').val(rows[i - 1].list)
-    $('#editbrand').val(rows[i - 1].brand)
-    $('#editproductmodel').val(rows[i - 1].model)
-    $('#editunitprice').val(rows[i - 1].price)
-    $('#editamount').val(rows[i - 1].amount)
-}
-
-//ลบแถว
-function delrow() {
-    let tableObj = JSON.parse(localStorage.getItem("tableProduct"))
-    const index = localStorage.getItem('deleteIndex')
-    let rows = tableObj.data
-    if (rows.length > 0) {
-        rows.splice(index - 1)
-    }
-    $('#list-repay').html("")
-    rows.forEach((e, i) => {
-        $('#list-repay').append(`<tr id="rr${i + 1}">
-                    <th>${e.type}</th>
-                    <th>${e.list}</th>
-                    <th>${e.brand}</th>
-                    <th>${e.model}</th>
-                    <th>${e.price}</th>
-                    <th>${e.amount}</th>
-                    <th>${e.allPrice}</th>
-                    <th>
-                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndex(${i + 1})"></button>
-                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm3"><img src="./src/images/icon-pencil.png" width="25"></button>
-                    </th>
-                </tr>`)
-    });
-    tableObj.data = rows
-    localStorage.setItem("tableProduct", JSON.stringify(tableObj))
-    localStorage.removeItem('deleteIndex')
-    $('#closedelrow').click()
-}
-
-//แก้ไขบัญชี
-$("#editaddproduct").submit(function (event) {
-    event.preventDefault();
-    let tableObj = JSON.parse(localStorage.getItem("tableProduct"))
-    const index = localStorage.getItem('editIndex')
-    tableObj.data[index - 1] = {
-        type: $('#edittypeproduct').val(),
-        list: $('#editlistproduct').val(),
-        brand: $('#editbrand').val(),
-        model: $('#editproductmodel').val(),
-        price: $('#editunitprice').val(),
-        amount: $('#editamount').val(),
-        allPrice: Number($('#editunitprice').val()) * Number($('#editamount').val())
-    }
-    localStorage.setItem("tableProduct", JSON.stringify(tableObj))
-    let rows = tableObj.data
-    $('#list-repay').html("")
-    rows.forEach((e, i) => {
-        $('#list-repay').append(`<tr id="rr${i + 1}">
-                    <th>${e.type}</th>
-                    <th>${e.list}</th>
-                    <th>${e.brand}</th>
-                    <th>${e.model}</th>
-                    <th>${e.price}</th>
-                    <th>${e.amount}</th>
-                    <th>${e.allPrice}</th>
-                    <th>
-                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndex(${i + 1})"></button>
-                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm3"><img src="./src/images/icon-pencil.png" width="25"></button>
-                    </th>
-                </tr>`)
-    });
-    localStorage.setItem("tableProduct", JSON.stringify(tableObj))
-    localStorage.removeItem('editIndex')
-    $('#editclose').click()
-
-})
-
-$("#payment_sl").change(function () {
-    if ($("#payment_sl").val() === 'โอนเงิน') {
-        $("#slip_upload").show()
-    } else {
-        $("#slip_upload").hide()
-    }
-});
+    //location.reload()
+});*/
 
