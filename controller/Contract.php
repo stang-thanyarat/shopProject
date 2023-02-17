@@ -13,9 +13,9 @@ if (isset($_POST)) {
         } else if ($_POST['form_action'] === 'insert') {
             $contract->insert($_POST);
             redirection('/contracthistory.php');
-        }else if($_POST['form_action'] === 'upload'){
+        } else if ($_POST['form_action'] === 'upload') {
             if ($_FILES['contract_attachment']['size'] > 0) {
-                $path = './file/contract/id/'.$_POST['contract_code'].'/';
+                $path = './file/contract/id/' . $_POST['contract_code'] . '/';
                 $filesname = uploadImage($_FILES['contract_attachment'], "." . $path);
                 if ($filesname) {
                     $_POST['contract_attachment'] = $path . $filesname;
@@ -26,9 +26,11 @@ if (isset($_POST)) {
                 $_POST['contract_attachment'] = '';
             }
             $contract->upload($_POST);
-            redirection('/contracthistory.php');
+        } else if ($_POST['form_action'] == 'push') {
+            $contract->push($_POST['q'], $_POST['contract_code']);
         }
     }
-}else{
+
+} else {
     echo "Page Not found.";
 }

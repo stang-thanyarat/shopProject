@@ -151,6 +151,44 @@ class Sales
         }
     }
 
+    public function fetchByPDFId($id)
+    {
+        try {
+            $sql = "SELECT C.*,E.* FROM contract_tb C , employee_tb E WHERE C.sales_list_id = ? AND E.employee_id = C.employee_id ";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
+    }
+
+    public function fetchBysaletocontractId($id)
+    {
+        try {
+            $sql = "SELECT C.*,SAD.* FROM contract_tb C,sales_details_tb SAD WHERE SAD.sales_list_id = C.sales_list_id AND C.contract_code = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
+    }
+
     public function updateimage($filename, $img, $sales_list_id)
     {
         try {

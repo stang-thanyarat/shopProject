@@ -50,11 +50,11 @@ class SalesDetails
     public function fetchBySalesId($id)
     {
         try {
-            $sql = "SELECT * FROM sales_details_tb WHERE unique_id = ?";
+            $sql = "SELECT C.*,SAD.*,P.* FROM contract_tb C,sales_details_tb SAD,product_tb P WHERE SAD.product_id = P.product_id AND SAD.sales_list_id = C.sales_list_id AND C.sales_list_id  = ?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
-            $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll();
             if (!$result) {
                 return [];
             } else {
