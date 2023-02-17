@@ -191,8 +191,8 @@ class Contract
             $date_contract = $_GET['date_contract'];
             $interest_month = !isset($_SESSION['interest_month']) ? 4 : $_SESSION['interest_month'];
             $interest = !isset($_SESSION['interest']) ? 15 : $_SESSION['interest'];
-            $sql = "INSERT INTO contract_tb (date_contract, employee_id, customer_prefix, contract_details, customer_firstname, customer_lastname, customer_img ,date_send, price_send, product_detail, date_due,baht,stang,stangt, /*contract_attachment */sales_list_id) 
-            VALUES (TIMESTAMP(?, CURRENT_TIME()),?,?,?,?,?,?,TIMESTAMP (?, CURRENT_TIME()),TIMESTAMP (?, CURRENT_TIME()),?,DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? MONTH ),?,?,?,?/*,?*/)";
+            $sql = "INSERT INTO contract_tb (date_contract, employee_id, customer_prefix, contract_details, customer_firstname, customer_lastname, customer_img ,date_send, price_send, product_detail, date_due,baht,stang,stangt,sales_list_id) 
+            VALUES (TIMESTAMP(?, CURRENT_TIME()),?,?,?,?,?,?,TIMESTAMP (?, CURRENT_TIME()),TIMESTAMP (?, CURRENT_TIME()),?,DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? MONTH ),?,?,?,?)";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $data['date_contract'], PDO::PARAM_STR);//วันที่ทำสัญญา
             $stmt->bindParam(2, $data['employee_id'], PDO::PARAM_INT);//รหัสข้อมูลพนักงาน
@@ -208,7 +208,6 @@ class Contract
             $stmt->bindParam(12, $data['baht'], PDO::PARAM_INT);//บาท
             $stmt->bindParam(13, $data['stang'], PDO::PARAM_INT);//สตางค์
             $stmt->bindParam(14, $data['stangt'], PDO::PARAM_STR);//สตางค์ไทย
-            //$stmt->bindParam(12, $data['contract_attachment'], PDO::PARAM_STR);
             $stmt->bindParam(15, $data['sales_list_id'], PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
@@ -235,6 +234,23 @@ class Contract
             $stmt->bindParam(6, $data['customer_img'], PDO::PARAM_STR);
             $stmt->bindParam(7, $data['product_detail'], PDO::PARAM_STR);
             $stmt->bindParam(8, $data['contract_code'], PDO::PARAM_INT);
+            $stmt->execute();
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
+    }
+
+    public function push($q,$id)
+    {
+        try {
+            $sql = "SET FOREIGN_KEY_CHECKS=0";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $sql = "UPDATE contract_tb SET sales_list_id = ? WHERE contract_code = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $q, PDO::PARAM_INT);
+            $stmt->bindParam(2, $id, PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
             http_response_code(500);

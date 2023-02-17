@@ -6,11 +6,6 @@ $('#set_n_amt').on('click', function(e) {
       $('#post').toggle();
   });
 
-$("#category_id").change(){
-    let category =  $("#category_name").val()
-    $('#category_name').val(category)
-}
-
 async function loopcostprice() {
     var formdata = new FormData();
     formdata.append("product_id", $("#product_id").val());
