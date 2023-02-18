@@ -35,7 +35,7 @@ $sales = new Sales();
 if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GET['end'] != '') {
     $rows = $sales->fetchBetween($_GET['start'], $_GET['end']);
 } else if ((!isset($_GET['start']) && !isset($_GET['end'])) ||($_GET['start'] != '' && $_GET['end'] != '')) {
-    $rows = $sales->fetchAll();
+    $rows = $sales->fetchAllIFCredit();
 } else {
     $rows = [];
 }
@@ -76,8 +76,8 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                     <tbody id="salesHistory">
                     <?php foreach ($rows as $row) { ?>
                         <tr>
-                            <th><?= dateTimeDisplay($row['sales_dt']) ?></th>
-                            <th><?= ShowTime($row['sales_dt']) ?></th>
+                            <th><?= dateTimeDisplay($row['payment_dt']) ?></th>
+                            <th><?= ShowTime($row['payment_dt']) ?></th>
                             <th><a href="<?= $row['payment_sl'] != 'ผ่อนชำระ' ? './service/PDF/template/receipt.php?id='.$row['sales_list_id']: './service/PDF/template/invoice2.php?id='.$row['sales_list_id'] ?>"><img src="./src/images/print.png" class="g" width="25"></a></th>
                             <th><?= number_format($row['all_quantity']) ?></th>
                             <th><?= number_format($row['all_price'])?></th>

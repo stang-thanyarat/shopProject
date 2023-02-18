@@ -24,6 +24,7 @@ $("#addproduct").submit(function (event) {
         return
     }
     $('#list-product').append(`<tr id="rr${i}">
+                    <th class="index-table-product">${i + 1}</th>
                     <th>${$('#product_name').val() || $("#product_id option:selected").text()}</th>
                     <th>${$('#order_pr').val()}</th>
                     <th>${$('#order_amt').val()}</th>
@@ -71,6 +72,7 @@ function delrow() {
     $('#list-product').html("")
     rows.forEach((e, i) => {
         $('#list-product').append(`<tr id="rr${i + 1}">
+                    <th class="index-table-product">${i + 1}</th>
                     <th>${e.list}</th>
                     <th>${e.price}</th>
                     <th>${e.amount}</th>
@@ -103,6 +105,7 @@ $("#editaddproduct").submit(function (event) {
     $('#list-product').html("")
     rows.forEach((e, i) => {
         $('#list-product').append(`<tr id="rr${i + 1}">
+                    <th class="index-table-product">${i + 1}</th>
                     <th>${e.list}</th>
                     <th>${e.price}</th>
                     <th>${e.amount}</th>
@@ -130,6 +133,7 @@ $("#addprice").submit(function (event) {
         return
     }
     $('#list-priceother').append(`<tr id="rr${i}">
+                    <th class="index-table-price">${i + 1}</th>
                     <th>${$('#listother').val()}</th>
                     <th>${$('#priceother').val()}</th>
                     <th>
@@ -171,6 +175,7 @@ function delrow2() {
     $('#list-priceother').html("")
     rows.forEach((e, i) => {
         $('#list-priceother').append(`<tr id="rr${i + 1}">
+                    <th class="index-table-price">${i + 1}</th>
                     <th>${e.listOther}</th>
                     <th>${e.priceOther}</th>
                     <th>
@@ -199,6 +204,7 @@ $("#editaddprice").submit(function (event) {
     $('#list-priceother').html("")
     rows.forEach((e, i) => {
         $('#list-priceother').append(`<tr id="rr${i + 1}">
+        <th class="index-table-price">${i + 1}</th>
         <th>${e.listOther}</th>
         <th>${e.priceOther}</th>
         <th>

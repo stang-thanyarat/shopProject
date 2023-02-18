@@ -1,6 +1,6 @@
 //บัตรประชาชน
 function autoTab(obj) {
-    var pattern = new String("_-____-_____-__-_"); // กำหนดรูปแบบในนี้
+    var pattern = new String("_____________"); // กำหนดรูปแบบในนี้
     var pattern_ex = new String("-"); // กำหนดสัญลักษณ์หรือเครื่องหมายที่ใช้แบ่งในนี้
     var returnText = new String("");
     var obj_l = obj.value.length;
@@ -16,6 +16,7 @@ function autoTab(obj) {
     }
     let id = document.form1.employee_card_id.value.split(/ /)[0].replace(/[^\d]/g, '')
 }
+
 //เช็คเลข13หลัก
 function checkID(id) {
     //alert(id);
@@ -42,11 +43,11 @@ $(document).ready(async function () {
     let order = JSON.parse(localStorage.getItem('cart'))
     if (!order || order.length == 0 || localStorage.getItem('cart') === null) {
         $('#addtocartTable').html('<tr ><td colspan="7">ไม่มีรายการสินค้า</td></tr>')
-        $('#solutionPay').prop( "disabled", true );
-        $('#mySubmit').prop( "disabled", true );
+        $('#solutionPay').prop("disabled", true);
+        $('#mySubmit').prop("disabled", true);
     } else {
-        $('#solutionPay').prop( "disabled", false );
-        $('#mySubmit').prop( "disabled", false );
+        $('#solutionPay').prop("disabled", false);
+        $('#mySubmit').prop("disabled", false);
         for (const element of order) {
             let product = await (await fetch(`./controller/GetProduct.php?id=${element.id}`)).json()
             product.quantity = element.quantity
@@ -81,24 +82,24 @@ function del(id) {
 //ส่วนชำระเงินสด
 const targetElement = document.getElementById('payment_s')
 const submitElement = document.getElementById('mySubmit')
-targetElement.addEventListener('change', async (e) =>  {
+targetElement.addEventListener('change', async (e) => {
     if (e.target.value === 'เงินสด') {
-        let payment =  $("#payment_s").val()
+        let payment = $("#payment_s").val()
         $('#payment_sl').val(payment)
         submitElement.setAttribute("data-bs-target", ".cash-form");
     } else if (e.target.value === 'โอนผ่านบัญชีธนาคาร') {
-        let payment =  $("#payment_s").val()
+        let payment = $("#payment_s").val()
         $('#payment_sl').val(payment)
         submitElement.setAttribute("data-bs-target", ".transfer-form");
     } else if (e.target.value === 'ผ่อนชำระ') {
         let route = (await (await fetch('./controller/GetRolesSales.php')).text()).trim()
-        if(route !== "L") {
+        if (route !== "L") {
             //window.location ="./controller/LogOut.php"
-            fetch('./controller/LogOutAndClear.php').then(()=>{
-                window.location ="./login.php"
+            fetch('./controller/LogOutAndClear.php').then(() => {
+                window.location = "./login.php"
             })
 
-        }else{
+        } else {
             submitElement.setAttribute("data-bs-target", ".search-costumer-form");
         }
     }
@@ -138,13 +139,13 @@ function setUI(data) {
     console.log(data)
 }
 
-async function loopInsert(){
+async function loopInsert() {
     let lastID = await (await fetch('controller/GetLastIdSales.php')).text()
     let data = JSON.parse(localStorage.getItem('cart'))
     for (const e of data) {
         var formdata = new FormData();
         let objData = ALL.filter(d => d.product_id == e.id);
-        console.log("objData:",objData)
+        console.log("objData:", objData)
         formdata.append("sales_list_id", lastID);
         formdata.append("product_id", e.id);
         formdata.append("sales_amt", e.quantity);
@@ -168,7 +169,7 @@ async function loopInsert(){
             redirect: 'follow'
         };
         await fetch("controller/Product.php", requestOptions)
-        if(!!e.stock_id){
+        if (!!e.stock_id) {
             var formdata2 = new FormData();
             formdata2.append("q", e.quantity);
             formdata2.append("stock_id", e.stock_id);
@@ -187,20 +188,19 @@ async function loopInsert(){
 ///form1
 //เงินสด
 //ส่วนคำนวณเงินของชำระเงินสด
-$('#receivecash').keyup(()=>{
+$('#receivecash').keyup(() => {
     const change = Number($('#receivecash').val()) - Number($(".all_price").val())
-    if(change>=0){
+    if (change >= 0) {
         $('#change').val(change)
         $('#pay_C').show()
-    }else{
+    } else {
         $('#change').val('')
         $('#pay_C').hide()
     }
 })
 
 //ตรวจสอบพร้อมส่งข้อมูล form1
-$("#form1").submit(async function (event)
-{
+$("#form1").submit(async function (event) {
     event.preventDefault();
     $('#sales').val(JSON.stringify(JSON.parse(localStorage.getItem("cart")).data))
     let response = await fetch('controller/Sales.php', {
@@ -224,8 +224,7 @@ $("#form1").submit(async function (event)
 
 ///form2
 //โอนผ่านบัญชีธนาคาร
-$("#form2").submit(async function (event)
-{
+$("#form2").submit(async function (event) {
     event.preventDefault();
     $('#sales').val(JSON.stringify(JSON.parse(localStorage.getItem("cart")).data))
     let response = await fetch('controller/Sales.php', {
@@ -252,30 +251,37 @@ $("#form2").submit(async function (event)
 //คีย์ข้อมูลลูกค้าเพื่อตรวจสอบ
 $("#search").click(async function () {
     let url = `./controller/SalestoContract.php`
-    if($("#keyword").val() !== "" ){
+    if ($("#keyword").val() !== "") {
         url += `?keyword=${$("#keyword").val()}`
-    }
-    else if ($("#keyword").val() === "" ) {
+    } else if ($("#keyword").val() === "") {
         url += `?keyword=${$("#keyword").val("")}`
     }
     const keyword = await (await fetch(url)).json()
-    if(keyword.length >0){
-        setU(keyword)
-    }else{
-        $('#salestocontracttable').html('<br><center><h3>ไม่พบรายการการผ่อนชำระ</h3></center>')
-        $('#next-add').attr("href",'./addcontract.php')
+    if (!checkID(document.form3.keyword.value)) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'ระบุหมายเลขประจำตัวประชาชนไม่ถูกต้อง',
+            timer: 3000
+        })
+        return
+    } else {
+        if (keyword.length > 0) {
+            setU(keyword)
+        } else {
+            $('#salestocontracttable').html('<br><center><h3>ไม่พบรายการการผ่อนชำระ</h3></center>')
+            $('#next-add').attr("href", './addcontract.php')
+        }
     }
-
 });
 
 //ส่วนแสดงผลข้อมูลลูกค้า
 async function star() {
     let url = './controller/SalestoContract.php'
-    const keyword = await(await fetch(url)).json()
+    const keyword = await (await fetch(url)).json()
     console.log(keyword);
     setU(keyword)
 }
-
 
 
 function setU(keyword) {
@@ -290,16 +296,16 @@ function setU(keyword) {
                     </tr>
                     <tbody>`
     keyword.forEach((element, i) => {
-        $('#next-add').attr("href",`./addcontract.php?cardID=${element.customer_img}`)
+        $('#next-add').attr("href", `./addcontract.php?cardID=${element.customer_img}`)
         c++
         table += `<tr id="rr${i + 1}">
         <th class="index-table-bank">${i + 1}</th>
         <th>${element.date_contract}</th>
         <th>${element.date_due}</th>
+        <th>${element.promise_status}</th>
         <th>${element.outstanding}</th>
-        <th>${element.slip_img}</th>
     </tr>`
     })
-    table+='</tbody></table>`'
+    table += '</tbody></table>`'
     $('#salestocontracttable').html(table)
 }

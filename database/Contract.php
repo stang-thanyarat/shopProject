@@ -156,7 +156,7 @@ class Contract
     {
        try{
            $like = "$keyword";
-           $sql = "SELECT * FROM contract_tb WHERE customer_img like ?";
+           $sql = "SELECT C.*,D.* FROM contract_tb C ,debt_payment_details_tb D WHERE C.contract_code = D.contract_code AND C.baht = D.outstanding AND C.customer_img like ?";
            $stmt = $this->conn->prepare($sql);
            $stmt->bindParam(1, $like, PDO::PARAM_STR);
            $stmt->execute();
@@ -166,6 +166,33 @@ class Contract
            http_response_code(500);
            echo strval($e);
        }
+    }
+
+    public function promisestatus()
+    {
+        try{
+            $sql = "SELECT C.*,D.* FROM contract_tb C ,debt_payment_details_tb D WHERE C.contract_code = D.contract_code AND C.customer_img = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $like, PDO::PARAM_STR);
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $outstanding = 0;
+            foreach ($result as $rows) {
+                $outstanding += $rows['$outstanding'];
+            }
+            $promise = 0;
+            foreach ($result as $rows) {
+                    $promise += $rows['$promise_status'];
+            }
+            $object = new stdClass();
+            $object->ot = $outstanding;
+            $object->ps = $promise;
+            $object->result = $result;
+            return $object;
+        }catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 
 

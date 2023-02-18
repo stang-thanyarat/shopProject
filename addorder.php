@@ -109,7 +109,8 @@ $product = $product->fetchAll();
                             <table class="main col-10">
                                 <thead>
                                     <tr>
-                                        <th width="40%">รายการสินค้า</th>
+                                        <th width="10%">ลำดับ</th>
+                                        <th width="30%">รายการสินค้า</th>
                                         <th width="15%">ราคาต่อหน่วย (บาท)</th>
                                         <th width="15%">จำนวน</th>
                                         <th width="15%">ราคา (บาท)</th>
@@ -129,8 +130,9 @@ $product = $product->fetchAll();
                             <table class="main col-10">
                                 <thead>
                                     <tr>
-                                        <th width="45%">รายการ</th>
-                                        <th width="45%">ราคา</th>
+                                        <th width="10%">ลำดับ</th>
+                                        <th width="40%">รายการ</th>
+                                        <th width="40%">ราคา</th>
                                         <th width="10%"></th>
                                     </tr>
                                 </thead>

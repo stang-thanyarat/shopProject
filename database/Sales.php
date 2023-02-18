@@ -38,6 +38,62 @@ class Sales
         }
     }
 
+    public function fetchAllIFCredit()
+    {
+        try{
+            $sql = "SELECT SA.*,C.*,D.* FROM sales_tb SA,contract_tb C,debt_payment_details_tb D where C.contract_code = D.contract_code AND SA.sales_list_id ORDER BY SA.sales_list_id DESC ";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            $dup = [];
+            $res = [];
+            foreach ($result as $r) {
+                if (!in_array($r['sales_list_id'], $dup)) {
+                    $r['count'] = 1;
+                    $res[] = $r;
+                    $dup[] = $r['sales_list_id'];
+                }
+            }
+            $result = $res;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        }catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
+    }
+
+    public function fetchAllContract()
+    {
+        try{
+            $sql = "SELECT SA.*,C.*,D.outstanding,D.promise_status,D.contract_code FROM sales_tb SA,contract_tb C,debt_payment_details_tb D WHERE SA.sales_list_id = C.sales_list_id AND C.contract_code = D.contract_code ORDER BY SA.sales_list_id DESC ";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            $dup = [];
+            $res = [];
+            foreach ($result as $r) {
+                if (!in_array($r['sales_list_id'], $dup)) {
+                    $r['count']=1;
+                    $res[] = $r;
+                    $dup[] = $r['sales_list_id'];
+                }
+            }
+            $result = $res;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        }catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
+    }
+
     public function fetchById($id)
     {
         try{

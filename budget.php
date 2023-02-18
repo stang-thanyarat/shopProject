@@ -89,14 +89,14 @@ else if (isset($_GET['firstdate']) && (isset($_GET['lastdate']))) {
                                 <tr>
                                     <th width='10%'></th>
                                     <th width='50%'>รวม สินทรัพย์</th>
-                                    <th width='25%' style="text-align: end;"><?= number_format($p['BG1'] + ($b['cash2']) +abs( $d['DB']))?></th>
+                                    <th width='25%' style="text-align: end;"><?= number_format($p['BG1'] )?></th>
                                     <th width='10%'>บาท</th>
 
                                 </tr>
                                 <tr>
                                     <th></th>
                                     <th>&nbsp&nbsp&nbsp&nbspสินค้าที่พร้อมขาย</th>
-                                    <th style="text-align: end;"><?= number_format($p['BG1']) ?> </th>
+                                    <th style="text-align: end;"><?= number_format($p['BG1'] - ($b['BG2']) ) ?></th>
                                     <th>บาท</th>
                                 </tr>
                                 <tr>

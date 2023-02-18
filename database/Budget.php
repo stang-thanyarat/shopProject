@@ -280,13 +280,13 @@ class Budget
     function fetchBetweenProduct()
     {
         try {
-            $sql = "SELECT * FROM product_tb";
+            $sql = "SELECT * FROM product_tb WHERE product_id";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetchAll();
             $Allprice1 = 0;
             foreach ($result as $rows) {
-                $Allprice1 += $rows['price'];
+                $Allprice1 += $rows['price'] * $rows['product_rm_unit'];
             }
             $object = new stdClass();
             $object->BG1 = $Allprice1;
