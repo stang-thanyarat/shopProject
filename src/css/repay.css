@@ -33,7 +33,7 @@ th {
 }
 
 .th {
-    height: 100px;
+    height: 200px;
     width: 50%;
 }
 
@@ -43,6 +43,7 @@ th {
     display: flex;
     margin-right: 4rem;
     margin-top: 2rem;
+    margin-bottom: 4rem;
 }
 
 .btn-c {

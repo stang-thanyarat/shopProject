@@ -36,15 +36,24 @@ $firstdate = date('d/m/Y');
 $lastdate = date('d/m/Y');
 $firstdate_text = date('Y-m-d');
 $lastdate_text = date('Y-m-d');
-if (isset($_GET['firstdate']) && (isset($_GET['lastdate']))) {
+if (!isset($_GET['firstdate']) && (!isset($_GET['lastdate']))) {
+    $budget = new Budget();
+    $b = (array)$budget->fetchBetweenSales2();
+    $c = (array)$budget->fetchBetweenOrder2();
+    $p = (array)$budget->fetchBetweenProduct();
+    $d = (array)$budget->fetchBetweenDebt2();
+
+}
+else if (isset($_GET['firstdate']) && (isset($_GET['lastdate']))) {
     $firstdate = $_GET['firstdate'];
     $lastdate = $_GET['lastdate'];
     $firstdate_text = $_GET['firstdate'];
     $lastdate_text = $_GET['lastdate'];
+    $b = (array)$budget->fetchBetweenSales($firstdate, $lastdate);
+    $c = (array)$budget->fetchBetweenOrder($firstdate, $lastdate);
+    $p = (array)$budget->fetchBetweenProduct();
+    $d = (array)$budget->fetchBetweenDebt($firstdate, $lastdate);
 }
-$b = (array)$budget->fetchBetweenSales($firstdate, $lastdate);
-$c = (array)$budget->fetchBetweenOrder($firstdate, $lastdate);
-$p = (array)$budget->fetchBetweenProduct();
 ?>
 
 <body>
@@ -80,7 +89,7 @@ $p = (array)$budget->fetchBetweenProduct();
                                 <tr>
                                     <th width='10%'></th>
                                     <th width='50%'>รวม สินทรัพย์</th>
-                                    <th width='25%' style="text-align: end;"><?= number_format($p['BG1'] + $b['BG2'] + $b['BG2']) ?></th>
+                                    <th width='25%' style="text-align: end;"><?= number_format($p['BG1'] + ($b['cash2']) +abs( $d['DB']))?></th>
                                     <th width='10%'>บาท</th>
 
                                 </tr>
@@ -93,13 +102,13 @@ $p = (array)$budget->fetchBetweenProduct();
                                 <tr>
                                     <th></th>
                                     <th>&nbsp&nbsp&nbsp&nbspเงินที่ได้รับแล้ว</th>
-                                    <th style="text-align: end;"><?= number_format($b['BG2']) ?></th>
+                                    <th style="text-align: end;"><?= number_format($b['cash2'] + $d['DB']) ?></th>
                                     <th>บาท</th>
                                 </tr>
                                 <tr>
                                     <th></th>
                                     <th>&nbsp&nbsp&nbsp&nbspเงินที่ยังไม่ได้รับ</th>
-                                    <th style="text-align: end;"><?= number_format($b['BG2']) ?></th>
+                                    <th style="text-align: end;"><?= number_format( abs($b['credit2'] - $d['DB'])) ?></th>
                                     <th>บาท</th>
                                 </tr>
 
@@ -154,10 +163,13 @@ $p = (array)$budget->fetchBetweenProduct();
                 '<input type="hidden" name="BG1" value="<?= $p['BG1'] ?>" />' +
                 '<input type="hidden" name="BG2" value="<?= $b['BG2'] ?>" />' +
                 '<input type="hidden" name="BG3" value="<?= $c['BG3'] ?>" />' +
+                '<input type="hidden" name="DB" value="<?= $d['DB'] ?>" />' +
                 '<input type="hidden" name="firstdate" value="<?= $firstdate ?>" />' +
                 '<input type="hidden" name="lastdate" value="<?= $lastdate ?>" />' +
                 '<input type="hidden" name="credit" value="<?= $c['credit'] ?>" />' +
+                '<input type="hidden" name="credit2" value="<?= $b['credit2'] ?>" />' +
                 '<input type="hidden" name="cash" value="<?= $c['cash'] ?>" />' +
+                '<input type="hidden" name="cash2" value="<?= $b['cash2'] ?>" />' +
                 '<input type="hidden" name="complete" value="<?= $c['complete'] ?>" />' +
                 '</form>'
             );

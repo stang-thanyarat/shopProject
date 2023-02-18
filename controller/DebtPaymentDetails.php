@@ -32,14 +32,16 @@ if (isset($_POST)) {
                 if ($filesname) {
                     $_POST['slip_img'] = $path . $filesname;
                 } else {
-                    $_POST['slip_img'] = '';
+                    $_POST['slip_img'] = "";
                 }
             } else {
-                $_POST['slip_img'] = '';
+                $_POST['slip_img'] = "";
             }
-            $u = $_POST['unique_id'];
+            $u = $_POST['contract_code'];
             $debtPaymentDetails->upload($_POST);
-            redirection('/repay.php?id='. ($u));
+            redirection('/repay.php?id='.($u));
+            //_($u);
+
         }
         else if ($_POST['form_action'] === 'insertInit') {
             $debtPaymentDetails->insertinit($_POST);
