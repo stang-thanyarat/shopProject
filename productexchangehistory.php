@@ -82,7 +82,11 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                                     <th><?= ShowTime($row['exchange_date']) ?></th>
                                     <th id="text<?= $row['product_id'] ?>"><?= $row['product_name'] ?></th>
                                     <th><?= number_format($row['exchange_amount']) ?></th>
-                                    <th><?= $row['exchange_status'] == 1 ? "<a type='button' onclick='wait()'><font color=#A36627>รอของ</font></a>" : "สำเร็จ"; ?>
+                                    <th><?php if ($row['exchange_status'] == 1) { ?>
+                                            <a type='button' onclick="wait(<?= $row['product_exchange_id']; ?>)"><font color=#A36627>รอของ</font></a>
+                                        <?php } else {?>
+                                        สำเร็จ
+                                        <?php } ?>
                                     </th>
                                     <th>
                                         <?php if ($row['exchange_status'] == 1) { ?>

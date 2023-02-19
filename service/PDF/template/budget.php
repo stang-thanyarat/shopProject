@@ -1,6 +1,6 @@
 <?php
 require_once '../vendor/autoload.php';
-if (!isset($_POST['cash']) ||!isset($_POST['credit']) || !isset($_POST['BG1']) || !isset($_POST['BG2']) || !isset($_POST['BG3']) || !isset($_POST['firstdate']) || !isset($_POST['lastdate'])) {
+if (!isset($_POST['complete']) || !isset($_POST['cash']) ||!isset($_POST['cash2']) ||!isset($_POST['credit2']) ||!isset($_POST['credit']) ||!isset($_POST['DB'])|| !isset($_POST['BG1']) || !isset($_POST['BG2']) || !isset($_POST['BG3']) || !isset($_POST['firstdate']) || !isset($_POST['lastdate'])) {
   echo "Not found.";
   exit();
 }
@@ -122,7 +122,7 @@ border: 0px;
   </tr>
   <tr bgcolor="#FBEDD8">
     <td width="70%" stlye="">รวม สินทรัพย์</div>
-    <td align="right" width="20%">' . number_format($_POST['BG1'] + $_POST['BG2']) . '</td>
+    <td align="right" width="20%">' . number_format($_POST['BG1'] + ($_POST['cash2']) +abs( $_POST['DB'])) . '</td>
     <td width="20%">บาท</td>
   </tr>
   <tr bgcolor="#FFF8ED">
@@ -132,12 +132,12 @@ border: 0px;
 </tr>
 <tr bgcolor="#FBEDD8">
   <td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เงินที่ได้รับแล้ว</div>
-  <td align="right" width="20%">' . number_format($_POST['BG2']) . '</td>
+  <td align="right" width="20%">' . number_format($_POST['cash2'] + $_POST['DB']) . '</td>
   <td width="20%">บาท</td>
 </tr>
 <tr bgcolor="#FFF8ED">
 <td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เงินที่ยังไม่ได้รับ</div>
-<td align="right" width="20%">' . number_format($_POST['BG2']) . '</td>
+<td align="right" width="20%">' . number_format($_POST['credit2'] - $_POST['DB']) . '</td>
 <td width="20%">บาท</td>
 </tr>
 

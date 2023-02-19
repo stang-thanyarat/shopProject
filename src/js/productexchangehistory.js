@@ -35,12 +35,37 @@ function del(id) {
     })
 }
 
-function wait() {
-    const cart = JSON.parse(localStorage.getItem('cart'))
-    let html = ``
+function wait(id) {
     Swal.fire({
-        title: 'คุณต้องการเปลี่ยนเป็นสถานะสำเร็จหรือไม่',
-        width: 1000,
+        title: 'คำเตือน',
+        text: "คุณต้องการเปลี่ยนสถานะใช่หรือไม่",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'ใช่',
+        cancelButtonText: 'ยกเลิก'
+    }).then(async (result) => {
+        if (result.isConfirmed) {
+            var formdata1 = new FormData();
+            formdata1.append("product_exchange_id", id);
+            formdata1.append("form_action", "status");
+            formdata1.append("table", "productexchange");
+            await fetch('controller/ProductExchange.php', {
+                method: 'POST',
+                body: formdata1
+            })
+            Swal.fire(
+                {
+                    title: 'สถานะ',
+                    text: 'การเปลี่ยนสถานะเสร็จสิ้น',
+                    icon: 'success',
+                    timer: 3000
+                }
+            ).then(()=>{
+                location.reload()
+            })
+        }
     })
 }
 

@@ -24,6 +24,7 @@ $("#addproduct").submit(function (event) {
         return
     }
     $('#list-product').append(`<tr id="rr${i}">
+                    <th class="index-table-product">${i + 1}</th>
                     <th>${$('#product_name').val() || $("#product_id option:selected").text()}</th>
                     <th>${$('#order_pr').val()}</th>
                     <th>${$('#order_amt').val()}</th>
@@ -44,7 +45,7 @@ $("#addproduct").submit(function (event) {
     $('#product_id').val("")
     $('#order_pr').val("")
     $('#order_amt').val("")
-
+    getAllprice()
 });
 
 
@@ -71,6 +72,7 @@ function delrow() {
     $('#list-product').html("")
     rows.forEach((e, i) => {
         $('#list-product').append(`<tr id="rr${i + 1}">
+                    <th class="index-table-product">${i + 1}</th>
                     <th>${e.list}</th>
                     <th>${e.price}</th>
                     <th>${e.amount}</th>
@@ -85,6 +87,7 @@ function delrow() {
     localStorage.setItem("tableProduct", JSON.stringify(tableObj))
     localStorage.removeItem('deleteIndex')
     $('#closedelrow').click()
+    getAllprice()
 }
 
 //แก้ไขสินค้า
@@ -103,6 +106,7 @@ $("#editaddproduct").submit(function (event) {
     $('#list-product').html("")
     rows.forEach((e, i) => {
         $('#list-product').append(`<tr id="rr${i + 1}">
+                    <th class="index-table-product">${i + 1}</th>
                     <th>${e.list}</th>
                     <th>${e.price}</th>
                     <th>${e.amount}</th>
@@ -116,6 +120,7 @@ $("#editaddproduct").submit(function (event) {
     localStorage.setItem("tableProduct", JSON.stringify(tableObj))
     localStorage.removeItem('editIndex')
     $('#editclose').click()
+    getAllprice()
 
 })
 
@@ -130,6 +135,7 @@ $("#addprice").submit(function (event) {
         return
     }
     $('#list-priceother').append(`<tr id="rr${i}">
+                    <th class="index-table-price">${i + 1}</th>
                     <th>${$('#listother').val()}</th>
                     <th>${$('#priceother').val()}</th>
                     <th>
@@ -146,6 +152,7 @@ $("#addprice").submit(function (event) {
     localStorage.setItem("tablePrice", JSON.stringify(tableObj))
     $('#listother').val("")
     $('#priceother').val("")
+    getAllprice()
 
 });
 
@@ -171,6 +178,7 @@ function delrow2() {
     $('#list-priceother').html("")
     rows.forEach((e, i) => {
         $('#list-priceother').append(`<tr id="rr${i + 1}">
+                    <th class="index-table-price">${i + 1}</th>
                     <th>${e.listOther}</th>
                     <th>${e.priceOther}</th>
                     <th>
@@ -183,6 +191,7 @@ function delrow2() {
     localStorage.setItem("tablePrice", JSON.stringify(tableObj))
     localStorage.removeItem('deleteIndex')
     $('#closedelrow2').click()
+    getAllprice()
 }
 
 //แก้ไขรายการอื่นๆ
@@ -199,6 +208,7 @@ $("#editaddprice").submit(function (event) {
     $('#list-priceother').html("")
     rows.forEach((e, i) => {
         $('#list-priceother').append(`<tr id="rr${i + 1}">
+        <th class="index-table-price">${i + 1}</th>
         <th>${e.listOther}</th>
         <th>${e.priceOther}</th>
         <th>
@@ -210,6 +220,7 @@ $("#editaddprice").submit(function (event) {
     localStorage.setItem("tablePrice", JSON.stringify(tableObj))
     localStorage.removeItem('editIndex')
     $('#editaddcloseother').click()
+    getAllprice()
 
 })
 
@@ -219,6 +230,28 @@ $("#payment_sl").change(function () {
     } else {
         $("#creditupload").hide()
     }
+});
+
+let ALLPrice  = 0;
+let A  = 0;
+function getAllprice(){
+    ALLPrice  = 0
+    A  = 0
+    let tableObj = (JSON.parse(localStorage.getItem("tableProduct"))).data
+    for (const element of tableObj) {
+        A += Number(element.amount)
+        ALLPrice += Number(element.price) * Number(element.amount)
+
+    }
+    let tableObj2 = (JSON.parse(localStorage.getItem("tablePrice"))).data
+    for (const element of tableObj2) {
+        ALLPrice += Number(element.priceOther)
+    }
+    $("#all_amount_odr").val(A)
+    $("#all_price_odr").val(ALLPrice)
+}
+$(document).ready(async function () {
+    getAllprice()
 });
 
 async function loopproduct() {
@@ -265,24 +298,43 @@ async function loopother() {
 //ตรวจสอบพร้อมส่งข้อมูล
 $("#form1").submit(async function (event) {
     event.preventDefault();
-    let response = await fetch('controller/Order.php', {
-        method: 'POST',
-        body: new FormData(document.form1)
-    });
-    console.log(response);
-    if (!response.ok) {
-        console.log(response);
-    } else {
-        await Swal.fire({
-            icon: 'success',
-            text: 'บันทึกข้อมูลเสร็จสิ้น',
-        }).then(async () => {
-            await loopproduct()
-            await loopother()
-                //localStorage.clear()
-               // window.location = './order.php'
-
+    if (!checkID(document.form1.employee_card_id.value)) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'ระบุหมายเลขประจำตัวประชาชนไม่ถูกต้อง',
+            timer: 3000
         })
+        return
     }
+    if (!telephone(document.form1.employee_telephone.value)) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'เบอร์โทรศัพท์ไม่ถูกต้อง',
+            timer: 3000
+        })
+        return
+    } else {
+        event.preventDefault();
+        let response = await fetch('controller/Order.php', {
+            method: 'POST',
+            body: new FormData(document.form1)
+        });
+        console.log(response);
+        if (!response.ok) {
+            console.log(response);
+        } else {
+            await Swal.fire({
+                icon: 'success',
+                text: 'บันทึกข้อมูลเสร็จสิ้น',
+            }).then(async () => {
+                await loopproduct()
+                await loopother()
+                //localStorage.clear()
+                // window.location = './order.php'
 
+            })
+        }
+    }
 });

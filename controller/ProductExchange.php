@@ -50,7 +50,10 @@ if (isset($_POST)) {
             }
             $productexchange->insert($_POST);
             redirection( "/productexchangehistory.php" );
-
+        }
+        else if ($_POST['form_action'] === 'status') {
+            $productexchange->status($_POST['product_exchange_id']);
+            redirection( "/productexchangehistory.php" );
         }
     }
 }

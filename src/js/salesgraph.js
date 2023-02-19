@@ -3,6 +3,10 @@ $("#search").click(async function () {
         let url = `./controller/SalesGraph.php?category_id=${$("#category_id").val()}&date=${$("#date").val()}&limit=${$("#limit").val()}`
         const product = await (await fetch(url)).json()
         setUI(product)
+    }else if ($("#category_id").val() == "all" && $("#limit").val() !== "" && $("#date").val() !== "") {
+        let url = `./controller/SalesGraph.php?&date=${$("#date").val()}&limit=${$("#limit").val()}`
+        const product = await (await fetch(url)).json()
+        setUI(product)
     }
 });
 
@@ -20,7 +24,7 @@ $(document).ready(function () {
 
 function setUI(data) {
     $("canvas#graphCanvas").remove();
-    $("#ChartTable").append(`<canvas id="graphCanvas"></canvas>`);
+    $("#ChartTable").append(`<canvas id="graphCanvas" style="height:70vh; width:80vw;"></canvas>`);
     var name = [];
     var marks = [];
     for (var i in data) {
@@ -35,6 +39,10 @@ function setUI(data) {
             datasets:
                 [
                     {
+                        barPercentage: 0.5,
+                        barThickness: 50,
+                        maxBarThickness: 50,
+                        minBarLength: 2,
                         label: 'ยอดขายสินค้า',
                         data: marks,
                         backgroundColor: ['rgb(180, 120, 120)',],
@@ -43,11 +51,21 @@ function setUI(data) {
                     }
                 ]
         },
-
         options: {
             indexAxis: 'y',
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: 20
+                        }
+                    }
+                }
+            }
         }
-
     });
+
+    Chart.defaults.font.size = 14;
 }
 
