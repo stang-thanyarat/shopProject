@@ -44,7 +44,7 @@ include_once('nav.php');
             </div>
             <!--ตาราง-->
             <!--เนื้อหา-->
-            <table class="col-11 tablesales topic_product">
+            <table class="col-11 tablesales">
                 <thead>
                 <tr class="TRTOPICCSS">
                     <th style="width : 10%; border-right: 1px; text-align: center; ">ลำดับ</th>

@@ -30,8 +30,11 @@ function getFullRole($role)
 
 </head>
 <?php include_once('nav.php');
+include_once('database/product.php');
 include_once "./database/Category.php";
 $category =  new Category();
+$product = new Product();
+$lost = $product->fetchLost();
 $rows = $category->fetchAll();
 ?>
 
@@ -55,7 +58,7 @@ $rows = $category->fetchAll();
                         </select>
                     </div>
                     <div class="col-1 a">
-                        <a href="./addtocart.php" ><img src="./src/images/cart.png" width="44%"/></a>
+                        <a href="./addtocart.php"><img src="./src/images/cart.png" width="60"/><span id="show" class="bell" style="width: 18pt; height: 18pt; font-size: 10pt;"></span></a>
                     </div>
                 </div>
                 <table class="col-11 q" style="border: 0px">

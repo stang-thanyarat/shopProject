@@ -34,6 +34,7 @@ $("#addproduct").submit(function (event) {
     $('#order_amt').val("")
     $('#exp_date').val("")
     $('#all_price_odr').val("")
+    getAllprice()
 
 });
 
@@ -66,7 +67,7 @@ function delrow() {
                     <th>${e.list}</th>
                     <th>${e.price}</th>
                     <th>${e.amount}</th>
-                     <th>${Number(e.price)*Number(e.amount)}</th>
+                     <th>${Number(e.price) * Number(e.amount)}</th>
                     <th>${e.expdate}</th>
                     <th>
                         <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(${i})"></button>
@@ -78,6 +79,7 @@ function delrow() {
     localStorage.setItem("tableProduct", JSON.stringify(tableObj))
     localStorage.removeItem('deleteIndex')
     $('#closedelrow').click()
+    getAllprice()
 }
 
 //แก้ไขสินค้า
@@ -102,7 +104,7 @@ $("#editaddproduct").submit(function (event) {
                     <th>${e.list}</th>
                     <th>${e.price}</th>
                     <th>${e.amount}</th>
-                    <th>${Number(e.price)*Number(e.amount)}</th>
+                    <th>${Number(e.price) * Number(e.amount)}</th>
                     <th>${e.expdate}</th>
                     <th>
                         <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(${i})"></button>
@@ -113,7 +115,7 @@ $("#editaddproduct").submit(function (event) {
     localStorage.setItem("tableProduct", JSON.stringify(tableObj))
     localStorage.removeItem('editIndex')
     $('#editclose').click()
-
+    getAllprice()
 })
 
 //เพิ่มรายการอื่นๆ
@@ -125,7 +127,7 @@ $("#addprice").submit(function (event) {
         $('#addtable2').blur()
         return
     }
-                    $('#list-priceother').append(`<tr id="rr${i + 1}">
+    $('#list-priceother').append(`<tr id="rr${i + 1}">
                     <th class="index-table-price">${i + 1}</th>          
                     <th>${$('#listother').val()}</th>
                     <th>${$('#priceother').val()}</th>
@@ -144,6 +146,7 @@ $("#addprice").submit(function (event) {
     localStorage.setItem("tablePrice", JSON.stringify(tableObj))
     $('#listother').val("")
     $('#priceother').val("")
+    getAllprice()
 
 });
 
@@ -168,7 +171,7 @@ function delrow2() {
     rows.splice(index, 1)
     $('#list-priceother').html("")
     rows.forEach((e, i) => {
-                    $('#list-priceother').append(`<tr id="rr${i + 1}">
+        $('#list-priceother').append(`<tr id="rr${i + 1}">
                     <th class="index-table-price">${i + 1}</th>   
                     <th>${e.listOther}</th>
                     <th>${e.priceOther}</th>
@@ -182,6 +185,7 @@ function delrow2() {
     localStorage.setItem("tablePrice", JSON.stringify(tableObj))
     localStorage.removeItem('deleteIndex')
     $('#closedelrow2').click()
+    getAllprice()
 }
 
 //แก้ไข
@@ -220,6 +224,31 @@ $("#payment_sl").change(function () {
     } else {
         $("#slipupload").hide()
     }
+});
+
+
+let ALLPrice = 0;
+let A = 0;
+
+function getAllprice() {
+    ALLPrice = 0
+    A = 0
+    let tableObj = (JSON.parse(localStorage.getItem("tableProduct"))).data
+    for (const element of tableObj) {
+        A += Number(element.amount)
+        ALLPrice += Number(element.price) * Number(element.amount)
+
+    }
+    let tableObj2 = (JSON.parse(localStorage.getItem("tablePrice"))).data
+    for (const element of tableObj2) {
+        ALLPrice += Number(element.priceOther)
+    }
+    $("#all_amount_odr").val(A)
+    $("#all_price_odr").val(ALLPrice)
+}
+
+$(document).ready(async function () {
+    getAllprice()
 });
 
 async function loopproduct() {
@@ -283,29 +312,46 @@ async function loopexp() {
     }
 }
 
-
 //ตรวจสอบพร้อมส่งข้อมูล
 $("#form1").submit(async function (event) {
     event.preventDefault();
-    let response = await fetch('controller/Order.php', {
-        method: 'POST',
-        body: new FormData(document.form1)
-    });
-    console.log(response);
-    if (!response.ok) {
-        console.log(response);
-    } else {
-        await Swal.fire({
-            icon: 'success',
-            text: 'บันทึกข้อมูลเสร็จสิ้น',
-        }).then(async () => {
-            await loopproduct()
-            await loopother()
-            await loopexp()
-            //localStorage.clear()
-            // window.location = './order.php'
-
+    if (!document.form1.order_status.value.checked) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'ระบุหมายเลขประจำตัวประชาชนไม่ถูกต้อง',
+            timer: 3000
         })
+        return
     }
+    if (!telephone(document.form1.employee_telephone.value)) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'เบอร์โทรศัพท์ไม่ถูกต้อง',
+            timer: 3000
+        })
+        return
+    } else {
+        let response = await fetch('controller/Order.php', {
+            method: 'POST',
+            body: new FormData(document.form1)
+        });
+        console.log(response);
+        if (!response.ok) {
+            console.log(response);
+        } else {
+            await Swal.fire({
+                icon: 'success',
+                text: 'บันทึกข้อมูลเสร็จสิ้น',
+            }).then(async () => {
+                await loopproduct()
+                await loopother()
+                await loopexp()
+                //localStorage.clear()
+                // window.location = './order.php'
 
+            })
+        }
+    }
 });

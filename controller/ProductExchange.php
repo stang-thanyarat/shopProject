@@ -52,8 +52,7 @@ if (isset($_POST)) {
             redirection( "/productexchangehistory.php" );
         }
         else if ($_POST['form_action'] === 'status') {
-                //$product->cutStock($_POST['product_id'],$_POST['exchange_amount']);
-            $productexchange->status( $_POST['q'], $_POST['product_exchange_id']);
+            $productexchange->status($_POST['product_exchange_id']);
             redirection( "/productexchangehistory.php" );
         }
     }

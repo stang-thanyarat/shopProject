@@ -6,5 +6,4 @@ if(!isset($_GET['firstdate'])&&(!isset($_GET['lastdate']))){
 }
 else if(isset($_GET['firstdate'])&&(isset($_GET['lastdate']))){
     $budget = new Budget();
-    
 }

@@ -63,7 +63,7 @@ for ($i = 0; $i < count($od); $i++) {
         price: " . $b['order_pr'] . ",
         amount: " . $b['order_amt'] . ",
         expdate:\"" . "" . "\",
-        allprice:" . ($b['order_pr'] * $b['order_amt']) . ",
+        allprice: " . $b['order_pr'] * $b['order_amt'] . ",
         id:" . $b['unique_id'] . "
     }";
     if ($i + 1 != count($od)) {
@@ -71,14 +71,14 @@ for ($i = 0; $i < count($od); $i++) {
     }
 }
 $json1 = '';
-for ($i = 0; $i < count($op); $i++) {
-    $b = $op[$i];
+for ($k = 0; $k < count($op); $k++) {
+    $t = $op[$k];
     $json1 .= "{
-        listOther: \"" . $b['listother'] . "\",
-        priceOther: " . $b['priceother'] . ",
-        id: " . $b['unique_id'] . "
+        listOther: \"" . $t['listother'] . "\",
+        priceOther: " . $t['priceother'] . ",
+        id: " . $t['unique_id'] . "
     }";
-    if ($i + 1 != count($op)) {
+    if ($k + 1 != count($op)) {
         $json1 .= ",";
     }
 }
@@ -86,10 +86,10 @@ for ($i = 0; $i < count($op); $i++) {
 
 <body>
     <form action="controller/Order.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="bank_slip" value="<?= $o['bank_slip']; ?>" />
         <input type="hidden" name="table" value="order" />
         <input type="hidden" name="form_action" value="update" />
         <input type="hidden" value="<?= $_GET['id'] ?>" name="order_id" id="order_id" />
-        <input type="hidden" value="<?= $_GET['id'] ?>" name="product_id" />
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
@@ -106,7 +106,7 @@ for ($i = 0; $i < count($op); $i++) {
                         </div>
                         <div class="col">
                             <!--วันที่รับของล่าสุด : &nbsp;<?= toDay($o['datereceive']); ?>-->
-                            วันที่รับของที่เปลี่ยน : &nbsp;<input id="datereceive" name="datereceive" type="date" value="<?= $o['datereceive']; ?>">
+                            วันที่รับของที่เปลี่ยน : &nbsp;<input id="datereceive" name="datereceive" type="date" step="1" value="<?= $o['datereceive']; ?>" >
                         </div>
                     </div>
                 </div>
@@ -125,14 +125,23 @@ for ($i = 0; $i < count($op); $i++) {
                         วิธีการชำระเงิน : &nbsp;
                         <select name="payment_sl" id="payment_sl" class="inbox" style="background-color: #D4DDC6;" value="<?= $o['payment_sl']; ?>">
                                 <option value="all" selected hidden>เลือกวิธีการชำระ</option>
-                                <option value="เงินสด" <?= $o['payment_sl'] == "ซอง" ? "selected" : '' ?>>เงินสด</option>
+                                <option value="เงินสด" <?= $o['payment_sl'] == "เงินสด" ? "selected" : '' ?>>เงินสด</option>
                                 <option value="เครดิต" <?= $o['payment_sl'] == "เครดิต" ? "selected" : '' ?>>เครดิต</option>
                             </select>
                     </div>
                     <div class="col payment">
                         &nbsp;&nbsp;&nbsp;&nbsp;วันที่ชำระเงิน : &nbsp;
                         <!--<?= toDay($o['payment_dt']); ?>-->
-                         &nbsp;<input id="payment_dt" name="payment_dt" type="date" value="<?= $o['payment_dt']; ?>">
+                         &nbsp;<input id="payment_dt" name="payment_dt" type="date" step="1" value="<?= $o['payment_dt']; ?>">
+                    </div>
+                </div>
+                <div id="creditupload">
+                    <div class="col h">
+                        สลิปธนาคาร : <span style="color: red; ">&nbsp*</span>
+                        <input accept="image/*" type="file" id="bank_slip" name="bank_slip" class="bb" value="<?= $o['bank_slip']; ?>">
+                    </div>
+                    <div class="col">
+                        <h6 class="hh"><span style="color: red; ">&nbsp*</span>ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB </h6>
                     </div>
                 </div>
                 <div class="col note">
@@ -185,24 +194,23 @@ for ($i = 0; $i < count($op); $i++) {
                     <table class="ma col-10">
                         <thead>
                             <tr>
-                                <th width="5%">ลำดับ</th>
-                                <th width="40%">รายการ</th>
-                                <th width="40%">ราคา</th>
-                                <th width="12%"></th>
+                                <th width="10%">ลำดับ</th>
+                                <th width="45%">รายการ</th>
+                                <th width="30%">ราคา</th>
+                                <th width="20%"></th>
                             </tr>
                         </thead>
                         <tbody id="list-priceother">
-                            <?php foreach ($op as $b) { ?>
-                                <tr id="rr<?= $i ?>">
-                                    <th class="index-table-price"><?= $i + 1 ?></th>
-                                    <th><?= $b['listother'] ?></th>
-                                    <th><?= $b['priceother'] ?></th>
-                                    <th>
-                                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModalother"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel1(<?= $i ?>)"></button>
-                                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm4"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit1(<?= $i ?>)"></button>
+                            <?php $k = 0; foreach ($op as $b) { ?>
+                                <tr id="rr<?= $k ?>">
+                                    <th class="index-table-price"><?= $k + 1 ?></th>
+                                    <th ><?= $b['listother'] ?></th>
+                                    <th ><?= $b['priceother'] ?></th>
+                                    <th > <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModalother" onclick="saveIndexDel1(<?= $i ?>)"><img src="./src/images/icon-delete.png" width="25" ></button>
+                                    <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm4"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit1(<?= $i ?>)"></button>
                                     </th>
                                 </tr>
-                            <?php $i++;
+                            <?php $k++;
                             } ?>
                         </tbody>
                     </table>
@@ -226,7 +234,6 @@ for ($i = 0; $i < count($op); $i++) {
         </div>
         </div>
     </form>
-
     <!--เพิ่มสินค้า-->
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <form id="addproduct" name="addproduct">
@@ -255,9 +262,6 @@ for ($i = 0; $i < count($op); $i++) {
                             <div class="s"> จำนวน &nbsp;&nbsp;:&nbsp;&nbsp;
                                 <input type="number" class="u" min="1" name="order_amt" id="order_amt" required />
                             </div>
-                            <div class="ss"> วันหมดอายุ &nbsp;&nbsp;:&nbsp;&nbsp;
-                                <input type="date" min="1" name="exp_date" id="exp_date" required />
-                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" id="addtable" class="btn btn-primary1">ตกลง</button>
@@ -267,7 +271,6 @@ for ($i = 0; $i < count($op); $i++) {
             </div>
         </form>
     </div>
-
     <!--แก้ไขสินค้า-->
     <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <form id="editaddproduct" name="editaddproduct">
@@ -295,9 +298,6 @@ for ($i = 0; $i < count($op); $i++) {
                             <div class="s"> จำนวน &nbsp;&nbsp;:&nbsp;&nbsp;
                                 <input type="number" class="u" min="1" name="editorder_amt" id="editorder_amt" required />
                             </div>
-                            <div class="s"> วันหมดอายุ &nbsp;&nbsp;:&nbsp;&nbsp;
-                                <input type="date" class="u" min="1" name="editexp_date" id="editexp_date" required />
-                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary1">ตกลง</button>
@@ -307,7 +307,6 @@ for ($i = 0; $i < count($op); $i++) {
             </div>
         </form>
     </div>
-
     <!--ค่าใช้จ่ายอื่นๆ-->
     <div class="modal fade bd-example-modal-sm1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <form name="addprice" id="addprice" method="post">
@@ -335,7 +334,6 @@ for ($i = 0; $i < count($op); $i++) {
             </div>
         </form>
     </div>
-
     <!--แก้ไขค่าใช้จ่ายอื่นๆ-->
     <div class="modal fade bd-example-modal-sm4" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <form name="editaddprice" id="editaddprice" method="post">
@@ -380,7 +378,6 @@ for ($i = 0; $i < count($op); $i++) {
             </div>
         </div>
     </div>
-
     <!-- ลบรายการอื่นๆ -->
     <div class="modal fade" id="exampleModalother" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">

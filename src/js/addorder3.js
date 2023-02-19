@@ -45,7 +45,7 @@ $("#addproduct").submit(function (event) {
     $('#product_id').val("")
     $('#order_pr').val("")
     $('#order_amt').val("")
-
+    getAllprice()
 });
 
 
@@ -87,6 +87,7 @@ function delrow() {
     localStorage.setItem("tableProduct", JSON.stringify(tableObj))
     localStorage.removeItem('deleteIndex')
     $('#closedelrow').click()
+    getAllprice()
 }
 
 //แก้ไขสินค้า
@@ -119,6 +120,7 @@ $("#editaddproduct").submit(function (event) {
     localStorage.setItem("tableProduct", JSON.stringify(tableObj))
     localStorage.removeItem('editIndex')
     $('#editclose').click()
+    getAllprice()
 
 })
 
@@ -150,6 +152,7 @@ $("#addprice").submit(function (event) {
     localStorage.setItem("tablePrice", JSON.stringify(tableObj))
     $('#listother').val("")
     $('#priceother').val("")
+    getAllprice()
 
 });
 
@@ -188,6 +191,7 @@ function delrow2() {
     localStorage.setItem("tablePrice", JSON.stringify(tableObj))
     localStorage.removeItem('deleteIndex')
     $('#closedelrow2').click()
+    getAllprice()
 }
 
 //แก้ไขรายการอื่นๆ
@@ -216,6 +220,7 @@ $("#editaddprice").submit(function (event) {
     localStorage.setItem("tablePrice", JSON.stringify(tableObj))
     localStorage.removeItem('editIndex')
     $('#editaddcloseother').click()
+    getAllprice()
 
 })
 
@@ -227,25 +232,27 @@ $("#payment_sl").change(function () {
     }
 });
 
-function am() {
-    list = []
-    let product = (JSON.parse(localStorage.getItem('tableProduct'))).data
-    for (const d of product) {
-        let p = Number(d.price)*Number(d.amount)
-        list.push(p)
+let ALLPrice  = 0;
+let A  = 0;
+function getAllprice(){
+    ALLPrice  = 0
+    A  = 0
+    let tableObj = (JSON.parse(localStorage.getItem("tableProduct"))).data
+    for (const element of tableObj) {
+        A += Number(element.amount)
+        ALLPrice += Number(element.price) * Number(element.amount)
+
     }
-    list2 = []
-    let other = (JSON.parse(localStorage.getItem('tableProduct'))).data
-    for (const d of other) {
-        let q = Number(d.priceOther)
-        list2.push(q)
+    let tableObj2 = (JSON.parse(localStorage.getItem("tablePrice"))).data
+    for (const element of tableObj2) {
+        ALLPrice += Number(element.priceOther)
     }
-    list = all
-    list2 = all2
-    alll += all+all2
-    $("#all_price_odr").text(alll)
-    $("#all_price_odr").val(alll)
-};
+    $("#all_amount_odr").val(A)
+    $("#all_price_odr").val(ALLPrice)
+}
+$(document).ready(async function () {
+    getAllprice()
+});
 
 async function loopproduct() {
     let lastID = await (await fetch('controller/GetLastIdOrder.php')).text()
@@ -291,24 +298,43 @@ async function loopother() {
 //ตรวจสอบพร้อมส่งข้อมูล
 $("#form1").submit(async function (event) {
     event.preventDefault();
-    let response = await fetch('controller/Order.php', {
-        method: 'POST',
-        body: new FormData(document.form1)
-    });
-    console.log(response);
-    if (!response.ok) {
-        console.log(response);
-    } else {
-        await Swal.fire({
-            icon: 'success',
-            text: 'บันทึกข้อมูลเสร็จสิ้น',
-        }).then(async () => {
-            await loopproduct()
-            await loopother()
-            //localStorage.clear()
-            // window.location = './order.php'
-
+    if (!checkID(document.form1.employee_card_id.value)) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'ระบุหมายเลขประจำตัวประชาชนไม่ถูกต้อง',
+            timer: 3000
         })
+        return
     }
+    if (!telephone(document.form1.employee_telephone.value)) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'เบอร์โทรศัพท์ไม่ถูกต้อง',
+            timer: 3000
+        })
+        return
+    } else {
+        event.preventDefault();
+        let response = await fetch('controller/Order.php', {
+            method: 'POST',
+            body: new FormData(document.form1)
+        });
+        console.log(response);
+        if (!response.ok) {
+            console.log(response);
+        } else {
+            await Swal.fire({
+                icon: 'success',
+                text: 'บันทึกข้อมูลเสร็จสิ้น',
+            }).then(async () => {
+                await loopproduct()
+                await loopother()
+                //localStorage.clear()
+                // window.location = './order.php'
 
+            })
+        }
+    }
 });

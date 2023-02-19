@@ -67,4 +67,13 @@ $rows = $category->fetchAll();
     </form>
 </body>
 <script src="./src/js/searchinformation.js"></script>
+<script>
+    var input = document.getElementById("keyword");
+    input.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("search").click();
+        }
+    });
+</script>
 </html>
