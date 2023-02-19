@@ -69,7 +69,7 @@ class Sales
     public function fetchAllContract()
     {
         try{
-            $sql = "SELECT SA.*,C.*,D.outstanding,D.promise_status,D.contract_code FROM sales_tb SA,contract_tb C,debt_payment_details_tb D WHERE SA.sales_list_id = C.sales_list_id AND C.contract_code = D.contract_code ORDER BY SA.sales_list_id DESC ";
+            $sql = "SELECT SA.*,C.outstanding FROM sales_tb SA,contract_tb C ORDER BY SA.sales_list_id DESC";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetchAll();

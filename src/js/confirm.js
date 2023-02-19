@@ -10,8 +10,8 @@ $("#addproduct").submit(function (event) {
     $('#list-product').append(`<tr id="rr${i + 1}">
                     <th class="index-table-product">${i + 1}</th>
                     <th>${$('#product_name').val() || $("#product_id option:selected").text()}</th>
-                    <th>${$('#order_pr').val()}</th>
-                    <th>${$('#order_amt').val()}</th>
+                    <th>${Number($('#order_pr').val())}</th>
+                    <th>${Number($('#order_amt').val())}</th>
                     <th>${Number($('#order_pr').val()) * Number($('#order_amt').val())}</th>
                     <th>
                         <button type="button" class="btn1 " data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(${i})"></button>
@@ -20,16 +20,17 @@ $("#addproduct").submit(function (event) {
                 </tr>`)
     $('#addclose').click()
     tableObj.data.push({
-        list: $('#product_id').val(),
-        price: $('#order_pr').val(),
-        amount: $('#order_amt').val(),
+        list: Number($('#product_id').val()),
+        price: Number($('#order_pr').val()),
+        amount: Number($('#order_amt').val()),
         allPrice: Number($('#order_pr').val()) * Number($('#order_amt').val()),
-        id: -1,
+        id: Number(-1),
     })
     localStorage.setItem("tableProduct", JSON.stringify(tableObj))
     $('#product_id').val("")
     $('#order_pr').val("")
     $('#order_amt').val("")
+    getAllprice()
 
 });
 
@@ -58,9 +59,9 @@ function delrow() {
     rows.forEach((e, i) => {
         $('#list-product').append(`<tr id="rr${i + 1}">
                     <th class="index-table-product">${i + 1}</th>
-                    <th>${e.list}</th>
-                    <th>${e.price}</th>
-                    <th>${e.amount}</th>
+                    <th>${Number(e.list)}</th>
+                    <th>${Number(e.price)}</th>
+                    <th>${Number(e.amount)}</th>
                      <th>${Number(e.price) * Number(e.amount)}</th>
                     <th>
                         <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(${i})"></button>
@@ -72,6 +73,7 @@ function delrow() {
     localStorage.setItem("tableProduct", JSON.stringify(tableObj))
     localStorage.removeItem('deleteIndex')
     $('#closedelrow').click()
+    getAllprice()
 }
 
 //แก้ไขสินค้า
@@ -91,9 +93,9 @@ $("#editaddproduct").submit(function (event) {
     rows.forEach((e, i) => {
         $('#list-product').append(`<tr id="rr${i + 1}">
                     <th class="index-table-product">${i + 1}</th>
-                    <th>${e.list}</th>
-                    <th>${e.price}</th>
-                    <th>${e.amount}</th>
+                    <th>${Number(e.list)}</th>
+                    <th>${Number(e.price)}</th>
+                    <th>${Number(e.amount)}</th>
                     <th>${Number(e.price) * Number(e.amount)}</th>
                     <th>
                         <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(${i})"></button>
@@ -104,6 +106,7 @@ $("#editaddproduct").submit(function (event) {
     localStorage.setItem("tableProduct", JSON.stringify(tableObj))
     localStorage.removeItem('editIndex')
     $('#editclose').click()
+    getAllprice()
 
 })
 
@@ -135,6 +138,7 @@ $("#addprice").submit(function (event) {
     localStorage.setItem("tablePrice", JSON.stringify(tableObj))
     $('#listother').val("")
     $('#priceother').val("")
+    getAllprice()
 
 });
 
@@ -173,6 +177,7 @@ function delrow2() {
     localStorage.setItem("tablePrice", JSON.stringify(tableObj))
     localStorage.removeItem('deleteIndex')
     $('#closedelrow2').click()
+    getAllprice()
 }
 
 //แก้ไข
@@ -202,6 +207,7 @@ $("#editaddprice").submit(function (event) {
     localStorage.setItem("tablePrice", JSON.stringify(tableObj))
     localStorage.removeItem('editIndex')
     $('#editaddcloseother').click()
+    getAllprice()
 
 })
 
@@ -212,35 +218,39 @@ $("#payment_sl").change(function () {
         $("#slipupload").hide()
     }
 });
-let ALL;
-$(document).ready(async function () {
-    let list = []
+
+let ALLPrice  = 0;
+
+function getAllprice(){
+    ALLPrice  = 0
     let tableObj = (JSON.parse(localStorage.getItem("tableProduct"))).data
     for (const element of tableObj) {
-        tableObj.allPrice = element.allPrice
-        list.push(tableObj)
+        ALLPrice += Number(element.price) * Number(element.amount)
     }
     let tableObj2 = (JSON.parse(localStorage.getItem("tablePrice"))).data
     for (const element of tableObj2) {
-        tableObj2.priceOther = element.priceOther
-        list.push(tableObj2)
+        ALLPrice += Number(element.priceOther)
     }
-    ALL = list
-    setUI(list)
+    $("#all_price_odr").val(ALLPrice)
+}
+$(document).ready(async function () {
+    getAllprice()
 });
 
-function setUI(data) {
+/*function setUI(data) {
     data.forEach((element,e) => {
-        let allprice = 0
+        let price = 0
         let allother = 0
-        allprice += Number(element.allPrice)
+        let amount = 0
+        price += Number(element.price)
         allother += Number(element.priceOther)
+        amount += Number(element.amount)
         let nall = 0
-        nall += allprice+allother
+        nall += allother + price + amount
         $("#all_price_odr").text(nall)
         $("#all_price_odr").val(nall)
     });
-}
+}*/
 
 
 async function loopproduct() {

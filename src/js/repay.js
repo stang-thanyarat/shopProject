@@ -129,7 +129,6 @@ function getDiff2() {
         return TotalDays;
     }
     diff2 = dayss(new Date(D3), new Date(D2))
-    console.log(diff2)
 }
 
 function timeinterest() {
@@ -137,47 +136,56 @@ function timeinterest() {
         let m = Math.abs(Math.ceil(Math.round(0)))
         if (m > 15) {
             m = 15
-        }$('#less_interestt').text(m)
-    }else if (diff2 > 120,diff2 < 149) {
+        }
+        $('#less_interestt').text(m)
+    } else if (diff2 > 120, diff2 < 149) {
         let m = Math.abs(Math.ceil(Math.round(interest_2)))
         if (m > 15) {
             m = 15
-        }$('#less_interestt').text(m)
-    } else if (diff2 > 150,diff2 < 179) {
+        }
+        $('#less_interestt').text(m)
+    } else if (diff2 > 150, diff2 < 179) {
         let m = Math.abs(Math.ceil(Math.round(interest_2 * 2)))
         if (m > 15) {
             m = 15
-        }$('#less_interestt').text(m)
-    } else if (diff2 > 180,diff2 < 209) {
+        }
+        $('#less_interestt').text(m)
+    } else if (diff2 > 180, diff2 < 209) {
         let m = Math.abs(Math.ceil(Math.round(interest_2 * 3)))
         if (m > 15) {
             m = 15
-        }$('#less_interestt').text(m)
-    } else if (diff2 > 210,diff2 < 239) {
+        }
+        $('#less_interestt').text(m)
+    } else if (diff2 > 210, diff2 < 239) {
         let m = Math.abs(Math.ceil(Math.round(interest_2 * 4)))
         if (m > 15) {
             m = 15
-        }$('#less_interestt').text(m)
-    } else if (diff2 > 240,diff2 < 259) {
+        }
+        $('#less_interestt').text(m)
+    } else if (diff2 > 240, diff2 < 259) {
         let m = Math.abs(Math.ceil(Math.round(interest_2 * 5)))
         if (m > 15) {
             m = 15
-        }$('#less_interestt').text(m)
-    } else if (diff2 > 260,diff2 < 279) {
+        }
+        $('#less_interestt').text(m)
+    } else if (diff2 > 260, diff2 < 279) {
         let m = Math.abs(Math.ceil(Math.round(interest_2 * 6)))
         if (m > 15) {
             m = 15
-        }$('#less_interestt').text(m)
-    } else if (diff2 > 280,diff2 < 309) {
+        }
+        $('#less_interestt').text(m)
+    } else if (diff2 > 280, diff2 < 309) {
         let m = Math.abs(Math.ceil(Math.round(interest_2 * 7)))
         if (m > 15) {
             m = 15
-        }$('#less_interestt').text(m)
+        }
+        $('#less_interestt').text(m)
     } else if (diff2 > 310) {
         let m = Math.abs(Math.ceil(Math.round(interest_2 * 8)))
         if (m > 15) {
             m = 15
-        }$('#less_interestt').text(m)
+        }
+        $('#less_interestt').text(m)
     } else {
         $('#less_interestt').text(0)
     }
@@ -186,21 +194,25 @@ function timeinterest() {
 
 $("#form1").submit(async function (event) {
     event.preventDefault();
-    let response = await fetch('controller/DebtPaymentDetails.php', {
+    await fetch('controller/DebtPaymentDetails.php', {
         method: 'POST',
-        body: new FormData(document.form1)
-    });
-    console.log(response);
-    if (!response.ok) {
-        console.log(response);
-    } else {
-        await Swal.fire({
+        body: new FormData(document.form1),
+    })
+    var formdata1 = new FormData();
+    formdata1.append("contract_code", $('#contract_code').val());
+    formdata1.append("outstanding", $('#outstanding').val());
+    formdata1.append("form_action", "updateremain");
+    formdata1.append("table", "contract");
+    await fetch('controller/Contract.php', {
+        method: 'POST',
+        body: formdata1,
+    }).then(() => {
+        Swal.fire({
             icon: 'success',
             text: 'บันทึกข้อมูลเสร็จสิ้น',
         })
-        console.log(await response.text())
-        location.reload()
-    }
+    })
+    setTimeout(function(){ location.reload(); }, 3000);
 });
 
 /*

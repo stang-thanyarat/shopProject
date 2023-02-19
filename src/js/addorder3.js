@@ -45,7 +45,7 @@ $("#addproduct").submit(function (event) {
     $('#product_id').val("")
     $('#order_pr').val("")
     $('#order_amt').val("")
-
+    getAllprice()
 });
 
 
@@ -87,6 +87,7 @@ function delrow() {
     localStorage.setItem("tableProduct", JSON.stringify(tableObj))
     localStorage.removeItem('deleteIndex')
     $('#closedelrow').click()
+    getAllprice()
 }
 
 //แก้ไขสินค้า
@@ -119,6 +120,7 @@ $("#editaddproduct").submit(function (event) {
     localStorage.setItem("tableProduct", JSON.stringify(tableObj))
     localStorage.removeItem('editIndex')
     $('#editclose').click()
+    getAllprice()
 
 })
 
@@ -150,6 +152,7 @@ $("#addprice").submit(function (event) {
     localStorage.setItem("tablePrice", JSON.stringify(tableObj))
     $('#listother').val("")
     $('#priceother').val("")
+    getAllprice()
 
 });
 
@@ -188,6 +191,7 @@ function delrow2() {
     localStorage.setItem("tablePrice", JSON.stringify(tableObj))
     localStorage.removeItem('deleteIndex')
     $('#closedelrow2').click()
+    getAllprice()
 }
 
 //แก้ไขรายการอื่นๆ
@@ -216,6 +220,7 @@ $("#editaddprice").submit(function (event) {
     localStorage.setItem("tablePrice", JSON.stringify(tableObj))
     localStorage.removeItem('editIndex')
     $('#editaddcloseother').click()
+    getAllprice()
 
 })
 
@@ -225,6 +230,26 @@ $("#payment_sl").change(function () {
     } else {
         $("#creditupload").hide()
     }
+});
+
+let ALLPrice  = 0;
+let A  = 0;
+function getAllprice(){
+    ALLPrice  = 0
+    let tableObj = (JSON.parse(localStorage.getItem("tableProduct"))).data
+    for (const element of tableObj) {
+        ALLPrice += Number(element.price) * Number(element.amount)
+        A += Number(element.amount)
+    }
+    let tableObj2 = (JSON.parse(localStorage.getItem("tablePrice"))).data
+    for (const element of tableObj2) {
+        ALLPrice += Number(element.priceOther)
+    }
+    $("#all_amount_odr").val(A)
+    $("#all_price_odr").val(ALLPrice)
+}
+$(document).ready(async function () {
+    getAllprice()
 });
 
 async function loopproduct() {

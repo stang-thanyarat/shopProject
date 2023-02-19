@@ -14,7 +14,7 @@ function autoTab(obj) {
     if (obj_l >= pattern.length) {
         obj.value = obj.value.substr(0, pattern.length);
     }
-    let id = document.form1.employee_card_id.value.split(/ /)[0].replace(/[^\d]/g, '')
+    let id = document.form3.keyword.value.split(/ /)[0].replace(/[^\d]/g, '')
 }
 
 //เช็คเลข13หลัก
@@ -298,13 +298,23 @@ function setU(keyword) {
     keyword.forEach((element, i) => {
         $('#next-add').attr("href", `./addcontract.php?cardID=${element.customer_img}`)
         c++
-        table += `<tr id="rr${i + 1}">
+        if (element.promise_status == 0) {
+            table += `<tr id="rr${i + 1}">
         <th class="index-table-bank">${i + 1}</th>
         <th>${element.date_contract}</th>
         <th>${element.date_due}</th>
-        <th>${element.promise_status}</th>
-        <th>${element.outstanding}</th>
+        <th>ไม่เกินกำหนด</th>
+        <th>${element.outstanding.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
     </tr>`
+        } else if (element.promise_status == 1) {
+            table += `<tr id="rr${i + 1}">
+        <th class="index-table-bank">${i + 1}</th>
+        <th>${element.date_contract}</th>
+        <th>${element.date_due}</th>
+        <th>เกินกำหนด</th>
+        <th>${element.outstanding.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+    </tr>`
+        }
     })
     table += '</tbody></table>`'
     $('#salestocontracttable').html(table)

@@ -156,7 +156,7 @@ class Contract
     {
        try{
            $like = "$keyword";
-           $sql = "SELECT C.*,D.* FROM contract_tb C ,debt_payment_details_tb D WHERE C.contract_code = D.contract_code AND C.baht = D.outstanding AND C.customer_img like ?";
+           $sql = "SELECT * FROM contract_tb WHERE customer_img like ?";
            $stmt = $this->conn->prepare($sql);
            $stmt->bindParam(1, $like, PDO::PARAM_STR);
            $stmt->execute();
@@ -178,11 +178,11 @@ class Contract
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $outstanding = 0;
             foreach ($result as $rows) {
-                $outstanding += $rows['$outstanding'];
+                $outstanding = $rows['$outstanding'];
             }
             $promise = 0;
             foreach ($result as $rows) {
-                    $promise += $rows['$promise_status'];
+                    $promise = $rows['$promise_status'];
             }
             $object = new stdClass();
             $object->ot = $outstanding;
@@ -218,8 +218,8 @@ class Contract
             $date_contract = $_GET['date_contract'];
             $interest_month = !isset($_SESSION['interest_month']) ? 4 : $_SESSION['interest_month'];
             $interest = !isset($_SESSION['interest']) ? 15 : $_SESSION['interest'];
-            $sql = "INSERT INTO contract_tb (date_contract, employee_id, customer_prefix, contract_details, customer_firstname, customer_lastname, customer_img ,date_send, price_send, product_detail, date_due,baht,stang,stangt,sales_list_id) 
-            VALUES (TIMESTAMP(?, CURRENT_TIME()),?,?,?,?,?,?,TIMESTAMP (?, CURRENT_TIME()),TIMESTAMP (?, CURRENT_TIME()),?,DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? MONTH ),?,?,?,?)";
+            $sql = "INSERT INTO contract_tb (date_contract, employee_id, customer_prefix, contract_details, customer_firstname, customer_lastname, customer_img ,date_send, price_send, product_detail, date_due,baht,stang,stangt,sales_list_id,outstanding) 
+            VALUES (TIMESTAMP(?, CURRENT_TIME()),?,?,?,?,?,?,TIMESTAMP (?, CURRENT_TIME()),TIMESTAMP (?, CURRENT_TIME()),?,DATE_ADD(CURRENT_TIMESTAMP(), INTERVAL ? MONTH ),?,?,?,?,?)";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $data['date_contract'], PDO::PARAM_STR);//วันที่ทำสัญญา
             $stmt->bindParam(2, $data['employee_id'], PDO::PARAM_INT);//รหัสข้อมูลพนักงาน
@@ -236,6 +236,7 @@ class Contract
             $stmt->bindParam(13, $data['stang'], PDO::PARAM_INT);//สตางค์
             $stmt->bindParam(14, $data['stangt'], PDO::PARAM_STR);//สตางค์ไทย
             $stmt->bindParam(15, $data['sales_list_id'], PDO::PARAM_INT);
+            $stmt->bindParam(16, $data['baht'], PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
             http_response_code(500);
@@ -277,6 +278,23 @@ class Contract
             $sql = "UPDATE contract_tb SET sales_list_id = ? WHERE contract_code = ?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $q, PDO::PARAM_INT);
+            $stmt->bindParam(2, $id, PDO::PARAM_INT);
+            $stmt->execute();
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
+    }
+
+    public function updateremain($q,$id)
+    {
+        try {
+            $sql = "SET FOREIGN_KEY_CHECKS=0";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $sql = "UPDATE contract_tb SET outstanding = ? WHERE contract_code = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $q, PDO::PARAM_STR);
             $stmt->bindParam(2, $id, PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
