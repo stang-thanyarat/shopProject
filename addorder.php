@@ -76,7 +76,7 @@ $product = $product->fetchAll();
                         <div class="row">
                             <div class="col j payment_sl">
                                 วิธีการชำระเงิน : <span style="color: red; ">&nbsp*</span>
-                                <select name="payment_sl" id="payment_sl" class="inbox2 bb" style="background-color: #D4DDC6;">
+                                <select name="payment_sl" id="payment_sl" class="inbox2 bb" style="background-color: #D4DDC6;" required>
                                     <option value="all" selected hidden>เลือกวิธีการชำระ</option>
                                     <option value="เงินสด">เงินสด</option>
                                     <option value="เครดิต">เครดิต</option>

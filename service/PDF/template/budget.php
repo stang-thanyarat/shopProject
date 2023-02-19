@@ -1,6 +1,6 @@
 <?php
 require_once '../vendor/autoload.php';
-if (!isset($_POST['cash']) ||!isset($_POST['cash2']) ||!isset($_POST['credit2']) ||!isset($_POST['credit']) ||!isset($_POST['DB'])|| !isset($_POST['BG1']) || !isset($_POST['BG2']) || !isset($_POST['BG3']) || !isset($_POST['firstdate']) || !isset($_POST['lastdate'])) {
+if (!isset($_POST['complete']) || !isset($_POST['cash']) ||!isset($_POST['cash2']) ||!isset($_POST['credit2']) ||!isset($_POST['credit']) ||!isset($_POST['DB'])|| !isset($_POST['BG1']) || !isset($_POST['BG2']) || !isset($_POST['BG3']) || !isset($_POST['firstdate']) || !isset($_POST['lastdate'])) {
   echo "Not found.";
   exit();
 }

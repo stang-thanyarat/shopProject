@@ -86,10 +86,10 @@ for ($k = 0; $k < count($op); $k++) {
 
 <body>
     <form action="controller/Order.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="bank_slip" value="<?= $o['bank_slip']; ?>" />
         <input type="hidden" name="table" value="order" />
         <input type="hidden" name="form_action" value="update" />
         <input type="hidden" value="<?= $_GET['id'] ?>" name="order_id" id="order_id" />
-        <input type="hidden" value="<?= $_GET['id'] ?>" name="product_id" />
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
@@ -106,7 +106,7 @@ for ($k = 0; $k < count($op); $k++) {
                         </div>
                         <div class="col">
                             <!--วันที่รับของล่าสุด : &nbsp;<?= toDay($o['datereceive']); ?>-->
-                            วันที่รับของที่เปลี่ยน : &nbsp;<input id="datereceive" name="datereceive" type="date" value="<?= $o['datereceive']; ?>">
+                            วันที่รับของที่เปลี่ยน : &nbsp;<input id="datereceive" name="datereceive" type="date" step="1" value="<?= $o['datereceive']; ?>" >
                         </div>
                     </div>
                 </div>
@@ -125,14 +125,23 @@ for ($k = 0; $k < count($op); $k++) {
                         วิธีการชำระเงิน : &nbsp;
                         <select name="payment_sl" id="payment_sl" class="inbox" style="background-color: #D4DDC6;" value="<?= $o['payment_sl']; ?>">
                                 <option value="all" selected hidden>เลือกวิธีการชำระ</option>
-                                <option value="เงินสด" <?= $o['payment_sl'] == "ซอง" ? "selected" : '' ?>>เงินสด</option>
+                                <option value="เงินสด" <?= $o['payment_sl'] == "เงินสด" ? "selected" : '' ?>>เงินสด</option>
                                 <option value="เครดิต" <?= $o['payment_sl'] == "เครดิต" ? "selected" : '' ?>>เครดิต</option>
                             </select>
                     </div>
                     <div class="col payment">
                         &nbsp;&nbsp;&nbsp;&nbsp;วันที่ชำระเงิน : &nbsp;
                         <!--<?= toDay($o['payment_dt']); ?>-->
-                         &nbsp;<input id="payment_dt" name="payment_dt" type="date" value="<?= $o['payment_dt']; ?>">
+                         &nbsp;<input id="payment_dt" name="payment_dt" type="date" step="1" value="<?= $o['payment_dt']; ?>">
+                    </div>
+                </div>
+                <div id="creditupload">
+                    <div class="col h">
+                        สลิปธนาคาร : <span style="color: red; ">&nbsp*</span>
+                        <input accept="image/*" type="file" id="bank_slip" name="bank_slip" class="bb" value="<?= $o['bank_slip']; ?>">
+                    </div>
+                    <div class="col">
+                        <h6 class="hh"><span style="color: red; ">&nbsp*</span>ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB </h6>
                     </div>
                 </div>
                 <div class="col note">

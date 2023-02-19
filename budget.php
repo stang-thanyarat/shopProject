@@ -42,7 +42,6 @@ if (!isset($_GET['firstdate']) && (!isset($_GET['lastdate']))) {
     $c = (array)$budget->fetchBetweenOrder2();
     $p = (array)$budget->fetchBetweenProduct();
     $d = (array)$budget->fetchBetweenDebt2();
-
 }
 else if (isset($_GET['firstdate']) && (isset($_GET['lastdate']))) {
     $firstdate = $_GET['firstdate'];

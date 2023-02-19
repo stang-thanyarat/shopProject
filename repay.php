@@ -48,11 +48,6 @@ $c = new Contract();
 $pay = new DebtPaymentDetails();
 $rows = $c->fetchById($_GET['id']);
 $rowa = $pay->fetchById($_GET['id']);
-$datetime = DateTimeImmutable::createFromFormat(DateTimeImmutable::ATOM, 'Y-m-d');
-$origin = new DateTimeImmutable($rows['date_due']);
-$target = new DateTimeImmutable($datetime);
-$t = $target;
-
 ?>
 
 <body>

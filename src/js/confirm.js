@@ -1,3 +1,11 @@
+$("#payment_sl").change(function () {
+    if ($("#payment_sl").val() === 'เครดิต') {
+        $("#creditupload").show()
+    } else {
+        $("#creditupload").hide()
+    }
+});
+
 //เพิ่มสินค้า
 $("#addproduct").submit(function (event) {
     event.preventDefault();
@@ -220,17 +228,21 @@ $("#payment_sl").change(function () {
 });
 
 let ALLPrice  = 0;
-
+let A  = 0;
 function getAllprice(){
     ALLPrice  = 0
+    A  = 0
     let tableObj = (JSON.parse(localStorage.getItem("tableProduct"))).data
     for (const element of tableObj) {
+        A += Number(element.amount)
         ALLPrice += Number(element.price) * Number(element.amount)
+
     }
     let tableObj2 = (JSON.parse(localStorage.getItem("tablePrice"))).data
     for (const element of tableObj2) {
         ALLPrice += Number(element.priceOther)
     }
+    $("#all_amount_odr").val(A)
     $("#all_price_odr").val(ALLPrice)
 }
 $(document).ready(async function () {

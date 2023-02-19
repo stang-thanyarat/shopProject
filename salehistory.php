@@ -25,7 +25,7 @@ function getFullRole($role)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/salehistory.css"/>
-    
+
 </head>
 <?php
 include_once('nav.php');
@@ -34,8 +34,10 @@ include_once './service/datetimeDisplay.php';
 $sales = new Sales();
 if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GET['end'] != '') {
     $rows = $sales->fetchBetween($_GET['start'], $_GET['end']);
-} else if ((!isset($_GET['start']) && !isset($_GET['end'])) ||($_GET['start'] != '' && $_GET['end'] != '')) {
+    $rowc = $sales->fetchBetween2($_GET['start'], $_GET['end']);
+} else if ((!isset($_GET['start']) && !isset($_GET['end'])) || ($_GET['start'] != '' && $_GET['end'] != '')) {
     $rows = $sales->fetchAllContract();
+    $rowc = $sales->fetchAllContract2();
 } else {
     $rows = [];
 }
@@ -52,19 +54,23 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
         </div>
         <form action="salehistory.php" method="get">
             <div class="row d-flex justify-content-end" style="margin-right: 2rem;">
-                <div class="col-4" >
-                    <input value="<?= date('Y-m-d') ?>" value="<?= isset($_GET['start']) ? $_GET['start']:'' ?>" class="dateS" type="date" name="start" id="firstdate">
+                <div class="col-4">
+                    <input value="<?= date('Y-m-d') ?>" value="<?= isset($_GET['start']) ? $_GET['start'] : '' ?>"
+                           class="dateS" type="date" name="start" id="firstdate">
                     ถึง&nbsp&nbsp
-                    <input value="<?= date('Y-m-d') ?>" value="<?= isset($_GET['end'])? $_GET['end'] :'' ?>" class="star" type="date" name="end">
+                    <input value="<?= date('Y-m-d') ?>" value="<?= isset($_GET['end']) ? $_GET['end'] : '' ?>"
+                           class="star" type="date" name="end">
                     <button type="submit" class="s"><img src="./src/images/search.png" width="20"></button>
                 </div>
-                    <div class="col-2" >
-                    <button type="button" onclick="window.location= 'salehistory.php'" class="btn-c reset">ล้างข้อมูลการค้นหา</button>
-                    </div>
+                <div class="col-2">
+                    <button type="button" onclick="window.location= 'salehistory.php'" class="btn-c reset">
+                        ล้างข้อมูลการค้นหา
+                    </button>
+                </div>
             </div>
         </form>
         <?php if (count($rows) > 0) { ?>
-            <table class="col-11 saletable">
+            <table id="salesHistory" class="col-11 saletable">
                 <tr>
                     <th width=20%>วันที่</th>
                     <th width=20%>เวลาที่ขาย</th>
@@ -73,38 +79,47 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                     <th width=15%>ยอดรวมทั้งหมด</th>
                     <th width=25%>ช่องทางการชำระ</th>
                 </tr>
-                    <tbody id="salesHistory">
-                    <?php foreach ($rows as $row) { ?>
-                           <?php if($row['outstanding'] == "0" && $row['payment_sl'] == "ผ่อนชำระ"){?>
+                <tbody id="salesHistory">
+                <?php foreach ($rows as $row) { ?>
+                    <?php if ($row['payment_sl'] == "เงินสด") { ?>
                         <tr>
                             <th><?= dateTimeDisplay($row['payment_dt']) ?></th>
                             <th><?= ShowTime($row['payment_dt']) ?></th>
-                            <th><a href="<?= $row['payment_sl'] != 'ผ่อนชำระ' ? './service/PDF/template/receipt.php?id='.$row['sales_list_id']: './service/PDF/template/invoice2.php?id='.$row['sales_list_id'] ?>"><img src="./src/images/print.png" class="g" width="25"></a></th>
+                            <th>
+                                <a href="<?= $row['payment_sl'] != 'ผ่อนชำระ' ? './service/PDF/template/receipt.php?id=' . $row['sales_list_id'] : './service/PDF/template/invoice2.php?id=' . $row['sales_list_id'] ?>"><img
+                                            src="./src/images/print.png" class="g" width="25"></a></th>
                             <th><?= number_format($row['all_quantity']) ?></th>
-                            <th><?= number_format($row['all_price'])?></th>
+                            <th><?= number_format($row['all_price']) ?></th>
                             <th><?= $row['payment_sl'] ?></th>
                         </tr>
-                        <?php } else if($row['payment_sl'] == "เงินสด"){?>
-                            <tr>
-                                <th><?= dateTimeDisplay($row['payment_dt']) ?></th>
-                                <th><?= ShowTime($row['payment_dt']) ?></th>
-                                <th><a href="<?= $row['payment_sl'] != 'ผ่อนชำระ' ? './service/PDF/template/receipt.php?id='.$row['sales_list_id']: './service/PDF/template/invoice2.php?id='.$row['sales_list_id'] ?>"><img src="./src/images/print.png" class="g" width="25"></a></th>
-                                <th><?= number_format($row['all_quantity']) ?></th>
-                                <th><?= number_format($row['all_price'])?></th>
-                                <th><?= $row['payment_sl'] ?></th>
-                            </tr>
-                        <?php } else if($row['payment_sl'] == "โอนผ่านบัญชีธนาคาร"){?>
-                            <tr>
-                                <th><?= dateTimeDisplay($row['payment_dt']) ?></th>
-                                <th><?= ShowTime($row['payment_dt']) ?></th>
-                                <th><a href="<?= $row['payment_sl'] != 'ผ่อนชำระ' ? './service/PDF/template/receipt.php?id='.$row['sales_list_id']: './service/PDF/template/invoice2.php?id='.$row['sales_list_id'] ?>"><img src="./src/images/print.png" class="g" width="25"></a></th>
-                                <th><?= number_format($row['all_quantity']) ?></th>
-                                <th><?= number_format($row['all_price'])?></th>
-                                <th><?= $row['payment_sl'] ?></th>
-                            </tr>
-                        <?php } ?>
+                    <?php } else if ($row['payment_sl'] == "โอนผ่านบัญชีธนาคาร") { ?>
+                        <tr>
+                            <th><?= dateTimeDisplay($row['payment_dt']) ?></th>
+                            <th><?= ShowTime($row['payment_dt']) ?></th>
+                            <th>
+                                <a href="<?= $row['payment_sl'] != 'ผ่อนชำระ' ? './service/PDF/template/receipt.php?id=' . $row['sales_list_id'] : './service/PDF/template/invoice2.php?id=' . $row['sales_list_id'] ?>"><img
+                                            src="./src/images/print.png" class="g" width="25"></a></th>
+                            <th><?= number_format($row['all_quantity']) ?></th>
+                            <th><?= number_format($row['all_price']) ?></th>
+                            <th><?= $row['payment_sl'] ?></th>
+                        </tr>
                     <?php } ?>
-                    </tbody>
+                <?php } ?>
+                <?php foreach ($rowc as $rowq) { ?>
+                    <?php if ($rowq['payment_sl'] == "ผ่อนชำระ" && $rowq['outstanding'] == "0") { ?>
+                        <tr>
+                            <th><?= dateTimeDisplay($rowq['payment_dt']) ?></th>
+                            <th><?= ShowTime($rowq['payment_dt']) ?></th>
+                            <th>
+                                <a href="<?= $rowq['payment_sl'] != 'ผ่อนชำระ' ? './service/PDF/template/receipt.php?id=' . $row['sales_list_id'] : './service/PDF/template/invoice2.php?id=' . $row['sales_list_id'] ?>"><img
+                                            src="./src/images/print.png" class="g" width="25"></a></th>
+                            <th><?= number_format($rowq['all_quantity']) ?></th>
+                            <th><?= number_format($rowq['all_price']) ?></th>
+                            <th><?= $rowq['payment_sl'] ?></th>
+                        </tr>
+                    <?php } ?>
+                <?php } ?>
+                </tbody>
             </table>
         <?php } else {
             echo '<div class="d-flex justify-content-center"><h3 style="margin-top: 9rem; margin-bottom: 9rem;">ไม่พบข้อมูล</h3></div>';
@@ -113,5 +128,6 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
 </div>
 </form>
 </body>
+<script src="./src/js/sales.js"></script>
 
 </html>

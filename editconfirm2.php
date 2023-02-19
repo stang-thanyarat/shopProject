@@ -64,7 +64,7 @@ for ($i = 0; $i < count($od); $i++) {
         price: " . $b['order_pr'] . ",
         amount: " . $b['order_amt'] . ",
         expdate:\"" . "" . "\",
-        allprice:" . ($b['order_pr'] * $b['order_amt']) . ",
+        allprice: " . $b['order_pr'] * $b['order_amt'] . ",
         id:" . $b['unique_id'] . "
     }";
     if ($i + 1 != count($od)) {
@@ -72,14 +72,14 @@ for ($i = 0; $i < count($od); $i++) {
     }
 }
 $json1 = '';
-for ($i = 0; $i < count($op); $i++) {
-    $b = $op[$i];
+for ($k = 0; $k < count($op); $k++) {
+    $t = $op[$k];
     $json1 .= "{
-        listOther: \"" . $b['listother'] . "\",
-        priceOther: " . $b['priceother'] . ",
-        id: " . $b['unique_id'] . "
+        listOther: \"" . $t['listother'] . "\",
+        priceOther: " . $t['priceother'] . ",
+        id: " . $t['unique_id'] . "
     }";
-    if ($i + 1 != count($op)) {
+    if ($k + 1 != count($op)) {
         $json1 .= ",";
     }
 }
@@ -87,6 +87,8 @@ for ($i = 0; $i < count($op); $i++) {
 
 <body>
     <form action="controller/Order.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="bank_slip" value="<?= $o['invoice']; ?>" />
+        <input type="hidden" name="bank_slip" value="<?= $o['invoice']; ?>" />
         <input type="hidden" name="table" value="order" />
         <input type="hidden" name="form_action" value="updateconfirm" />
         <input type="hidden" value="<?= $_GET['id'] ?>" name="order_id" id="order_id" />
@@ -102,7 +104,7 @@ for ($i = 0; $i < count($op); $i++) {
                 <div class="col-9 d-flex justify-content-end signin status">
                     <div class="col-6">
                         <label class="font">สถานะใบสั่งซื้อ &nbsp;&nbsp;:</label>
-                        <input name="order_status" id="order_status" type="checkbox"> &nbsp;สำเสร็จแล้ว
+                        <input name="order_status" id="order_status" type="checkbox" onclick="validate()" required > &nbsp;สำเร็จแล้ว
                     </div>
                 </div>
                 <div class="pay">
@@ -197,9 +199,10 @@ for ($i = 0; $i < count($op); $i++) {
                             </tr>
                         </thead>
                         <tbody id="list-priceother">
-                            <?php foreach ($op as $b) { ?>
-                                <tr id="rr<?= $i ?>">
-                                    <th class="index-table-price"><?= $i + 1 ?></th>
+                            <?php $k = 0;
+                            foreach  ($op as $b) { ?>
+                                <tr id="rr<?= $k ?>">
+                                    <th class="index-table-price"><?= $k + 1 ?></th>
                                     <th><?= $b['listother'] ?></th>
                                     <th><?= $b['priceother'] ?></th>
                                     <th>
@@ -207,7 +210,7 @@ for ($i = 0; $i < count($op); $i++) {
                                         <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm4"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit1(<?= $i ?>)"></button>
                                     </th>
                                 </tr>
-                            <?php $i++;
+                            <?php $k++;
                             } ?>
                         </tbody>
                     </table>

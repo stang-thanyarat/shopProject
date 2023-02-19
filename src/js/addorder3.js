@@ -236,10 +236,12 @@ let ALLPrice  = 0;
 let A  = 0;
 function getAllprice(){
     ALLPrice  = 0
+    A  = 0
     let tableObj = (JSON.parse(localStorage.getItem("tableProduct"))).data
     for (const element of tableObj) {
-        ALLPrice += Number(element.price) * Number(element.amount)
         A += Number(element.amount)
+        ALLPrice += Number(element.price) * Number(element.amount)
+
     }
     let tableObj2 = (JSON.parse(localStorage.getItem("tablePrice"))).data
     for (const element of tableObj2) {
@@ -296,24 +298,43 @@ async function loopother() {
 //ตรวจสอบพร้อมส่งข้อมูล
 $("#form1").submit(async function (event) {
     event.preventDefault();
-    let response = await fetch('controller/Order.php', {
-        method: 'POST',
-        body: new FormData(document.form1)
-    });
-    console.log(response);
-    if (!response.ok) {
-        console.log(response);
-    } else {
-        await Swal.fire({
-            icon: 'success',
-            text: 'บันทึกข้อมูลเสร็จสิ้น',
-        }).then(async () => {
-            await loopproduct()
-            await loopother()
-                //localStorage.clear()
-               // window.location = './order.php'
-
+    if (!checkID(document.form1.employee_card_id.value)) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'ระบุหมายเลขประจำตัวประชาชนไม่ถูกต้อง',
+            timer: 3000
         })
+        return
     }
+    if (!telephone(document.form1.employee_telephone.value)) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'เบอร์โทรศัพท์ไม่ถูกต้อง',
+            timer: 3000
+        })
+        return
+    } else {
+        event.preventDefault();
+        let response = await fetch('controller/Order.php', {
+            method: 'POST',
+            body: new FormData(document.form1)
+        });
+        console.log(response);
+        if (!response.ok) {
+            console.log(response);
+        } else {
+            await Swal.fire({
+                icon: 'success',
+                text: 'บันทึกข้อมูลเสร็จสิ้น',
+            }).then(async () => {
+                await loopproduct()
+                await loopother()
+                //localStorage.clear()
+                // window.location = './order.php'
 
+            })
+        }
+    }
 });

@@ -12,36 +12,8 @@ class Sales
 
     public function fetchAll()
     {
-        try{
+        try {
             $sql = "SELECT SA.*,SAD.*,P.* FROM sales_tb SA,sales_details_tb SAD,product_tb P WHERE SA.sales_list_id = SAD.sales_list_id = P.product_id ORDER BY SAD.sales_list_id DESC ";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute();
-            $result = $stmt->fetchAll();
-            $dup = [];
-            $res = [];
-            foreach ($result as $r) {
-                if (!in_array($r['sales_list_id'], $dup)) {
-                    $r['count']=1;
-                    $res[] = $r;
-                    $dup[] = $r['sales_list_id'];
-                }
-            }
-            $result = $res;
-            if (!$result) {
-                return [];
-            } else {
-                return $result;
-            }
-        }catch (Exception $e) {
-            http_response_code(500);
-            echo strval($e);
-        }
-    }
-
-    public function fetchAllIFCredit()
-    {
-        try{
-            $sql = "SELECT SA.*,C.*,D.* FROM sales_tb SA,contract_tb C,debt_payment_details_tb D where C.contract_code = D.contract_code AND SA.sales_list_id ORDER BY SA.sales_list_id DESC ";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetchAll();
@@ -60,7 +32,7 @@ class Sales
             } else {
                 return $result;
             }
-        }catch (Exception $e) {
+        } catch (Exception $e) {
             http_response_code(500);
             echo strval($e);
         }
@@ -68,8 +40,8 @@ class Sales
 
     public function fetchAllContract()
     {
-        try{
-            $sql = "SELECT SA.*,C.outstanding FROM sales_tb SA,contract_tb C ORDER BY SA.sales_list_id DESC";
+        try {
+            $sql = "SELECT * FROM sales_tb SA WHERE SA.sales_list_id ORDER BY SA.payment_dt DESC";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetchAll();
@@ -77,7 +49,7 @@ class Sales
             $res = [];
             foreach ($result as $r) {
                 if (!in_array($r['sales_list_id'], $dup)) {
-                    $r['count']=1;
+                    $r['count'] = 1;
                     $res[] = $r;
                     $dup[] = $r['sales_list_id'];
                 }
@@ -88,7 +60,35 @@ class Sales
             } else {
                 return $result;
             }
-        }catch (Exception $e) {
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
+    }
+
+    public function fetchAllContract2()
+    {
+        try {
+            $sql = "SELECT SA.*,C.outstanding FROM sales_tb SA,contract_tb C WHERE SA.sales_list_id = C.sales_list_id ORDER BY SA.payment_dt DESC";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            $dup = [];
+            $res = [];
+            foreach ($result as $r) {
+                if (!in_array($r['sales_list_id'], $dup)) {
+                    $r['count'] = 1;
+                    $res[] = $r;
+                    $dup[] = $r['sales_list_id'];
+                }
+            }
+            $result = $res;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        } catch (Exception $e) {
             http_response_code(500);
             echo strval($e);
         }
@@ -96,7 +96,7 @@ class Sales
 
     public function fetchById($id)
     {
-        try{
+        try {
             $sql = "SELECT SA.*,SAD.*,P.* FROM sales_tb SA,sales_details_tb SAD,product_tb P WHERE SA.sales_list_id = SAD.sales_list_id = P.product_id ORDER BY SAD.sales_list_id DESC";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
@@ -106,10 +106,10 @@ class Sales
             $res = [];
             foreach ($result as $r) {
                 if (!in_array($r['product_id'], $dup)) {
-                    $r['count']=1;
+                    $r['count'] = 1;
                     $res[] = $r;
                     $dup[] = $r['product_id'];
-                }else{
+                } else {
                     $i = array_search($r['product_id'], $dup);
                     $res[$i]['count']++;
                     $res[$i]['sales_amt'] += $r['sales_amt'];
@@ -121,51 +121,81 @@ class Sales
             } else {
                 return $result;
             }
-        }catch (Exception $e) {
+        } catch (Exception $e) {
             http_response_code(500);
             echo strval($e);
         }
     }
 
 
-    public function fetchBetween($start,$end)
+    public function fetchBetween($start, $end)
     {
-       try{
-           $sql = "SELECT SA.*,SAD.*,P.* FROM sales_tb SA,sales_details_tb SAD,product_tb P WHERE SA.sales_list_id = SAD.sales_list_id = P.product_id AND SAD.sales_dt BETWEEN ? AND ? ORDER BY SAD.sales_dt DESC ";
-           $stmt = $this->conn->prepare($sql);
-           $stmt->bindParam(1, $start, PDO::PARAM_STR);
-           $stmt->bindParam(2, $end, PDO::PARAM_STR);
-           $stmt->execute();
-           $result = $stmt->fetchAll();
-           $dup = [];
-           $res = [];
-           foreach ($result as $r) {
-               if (!in_array($r['sales_list_id'], $dup)) {
-                   $r['count']=1;
-                   $res[] = $r;
-                   $dup[] = $r['sales_list_id'];
-               }
-           }
-           $result = $res;
-           if (!$result) {
-               return [];
-           } else {
-               return $result;
-           }
-       }catch (Exception $e) {
-           http_response_code(500);
-           echo strval($e);
-       }
+        try {
+            $sql = "SELECT * FROM sales_tb SA WHERE SA.payment_dt BETWEEN ? AND ? ORDER BY SA.payment_dt DESC";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $start, PDO::PARAM_STR);
+            $stmt->bindParam(2, $end, PDO::PARAM_STR);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            $dup = [];
+            $res = [];
+            foreach ($result as $r) {
+                if (!in_array($r['sales_list_id'], $dup)) {
+                    $r['count'] = 1;
+                    $res[] = $r;
+                    $dup[] = $r['sales_list_id'];
+                }
+            }
+            $result = $res;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
+    }
+
+    public function fetchBetween2($start, $end)
+    {
+        try {
+            $sql = "SELECT SA.*,C.outstanding FROM sales_tb SA,contract_tb C WHERE SA.sales_list_id = C.sales_list_id AND SA.payment_dt BETWEEN ? AND ? ORDER BY SA.payment_dt DESC";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $start, PDO::PARAM_STR);
+            $stmt->bindParam(2, $end, PDO::PARAM_STR);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            $dup = [];
+            $res = [];
+            foreach ($result as $r) {
+                if (!in_array($r['sales_list_id'], $dup)) {
+                    $r['count'] = 1;
+                    $res[] = $r;
+                    $dup[] = $r['sales_list_id'];
+                }
+            }
+            $result = $res;
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 
     public function delete($id)
     {
-        try{
+        try {
             $sql = "DELETE FROM sales_tb WHERE sales_list_id=?;";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
-        }catch (Exception $e) {
+        } catch (Exception $e) {
             http_response_code(500);
             echo strval($e);
         }
@@ -173,13 +203,13 @@ class Sales
 
     public function getLastId()
     {
-        try{
+        try {
             $data = $this->fetchLast();
-            if(count($data)<=0){
+            if (count($data) <= 0) {
                 return 1;
             }
             return $data['sales_list_id'];
-        }catch (Exception $e) {
+        } catch (Exception $e) {
             http_response_code(500);
             echo strval($e);
         }
@@ -191,10 +221,10 @@ class Sales
             $sql = "SELECT * FROM sales_tb ORDER BY sales_list_id DESC LIMIT 1";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-            $result = $stmt->fetch( PDO::FETCH_ASSOC);
-            if($result == false){
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            if ($result == false) {
                 return [];
-            }else{
+            } else {
                 if (!$result) {
                     return [];
                 } else {
@@ -264,7 +294,7 @@ class Sales
 
     public function insert($data)
     {
-        try{
+        try {
             $sql = "INSERT INTO sales_tb (payment_sl ,all_price ,all_quantity, employee_id ,import_files, note)
         VALUES (?,?,?,?,?,?)";
             $stmt = $this->conn->prepare($sql);
@@ -276,7 +306,7 @@ class Sales
             $stmt->bindParam(5, $data['import_files'], PDO::PARAM_STR);
             $stmt->bindParam(6, $data['note'], PDO::PARAM_STR);
             $stmt->execute();
-        }catch (Exception $e) {
+        } catch (Exception $e) {
             http_response_code(500);
             echo strval($e);
         }
@@ -284,7 +314,7 @@ class Sales
 
     public function update($data)
     {
-        try{
+        try {
             $sql = "UPDATE sales_tb
         SET product_id = ?, sales_dt = ?, payment_sl = ?, employee_id = ?, discount = ?, sales_amt = ?, all_quantity = ?, all_price = ?, import_files = ?, note = ?, stock_id = ?
         WHERE sales_list_id = ?";
@@ -298,7 +328,7 @@ class Sales
             $stmt->bindParam(6, $data['note'], PDO::PARAM_STR);
             $stmt->bindParam(12, $data['sales_list_id'], PDO::PARAM_INT);
             $stmt->execute();
-        }catch (Exception $e) {
+        } catch (Exception $e) {
             http_response_code(500);
             echo strval($e);
         }
