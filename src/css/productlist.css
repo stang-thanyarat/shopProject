@@ -197,3 +197,18 @@ th {
     margin-top: 1rem;
     margin-left: 2.2rem;
 }
+
+.bell{
+    border: 2px solid red;
+    border-radius: 25px;
+    background: red;
+    width: 50px;
+    height: 50px;
+    color: white;
+    margin-top: -7px;
+    margin-left: 2rem;
+    position: absolute;
+    font-size: 20pt;
+    text-align: center;
+    z-index: 1000;
+}

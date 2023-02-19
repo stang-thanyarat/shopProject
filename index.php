@@ -34,22 +34,32 @@ if (!isset($_SESSION['shop_name'])) {
     <link rel="stylesheet" href="./src/css/aa.css" />
     
 </head>
-<?php include_once('nav.php');
+<?php
+include_once('nav.php');
 include_once('./database/Budget.php');
 $budget = new Budget();
 $firstdate = date('d/m/Y');
 $lastdate = date('d/m/Y');
 $firstdate_text = date('Y-m-d');
 $lastdate_text = date('Y-m-d');
-if (isset($_GET['firstdate']) && (isset($_GET['lastdate']))) {
+if (!isset($_GET['firstdate']) && (!isset($_GET['lastdate']))) {
+    $budget = new Budget();
+    $b = (array)$budget->fetchBetweenSales2();
+    $c = (array)$budget->fetchBetweenOrder2();
+    $p = (array)$budget->fetchBetweenProduct();
+    $d = (array)$budget->fetchBetweenDebt2();
+
+}
+else if (isset($_GET['firstdate']) && (isset($_GET['lastdate']))) {
     $firstdate = $_GET['firstdate'];
     $lastdate = $_GET['lastdate'];
     $firstdate_text = $_GET['firstdate'];
     $lastdate_text = $_GET['lastdate'];
+    $b = (array)$budget->fetchBetweenSales($firstdate, $lastdate);
+    $c = (array)$budget->fetchBetweenOrder($firstdate, $lastdate);
+    $p = (array)$budget->fetchBetweenProduct();
+    $d = (array)$budget->fetchBetweenDebt($firstdate, $lastdate);
 }
-$b = (array)$budget->fetchBetweenSales($firstdate, $lastdate);
-$c = (array)$budget->fetchBetweenOrder($firstdate, $lastdate);
-$p = (array)$budget->fetchBetweenProduct();
 ?>
 
 <body>
@@ -103,9 +113,9 @@ $p = (array)$budget->fetchBetweenProduct();
                             <div class="topicdata">กำไรสุทธิ</div>
                         </label>
                         <label class="col-2">
-                            <div class="data"><?=$b['BG2']?></div>
-                            <div class="data"><?=$c['BG3']?></div>
-                            <div class="data"><?=$b['BG2']?></div>
+                            <div class="data"><?= number_format($b['cash2'] + $d['DB']) ?></div>
+                            <div class="data"><?= number_format($c['BG3']) ?></div>
+                            <div class="data"><?= number_format(($b['cash2'] + $d['DB'])-$c['BG3'])?></div>
                         </label>
                     </div>
                 </div>

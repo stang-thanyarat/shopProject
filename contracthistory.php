@@ -89,8 +89,8 @@ if (isset($_GET['keyword'])) {
                                             </a>
                                         </div>
                                     </th>
-                                    <th></th>
-                                    <th></th>
+                                    <th><?= number_format($row['baht']) ?></th>
+                                    <th><?= number_format($row['outstanding'])?></th>
                                     <th>
                                         <a type="button" class="bgs" href="./service/PDF/template/invoice.php?id=<?= $row['contract_code']; ?>"><img src="./src/images/print.png" width="25"></a>
                                     </th>

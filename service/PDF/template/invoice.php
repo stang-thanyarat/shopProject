@@ -83,7 +83,6 @@ h2{
 </style>
 <title>ใบส่งของ</title>
 </head>
-
 <body>
 <table  width="1000" border="0">
   <tr class="setcenter">
@@ -147,7 +146,6 @@ h2{
     </table>
    </td>
 </tr>
-
   <tr class="setcenter">
     <td colspan="2">&nbsp;</td>
 </tr>

@@ -4,7 +4,7 @@ include_once 'Redirection.php';
 include_once '../service/upload.php';
 $contract = new Contract();
 if (isset($_POST)) {
-    if ($_POST['table'] === 'contract') {
+    if ($_POST['table'] == 'contract') {
         if ($_POST['form_action'] === 'update') {
             $contract->update($_POST);
             redirection('/contracthistory.php');
@@ -28,7 +28,10 @@ if (isset($_POST)) {
             $contract->upload($_POST);
         } else if ($_POST['form_action'] == 'push') {
             $contract->push($_POST['q'], $_POST['contract_code']);
+        } else if ($_POST['form_action'] == 'updateremain') {
+            $contract->updateremain($_POST['outstanding'], $_POST['contract_code']);
         }
+
     }
 
 } else {

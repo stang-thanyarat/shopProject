@@ -44,7 +44,7 @@ include_once('nav.php');
             </div>
             <!--ตาราง-->
             <!--เนื้อหา-->
-            <table class="col-11 tablesales topic_product">
+            <table class="col-11 tablesales">
                 <thead>
                 <tr class="TRTOPICCSS">
                     <th style="width : 10%; border-right: 1px; text-align: center; ">ลำดับ</th>
@@ -229,7 +229,7 @@ include_once('nav.php');
             <br>
                 <div class="row">
                     <div class="col email">
-                        กรอกรหัสบัตรประชาชน : <input type="text" name="keyword" id="keyword" class="btnd inbox" required />
+                        กรอกรหัสบัตรประชาชน : <input type="text" name="keyword" id="keyword" class="btnd inbox" onkeyup="autoTab(this)" required />
                     </div>
                     <div class="col-1">
                         <click id="search" type="submit" ><img src="./src/images/search.png" width="25" class="l"></click>&nbsp &nbsp

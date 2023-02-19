@@ -76,7 +76,7 @@ $product = $product->fetchAll();
                         <div class="row">
                             <div class="col j payment_sl">
                                 วิธีการชำระเงิน : <span style="color: red; ">&nbsp*</span>
-                                <select name="payment_sl" id="payment_sl" class="inbox2 bb" style="background-color: #D4DDC6;">
+                                <select name="payment_sl" id="payment_sl" class="inbox2 bb" style="background-color: #D4DDC6;" required>
                                     <option value="all" selected hidden>เลือกวิธีการชำระ</option>
                                     <option value="เงินสด">เงินสด</option>
                                     <option value="เครดิต">เครดิต</option>
@@ -109,7 +109,8 @@ $product = $product->fetchAll();
                             <table class="main col-10">
                                 <thead>
                                     <tr>
-                                        <th width="40%">รายการสินค้า</th>
+                                        <th width="10%">ลำดับ</th>
+                                        <th width="30%">รายการสินค้า</th>
                                         <th width="15%">ราคาต่อหน่วย (บาท)</th>
                                         <th width="15%">จำนวน</th>
                                         <th width="15%">ราคา (บาท)</th>
@@ -129,21 +130,22 @@ $product = $product->fetchAll();
                             <table class="main col-10">
                                 <thead>
                                     <tr>
-                                        <th width="45%">รายการ</th>
-                                        <th width="45%">ราคา</th>
+                                        <th width="10%">ลำดับ</th>
+                                        <th width="40%">รายการ</th>
+                                        <th width="40%">ราคา</th>
                                         <th width="10%"></th>
                                     </tr>
                                 </thead>
                                 <tbody id="list-priceother"></tbody>
                             </table>
                         </div>
+                        <input type="hidden" name="all_amount_odr" id="all_amount_odr">
                         <div class="row A">
                             <div class=" col-12 d-flex justify-content-end">
                                 ยอดสุทธิ : &nbsp;&nbsp;
-                                <input type="text" name="net_price" id="net_price">
+                                <input type="text" name="all_price_odr" id="all_price_odr" readonly>
                             </div>
                         </div>
-
                         <div class="row btn-g">
                             <div class="col-2">
                                 <button type="reset" class="btn-c reset">ยกเลิก</button>
@@ -157,7 +159,6 @@ $product = $product->fetchAll();
             </div>
         </div>
     </form>
-
     <!--เพิ่มสินค้า-->
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <form id="addproduct" name="addproduct">
@@ -195,7 +196,6 @@ $product = $product->fetchAll();
             </div>
         </form>
     </div>
-
     <!--แก้ไขสินค้า-->
     <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <form id="editaddproduct" name="editaddproduct">
@@ -232,7 +232,6 @@ $product = $product->fetchAll();
             </div>
         </form>
     </div>
-
     <!--ค่าใช้จ่ายอื่นๆ-->
     <div class="modal fade bd-example-modal-sm1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <form name="addprice" id="addprice" method="post">
@@ -260,7 +259,6 @@ $product = $product->fetchAll();
             </div>
         </form>
     </div>
-
     <!--แก้ไขค่าใช้จ่ายอื่นๆ-->
     <div class="modal fade bd-example-modal-sm4" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <form name="addprice" id="editaddprice" method="post">
@@ -305,7 +303,6 @@ $product = $product->fetchAll();
             </div>
         </div>
     </div>
-
     <!-- ลบรายการอื่นๆ -->
     <div class="modal fade" id="exampleModalother" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">

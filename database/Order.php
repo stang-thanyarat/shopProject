@@ -174,8 +174,8 @@ class Order
            $sql = "SET FOREIGN_KEY_CHECKS=0";
            $stmt = $this->conn->prepare($sql);
            $stmt->execute();
-           $sql = "INSERT INTO order_tb (datebill, datereceive, sell_id, payment_sl, payment_dt, note, bank_slip, /*receipt, invoice*/ all_price_odr) 
-        VALUES (TIMESTAMP(?, CURRENT_TIME()),TIMESTAMP(?, CURRENT_TIME()),?,?,TIMESTAMP(?, CURRENT_TIME()),?,?,?)";
+           $sql = "INSERT INTO order_tb (datebill, datereceive, sell_id, payment_sl, payment_dt, note, bank_slip, /*receipt, invoice*/ all_price_odr,all_amount_odr) 
+        VALUES (TIMESTAMP(?, CURRENT_TIME()),TIMESTAMP(?, CURRENT_TIME()),?,?,TIMESTAMP(?, CURRENT_TIME()),?,?,?,?)";
            $stmt = $this->conn->prepare($sql);
            $stmt->bindParam(1, $data['datebill'], PDO::PARAM_STR);
            $stmt->bindParam(2, $data['datereceive'], PDO::PARAM_STR);
@@ -185,8 +185,7 @@ class Order
            $stmt->bindParam(6, $data['note'], PDO::PARAM_STR);
            $stmt->bindParam(7, $data['bank_slip'], PDO::PARAM_STR);
            $stmt->bindParam(8, $data['all_price_odr']);
-           /*$stmt->bindParam(8, $data['receipt'], PDO::PARAM_STR);
-           $stmt->bindParam(9, $data['invoice'], PDO::PARAM_STR);*/
+           $stmt->bindParam(9, $data['all_amount_odr'], PDO::PARAM_INT);
            $stmt->execute();
        } catch (Exception $e) {
            http_response_code(500);
@@ -208,10 +207,44 @@ class Order
         }
     }
 
-    public function updateimage($filename, $img, $order_id)
+    public function updateimageB($filename, $img, $order_id)
+    {
+        try {
+            $colname = ['bank_slip'];
+            if (in_array($filename, $colname)) {
+                $sql = "UPDATE order_tb SET $filename = ? WHERE order_id=?";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->bindParam(1, $img, PDO::PARAM_STR);
+                $stmt->bindParam(2, $order_id, PDO::PARAM_INT);
+                $stmt->execute();
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
+    }
+
+    public function updateimageR($filename, $img, $order_id)
     {
         try {
             $colname = ['receipt'];
+            if (in_array($filename, $colname)) {
+                $sql = "UPDATE order_tb SET $filename = ? WHERE order_id=?";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->bindParam(1, $img, PDO::PARAM_STR);
+                $stmt->bindParam(2, $order_id, PDO::PARAM_INT);
+                $stmt->execute();
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
+    }
+
+    public function updateimageI($filename, $img, $order_id)
+    {
+        try {
+            $colname = ['invoice'];
             if (in_array($filename, $colname)) {
                 $sql = "UPDATE order_tb SET $filename = ? WHERE order_id=?";
                 $stmt = $this->conn->prepare($sql);
@@ -229,14 +262,12 @@ class Order
     {
         try {
             $sql = "UPDATE order_tb
-            SET receipt = ?, invoice = ?,all_price_odr = ?, order_status = ?
+            SET all_price_odr = ?, order_status = ?
             WHERE order_id = ?";
             $stmt = $this->conn->prepare($sql);
-            $stmt->bindParam(1, $data['receipt'], PDO::PARAM_STR);
-            $stmt->bindParam(2, $data['invoice'], PDO::PARAM_STR);
-            $stmt->bindParam(3, $data['all_price_odr']);
-            $stmt->bindParam(4, $data['order_status'], PDO::PARAM_INT);
-            $stmt->bindParam(5, $data['order_id'], PDO::PARAM_INT);
+            $stmt->bindParam(1, $data['all_price_odr']);
+            $stmt->bindParam(2, $data['order_status'], PDO::PARAM_INT);
+            $stmt->bindParam(3, $data['order_id'], PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
             http_response_code(500);
@@ -248,17 +279,15 @@ class Order
     {
         try {
             $sql = "UPDATE order_tb
-            SET datereceive = ?,payment_sl = ?,payment_dt = ?,note = ?,all_price_odr = ?,bank_slip = ?
+            SET datereceive = ?,payment_sl = ?,payment_dt = ?,note = ?, all_price_odr = ?
             WHERE order_id = ?";
             $stmt = $this->conn->prepare($sql);
-
             $stmt->bindParam(1, $data['datereceive'], PDO::PARAM_STR);
             $stmt->bindParam(2, $data['payment_sl'], PDO::PARAM_STR);
             $stmt->bindParam(3, $data['payment_dt'], PDO::PARAM_STR);
             $stmt->bindParam(4, $data['note'], PDO::PARAM_STR);
             $stmt->bindParam(5, $data['all_price_odr']);
-            $stmt->bindParam(6, $data['bank_slip'], PDO::PARAM_STR);
-            $stmt->bindParam(7, $data['order_id'], PDO::PARAM_INT);
+            $stmt->bindParam(6, $data['order_id'], PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
             http_response_code(500);

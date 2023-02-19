@@ -183,6 +183,7 @@ async function addToCart(id) {
                     })
                 }
                 localStorage.setItem('cart', JSON.stringify(cart))
+                setTimeout(function(){ location.reload(); }, 0.1);
             })
         } else {
             Swal.fire({
@@ -213,3 +214,7 @@ async function addToCart(id) {
          },
      })*/
 }
+
+
+let a = JSON.parse(localStorage.getItem('cart')).length
+$("#show").text(a)

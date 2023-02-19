@@ -2,11 +2,9 @@
 file/seller/card/
 file/seller/documents/
 file/seller/id/
-file/order/receiptorinvoice/
+file/order/receipt/
 file/order/bankslip/
-*.idea/workspace.xml
-*.idea\workspace.xml
-.idea\workspace.xml
+file/order/invoice/
 src/images/
 file/product/image1/
 file/product/image2/
