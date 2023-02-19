@@ -42,11 +42,12 @@ $rows = getdata();
         <div class="col-11">
             <div class="row main">
                     <h1>ประวัติใบสั่งซื้อ</h1>
-                <div class="d-flex justify-content-end" style="margin-left: -4.5rem">
+                <div class="d-flex justify-content-end" style="margin-left:-5.1rem">
                     <input type="date" value="<?= $_GET['date'] ?? "" ?>" name="date" id="date" class="date"/>&nbsp&nbsp&nbsp
                     <div class="d-flex justify-content-end" style="margin-left: -2rem">
                         <input type="text" value="<?= $_GET['keyword'] ?? "" ?>" name="keyword" id="keyword" class="btnd" placeholder="&nbsp ชื่อผู้ขาย">
-                        <button type="submit" class="search"><img src="./src/images/search.png" width="20"></button>
+                        <button type="submit" class="search sh"><img src="./src/images/search.png" width="20"></button>
+                        <button type="button" onclick="window.location= 'orderhistory.php'" class="btn-c reset">ล้างข้อมูล</button>
                     </div>
                 </div>
             </div>

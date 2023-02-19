@@ -1,8 +1,8 @@
 $(document).ready(function () {
     $("#creditupload").hide()
     localStorage.clear()
-    localStorage.setItem("tableProduct", JSON.stringify({data: []}))
-    localStorage.setItem("tablePrice", JSON.stringify({data: []}))
+    localStorage.setItem("tableProduct", JSON.stringify({ data: [] }))
+    localStorage.setItem("tablePrice", JSON.stringify({ data: [] }))
 });
 
 //เพิ่มสินค้า
@@ -257,27 +257,27 @@ $(document).ready(async function () {
 async function loopproduct() {
     let lastID = await (await fetch('controller/GetLastIdOrder.php')).text()
     let rows = (JSON.parse(localStorage.getItem("tableProduct"))).data
-    for(let d of rows){
-    var formdata = new FormData();
-    formdata.append("order_id", lastID);
-    formdata.append("product_id", Number(d.list));
-    formdata.append("order_amt", Number(d.price));
-    formdata.append("order_pr", Number(d.amount));
-    formdata.append("form_action", "insert");
-    formdata.append("table", "orderdetails");
-    var requestOptions = {
-        method: 'POST',
-        body: formdata,
-        redirect: 'follow'
-    };
-    await fetch("controller/OrderDetails.php", requestOptions)
+    for (let d of rows) {
+        var formdata = new FormData();
+        formdata.append("order_id", lastID);
+        formdata.append("product_id", Number(d.list));
+        formdata.append("order_amt", Number(d.price));
+        formdata.append("order_pr", Number(d.amount));
+        formdata.append("form_action", "insert");
+        formdata.append("table", "orderdetails");
+        var requestOptions = {
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
+        };
+        await fetch("controller/OrderDetails.php", requestOptions)
     }
 }
 
 async function loopother() {
     let lastID = await (await fetch('controller/GetLastIdOrder.php')).text()
     let rows = (JSON.parse(localStorage.getItem("tablePrice"))).data
-    for(let d of rows){
+    for (let d of rows) {
         var formdata = new FormData();
         formdata.append("order_id", lastID);
         formdata.append("listother", d.listOther);

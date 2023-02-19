@@ -60,4 +60,3 @@ if (isset($_POST)) {
 else{
     echo "Page Not found.";
 }
-?>

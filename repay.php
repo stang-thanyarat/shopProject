@@ -62,7 +62,7 @@ $rowa = $pay->fetchById($_GET['id']);
             </div>
             <div class="row c">
                 <div class="col-xl-6">ชื่อ-นามสกุล&nbsp;:
-                    <b><?= $rows['customer_prefix'] ?> <?= $rows['customer_firstname'] ?> <?= $rows['customer_lastname'] ?></b>
+                    <b><?= $rows['customer_prefix'] ?><?= $rows['customer_firstname'] ?> &nbsp; <?= $rows['customer_lastname'] ?></b>
                 </div>
                 <div class="col-xl-6">รหัสบัตรประชาชน&nbsp;: <b><?= $rows['customer_img'] ?></b></div>
             </div>
@@ -71,7 +71,7 @@ $rowa = $pay->fetchById($_GET['id']);
                 <div class="col-xl-6">วันที่ครบกำหนด&nbsp;: <b><?= dateTimeDisplay($rows['date_due']) ?></b></div>
             </div>
             <div class="row c">
-                <div class="col-xl-6">เงินต้น&nbsp;: <b><?= number_format($rowa[0]['outstanding']) ?></b></div>
+                <div class="col-xl-6">เงินต้น&nbsp;: <b><?= number_format($rowa[0]['outstanding']) ?></b> &nbsp;บาท</div>
             </div>
             <div class="row c">
                 <div class="col-xl-6 ">คงค้าง&nbsp;: <b><?= number_format(end($rowa)['outstanding']) ?></b></div>
