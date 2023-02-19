@@ -23,6 +23,24 @@
     margin-left: 4rem;
 }
 
+.reset {
+    background-color: #C4C4C4;
+    color: black;
+    border: 0ch;
+    width: 400%;
+    height: 115%;
+}
+
+.btn-c {
+    border-radius: 25px 25px 25px 25px;
+    font-size: 16pt;
+    width: 300%;
+    height: 115%;
+    margin-left: 1rem;
+    margin-right: 0rem;
+
+}
+
 table,
 td,
 th {
@@ -46,10 +64,18 @@ th {
 }
 
 .search {
-    background: transparent;
     border: 0px;
-    margin-left: -2rem;
-    margin-top: auto;
+    margin-left: 1rem;
+    margin-top: 0rem;
+}
+
+.sh{
+    border-radius: 25px 25px 25px 25px;
+    background-color: #C4C4C4;
+    color: black;
+    border: 0ch;
+    width: 50%;
+    height: 100%;
 }
 
 .date{

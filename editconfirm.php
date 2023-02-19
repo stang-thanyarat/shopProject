@@ -185,10 +185,10 @@ for ($i = 0; $i < count($op); $i++) {
                     <table class="ma col-10">
                         <thead>
                             <tr>
-                                <th width="10%">ลำดับ</th>
-                                <th width="45%">รายการ</th>
+                                <th width="5%">ลำดับ</th>
+                                <th width="40%">รายการ</th>
                                 <th width="40%">ราคา</th>
-                                <th width="10%"></th>
+                                <th width="12%"></th>
                             </tr>
                         </thead>
                         <tbody id="list-priceother">
@@ -413,6 +413,6 @@ for ($i = 0; $i < count($op); $i++) {
     });
 
 </script>
-<script src="./src/js/confirm.js"></script>
+<script src="./src/js/editconfirm.js"></script>
 
 </html>

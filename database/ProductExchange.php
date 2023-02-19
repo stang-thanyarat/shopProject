@@ -171,6 +171,23 @@ class ProductExchange
         }
     }
 
+    public function status($id,$q)
+    {
+        try {
+            $sql = "SET FOREIGN_KEY_CHECKS=0";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $sql = "UPDATE product_exchange_tb SET exchange_status = exchange_status - ? WHERE product_exchange_id = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $q, PDO::PARAM_INT);
+            $stmt->bindParam(2, $id, PDO::PARAM_INT);
+            $stmt->execute();
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
+    }
+
 
     public function updateimage($filename, $img, $product_exchange_id)
     {

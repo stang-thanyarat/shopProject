@@ -152,7 +152,7 @@ for ($i = 0; $i < count($op); $i++) {
                     <table class="ma col-10">
                         <thead>
                             <tr>
-                                <th width="10%">ลำดับ</th>
+                                <th width="5%">ลำดับ</th>
                                 <th width="25%">รายการสินค้า</th>
                                 <th width="15%">ราคาต่อหน่วย (บาท)</th>
                                 <th width="15%">จำนวน</th>
@@ -190,7 +190,7 @@ for ($i = 0; $i < count($op); $i++) {
                     <table class="ma col-10">
                         <thead>
                             <tr>
-                                <th width="10%">ลำดับ</th>
+                                <th width="5%">ลำดับ</th>
                                 <th width="45%">รายการ</th>
                                 <th width="40%">ราคา</th>
                                 <th width="10%"></th>

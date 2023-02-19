@@ -1,8 +1,8 @@
 $(document).ready(function () {
     $("#creditupload").hide()
     localStorage.clear()
-    localStorage.setItem("tableProduct", JSON.stringify({data: []}))
-    localStorage.setItem("tablePrice", JSON.stringify({data: []}))
+    localStorage.setItem("tableProduct", JSON.stringify({ data: [] }))
+    localStorage.setItem("tablePrice", JSON.stringify({ data: [] }))
 });
 
 //เพิ่มสินค้า
@@ -24,6 +24,7 @@ $("#addproduct").submit(function (event) {
         return
     }
     $('#list-product').append(`<tr id="rr${i}">
+                    <th class="index-table-product">${i + 1}</th>
                     <th>${$('#product_name').val() || $("#product_id option:selected").text()}</th>
                     <th>${$('#order_pr').val()}</th>
                     <th>${$('#order_amt').val()}</th>
@@ -71,6 +72,7 @@ function delrow() {
     $('#list-product').html("")
     rows.forEach((e, i) => {
         $('#list-product').append(`<tr id="rr${i + 1}">
+                    <th class="index-table-product">${i + 1}</th>
                     <th>${e.list}</th>
                     <th>${e.price}</th>
                     <th>${e.amount}</th>
@@ -103,6 +105,7 @@ $("#editaddproduct").submit(function (event) {
     $('#list-product').html("")
     rows.forEach((e, i) => {
         $('#list-product').append(`<tr id="rr${i + 1}">
+                    <th class="index-table-product">${i + 1}</th>
                     <th>${e.list}</th>
                     <th>${e.price}</th>
                     <th>${e.amount}</th>
@@ -130,6 +133,7 @@ $("#addprice").submit(function (event) {
         return
     }
     $('#list-priceother').append(`<tr id="rr${i}">
+                    <th class="index-table-price">${i + 1}</th>
                     <th>${$('#listother').val()}</th>
                     <th>${$('#priceother').val()}</th>
                     <th>
@@ -171,6 +175,7 @@ function delrow2() {
     $('#list-priceother').html("")
     rows.forEach((e, i) => {
         $('#list-priceother').append(`<tr id="rr${i + 1}">
+                    <th class="index-table-price">${i + 1}</th>
                     <th>${e.listOther}</th>
                     <th>${e.priceOther}</th>
                     <th>
@@ -199,6 +204,7 @@ $("#editaddprice").submit(function (event) {
     $('#list-priceother').html("")
     rows.forEach((e, i) => {
         $('#list-priceother').append(`<tr id="rr${i + 1}">
+        <th class="index-table-price">${i + 1}</th>
         <th>${e.listOther}</th>
         <th>${e.priceOther}</th>
         <th>
@@ -221,30 +227,50 @@ $("#payment_sl").change(function () {
     }
 });
 
+function am() {
+    list = []
+    let product = (JSON.parse(localStorage.getItem('tableProduct'))).data
+    for (const d of product) {
+        let p = Number(d.price)*Number(d.amount)
+        list.push(p)
+    }
+    list2 = []
+    let other = (JSON.parse(localStorage.getItem('tableProduct'))).data
+    for (const d of other) {
+        let q = Number(d.priceOther)
+        list2.push(q)
+    }
+    list = all
+    list2 = all2
+    alll += all+all2
+    $("#all_price_odr").text(alll)
+    $("#all_price_odr").val(alll)
+};
+
 async function loopproduct() {
     let lastID = await (await fetch('controller/GetLastIdOrder.php')).text()
     let rows = (JSON.parse(localStorage.getItem("tableProduct"))).data
-    for(let d of rows){
-    var formdata = new FormData();
-    formdata.append("order_id", lastID);
-    formdata.append("product_id", Number(d.list));
-    formdata.append("order_amt", Number(d.price));
-    formdata.append("order_pr", Number(d.amount));
-    formdata.append("form_action", "insert");
-    formdata.append("table", "orderdetails");
-    var requestOptions = {
-        method: 'POST',
-        body: formdata,
-        redirect: 'follow'
-    };
-    await fetch("controller/OrderDetails.php", requestOptions)
+    for (let d of rows) {
+        var formdata = new FormData();
+        formdata.append("order_id", lastID);
+        formdata.append("product_id", Number(d.list));
+        formdata.append("order_amt", Number(d.price));
+        formdata.append("order_pr", Number(d.amount));
+        formdata.append("form_action", "insert");
+        formdata.append("table", "orderdetails");
+        var requestOptions = {
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
+        };
+        await fetch("controller/OrderDetails.php", requestOptions)
     }
 }
 
 async function loopother() {
     let lastID = await (await fetch('controller/GetLastIdOrder.php')).text()
     let rows = (JSON.parse(localStorage.getItem("tablePrice"))).data
-    for(let d of rows){
+    for (let d of rows) {
         var formdata = new FormData();
         formdata.append("order_id", lastID);
         formdata.append("listother", d.listOther);
@@ -279,8 +305,8 @@ $("#form1").submit(async function (event) {
         }).then(async () => {
             await loopproduct()
             await loopother()
-                //localStorage.clear()
-               // window.location = './order.php'
+            //localStorage.clear()
+            // window.location = './order.php'
 
         })
     }

@@ -28,26 +28,57 @@ function del(id) {
                     icon: 'success',
                     timer: 3000
                 }
-            ).then(()=>{
+            ).then(() => {
                 location.reload()
             })
         }
     })
 }
 
-function wait() {
+/*function wait() {
     const cart = JSON.parse(localStorage.getItem('cart'))
     let html = ``
     Swal.fire({
         title: 'คุณต้องการเปลี่ยนเป็นสถานะสำเร็จหรือไม่',
         width: 1000,
+        cancelButtonText: 'ยกเลิก'
     })
-}
+}*/
 
-$(function (){
+$(function () {
     $("#product_name").autocomplete({
         source: "./controller/ProductExchangeList.php",
-        minLength : 2
+        minLength: 2
     });
 });
 
+
+async function wait(id) {
+    event.preventDefault();
+    var formdata = new FormData();
+    formdata.append("exchange_status", "0");
+    formdata.append("form_action", "status");
+    formdata.append("table", "productexchange");
+    var requestOptions = {
+        method: 'POST',
+        body: formdata,
+        redirect: 'follow'
+    };
+    await fetch("controller/ProductExchange.php", requestOptions)
+    Swal.fire({
+        title: 'คำเตือน',
+        text: "คุณต้องการเปลี่ยนเป็นสถานะสำเร็จหรือไม่",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'ใช่',
+        cancelButtonText: 'ยกเลิก'
+    })
+    await Swal.fire({
+        icon: 'success',
+        text: 'บันทึกข้อมูลเสร็จสิ้น',
+    }).then(() => {
+        location.reload()
+    })
+}
