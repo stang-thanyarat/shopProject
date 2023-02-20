@@ -49,7 +49,7 @@ if (isset($_GET['keyword'])) {
                     </div>
                 </div>
                 <form action="employee.php" method="GET">
-                <div class="row d-flex justify-content-end" style="margin-right: 2rem;">
+                <div class="row d-flex justify-content-end" style="margin-right: 1rem;">
                         <div class="col-3">
                             <input type="text" name="keyword" class="btn-d" placeholder="&nbsp ชื่อ-นามสกุล">
                             <button type="submit" class="s">

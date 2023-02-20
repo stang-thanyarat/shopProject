@@ -144,7 +144,6 @@ else if (isset($_GET['firstdate']) && (isset($_GET['lastdate']))) {
                                     <th width='25%' style="text-align: end;"><?= number_format($c['credit']) ?></th>
                                     <th>บาท</th>
                                 </tr>
-
                             </table>
                         </div>
                     </div>

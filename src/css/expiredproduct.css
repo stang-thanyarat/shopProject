@@ -48,7 +48,7 @@ th {
 }
 
 .category{
-    text-align: end;
+    margin-left: 2rem;
 }
 
 
@@ -115,15 +115,15 @@ option {
     background-color: #C4C4C4;
     color: black;
     border: 0ch;
-    margin-left: 0rem;
+    margin-left: 0.5rem;
 }
 
 .btn-c {
     border-radius: 25px 25px 25px 25px;
-    width: 20%;
+    width: 15%;
 }
 
 .btn-c1 {
     border-radius: 25px 25px 25px 25px;
-    width: 50%;
+    width: 40%;
 }

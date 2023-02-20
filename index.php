@@ -107,16 +107,26 @@ else if (isset($_GET['firstdate']) && (isset($_GET['lastdate']))) {
                         <button type="submit" class="search" id="search" name="search"><img src="./src/images/search.png" width="13"></button>
                     </div>
                     <div class="board">
-                        <label class="col-5">
-                            <div class="topicdata">ยอดขาย</div>
-                            <div class="topicdata">ต้นทุนขาย + ค่าใช้จ่าย</div>
-                            <div class="topicdata">กำไรสุทธิ</div>
-                        </label>
-                        <label class="col-2">
-                            <div class="data"><?= number_format($b['cash2'] + $d['DB']) ?></div>
-                            <div class="data"><?= number_format($c['BG3']) ?></div>
-                            <div class="data"><?= number_format(($b['cash2'] + $d['DB'])-$c['BG3'])?></div>
-                        </label>
+                        <table >
+                                <tr>
+                                    <th width='10%'></th>
+                                    <th width='50%'>ยอดขาย : </th>
+                                    <th width='25%' style="text-align: end;"><?= number_format($b['cash2'] + $d['DB']) ?></th>
+                                    <th width='10%'>&nbsp;&nbsp;บาท</th>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <th>ต้นทุนขาย + ค่าใช้จ่าย : </th>
+                                    <th width='25%' style="text-align: end;"><?= number_format($c['BG3']) ?></th>
+                                    <th>&nbsp;&nbsp;บาท</th>
+                                </tr>
+                                <tr>
+                                    <th></th>
+                                    <th>กำไรสุทธิ : </th>
+                                    <th width='25%' style="text-align: end;"><?= number_format(($b['cash2'] + $d['DB'])-$c['BG3']) ?></th>
+                                    <th>&nbsp;&nbsp;บาท</th>
+                                </tr>
+                            </table>
                     </div>
                 </div>
 

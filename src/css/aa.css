@@ -63,7 +63,7 @@
 }
 
 .board{
-    margin-left: 4rem;
+    margin-left: 9rem;
     margin-top: 2rem;
 
 }
@@ -83,12 +83,6 @@
 
 .topicdata{
     font-size: 20pt;
-    padding: 6pt;
-}
-
-.data {
-    font-size: 18pt;
-    margin-left: 10rem;
     padding: 6pt;
 }
 
