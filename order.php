@@ -48,7 +48,7 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != "") {
             <div class="col-11">
                 <div class="row main">
                     <h1>รายการใบสั่งซื้อ</h1>
-                    <div class="d-flex justify-content-end" style="margin-left: -4rem">
+                    <div class="d-flex justify-content-end" style="margin-left: -5rem">
                         <div>
                             <input type="text" value="<?= $_GET['keyword'] ?? "" ?>" id="keyword" name="keyword" class="btnd" placeholder="&nbsp ชื่อผู้ขาย">
                             <button type="submit" class="search"><img src="./src/images/search.png" width="20"></button>

@@ -47,7 +47,7 @@ $c = $category->fetchAll();
                 <h1>สินค้าหมดอายุ</h1>
             </div>
         </div>
-        <div class="row d-flex justify-content-end" style="margin-left: 10rem; ">
+        <div class="row" style="margin-left: 28rem; ">
             <div class="col-5 date">
                 <label for="expires within">หมดอายุภายใน :</label>
                 <label for="expires"></label>
@@ -65,7 +65,7 @@ $c = $category->fetchAll();
                 </form>
             </div>
             <div class="col-3">
-                <click type="submit" name="search" id="search" class="btn-c reset"><img src="./src/images/search.png" style="margin-left: 1.2rem; " width="25"></click>
+                <click type="submit" name="search" id="search" class="btn-c reset"><img src="./src/images/search.png" style="margin-left: 0.6rem; " width="25"></click>
                 <button type="button" onclick="window.location= 'expiredproduct.php'" class="btn-c1 reset" style="margin-left: 1.4rem; " width="25">ล้างการค้นหา</button>
             </div>
         </div>

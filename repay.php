@@ -74,11 +74,11 @@ $rowa = $pay->fetchById($_GET['id']);
                 <div class="col-xl-6">เงินต้น&nbsp;: <b><?= number_format($rowa[0]['outstanding']) ?></b> &nbsp;บาท</div>
             </div>
             <div class="row c">
-                <div class="col-xl-6 ">คงค้าง&nbsp;: <b><?= number_format(end($rowa)['outstanding']) ?></b></div>
+                <div class="col-xl-6 ">คงค้าง&nbsp;: <b><?= number_format(end($rowa)['outstanding']) ?></b> &nbsp;บาท</div>
                 <div class="col-xl-6 ">ดอกเบี้ย&nbsp;: <b><span id="less_interestt"></span>&nbsp;%</b></div>
             </div>
             <div class="row B">
-                <div class=" col-12 d-flex justify-content-end" style="margin-left: 3.5rem;">
+                <div class=" col-12 d-flex justify-content-end" style="margin-left: 2.8rem;">
                     <button type="button" onclick="payMode()" class="btn1" data-bs-toggle="modal"
                             data-bs-target=".bd-example-modal-sm">เพิ่ม
                     </button>

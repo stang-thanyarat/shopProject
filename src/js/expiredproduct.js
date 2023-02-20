@@ -127,9 +127,9 @@ function setUI(data, f = false) {
         <th>${element.product_name}</th>
         <th>${element.datereceive}</th>
         <th>${element.exp_date}</th>
-        <th>${element.price}</th>
-        <th>${element.product_rm_unit}</th>
-        <th>${element.amount_exp}</th>
+        <th>${element.price.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+        <th>${element.product_rm_unit.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+        <th>${element.amount_exp.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
         <th><button type="button" class="bgs"  onclick="del(${element.stock_id},${element.amount_exp},${element.product_id})"><img src="./src/images/icon-delete.png" width="25"></button></th>
     </tr>`)
             }
