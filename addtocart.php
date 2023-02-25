@@ -88,6 +88,8 @@ include_once('nav.php');
         <input type="hidden" value="insert" name="form_action" />
         <input type="hidden" id="payment_sl" name="payment_sl" value="เงินสด" />
         <input type="hidden" id="employee_id" name="employee_id" value="<?=$_SESSION['employee_id']?>">
+        <input type="hidden" name="all_quantity" class="inbox all_quantity" />
+        <input type="hidden" name="all_price" class="inbox all_price" />
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -97,15 +99,8 @@ include_once('nav.php');
                 <div class="modal-body">
                     <div class="row">
                         <div class="col allprice">
-                            จำนวนทั้งหมด :<span style="color: red; ">&nbsp*</span>
-                            <input type="text" name="all_quantity" class="inbox all_quantity" required />
-                            &nbsp&nbspชิ้น
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col allprice">
-                            ยอดรวมทั้งหมด :<span style="color: red; ">&nbsp*</span>
-                            <input type="text" name="all_price" class="inbox all_price" required />
+                            ยอดรวมทั้งหมด :
+                            <label  id="all_price" class="inbox all_price" /></label>
                             &nbsp&nbspบาท
                         </div>
                     </div>
@@ -119,7 +114,7 @@ include_once('nav.php');
                     <div class="row">
                         <div class="col change">
                             เงินทอน :&nbsp&nbsp&nbsp
-                            <input type="text" id="change" class="inbox">
+                            <label id="change" class="inbox"></label>
                             &nbsp&nbspบาท
                         </div>
                     </div>

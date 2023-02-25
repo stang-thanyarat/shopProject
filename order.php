@@ -70,7 +70,7 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != "") {
                                 <th><?= dateTimeDisplay($row['datebill']) ?></th>
                                 <th id="text<?= $row['sell_id'] ?>"><?= $row['sell_name'] ?></th>
                                 <th>
-                                    <?php if ($row['order_status'] == 1) { ?><a type="button" class="bgs" href="./editconfirm2.php?id=<?= $row['order_id']; ?>"><font color=#A36627>รอของ</font></a>
+                                    <?php if ($row['order_status'] == 1) { ?><a type="button" class="bgs" href="./editconfirm2.php?id=<?= $row['order_id']; ?>"><font color=#A36627 style="text-decoration: none;">รอของ</font></a>
                                     <?php } else { ?>
                                     สำเร็จ
                                     <?php } ?>

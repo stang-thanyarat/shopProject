@@ -191,7 +191,7 @@ class Product
                 $sql = "SELECT C.*,P.* FROM category_tb C,product_tb P WHERE C.category_id = P.category_id AND P.product_name LIKE ? ORDER BY P.product_name ASC";
 
             } else {
-                $sql = "SELECT C.*,P.* FROM category_tb C,product_tb P WHERE C.category_id = ? ORDER BY P.product_name ASC";
+                $sql = "SELECT C.*,P.* FROM category_tb C,product_tb P WHERE C.category_id = ? AND P.product_name LIKE ? ORDER BY P.product_name ASC";
             }
             $stmt = $this->conn->prepare($sql);
             if (is_null($id)) {
@@ -216,7 +216,7 @@ class Product
     public function fetchByCategoryId($id)
     {
         try {
-            $sql = "SELECT C.*,P.* FROM category_tb C,product_tb P WHERE C.category_id = P.category_id AND C.category_id = ? AND sales_status = 1  AND product_rm_unit > 0 ORDER BY P.product_name ASC";
+            $sql = "SELECT C.*,P.* FROM category_tb C,product_tb P WHERE C.category_id = P.category_id AND C.category_id = ? ORDER BY P.product_name ASC";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();

@@ -410,6 +410,6 @@ for ($k = 0; $k < count($op); $k++) {
     });
 
 </script>
-<script src="./src/js/confirm.js"></script>
+<script src="./src/js/editconfirm.js"></script>
 
 </html>

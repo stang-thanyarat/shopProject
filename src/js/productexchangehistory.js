@@ -28,7 +28,7 @@ function del(id) {
                     icon: 'success',
                     timer: 3000
                 }
-            ).then(()=>{
+            ).then(() => {
                 location.reload()
             })
         }
@@ -55,24 +55,21 @@ function wait(id) {
                 method: 'POST',
                 body: formdata1
             })
-            Swal.fire(
+            await Swal.fire(
                 {
                     title: 'สถานะ',
                     text: 'การเปลี่ยนสถานะเสร็จสิ้น',
                     icon: 'success',
-                    timer: 3000
                 }
-            ).then(()=>{
-                location.reload()
-            })
+            )
         }
+        location.reload()
     })
 }
 
-$(function (){
+$(function () {
     $("#product_name").autocomplete({
         source: "./controller/ProductExchangeList.php",
-        minLength : 2
+        minLength: 2
     });
 });
-

@@ -133,7 +133,7 @@ h2{
       <tr>
       <td  colspan="3">หมายเหตุ : </td>
       <td width="304" class="setright">ยอดรวมสุทธิ : &nbsp;</td>
-      <td width="238" class="setright">' . $p . ' &nbsp;</td>
+      <td width="238" class="setright">' . number_format($p). ' &nbsp;</td>
     </tr>
    </table>
       </td>

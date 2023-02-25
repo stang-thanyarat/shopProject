@@ -85,5 +85,21 @@ $pp = $costprice->fetchByProductId($_GET['id']);
 </div>
 </body>
 <script src="./src/js/costprice.js"></script>
+<script>
+    var input = document.getElementById("start");
+    input.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("search").click();
+        }
+    });
+    var input2 = document.getElementById("end");
+    input2.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("search").click();
+        }
+    });
+</script>
 
 </html>
