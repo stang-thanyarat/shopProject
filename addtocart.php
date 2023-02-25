@@ -26,7 +26,7 @@ function getFullRole($role)
     <link rel="stylesheet" href="./src/css/addtocart.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    
+
 </head>
 <?php
 include_once('nav.php');
@@ -46,36 +46,36 @@ include_once('nav.php');
             <!--เนื้อหา-->
             <table class="col-11 tablesales">
                 <thead>
-                <tr class="TRTOPICCSS">
-                    <th style="width : 10%; border-right: 1px; text-align: center; ">ลำดับ</th>
-                    <th style="width : 15%; border-left: 1px; border-right: 1px;">รูปภาพ</th>
-                    <th style="width : 25%; border-left: 1px; border-right: 1px; ">สินค้า</th>
-                    <th style="width : 15%; border-left: 1px; border-right: 1px; ">ราคาต่อชิ้น</th>
-                    <th style="width : 12%; border-left: 1px; border-right: 1px; ">จำนวน</th>
-                    <th style="width : 15%; border-left: 1px; border-right: 1px; ">ราคารวม</th>
-                    <th style="width : 8%; border-left: 1px; "></th>
-                </tr>
+                    <tr class="TRTOPICCSS">
+                        <th style="width : 10%; border-right: 1px; text-align: center; ">ลำดับ</th>
+                        <th style="width : 15%; border-left: 1px; border-right: 1px;">รูปภาพ</th>
+                        <th style="width : 25%; border-left: 1px; border-right: 1px; ">สินค้า</th>
+                        <th style="width : 15%; border-left: 1px; border-right: 1px; ">ราคาต่อชิ้น</th>
+                        <th style="width : 12%; border-left: 1px; border-right: 1px; ">จำนวน</th>
+                        <th style="width : 15%; border-left: 1px; border-right: 1px; ">ราคารวม</th>
+                        <th style="width : 8%; border-left: 1px; "></th>
+                    </tr>
                 </thead>
                 <tbody id="addtocartTable"></tbody>
                 <tbody>
-                <tr class="TRTOPICCSS">
-                    <th colspan="2" style="border-right: 1px">
-                        <select name="payment_s" id="payment_s" required>
-                            <option value="เลือกประเภทการชำระ" selected hidden>เลือกประเภทการชำระ</option>
-                            <option value="เงินสด">เงินสด</option>
-                            <option value="โอนผ่านบัญชีธนาคาร">โอนผ่านบัญชีธนาคาร</option>
-                            <option value="ผ่อนชำระ">ผ่อนชำระ</option>
-                        </select>
-                    </th>
-                    <th colspan="4" style="border-left: 1px; border-right: 0px;">
-                        <div class=" d-flex justify-content-end" style="margin-left: 3rem;">
-                            <h5 class="TEXTNOTICE">จำนวน <span id="allquantity">0</span> ชิ้น &nbsp</h5>
-                            <h5 class="TEXTNOTICE">ยอดรวมทั้งหมด : <span id="allprice">0</span> บาท &nbsp &nbsp</h5>
-                            <button type="button" id="mySubmit" class="TEXTNOTICE" data-bs-toggle="modal">ยืนยัน</button>
-                        </div>
-                    </th>
-                    <th style="border-left: 0px; "></th>
-                </tr>
+                    <tr class="TRTOPICCSS">
+                        <th colspan="2" style="border-right: 1px">
+                            <select name="payment_s" id="payment_s" required>
+                                <option value="เลือกประเภทการชำระ" selected hidden>เลือกประเภทการชำระ</option>
+                                <option value="เงินสด">เงินสด</option>
+                                <option value="โอนผ่านบัญชีธนาคาร">โอนผ่านบัญชีธนาคาร</option>
+                                <option value="ผ่อนชำระ">ผ่อนชำระ</option>
+                            </select>
+                        </th>
+                        <th colspan="4" style="border-left: 1px; border-right: 0px;">
+                            <div class=" d-flex justify-content-end" style="margin-left: 3rem;">
+                                <h5 class="TEXTNOTICE">จำนวน <span id="allquantity">0</span> ชิ้น &nbsp</h5>
+                                <h5 class="TEXTNOTICE">ยอดรวมทั้งหมด : <span id="allprice">0</span> บาท &nbsp &nbsp</h5>
+                                <button type="button" id="mySubmit" class="TEXTNOTICE" data-bs-toggle="modal">ยืนยัน</button>
+                            </div>
+                        </th>
+                        <th style="border-left: 0px; "></th>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -90,158 +90,141 @@ include_once('nav.php');
         <input type="hidden" id="employee_id" name="employee_id" value="<?=$_SESSION['employee_id']?>">
         <input type="hidden" name="all_quantity" class="inbox all_quantity" />
         <input type="hidden" name="all_price" class="inbox all_price" />
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title2" id="exampleModalLabel">รับเงินสด</h5> <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col allprice"> ยอดรวมทั้งหมด : <label id="all_price" class="inbox all_price" /></label> &nbsp&nbspบาท </div>
+                        </div>
+                        <div class="row">
+                            <div class="col receivecash"> เงินที่รับมา :<span style="color: red; ">&nbsp*</span> <input type="text" id="receivecash" class="inbox" required /> &nbsp&nbspบาท </div>
+                        </div>
+                        <div class="row">
+                            <div class="col change"> เงินทอน :&nbsp&nbsp&nbsp <label id="change" class="inbox"></label> &nbsp&nbspบาท </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer"> <button type="submit" id="pay_C" class="btn btn-primary1">ตกลง</button> </div>
+                </div>
+            </div>
+    </div>
+    </form>
+
+    <!-- ยืนยันการซื้อแบบโอนผ่านธนาคาร -->
+    <div class="modal fade bd-example-modal-sm4 transfer-form" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <form action="controller/Sales.php" name="form2" id="form2" method="POST" enctype="multipart/form-data">
+            <input type="hidden" value="sales" name="table" />
+            <input type="hidden" value="insert" name="form_action" />
+            <input type="hidden" id="payment_sl" name="payment_sl" value="โอนผ่านบัญชีธนาคาร" />
+            <input type="hidden" id="employee_id" name="employee_id" value="<?= $_SESSION['employee_id'] ?>">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title2" id="exampleModalLabel">แนบในสลิปธนาคาร</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col allprice">
+                                จำนวนทั้งหมด : </span>
+                                <input type="text" disabled="disabled" name="all_quantity" class="inbox all_quantity" required />
+                                &nbsp&nbspชิ้น
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col allprice">
+                                ยอดรวมทั้งหมด : </span>
+                                <input type="text" disabled="disabled" name="all_price" class="inbox all_price" required />
+                                &nbsp&nbspบาท
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col importfile">
+                                แนบในสลิปธนาคาร : <input type="file" class="inbox" id="import_files" name="import_files" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col notice">
+                                <label class="noticetext">*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col detail">
+                                หมายเหตุ : <input type="note" class="inbox" id="note" name="note">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary1">ตกลง</button>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </form>
+
+    <!-- ยืนยันการซื้อแบบผ่อนชำระ -->
+    <div class="modal fade bd-example-modal-sm5 login-form" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title2" id="exampleModalLabel">รับเงินสด</h5>
+                    <h5 class="modal-title2" id="exampleModalLabel">กรอกรหัสเจ้าของร้าน</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <div class="col allprice">
-                            ยอดรวมทั้งหมด :
-                            <label  id="all_price" class="inbox all_price" /></label>
-                            &nbsp&nbspบาท
+                        <div class="col email">
+                            E-mail : <input type="text" name="email" id="email" class="btnd inbox" />
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col receivecash">
-                            เงินที่รับมา :<span style="color: red; ">&nbsp*</span>
-                            <input type="text" id="receivecash" class="inbox" required />
-                            &nbsp&nbspบาท
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col change">
-                            เงินทอน :&nbsp&nbsp&nbsp
-                            <label id="change" class="inbox"></label>
-                            &nbsp&nbspบาท
+                        <div class="col password">
+                            รหัสผ่าน : <input type="text" name="password" id="password" class="btnd inbox" />
                         </div>
                     </div>
                 </div>
+
                 <div class="modal-footer">
-                    <button type="submit" id="pay_C" class="btn btn-primary1">ตกลง</button>
+                    <button type="submit" class="btn btn-primary1">ยืนยัน</button>
                 </div>
-            </div>
-        </div>
-</div>
-</form>
-
-<!-- ยืนยันการซื้อแบบโอนผ่านธนาคาร -->
-<div class="modal fade bd-example-modal-sm4 transfer-form" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form action="controller/Sales.php" name="form2" id="form2" method="POST" enctype="multipart/form-data">
-        <input type="hidden" value="sales" name="table" />
-        <input type="hidden" value="insert" name="form_action" />
-        <input type="hidden" id="payment_sl" name="payment_sl" value="โอนผ่านบัญชีธนาคาร" />
-        <input type="hidden" id="employee_id" name="employee_id" value="<?=$_SESSION['employee_id']?>">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title2" id="exampleModalLabel">แนบในสลิปธนาคาร</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col allprice">
-                        จำนวนทั้งหมด :<span style="color: red; ">&nbsp*</span>
-                        <input type="text" name="all_quantity" class="inbox all_quantity" required />
-                        &nbsp&nbspชิ้น
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col allprice">
-                        ยอดรวมทั้งหมด :<span style="color: red; ">&nbsp*</span>
-                        <input type="text" name="all_price" class="inbox all_price" required />
-                        &nbsp&nbspบาท
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col importfile">
-                        แนบในสลิปธนาคาร : <input type="file" class="inbox" id="import_files" name="import_files" required />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col notice">
-                        <label class="noticetext">*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col detail">
-                        หมายเหตุ : <input type="note" class="inbox" id="note" name="note">
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary1">ตกลง</button>
             </div>
         </div>
     </div>
-</div>
-</form>
 
-<!-- ยืนยันการซื้อแบบผ่อนชำระ -->
-<div class="modal fade bd-example-modal-sm5 login-form" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title2" id="exampleModalLabel">กรอกรหัสเจ้าของร้าน</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col email">
-                        E-mail : <input type="text" name="email" id="email" class="btnd inbox" />
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col password">
-                        รหัสผ่าน : <input type="text" name="password" id="password" class="btnd inbox" />
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary1">ยืนยัน</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ยืนยันการซื้อแบบผ่อนชำระ(ต่อ 1) -->
+    <!-- ยืนยันการซื้อแบบผ่อนชำระ(ต่อ 1) -->
     <form action="controller/Sales.php" name="form3" id="form3" method="POST">
-<div class="modal fade bd-example-modal-xl search-costumer-form" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <input type="hidden" value="sales" name="table" />
-        <input type="hidden" value="insert" name="form_action" />
-        <input type="hidden" id="payment_sl" name="payment_sl" value="ผ่อนชำระ" />
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title2" id="exampleModalLabel">ค้นหาลูกค้า</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-            <br>
-                <div class="row">
-                    <div class="col email">
-                        กรอกรหัสบัตรประชาชน : <input type="text" name="keyword" id="keyword" class="btnd inbox" onkeyup="autoTab(this)" required />
+        <div class="modal fade bd-example-modal-xl search-costumer-form" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <input type="hidden" value="sales" name="table" />
+            <input type="hidden" value="insert" name="form_action" />
+            <input type="hidden" id="payment_sl" name="payment_sl" value="ผ่อนชำระ" />
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title2" id="exampleModalLabel">ค้นหาลูกค้า</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="col-1">
-                        <click id="search" type="submit" ><img src="./src/images/search.png" width="25" class="l"></click>&nbsp &nbsp
+                    <div class="modal-body">
+                        <br>
+                        <div class="row">
+                            <div class="col email">
+                                กรอกรหัสบัตรประชาชน : <input type="text" name="keyword" id="keyword" class="btnd inbox" onkeyup="autoTab(this)" required />
+                            </div>
+                            <div class="col-1">
+                                <click id="search" type="submit"><img src="./src/images/search.png" width="25" class="l"></click>&nbsp &nbsp
+                            </div>
+                        </div>
+                        <br>
+                        <span id="salestocontracttable"></span>
+                    </div>
+                    <div class="modal-footer">
+                        <a id="next-add" href="#" class="btn btn-primary1">ถัดไป</a>
                     </div>
                 </div>
-                <br>
-                <span id="salestocontracttable"></span>
-
-            </div>
-            <div class="modal-footer">
-                <a  id="next-add" href="#"  class="btn btn-primary1">ถัดไป</a>
             </div>
         </div>
-    </div>
-</div>
     </form>
-
 </body>
 <script src="./src/js/addtocart.js"></script>
 

@@ -13,7 +13,7 @@ class Contract
     public function fetchAll()
     {
         try{
-            $sql = "SELECT * FROM contract_tb WHERE contract_code";
+            $sql = "SELECT * FROM contract_tb WHERE contract_code order by date_contract desc";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetchAll();
@@ -138,7 +138,7 @@ class Contract
     {
        try{
            $like = "%" . $keyword . "%";
-           $sql = "SELECT * FROM contract_tb WHERE customer_firstname LIKE ? OR customer_lastname LIKE ?";
+           $sql = "SELECT * FROM contract_tb WHERE customer_firstname LIKE ? OR customer_lastname LIKE ? order by date_contract desc";
            $stmt = $this->conn->prepare($sql);
            $stmt->bindParam(1, $like, PDO::PARAM_STR);
            $stmt->bindParam(2, $like, PDO::PARAM_STR);

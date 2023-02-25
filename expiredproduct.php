@@ -47,7 +47,7 @@ $c = $category->fetchAll();
                 <h1>สินค้าหมดอายุ</h1>
             </div>
         </div>
-        <div class="row d-flex justify-content-end" style="margin-left: 10rem; ">
+        <div class="row" style="margin-left: 28rem; ">
             <div class="col-5 date">
                 <label for="expires within">หมดอายุภายใน :</label>
                 <label for="expires"></label>
