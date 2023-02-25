@@ -81,9 +81,15 @@ include_once('nav.php');
         </div>
     </div>
 
-    <!-- ยืนยันการซื้อแบบเงินสด -->
-    <div class="modal fade bd-example-modal-sm3 cash-form" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <form action="controller/Sales.php" name="form1" id="form1" method="POST" enctype="multipart/form-data"> <input type="hidden" value="sales" name="table" /> <input type="hidden" value="insert" name="form_action" /> <input type="hidden" id="payment_sl" name="payment_sl" value="เงินสด" /> <input type="hidden" id="employee_id" name="employee_id" value="<?= $_SESSION['employee_id'] ?>"> <input type="hidden" name="all_quantity" class="inbox all_quantity" /> <input type="hidden" name="all_price" class="inbox all_price" />
+<!-- ยืนยันการซื้อแบบเงินสด -->
+<div class="modal fade bd-example-modal-sm3 cash-form" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form action="controller/Sales.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
+        <input type="hidden" value="sales" name="table" />
+        <input type="hidden" value="insert" name="form_action" />
+        <input type="hidden" id="payment_sl" name="payment_sl" value="เงินสด" />
+        <input type="hidden" id="employee_id" name="employee_id" value="<?=$_SESSION['employee_id']?>">
+        <input type="hidden" name="all_quantity" class="inbox all_quantity" />
+        <input type="hidden" name="all_price" class="inbox all_price" />
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -211,7 +217,6 @@ include_once('nav.php');
                         </div>
                         <br>
                         <span id="salestocontracttable"></span>
-
                     </div>
                     <div class="modal-footer">
                         <a id="next-add" href="#" class="btn btn-primary1">ถัดไป</a>
@@ -220,7 +225,6 @@ include_once('nav.php');
             </div>
         </div>
     </form>
-
 </body>
 <script src="./src/js/addtocart.js"></script>
 

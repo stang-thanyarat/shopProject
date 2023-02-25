@@ -115,11 +115,15 @@ function getDate3(date3) {
 function getInterest2(interest2) {
     interest_2 = interest2
 }
+$("#index").ready(function (){
+    dateout();
+});
 
 $(document).ready(function () {
     getDiff2();
     timeinterest();
     getInterest2();
+    dateout();
 });
 
 function getDiff2() {
@@ -190,6 +194,25 @@ function timeinterest() {
         $('#less_interestt').text(0)
     }
 
+}
+
+function dateout() {
+    if (diff2 >= 120) {
+        let promise = 1
+        $('#promise_status').val(promise)
+    } else if (diff2 <= 120) {
+        let promise = 0
+        $('#promise_status').val(promise)
+    }
+    var formdata2 = new FormData();
+    formdata2.append("contract_code", $('#contract_code').val());
+    formdata2.append("promise_status", $('#promise_status').val());
+    formdata2.append("form_action", "updatestatus");
+    formdata2.append("table", "contract");
+    fetch('controller/Contract.php', {
+        method: 'POST',
+        body: formdata2,
+    })
 }
 
 $("#form1").submit(async function (event) {

@@ -32,11 +32,21 @@
 
 .c {
     color: #7C904E;
+    font-size: 25pt;
+}
+
+.n {
+    margin-top: -1rem;
+    color: #7C904E;
     font-size: 20pt;
 }
 
 .f {
     font-size: 16pt;
+}
+
+.o {
+    font-size: 25pt;
 }
 
 .back {

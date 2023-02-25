@@ -233,6 +233,7 @@ $rowa = $pay->fetchById($_GET['id']);
             </div>
         </div>
     </div>
+    <input type="hidden" name="promise_status" id="promise_status">
 </form>
 
 </body>

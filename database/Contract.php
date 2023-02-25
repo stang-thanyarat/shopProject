@@ -302,4 +302,21 @@ class Contract
             echo strval($e);
         }
     }
+
+    public function updatestatus($q,$id)
+    {
+        try {
+            $sql = "SET FOREIGN_KEY_CHECKS=0";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $sql = "UPDATE contract_tb SET promise_status = ? WHERE contract_code = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $q, PDO::PARAM_INT);
+            $stmt->bindParam(2, $id, PDO::PARAM_INT);
+            $stmt->execute();
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
+    }
 }

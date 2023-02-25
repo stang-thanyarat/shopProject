@@ -63,7 +63,7 @@ else if (isset($_GET['firstdate']) && (isset($_GET['lastdate']))) {
 ?>
 
 <body>
-<form method="get" action="index.php">
+<form method="get" action="index.php" name="index" id="index">
     <div class="row">
         <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
         <div class="col-11">

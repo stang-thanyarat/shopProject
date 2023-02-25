@@ -68,7 +68,7 @@ $c = $category->fetchAll();
                 </div>
             </div>
             <div class="dailybestsellerTable">
-                <h3 style="text-align: center;" id="no-let">ไม่มีรายการสินค้าขายดีประจำวัน</h3>
+                <h3 style="text-align: center; margin-top: 9rem;margin-bottom: 9rem;" id="no-let">ไม่มีรายการสินค้าขายดีประจำวัน</h3>
             <table class="col-11" id="tb-let" style="display: none;">
                 <thead>
                     <tr>
@@ -86,5 +86,14 @@ $c = $category->fetchAll();
     </div>
 </body>
 <script src="./src/js/dailybestseller.js"></script>
+<script>
+    var input = document.getElementById("keyword");
+    input.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("search").click();
+        }
+    });
+</script>
 
 </html>
