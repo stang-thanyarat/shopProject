@@ -10,7 +10,7 @@
 <body>
     <form>
         <div class="navbar">
-            <a class="n" href="customer.php" style="font-size: 24px;">หน้าแรก</a>
+            <a class="n" href="customer.php" style="font-size: 24px; margin-top: auto;">หน้าแรก</a>
             <form method="GET" action="customer.php"><div class="m" ><input style="font-size: 18pt;" name="keyword" type="text" class="d" placeholder="&nbsp ชื่อสินค้า"/><button type="submit" style="background: transparent; border: 0;"><i  class="fa fa-fw fa-search" style="font-size: 18pt;"></i> </button></div></form>
             <a href="login.php"><i class="fa fa-fw fa-user"></i> Login</a>
         </div>

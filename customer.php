@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="./src/css/customer.css"/>
     
 </head>
-<?php include_once('nav2.php');
+<?php
+include_once('nav2.php');
 include_once('./database/Product.php');
 include_once('./database/Category.php');
 include_once ('./database/Search.php');
@@ -47,7 +48,7 @@ else {
         <div class="col-11">
             <div class="col main row-5" style="margin-top:20px;">
                 <?php foreach ($row as $r) { ?>
-                    <a href="customer2.php?product=<?= $r['product_id'] ?>" class="button" style="margin:10px;">
+                    <a href="customer2.php?product=<?= $r['product_id'] ?>" name="btCustomer_click()" class="button" style="margin:10px;">
                         <span style="font-size: 15pt !important; "><?= $r['product_name'] ?></span><br><br>
                         <img src="<?= file_exists($r['product_img']) ? $r['product_img'] : "./src/images/logo.png" ?>" width="150" height="150"><br>
                         <p></p>

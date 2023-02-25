@@ -132,6 +132,7 @@ function setUI(data) {
         </th>
     </tr>`)
         $("#allprice").text(allprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
+        $("#all_price").text(allprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
         $(".all_price").val(allprice.toString())
         $("#allquantity").text(allquantity.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
         $(".all_quantity").val(allquantity.toString())
@@ -191,10 +192,10 @@ async function loopInsert() {
 $('#receivecash').keyup(() => {
     const change = Number($('#receivecash').val()) - Number($(".all_price").val())
     if (change >= 0) {
-        $('#change').val(change)
+        $('#change').text(change.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","))
         $('#pay_C').show()
     } else {
-        $('#change').val('')
+        $('#change').text('')
         $('#pay_C').hide()
     }
 })

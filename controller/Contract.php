@@ -30,8 +30,9 @@ if (isset($_POST)) {
             $contract->push($_POST['q'], $_POST['contract_code']);
         } else if ($_POST['form_action'] == 'updateremain') {
             $contract->updateremain($_POST['outstanding'], $_POST['contract_code']);
-        }
-
+        } else if ($_POST['form_action'] == 'updatestatus') {
+        $contract->updatestatus($_POST['promise_status'], $_POST['contract_code']);
+    }
     }
 
 } else {

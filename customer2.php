@@ -38,7 +38,6 @@ if (isset($_GET['product'])) {
     <div class="row">
         <div class="col-1 Nbar min-vh-100"><?php include_once('bar2.php'); ?></div>
         <div class="col-8" style="margin-left: 5rem;">
-
             <div class="row z">
                 <div class="col-2">
                     <br>
@@ -74,16 +73,16 @@ if (isset($_GET['product'])) {
                 <div class="col-7"><br>
                     <div class="d-flex justify-content-between">
                         <p class="c"><?= $r['product_name'] ?></p>
-                        <p class="f"><?= number_format($r['price']) ?> บาท</p>
+                        <p class="o"><?= number_format($r['price']) ?> บาท</p>
                     </div>
+                    <div class="n">รหัสสินค้า &nbsp;:&nbsp; <?= $r['product_id'] ?></div>
+                    <p>
                     <div class="f">
-                        ประเภทสินค้า : <?= $cx['category_name'] ?><br>
-                        ยี่ห้อ : <?= $r['brand'] ?> <br>
-                        คงเหลือ : <?= $r['product_rm_unit'] ?> <?= $r['product_unit'] ?> <br><br>
+                        ประเภทสินค้า &nbsp;:&nbsp; <?= $cx['category_name'] ?><br>
+                        ยี่ห้อ &nbsp;:&nbsp; <?= $r['brand'] ?> <br>
+                        คงเหลือ &nbsp;:&nbsp; <?= $r['product_rm_unit'] ?> <?= $r['product_unit'] ?> <br><br>
                     </div>
-                    <div class="f">รายละเอียดสินค้า : <?= $r['product_detail'] ?>
-                    </div>
-
+                    <div class="f">รายละเอียดสินค้า &nbsp;:&nbsp; <br><?= $r['product_detail'] ?></div>
                 </div>
             </div>
         </div>

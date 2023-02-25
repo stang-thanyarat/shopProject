@@ -26,7 +26,7 @@ function getFullRole($role)
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/expiredproduct.css"/>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    
+
 </head>
 <?php
 include_once('nav.php');
@@ -55,7 +55,8 @@ $c = $category->fetchAll();
             </div>
             <div class="col-4 category">
                 <form>
-                    <select name="category_id" id="category_id" style="background-color: #D4DDC6;  margin-right: 1rem;" required>
+                    <select name="category_id" id="category_id" style="background-color: #D4DDC6;  margin-right: 1rem;"
+                            required>
                         <option value="all">สินค้าทั้งหมด</option>
                         <?php foreach ($c as $row) { ?>
                             <option value="<?= $row['category_id'] ?>"><?= $row['category_name'] ?></option>
@@ -65,12 +66,17 @@ $c = $category->fetchAll();
                 </form>
             </div>
             <div class="col-3">
-                <click type="submit" name="search" id="search" class="btn-c reset"><img src="./src/images/search.png" style="margin-left: 1.2rem; " width="25"></click>
-                <button type="button" onclick="window.location= 'expiredproduct.php'" class="btn-c1 reset" style="margin-left: 1.4rem; " width="25">ล้างการค้นหา</button>
+                <click type="submit" name="search" id="search" class="btn-c reset"><img src="./src/images/search.png"
+                                                                                        style="margin-left: 1.2rem; "
+                                                                                        width="25"></click>
+                <button type="button" onclick="window.location= 'expiredproduct.php'" class="btn-c1 reset"
+                        style="margin-left: 1.4rem; " width="25">ล้างการค้นหา
+                </button>
             </div>
         </div>
         <div class="row tb">
-            <h3 style="margin-top: 9rem; margin-bottom: 9rem; text-align: center" id="no-let">ไม่มีรายการสินค้าใกล้หมดอายุ</h3>
+            <h3 style="margin-top: 9rem; margin-bottom: 9rem; text-align: center" id="no-let">
+                ไม่มีรายการสินค้าใกล้หมดอายุ</h3>
             <table class="col-12" id="tb-let">
                 <thead>
                 <tr>
@@ -92,5 +98,22 @@ $c = $category->fetchAll();
 </body>
 <script src="./src/js/expiredproduct.js"></script>
 <script src="./src/js/datetimeDisplay.js"></script>
+<script>
+    function convertToDateThai(date) {
+        var month_th = ["", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"];
+        return result = date.getDate() + " " + month_th[(date.getMonth() + 1)] + " " + (date.getFullYear() + 543);
+    }
+
+    var date = convertToDateThai(new Date("2022-06-15"));
+    console.log(date);
+
+    var input = document.getElementById("keyword");
+    input.addEventListener("keypress", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("search").click();
+        }
+    });
+</script>
 
 </html>

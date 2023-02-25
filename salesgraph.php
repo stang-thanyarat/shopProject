@@ -83,5 +83,28 @@ $rows = $category->fetchAll();
     </div>
 </body>
 <script src="./src/js/salesgraph.js"></script>
+<script>
+    var input1 = document.getElementById("date");
+    input1.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("search").click();
+        }
+    });
+    var input2 = document.getElementById("category_id");
+    input2.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("search").click();
+        }
+    });
+    var input3 = document.getElementById("limit");
+    input3.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("search").click();
+        }
+    });
+</script>
 
 </html>
