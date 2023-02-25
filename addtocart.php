@@ -119,6 +119,8 @@ include_once('nav.php');
             <input type="hidden" value="insert" name="form_action" />
             <input type="hidden" id="payment_sl" name="payment_sl" value="โอนผ่านบัญชีธนาคาร" />
             <input type="hidden" id="employee_id" name="employee_id" value="<?= $_SESSION['employee_id'] ?>">
+            <input type="hidden" name="all_quantity" class="inbox all_quantity"/>
+            <input type="hidden" name="all_price" class="inbox all_price"/>
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -126,20 +128,6 @@ include_once('nav.php');
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="row">
-                            <div class="col allprice">
-                                จำนวนทั้งหมด : </span>
-                                <input type="text" disabled="disabled" name="all_quantity" class="inbox all_quantity" required />
-                                &nbsp&nbspชิ้น
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col allprice">
-                                ยอดรวมทั้งหมด : </span>
-                                <input type="text" disabled="disabled" name="all_price" class="inbox all_price" required />
-                                &nbsp&nbspบาท
-                            </div>
-                        </div>
                         <div class="row">
                             <div class="col importfile">
                                 แนบในสลิปธนาคาร : <input type="file" class="inbox" id="import_files" name="import_files" />
