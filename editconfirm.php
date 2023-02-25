@@ -130,9 +130,9 @@ for ($k = 0; $k < count($op); $k++) {
                             </select>
                     </div>
                     <div class="col payment">
-                        &nbsp;&nbsp;&nbsp;&nbsp;วันที่ชำระเงิน : &nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;วันที่ชำระเงิน : &nbsp;&nbsp;
                         <!--<?= toDay($o['payment_dt']); ?>-->
-                         &nbsp;<input id="payment_dt" name="payment_dt" type="date" step="1" value="<?= $o['payment_dt']; ?>">
+                         &nbsp;&nbsp;<input id="payment_dt" name="payment_dt" type="date" step="1" value="<?= $o['payment_dt']; ?>">
                     </div>
                 </div>
                 <div id="creditupload">

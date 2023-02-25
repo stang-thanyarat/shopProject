@@ -139,6 +139,8 @@ th {
 
 .inbox {
     margin-left: 2rem;
+    width: 30%;
+    text-align: right;
 }
 
 .exp {

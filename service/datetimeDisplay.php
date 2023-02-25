@@ -21,3 +21,4 @@ function toDay(){
 function ShowTime($strDateTime){
     return $date = explode(' ',$strDateTime)[1];
 }
+
