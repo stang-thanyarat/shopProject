@@ -12,20 +12,20 @@ class DebtPaymentDetails
 
     public function fetchAll()
     {
-       try{
-           $sql = "SELECT D.*,C.* FROM debt_payment_details_tb D, contract_tb C WHERE D.contract_code = C.contract_code";
-           $stmt = $this->conn->prepare($sql);
-           $stmt->execute();
-           $result = $stmt->fetchAll();
-           if (!$result) {
-               return [];
-           } else {
-               return $result;
-           }
-       }catch (Exception $e) {
-           http_response_code(500);
-           echo strval($e);
-       }
+        try{
+            $sql = "SELECT D.*,C.* FROM debt_payment_details_tb D, contract_tb C WHERE D.contract_code = C.contract_code";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        }catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
 
     }
 
