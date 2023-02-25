@@ -63,8 +63,9 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                         </form>
                     </div>
                 </div>
+                <div class="d-flex justify-content-end">
                 <?php if (count($rows) > 0) { ?>
-                    <table class="col-11 pdrtb">
+                    <table class="col-11  pdrtb">
                         <thead>
                             <tr>
                                 <th width=20%>วันที่เปลี่ยนสินค้า</th>
@@ -101,6 +102,7 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                 <?php } else {
                     echo '<div class="d-flex justify-content-center"><h3 style="margin-top: 9rem; margin-bottom: 9rem;">ไม่พบข้อมูล</h3></div>';
                 } ?>
+                </div>
             </div>
         </div>
     </form>
