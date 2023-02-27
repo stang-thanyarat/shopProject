@@ -53,7 +53,7 @@ include_once('nav.php');
                         <th style="width : 15%; border-left: 1px; border-right: 1px; ">ราคาต่อชิ้น</th>
                         <th style="width : 12%; border-left: 1px; border-right: 1px; ">จำนวน</th>
                         <th style="width : 15%; border-left: 1px; border-right: 1px; ">ราคารวม</th>
-                        <th style="width : 8%; border-left: 1px; "></th>
+                        <th style="width : 8%; border-left: 1px; "><button onclick="del2()" class="TEXTNOTICE" id="Delall">ลบทั้งหมด</button></th>
                     </tr>
                 </thead>
                 <tbody id="addtocartTable"></tbody>
@@ -215,5 +215,14 @@ include_once('nav.php');
     </form>
 </body>
 <script src="./src/js/addtocart.js"></script>
+<script>
+    var input = document.getElementById("keyword");
+    input.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("search").click();
+        }
+    });
+</script>
 
 </html>

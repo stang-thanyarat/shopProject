@@ -64,7 +64,7 @@ $c = $category->fetchAll();
                 </div>
                 <div class="col-3" style="margin-top: 0.15rem;">
                     <click type="submit" name="search" id="search" class="btn-c reset"><img src="./src/images/search.png" style="margin-left: 1.4rem; " width="25"></click>
-                    <button type="button" onclick="window.location= 'dailybestseller.php'" class="btn-c1 reset" style="margin-left: 1.4rem; " width="25">ล้างการค้นหา</button>
+                    <button type="button" onclick="reset()" class="btn-c1 reset" style="margin-left: 1.4rem; " width="25">ล้างการค้นหา</button>
                 </div>
             </div>
             <div class="dailybestsellerTable">
@@ -87,8 +87,22 @@ $c = $category->fetchAll();
 </body>
 <script src="./src/js/dailybestseller.js"></script>
 <script>
-    var input = document.getElementById("keyword");
-    input.addEventListener("keypress", function(event) {
+    var input1 = document.getElementById("date");
+    input1.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("search").click();
+        }
+    });
+    var input2 = document.getElementById("category_id");
+    input2.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("search").click();
+        }
+    });
+    var input3 = document.getElementById("keyword");
+    input3.addEventListener("keypress", function(event) {
         if (event.key === "Enter") {
             event.preventDefault();
             document.getElementById("search").click();

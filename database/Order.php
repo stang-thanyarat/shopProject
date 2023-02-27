@@ -45,6 +45,25 @@ class Order
         }
     }
 
+    public function fetchAllOrder2($id)
+    {
+        try {
+            $sql = "SELECT O.*,S.sell_name,S.sell_id FROM order_tb O,sell_tb S WHERE O.sell_id = S.sell_id AND O.order_id = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetch();
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
+    }
+
     public function fetchAllSell()
     {
         try {
@@ -108,6 +127,71 @@ class Order
             return [];
         }
     }
+
+    public function fetchAllSell2()
+    {
+        try {
+            $sql = "SELECT O.*,S.* FROM order_tb O,sell_tb S WHERE O.sell_id = S.sell_id AND O.order_status = 0 order by O.datebill desc ";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
+    }
+
+    public function search2($keyword, $date = null)
+    {
+        try {
+            $like = "%$keyword%";
+            if (is_null($date)) {
+                $sql = "SELECT O.*,S.* FROM order_tb O,sell_tb S WHERE O.sell_id = S.sell_id AND O.order_status = 0 AND S.sell_name LIKE ?";
+            } else {
+                $sql = "SELECT O.*,S.* FROM order_tb O,sell_tb S WHERE O.sell_id = S.sell_id AND O.order_status = 0 AND S.sell_name LIKE ? AND payment_dt = ?";
+            }
+            $stmt = $this->conn->prepare($sql);
+            if (is_null($date)) {
+                $stmt->bindParam(1, $like, PDO::PARAM_STR);
+            } else {
+                $stmt->bindParam(2, $date, PDO::PARAM_STR);
+            }
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
+    }
+    public function fetchByDate2($date)
+    {
+        try {
+            $sql = "SELECT O.*,S.* FROM order_tb O,sell_tb S WHERE O.sell_id = S.sell_id AND O.order_status = 0 AND payment_dt = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $date, PDO::PARAM_STR);
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
+    }
+
     public function fetchById($id)
     {
         try{

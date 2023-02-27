@@ -48,7 +48,7 @@ $c = $category->fetchAll();
                 </div>
             </div>
             <div class="row" style="margin-left: 14rem; ">
-                <div class="col-5 date">
+                <div class="col-4 date">
                     <label for="expires within">หมดอายุภายใน :</label>
                     <label for="expires"></label>
                     <input type="date" value="<?= date('Y-m-d') ?>" name="date" id="date" name="expires" />
@@ -64,11 +64,9 @@ $c = $category->fetchAll();
                         <input type="text" id="keyword" name="keyword" class="btn-d" placeholder="&nbsp ชื่อสินค้า">
                     </form>
                 </div>
-                <div class="col-3">
-                    <click type="submit" name="search" id="search" class="btn-c reset">
-                        <img src="./src/images/search.png" style="margin-left: 0.7rem; " width="25">
-                    </click>
-                    <button type="button" onclick="window.location= 'expiredproduct.php'" class="btn-c1 reset" style="margin-left: 0.4em; " width="25">ล้างการค้นหา
+                <div class="col-4" style="text-align: end; margin-right: 1rem;">
+                    <click type="submit" name="search" id="search" class="btn-c reset"><img src="./src/images/search.png" style="margin-left: 1.2rem; " width="25"></click>
+                    <button type="button" onclick="reset()" class="btn-c1 reset" style="margin-left: 1.4rem; " width="25">ล้างการค้นหา
                     </button>
                 </div>
             </div>
@@ -79,9 +77,9 @@ $c = $category->fetchAll();
                     <thead>
                         <tr>
                             <th width="10%">รูปภาพ</th>
-                            <th width="25%">ชื่อสินค้า</th>
-                            <th width="12.5%">วันที่ได้รับของ</th>
-                            <th width="12.5%">วันที่หมดอายุ</th>
+                            <th width="20%">ชื่อสินค้า</th>
+                            <th width="15%">วันที่ได้รับของ</th>
+                            <th width="15%">วันที่หมดอายุ</th>
                             <th width="15%">ราคา</th>
                             <th width="10%">คงคลัง</th>
                             <th width="10%">จำนวน</th>
@@ -105,8 +103,22 @@ $c = $category->fetchAll();
     var date = convertToDateThai(new Date("2022-06-15"));
     console.log(date);
 
-    var input = document.getElementById("keyword");
-    input.addEventListener("keypress", function(event) {
+    var input1 = document.getElementById("date");
+    input1.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("search").click();
+        }
+    });
+    var input2 = document.getElementById("category_id");
+    input2.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("search").click();
+        }
+    });
+    var input3 = document.getElementById("keyword");
+    input3.addEventListener("keypress", function(event) {
         if (event.key === "Enter") {
             event.preventDefault();
             document.getElementById("search").click();

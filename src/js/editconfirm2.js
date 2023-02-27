@@ -1,4 +1,4 @@
-$(document).ready(function () {
+/*$(document).ready(function () {
     $("#slipupload").hide()
     localStorage.clear()
     localStorage.setItem("tableProduct", JSON.stringify({ data: [] }))
@@ -274,4 +274,4 @@ $("#form1").submit(async function (event) {
         window.location.assign("order.php");
     }
 
-})
+})*/

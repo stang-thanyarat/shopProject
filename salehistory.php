@@ -1,6 +1,6 @@
 <?php
 include_once('service/auth.php');
-isLaber();
+isNotAdmin();
 function getFullRole($role)
 {
     if ($role == "E") {

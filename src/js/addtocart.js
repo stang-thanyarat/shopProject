@@ -45,9 +45,11 @@ $(document).ready(async function () {
         $('#addtocartTable').html('<tr ><td colspan="7">ไม่มีรายการสินค้า</td></tr>')
         $('#solutionPay').prop("disabled", true);
         $('#mySubmit').prop("disabled", true);
+        $('#Delall').prop("disabled", true);
     } else {
         $('#solutionPay').prop("disabled", false);
         $('#mySubmit').prop("disabled", false);
+        $('#Delall').prop("disabled", false);
         for (const element of order) {
             let product = await (await fetch(`./controller/GetProduct.php?id=${element.id}`)).json()
             product.quantity = element.quantity
@@ -75,6 +77,26 @@ function del(id) {
             order = order.filter(e => e.id != id)
             localStorage.setItem('cart', JSON.stringify(order))
             location.reload()
+        }
+    })
+}
+
+//ลบรายการสินค้าที่เลือก
+function del2() {
+    Swal.fire({
+        title: 'คำเตือน',
+        text: "คุณต้องการลบรายการสินค้าทั้งหมดใช่หรือไม่",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'ใช่',
+        cancelButtonText: 'ยกเลิก'
+    }).then(async (result) => {
+        if (result.isConfirmed) {
+            localStorage.clear()
+            location.reload()
+            //window.location = './productlist.php'
         }
     })
 }

@@ -66,70 +66,73 @@ $rowa = $pay->fetchById($_GET['id']);
                     </div>
                     <div class="col-xl-6">รหัสบัตรประชาชน&nbsp;: <b><?= $rows['customer_img'] ?></b></div>
                 </div>
-                <div class="row c">
-                    <div class="col-xl-6">วันที่ทำสัญญา&nbsp;: <b><?= dateTimeDisplay($rows['date_contract']) ?></b></div>
-                    <div class="col-xl-6">วันที่ครบกำหนด&nbsp;: <b><?= dateTimeDisplay($rows['date_due']) ?></b></div>
+                <div class="col-xl-6">รหัสบัตรประชาชน&nbsp;: <b><?= $rows['customer_img'] ?></b></div>
+            </div>
+            <div class="row c">
+                <div class="col-xl-6">วันที่ทำสัญญา&nbsp;: <b><?= dateTimeDisplay($rows['date_contract']) ?></b></div>
+                <div class="col-xl-6">วันที่ครบกำหนด&nbsp;: <b><?= dateTimeDisplay($rows['date_due']) ?></b></div>
+            </div>
+            <div class="row c">
+                <div class="col-xl-6">เงินต้น&nbsp;: <b><?= number_format($rowa[0]['outstanding']) ?></b> &nbsp;บาท</div>
+            </div>
+            <div class="row c">
+                <div class="col-xl-6 ">คงค้าง&nbsp;: <b><?= number_format(end($rowa)['outstanding']) ?></b> &nbsp;บาท</div>
+                <div class="col-xl-6 ">ดอกเบี้ย&nbsp;: <b><span id="less_interestt"></span>&nbsp;%</b></div>
+            </div>
+            <div class="row B">
+                <div class=" col-12 d-flex justify-content-end" style="margin-left: 2.8rem;">
+                    <?php if (end($rowa)['outstanding'] > 0) { ?><button type="button" onclick="payMode()" class="btn1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm">เพิ่ม</button><?php } else { ?><?php } ?>
                 </div>
-                <div class="row c">
-                    <div class="col-xl-6">เงินต้น&nbsp;: <b><?= number_format($rowa[0]['outstanding']) ?></b> &nbsp;บาท</div>
-                </div>
-                <div class="row c">
-                    <div class="col-xl-6 ">คงค้าง&nbsp;: <b><?= number_format(end($rowa)['outstanding']) ?></b> &nbsp;บาท</div>
-                    <div class="col-xl-6 ">ดอกเบี้ย&nbsp;: <b><span id="less_interestt"></span>&nbsp;%</b></div>
-                </div>
-                <div class="row B">
-                    <div class=" col-12 d-flex justify-content-end" style="margin-left: 2.8rem;">
-                        <?php if (end($rowa)['outstanding'] > 0) { ?><button type="button" onclick="payMode()" class="btn1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm">เพิ่ม</button><?php } else {?><?php }?>
-                    </div>
-                </div>
-                <table class="main col-10" style="margin-top: 3rem;">
-                    <thead>
+            </div>
+            <table class="main col-10" style="margin-top: 3rem;">
+                <thead>
+                    <tr>
+                        <th width="10%">วันที่ชำระ</th>
+                        <th width="10%">วิธีการชำระ</th>
+                        <th width="10%">ไฟล์แนบ</th>
+                        <th width="10%">ยอดที่ชำระ</th>
+                        <th width="10%">หักเงินต้น</th>
+                        <th width="10%">หักดอกเบี้ย</th>
+                        <th width="10%">คงค้าง</th>
+                    </tr>
+                </thead>
+                <tbody id="list-repay">
+                    <?php foreach ($rowa as $r) {
+                        $outstanding = $r['outstanding']; ?>
                         <tr>
-                            <th width="10%">วันที่ชำระ</th>
-                            <th width="10%">วิธีการชำระ</th>
-                            <th width="10%">ไฟล์แนบ</th>
-                            <th width="10%">ยอดที่ชำระ</th>
-                            <th width="10%">หักเงินต้น</th>
-                            <th width="10%">หักดอกเบี้ย</th>
-                            <th width="10%">คงค้าง</th>
+                            <th height="60px"><?= dateTimeDisplay($r['repayment_date']) ?></th>
+                            <th height="60px"><?= $r['payment'] ?></th>
+                            <th height="60px"><?php if (($r['payment']) == "โอนเงิน" && ($r['slip_img']) == "") { ?>
+                                    <button type="button" onclick="setID(<?= $r['unique_id'] ?>)" class="btn btn-primary1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1"><img src="./src/images/cloud-upload-alt.png" width="25">
+                                    </button>
+                                <?php } else if (($r['payment']) == "โอนเงิน" && ($r['slip_img']) == NULL) { ?>
+                                    <button type="button" onclick="setID(<?= $r['unique_id'] ?>)" class="btn btn-primary1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1"><img src="./src/images/cloud-upload-alt.png" width="25">
+                                    </button>
+                                <?php } else if (($r['payment']) == "เงินสด" && ($r['slip_img']) == "") { ?>
+                                    <?php echo ""; ?>
+                                <?php } else if (($r['payment']) == "เงินสด" && ($r['slip_img']) == NULL) { ?>
+                                    <?php echo ""; ?>
+                                <?php } else if (($r['payment']) == "โอนเงิน" && ($r['slip_img']) != "") { ?>
+                                    <a href="<?= $r['slip_img'] ?>">ดู</a>
+                                <?php } ?>
+                            </th>
+                            <th height="60px"><?= number_format($r['payment_amount']) ?></th>
+                            <th height="60px"><?= number_format($r['deduct_principal']) ?></th>
+                            <th height="60px"><?= number_format($r['less_interest']) ?></th>
+                            <th height="60px"><?= number_format($r['outstanding']) ?></th>
                         </tr>
-                    </thead>
-                    <tbody id="list-repay">
-                        <?php foreach ($rowa as $r) {
-                            $outstanding = $r['outstanding']; ?>
-                            <tr>
-                                <th height="60px"><?= toDay($r['repayment_date']) ?></th>
-                                <th height="60px"><?= $r['payment'] ?></th>
-                                <th height="60px"><?php if (($r['payment']) == "โอนเงิน" && ($r['slip_img']) == "") { ?>
-                                        <button type="button" onclick="setID(<?= $r['unique_id'] ?>)" class="btn btn-primary1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1"><img src="./src/images/cloud-upload-alt.png" width="25">
-                                        </button>
-                                    <?php } else if (($r['payment']) == "โอนเงิน" && ($r['slip_img']) == NULL) { ?>
-                                        <button type="button" onclick="setID(<?= $r['unique_id'] ?>)" class="btn btn-primary1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1"><img src="./src/images/cloud-upload-alt.png" width="25">
-                                        </button>
-                                    <?php } else if (($r['payment']) == "เงินสด" && ($r['slip_img']) == "") { ?>
-                                        <?php echo ""; ?>
-                                    <?php } else if (($r['payment']) == "เงินสด" && ($r['slip_img']) == NULL) { ?>
-                                        <?php echo ""; ?>
-                                    <?php } else if (($r['payment']) == "โอนเงิน" && ($r['slip_img']) != "") { ?>
-                                        <a href="<?= $r['slip_img'] ?>">ดู</a>
-                                    <?php } ?>
-                                </th>
-                                <th height="60px"><?= number_format($r['payment_amount']) ?></th>
-                                <th height="60px"><?= number_format($r['deduct_principal']) ?></th>
-                                <th height="60px"><?= number_format($r['less_interest']) ?></th>
-                                <th height="60px"><?= number_format($r['outstanding']) ?></th>
-                            </tr>
-                        <?php } ?>
-                    </tbody>
-                </table>
-                <div class="row btn-g">
-                    <div class="col-2">
-                        <?php if ($outstanding > 0) { ?> <input data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm" type="button" class="btn-c outdebt" value="หมดหนี้" onclick="clearDebt()" /><?php } ?>
-                    </div>
+                    <?php } ?>
+                </tbody>
+            </table>
+            <div class="row btn-g">
+                <div class="col-2">
+                    <?php if ($outstanding > 0) { ?> <input data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm" type="button" class="btn-c outdebt" value="หมดหนี้" onclick="clearDebt()" /><?php } ?>
                 </div>
             </div>
         </div>
+        </div>
     </form>
+
     <!---modal เพิ่มการชำระหนี้-->
     <form action="controller/DebtPaymentDetails.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
         <input type="hidden" value="<?= $_GET['id'] ?>" name="contract_code" id="contract_code" />
@@ -181,8 +184,9 @@ $rowa = $pay->fetchById($_GET['id']);
                     </div>
                 </div>
             </div>
+        </div>
     </form>
-    </div>
+
 
     <!--อัปโหลดรูป-->
     <form name="addslip_img" id="addslip_img" method="POST" action="./controller/DebtPaymentDetails.php" enctype="multipart/form-data">
@@ -228,7 +232,6 @@ $rowa = $pay->fetchById($_GET['id']);
     getAllprice(<?= $outstanding ?>);
     getDate('<?= $rows['date_contract'] ?>');
     getDate2('<?= $rows['date_contract'] ?>');
-    getDate3('<?= date("Y-m-d"); ?>');
     getInterest(<?= $_SESSION['interest'] ?>);
     getInterest2(<?= $_SESSION['interest'] ?>);
     getDiff()
