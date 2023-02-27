@@ -43,17 +43,22 @@ $("#search").click(async function () {
 
 
 async function start() {
-    let url = './controller/DailyBestSeller.php'
+    let url = `./controller/DailyBestSeller.php?date=${$("#date").val()}`
     const product = await (await fetch(url)).json()
     console.log(product);
-    $('#cat').text($("#category_id option:selected").text())
-    $('#no-let').hide()
     setUI(product)
 }
 
 $(document).ready(function () {
     start()
 });
+
+async function reset() {
+    let url = `./controller/DailyBestSeller.php?category_id=${$("#category_id").val('all')}&keyword=${$("#keyword").val('')}&date=${$("#date").val('')}`
+    const product = await (await fetch(url)).json()
+    console.log(product);
+    setUI(product)
+}
 
 function setUI(data) {
     let c = 0

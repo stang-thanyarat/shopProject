@@ -58,13 +58,14 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                                 <input value="<?= date('Y-m-d') ?>" value="<?= isset($_GET['end']) ? $_GET['end'] : '' ?>" class="date" type="date" name="end" id="end">
                                 <button type="submit" class="s"><img src="./src/images/search.png" width="25"></button>
                                 <button type="button" onclick="window.location= 'productexchangehistory.php'" class="btn-c reset">ล้างข้อมูล</button>
-                                <a type="button" href="./searchinformation.php" class="submit btn" ><img src="./src/images/plus.png" width="25" >&nbsp เพิ่ม</a>
+                                <a type="button" href="./searchinformation.php" class="submit btn" ><img src="./src/images/plus.png" width="25" style="margin-top: -0.3rem;" >&nbsp เพิ่ม</a>
                             </div>
                         </form>
                     </div>
                 </div>
+                <div class="d-flex justify-content-end">
                 <?php if (count($rows) > 0) { ?>
-                    <table class="col-11 pdrtb">
+                    <table class="col-11  pdrtb">
                         <thead>
                             <tr>
                                 <th width=20%>วันที่เปลี่ยนสินค้า</th>
@@ -101,6 +102,7 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                 <?php } else {
                     echo '<div class="d-flex justify-content-center"><h3 style="margin-top: 9rem; margin-bottom: 9rem;">ไม่พบข้อมูล</h3></div>';
                 } ?>
+                </div>
             </div>
         </div>
     </form>

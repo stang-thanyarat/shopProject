@@ -34,7 +34,7 @@ function getFullRole($role)
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./src/css/repay.css"/>
+    <link rel="stylesheet" href="./src/css/repay.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
 
@@ -74,17 +74,15 @@ $rowa = $pay->fetchById($_GET['id']);
                 <div class="col-xl-6">เงินต้น&nbsp;: <b><?= number_format($rowa[0]['outstanding']) ?></b> &nbsp;บาท</div>
             </div>
             <div class="row c">
-                <div class="col-xl-6 ">คงค้าง&nbsp;: <b><?= number_format(end($rowa)['outstanding']) ?></b></div>
+                <div class="col-xl-6 ">คงค้าง&nbsp;: <b><?= number_format(end($rowa)['outstanding']) ?></b> &nbsp;บาท</div>
                 <div class="col-xl-6 ">ดอกเบี้ย&nbsp;: <b><span id="less_interestt"></span>&nbsp;%</b></div>
             </div>
             <div class="row B">
-                <div class=" col-12 d-flex justify-content-end" style="margin-left: 3.5rem;">
-                    <button type="button" onclick="payMode()" class="btn1" data-bs-toggle="modal"
-                            data-bs-target=".bd-example-modal-sm">เพิ่ม
-                    </button>
+                <div class=" col-12 d-flex justify-content-end" style="margin-left: 2.8rem;">
+                    <?php if (end($rowa)['outstanding'] > 0) { ?><button type="button" onclick="payMode()" class="btn1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm">เพิ่ม</button><?php } else {?><?php }?>
                 </div>
             </div>
-            <table class="main col-10">
+            <table class="main col-10" style="margin-top: 3rem;">
                 <thead>
                 <tr>
                     <th width="10%">วันที่ชำระ</th>
@@ -100,23 +98,19 @@ $rowa = $pay->fetchById($_GET['id']);
                 <?php foreach ($rowa as $r) {
                     $outstanding = $r['outstanding']; ?>
                     <tr>
-                        <th height="60px"><?= toDay($r['repayment_date']) ?></th>
+                        <th height="60px"><?= dateTimeDisplay($r['repayment_date']) ?></th>
                         <th height="60px"><?= $r['payment'] ?></th>
                         <th height="60px"><?php if (($r['payment']) == "โอนเงิน" && ($r['slip_img']) == "") { ?>
-                                <button type="button" onclick="setID(<?= $r['unique_id'] ?>)" class="btn btn-primary1"
-                                        data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1"><img
-                                            src="./src/images/cloud-upload-alt.png" width="25">
+                                <button type="button" onclick="setID(<?= $r['unique_id'] ?>)" class="btn btn-primary1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1"><img src="./src/images/cloud-upload-alt.png" width="25">
                                 </button>
-                            <?php } else if (($r['payment']) == "โอนเงิน" && ($r['slip_img']) == NULL ){ ?>
-                            <button type="button" onclick="setID(<?= $r['unique_id'] ?>)" class="btn btn-primary1"
-                                    data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1"><img
-                                        src="./src/images/cloud-upload-alt.png" width="25">
-                            </button>
-                            <?php } else if (($r['payment']) == "เงินสด" && ($r['slip_img']) == "" ){ ?>
+                            <?php } else if (($r['payment']) == "โอนเงิน" && ($r['slip_img']) == NULL) { ?>
+                                <button type="button" onclick="setID(<?= $r['unique_id'] ?>)" class="btn btn-primary1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1"><img src="./src/images/cloud-upload-alt.png" width="25">
+                                </button>
+                            <?php } else if (($r['payment']) == "เงินสด" && ($r['slip_img']) == "") { ?>
                                 <?php echo ""; ?>
-                            <?php } else if (($r['payment']) == "เงินสด" && ($r['slip_img']) == NULL ){ ?>
+                            <?php } else if (($r['payment']) == "เงินสด" && ($r['slip_img']) == NULL) { ?>
                                 <?php echo ""; ?>
-                            <?php } else if(($r['payment']) == "โอนเงิน" && ($r['slip_img']) != "" ){ ?>
+                            <?php } else if (($r['payment']) == "โอนเงิน" && ($r['slip_img']) != "") { ?>
                                 <a href="<?= $r['slip_img'] ?>">ดู</a>
                             <?php } ?>
                         </th>
@@ -130,7 +124,7 @@ $rowa = $pay->fetchById($_GET['id']);
             </table>
             <div class="row btn-g">
                 <div class="col-2">
-                    <?php if ($outstanding > 0) { ?> <input data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm" type="button" class="btn-c outdebt" value="หมดหนี้" onclick="clearDebt()"/><?php } ?>
+                    <?php if ($outstanding > 0) { ?> <input data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm" type="button" class="btn-c outdebt" value="หมดหนี้" onclick="clearDebt()" /><?php } ?>
                 </div>
             </div>
         </div>
@@ -138,11 +132,10 @@ $rowa = $pay->fetchById($_GET['id']);
 </form>
 <!---modal เพิ่มการชำระหนี้-->
 <form action="controller/DebtPaymentDetails.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
-    <input type="hidden" value="<?= $_GET['id'] ?>" name="contract_code" id="contract_code"/>
-    <input type="hidden" value="debtPaymentDetails" name="table"/>
-    <input type="hidden" value="insert" name="form_action"/>
-    <div id="payment_modal" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog"
-         aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+    <input type="hidden" value="<?= $_GET['id'] ?>" name="contract_code" id="contract_code" />
+    <input type="hidden" value="debtPaymentDetails" name="table" />
+    <input type="hidden" value="insert" name="form_action" />
+    <div id="payment_modal" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
@@ -154,8 +147,7 @@ $rowa = $pay->fetchById($_GET['id']);
                 <div class="modal-body">
                     <div class="row-12 t">
                         วันที่ชำระ : &nbsp;
-                        <input value="<?= date('Y-m-d') ?>" type="date" class="uu" name="repayment_date"
-                               id="repayment_date" required/>
+                        <input value="<?= date('Y-m-d') ?>" type="date" class="uu" name="repayment_date" id="repayment_date" required />
                     </div>
                     <div class="row-12">
                         วิธีการชำระ : &nbsp;
@@ -166,30 +158,22 @@ $rowa = $pay->fetchById($_GET['id']);
                     </div>
                     <div class="row-12 r" id="slip_upload">
                         ไฟล์แนบ : &nbsp;
-                        <input accept="image/*" class="tt" type="file" name="slip_img" id="slip_img"/>
+                        <input accept="image/*" class="tt" type="file" name="slip_img" id="slip_img" />
                         <h6 class="tt d-flex text-align: center;"><span style="color: red; ">&nbsp*</span>ประเภทไฟล์ที่ยอมรับ:
                             .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h6>
                     </div>
                     <br>
                     <div class="row-12 t">
-                        ยอดที่ชำระ : &nbsp;<input type="number" class="u" min="0.25" step="0.25" name="payment_amount"
-                                                  id="payment_amount" required/>
+                        ยอดที่ชำระ : &nbsp;<input type="number" class="u" min="0.25" step="0.25" name="payment_amount" id="payment_amount" required />
                     </div>
                     <div class="row-12 t">
-                        &nbsp;&nbsp;หักเงินต้น : &nbsp;<input type="number" class="u" min="0.25" step="0.25"
-                                                              name="deduct_principal" id="deduct_principal" required
-                                                              readonly/>
+                        &nbsp;&nbsp;หักเงินต้น : &nbsp;<input type="number" class="u" min="0.25" step="0.25" name="deduct_principal" id="deduct_principal" required readonly />
                     </div>
                     <div class="row-12 t">
-                        หักดอกเบี้ย : &nbsp;<input type="number" class="u" min="0" step="0.25" name="less_interest"
-                                                   id="less_interest" required readonly/>
+                        หักดอกเบี้ย : &nbsp;<input type="number" class="u" min="0" step="0.25" name="less_interest" id="less_interest" required readonly />
                     </div>
                     <div class="row-12 t">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;คงค้าง : &nbsp;<input type="number" class="u"
-                                                                                        min="0.25" step="0.25"
-                                                                                        name="outstanding"
-                                                                                        id="outstanding" required
-                                                                                        readonly/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;คงค้าง : &nbsp;<input type="number" class="u" min="0.25" step="0.25" name="outstanding" id="outstanding" required readonly />
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary1">ตกลง</button>
@@ -202,12 +186,11 @@ $rowa = $pay->fetchById($_GET['id']);
 
 <!--อัปโหลดรูป-->
 <form name="addslip_img" id="addslip_img" method="POST" action="./controller/DebtPaymentDetails.php" enctype="multipart/form-data">
-    <input type="hidden" value="<?= $_GET['id'] ?>" name="contract_code" id="contract_code"/>
+    <input type="hidden" value="<?= $_GET['id'] ?>" name="contract_code" id="contract_code" />
     <input type="hidden" value="<?= $_GET['id'] ?>" name="unique_id" id='upload_unique_id'>
     <input type="hidden" name="table" value="debtPaymentDetails">
     <input type="hidden" name="form_action" value="upload">
-    <div class="modal fade bd-example-modal-sm1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-         aria-hidden="true">
+    <div class="modal fade bd-example-modal-sm1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
@@ -219,8 +202,7 @@ $rowa = $pay->fetchById($_GET['id']);
                 <div class="modal-body">
                     <div class="row">
                         <div class="col ">
-                            เพิ่มไฟล์หลักฐานการชำระเงิน : <input type="file" class="tt" name="slip_img" id="slip_img"
-                                                                 required>
+                            เพิ่มไฟล์หลักฐานการชำระเงิน : <input type="file" class="tt" name="slip_img" id="slip_img" required>
                             <div class="k">*</div>
                             <br>
                         </div>
@@ -246,11 +228,9 @@ $rowa = $pay->fetchById($_GET['id']);
     getAllprice(<?= $outstanding ?>);
     getDate('<?= $rows['date_contract'] ?>');
     getDate2('<?= $rows['date_contract'] ?>');
-    getDate3('<?=  date("Y-m-d"); ?>');
     getInterest(<?= $_SESSION['interest'] ?>);
     getInterest2(<?= $_SESSION['interest'] ?>);
     getDiff()
 </script>
 
 </html>
-

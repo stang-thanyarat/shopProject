@@ -1,6 +1,6 @@
 <?php
 require_once '../vendor/autoload.php';
-if (!isset($_POST['complete']) || !isset($_POST['cash']) ||!isset($_POST['cash2']) ||!isset($_POST['credit2']) ||!isset($_POST['credit']) ||!isset($_POST['DB'])|| !isset($_POST['BG1']) || !isset($_POST['BG2']) || !isset($_POST['BG3']) || !isset($_POST['firstdate']) || !isset($_POST['lastdate'])) {
+if (!isset($_POST['complete']) || !isset($_POST['cash']) || !isset($_POST['cash2']) || !isset($_POST['credit2']) || !isset($_POST['credit']) || !isset($_POST['DB']) || !isset($_POST['BG1']) || !isset($_POST['BG2']) || !isset($_POST['BG3']) || !isset($_POST['firstdate']) || !isset($_POST['lastdate'])) {
   echo "Not found.";
   exit();
 }
@@ -96,13 +96,17 @@ border: 0px;
 .right{
 	margin-right :1rem;
 	}
+
+.st{
+  font-size:30pt;
+}
 </style>
 </head>
 
 <body>
 <table width="1000" border="0px" border="">
   <tr>
-    <td class="setright" colspan="3">วันที่ออกเอกสาร ' . toDay() . '</td>
+    <td class="setright st" colspan="3">วันที่ออกเอกสาร ' . toDay() . '</td>
   </tr>
   <tr>
     <td class="setcenter" colspan="3"><h2>งบแสดงฐานะการเงิน</h2></td>
@@ -114,7 +118,7 @@ border: 0px;
   </tr>
   <tr>
   <tr>
-    <td class="setcenter"  colspan="3">วันที่ ' . dateTimeDisplay($_POST['firstdate']) . ' - ' .dateTimeDisplay($_POST['lastdate']) . '</td>
+    <td class="setcenter"  colspan="3">วันที่ ' . dateTimeDisplay($_POST['firstdate']) . ' - ' . dateTimeDisplay($_POST['lastdate']) . '</td>
   </tr>
   </tr>
   <tr>
@@ -122,7 +126,7 @@ border: 0px;
   </tr>
   <tr bgcolor="#FBEDD8">
     <td width="70%" stlye="">รวม สินทรัพย์</div>
-    <td align="right" width="20%">' . number_format($_POST['BG1'] + ($_POST['cash2']) +abs( $_POST['DB'])) . '</td>
+    <td align="right" width="20%">' . number_format($_POST['BG1'] + ($_POST['cash2']) + abs($_POST['DB'])) . '</td>
     <td width="20%">บาท</td>
   </tr>
   <tr bgcolor="#FFF8ED">
@@ -141,6 +145,9 @@ border: 0px;
 <td width="20%">บาท</td>
 </tr>
 
+<tr>
+<td>&nbsp;</td>
+</tr>
   <tr>
     <td class="t">&nbsp;&nbsp;หนี้สิน+ทุน</td>
   </tr>
@@ -151,12 +158,12 @@ border: 0px;
   </tr>
   <tr bgcolor="#FFF8ED">
 <td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ทุน </div>
-<td align="right" width="20%">'.number_format($_POST['complete']).'</td>
+<td align="right" width="20%">' . number_format($_POST['complete']) . '</td>
 <td width="20%">บาท</td>
 </tr>
 <tr bgcolor="#FBEDD8">
 <td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; หนี้สิน(เงินสด)   </div>
-<td align="right" width="20%">'.number_format($_POST['cash']).'</td>
+<td align="right" width="20%">' . number_format($_POST['cash']) . '</td>
 <td width="20%">บาท</td>
 </tr>
 <tr bgcolor="#FFF8ED">

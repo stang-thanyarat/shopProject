@@ -115,6 +115,13 @@ $(document).ready(function () {
     start()
 });
 
+async function reset() {
+    let url = `./controller/ExpireProduct.php?category_id=${$("#category_id").val('all')}&keyword=${$("#keyword").val('')}&date=${$("#date").val('')}`
+    const product = await (await fetch(url)).json()
+    console.log(product);
+    setUI(product)
+}
+
 function setUI(data, f = false) {
     let c = 0
     $('#expireTable').html('')
@@ -125,11 +132,11 @@ function setUI(data, f = false) {
                 $('#expireTable').append(`<tr id="rr${i + 1}">
         <th><img src="${element.product_img}" style="width: 250px; padding: 10px;" ></th>
         <th>${element.product_name}</th>
-        <th>${element.datereceive}</th>
-        <th>${element.exp_date}</th>
-        <th>${element.price}</th>
-        <th>${element.product_rm_unit}</th>
-        <th>${element.amount_exp}</th>
+        <th>${convertToDateThai(new Date(element.datereceive))}</th>
+        <th>${convertToDateThai(new Date(element.exp_date))}</th>
+        <th>${element.price.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+        <th>${element.product_rm_unit.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
+        <th>${element.amount_exp.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
         <th><button type="button" class="bgs"  onclick="del(${element.stock_id},${element.amount_exp},${element.product_id})"><img src="./src/images/icon-delete.png" width="25"></button></th>
     </tr>`)
             }
@@ -139,8 +146,8 @@ function setUI(data, f = false) {
                 $('#expireTable').append(`<tr id="rr${i + 1}">
         <th><img src="${element.product_img}" style="width: 250px; padding: 10px;"></th>
         <th>${element.product_name}</th>
-        <th>${element.datereceive}</th>
-        <th>${element.exp_date}</th>
+        <th>${convertToDateThai(new Date(element.datereceive))}</th>
+        <th>${convertToDateThai(new Date(element.exp_date))}</th>
         <th>${element.price}</th>
         <th>${element.product_rm_unit}</th>
         <th>${element.amount_exp}</th>

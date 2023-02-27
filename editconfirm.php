@@ -115,7 +115,7 @@ for ($k = 0; $k < count($op); $k++) {
                         ชื่อผู้ขาย : &nbsp;
                         <select name="sell_id" id="sell_id" class="inbox" style="background-color: #D4DDC6;">
                             <?php foreach ($sells as $s) { ?>
-                                <option value="<?= $s['sell_id'] ?>" <?= $s['sell_id'] == $s['sell_id'] ? "selected" : '' ?>><?= $s['sell_name'] ?></option>
+                                <option value="<?= $s['sell_id'] ?>" <?= $_GET['id'] == $s['sell_id'] ? "selected" : '' ?>><?= $s['sell_name'] ?></option>
                             <?php } ?>
                         </select>
                     </div>
@@ -130,9 +130,9 @@ for ($k = 0; $k < count($op); $k++) {
                             </select>
                     </div>
                     <div class="col payment">
-                        &nbsp;&nbsp;&nbsp;&nbsp;วันที่ชำระเงิน : &nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;วันที่ชำระเงิน : &nbsp;&nbsp;
                         <!--<?= toDay($o['payment_dt']); ?>-->
-                         &nbsp;<input id="payment_dt" name="payment_dt" type="date" step="1" value="<?= $o['payment_dt']; ?>">
+                         &nbsp;&nbsp;<input id="payment_dt" name="payment_dt" type="date" step="1" value="<?= $o['payment_dt']; ?>">
                     </div>
                 </div>
                 <div id="creditupload">
@@ -399,7 +399,7 @@ for ($k = 0; $k < count($op); $k++) {
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script>
     $(document).ready(function() {
-        $("#slipupload").hide()
+        $("#creditupload").hide()
         localStorage.clear()
         localStorage.setItem("tableProduct", JSON.stringify({
             data: [<?php echo $json; ?>]
@@ -410,6 +410,6 @@ for ($k = 0; $k < count($op); $k++) {
     });
 
 </script>
-<script src="./src/js/editconfirm.js"></script>
+<script src="./src/js/confirm.js"></script>
 
 </html>
