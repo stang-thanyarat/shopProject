@@ -44,8 +44,9 @@ $(document).ready(async function () {
 
 function setUI(data) {
     $('#useraccountTable').html('')
-    let k = 1
+    let k = 0
     data.forEach((element) => {
+        k++
         if (element.account_user_type !== 'A') {
             $('#useraccountTable').append(`
         <tr>
@@ -64,9 +65,15 @@ function setUI(data) {
                 <a type="button" class="bgs" href="./edituseraccount.php?id=${element.employee_id}"><img src="./src/images/icon-pencil.png" width="25"></a>
             </th>
         </tr>`)
-            k++
         }
     });
+    if (k <= 0) {
+        $('#no-let').show()
+        $("#tb-let").hide()
+    } else {
+        $("#tb-let").show()
+        $('#no-let').hide()
+    }
 }
 
 async function setStatus(id) {

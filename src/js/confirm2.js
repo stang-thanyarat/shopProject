@@ -312,27 +312,29 @@ async function loopexp() {
     }
 }
 
+/*const checkbox = document.querySelector("#id-checkbox");
+
+checkbox.addEventListener("click", checkboxClick, false);
+
+function checkboxClick(event) {
+    let warn = "preventDefault() won't let you check this!<br>";
+    document.getElementById("output-box").innerHTML += warn;
+    event.preventDefault();
+}*/
+
 //ตรวจสอบพร้อมส่งข้อมูล
 $("#form1").submit(async function (event) {
     event.preventDefault();
-    if (!document.form1.order_status.value.checked) {
+    if ($("#order_status").val() == "empty") {
         Swal.fire({
             icon: 'warning',
             title: 'คำเตือน',
-            text: 'ระบุหมายเลขประจำตัวประชาชนไม่ถูกต้อง',
-            timer: 3000
-        })
-        return
-    }
-    if (!telephone(document.form1.employee_telephone.value)) {
-        Swal.fire({
-            icon: 'warning',
-            title: 'คำเตือน',
-            text: 'เบอร์โทรศัพท์ไม่ถูกต้อง',
-            timer: 3000
+            text: 'กรุณายืนยันสถานะ',
+            timer: 2000
         })
         return
     } else {
+        event.preventDefault();
         let response = await fetch('controller/Order.php', {
             method: 'POST',
             body: new FormData(document.form1)
@@ -347,7 +349,6 @@ $("#form1").submit(async function (event) {
             }).then(async () => {
                 await loopproduct()
                 await loopother()
-                await loopexp()
                 //localStorage.clear()
                 // window.location = './order.php'
 

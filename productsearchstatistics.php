@@ -71,9 +71,9 @@ while ($r != 0) {
                     <h1>สถิติการค้นหาโดยประเภทสินค้า</h1>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-1 left">
-                    <button type="button" class="buttom re" onclick="Reset()" >รีเซ็ท</button>
+            <div class="row left">
+                <div class="col-1">
+                    <button type="button" class="buttom re" onclick="Reset()">รีเซต</button>
                 </div>
             </div>
             <?php if (count($rows) > 0) { ?>

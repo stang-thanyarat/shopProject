@@ -37,16 +37,14 @@ if (!isset($_GET['id'])) {
 include_once "./database/Order.php";
 include_once "./database/OrderDetails.php";
 include_once "./database/OtherPrice.php";
-include_once "./database/Sell.php";
 include_once "./database/Product.php";
 include_once "./service/datetimeDisplay.php";
-$sell = new Sell();
 $product = new Product();
 $order = new Order();
 $orderdetails = new OrderDetails();
 $otherprice = new OtherPrice();
-$sells = $sell->fetchAll();
 $products = $product->fetchAll();
+$data = $order->fetchAllOrder2($_GET['id']);
 $o = $order->fetchById($_GET['id']);
 $od = $orderdetails->fetchByODId($_GET['id']);
 $op = $otherprice->fetchByOPId($_GET['id']);
@@ -100,11 +98,11 @@ for ($k = 0; $k < count($op); $k++) {
                     <div class="col-4 topic">
                         <h1>ยืนยันใบสั่งซื้อ</h1>
                     </div>
-                </div>
-                <div class="col-9 d-flex justify-content-end signin status">
-                    <div class="col-6">
-                        <label class="font">สถานะใบสั่งซื้อ &nbsp;&nbsp;:</label>
-                        <input name="order_status" id="order_status" type="checkbox" onclick="validate()" required> &nbsp;สำเร็จแล้ว
+                    <div class="col-8 d-flex justify-content-end" style="margin-top: 1rem;">
+                        <div class="col-8" style="text-align: end;">
+                            <b style="font-size: 20pt;">สถานะใบสั่งซื้อ &nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</b>
+                            <input style="transform:scale(2);" name="order_status" id="order_status" type="checkbox"> &nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 20pt;">สำเร็จแล้ว</span>
+                        </div>
                     </div>
                 </div>
                 <div class="pay">
@@ -121,12 +119,7 @@ for ($k = 0; $k < count($op); $k++) {
                 </div>
                 <div class="row">
                     <div class="col company">
-                        ชื่อผู้ขาย : &nbsp;
-                        <select name="sell_id" id="sell_id" class="inbox" style="background-color: #D4DDC6;">
-                            <?php foreach ($sells as $s) { ?>
-                                <option value="<?= $s['sell_id'] ?>" <?= $s['sell_id'] == $s['sell_id'] ? "selected" : '' ?>><?= $s['sell_name'] ?></option>
-                            <?php } ?>
-                        </select>
+                        ชื่อผู้ขาย : &nbsp;&nbsp;<b><?= $data['sell_name'] ?></b>
                     </div>
                 </div>
                 <div class="col note">
@@ -147,10 +140,6 @@ for ($k = 0; $k < count($op); $k++) {
                 <br>
                 <div class="col-11 C">
                     รายการสินค้า
-                    <div class=" col-11 d-flex justify-content-end cc">
-                        <button type="button" class="btn2" id="addmodel_btn" data-bs-toggle="modal" data-bs-target=".bd-example-modal-lg">เพิ่มสินค้า
-                        </button>
-                    </div>
                     <table class="ma col-10">
                         <thead>
                             <tr>
@@ -174,7 +163,6 @@ for ($k = 0; $k < count($op); $k++) {
                                     <th><?= $b['order_amt'] * $b['order_pr'] ?></th>
                                     <th></th>
                                     <th>
-                                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(<?= $i ?>)"></button>
                                         <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(<?= $i ?>)"></button>
                                     </th>
                                 </tr>
@@ -185,10 +173,6 @@ for ($k = 0; $k < count($op); $k++) {
                 </div>
                 <div class="col-11 C">
                     ค่าใช้จ่ายอื่นๆ
-                    <div class=" col-12 d-flex justify-content-end ccc">
-                        <button type="button" class="btn2" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm1">เพิ่ม
-                        </button>
-                    </div>
                     <table class="ma col-10">
                         <thead>
                             <tr>
@@ -206,8 +190,6 @@ for ($k = 0; $k < count($op); $k++) {
                                     <th><?= $b['listother'] ?></th>
                                     <th><?= $b['priceother'] ?></th>
                                     <th>
-                                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModalother"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel1(<?= $i ?>)"></button>
-                                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm4"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit1(<?= $i ?>)"></button>
                                     </th>
                                 </tr>
                             <?php $k++;

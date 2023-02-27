@@ -7,9 +7,11 @@ if (!isset($_SESSION)) {
 function getFullRole($role)
 {
     if ($role == "E") {
+        echo "<script> out(); </script>";
         return 'พนักงาน';
     }
     if ($role == "L") {
+        echo "<script> out(); </script>";
         return 'เจ้าของร้าน';
     }
     if ($role == "A") {
@@ -156,6 +158,10 @@ else if (isset($_GET['firstdate']) && (isset($_GET['lastdate']))) {
             $(form).submit();
         }
     }
+    function out(){
+        location.reload("./repay.php")
+    }
+
 </script>
 
 </html>

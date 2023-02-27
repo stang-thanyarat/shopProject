@@ -26,7 +26,8 @@
 
 .left {
     margin-top: 1rem;
-    margin-left: 71rem;
+    margin-right: 5rem;
+    justify-content: end;
 }
 
 table,

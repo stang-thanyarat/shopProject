@@ -293,26 +293,33 @@ async function loopother() {
     }
 }
 
-
-
 //ตรวจสอบพร้อมส่งข้อมูล
 $("#form1").submit(async function (event) {
     event.preventDefault();
-    if (!checkID(document.form1.employee_card_id.value)) {
+    if ($("#sell_id").val() == "all" ) {
         Swal.fire({
             icon: 'warning',
             title: 'คำเตือน',
-            text: 'ระบุหมายเลขประจำตัวประชาชนไม่ถูกต้อง',
-            timer: 3000
+            text: 'กรุณาเลือกผู้ขาย',
+            timer: 2000
         })
         return
     }
-    if (!telephone(document.form1.employee_telephone.value)) {
+    if ($("#payment_sl").val() == "all" ) {
         Swal.fire({
             icon: 'warning',
             title: 'คำเตือน',
-            text: 'เบอร์โทรศัพท์ไม่ถูกต้อง',
-            timer: 3000
+            text: 'กรุณาเลือกวิธีการชำระ',
+            timer: 2000
+        })
+        return
+    }
+    if (JSON.parse(localStorage.getItem("tableProduct")).data.length <= 0) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'กรุณาเพิ่มสินค้า',
+            timer: 2000
         })
         return
     } else {
