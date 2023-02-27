@@ -249,22 +249,6 @@ $(document).ready(async function () {
     getAllprice()
 });
 
-/*function setUI(data) {
-    data.forEach((element,e) => {
-        let price = 0
-        let allother = 0
-        let amount = 0
-        price += Number(element.price)
-        allother += Number(element.priceOther)
-        amount += Number(element.amount)
-        let nall = 0
-        nall += allother + price + amount
-        $("#all_price_odr").text(nall)
-        $("#all_price_odr").val(nall)
-    });
-}*/
-
-
 async function loopproduct() {
     let rows = (JSON.parse(localStorage.getItem("tableProduct"))).data
     for (let d of rows) {
@@ -308,24 +292,52 @@ async function loopother() {
 //ตรวจสอบพร้อมส่งข้อมูล
 $("#form1").submit(async function (event) {
     event.preventDefault();
-    let response = await fetch('controller/Order.php', {
-        method: 'POST',
-        body: new FormData(document.form1)
-    });
-    console.log(response);
-    if (!response.ok) {
-        console.log(response);
-    } else {
-        await Swal.fire({
-            icon: 'success',
-            text: 'บันทึกข้อมูลเสร็จสิ้น',
-        }).then(async () => {
-            await loopproduct()
-            await loopother()
-            await loopexp()
-            //localStorage.clear()
-            // window.location = './order.php'
-
+    if ($("#sell_id").val() == "all" ) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'กรุณาเลือกผู้ขาย',
+            timer: 2000
         })
+        return
+    }
+    if ($("#payment_sl").val() == "all" ) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'กรุณาเลือกวิธีการชำระ',
+            timer: 2000
+        })
+        return
+    }
+    if (JSON.parse(localStorage.getItem("tableProduct")).data.length <= 0) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'กรุณาเพิ่มสินค้า',
+            timer: 2000
+        })
+        return
+    } else {
+        event.preventDefault();
+        let response = await fetch('controller/Order.php', {
+            method: 'POST',
+            body: new FormData(document.form1)
+        });
+        console.log(response);
+        if (!response.ok) {
+            console.log(response);
+        } else {
+            await Swal.fire({
+                icon: 'success',
+                text: 'บันทึกข้อมูลเสร็จสิ้น',
+            }).then(async () => {
+                await loopproduct()
+                await loopother()
+                //localStorage.clear()
+                // window.location = './order.php'
+
+            })
+        }
     }
 });

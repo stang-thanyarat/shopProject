@@ -16,7 +16,7 @@ if (!isset($_SESSION['shop_name'])) {
         <hr /><?php } ?>
     <?php if (getRole() == 'E' || getRole() == 'L') { ?> <a class="nav-link bar-link" href="productlist.php">รายการขาย</a><?php } ?>
     <?php if (getRole() == 'L') { ?> <a class="nav-link bar-link" href="contracthistory.php">สัญญาซื้อขาย</a><?php } ?>
-    <?php if (getRole() == 'L') { ?> <a class="nav-link bar-link" href="salehistory.php">ประวัติการขาย</a><?php } ?>
+    <?php if (getRole() == 'E' || getRole() == 'L') { ?> <a class="nav-link bar-link" href="salehistory.php">ประวัติการขาย</a><?php } ?>
     <?php if (getRole() == 'L') { ?> <a class="nav-link bar-link" href="productexchangehistory.php">การประกันสินค้า</a><?php } ?>
     <?php if (getRole() == 'L') { ?><h5><span><img src="./src/images/buy.png" width="25" height="25" /></span> ซื้อ</h5>
         <hr /><?php } ?>

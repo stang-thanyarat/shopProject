@@ -43,7 +43,7 @@ function getFullRole($role)
                     <div class="col-3 c">
                         <label for="account_user_type">ตำแหน่ง :</label>
                         <select name="account_user_type" id="account_user_type" style="background-color: #D4DDC6;">
-                            <option value="position" >พนักงานทั้งหมด</option>
+                            <option value="position" >บุคลากรทั้งหมด</option>
                             <option value="L">เจ้าของร้าน</option>
                             <option value="E">พนักงาน</option>
                         </select>
@@ -56,7 +56,9 @@ function getFullRole($role)
                         <a class="submit btn" href="adduseraccount.php"><img src="./src/images/plus.png" width="25">&nbsp เพิ่มบัญชีผู้ใช้งาน</a>
                     </div>
                 </div>
-                <table class="col-11 ma">
+                <div class="useraccountTable">
+                <h3 style="text-align: center; margin-top: 9rem;margin-bottom: 9rem;" id="no-let">ไม่พบข้อมูล</h3>
+                <table class="col-11 ma" id="tb-let">
                     <tr>
                         <th>ลำดับ</th>
                         <th>ชื่อ</th>
@@ -67,6 +69,7 @@ function getFullRole($role)
                     </tr>
                     <tbody id='useraccountTable'></tbody>
                 </table>
+            </div>
             </div>
         </div>
          

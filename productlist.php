@@ -83,5 +83,11 @@ $rows = $category->fetchAll();
 <script src=" ./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="./node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
 <script src="./src/js/productlist.js"></script>
+<script>
+    function convertToDateThai(date) {
+        var month_th = ["", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"];
+        return result = date.getDate() + " " + month_th[(date.getMonth() + 1)] + " " + (date.getFullYear() + 543);
+    }
+</script>
 
 </html>

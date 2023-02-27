@@ -1,4 +1,4 @@
-$(document).ready(function () {
+/*$(document).ready(function () {
     $("#slipupload").hide()
     localStorage.clear()
     localStorage.setItem("tableProduct", JSON.stringify({ data: [] }))
@@ -248,30 +248,55 @@ async function setStatus(id, val) {
     await (await fetch(`./controller/SetProductStatus.php?status=${val == 0 ? false : true}&id=${id}`))
 }
 
+//ตรวจสอบพร้อมส่งข้อมูล
 $("#form1").submit(async function (event) {
     event.preventDefault();
-    if (!telephone2(document.form1.datebill.value)) {
-        event.preventDefault();
-        alert('กรุณากำหนดวัน');
+    if ($("#sell_id").val() == "all" ) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'กรุณาเลือกผู้ขาย',
+            timer: 2000
+        })
         return
     }
-    if (!telephone1(document.form1.datereceive.value)) {
-        event.preventDefault();
-        alert('กรุณากำหนดวัน');
+    if ($("#payment_sl").val() == "all" ) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'กรุณาเลือกวิธีการชำระ',
+            timer: 2000
+        })
         return
     }
-
-    event.preventDefault();
-    $('#bank').val(JSON.stringify(JSON.parse(localStorage.getItem("tableProduct")).data))
-    let response = await fetch('controller/Order.php', {
-        method: 'POST',
-        body: new FormData(document.form1)
-    });
-    if (!response.ok) {
-        console.log(response);
+    if (JSON.parse(localStorage.getItem("tableProduct")).data.length <= 0) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'กรุณาเพิ่มสินค้า',
+            timer: 2000
+        })
+        return
     } else {
-        alert("success");
-        window.location.assign("order.php");
-    }
+        event.preventDefault();
+        let response = await fetch('controller/Order.php', {
+            method: 'POST',
+            body: new FormData(document.form1)
+        });
+        console.log(response);
+        if (!response.ok) {
+            console.log(response);
+        } else {
+            await Swal.fire({
+                icon: 'success',
+                text: 'บันทึกข้อมูลเสร็จสิ้น',
+            }).then(async () => {
+                await loopproduct()
+                await loopother()
+                //localStorage.clear()
+                // window.location = './order.php'
 
-})
+            })
+        }
+    }
+});*/

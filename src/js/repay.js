@@ -108,31 +108,25 @@ function getDate2(date2) {
     D2 = date2
 }
 
-function getDate3(date3) {
-    D3 = date3
-}
-
 function getInterest2(interest2) {
     interest_2 = interest2
 }
 $("#index").ready(function (){
-    dateout();
 });
 
 $(document).ready(function () {
     getDiff2();
     timeinterest();
     getInterest2();
-    dateout();
 });
 
 function getDiff2() {
     const dayss = (date2_1, date2_2) => {
-        let difference = date2_1.getTime() - date2_2.getTime();
-        let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
-        return TotalDays;
+        let difference2 = date2_1.getTime() - date2_2.getTime();
+        let TotalDays2 = Math.ceil(difference2 / (1000 * 3600 * 24));
+        return TotalDays2;
     }
-    diff2 = dayss(new Date(D3), new Date(D2))
+    diff2 = dayss(new Date(), new Date(D2))
 }
 
 function timeinterest() {
@@ -148,48 +142,56 @@ function timeinterest() {
             m = 15
         }
         $('#less_interestt').text(m)
+        dateout()
     } else if (diff2 > 150, diff2 < 179) {
         let m = Math.abs(Math.ceil(Math.round(interest_2 * 2)))
         if (m > 15) {
             m = 15
         }
         $('#less_interestt').text(m)
+        dateout()
     } else if (diff2 > 180, diff2 < 209) {
         let m = Math.abs(Math.ceil(Math.round(interest_2 * 3)))
         if (m > 15) {
             m = 15
         }
         $('#less_interestt').text(m)
+        dateout()
     } else if (diff2 > 210, diff2 < 239) {
         let m = Math.abs(Math.ceil(Math.round(interest_2 * 4)))
         if (m > 15) {
             m = 15
         }
         $('#less_interestt').text(m)
+        dateout()
     } else if (diff2 > 240, diff2 < 259) {
         let m = Math.abs(Math.ceil(Math.round(interest_2 * 5)))
         if (m > 15) {
             m = 15
         }
         $('#less_interestt').text(m)
+        dateout()
     } else if (diff2 > 260, diff2 < 279) {
         let m = Math.abs(Math.ceil(Math.round(interest_2 * 6)))
         if (m > 15) {
             m = 15
         }
         $('#less_interestt').text(m)
+        dateout()
     } else if (diff2 > 280, diff2 < 309) {
         let m = Math.abs(Math.ceil(Math.round(interest_2 * 7)))
         if (m > 15) {
             m = 15
         }
         $('#less_interestt').text(m)
+        dateout()
     } else if (diff2 > 310) {
         let m = Math.abs(Math.ceil(Math.round(interest_2 * 8)))
         if (m > 15) {
             m = 15
         }
         $('#less_interestt').text(m)
+        dateout()
     } else {
         $('#less_interestt').text(0)
     }
@@ -235,7 +237,7 @@ $("#form1").submit(async function (event) {
             text: 'บันทึกข้อมูลเสร็จสิ้น',
         })
     })
-    setTimeout(function(){ location.reload(); }, 3000);
+    setTimeout(function(){ location.reload(); }, 1000);
 });
 
 /*

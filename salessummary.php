@@ -49,7 +49,6 @@ function getFullRole($role)
                 </div>
             </div>
         </div>
-        
     </form>
 </body>
 
