@@ -285,8 +285,8 @@ $("#form1").submit(async function (event) {
         }).then(async () => {
             await loopproduct()
             await loopother()
-            //localStorage.clear()
-            //window.location = './order.php'
+            localStorage.clear()
+            window.location = './order.php'
 
         })
     }
