@@ -235,7 +235,7 @@ $("#form1").submit(async function (event) {
             text: 'บันทึกข้อมูลเสร็จสิ้น',
         })
     })
-    setTimeout(function(){ location.reload(); }, 3000);
+    setTimeout(function(){ location.reload(); }, 1000);
 });
 
 /*

@@ -75,6 +75,21 @@
     --bs-gutter-x: 0rem;
 }
 
+.baht {
+    width: 10%;
+    text-align: right;
+}
+
+.stang {
+    width: 10%;
+    text-align: right;
+}
+
+.stangt {
+    width: 15%;
+    text-align: right;
+}
+
 @media only screen and (min-width: 835px) {
     .col-xl-4 {
         margin-bottom: 1.35rem;

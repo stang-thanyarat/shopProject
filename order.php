@@ -60,9 +60,9 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != "") {
                     <table class="ordertable">
                         <tr>
                             <th width="20%">วันที่สั่งซื้อ</th>
-                            <th width="45%">ชื่อผู้ขาย</th>
-                            <th width="15%">สถานะ</th>
-                            <th width=5%>พิมพ์</th>
+                            <th width="30%">ชื่อผู้ขาย</th>
+                            <th width="15%">สถานะการสั่งซื้อ</th>
+                            <th width=10%>พิมพ์</th>
                             <th width="10%"><img src="./src/images/edit.png" width="25"></th>
                         </tr>
                         <?php foreach ($rows as $row) { ?>

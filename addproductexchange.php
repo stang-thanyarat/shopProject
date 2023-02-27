@@ -46,7 +46,7 @@ $rows = $product->fetchExchange1Id($_GET["id"]);
             <div class="col-11">
                 <div class="row main">
                     <div class="col-11">
-                        <h1>การเปลี่ยนสินค้า</h1>
+                        <h1>แก้ไขการเปลี่ยนสินค้า</h1>
                     </div>
                 </div>
                 <table class="mai">
@@ -54,7 +54,7 @@ $rows = $product->fetchExchange1Id($_GET["id"]);
                         <th>
                             <div class="row a">
                                 <div class="col productr">
-                                    สินค้าที่ต้องการเปลี่ยน :<span style="color: red; ">&nbsp*</span>
+                                    สินค้าที่ต้องการเปลี่ยน :&nbsp;&nbsp;&nbsp; <!--<span style="color: red; ">&nbsp*--></span>
                                     <input type="text" accept="image/*" name="product_name" class="inbox product_name" value="<?= $rows["product_name"] ?>" required />
                                 </div>
                             </div>

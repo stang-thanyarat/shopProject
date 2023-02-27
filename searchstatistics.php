@@ -73,7 +73,7 @@ while ($r != 0) {
                 </div>
                 <div class="row">
                     <div class="col-1 left">
-                        <button type="button" class="buttom re" onclick="Reset()" >รีเซต</button>
+                        <button type="button" class="buttom re" onclick="Reset()" >รีเซ็ท</button>
                     </div>
                 </div>
                 <?php if (count($rows) > 0) { ?>

@@ -100,10 +100,10 @@ include_once('nav.php');
                             <div class="col allprice"> ยอดรวมทั้งหมด : <label id="all_price" class="inbox all_price" /></label> &nbsp&nbspบาท </div>
                         </div>
                         <div class="row">
-                            <div class="col receivecash"> เงินที่รับมา :<span style="color: red; ">&nbsp*</span> <input type="text" id="receivecash" class="inbox" required /> &nbsp&nbspบาท </div>
+                            <div class="col receivecash"> เงินที่รับมา :<span style="color: red; ">&nbsp*</span> <input type="text" id="receivecash" class=" re" required /> &nbspบาท </div>
                         </div>
                         <div class="row">
-                            <div class="col change"> เงินทอน :&nbsp&nbsp&nbsp <label id="change" class="inbox"></label> &nbsp&nbspบาท </div>
+                            <div class="col change"> เงินทอน :&nbsp&nbsp&nbsp <label id="change" class="inbox1"></label> &nbsp&nbspบาท </div>
                         </div>
                     </div>
                     <div class="modal-footer"> <button type="submit" id="pay_C" class="btn btn-primary1">ตกลง</button> </div>
@@ -124,23 +124,23 @@ include_once('nav.php');
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title2" id="exampleModalLabel">แนบในสลิปธนาคาร</h5>
+                        <h5 class="modal-title2" id="exampleModalLabel">แนบใบสลิปธนาคาร</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col importfile">
-                                แนบในสลิปธนาคาร : <input type="file" class="inbox" id="import_files" name="import_files" />
+                                แนบใบสลิปธนาคาร : <input type="file" class="im" id="import_files" name="import_files" />
                             </div>
                         </div>
                         <div class="row">
                             <div class="col notice">
-                                <label class="noticetext">*ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</label>
+                            <h6><span style="color: red; ">&nbsp*</span>ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h6>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col detail">
-                                หมายเหตุ : <input type="note" class="inbox" id="note" name="note">
+                                หมายเหตุ : <input type="note" class="de" id="note" name="note">
                             </div>
                         </div>
                     </div>
