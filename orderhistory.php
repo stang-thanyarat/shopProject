@@ -41,8 +41,8 @@ $rows = getdata();
         <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
         <div class="col-11">
             <div class="row main">
-                <h1>ประวัติใบสั่งซื้อ</h1>
-                <div class="d-flex justify-content-end" style="margin-left:-5.1rem">
+                    <h1>ประวัติใบสั่งซื้อ</h1>
+                <div class="d-flex justify-content-end" style="margin-left:-4.1rem">
                     <input type="date" value="<?= $_GET['date'] ?? "" ?>" name="date" id="date" class="date"/>&nbsp&nbsp&nbsp
                     <div class="d-flex justify-content-end" style="margin-left: -2rem">
                         <input type="text" value="<?= $_GET['keyword'] ?? "" ?>" name="keyword" id="keyword"
