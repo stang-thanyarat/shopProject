@@ -64,7 +64,6 @@ $rows = $useraccount->fetchByIdWithoutAdmin($_GET['id']);
                     <input  name = "account_password" id = "account_password" type = "password"  class = "bb" autocomplete="new-password"/>
                     <div class="e">*</div>
                 </div>
-
             </div>
             <div class="row btn-g">
                 <div class="col-lg-2 col-md-4">

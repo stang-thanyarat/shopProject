@@ -161,12 +161,12 @@ function setUI(data, f = false) {
 function del(id, q, product_id) {
     Swal.fire({
         title: 'คำเตือน',
-        text: "คุณต้องการรายการใบสั่งซื้อใช่หรือไม่",
+        text: "คุณต้องลบใช่หรือไม่",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'ใช่',
+        confirmButtonText: 'ตกลง',
         cancelButtonText: 'ยกเลิก'
     }).then(async (result) => {
         if (result.isConfirmed) {
@@ -195,7 +195,7 @@ function del(id, q, product_id) {
             await fetch("controller/Product.php", requestOptions)
             Swal.fire(
                 {
-                    title: 'ลบใบสั่งซื้อ',
+                    title: 'ลบสินค้าหมดอายุ',
                     text: 'การลบข้อมูลเสร็จสิ้น',
                     icon: 'success',
                     timer: 3000

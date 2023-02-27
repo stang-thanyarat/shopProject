@@ -68,11 +68,11 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                     <table class="col-11  pdrtb">
                         <thead>
                             <tr>
-                                <th width=20%>วันที่เปลี่ยนสินค้า</th>
-                                <th width=20%>เวลาเปลี่ยนสินค้า</th>
+                                <th width=18%>วันที่เปลี่ยนสินค้า</th>
+                                <th width=18%>เวลาเปลี่ยนสินค้า</th>
                                 <th width=30%>ชื่อสินค้า</th>
                                 <th width=10%>จำนวน</th>
-                                <th width=10%>สถานะการขาย</th>
+                                <th width=15%>สถานะการเปลี่ยนสินค้า</th>
                                 <th width=10%><img src="./src/images/edit.png" width="25"></th>
                             </tr>
                         </thead>
