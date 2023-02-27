@@ -171,9 +171,9 @@ $product = $product->fetchAll();
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div class="col-12 r">
-                            <div> ชื่อสินค้า &nbsp;&nbsp;:&nbsp;&nbsp;
-                                <select id="product_id" name="product_id" style="background-color: #D4DDC6;" class="inbox3" required>
+                        <div class="col-12">
+                            <div class=""> ชื่อสินค้า &nbsp;&nbsp;:&nbsp;&nbsp;
+                                <select id="product_id" name="product_id" class="inbox3" required>
                                     <option value="all" selected hidden>เลือกสินค้า</option>
                                     <?php foreach ($product as $p) { ?>
                                         <option value="<?= $p['product_id'] ?>"><?= $p['product_name'] ?>
@@ -208,9 +208,9 @@ $product = $product->fetchAll();
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div class="col-12 r">
-                            <div> ชื่อสินค้า &nbsp;&nbsp;:&nbsp;&nbsp;
-                                <select class="" id="editproduct_id" name="editproduct_id" style="background-color: #D4DDC6;" required>
+                        <div class="col-12">
+                            <div class="rr"> ชื่อสินค้า &nbsp;&nbsp;:&nbsp;&nbsp;
+                                <select class="r" id="editproduct_id" name="editproduct_id" style="background-color: #D4DDC6;" required>
                                     <?php foreach ($product as $p) { ?>
                                         <option value="<?= $p['product_id'] ?>" <?= $p['product_id'] == $p['product_id'] ? "selected" : '' ?>><?= $p['product_name'] ?>
                                             &nbsp;<?= $p['brand'] ?>&nbsp;&nbsp;<?= $p['model'] ?></option>
@@ -271,12 +271,12 @@ $product = $product->fetchAll();
                         </button>
                     </div>
                     <div class="modal-body">
-                        <center>รายการ: &nbsp;<input type="text" name="listother" id="editlistother" required /><br>
+                        <div class="listother">รายการ: &nbsp;<input type="text" name="listother" id="editlistother" required /><br>
                             <p></p>
-                        </center>
-                        <center>ราคา: &nbsp;<input type="text" name="priceother" id="editpriceother" required />
+                        </div>
+                        <div class="priceother">ราคา: &nbsp;<input type="text" name="priceother" id="editpriceother" required />
                             <p></p>
-                        </center>
+                        </div>
 
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary1">ตกลง</button>

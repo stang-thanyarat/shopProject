@@ -33,6 +33,7 @@ table {
 th {
     height: 50px;
 }
+
 .switch {
     position: relative;
     display: inline-block;
@@ -87,7 +88,7 @@ th {
     height: 60px;
 }
 
-.l{
+.l {
     margin-bottom: -1rem;
 }
 
@@ -133,13 +134,23 @@ th {
 
 .change {
     margin-top: 1rem;
-    margin-left: 2.6rem;
+    margin-left: 2.5rem;
     font-size: 16pt;
 }
 
-.inbox {
-    margin-left: 2rem;
+.re {
+    width: 30%;
     text-align: right;
+}
+
+.inbox {
+    margin-left:2rem;
+    
+}
+
+.inbox1 {
+    margin-left:4.5rem;
+    
 }
 
 .exp {
@@ -157,7 +168,13 @@ th {
     font-size: 16pt;
 }
 
+.im{
+    margin-top: 0.5rem;
+
+}
+
 .notice {
+    margin-top: 0.5rem;
     margin-left: 2rem;
 
 }
@@ -169,7 +186,11 @@ th {
 
 .detail {
     margin-top: 1rem;
-    margin-left: 3.3rem;
+    margin-left: 2rem;
+}
+
+.de {
+    margin-left: 1rem;
 }
 
 .email {
@@ -204,11 +225,11 @@ th {
     display: block;
 }
 
-.delete{
+.delete {
     margin-bottom: 0rem;
 }
 
-.edit{
+.edit {
     margin-top: 0.69rem;
 }
 
@@ -219,10 +240,10 @@ th {
 }
 
 .s {
-     background: transparent;
-     border: 0px;
-     margin-left: -2rem;
- }
+    background: transparent;
+    border: 0px;
+    margin-left: -2rem;
+}
 
 .TRTOPICCSS {
     background-color: #ABBE99;
@@ -266,7 +287,7 @@ th {
     display: block;
 }
 
-.salestocontracttable{
+.salestocontracttable {
     margin: auto;
     margin-top: 3rem;
 }

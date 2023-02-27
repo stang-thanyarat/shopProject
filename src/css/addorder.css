@@ -123,10 +123,16 @@ margin-left: 1.2rem;
 
 .inbox3{
     width: 20%;
+    background-color: #D4DDC6;
 }
 
-.r{
-    margin-left: -3rem;
+.r {
+    width: 25%;
+    background-color: #D4DDC6;
+}
+
+.rr {
+    margin-left: 1.5rem;
 }
 
 .btn2 {

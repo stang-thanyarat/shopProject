@@ -159,7 +159,7 @@ option {
 }
 
 .leftpassword {
-    margin-left: 4.2rem;
+    margin-left: 1.7rem;
 }
 
 .e {
@@ -179,8 +179,9 @@ option {
 }
 
 .leftstatus {
-    margin-top: 2rem;
+    margin-top: 0rem;
     margin-left: 0rem;
+    margin-bottom: 2rem;
 }
 
 .h {

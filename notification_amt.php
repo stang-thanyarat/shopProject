@@ -48,9 +48,9 @@ $product = $product->fetchAll();
             </div>
         </div>
         <div class="row mai">
-            <div class="col-2 v">
-                <label for="category"></label>
-                <select name="category_id" id="category_id" style="background-color: #D4DDC6;" required>
+            <div class="col-3 v">
+                <label for="category"></label>ประเภทสินค้า :
+                <select name="category_id" id="category_id" style="background-color: #D4DDC6;" required> 
                     <option value="all">สินค้าทั้งหมด</option>
                     <?php foreach ($rows as $row) { ?>
                         <option value="<?= $row['category_id'] ?>"><?= $row['category_name'] ?></option>

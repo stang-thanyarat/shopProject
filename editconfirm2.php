@@ -31,7 +31,7 @@ if (!isset($_GET['id'])) {
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/editconfirm2.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    
+
 </head>
 <?php
 include_once "./database/Order.php";
@@ -149,7 +149,7 @@ for ($k = 0; $k < count($op); $k++) {
                                 <th width="15%">จำนวน</th>
                                 <th width="15%">ราคา (บาท)</th>
                                 <th width="15%">วันหมดอายุ</th>
-                                <th width="10%"></th>
+                                <th width="10%"><img src="./src/images/edit.png" width="25"></th>
                             </tr>
                         </thead>
                         <tbody id="list-product">
@@ -179,12 +179,12 @@ for ($k = 0; $k < count($op); $k++) {
                                 <th width="5%">ลำดับ</th>
                                 <th width="45%">รายการ</th>
                                 <th width="40%">ราคา</th>
-                                <th width="10%"></th>
+                                <th width="10%"><img src="./src/images/edit.png" width="25"></th>
                             </tr>
                         </thead>
                         <tbody id="list-priceother">
                             <?php $k = 0;
-                            foreach  ($op as $b) { ?>
+                            foreach ($op as $b) { ?>
                                 <tr id="rr<?= $k ?>">
                                     <th class="index-table-price"><?= $k + 1 ?></th>
                                     <th><?= $b['listother'] ?></th>
@@ -229,9 +229,9 @@ for ($k = 0; $k < count($op); $k++) {
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div class="col-12 r">
+                        <div class="col-12">
                             <div> ชื่อสินค้า &nbsp;&nbsp;:&nbsp;&nbsp;
-                                <select id="product_id" name="product_id" style="background-color: #D4DDC6;" class="inbox3">
+                                <select id="product_id" name="product_id" class="inbox3 ">
                                     <option value="all" selected hidden>เลือกสินค้า</option>
                                     <?php foreach ($products as $p) {  ?>
                                         <option value="<?= $p['product_id'] ?>"><?= $p['product_name'] ?>
@@ -260,7 +260,7 @@ for ($k = 0; $k < count($op); $k++) {
 
     <!--แก้ไขสินค้า-->
     <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <form id="editaddproduct" name="editaddproduct">
+        <form name="editaddproduct" id="editaddproduct">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -270,9 +270,9 @@ for ($k = 0; $k < count($op); $k++) {
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div class="col-12 r">
-                            <div> ชื่อสินค้า &nbsp;&nbsp;:&nbsp;&nbsp;
-                                <select class="" id="editproduct_id" name="editproduct_id" style="background-color: #D4DDC6;">
+                        <div class="col-12">
+                            <div class="rr"> ชื่อสินค้า &nbsp;&nbsp;:&nbsp;&nbsp;
+                                <select class="r" id="editproduct_id" name="editproduct_id">
                                     <?php foreach ($products as $p) {  ?>
                                         <option value="<?= $p['product_id'] ?>" <?= $_GET['id'] == $p['product_id'] ? "selected" : "" ?>><?= $p['product_name'] ?>
                                             &nbsp;<?= $p['brand'] ?>&nbsp;&nbsp;<?= $p['model'] ?></option>
@@ -285,18 +285,19 @@ for ($k = 0; $k < count($op); $k++) {
                             <div class="s"> จำนวน &nbsp;&nbsp;:&nbsp;&nbsp;
                                 <input type="number" class="u" min="1" name="editorder_amt" id="editorder_amt" required />
                             </div>
-                            <div class="s"> วันหมดอายุ &nbsp;&nbsp;:&nbsp;&nbsp;
-                                <input type="date" class="u" min="1" name="editexp_date" id="editexp_date" required />
+                            <div class="sss"> วันหมดอายุ &nbsp;&nbsp;:&nbsp;&nbsp;
+                                <input type="date" min="1" name="editexp_date" id="editexp_date" required />
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary1">ตกลง</button>
+                            <button type="submit" id="addtable2" class="btn btn-primary1">ตกลง</button>
                         </div>
                     </div>
                 </div>
             </div>
         </form>
     </div>
+
 
     <!--ค่าใช้จ่ายอื่นๆ-->
     <div class="modal fade bd-example-modal-sm1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">

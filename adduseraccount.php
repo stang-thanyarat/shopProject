@@ -24,7 +24,7 @@ function getFullRole($role)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/adduseraccount.css" />
-    
+
 </head>
 <?php
 include_once('nav.php');
@@ -40,7 +40,7 @@ $rows = $employee->fetchWithOutUserId();
         <!-- หัวข้อหลัก -->
         <div class="row main">
             <div class="row">
-                <h1>แก้ไขบัญชีผู้ใช้งาน</h1>
+                <h1>เพิ่มบัญชีผู้ใช้งาน</h1>
             </div>
             <!--เนื้อหา-->
             <div class="row top">
@@ -74,15 +74,16 @@ $rows = $employee->fetchWithOutUserId();
                     <input name="account_password" id="account_password" type="password" onblur='check_num(this)' class="bb" required />
                     <div class="e">*</div>
                 </div>
-                <div class="col-lg-4 leftstatus">
-                    <label for="status">สถานะการใช้งาน :</label>
-                    <label class="switch bb">
-                        <input type="checkbox" id="account_user_status" name="account_user_status">
-                        <span class="slider round" id="account_user_status" name="account_user_status"></span>
-                    </label>
-                    <div class="h">*</div>
-                </div>
             </div>
+            <div class="col-lg-4 leftstatus">
+                <label for="status">สถานะการใช้งาน :</label>
+                <label class="switch bb">
+                    <input type="checkbox" id="account_user_status" name="account_user_status">
+                    <span class="slider round" id="account_user_status" name="account_user_status"></span>
+                </label>
+                <div class="h">*</div>
+            </div>
+
             <!--ปุ่มบันทึกและปุ่มยกเลิก-->
             <div class="row btn-g">
                 <div class="col-lg-2 col-md-12">

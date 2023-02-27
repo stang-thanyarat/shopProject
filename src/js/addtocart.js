@@ -69,7 +69,7 @@ function del(id) {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'ใช่',
+        confirmButtonText: 'ตกลง',
         cancelButtonText: 'ยกเลิก'
     }).then(async (result) => {
         if (result.isConfirmed) {
@@ -237,7 +237,7 @@ $("#form1").submit(async function (event) {
         loopInsert()
         Swal.fire({
             icon: 'success',
-            text: 'บันทึกข้อมูลเสร็จสิ้น',
+            text: 'ทำการขายเสร็จสิ้น',
         }).then(async () => {
             localStorage.clear()
             window.location = 'productlist.php'
@@ -260,7 +260,7 @@ $("#form2").submit(async function (event) {
         loopInsert()
         Swal.fire({
             icon: 'success',
-            text: 'บันทึกข้อมูลเสร็จสิ้น',
+            text: 'ทำการขายเสร็จสิ้น',
             timer: 3000
         }).then(() => {
             localStorage.clear()

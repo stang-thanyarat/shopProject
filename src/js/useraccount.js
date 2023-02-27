@@ -85,12 +85,12 @@ async function setStatus(id) {
 function del(id) {
     Swal.fire({
         title: 'คำเตือน',
-        text: "คุณต้องการลบพนักงานใช่หรือไม่",
+        text: "คุณต้องการลบบัญชีผู้ใช้หรือไม่",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'ใช่',
+        confirmButtonText: 'ตกลง',
         cancelButtonText: 'ยกเลิก'
     }).then(async (result) => {
         if (result.isConfirmed) {
@@ -106,7 +106,7 @@ function del(id) {
             await fetch("controller/UserAccount.php", requestOptions);
             Swal.fire(
                 {
-                    title: 'ลบพนักงาน',
+                    title: 'ลบบัญชีผู้ใช้งาน',
                     text: 'การลบข้อมูลเสร็จสิ้น',
                     icon: 'success',
                     timer: 3000

@@ -95,7 +95,7 @@ else if (isset($_GET['firstdate']) && (isset($_GET['lastdate']))) {
                                 สถิติการค้นหา &nbsp
                             </button>
                         </div>
-                        <div class="col-6">
+                        <div class="col-7">
                             <button type="button" class="button" onclick="javascript:window.location='productsearchstatistics.php';">&nbsp
                                 สถิติการค้นหาโดยประเภทสินค้า &nbsp
                             </button>

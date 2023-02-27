@@ -78,6 +78,7 @@ th {
 
 .inbox3 {
     width: 20%;
+    background-color: #D4DDC6;
 }
 
 
@@ -120,7 +121,7 @@ th {
 }
 
 .modal-title {
-    color: #fff;
+    color: black;
 }
 
 .modal-body1 {
@@ -212,7 +213,7 @@ th {
 
 }
 
-.j{
+.j {
     margin-top: 1rem;
 }
 
@@ -231,11 +232,23 @@ th {
     margin-top: 1rem;
 }
 
+.sss {
+    margin-left: 0rem;
+    margin-top: 1rem;
+}
+
 .u {
     width: 100px;
 }
 
+.r {
+    width: 25%;
+    background-color: #D4DDC6;
+}
 
+.rr {
+    margin-left: 1.2rem;
+}
 
 .listother {
     margin-left: 2rem;
