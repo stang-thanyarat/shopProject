@@ -115,7 +115,7 @@ for ($k = 0; $k < count($op); $k++) {
                         ชื่อผู้ขาย : &nbsp;
                         <select name="sell_id" id="sell_id" class="inbox" style="background-color: #D4DDC6;">
                             <?php foreach ($sells as $s) { ?>
-                                <option value="<?= $s['sell_id'] ?>" <?= $_GET['id'] == $s['sell_id'] ? "selected" : '' ?>><?= $s['sell_name'] ?></option>
+                                <option value="<?= $s['sell_id'] ?>" <?= $o['sell_id'] == $s['sell_id'] ? "selected" : '' ?>><?= $s['sell_name'] ?></option>
                             <?php } ?>
                         </select>
                     </div>
