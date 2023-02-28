@@ -32,14 +32,11 @@ function getFullRole($role)
 </head>
 <?php
 include_once('nav.php');
-include_once "./database/CostPrice.php";
 include_once "./database/Product.php";
-$costprice = new CostPrice();
 $product = new Product();
 $category = new Category();
 $p = $product->fetchById($_GET['id']);
 $c = $product->fetchByCategoryName($_GET['id']);
-$pp = $costprice->fetchByProductId($_GET['id']);
 ?>
 
 <body>
