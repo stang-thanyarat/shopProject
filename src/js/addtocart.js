@@ -116,11 +116,24 @@ targetElement.addEventListener('change', async (e) => {
     } else if (e.target.value === 'ผ่อนชำระ') {
         let route = (await (await fetch('./controller/GetRolesSales.php')).text()).trim()
         if (route !== "L") {
-            //window.location ="./controller/LogOut.php"
-            fetch('./controller/LogOutAndClear.php').then(() => {
-                window.location = "./login.php"
-            })
-
+            submitElement.setAttribute("Swal.fire",
+                Swal.fire({
+                    width: 1300,
+                    title: '<span style="font-size: 40px; color: red;">เฉพาะเจ้าของร้านเท่านั้นที่สามารถเข้าระบบผ่อนชำระได้</span>',
+                    icon: 'warning',
+                    showDenyButton: true,
+                    focusConfirm: false,
+                    confirmButtonText: "ออกจากระบบ",
+                    denyButtonText: `ยกเลิก`,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        fetch('./controller/LogOutAndClear.php').then(() => {
+                            window.location = "./login.php"
+                        })
+                    } else if (result.isDenied) {
+                        location.reload()
+                    }
+                }));
         } else {
             submitElement.setAttribute("data-bs-target", ".search-costumer-form");
         }
@@ -280,7 +293,12 @@ $("#search").click(async function () {
         url += `?keyword=${$("#keyword").val("")}`
     }
     const keyword = await (await fetch(url)).json()
-    if (!checkID(document.form3.keyword.value)) {
+    if (keyword.length > 0) {
+        setU(keyword)
+    } else if ((document.form3.keyword.value) == 13 && keyword.length == 0) {
+        $('#salestocontracttable').html('<br><center><h3>ไม่พบรายการการผ่อนชำระ</h3></center>')
+        $('#next-add').attr("href", './addcontract.php')
+    } else if (!checkID(document.form3.keyword.value)) {
         Swal.fire({
             icon: 'warning',
             title: 'คำเตือน',
@@ -288,13 +306,6 @@ $("#search").click(async function () {
             timer: 3000
         })
         return
-    } else {
-        if (keyword.length > 0) {
-            setU(keyword)
-        } else {
-            $('#salestocontracttable').html('<br><center><h3>ไม่พบรายการการผ่อนชำระ</h3></center>')
-            $('#next-add').attr("href", './addcontract.php')
-        }
     }
 });
 
