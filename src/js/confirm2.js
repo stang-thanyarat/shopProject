@@ -3,7 +3,7 @@ $("#addproduct").submit(function (event) {
     event.preventDefault();
     let tableObj = JSON.parse(localStorage.getItem("tableProduct"))
     const i = tableObj.data.length
-    if ($('#product_id').val() === "" || $('#order_pr').val() === "" || $('#order_amt').val() === "" || $('#exp_date').val() === "" || $('#all_price_odr').val() === "") {
+    if ($('#product_id').val() === "" || $('#product_name').val() === "" || $('#category_id').val() === "" || $('#order_pr').val() === "" || $('#order_amt').val() === "" || $('#exp_date').val() === "" || $('#all_price_odr').val() === "") {
         $('#addtable').blur()
         return
     }
@@ -22,6 +22,8 @@ $("#addproduct").submit(function (event) {
     $('#addclose').click()
     tableObj.data.push({
         list: $('#product_id').val(),
+        name: $('#product_name').val(),
+        cate: $('#category_id').val(),
         price: $('#order_pr').val(),
         amount: $('#order_amt').val(),
         expdate: $('#exp_date').val(),
@@ -251,47 +253,6 @@ $(document).ready(async function () {
     getAllprice()
 });
 
-async function loopproduct() {
-    let lastID = await (await fetch('controller/GetLastIdOrder.php')).text()
-    let rows = (JSON.parse(localStorage.getItem("tableProduct"))).data
-    for (let d of rows) {
-        var formdata = new FormData();
-        formdata.append("order_id", $("#order_id").val());
-        formdata.append("product_id", Number(d.list));
-        formdata.append("order_amt", Number(d.price));
-        formdata.append("order_pr", Number(d.amount));
-        formdata.append("unique_id", d.id);
-        formdata.append("form_action", "update");
-        formdata.append("table", "orderdetails");
-        var requestOptions = {
-            method: 'POST',
-            body: formdata,
-            redirect: 'follow'
-        };
-        await fetch("controller/OrderDetails.php", requestOptions)
-    }
-}
-
-async function loopother() {
-    let lastID = await (await fetch('controller/GetLastIdOrder.php')).text()
-    let rows = (JSON.parse(localStorage.getItem("tablePrice"))).data
-    for (let d of rows) {
-        var formdata = new FormData();
-        formdata.append("order_id", $("#order_id").val());
-        formdata.append("listother", d.listOther);
-        formdata.append("priceother", Number(d.priceOther));
-        formdata.append("unique_id", d.id);
-        formdata.append("form_action", "update");
-        formdata.append("table", "otherprice");
-        var requestOptions = {
-            method: 'POST',
-            body: formdata,
-            redirect: 'follow'
-        };
-        await fetch("controller/OtherPrice.php", requestOptions)
-    }
-}
-
 async function loopexp() {
     let lastID = await (await fetch('controller/GetLastIdOrder.php')).text()
     let rows = (JSON.parse(localStorage.getItem("tableProduct"))).data
@@ -299,7 +260,7 @@ async function loopexp() {
         var formdata = new FormData();
         formdata.append("order_id", $("#order_id").val());
         formdata.append("product_id", Number(d.list));
-        formdata.append("amount_exp", Number(d.price));
+        formdata.append("amount_exp", Number(d.amount));
         formdata.append("exp_date", d.expdate);
         formdata.append("form_action", "insert");
         formdata.append("table", "stock");
@@ -311,6 +272,26 @@ async function loopexp() {
         await fetch("controller/Stock.php", requestOptions)
     }
 }
+
+async function loopcostprice() {
+    let rows = (JSON.parse(localStorage.getItem("tableProduct"))).data
+    for (let d of rows) {
+        var formdata = new FormData();
+        formdata.append("order_id", $("#order_id").val());
+        formdata.append("product_id", Number(d.list));
+        formdata.append("cost_price", Number(d.price));
+        formdata.append("form_action", "insert");
+        formdata.append("table", "costprice");
+        var requestOptions = {
+            method: 'POST',
+            body: formdata,
+            redirect: 'follow'
+        };
+        await fetch("controller/CostPrice.php", requestOptions)
+    }
+}
+
+
 
 /*const checkbox = document.querySelector("#id-checkbox");
 
@@ -347,8 +328,8 @@ $("#form1").submit(async function (event) {
                 icon: 'success',
                 text: 'บันทึกข้อมูลเสร็จสิ้น',
             }).then(async () => {
-                await loopproduct()
-                await loopother()
+                await loopcostprice()
+                await loopexp()
                 //localStorage.clear()
                 // window.location = './order.php'
 

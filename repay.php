@@ -82,7 +82,7 @@ $rowa = $pay->fetchById($_GET['id']);
                     <?php if (end($rowa)['outstanding'] > 0) { ?><button type="button" onclick="payMode()" class="btn1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm">เพิ่ม</button><?php } else {?><?php }?>
                 </div>
             </div>
-            <table class="main col-10" style="margin-top: 3rem;">
+            <table class="main col-10" style="margin-top: 3rem;  margin-bottom: 4rem;">
                 <thead>
                 <tr>
                     <th width="10%">วันที่ชำระ</th>

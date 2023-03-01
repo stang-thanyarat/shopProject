@@ -13,6 +13,7 @@ function getFullRole($role)
         return 'ผู้ดูแลระบบ';
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +27,7 @@ function getFullRole($role)
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./src/css/editproduct.css" />
 
-    
+
 </head>
 <?php
 include_once('nav.php');
@@ -56,7 +57,6 @@ $c = $costprice->fetchById($_GET['id']);
         <input type="hidden" value="product" name="table" />
         <input type="hidden" value="update" name="form_action" />
         <input type="hidden" value="<?= $_GET['id'] ?>" name="product_id" id="product_id" />
-        <input type="hidden" name="category_name" id="category_name" />
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
@@ -79,11 +79,6 @@ $c = $costprice->fetchById($_GET['id']);
                                 <div class="col-4">
                                     ประเภทสินค้า : <b class="bb"><?= $rows['category_name']; ?></b>
                                 </div>
-                                <!--<div class="col productnumber ">
-                                    รหัสสินค้า :&nbsp&nbsp
-                                    <label for="no." id="" class="inbox">A01
-                                    </label>
-                                </div>-->
                             </div>
                             <div class="row a">
                                 <div class="col-4 productname">
@@ -111,23 +106,18 @@ $c = $costprice->fetchById($_GET['id']);
                                     <input type="file" accept="image/*" name="product_img2" id="product_img2" class="inbox" value="<?= $p['product_detail_img']; ?>">
                                 </div>
                             </div>
-
                             <div class="row a">
                                 <div class="col-6">
-                                    <h6><span style="color: red; ">&nbsp*</span>ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h6>
+                                    <h6><span style="color: red; ">&nbsp*</span>ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png
+                                        ขนาดไฟล์ไม่เกิน 8 MB</h6>
                                 </div>
                             </div>
-
                             <div class="row a">
-                                <div class="col details">
+                                <div class="col-11 details">
                                     รายละเอียด :&nbsp&nbsp&nbsp
-                                    <textarea name="product_detail" id="product_detail" cols="50" rows="5" class="inbox" style="vertical-align:top;">
+                                    <textarea name="product_detail" id="product_detail" rows="5" class="inbox" style="vertical-align:top;">
                                     <?= $p['product_detail']; ?>
                                     </textarea>
-                                </div>
-                                <div class="col-4 amount">
-                                    จำนวน :<span style="color: red; ">&nbsp*</span>
-                                    <input name="product_dlt_unit" type="text" id="product_dlt_unit" class="inbox" value="<?= $p['product_dlt_unit']; ?>" required />
                                 </div>
                             </div>
                             <div class="row a">
@@ -139,8 +129,8 @@ $c = $costprice->fetchById($_GET['id']);
                                     <input name="price" type="text" id="price" class="inbox" value="<?= $p['price']; ?>" required />
                                 </div>
                                 <div class="col-2 vax">
-                                    <input type="checkbox" class="vaxcheckbox" name="vat"  <?=$p['vat']==1?"checked":''; ?>/>
-                                    <label class="vaxcheckboxtext" >ภาษีมูลค่าเพิ่ม</label>
+                                    <input style="transform: scale(1.5)" type="checkbox" class="vaxcheckbox" name="vat" <?= $p['vat'] == 1 ? "checked" : ''; ?> />
+                                    <label class="vaxcheckboxtext">&nbsp;ภาษีมูลค่าเพิ่ม</label>
                                 </div>
                             </div>
                             <div class="row a">
@@ -149,9 +139,9 @@ $c = $costprice->fetchById($_GET['id']);
                                     <input name="notification_amt" type="text" id="notification_amt" class="inbox" value="<?= $p['notification_amt']; ?>" />
                                     <!--notification_amt = notification amount-->
                                 </div>
-                                <div class="col-4 costprice">
-                                    ราคาทุน :<span style="color: red; ">&nbsp*</span>
-                                    <input name="cost_price" type="text" id="cost_price" class="inbox" value="<?= $p['cost_price']; ?>" required />
+                                <div class="col-4 amount">
+                                    จำนวน :<span style="color: red; ">&nbsp*</span>
+                                    <input name="product_dlt_unit" type="text" id="product_dlt_unit" class="inbox" value="<?= $p['product_dlt_unit']; ?>" required />
                                 </div>
                                 <div class="col-2 watchcostprice">
                                     <a type="button" href="costprice.php?id=<?= $p['product_id']; ?>" class="button btn">ดูราคาทุน</a>
@@ -159,13 +149,13 @@ $c = $costprice->fetchById($_GET['id']);
                             </div>
                             <div class="row a">
                                 <div class="col-3 exchange">
-                                    <input type="checkbox" name="set_exchange" id="set_exchange"<?= $p['set_exchange'] == 0 ? "" : "checked" ?>/>
-                                    <label >&nbsp;สถานะการเปลี่ยนสินค้า</label>
+                                    <input style="transform: scale(1.5)" type="checkbox" name="set_exchange" id="set_exchange" <?= $p['set_exchange'] == 0 ? "" : "checked" ?> />
+                                    <label>&nbsp;สถานะการเปลี่ยนสินค้า</label>
                                 </div>
                             </div>
                             <div class="row a">
                                 <div class="col-4 settingmin">
-                                    <input name="set_n_amt" id="set_n_amt" type="checkbox" <?= $p['set_n_amt'] == 0 ? "" : "checked" ?>/>
+                                    <input style="transform: scale(1.5)" name="set_n_amt" id="set_n_amt" type="checkbox" <?= $p['set_n_amt'] == 0 ? "" : "checked" ?> />
                                     <label for="set_n_amt">&nbsp;ตั้งค่าสินค้าคงคลังขั้นต่ำล่วงหน้า</label>
                                 </div>
                             </div>
@@ -179,21 +169,19 @@ $c = $costprice->fetchById($_GET['id']);
                                     <input name="notification_amt2" type="text" id="notification_amt2" class="inbox" value="<?= $p['notification_amt2']; ?>" />
                                 </div>
                             </div>
-            </div>
-            <br>
-            </th>
-            </tr>
-            </table>
-            <div class="row btn-g">
-                <div class="col-2">
-                    <button type="button" onclick="window.location= 'productresult.php'" class="btn-c reset">ยกเลิก</button>
+                            <br>
+                        </th>
+                    </tr>
+                </table>
+                <div class="row btn-g">
+                    <div class="col-2">
+                        <button type="button" onclick="window.location= 'productresult.php'" class="btn-c reset">ยกเลิก</button>
+                    </div>
+                    <div class="col-2">
+                        <input type="submit" class="btn-c submit" value="บันทึก" />
+                    </div>
                 </div>
-                <div class="col-2">
-                    <input type="submit" class="btn-c submit" value="บันทึก" />
-                </div>
             </div>
-        </div>
-        </div>
     </form>
 </body>
 <script src="./src/js/editproduct.js"></script>

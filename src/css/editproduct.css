@@ -246,7 +246,7 @@ input:checked+.slider:before {
 }
 
 .vax {
-    margin-left: -2rem;
+    margin-left: -3rem;
     margin-top: -0.1rem;
 }
 
@@ -259,13 +259,13 @@ input:checked+.slider:before {
     margin-left: 0rem;
 }
 
-.costprice {
-    margin-left: 10.3rem;
+.amount {
+    margin-left: 10.95rem;
     margin-top: 0.1rem;
 }
 
 .watchcostprice {
-    margin-left: -2rem;
+    margin-left: -4rem;
     margin-top: 0.1rem;
 }
 
@@ -275,10 +275,6 @@ input:checked+.slider:before {
 
 .details {
     margin-left: 0.5rem;
-}
-
-.amount {
-    margin-right: 10rem;
 }
 
 .unit {
@@ -298,7 +294,7 @@ input:checked+.slider:before {
 }
 
 .min2 {
-    margin-left: 10.5rem;
+    margin-left: -1rem;
 }
 
 .settingmin {

@@ -47,13 +47,13 @@ $c = $category->fetchAll();
                     <h1>สินค้าหมดอายุ</h1>
                 </div>
             </div>
-            <div class="row" style="margin-left: 14rem; ">
-                <div class="col-4 date">
+            <div class="row" >
+                <div class="col-6 date">
                     <label for="expires within">หมดอายุภายใน :</label>
                     <label for="expires"></label>
                     <input type="date" value="<?= date('Y-m-d') ?>" name="date" id="date" name="expires" />
                 </div>
-                <div class="col-4 category">
+                <div class="col-3 category">
                     <form>
                         <select name="category_id" id="category_id" style="background-color: #D4DDC6;  margin-right: 1rem;" required>
                             <option value="all">สินค้าทั้งหมด</option>
@@ -64,9 +64,9 @@ $c = $category->fetchAll();
                         <input type="text" id="keyword" name="keyword" class="btn-d" placeholder="&nbsp ชื่อสินค้า">
                     </form>
                 </div>
-                <div class="col-4" style="text-align: end; margin-right: 1rem;">
-                    <click type="submit" name="search" id="search" class="btn-c reset"><img src="./src/images/search.png" style="margin-left: 1.2rem; " width="25"></click>
-                    <button type="button" onclick="reset()" class="btn-c1 reset" style="margin-left: 1.4rem; " width="25">ล้างการค้นหา
+                <div class="col-2 search" style="margin-top: auto;">
+                    <click type="submit" name="search" id="search" class="btn-c reset"><img src="./src/images/search.png" style="margin-left: 1.5rem;" width="25"></click>
+                    <button type="button" onclick="reset()" class="btn-c1 reset" width="25">ล้างการค้นหา
                     </button>
                 </div>
             </div>
