@@ -77,7 +77,7 @@ while ($r != 0) {
                 </div>
             </div>
             <?php if (count($rows) > 0) { ?>
-                <table class="table col-10">
+                <table class="table col-10" style="margin-bottom: 4rem;">
                     <thead>
                     <tr>
                         <th>ลำดับ</th>
