@@ -84,7 +84,7 @@ if (isset($_GET['keyword'])) {
                                     <th><?= $row['contract_code'] ?></th>
                                     <th>
                                         <div class="r">
-                                            <a class="submit BTNP" href="repay.php?id=<?= $row['contract_code']; ?>"><img class='confirm'>
+                                            <a name="btRepay_Click()" class="submit BTNP" href="repay.php?id=<?= $row['contract_code']; ?>"><img class='confirm'>
                                                 <?= $row['customer_prefix'] ?><?= $row['customer_firstname'] ?> <?= $row['customer_lastname'] ?>
                                             </a>
                                         </div>

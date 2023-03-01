@@ -73,7 +73,7 @@ $sells = $sell->fetchAll();
                             <div class="col-4">
                                 ประเภทสินค้า :<span style="color: red; ">&nbsp*</span>
                                 <select name="category_id" id="category_id" class="inbox" style="background-color: #D4DDC6;" required>
-                                    <option value="" selected hidden>เลือกประเภทสินค้า</option>
+                                    <option value="all" selected hidden>เลือกประเภทสินค้า</option>
                                     <?php foreach ($rows as $row) { ?>
                                         <option value="<?= $row['category_id']; ?>"><?= $row['category_name'] ?></option>
                                     <?php } ?>
@@ -131,11 +131,7 @@ $sells = $sell->fetchAll();
                         <div class="row a">
                             <div class="col details">
                                 รายละเอียด :&nbsp&nbsp&nbsp
-                                <textarea name="product_detail" id="product_detail" cols="50" rows="5" class="inbox" style="vertical-align:top;"></textarea>
-                            </div>
-                            <div class="col-4 amount">
-                                จำนวน :<span style="color: red; ">&nbsp*</span>
-                                <input name="product_dlt_unit" type="number" min="0" step="1" id="product_dlt_unit" class="inbox" required/>
+                                <textarea name="product_detail" id="product_detail"  rows="5" class="inbox" style="vertical-align:top;"></textarea>
                             </div>
                         </div>
                         <div class="row a">
@@ -157,7 +153,7 @@ $sells = $sell->fetchAll();
                                 <input name="price" type="number" min="0" step="0.25" id="price" class="inbox" required/>
                             </div>
                             <div class="col-2 vax">
-                                <input type="checkbox" class="vaxcheckbox" name="vat"/>
+                                <input style="transform: scale(1.5)" type="checkbox" class="vaxcheckbox" name="vat"/>
                                 <label class="vaxcheckboxtext">ภาษีมูลค่าเพิ่ม</label>
                             </div>
                         </div>
@@ -165,34 +161,33 @@ $sells = $sell->fetchAll();
                             <div class="col-5 min1">
                                 สินค้าคงคลังขั้นต่ำ :<span style="color: red; ">&nbsp*</span>
                                 <input name="notification_amt" type="number" min="0" step="1" id="notification_amt" class="inbox" required/>
-                                <!--notification_amt = notification amount-->
                             </div>
-                            <div class="col-4 costprice">
-                                ราคาทุน :<span style="color: red; ">&nbsp*</span>
-                                <input name="cost_price" type="number" min="0" step="0.25" id="cost_price" class="inbox" required/>
+                            <div class="col-4 amount">
+                                จำนวน :<span style="color: red; ">&nbsp*</span>
+                                <input name="product_dlt_unit" type="number" min="0" step="1" id="product_dlt_unit" class="inbox" required/>
                             </div>
-                            <!--<div class="col-2 watchcostprice">
-                                <a type="button" href="costprice.php" class="button btn">ดูราคาทุน</a>
-                            </div>-->
+                            <div class="col-2 watchcostprice">
+                                <a type="button" href="costprice2.php" class="button btn">ดูราคาทุน</a>
+                            </div>
                         </div>
                         <div class="row a">
                             <div class="col-3 status">
                                 สถานะการขาย :<span style="color: red; ">&nbsp*</span>
                                 <label class="switch">
                                     <input name="sales_status" id="sales_status" type="checkbox" required>
-                                    <span name="sales_status" id="sales_status" class="slider round inbox"></span>
+                                    <span name="sales_status" id="sales_status" class="slider round" style="margin-left: 1.9rem"></span>
                                 </label>
                             </div>
                         </div>
                         <div class="row a">
                             <div class="col-3 exchange">
-                                <input type="checkbox" name="set_exchange" id="set_exchange"/>
+                                <input style="transform: scale(1.5)" type="checkbox" name="set_exchange" id="set_exchange"/>
                                 <label>&nbsp;สถานะการเปลี่ยนสินค้า</label>
                             </div>
                         </div>
                         <div class="row a">
                             <div class="col-4 settingmin">
-                                <input name="set_n_amt" id="set_n_amt" type="checkbox"/>
+                                <input style="transform: scale(1.5)" name="set_n_amt" id="set_n_amt" type="checkbox"/>
                                 <label for="set_n_amt">&nbsp;ตั้งค่าสินค้าคงคลังขั้นต่ำล่วงหน้า</label>
                             </div>
                         </div>

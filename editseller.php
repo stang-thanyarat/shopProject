@@ -162,9 +162,9 @@ for ($i = 0; $i < count($banks); $i++) {
                     <thead>
                         <tr>
                             <th width="5%">ลำดับ</th>
-                            <th width="5%">ธนาคาร</th>
-                            <th width="5%">เลขบัญชี</th>
-                            <th width="5%">ชื่อบัญชี</th>
+                            <th width="10%">ธนาคาร</th>
+                            <th width="10%">เลขบัญชี</th>
+                            <th width="10%">ชื่อบัญชี</th>
                             <th width="5%"><img src="./src/images/edit.png" width="25"></th>
                         </tr>
                     </thead>

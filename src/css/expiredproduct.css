@@ -44,11 +44,17 @@ th {
 
 .date{
     text-align: end;
-    margin-left: -3rem;
+    margin-left: 2rem;
 }
 
 .category{
-    margin-left: 2rem;
+    text-align: start;
+    margin-left: 1rem;
+}
+
+.search{
+    text-align: start;
+    margin-left: 0.5rem;
 }
 
 
@@ -71,8 +77,7 @@ option {
     border-radius: 25px 25px 25px 25px;
     background-color: #F8E4C8;
     font-size: 13pt;
-    height: 120%;
-    margin-right: 1rem;
+    height: 100%;
 }
 
 
@@ -115,15 +120,15 @@ option {
     background-color: #C4C4C4;
     color: black;
     border: 0ch;
-    margin-left: 0.5rem;
 }
 
 .btn-c {
     border-radius: 25px 25px 25px 25px;
-    width: 15%;
+    width: 30%;
+    margin-right: 0.3rem;
 }
 
 .btn-c1 {
     border-radius: 25px 25px 25px 25px;
-    width: 40%;
+    width: 65%;
 }

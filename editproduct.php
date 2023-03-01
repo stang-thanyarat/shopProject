@@ -13,6 +13,7 @@ function getFullRole($role)
         return 'ผู้ดูแลระบบ';
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -24,9 +25,9 @@ function getFullRole($role)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="./src/css/editproduct.css" />
+    <link rel="stylesheet" href="./src/css/editproduct.css"/>
 
-    
+
 </head>
 <?php
 include_once('nav.php');
@@ -50,180 +51,187 @@ $c = $costprice->fetchById($_GET['id']);
 ?>
 
 <body>
-    <form action="controller/Product.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="product_img" value="<?= $p['product_img']; ?>" />
-        <input type="hidden" name="product_detail_img" value="<?= $p['product_detail_img']; ?>" />
-        <input type="hidden" value="product" name="table" />
-        <input type="hidden" value="update" name="form_action" />
-        <input type="hidden" value="<?= $_GET['id'] ?>" name="product_id" id="product_id" />
-        <input type="hidden" name="category_name" id="category_name" />
-        <div class="row">
-            <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
-            <div class="col-11">
-                <div class="row main">
-                    <div class="col">
-                        <h1>แก้ไขสินค้า</h1>
-                    </div>
+<form action="controller/Product.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="product_img" value="<?= $p['product_img']; ?>"/>
+    <input type="hidden" name="product_detail_img" value="<?= $p['product_detail_img']; ?>"/>
+    <input type="hidden" value="product" name="table"/>
+    <input type="hidden" value="update" name="form_action"/>
+    <input type="hidden" value="<?= $_GET['id'] ?>" name="product_id" id="product_id"/>
+    <div class="row">
+        <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
+        <div class="col-11">
+            <div class="row main">
+                <div class="col">
+                    <h1>แก้ไขสินค้า</h1>
                 </div>
-                <table class="mai">
-                    <tr>
-                        <div class="row">
-                            <div class="col-11">
-                                <th>&nbsp รายละเอียดสินค้า</th>
+            </div>
+            <table class="mai">
+                <tr>
+                    <div class="row">
+                        <div class="col-11">
+                            <th>&nbsp รายละเอียดสินค้า</th>
+                        </div>
+                    </div>
+                </tr>
+                <tr>
+                    <th>
+                        <div class="row a">
+                            <div class="col-4">
+                                ประเภทสินค้า :<span style="color: red; ">&nbsp*</span>
+                                <select name="category_id" id="category_id" class="inbox"
+                                        style="background-color: #D4DDC6;" required>
+                                    <option value="all" selected hidden>เลือกประเภทสินค้า</option>
+                                    <?php foreach ($rows as $row) { ?>
+                                        <option value="<?= $row['category_id'] ?>" <?= $p['category_id'] == $row['category_id'] ? "selected" : '' ?> ><?= $row['category_name'] ?></option>
+                                    <?php } ?>
+                                </select>
                             </div>
                         </div>
-                    </tr>
-                    <tr>
-                        <th>
-                            <div class="row a">
-                                <div class="col-4">
-                                    ประเภทสินค้า :<span style="color: red; ">&nbsp*</span>
-                                    <select name="category_id" id="category_id"  class="inbox" style="background-color: #D4DDC6;" required>
-                                        <option value="" selected hidden>เลือกประเภทสินค้า</option>
-                                        <?php foreach ($rows as $row) { ?>
-                                            <option  value="<?= $row['category_id'] ?>" <?= $p['category_id'] == $row['category_id'] ? "selected" : '' ?> ><?=  $row['category_name'] ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-                                <!--<div class="col productnumber ">
-                                    รหัสสินค้า :&nbsp&nbsp
-                                    <label for="no." id="" class="inbox">A01
-                                    </label>
-                                </div>-->
+                        <div class="row a">
+                            <div class="col-4 productname">
+                                ชื่อสินค้า :<span style="color: red; ">&nbsp*</span>
+                                <input name="product_name" type="text" id="product_name" class="inbox"
+                                       value="<?= $p['product_name']; ?>" required/>
                             </div>
-                            <div class="row a">
-                                <div class="col-4 productname">
-                                    ชื่อสินค้า :<span style="color: red; ">&nbsp*</span>
-                                    <input name="product_name" type="text" id="product_name" class="inbox" value="<?= $p['product_name']; ?>" required />
-                                </div>
-                                <div class="col-4 sellername">
-                                    ชื่อผู้ขาย :<span style="color: red; ">&nbsp*</span>
-                                    <select name="sell_id" id="sell_id" class="inbox" style="background-color: #D4DDC6;" required>
-                                        <option value="allsell" selected hidden>เลือกผู้ขาย</option>
-                                        <?php foreach ($sells as $s) { ?>
-                                            <option value="<?= $s['sell_id'] ?>" <?= $p['sell_id'] == $s['sell_id'] ? "selected" : '' ?>><?= $s['sell_name'] ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
+                            <div class="col-4 sellername">
+                                ชื่อผู้ขาย :<span style="color: red; ">&nbsp*</span>
+                                <select name="sell_id" id="sell_id" class="inbox" style="background-color: #D4DDC6;"
+                                        required>
+                                    <option value="allsell" selected hidden>เลือกผู้ขาย</option>
+                                    <?php foreach ($sells as $s) { ?>
+                                        <option value="<?= $s['sell_id'] ?>" <?= $p['sell_id'] == $s['sell_id'] ? "selected" : '' ?>><?= $s['sell_name'] ?></option>
+                                    <?php } ?>
+                                </select>
                             </div>
-                            <div class="row a">
-                                <div class="col-4 productversion">
-                                    รุ่นสินค้า :&nbsp&nbsp&nbsp
-                                    <input name="model" type="text" id="model" class="inbox" value="<?= $p['model']; ?>" />
-                                </div>
-                                <div class="col-4 brand">
-                                    ยี่ห้อสินค้า :&nbsp&nbsp
-                                    <input name="brand" type="text" id="brand" class="inbox" value="<?= $p['brand']; ?>" />
-                                </div>
+                        </div>
+                        <div class="row a">
+                            <div class="col-4 productversion">
+                                รุ่นสินค้า :&nbsp&nbsp&nbsp
+                                <input name="model" type="text" id="model" class="inbox" value="<?= $p['model']; ?>"/>
                             </div>
-                            <div class="row a">
-                                <div class="col-6 image">
-                                    รูปภาพสินค้า :<span style="color: red; ">&nbsp*</span>
-                                    <input type="file" accept="image/*" name="product_img1" id="product_img1" class="inbox" value="<?= $p['product_img']; ?>">
-                                </div>
-                                <div class="col productinformation">
-                                    รูปรายละเอียดสินค้า :<span style="color: red; ">&nbsp*</span>
-                                    <input type="file" accept="image/*" name="product_img2" id="product_img2" class="inbox" value="<?= $p['product_detail_img']; ?>">
-                                </div>
+                            <div class="col-4 brand">
+                                ยี่ห้อสินค้า :&nbsp&nbsp
+                                <input name="brand" type="text" id="brand" class="inbox" value="<?= $p['brand']; ?>"/>
                             </div>
+                        </div>
+                        <div class="row a">
+                            <div class="col-6 image">
+                                รูปภาพสินค้า :<span style="color: red; ">&nbsp*</span>
+                                <input type="file" accept="image/*" name="product_img1" id="product_img1" class="inbox"
+                                       value="<?= $p['product_img']; ?>">
+                            </div>
+                            <div class="col productinformation">
+                                รูปรายละเอียดสินค้า :<span style="color: red; ">&nbsp*</span>
+                                <input type="file" accept="image/*" name="product_img2" id="product_img2" class="inbox"
+                                       value="<?= $p['product_detail_img']; ?>">
+                            </div>
+                        </div>
 
-                            <div class="row a">
-                                <div class="col-6">
-                                    <h6><span style="color: red; ">&nbsp*</span>ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h6>
-                                </div>
+                        <div class="row a">
+                            <div class="col-6">
+                                <h6><span style="color: red; ">&nbsp*</span>ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png
+                                    ขนาดไฟล์ไม่เกิน 8 MB</h6>
                             </div>
-
-                            <div class="row a">
-                                <div class="col details">
-                                    รายละเอียด :&nbsp&nbsp&nbsp
-                                    <textarea name="product_detail" id="product_detail" cols="50" rows="5" class="inbox" style="vertical-align:top;">
+                        </div>
+                        <div class="row a">
+                            <div class="col-11 details">
+                                รายละเอียด :&nbsp&nbsp&nbsp
+                                <textarea name="product_detail" id="product_detail" rows="5" class="inbox" style="vertical-align:top;">
                                     <?= $p['product_detail']; ?>
                                     </textarea>
-                                </div>
-                                <div class="col-4 amount">
-                                    จำนวน :<span style="color: red; ">&nbsp*</span>
-                                    <input name="product_dlt_unit" type="text" id="product_dlt_unit" class="inbox" value="<?= $p['product_dlt_unit']; ?>" required />
-                                </div>
                             </div>
-                            <div class="row a">
-                                <div class="col-5 unit">
-                                    หน่วยนับ :<span style="color: red; ">&nbsp*</span>
-                                    <select name="product_unit" id="product_unit" class="inbox" style="background-color: #D4DDC6;" required>
-                                        <option value="ซอง" <?= $p['product_unit'] == "ซอง" ? "selected" : '' ?>>ซอง</option>
-                                        <option value="ขวด" <?= $p['product_unit'] == "ขวด" ? "selected" : '' ?>>ขวด</option>
-                                        <option value="ชิ้น" <?= $p['product_unit'] == "ชิ้น" ? "selected" : '' ?>>ชิ้น</option>
-                                        <option value="กล่อง" <?= $p['product_unit'] == "กล่อง" ? "selected" : '' ?>>กล่อง</option>
-                                        <option value="เครื่อง" <?= $p['product_unit'] == "เครื่อง" ? "selected" : '' ?>>เครื่อง</option>
-                                        <option value="ถุง" <?= $p['product_unit'] == "ถุง" ? "ถุง" : '' ?>>ถุง</option>
-                                        <option value="กระสอบ" <?= $p['product_unit'] == "กระสอบ" ? "selected" : '' ?>>กระสอบ</option>
-                                    </select>
+                        </div>
+                        <div class="row a">
+                            <div class="col-5 unit">
+                                หน่วยนับ :<span style="color: red; ">&nbsp*</span>
+                                <select name="product_unit" id="product_unit" class="inbox"
+                                        style="background-color: #D4DDC6;" required>
+                                    <option value="ซอง" <?= $p['product_unit'] == "ซอง" ? "selected" : '' ?>>ซอง
+                                    </option>
+                                    <option value="ขวด" <?= $p['product_unit'] == "ขวด" ? "selected" : '' ?>>ขวด
+                                    </option>
+                                    <option value="ชิ้น" <?= $p['product_unit'] == "ชิ้น" ? "selected" : '' ?>>ชิ้น
+                                    </option>
+                                    <option value="กล่อง" <?= $p['product_unit'] == "กล่อง" ? "selected" : '' ?>>กล่อง
+                                    </option>
+                                    <option value="เครื่อง" <?= $p['product_unit'] == "เครื่อง" ? "selected" : '' ?>>
+                                        เครื่อง
+                                    </option>
+                                    <option value="ถุง" <?= $p['product_unit'] == "ถุง" ? "ถุง" : '' ?>>ถุง</option>
+                                    <option value="กระสอบ" <?= $p['product_unit'] == "กระสอบ" ? "selected" : '' ?>>
+                                        กระสอบ
+                                    </option>
+                                </select>
 
-                                </div>
-                                <div class="col-4 price">
-                                    ราคาขาย :<span style="color: red; ">&nbsp*</span>
-                                    <input name="price" type="text" id="price" class="inbox" value="<?= $p['price']; ?>" required />
-                                </div>
-                                <div class="col-2 vax">
-                                    <input type="checkbox" class="vaxcheckbox" name="vat"  <?=$p['vat']==1?"checked":''; ?>/>
-                                    <label class="vaxcheckboxtext" >ภาษีมูลค่าเพิ่ม</label>
-                                </div>
                             </div>
-                            <div class="row a">
-                                <div class="col-5 min1">
-                                    สินค้าคงคลังขั้นต่ำ :<span style="color: red; ">&nbsp*</span>
-                                    <input name="notification_amt" type="text" id="notification_amt" class="inbox" value="<?= $p['notification_amt']; ?>" />
-                                    <!--notification_amt = notification amount-->
-                                </div>
-                                <div class="col-4 costprice">
-                                    ราคาทุน :<span style="color: red; ">&nbsp*</span>
-                                    <input name="cost_price" type="text" id="cost_price" class="inbox" value="<?= $p['cost_price']; ?>" required />
-                                </div>
-                                <div class="col-2 watchcostprice">
-                                    <a type="button" href="costprice.php?id=<?= $p['product_id']; ?>" class="button btn">ดูราคาทุน</a>
-                                </div>
+                            <div class="col-4 price">
+                                ราคาขาย :<span style="color: red; ">&nbsp*</span>
+                                <input name="price" type="text" id="price" class="inbox" value="<?= $p['price']; ?>"
+                                       required/>
                             </div>
-                            <div class="row a">
-                                <div class="col-3 exchange">
-                                    <input type="checkbox" name="set_exchange" id="set_exchange"<?= $p['set_exchange'] == 0 ? "" : "checked" ?>/>
-                                    <label >&nbsp;สถานะการเปลี่ยนสินค้า</label>
-                                </div>
+                            <div class="col-2 vax">
+                                <input style="transform: scale(1.5)" type="checkbox" class="vaxcheckbox" name="vat" <?= $p['vat'] == 1 ? "checked" : ''; ?>/>
+                                <label class="vaxcheckboxtext">&nbsp;ภาษีมูลค่าเพิ่ม</label>
                             </div>
-                            <div class="row a">
-                                <div class="col-4 settingmin">
-                                    <input name="set_n_amt" id="set_n_amt" type="checkbox" <?= $p['set_n_amt'] == 0 ? "" : "checked" ?>/>
-                                    <label for="set_n_amt">&nbsp;ตั้งค่าสินค้าคงคลังขั้นต่ำล่วงหน้า</label>
-                                </div>
+                        </div>
+                        <div class="row a">
+                            <div class="col-5 min1">
+                                สินค้าคงคลังขั้นต่ำ :<span style="color: red; ">&nbsp*</span>
+                                <input name="notification_amt" type="text" id="notification_amt" class="inbox"
+                                       value="<?= $p['notification_amt']; ?>"/>
+                                <!--notification_amt = notification amount-->
                             </div>
-                            <div class="row a" id="post">
-                                <div class="col-4 start">
-                                    วันที่เริ่มใช้งาน :<span style="color: red; ">&nbsp*</span>
-                                    <input name="date_n_amt" type="date" id="date_n_amt" class="inbox" value="<?= $p['date_n_amt']; ?>" />
-                                </div>
-                                <div class="col-4 min2">
-                                    สินค้าคงคลังขั้นต่ำ :<span style="color: red; ">&nbsp*</span>
-                                    <input name="notification_amt2" type="text" id="notification_amt2" class="inbox" value="<?= $p['notification_amt2']; ?>" />
-                                </div>
+                            <div class="col-4 amount">
+                                จำนวน :<span style="color: red; ">&nbsp*</span>
+                                <input name="product_dlt_unit" type="text" id="product_dlt_unit" class="inbox"
+                                       value="<?= $p['product_dlt_unit']; ?>" required/>
                             </div>
+                            <div class="col-2 watchcostprice">
+                                <a type="button" href="costprice.php?id=<?= $p['product_id']; ?>" class="button btn">ดูราคาทุน</a>
+                            </div>
+                        </div>
+                        <div class="row a">
+                            <div class="col-3 exchange">
+                                <input style="transform: scale(1.5)" type="checkbox" name="set_exchange" id="set_exchange"<?= $p['set_exchange'] == 0 ? "" : "checked" ?>/>
+                                <label>&nbsp;สถานะการเปลี่ยนสินค้า</label>
+                            </div>
+                        </div>
+                        <div class="row a">
+                            <div class="col-4 settingmin">
+                                <input style="transform: scale(1.5)" name="set_n_amt" id="set_n_amt" type="checkbox" <?= $p['set_n_amt'] == 0 ? "" : "checked" ?>/>
+                                <label for="set_n_amt">&nbsp;ตั้งค่าสินค้าคงคลังขั้นต่ำล่วงหน้า</label>
+                            </div>
+                        </div>
+                        <div class="row a" id="post">
+                            <div class="col-4 start">
+                                วันที่เริ่มใช้งาน :<span style="color: red; ">&nbsp*</span>
+                                <input name="date_n_amt" type="date" id="date_n_amt" class="inbox" value="<?= $p['date_n_amt']; ?>"/>
+                            </div>
+                            <div class="col-4 min2">
+                                สินค้าคงคลังขั้นต่ำ :<span style="color: red; ">&nbsp*</span>
+                                <input name="notification_amt2" type="text" id="notification_amt2" class="inbox"
+                                       value="<?= $p['notification_amt2']; ?>"/>
+                            </div>
+                        </div>
+        </div>
+        <br>
+        </th>
+        </tr>
+        </table>
+        <div class="row btn-g">
+            <div class="col-2">
+                <button type="button" onclick="window.location= 'productresult.php'" class="btn-c reset">ยกเลิก</button>
             </div>
-            <br>
-            </th>
-            </tr>
-            </table>
-            <div class="row btn-g">
-                <div class="col-2">
-                    <button type="button" onclick="window.location= 'productresult.php'" class="btn-c reset">ยกเลิก</button>
-                </div>
-                <div class="col-2">
-                    <input type="submit" class="btn-c submit" value="บันทึก" />
-                </div>
+            <div class="col-2">
+                <input type="submit" class="btn-c submit" value="บันทึก"/>
             </div>
         </div>
-        </div>
-    </form>
+    </div>
+</form>
 </body>
 <script src="./src/js/editproduct.js"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         if (<?= $p['set_n_amt'] ?> == 0) {
             $('#post').hide()
         } else {

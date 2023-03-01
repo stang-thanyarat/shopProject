@@ -26,20 +26,20 @@ function getFullRole($role)
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/costprice.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" integrity="sha512-sW/w8s4RWTdFFSduOTGtk4isV1+190E/GghVffMA9XczdJ2MDzSzLEubKAs5h0wzgSJOQTRYyaz73L3d6RtJSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
-
-
+    <style type="text/css">
+        #ChartTable {
+            width: 80%;
+            margin: auto;
+        }
+    </style>
 </head>
 <?php
 include_once('nav.php');
-include_once "./database/CostPrice.php";
 include_once "./database/Product.php";
-$costprice = new CostPrice();
 $product = new Product();
 $category = new Category();
 $p = $product->fetchById($_GET['id']);
 $c = $product->fetchByCategoryName($_GET['id']);
-$pp = $costprice->fetchByProductId($_GET['id']);
 ?>
 
 <body>
@@ -77,8 +77,6 @@ $pp = $costprice->fetchByProductId($_GET['id']);
             <!-- กราฟ-->
             <p>
             <p>
-            <h6>จำนวน</h6>
-            <h3 class="tt">ยอดขายสินค้า</h3>
             <div id="ChartTable"></div>
         </div>
     </div>

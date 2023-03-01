@@ -77,11 +77,8 @@ input:checked+.slider:before {
     margin-left: 10rem;
 }
 
-.row {
-    margin-bottom: 2rem;
-}
-
 .btn-g {
+    margin-top: 2rem;
     width: 100%;
     justify-content: end;
     display: flex;
@@ -169,7 +166,8 @@ option {
 }
 
 .leftposition {
-    margin-left: 0rem;
+    margin-top: 2rem;
+    margin-left: 3.5rem;
 }
 
 .g {
@@ -187,10 +185,6 @@ option {
     color: red;
     margin-left: 7.6rem;
     margin-top: -1.9rem;
-}
-
-.leftposition {
-    margin-left: -2.4rem;
 }
 
 .j {

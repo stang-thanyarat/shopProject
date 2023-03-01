@@ -45,7 +45,7 @@ $rows = $category->fetchAll();
             <div class="row main">
                 <div class="col-12">
                     <h1>รายการสินค้าทั้งหมด</h1>
-            <div class="row d-flex justify-content-end" style="margin-right: 1rem;">
+            <div class="row d-flex justify-content-end">
                 <div class="col-2 d-flex justify-content-end" >
                     <select name="category_id" id="category_id" class="g" required>
                         <option value="all" selected>&nbsp;&nbsp;&nbsp;สินค้าทั้งหมด</option>
