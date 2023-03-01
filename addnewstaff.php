@@ -130,7 +130,7 @@ function getFullRole($role)
                             </div>
                             <div class="col leftaddress">
                                 ที่อยู่ :<span style="color: red; ">&nbsp*</span>
-                                <textarea name="employee_address" id="employee_address" type="text" cols="40" rows="5" class="cc" style="vertical-align:top;" required></textarea>
+                                <textarea name="employee_address" id="employee_address" type="text" cols="22" rows="4" class="cc" style="vertical-align:top;" required></textarea>
                             </div>
 
                             <div class="row">

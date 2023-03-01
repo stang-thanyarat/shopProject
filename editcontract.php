@@ -33,8 +33,7 @@ include_once "database/Employee.php";
 include_once './service/datetimeDisplay.php';
 $contract = new Contract();
 $c = $contract->fetchById($_GET['id']);
-$employee = new Employee();
-$laber = $employee->fetchLabers();
+$laber = $contract->fetchByemployee($_GET['id']);
 
 
 ?>
@@ -52,34 +51,17 @@ $laber = $employee->fetchLabers();
                 </div>
                 <div class="row">
                     <div class="col no">
-                        ฉบับที่ :
-                        <b class="bbb"><?= $c['contract_code']; ?></b>
-                    </div>
+                        ฉบับที่ : <b class="bb"><?= $c['contract_code']; ?></b></div>
                     <div class="col datec">
                         วันที่ทำสัญญา :
                         <b class="bbb"><?= dateTimeDisplay($c['date_contract']) ?></b>
                     </div>
                 </div>
-                <div class="row-3 xx">ข้าพเจ้า <select name="employee_id" id="employee_id" class="bbb" style="background-color: #D4DDC6;" required>
-                        <option value="all" selected hidden>เลือกเจ้าของร้าน</option>
-                        <?php $count = 1;
-                        foreach ($laber as $s) {
-                            $count++; ?>
-                            <option value="<?= $s['employee_id']; ?>" <?= $s['employee_id'] == $s['employee_id'] ? "selected" : '' ?>><?= $s['employee_prefix'] ?><?= $s['employee_firstname'] ?>
-                                &nbsp&nbsp<?= $s['employee_lastname'] ?></option>
-                        <?php } ?>
-                    </select> &nbsp;ซึ่งต่อไปในหนังสือสัญญานี้เรียกว่าผู้ขายฝ่ายหนึ่งกับ
+                <div class="row-3 xx">ข้าพเจ้า : <b class="bb" id="employee_id"><?= $laber['employee_prefix'] ?><?= $laber['employee_firstname'] ?>&nbsp&nbsp<?= $laber['employee_lastname'] ?></b>
+                &nbsp; &nbsp; &nbsp; ซึ่งต่อไปในหนังสือสัญญานี้เรียกว่าผู้ขายฝ่ายหนึ่งกับ
                 </div>
                 <div class="row">
-                    <div class="col customerp">ข้าพเจ้า :
-                        <select name="customer_prefix" id="customer_prefix" style="background-color: #D4DDC6;" class="bb" required>
-                            <option value="เลือกคำนำหน้า" selected hidden>เลือกคำนำหน้า</option>
-                            <option value="นาย" <?= $c['customer_prefix'] == "นาย" ? "selected" : '' ?>>นาย</option>
-                            <option value="นาง" <?= $c['customer_prefix'] == "นาง" ? "selected" : '' ?>>นาง</option>
-                            <option value="นางสาว" <?= $c['customer_prefix'] == "นางสาว" ? "selected" : '' ?>>นางสาว
-                            </option>
-                        </select>
-                        <div class="e">*</div>
+                    <div class="col customerp">ข้าพเจ้า : <b class="bb"><?= $c['customer_prefix']; ?></b>
                     </div>
                     <div class=" col namec">ชื่อ : <input type="text" name="customer_firstname" id="customer_firstname" class="bb" value="<?= $c['customer_firstname']; ?>" required />
                         <div class="f">*</div>
@@ -89,16 +71,14 @@ $laber = $employee->fetchLabers();
                     <div class="col lastc">นามสกุล : <input type="text" name="customer_lastname" id="customer_lastname" class="bb" value="<?= $c['customer_lastname']; ?>" required />
                         <div class="g">*</div>
                     </div>
-                    <div class="col idcard">รหัสบัตรประชาชน : <input type="text" name="customer_img" id="customer_img" class="bb" value="<?= $c['customer_img']; ?>" required />
-                        <div class="h">*</div>
+                    <div class="col idcard">รหัสบัตรประชาชน : <b class="bb"><?= $c['customer_img']; ?></b>
                     </div>
                 </div>
 
                 <div class="row xxx">ซึ่งต่อไปในหนังสือสัญญานี้เรียกว่าผู้ซื้อฝ่ายหนึ่งทั้งสองฝ่ายตกลงทำสัญญาซื้อขายทรัพย์สินมีดังข้อความต่อไปนี้
                 </div>
                 <div class="col ct">
-                    ข้อ 1 ผู้ขายได้ขาย : <span style="color: red; ">&nbsp*&nbsp&nbsp&nbsp&nbsp</span>
-                        <textarea id="product_detail" name="product_detail" cols="50" rows="5" style="vertical-align:top;"><?= $c['product_detail']; ?></textarea>
+                    ข้อ 1 ผู้ขายได้ขาย : <b class="bb"><?= $c['product_detail']; ?></b>
                 </div>
                 <div class="row-1 xxx">ให้แก่ผู้ซื้อเป็นจำนวนเงิน <b class="baht"><?= $c['baht']; ?></b> บาท <b class="stang"><?= $c['baht']; ?></b> สตางค์ (&nbsp;<b class="stangt"><?= $c['stangt']; ?></b>&nbsp;)
                 </div>
