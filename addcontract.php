@@ -31,6 +31,7 @@ function getFullRole($role)
 <?php include_once('nav.php');
 include_once "./database/Employee.php";
 include_once "./database/Contract.php";
+include_once "./service/datetimeDisplay.php";
 $contract = new Contract();
 $employee = new Employee();
 $laber = $employee->fetchLabers();
@@ -71,14 +72,11 @@ if (isset($_GET['cardID'])) {
                 </div>
                 <div class="row">
                     <div class="col no">
-                        ฉบับที่ :
-                        <input type="text" name="contract_code" id="contract_code" class="bb" value="<?= count($contract->fetchAll()) + 1 ?>" />
-                        <div class="a">*</div>
+                        ฉบับที่ : <b class="bb"></b><?= count($contract->fetchAll()) + 1 ?></b>
                     </div>
                     <div class="col datec">
                         วันที่ทำสัญญา :
                         <input type="date" name="date_contract" id="date_contract" value="<?= date('Y-m-d') ?>" class="bb" required />
-                        
                     </div>
                 </div>
                 <div class="row-3 xx">ข้าพเจ้า : <select name="employee_id" id="employee_id" class="bb" style="background-color: #D4DDC6;" required>
@@ -124,17 +122,17 @@ if (isset($_GET['cardID'])) {
                     <div class="col lastc">นามสกุล : <input type="text" name="customer_lastname" value="<?= $lastname ?>" id="customer_lastname" class="bb" required />
                         <div class="g">*</div>
                     </div>
-                    <div class="col idcard">รหัสบัตรประชาชน : <input type="text" name="customer_img" value="<?= $cardId ?>" id="customer_img" class="bb" required />
+                    <div class="col idcard">รหัสบัตรประชาชน : <input type="text" name="customer_img" value="<?= $cardId ?>" id="customer_img" class="bb" onkeyup="autoTab(this)"  required />
                         <div class="h">*</div>
                     </div>
                 </div>
                 <div class="row xxx">ซึ่งต่อไปในหนังสือสัญญานี้เรียกว่าผู้ซื้อฝ่ายหนึ่งทั้งสองฝ่ายตกลงทำสัญญาซื้อขายทรัพย์สินมีดังข้อความต่อไปนี้
                 </div>
                 <div class="col ct">
-                    ข้อ 1 ผู้ขายได้ขาย : <span style="color: red; ">&nbsp*&nbsp&nbsp&nbsp&nbsp
-                        <textarea id="product_detail" name="product_detail" cols="50" rows="5" style="vertical-align:top;"></textarea>
+                    ข้อ 1 ผู้ขายได้ขาย : 
+                        <textarea id="product_detail" class="bb" name="product_detail" cols="50" rows="5" style="vertical-align:top;" readonly></textarea>
                 </div>
-                <div class="row-1 xxx">ให้แก่ผู้ซื้อเป็นจำนวนเงิน <input type="text" name="baht" id="baht" class="baht"/> บาท <input type="text" name="stang" id="stang" class="stang" /> สตางค์ (&nbsp;<input type="text" name="stangt" id="stangt" class="stangt" />&nbsp;)
+                <div class="row-1 xxx">ให้แก่ผู้ซื้อเป็นจำนวนเงิน <input type="text" name="baht" id="baht" class="baht" readonly/> บาท <input type="text" name="stang" id="stang" class="stang" readonly/> สตางค์ (&nbsp;<input type="text" name="stangt" id="stangt" class="stangt" readonly/>&nbsp;)
                 </div>
                 <div class="col-11 xxx">และยอมส่งมอบทรัพย์สินที่ขายให้แก่ผู้ซื้อวันที่&nbsp;<span>&nbsp;<input type="date" value="<?= date('Y-m-d') ?>" name="date_send" id="date_send" required></span>
                     และผู้ขายได้รับราคาดังกล่าวแล้วไปจากผู้ซื้อเสร็จแล้วตั้งแต่วันที่<span class="z">*</span>&nbsp;<span>&nbsp;<input type="date" value="<?= date('Y-m-d') ?>" id="price_send" name="price_send"></span></div>

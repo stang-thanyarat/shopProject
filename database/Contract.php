@@ -64,6 +64,25 @@ class Contract
         }
     }
 
+    public function fetchByemployee($id)
+    {
+        try {
+            $sql = "SELECT C.*,E.* FROM contract_tb C, employee_tb E WHERE C.employee_id = E.employee_id AND C.contract_code = ?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
+    }
+
     public function getLastId()
     {
         try{

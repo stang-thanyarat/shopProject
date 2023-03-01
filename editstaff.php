@@ -32,6 +32,7 @@ function getFullRole($role)
 include_once('nav.php');
 include_once('database/Employee.php');
 include_once('database/Employeebank.php');
+include_once ('./service/datetimeDisplay.php');
 $employee = new Employee();
 $e = $employee->fetchById($_GET['id']);
 $employeeBank = new Employeebank();
@@ -76,18 +77,10 @@ for ($i = 0; $i < count($banks); $i++) {
                         <th>
                             <div class="row">
                                 <div class="col-4 leftmodel">
-                                    <label for="employee_model">รูปแบบพนักงาน :</label>
-                                    <select name="employee_model" id="employee_model" class="margin" style="background-color: #D4DDC6;" required>
-                                        <option value="พนักงานประจำ" <?= $e['employee_model'] == "พนักงานประจำ" ? "selected" : '' ?>>พนักงานประจำ</option>
-                                        <option value="พนักงานรายวัน" <?= $e['employee_model'] == "พนักงานรายวัน" ? "selected" : '' ?>>พนักงานรายวัน</option>
-                                        <option value="พนักงานชั่วคราว" <?= $e['employee_model'] == "พนักงานชั่วคราว" ? "selected" : '' ?>>พนักงานชั่วคราว</option>
-                                    </select>
-                                    <div class="a">*</div>
+                                    <label for="employee_model">รูปแบบพนักงาน :</label><b class="bb"><?= $e['employee_model']; ?></b>
                                 </div>
                                 <div class="col-4 leftstartwork">
-                                    <label for="employee_startwork_dt">วันที่เข้าทำงาน :</label>
-                                    <input type="date" name="employee_startwork_dt" value="<?= $e['employee_startwork_dt']; ?>" id="employee_startwork_dt" class="bb" required />
-                                    <div class="q">*</div><br>
+                                    <label for="employee_startwork_dt">วันที่เข้าทำงาน :</label><b class="bb"><?= toDay($e['employee_startwork_dt']); ?></b>
                                 </div>
                             </div>
                             <br>
@@ -99,13 +92,7 @@ for ($i = 0; $i < count($banks); $i++) {
                     <tr>
                         <th>
                             <div class="row-4 ma">
-                                <label for="employee_prefix">คำนำหน้าชื่อ : </label>
-                                <select name="employee_prefix" id="employee_prefix" class="margin" style="background-color: #D4DDC6;" required>
-                                    <option value="นาย" <?= $e['employee_prefix'] == "นาย" ? "selected" : '' ?>>นาย</option>
-                                    <option value="นาง" <?= $e['employee_prefix'] == "นาง" ? "selected" : '' ?>>นาง</option>
-                                    <option value="นางสาว" <?= $e['employee_prefix'] == "นางสาว" ? "selected" : '' ?>>นางสาว</option>
-                                </select>
-                                <div class="b">*</div>
+                                <label for="employee_prefix">คำนำหน้าชื่อ : </label><b class="bb"><?= $e['employee_prefix']; ?></b>
                             </div>
                             <div class="row">
                                 <div class="col leftname">
@@ -121,14 +108,10 @@ for ($i = 0; $i < count($banks); $i++) {
                             </div>
                             <div class="row">
                                 <div class="col leftidcardnumber">
-                                    <label for="employee_card_id">เลขบัตรประชาชน :</label>
-                                    <input name="employee_card_id" type="text" value="<?= $e['employee_card_id']; ?>" id=employee_card_id onkeyup="autoTab(this)" class="bb" required />
-                                    <div class="e">*</div>
+                                    <label for="employee_card_id">เลขบัตรประชาชน :</label><b class="bb"><?= toDay($e['employee_card_id']); ?></b>
                                 </div>
                                 <div class="col leftbirthday">
-                                    <label for="employee_birthday">วันเกิด :</label>
-                                    <input type="date" name="employee_birthday" value="<?= $e['employee_birthday']; ?>" id="employee_birthday" class="bb" required />
-                                    <div class="f">*</div><br>
+                                    <label for="employee_birthday">วันเกิด :</label><b class="bb"><?= toDay($e['employee_birthday']); ?></b>
                                 </div>
                             </div>
                         </th>
@@ -151,8 +134,8 @@ for ($i = 0; $i < count($banks); $i++) {
                                 </div>
                             </div>
                             <div class="col leftaddress">
-                                ที่อยู่ :<font color="red">&nbsp*</font>
-                                <textarea name="employee_address" id="employee_address" cols="40" rows="5" class="cc" style="vertical-align:top;" type="text" required><?= $e['employee_address']; ?></textarea>
+                                ที่อยู่ :<span style="color: red; ">&nbsp*</span>
+                                <textarea name="employee_address" id="employee_address" cols="22" rows="4" class="cc" style="vertical-align:top;" type="text" required><?= $e['employee_address']; ?></textarea>
                             </div>
                             <div class="row">
                                 <div class="col leftn">สำเนาบัตรประชาชน :

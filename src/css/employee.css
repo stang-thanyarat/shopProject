@@ -135,7 +135,7 @@ select {
 .btn-d {
     border-radius: 25px 25px 25px 25px;
     background-color: #F8E4C8;
-    margin-left: 9rem;
+    margin-left: 7.5rem;
     font-size: 16pt;
     height: 90%;
 }
@@ -145,6 +145,7 @@ select {
     font-size: 16pt;
     height: 90%;
     width: 70%;
+    margin-left: 0.5rem;
 }
 
 .s {
