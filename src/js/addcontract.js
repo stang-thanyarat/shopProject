@@ -44,14 +44,39 @@ function validateForm() {
 }
 
 //บัตรประชาชน
+function autoTab(obj) {
+    var pattern = new String("_____________"); // กำหนดรูปแบบในนี้
+    var pattern_ex = new String("-"); // กำหนดสัญลักษณ์หรือเครื่องหมายที่ใช้แบ่งในนี้
+    var returnText = new String("");
+    var obj_l = obj.value.length;
+    var obj_l2 = obj_l - 1;
+    for (i = 0; i < pattern.length; i++) {
+        if (obj_l2 == i && pattern.charAt(i + 1) == pattern_ex) {
+            returnText += obj.value + pattern_ex;
+            obj.value = returnText;
+        }
+    }
+    if (obj_l >= pattern.length) {
+        obj.value = obj.value.substr(0, pattern.length);
+    }
+    let id = document.form3.keyword.value.split(/ /)[0].replace(/[^\d]/g, '')
+}
 
+//เช็คเลข13หลัก
 function checkID(id) {
+    //alert(id);
+    id = id.replace(/-/g, "");
+    //alert(id);
     if (id.length != 13) return false;
-    for (i = 0, sum = 0; i < 12; i++)
-        sum += parseFloat(id.charAt(i)) * (13 - i);
-    if ((11 - sum % 11) % 10 != parseFloat(id.charAt(12)))
-        return false;
-    return true;
+    for (i = 0, sum = 0; i < 12; i++) {
+        sum += parseInt(id.charAt(i)) * (13 - i);
+    }
+    let mod = sum % 11;
+    let check = (11 - mod) % 10;
+    if (check == parseInt(id.charAt(12))) {
+        return true;
+    }
+    return false;
 }
 
 async function loopInsert() {
@@ -103,7 +128,12 @@ async function loopInsert() {
 $("#form1").submit(async function (event) {
     event.preventDefault();
     if (!checkID(document.form1.customer_img.value)) {
-        alert('ระบุหมายเลขประจำตัวประชาชนไม่ถูกต้อง');
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'ระบุหมายเลขประจำตัวประชาชนไม่ถูกต้อง',
+            timer: 3000
+        })
         return
     } else {
         event.preventDefault();

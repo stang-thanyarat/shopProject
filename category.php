@@ -55,7 +55,7 @@ $rows = $category->fetchAll();
                         <th width=8%>ลำดับ</th>
                         <th width=54%>ประเภทสินค้า</th>
                         <th width=15%>รายการทั้งหมด</th>
-                        <th width=15%>รายการที่ขาย</th>
+                        <th width=15%>รายการที่ปิดการขาย</th>
                         <th width=8%><img src="./src/images/edit.png" width="25"></th>
                     </tr>
                 </thead>

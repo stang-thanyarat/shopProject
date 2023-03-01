@@ -5,22 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addorder.php" beforeDir="false" afterPath="$PROJECT_DIR$/addorder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/controller/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Sales.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Sales.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/editconfirm.php" beforeDir="false" afterPath="$PROJECT_DIR$/editconfirm.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/editconfirm2.php" beforeDir="false" afterPath="$PROJECT_DIR$/editconfirm2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repay.php" beforeDir="false" afterPath="$PROJECT_DIR$/repay.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/salehistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/salehistory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/PDF/template/budget.php" beforeDir="false" afterPath="$PROJECT_DIR$/service/PDF/template/budget.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addnewstaff.php" beforeDir="false" afterPath="$PROJECT_DIR$/addnewstaff.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/category.php" beforeDir="false" afterPath="$PROJECT_DIR$/category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/costprice.php" beforeDir="false" afterPath="$PROJECT_DIR$/costprice.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/editstaff.php" beforeDir="false" afterPath="$PROJECT_DIR$/editstaff.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/employee.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/addnewstaff.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/addnewstaff.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/addproduct.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/addproduct.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/budget.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/budget.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/editproduct.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/editproduct.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/editstaff.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/editstaff.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/employee.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/employee.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/salessummary.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/salessummary.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/addorder.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/addorder2.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/js/addorder3.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/addorder3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/confirm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/confirm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/confirm2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/confirm2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/costprice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/costprice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/employee.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/employee.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/js/productresult.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/productresult.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +50,8 @@
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/mpdf/mpdf" />
-      <path value="$PROJECT_DIR$/vendor/setasign/fpdi" />
       <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/setasign/fpdi" />
     </include_path>
   </component>
   <component name="ProjectId" id="2EFEuTYXbW9aeFHqtvMflcfb2C5" />
@@ -146,6 +149,7 @@
       <workItem from="1676645222355" duration="594000" />
       <workItem from="1676767471201" duration="13046000" />
       <workItem from="1676795177999" duration="16203000" />
+      <workItem from="1677512302493" duration="1412000" />
     </task>
     <servers />
   </component>

@@ -77,8 +77,8 @@ $pp = $costprice->fetchByProductId($_GET['id']);
             <!-- กราฟ-->
             <p>
             <p>
-            <h6>จำนวน</h6>
-            <h3 class="tt">ยอดขายสินค้า</h3>
+            <h6>วันที่ซื้อ</h6>
+            <h3 class="tt">ราคาทุน</h3>
             <div id="ChartTable"></div>
         </div>
     </div>

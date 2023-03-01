@@ -135,22 +135,28 @@ th {
 .change {
     margin-top: 1rem;
     margin-left: 2.5rem;
-    font-size: 16pt;
 }
 
+.fo{
+    font-size: 20pt;
+}
+
+.mt {
+    margin-top: 1rem;
+    margin-left: 3.2rem;
+}
 .re {
     width: 30%;
     text-align: right;
 }
 
 .inbox {
-    margin-left:2rem;
-    
+    margin-left:2rem; 
 }
 
 .inbox1 {
-    margin-left:4.5rem;
-    
+    margin-left: -3.5rem;
+    margin-top: 1rem;   
 }
 
 .exp {

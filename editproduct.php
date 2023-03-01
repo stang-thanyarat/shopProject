@@ -43,8 +43,8 @@ if (!isset($_GET['id'])) {
     redirection('/productresult.php');
 }
 $p = $product->fetchById($_GET['id']);
-$rows = $category->fetchAll();
-$sells = $sell->fetchAll();
+$rows = $product->fetchcate($_GET['id']);
+$sells = $product->fetchsell($_GET['id']);
 $c = $costprice->fetchById($_GET['id']);
 //เริ่มทำแก้ไข//
 ?>
@@ -77,13 +77,7 @@ $c = $costprice->fetchById($_GET['id']);
                         <th>
                             <div class="row a">
                                 <div class="col-4">
-                                    ประเภทสินค้า :<span style="color: red; ">&nbsp*</span>
-                                    <select name="category_id" id="category_id"  class="inbox" style="background-color: #D4DDC6;" required>
-                                        <option value="" selected hidden>เลือกประเภทสินค้า</option>
-                                        <?php foreach ($rows as $row) { ?>
-                                            <option  value="<?= $row['category_id'] ?>" <?= $p['category_id'] == $row['category_id'] ? "selected" : '' ?> ><?=  $row['category_name'] ?></option>
-                                        <?php } ?>
-                                    </select>
+                                    ประเภทสินค้า : <b class="bb"><?= $rows['category_name']; ?></b>
                                 </div>
                                 <!--<div class="col productnumber ">
                                     รหัสสินค้า :&nbsp&nbsp
@@ -93,27 +87,18 @@ $c = $costprice->fetchById($_GET['id']);
                             </div>
                             <div class="row a">
                                 <div class="col-4 productname">
-                                    ชื่อสินค้า :<span style="color: red; ">&nbsp*</span>
-                                    <input name="product_name" type="text" id="product_name" class="inbox" value="<?= $p['product_name']; ?>" required />
+                                    ชื่อสินค้า : </span><b class="bb"><?= $p['product_name']; ?></b>
                                 </div>
                                 <div class="col-4 sellername">
-                                    ชื่อผู้ขาย :<span style="color: red; ">&nbsp*</span>
-                                    <select name="sell_id" id="sell_id" class="inbox" style="background-color: #D4DDC6;" required>
-                                        <option value="allsell" selected hidden>เลือกผู้ขาย</option>
-                                        <?php foreach ($sells as $s) { ?>
-                                            <option value="<?= $s['sell_id'] ?>" <?= $p['sell_id'] == $s['sell_id'] ? "selected" : '' ?>><?= $s['sell_name'] ?></option>
-                                        <?php } ?>
-                                    </select>
+                                    ชื่อผู้ขาย : <b class="bb"><?= $sells['sell_name']; ?></b>
                                 </div>
                             </div>
                             <div class="row a">
                                 <div class="col-4 productversion">
-                                    รุ่นสินค้า :&nbsp&nbsp&nbsp
-                                    <input name="model" type="text" id="model" class="inbox" value="<?= $p['model']; ?>" />
+                                    รุ่นสินค้า : </span><b class="bb"><?= $p['model']; ?></b>
                                 </div>
                                 <div class="col-4 brand">
-                                    ยี่ห้อสินค้า :&nbsp&nbsp
-                                    <input name="brand" type="text" id="brand" class="inbox" value="<?= $p['brand']; ?>" />
+                                    ยี่ห้อสินค้า : </span><b class="bb"><?= $p['brand']; ?></b>
                                 </div>
                             </div>
                             <div class="row a">
@@ -147,17 +132,7 @@ $c = $costprice->fetchById($_GET['id']);
                             </div>
                             <div class="row a">
                                 <div class="col-5 unit">
-                                    หน่วยนับ :<span style="color: red; ">&nbsp*</span>
-                                    <select name="product_unit" id="product_unit" class="inbox" style="background-color: #D4DDC6;" required>
-                                        <option value="ซอง" <?= $p['product_unit'] == "ซอง" ? "selected" : '' ?>>ซอง</option>
-                                        <option value="ขวด" <?= $p['product_unit'] == "ขวด" ? "selected" : '' ?>>ขวด</option>
-                                        <option value="ชิ้น" <?= $p['product_unit'] == "ชิ้น" ? "selected" : '' ?>>ชิ้น</option>
-                                        <option value="กล่อง" <?= $p['product_unit'] == "กล่อง" ? "selected" : '' ?>>กล่อง</option>
-                                        <option value="เครื่อง" <?= $p['product_unit'] == "เครื่อง" ? "selected" : '' ?>>เครื่อง</option>
-                                        <option value="ถุง" <?= $p['product_unit'] == "ถุง" ? "ถุง" : '' ?>>ถุง</option>
-                                        <option value="กระสอบ" <?= $p['product_unit'] == "กระสอบ" ? "selected" : '' ?>>กระสอบ</option>
-                                    </select>
-
+                                    หน่วยนับ :<b class="bb"><?= $p['product_unit']; ?></b>
                                 </div>
                                 <div class="col-4 price">
                                     ราคาขาย :<span style="color: red; ">&nbsp*</span>

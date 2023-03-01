@@ -74,7 +74,7 @@ if (isset($_GET['keyword'])) {
                     </tr>
                     <?php foreach ($rows as $e) { ?>
                         <tr>
-                            <th><?= $e['employee_firstname'] . " " . $e['employee_lastname']; ?></th>
+                            <th style="text-align: left;">&nbsp<?= $e['employee_firstname'] . " " . $e['employee_lastname']; ?></th>
                             <th><?= $e['employee_card_id']; ?></th>
                             <th><?= $e['employee_telephone']; ?></th>
                             <th><a href="<?= $e['employee_card_id_copy']; ?>">ดู</a></th>

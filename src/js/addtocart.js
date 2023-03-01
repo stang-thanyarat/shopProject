@@ -280,22 +280,20 @@ $("#search").click(async function () {
         url += `?keyword=${$("#keyword").val("")}`
     }
     const keyword = await (await fetch(url)).json()
-    if (!checkID(document.form3.keyword.value)) {
-        Swal.fire({
-            icon: 'warning',
-            title: 'คำเตือน',
-            text: 'ระบุหมายเลขประจำตัวประชาชนไม่ถูกต้อง',
-            timer: 3000
-        })
-        return
-    } else {
-        if (keyword.length > 0) {
-            setU(keyword)
-        } else {
-            $('#salestocontracttable').html('<br><center><h3>ไม่พบรายการการผ่อนชำระ</h3></center>')
-            $('#next-add').attr("href", './addcontract.php')
-        }
-    }
+     if (keyword.length > 0) {
+        setU(keyword)
+    } else if ((document.form3.keyword.value).length == 13 && keyword.length <= 0) {
+        $('#salestocontracttable').html('<br><center><h3>ไม่พบรายการการผ่อนชำระ</h3></center>')
+        $('#next-add').attr("href", './addcontract.php')
+    } else if (!checkID(document.form3.keyword.value)) {
+         Swal.fire({
+             icon: 'warning',
+             title: 'คำเตือน',
+             text: 'ระบุหมายเลขประจำตัวประชาชนไม่ถูกต้อง',
+             timer: 3000
+         })
+         return
+     }
 });
 
 //ส่วนแสดงผลข้อมูลลูกค้า
