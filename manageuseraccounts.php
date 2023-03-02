@@ -25,7 +25,7 @@ function getFullRole($role)
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/manageuseraccounts.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    
+
 </head>
 <?php include_once('nav.php'); ?>
 
@@ -43,7 +43,7 @@ function getFullRole($role)
                     <div class="col-3 c">
                         <label for="account_user_type">ตำแหน่ง :</label>
                         <select name="account_user_type" id="account_user_type" style="background-color: #D4DDC6;">
-                            <option value="position" >บุคลากรทั้งหมด</option>
+                            <option value="position">บุคลากรทั้งหมด</option>
                             <option value="L">เจ้าของร้าน</option>
                             <option value="E">พนักงาน</option>
                         </select>
@@ -57,22 +57,22 @@ function getFullRole($role)
                     </div>
                 </div>
                 <div class="useraccountTable">
-                <h3 style="text-align: center; margin-top: 9rem;margin-bottom: 9rem;" id="no-let">ไม่พบข้อมูล</h3>
-                <table class="col-11 ma" id="tb-let">
-                    <tr>
-                        <th>ลำดับ</th>
-                        <th>ชื่อ</th>
-                        <th>นามสกุล</th>
-                        <th>ตำแหน่ง</th>
-                        <th>สถานะการใช้งาน</th>
-                        <th><img src="./src/images/edit.png" width="25"></th>
-                    </tr>
-                    <tbody id='useraccountTable'></tbody>
-                </table>
-            </div>
+                    <h3 style="text-align: center; margin-top: 9rem;margin-bottom: 9rem;" id="no-let">ไม่พบข้อมูล</h3>
+                    <table class="col-11 ma" id="tb-let">
+                        <tr>
+                            <th>ลำดับ</th>
+                            <th>ชื่อ</th>
+                            <th>นามสกุล</th>
+                            <th>ตำแหน่ง</th>
+                            <th>สถานะการใช้งาน</th>
+                            <th><img src="./src/images/edit.png" width="25"></th>
+                        </tr>
+                        <tbody id='useraccountTable'></tbody>
+                    </table>
+                </div>
             </div>
         </div>
-         
+
         <!-- ลบ -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">

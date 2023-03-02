@@ -3,7 +3,7 @@ $("#search").click(async function () {
         let url = `./controller/SalesGraph.php?category_id=${$("#category_id").val()}&date=${$("#date").val()}&limit=${$("#limit").val()}`
         const product = await (await fetch(url)).json()
         setUI(product)
-    }else if ($("#category_id").val() == "all" && $("#limit").val() !== "" && $("#date").val() !== "") {
+    } else if ($("#category_id").val() == "all" && $("#limit").val() !== "" && $("#date").val() !== "") {
         let url = `./controller/SalesGraph.php?&date=${$("#date").val()}&limit=${$("#limit").val()}`
         const product = await (await fetch(url)).json()
         setUI(product)

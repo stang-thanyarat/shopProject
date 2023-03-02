@@ -6,29 +6,29 @@
 
 }
 
-.main{
+.main {
     margin-top: 5rem;
     margin-left: 4rem;
     margin-bottom: 4rem;
 }
 
-.tablesearch{
+.tablesearch {
     margin-top: 5rem;
     margin-left: 2rem;
     margin-bottom: 4rem;
 }
 
-.notification{
+.notification {
     text-align: center;
-    margin-top:9rem;
-    margin-bottom:9rem;
+    margin-top: 9rem;
+    margin-bottom: 9rem;
 }
 
-.Nbar{
+.Nbar {
     margin-top: 3.5rem;
 }
 
-.row{
+.row {
     --bs-gutter-x: 0rem;
 }
 
@@ -48,7 +48,8 @@ table {
 th {
     height: 50px;
 }
-.btnd{
+
+.btnd {
     margin-top: 2rem;
     background-color: #F8E4C8;
     border-radius: 25px;
@@ -56,17 +57,17 @@ th {
     width: 25%;
 }
 
-.s{
+.s {
     background: transparent;
     border: 0px;
     margin-left: -2rem;
 }
 
-.h{
+.h {
     background-color: #ABBE99;
 }
 
-.BTN{
+.BTN {
     color: #A36627;
     background-color: #fff;
     border: 0px;

@@ -1,8 +1,3 @@
-async function setStatus(id) {
-    const status = $("#S" + id).is(':checked');
-    console.log(await (await fetch(`./controller/SetEmployeeStatus.php?status=${status}&id=${id}`)))
-}
-
 function Submit() {
     Swal.fire({
         title: 'คำเตือน',
@@ -15,7 +10,7 @@ function Submit() {
         cancelButtonText: 'ยกเลิก'
     }).then(async (result) => {
         if (result.isConfirmed) {
-            await fetch('contractsetting.php', {
+            await fetch('changeproduct.php', {
                 method: 'POST',
                 body: new FormData(form1),
             })
@@ -32,4 +27,3 @@ function Submit() {
         }
     })
 }
-

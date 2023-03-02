@@ -58,7 +58,6 @@ class Budget
                     return $result;
                 }
             }*/
-
         } catch (Exception $e) {
             http_response_code(500);
             echo strval($e);
@@ -103,7 +102,6 @@ class Budget
                     return $result;
                 }
             }*/
-
         } catch (Exception $e) {
             http_response_code(500);
             echo strval($e);
@@ -215,7 +213,7 @@ class Budget
             }
             $complete = 0;
             foreach ($result as $rowsss) {
-                if ($rowsss['order_status'] == 0 ) {
+                if ($rowsss['order_status'] == 0) {
                     $complete += $rowsss['all_price_odr'];
                 }
             }
@@ -230,7 +228,6 @@ class Budget
             http_response_code(500);
             echo strval($e);
         }
-
     }
 
     public function fetchBetweenOrder2()
@@ -258,7 +255,7 @@ class Budget
             }
             $complete = 0;
             foreach ($result as $rowsss) {
-                if ($rowsss['order_status'] == 0 ) {
+                if ($rowsss['order_status'] == 0) {
                     $complete += $rowsss['all_price_odr'];
                 }
             }
@@ -273,7 +270,6 @@ class Budget
             http_response_code(500);
             echo strval($e);
         }
-
     }
 
 
@@ -292,7 +288,7 @@ class Budget
             $object->BG1 = $Allprice1;
             $object->result = $result;
             return $object;
-             /*if (!$result) {
+            /*if (!$result) {
                 return [];
             } else {
                 if (!$result) {
@@ -307,4 +303,3 @@ class Budget
         }
     }
 }
-

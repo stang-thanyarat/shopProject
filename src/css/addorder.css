@@ -41,8 +41,8 @@ th {
 
 }
 
-.pr{
-margin-left: 1.2rem;
+.pr {
+    margin-left: 1.2rem;
 }
 
 .btn-g {
@@ -121,7 +121,7 @@ margin-left: 1.2rem;
     margin-top: 2rem;
 }
 
-.inbox3{
+.inbox3 {
     width: 20%;
     background-color: #D4DDC6;
 }
@@ -211,11 +211,11 @@ margin-left: 1.2rem;
     margin-top: 1rem;
 }
 
-.listother{
+.listother {
     margin-left: 2rem;
 }
 
-.priceother{
+.priceother {
     margin-left: 3rem;
 }
 

@@ -1,6 +1,6 @@
 $(document).ready(function () {
     localStorage.clear()
-    localStorage.setItem("tableBank", JSON.stringify({data: []}))
+    localStorage.setItem("tableBank", JSON.stringify({ data: [] }))
 });
 
 //ตรวจสอบพร้อมส่งข้อมูล

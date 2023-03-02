@@ -100,5 +100,3 @@ Class Customer{
         }
     }
 }
-
-?>

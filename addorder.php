@@ -25,7 +25,7 @@ function getFullRole($role)
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/addorder.css" />
 
-    
+
 </head>
 
 <?php
@@ -166,7 +166,7 @@ $product = $product->fetchAll();
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">เพิ่มสินค้า</h5>
-                        <button type="button" class="close" id="addclose" data-bs-dismiss="modal" aria-label="Close">
+                        <button type="button" id="addclose" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -203,7 +203,7 @@ $product = $product->fetchAll();
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">แก้ไขสินค้า</h5>
-                        <button type="button" class="close" id="editclose" data-bs-dismiss="modal" aria-label="Close">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" id="editclose" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -239,7 +239,7 @@ $product = $product->fetchAll();
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">เพิ่มค่าใช้จ่ายอื่นๆ</h5>
-                        <button type="button" id="addcloseother" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <button type="button" id="addcloseother" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -266,7 +266,7 @@ $product = $product->fetchAll();
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">แก้ไขค่าใช้จ่ายอื่นๆ</h5>
-                        <button type="button" id="editaddcloseother" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" id="editaddcloseother" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>

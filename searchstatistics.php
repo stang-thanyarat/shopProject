@@ -1,6 +1,6 @@
 <?php
 include_once('service/auth.php');
-include_once ('./database/Search.php');
+include_once('./database/Search.php');
 $search = new Search();
 isLaber();
 function getFullRole($role)
@@ -26,7 +26,7 @@ function getFullRole($role)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/searchstatistics.css" />
-    
+
 </head>
 <?php
 include_once('nav.php');
@@ -48,11 +48,11 @@ $r = -1;
 while ($r != 0) {
     $r = 0;
     for ($i = 0; $i < count($data); $i++) {
-        if($i+1<count($data)){
+        if ($i + 1 < count($data)) {
             $low = $data[$i];
-            $up = $data[$i+1];
-            if(strlen($low['keyword'])<strlen($up['keyword'])){
-                $data[$i+1] = $low;
+            $up = $data[$i + 1];
+            if (strlen($low['keyword']) < strlen($up['keyword'])) {
+                $data[$i + 1] = $low;
                 $data[$i] = $up;
                 $r++;
             }
@@ -62,7 +62,7 @@ while ($r != 0) {
 ?>
 
 <body>
-    <form>
+    <form method="post" action="ResetKeywordCategory.php" id="form1" name="form1">
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
@@ -77,24 +77,26 @@ while ($r != 0) {
                     </div>
                 </div>
                 <?php if (count($rows) > 0) { ?>
-                <table class="table col-10" style="margin-bottom: 4rem;">
-                    <thead>
-                    <tr>
-                        <th>ลำดับ</th>
-                        <th>คำค้น</th>
-                        <th>จำนวนครั้งค้นหา</th>
-                    </tr>
-                    </thead>
-                    <tbody id="producttable">
-                    <?php $i = 1; foreach ($data as $row) { ?>
-                        <tr>
-                            <th><?= $i ?></th>
-                            <th><?= $row['keyword'] ?></th>
-                            <th><?= number_format($row['count']) ?></th>
-                        </tr>
-                        <?php $i++; } ?>
-                    </tbody>
-                </table>
+                    <table class="table col-10" style="margin-bottom: 4rem;">
+                        <thead>
+                            <tr>
+                                <th>ลำดับ</th>
+                                <th>คำค้น</th>
+                                <th>จำนวนครั้งค้นหา</th>
+                            </tr>
+                        </thead>
+                        <tbody id="producttable">
+                            <?php $i = 1;
+                            foreach ($data as $row) { ?>
+                                <tr>
+                                    <th><?= $i ?></th>
+                                    <th><?= $row['keyword'] ?></th>
+                                    <th><?= number_format($row['count']) ?></th>
+                                </tr>
+                            <?php $i++;
+                            } ?>
+                        </tbody>
+                    </table>
                 <?php } else { ?>
                     <h3 style="text-align: center;">ไม่มีรายการ</h3>
                 <?php } ?>
@@ -104,4 +106,5 @@ while ($r != 0) {
 </body>
 <script src="./node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
 <script src="./src/js/searchstatistics.js"></script>
+
 </html>

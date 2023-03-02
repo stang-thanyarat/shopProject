@@ -13,7 +13,7 @@ class EmployeeBank
             $sql = "SELECT * FROM employeebank_tb";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-            $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $result;
         } catch (Exception $e) {
             http_response_code(500);
@@ -28,7 +28,7 @@ class EmployeeBank
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
-            $result = $stmt->fetch( PDO::FETCH_ASSOC);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
             return $result;
         } catch (Exception $e) {
             http_response_code(500);
@@ -43,7 +43,7 @@ class EmployeeBank
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
-            $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             return $result;
         } catch (Exception $e) {
             http_response_code(500);
@@ -67,7 +67,8 @@ class EmployeeBank
         }
     }
 
-    public function  deleteByEmployeeId($employeeId){ //ลบธนาคารจากรหัสพนักงาน
+    public function  deleteByEmployeeId($employeeId)
+    { //ลบธนาคารจากรหัสพนักงาน
         try {
             $sql = "SET FOREIGN_KEY_CHECKS=0";
             $stmt = $this->conn->prepare($sql);

@@ -22,7 +22,7 @@ class ProductExchange
     public function fetchAll()
     {
         try {
-            $sql = "SELECT E.*,P.product_name FROM product_exchange_tb E,product_tb P WHERE E.product_id = P.product_id ";
+            $sql = "SELECT E.*,P.product_name FROM product_exchange_tb E,product_tb P WHERE E.product_id = P.product_id ORDER BY E.exchange_date DESC  ";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

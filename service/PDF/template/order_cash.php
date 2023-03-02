@@ -59,9 +59,9 @@ foreach ($data as $d) {
     $list1 .= '<tr>
           <td>' . $c . '</td>
           <td>' . $p['product_name'] . '</td>
-          <td>' . number_format($d['order_pr']) . '</td>
+          <td>' . number_format($d['order_pr'],2) . '</td>
           <td>' . number_format($d['order_amt']) . '</td>
-          <td>'.number_format($d['order_pr']*$d['order_amt']).'</td></tr>';
+          <td>'.number_format($d['order_pr']*$d['order_amt'],2).'</td></tr>';
 
     $AllPrice+=$d['order_pr']*$d['order_amt'];
     $c++;
@@ -71,7 +71,7 @@ foreach ($data1 as $d) {
     $list2 .= '<tr>
         <td>' . $c . '</td>
         <td>' . $d['listother'] . '</td>
-        <td>' . number_format($d['priceother']) . '</td>
+        <td>' . number_format($d['priceother'],2) . '</td>
       </tr>';
     $AllPrice+=$d['priceother'];
     $c++;
@@ -148,7 +148,7 @@ font-size: 28pt;
   </tr>
   <br>
   <tr>
-    <td colspan="2" class="setright">ยอดสุทธิ : ' . number_format($AllPrice) . '</td>
+    <td colspan="2" class="setright">ยอดสุทธิ : ' . number_format($AllPrice,2) . '</td>
   </tr>
 </table>
 </body>
@@ -158,6 +158,3 @@ font-size: 28pt;
 
 $mpdf->WriteHTML($html);
 $mpdf->Output($output, 'I');
-
-
-?>

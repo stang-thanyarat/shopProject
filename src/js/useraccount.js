@@ -18,7 +18,7 @@ $("#account_user_type").change(async function () {
 });
 
 $("#keyword").keyup(async function () {
-    if($("#keyword").val()!=""){
+    if ($("#keyword").val() != "") {
         let url = `./controller/UserAccountResult.php?keyword=${$("#keyword").val()}`
         if ($("#account_user_type").val() !== "position") {
             url += `&type=${$("#account_user_type").val()}`
@@ -26,7 +26,7 @@ $("#keyword").keyup(async function () {
         const users = await (await fetch(url)).json()
         setUI(users)
     }
-    else{
+    else {
         let url = `./controller/UserAccountResult.php`
         if ($("#account_user_type").val() !== "position") {
             url += `?type=${$("#account_user_type").val()}`

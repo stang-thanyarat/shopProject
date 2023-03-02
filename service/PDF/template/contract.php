@@ -221,5 +221,3 @@ h2{
 
 $mpdf->WriteHTML($html);
 $mpdf->Output($output, 'I');
-
-?>

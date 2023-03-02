@@ -80,7 +80,7 @@ input:checked+.slider:before {
     margin-top: 3.5rem;
 }
 
-.topic{
+.topic {
     margin-top: 1rem;
     margin-left: 2rem;
 }
@@ -91,7 +91,7 @@ input:checked+.slider:before {
     margin-bottom: 3rem;
 }
 
-.allnum{
+.allnum {
     margin-top: 1rem;
     margin-buttom: 1rem;
 }
@@ -156,13 +156,14 @@ select {
     margin-left: -2rem;
 }
 
-.v{
+.v {
     margin-left: 47rem;
 }
 
-.w{
+.w {
     margin-left: -4rem;
 }
+
 .bgs {
     border: 0ch;
     background-color: white;

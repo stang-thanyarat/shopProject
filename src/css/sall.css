@@ -21,12 +21,12 @@
 }
 
 .ma {
-    margin :auto;
+    margin: auto;
     margin-top: 2rem;
     margin-bottom: 4rem;
 }
 
-.plus{
+.plus {
     margin-top: -0.2rem;
 }
 
@@ -44,7 +44,7 @@ table {
 
 th {
     height: 50px;
-    
+
 }
 
 select {

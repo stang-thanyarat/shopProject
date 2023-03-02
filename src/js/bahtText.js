@@ -8,7 +8,7 @@ const bahtxtConst = {
  * @param {number[]} nums
  * @returns {string}
  */
-function bahtxtNum2Word (nums) {
+function bahtxtNum2Word(nums) {
   let result = ''
   const len = nums.length
   const maxLen = 7
@@ -36,7 +36,7 @@ function bahtxtNum2Word (nums) {
  * @param {string} str
  * @returns {string}
  */
-function bahtxtGrammarFix (str) {
+function bahtxtGrammarFix(str) {
   let result = str
 
   result = result.replace(/หนึ่งสิบ/g, 'สิบ')
@@ -54,7 +54,7 @@ function bahtxtGrammarFix (str) {
  * @param {string} satang
  * @returns {string}
  */
-function bahtxtCombine (baht, satang) {
+function bahtxtCombine(baht, satang) {
   let result = ''
 
   if (baht === '' && satang === '') {
@@ -76,7 +76,7 @@ function bahtxtCombine (baht, satang) {
  * @param {number} num
  * @returns {string}
  */
-function bahttext (num) {
+function bahttext(num) {
   // no null
   if (!num) return bahtxtConst.defaultResult
   // no boolean

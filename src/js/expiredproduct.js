@@ -56,42 +56,42 @@ $("#search").click(async function () {
     if ($("#category_id").val() == "all" && $("#keyword").val() !== "" && $("#date").val() == "") {
         let url = `./controller/ExpireProduct.php?keyword=${$("#keyword").val()}`
         const product = await (await fetch(url)).json()
-        setUI(product,true)
+        setUI(product, true)
     }
     else if ($("#category_id").val() !== "all" && $("#keyword").val() == "" && $("#date").val() == "") {
         let url = `./controller/ExpireProduct.php?category_id=${$("#category_id").val()}`
         const product = await (await fetch(url)).json()
-        setUI(product,true)
+        setUI(product, true)
     }
     else if ($("#category_id").val() == "all" && $("#keyword").val() == "" && $("#date").val() !== "") {
         let url = `./controller/ExpireProduct.php?date=${$("#date").val()}`
         const product = await (await fetch(url)).json()
-        setUI(product,true)
+        setUI(product, true)
     }
     else if ($("#category_id").val() !== "all" && $("#keyword").val() !== "" && $("#date").val() == "") {
         let url = `./controller/ExpireProduct.php?category_id=${$("#category_id").val()}&keyword=${$("#keyword").val()}`
         const product = await (await fetch(url)).json()
-        setUI(product,true)
+        setUI(product, true)
     }
     else if ($("#category_id").val() !== "all" && $("#keyword").val() == "" && $("#date").val() !== "") {
         let url = `./controller/ExpireProduct.php?category_id=${$("#category_id").val()}&date=${$("#date").val()}`
         const product = await (await fetch(url)).json()
-        setUI(product,true)
+        setUI(product, true)
     }
     else if ($("#category_id").val() == "all" && $("#keyword").val() !== "" && $("#date").val() !== "") {
         let url = `./controller/ExpireProduct.php?keyword=${$("#keyword").val()}&date=${$("#date").val()}`
         const product = await (await fetch(url)).json()
-        setUI(product,true)
+        setUI(product, true)
     }
     else if ($("#category_id").val() !== "all" && $("#keyword").val() !== "" && $("#date").val() !== "") {
         let url = `./controller/ExpireProduct.php?category_id=${$("#category_id").val()}&keyword=${$("#keyword").val()}&date=${$("#date").val()}`
         const product = await (await fetch(url)).json()
-        setUI(product,true)
+        setUI(product, true)
     }
     else if ($("#category_id").val() == "all" && $("#keyword").val() == "" && $("#date").val() == "") {
         let url = `./controller/ExpireProduct.php`
         const product = await (await fetch(url)).json()
-        setUI(product,true)
+        setUI(product, true)
     }
 });
 

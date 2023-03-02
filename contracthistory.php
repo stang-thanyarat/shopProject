@@ -27,7 +27,7 @@ function getFullRole($role)
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/contracthistory.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    
+
 </head>
 <?php
 include_once('nav.php');
@@ -90,7 +90,7 @@ if (isset($_GET['keyword'])) {
                                         </div>
                                     </th>
                                     <th><?= number_format($row['baht']) ?></th>
-                                    <th><?= number_format($row['outstanding'])?></th>
+                                    <th><?= number_format($row['outstanding']) ?></th>
                                     <th>
                                         <a type="button" class="bgs" href="./service/PDF/template/invoice.php?id=<?= $row['contract_code']; ?>"><img src="./src/images/print.png" width="25"></a>
                                     </th>

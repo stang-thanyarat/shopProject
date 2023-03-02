@@ -18,7 +18,7 @@
 .mai {
     margin-top: 1rem;
     margin-left: 5rem;
-    
+
 }
 
 .Nbar {
@@ -32,7 +32,7 @@
     border-radius: 25px 25px 25px 25px;
 }
 
-.button{
+.button {
     background: #7C904E;
     color: whitesmoke;
     border-radius: 25px 25px 25px 25px;
@@ -41,11 +41,11 @@
     font-size: 18pt;
 }
 
-.textboard{
+.textboard {
     margin-left: 3rem;
 }
 
-.scoreboard{
+.scoreboard {
     background: #ABBE99;
     padding-top: 2rem;
     padding-bottom: 3rem;
@@ -62,7 +62,7 @@
     border-radius: 25px 25px 25px 25px;
 }
 
-.board{
+.board {
     margin-left: 7rem;
     margin-top: 2rem;
 
@@ -73,7 +73,7 @@
     margin-left: 5rem;
 }
 
-.welcome{
+.welcome {
     margin-left: 0rem;
 }
 
@@ -81,7 +81,7 @@
     font-size: 22pt;
 }
 
-.topicdata{
+.topicdata {
     font-size: 20pt;
     padding: 6pt;
 }
@@ -100,7 +100,7 @@
     font-size: 20pt;
 }
 
-.num{
+.num {
     margin-left: 0rem;
 }
 
@@ -126,6 +126,7 @@
 .nnn {
     margin-top: 1rem;
 }
+
 .a:hover .b:hover .c:hover {
     color: white;
 }

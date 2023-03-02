@@ -39,14 +39,13 @@ if (isset($_POST)) {
             }
             $u = $_POST['contract_code'];
             $debtPaymentDetails->upload($_POST);
-            redirection('/repay.php?id='.($u));
+            redirection('/repay.php?id=' . ($u));
             //_($u);
 
-        }
-        else if ($_POST['form_action'] === 'insertInit') {
+        } else if ($_POST['form_action'] === 'insertInit') {
             $debtPaymentDetails->insertinit($_POST);
         }
     }
-}else{
+} else {
     echo "Page Not found.";
 }

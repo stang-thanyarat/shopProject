@@ -24,8 +24,9 @@ function getFullRole($role)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/employee.css" />
-    <link href="./node_modules/sweetalert2/dist/sweetalert2.css" rel="stylesheet"></link>
-    
+    <link href="./node_modules/sweetalert2/dist/sweetalert2.css" rel="stylesheet">
+    </link>
+
 </head>
 <?php
 include_once('nav.php');
@@ -49,18 +50,18 @@ if (isset($_GET['keyword'])) {
                     </div>
                 </div>
                 <form action="employee.php" method="GET">
-                <div class="row d-flex justify-content-end" style="margin-right: 1rem;">
-                        <div class="col-3">
+                    <div class="row d-flex justify-content-end" style="margin-right: 1rem;">
+                        <div class="col-3 d-flex justify-content-end" style="margin-right: 2rem;">
                             <input type="text" name="keyword" class="btn-d" placeholder="&nbsp ชื่อ-นามสกุล">
                             <button type="submit" class="s">
-                                <img src="./src/images/search.png" width="15">
+                                <img src="./src/images/search.png" width="20">
                             </button>
                         </div>
                         <div class="col-2">
                             <a class="submit btn" href="addnewstaff.php"><img class='add' src="./src/images/plus.png" width="25">&nbsp เพิ่มพนักงาน</a>
                         </div>
-                    </form>
-                </div>
+                </form>
+            </div>
             <?php if (count($rows) > 0) { ?>
                 <table class="ma">
                     <tr>
@@ -86,7 +87,7 @@ if (isset($_GET['keyword'])) {
                                 </label>
                             </th>
                             <th>
-                                <button type="button" class="bgs" onclick="del(<?=$e['employee_id']; ?>)" ><img src="./src/images/icon-delete.png" width="25"></button>
+                                <button type="button" class="bgs" onclick="del(<?= $e['employee_id']; ?>)"><img src="./src/images/icon-delete.png" width="25"></button>
                                 <a type="button" class="btn1" href="editstaff.php?id=<?= $e['employee_id']; ?>"><img src="./src/images/icon-pencil.png" width="25"></a>
                             </th>
                         </tr>
@@ -95,7 +96,7 @@ if (isset($_GET['keyword'])) {
             <?php } else {
                 echo '<div class="d-flex justify-content-center"><h3 style="margin-top: 9rem; margin-bottom: 9rem;">ไม่พบข้อมูล</h3></div>';
             } ?>
-            </div>
+        </div>
         </div>
     </form>
 </body>
@@ -103,4 +104,5 @@ if (isset($_GET['keyword'])) {
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="./src/js/employee.js"></script>
+
 </html>

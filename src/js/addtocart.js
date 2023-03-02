@@ -90,13 +90,13 @@ function del2() {
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'ใช่',
+        confirmButtonText: 'ตกลง',
         cancelButtonText: 'ยกเลิก'
     }).then(async (result) => {
         if (result.isConfirmed) {
             localStorage.clear()
             location.reload()
-            //window.location = './productlist.php'
+            window.location = './productlist.php'
         }
     })
 }
@@ -293,20 +293,20 @@ $("#search").click(async function () {
         url += `?keyword=${$("#keyword").val("")}`
     }
     const keyword = await (await fetch(url)).json()
-     if (keyword.length > 0) {
+    if (keyword.length > 0) {
         setU(keyword)
     } else if ((document.form3.keyword.value).length == 13 && keyword.length <= 0) {
         $('#salestocontracttable').html('<br><center><h3>ไม่พบรายการการผ่อนชำระ</h3></center>')
         $('#next-add').attr("href", './addcontract.php')
     } else if (!checkID(document.form3.keyword.value)) {
-         Swal.fire({
-             icon: 'warning',
-             title: 'คำเตือน',
-             text: 'ระบุหมายเลขประจำตัวประชาชนไม่ถูกต้อง',
-             timer: 3000
-         })
-         return
-     }
+        Swal.fire({
+            icon: 'warning',
+            title: 'คำเตือน',
+            text: 'ระบุหมายเลขประจำตัวประชาชนไม่ถูกต้อง',
+            timer: 3000
+        })
+        return
+    }
 });
 
 //ส่วนแสดงผลข้อมูลลูกค้า
@@ -322,11 +322,11 @@ function setU(keyword) {
     let c = 0
     let table = `<table class="col-11 salestocontracttable">
                     <tr>
-                        <th width=15%>ลำดับ</th>
-                        <th width=15%>วันที่ทำสัญญา</th>
-                        <th width=10%>วันที่ครบกำหนดชำระ</th>
-                        <th width=15%>สถานะ</th>
-                        <th width=15%>คงค้าง</th>
+                        <th width=5%>ลำดับ</th>
+                        <th width=16%>วันที่ทำสัญญา</th>
+                        <th width=16%>วันที่ครบกำหนดชำระ</th>
+                        <th width=14%>สถานะ</th>
+                        <th width=17%>คงค้าง</th>
                     </tr>
                     <tbody>`
     keyword.forEach((element, i) => {
@@ -335,8 +335,8 @@ function setU(keyword) {
         if (element.promise_status == 0) {
             table += `<tr id="rr${i + 1}">
         <th class="index-table-bank">${i + 1}</th>
-        <th>${element.date_contract}</th>
-        <th>${element.date_due}</th>
+        <th>${convertToDateThai(new Date(element.date_contract))}</th>
+        <th>${convertToDateThai(new Date(element.date_due))}</th>
         <th>ไม่เกินกำหนด</th>
         <th>${element.outstanding.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
     </tr>`

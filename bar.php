@@ -8,7 +8,7 @@ if (!isset($_SESSION['shop_name'])) {
     $_SESSION['shop_name'] = "วรเชษฐ์เกษตรภัณฑ์";
 }
 ?>
-<title><?=$_SESSION['shop_name']?></title>
+<title><?= $_SESSION['shop_name'] ?></title>
 <link rel="stylesheet" href="./src/css/bar.css">
 <nav class="nav flex-column bar">
     <h6></h6>
@@ -16,7 +16,7 @@ if (!isset($_SESSION['shop_name'])) {
         <hr /><?php } ?>
     <?php if (getRole() == 'E' || getRole() == 'L') { ?> <a class="nav-link bar-link" href="productlist.php">รายการขาย</a><?php } ?>
     <?php if (getRole() == 'L') { ?> <a class="nav-link bar-link" href="contracthistory.php">สัญญาซื้อขาย</a><?php } ?>
-    <?php if (getRole() == 'E' || getRole() == 'L') { ?> <a class="nav-link bar-link" href="salehistory.php">ประวัติการขาย</a><?php } ?>
+    <?php if (getRole() == 'L') { ?> <a class="nav-link bar-link" href="salehistory.php">ประวัติการขาย</a><?php } ?>
     <?php if (getRole() == 'L') { ?> <a class="nav-link bar-link" href="productexchangehistory.php">การประกันสินค้า</a><?php } ?>
     <?php if (getRole() == 'L') { ?><h5><span><img src="./src/images/buy.png" width="25" height="25" /></span> ซื้อ</h5>
         <hr /><?php } ?>
@@ -24,7 +24,7 @@ if (!isset($_SESSION['shop_name'])) {
     <?php if (getRole() == 'L') { ?> <a class="nav-link bar-link" href="order.php">รายการใบสั่งซื้อ</a><?php } ?>
     <?php if (getRole() == 'L') { ?> <a class="nav-link bar-link" href="orderhistory.php">ประวัติการสั่งซื้อ</a><?php } ?>
     <?php if (getRole() == 'L' || getRole() == 'E') { ?><h5><span><img src="./src/images/sell.png" width="25" height="25" /></span> สินค้า</h5>
-    <hr /><?php } ?>
+        <hr /><?php } ?>
     <?php if (getRole() == 'E' || getRole() == 'L') { ?> <a class="nav-link bar-link" href="productresult.php">สินค้าทั้งหมด</a><?php } ?>
     <?php if (getRole() == 'L') { ?> <a class="nav-link bar-link" href="category.php">ประเภทสินค้า</a><?php } ?>
     <?php if (getRole() == 'L') { ?><h5><span><img src="./src/images/employee.png" width="25" height="25" /></span> พนักงาน</h5>

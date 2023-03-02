@@ -39,7 +39,7 @@ if (isset($_POST['vat'])) {
 include_once('nav.php'); ?>
 
 <body>
-    <form method="post" action="vat.php">
+    <form method="post" action="vat.php" id="form1" name="form1">
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
@@ -55,7 +55,7 @@ include_once('nav.php'); ?>
                             <!--<button type="reset" class="btn-c reset">ยกเลิก</button>-->
                         </div>
                         <div class="col-2">
-                            <input type="submit" class="btn-c submit" value="บันทึก" />
+                        <button type="button" class="btn-c submit" onclick="Submit()" value="บันทึก">บันทึก</button>
                         </div>
                     </div>
                 </div>
@@ -63,5 +63,5 @@ include_once('nav.php'); ?>
         </div>
     </form>
 </body>
-
+<script src="./src/js/vat.js"></script>
 </html>

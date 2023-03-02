@@ -24,7 +24,7 @@ function getFullRole($role)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/edituseraccount.css" />
-    
+
 </head>
 
 <?php
@@ -33,12 +33,13 @@ include_once('database/UserAccount.php');
 $useraccount = new UserAccount();
 $rows = $useraccount->fetchByIdWithoutAdmin($_GET['id']);
 ?>
+
 <body>
-<form action="controller/UserAccount.php" name="form1" id="form1" method="POST" >
-    <input type="hidden" value="useraccount" name="table" />
-    <input type="hidden" value="update" name="form_action" />
-    <input type="hidden" value="<?= $_GET['id'] ?>" name="unique_id" />
-    <input type="hidden" value="<?= $rows['employee_id'] ?>" name="employee_id" />
+    <form action="controller/UserAccount.php" name="form1" id="form1" method="POST">
+        <input type="hidden" value="useraccount" name="table" />
+        <input type="hidden" value="update" name="form_action" />
+        <input type="hidden" value="<?= $_GET['id'] ?>" name="unique_id" />
+        <input type="hidden" value="<?= $rows['employee_id'] ?>" name="employee_id" />
         <div class="row main">
             <div class="row">
                 <h1>แก้ไขบัญชีผู้ใช้งาน</h1>
@@ -46,9 +47,9 @@ $rows = $useraccount->fetchByIdWithoutAdmin($_GET['id']);
             <div class="row top">
                 <div class="col leftposition">
                     <label for="account_user_type">ตำแหน่ง : </label>
-                    <input type="radio" name="account_user_type" value="L" class="bb" <?=$rows['account_user_type']=='L'? 'checked' :''?>>
+                    <input type="radio" name="account_user_type" value="L" class="bb" <?= $rows['account_user_type'] == 'L' ? 'checked' : '' ?>>
                     <label for="account_user_type">เจ้าของร้าน </label>&nbsp;&nbsp;&nbsp;
-                    <input type="radio" name="account_user_type" value="E" <?=$rows['account_user_type']=='E'? 'checked' :''?>>
+                    <input type="radio" name="account_user_type" value="E" <?= $rows['account_user_type'] == 'E' ? 'checked' : '' ?>>
                     <label for="account_user_type">พนักงาน</label>
                     <div class="j">*</div>
                 </div>
@@ -56,12 +57,12 @@ $rows = $useraccount->fetchByIdWithoutAdmin($_GET['id']);
             <div class="row">
                 <div class="col-lg-3 login leftemail">
                     <label for="email">อีเมล :</label>
-                    <input name = "account_username" id = "account_username" type = "email" onblur = 'check_email(this)' class = "bb" value = "<?= $rows['account_username']; ?>" required />
+                    <input name="account_username" id="account_username" type="email" onblur='check_email(this)' class="bb" value="<?= $rows['account_username']; ?>" required />
                     <div class="d">*</div>
                 </div>
                 <div class="col-lg-4 login leftpassword">
                     <label for="password">รหัสผ่าน :</label>
-                    <input  name = "account_password" id = "account_password" type = "password"  class = "bb" autocomplete="new-password"/>
+                    <input name="account_password" id="account_password" type="password" class="bb" autocomplete="new-password" />
                     <div class="e">*</div>
                 </div>
             </div>

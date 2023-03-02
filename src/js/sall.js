@@ -28,7 +28,7 @@ function del(id) {
                     icon: 'success',
                     timer: 3000
                 }
-            ).then(()=>{
+            ).then(() => {
                 location.reload()
             })
         }

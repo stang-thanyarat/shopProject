@@ -133,6 +133,3 @@ font-size: 28pt;
 
 $mpdf->WriteHTML($html);
 $mpdf->Output($output, 'I');
-
-
-?>

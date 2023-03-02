@@ -54,7 +54,7 @@ $rows = $category->fetchAll();
             <div class="row q">
                 <div class="col-3">
                     ประเภทสินค้า &nbsp;:&nbsp;&nbsp;
-                    <select name="category_id" id="category_id" class="sizeselect" style="background-color: #D4DDC6;" >
+                    <select name="category_id" id="category_id" class="sizeselect" style="background-color: #D4DDC6;">
                         <option value="all">ทั้งหมด</option>
                         <?php foreach ($rows as $row) { ?>
                             <option value="<?= $row['category_id'] ?>"><?= $row['category_name'] ?></option>
@@ -63,13 +63,13 @@ $rows = $category->fetchAll();
                 </div>
                 <div class="col-3" style="margin-left: -2rem;">
                     วันที่ขาย &nbsp;:&nbsp;&nbsp;
-                    <input type="date" id="date" name="date" value="<?= date('Y-m-d')?>" style="height: 102%; margin-top: auto;" class="sizeselect" >
+                    <input type="date" id="date" name="date" value="<?= date('Y-m-d') ?>" style="height: 102%; margin-top: auto;" class="sizeselect">
                 </div>
                 <div class="col-1 search" style="margin-left: -3rem;">
-                <select name="limit" id="limit" class="sizeselect" style="background-color: #D4DDC6;" >
-                    <option value="5">5 อันดับแรก</option>
-                    <option value="10">10 อันดับแรก</option>
-                </select>
+                    <select name="limit" id="limit" class="sizeselect" style="background-color: #D4DDC6;">
+                        <option value="5">5 อันดับแรก</option>
+                        <option value="10">10 อันดับแรก</option>
+                    </select>
                 </div>
                 <div class="col-1 search" style="margin-left: 3rem;">
                     <click type="submit" id="search" class="search"><img src="./src/images/search.png" width="35"></click>

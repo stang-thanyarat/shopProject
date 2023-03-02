@@ -1,10 +1,10 @@
 $(document).ready(function () {
-  $('#post').hide()
+    $('#post').hide()
 });
 
-$('#set_n_amt').on('click', function(e) {
-      $('#post').toggle();
-  });
+$('#set_n_amt').on('click', function (e) {
+    $('#post').toggle();
+});
 
 async function loopcostprice() {
     var formdata = new FormData();

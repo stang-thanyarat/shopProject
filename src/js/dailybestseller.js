@@ -63,16 +63,16 @@ async function reset() {
 function setUI(data) {
     let c = 0
     $('#dailybestsellerTable').html('')
-    let r =-1
-    while(r!==0){
+    let r = -1
+    while (r !== 0) {
         r = 0
-        for(let i = 0;i<data.length ;i++){
-            if(i+1 !== data.length ){
-                if(data[i].sales_amt < data[i+1].sales_amt){
+        for (let i = 0; i < data.length; i++) {
+            if (i + 1 !== data.length) {
+                if (data[i].sales_amt < data[i + 1].sales_amt) {
                     let a = data[i]
-                    let b = data[i+1]
+                    let b = data[i + 1]
                     data[i] = b
-                    data[i+1] = a
+                    data[i + 1] = a
                     r++
                 }
             }

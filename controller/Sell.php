@@ -14,9 +14,9 @@ if (isset($_POST)) {
                 if (file_exists($_POST['seller_card_id'])) {
                     unlink($_POST['seller_card_id']);
                 }
-                $filesname = $path.uploadImage($_FILES['seller_card_id'], "." . $path);
+                $filesname = $path . uploadImage($_FILES['seller_card_id'], "." . $path);
                 if ($filesname) {
-                    $sell->updateimage('seller_card_id',$filesname,$_POST['sell_id']);
+                    $sell->updateimage('seller_card_id', $filesname, $_POST['sell_id']);
                 }
             }
             if ($_FILES['seller_cardname']['size'] > 0) {
@@ -24,9 +24,9 @@ if (isset($_POST)) {
                 if (file_exists($_POST['seller_cardname'])) {
                     unlink($_POST['seller_cardname']);
                 }
-                $filesname = $path.uploadImage($_FILES['seller_cardname'], "." . $path);
+                $filesname = $path . uploadImage($_FILES['seller_cardname'], "." . $path);
                 if ($filesname) {
-                    $sell->updateimage('seller_cardname',$filesname,$_POST['sell_id']);
+                    $sell->updateimage('seller_cardname', $filesname, $_POST['sell_id']);
                 }
             }
             if ($_FILES['sell_documents']['size'] > 0) { //มีขนาดรูปมากกว่า0 รูปไม่หาย
@@ -34,9 +34,9 @@ if (isset($_POST)) {
                 if (file_exists($_POST['sell_documents'])) {
                     unlink($_POST['sell_documents']);
                 }
-                $filesname = $path.uploadImage($_FILES['sell_documents'], "." . $path);
+                $filesname = $path . uploadImage($_FILES['sell_documents'], "." . $path);
                 if ($filesname) {
-                    $sell->updateimage('sell_documents',$filesname,$_POST['sell_id']);
+                    $sell->updateimage('sell_documents', $filesname, $_POST['sell_id']);
                 }
             }
 
@@ -78,8 +78,7 @@ if (isset($_POST)) {
             }
             $sell->update($_POST);
             Redirection("/sall.php");
-        }
-        else if ($_POST['form_action'] === 'delete') {
+        } else if ($_POST['form_action'] === 'delete') {
             if (file_exists($_POST['seller_card_id'])) {
                 unlink($_POST['seller_card_id']);
             }
@@ -91,9 +90,7 @@ if (isset($_POST)) {
             }
             $bank->deleteBySellId($_POST['sell_id']);
             $sell->delete($_POST['sell_id']);
-
-        }
-        else if ($_POST['form_action'] === 'insert') {
+        } else if ($_POST['form_action'] === 'insert') {
             if ($_FILES['seller_card_id']['size'] > 0) {
                 $path = './file/seller/id/';
                 $filesname = uploadImage($_FILES['seller_card_id'], "." . $path);

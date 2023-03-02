@@ -138,7 +138,6 @@ th {
     border: 0px;
     transition: background-color 0.5s ease-out;
     box-shadow: 0px 0px 2px 2px rgba(0.6, 0.6, 0.6, 0.6), 0px 0px 6px 6px rgba(0.2, 0.2, 0.2, 0.2)
-
 }
 
 .dynamicBT:hover {
@@ -198,7 +197,7 @@ th {
     margin-left: 2.2rem;
 }
 
-.bell{
+.bell {
     border: 2px solid red;
     border-radius: 25px;
     background: red;

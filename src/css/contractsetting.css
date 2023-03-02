@@ -49,6 +49,7 @@ th {
     margin-left: 7rem;
     margin-bottom: 1rem;
 }
+
 .mmm {
     margin-left: 11rem;
     margin-bottom: 1rem;
@@ -71,6 +72,8 @@ th {
     background-color: #7C904E;
     color: white;
     border: 0ch;
+    width: 50%;
+    height: 100%;
 }
 
 .reset {
