@@ -8,6 +8,21 @@ if (!isset($_GET['id'])) {
   echo "Not found.";
   exit;
 }
+if (!isset($_SESSION)) {
+  session_start();
+}
+if (!isset($_SESSION['shop_name'])) {
+  $_SESSION['shop_name'] = "ร้านวรเชษฐ์เกษตรภัณฑ์";
+}
+if (!isset($_SESSION['address'])) {
+  $_SESSION['address'] = 'xxxxxxxxx';
+}
+if (!isset($_SESSION['vat_no'])) {
+  $_SESSION['vat_no'] = "xxxxxxxxxxxxx";
+}
+if (!isset($_SESSION['tel'])) {
+  $_SESSION['tel'] = "xxxxxxxx";
+}
 $d = new DailyBestSeller();
 $data = $d->fetchBySalesListId($_GET['id']);
 if (count($data) <= 0) {
@@ -52,9 +67,9 @@ foreach ($data as $row) {
   $r .= '<tr>
   <td width="140" class="setcenter">' . $c . '</td>
   <td width="426">&nbsp; ' . $row['product_name'] . '</td>
-  <td width="162" class="setcenter">' . number_format($row['sales_amt'] ). '</td>
-  <td width="304" class="setright"> ' . number_format($row['price'] ). ' &nbsp;</td>
-  <td width="238" class="setright"> ' . number_format($row['price'] * $row['sales_amt'] ). ' &nbsp;</td>
+  <td width="162" class="setcenter">' . number_format($row['sales_amt']) . '</td>
+  <td width="304" class="setright"> ' . number_format($row['price']) . ' &nbsp;</td>
+  <td width="238" class="setright"> ' . number_format($row['price'] * $row['sales_amt']) . ' &nbsp;</td>
 </tr>';
   $c++;
   $p += $row['price'] * $row['sales_amt'];
@@ -80,20 +95,20 @@ h2{
 <body>
 <table  width="1000" border="0">
 <tr>
-<td height="41" colspan="2" class="setcenter"><h2>ร้านวรเชษฐ์เกษตรภัณฑ์</h2></td>
+<td height="41" colspan="2" class="setcenter"><h2>' . $_SESSION['shop_name'] . '</h2></td>
 </tr>
 <tr class="setcenter">
 <td colspan="2">&nbsp;</td>
 </tr>
 <tr>
-<td height="21" colspan="2" class="setcenter">ที่อยู่ : 100/1 ม.6 ต.บ้านป้อม อ.เมือง จ.อยุธยา 1300
+<td height="21" colspan="2" class="setcenter">ที่อยู่ : ' . $_SESSION['address'] . '
 </td>
 </tr>
 <tr>
-<td colspan="2" class="setcenter">เลขประจำตัวผู้เสียภาษี : xxx </td>
+<td colspan="2" class="setcenter">เลขประจำตัวผู้เสียภาษี : ' . $_SESSION['vat_no'] . ' </td>
 </tr>
 <tr>
-<td colspan="2" class="setcenter">เบอร์โทรติดต่อ : 035-801059 , 083-9108289</td>
+<td colspan="2" class="setcenter">เบอร์โทรติดต่อ : ' . $_SESSION['tel'] . '</td>
 </tr>
 <tr class="setcenter">
 <td colspan="2">&nbsp;</td>
@@ -133,7 +148,7 @@ h2{
       <tr>
       <td  colspan="3">หมายเหตุ : </td>
       <td width="304" class="setright">ยอดรวมสุทธิ : &nbsp;</td>
-      <td width="238" class="setright">' . number_format($p). ' &nbsp;</td>
+      <td width="238" class="setright">' . number_format($p) . ' &nbsp;</td>
     </tr>
    </table>
       </td>
@@ -150,4 +165,3 @@ h2{
 
 $mpdf->WriteHTML($html);
 $mpdf->Output($output, 'I');
-

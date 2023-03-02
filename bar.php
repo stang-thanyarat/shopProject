@@ -5,10 +5,10 @@ if (!isset($_SESSION)) {
 include_once('service/auth.php');
 
 if (!isset($_SESSION['shop_name'])) {
-    $_SESSION['shop_name'] = "วรเชษฐ์เกษตรภัณฑ์";
+    $_SESSION['shop_name'] = "ร้านวรเชษฐ์เกษตรภัณฑ์";
 }
 ?>
-<title><?=$_SESSION['shop_name']?></title>
+<title><?= $_SESSION['shop_name'] ?></title>
 <link rel="stylesheet" href="./src/css/bar.css">
 <nav class="nav flex-column bar">
     <h6></h6>
@@ -24,7 +24,7 @@ if (!isset($_SESSION['shop_name'])) {
     <?php if (getRole() == 'L') { ?> <a class="nav-link bar-link" href="order.php">รายการใบสั่งซื้อ</a><?php } ?>
     <?php if (getRole() == 'L') { ?> <a class="nav-link bar-link" href="orderhistory.php">ประวัติการสั่งซื้อ</a><?php } ?>
     <?php if (getRole() == 'L' || getRole() == 'E') { ?><h5><span><img src="./src/images/sell.png" width="25" height="25" /></span> สินค้า</h5>
-    <hr /><?php } ?>
+        <hr /><?php } ?>
     <?php if (getRole() == 'E' || getRole() == 'L') { ?> <a class="nav-link bar-link" href="productresult.php">สินค้าทั้งหมด</a><?php } ?>
     <?php if (getRole() == 'L') { ?> <a class="nav-link bar-link" href="category.php">ประเภทสินค้า</a><?php } ?>
     <?php if (getRole() == 'L') { ?><h5><span><img src="./src/images/employee.png" width="25" height="25" /></span> พนักงาน</h5>
@@ -37,8 +37,7 @@ if (!isset($_SESSION['shop_name'])) {
     <?php if (getRole() == 'L' || getRole() == 'A') { ?><h5><span><img src="./src/images/setting.png" width="25" height="25" /></span> ตั้งค่า</h5>
         <hr /><?php } ?>
     <?php if (getRole() == 'L') { ?> <a class="nav-link bar-link" href="contractsetting.php">สัญญาซื้อขาย</a><?php } ?>
-    <?php if (getRole() == 'A') { ?> <a class="nav-link bar-link" href="manageuseraccounts.php">การจัดการ</a><?php } ?>
-    <?php if (getRole() == 'A') { ?> <a class="nav-link bar-link" href="name.php">ชื่อร้าน</a><?php } ?>
+    <?php if (getRole() == 'A') { ?> <a class="nav-link bar-link" href="manageuseraccounts.php">การจัดการบัญชีผู้ใช้</a><?php } ?>
     <?php if (getRole() == 'A') { ?> <a class="nav-link bar-link" href="shop_detail.php">การจัดการข้อมูลร้าน</a><?php } ?>
     <?php if (getRole() == 'L') { ?> <a class="nav-link bar-link" href="changeproduct.php">การเปลียนสินค้า</a><?php } ?>
     <?php if (getRole() == 'L') { ?> <a class="nav-link bar-link" href="vat.php">ภาษีมูลค่าเพิ่ม</a><?php } ?>

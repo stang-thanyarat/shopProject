@@ -35,11 +35,38 @@ $sales = new Sales();
 if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GET['end'] != '') {
     $rows = $sales->fetchBetween($_GET['start'], $_GET['end']);
     $rowc = $sales->fetchBetween2($_GET['start'], $_GET['end']);
+    $all = [];
+    foreach ($rows as $s){
+        $all[]=$s;
+    }
+    foreach ($rowc as $c){
+        $all[]=$c;
+    }
 } else if ((!isset($_GET['start']) && !isset($_GET['end'])) || ($_GET['start'] != '' && $_GET['end'] != '')) {
     $rows = $sales->fetchAllContract();
     $rowc = $sales->fetchAllContract2();
-} else {
-    $rows = [];
+    $all = [];
+    foreach ($rows as $s){
+        $all[]=$s;
+    }
+    foreach ($rowc as $c){
+        $all[]=$c;
+    }
+}
+$r = -1;
+while ($r != 0) {
+    $r = 0;
+    for ($i = 0; $i < count($all); $i++) {
+        if($i+1<count($all)){
+            $low = $all[$i];
+            $up = $all[$i+1];
+            if($low['sales_list_id']<$up['sales_list_id']){
+                $all[$i+1] = $low;
+                $all[$i] = $up;
+                $r++;
+            }
+        }
+    }
 }
 ?>
 
@@ -69,8 +96,8 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                 </div>
             </div>
         </form>
-        <?php if (count($rows) > 0) { ?>
-            <table id="salesHistory" class="col-11 saletable">
+        <?php if (count($all) > 0) { ?>
+            <table class="col-11 saletable">
                 <tr>
                     <th width=20%>วันที่</th>
                     <th width=20%>เวลาที่ขาย</th>
@@ -80,41 +107,17 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                     <th width=25%>ช่องทางการชำระ</th>
                 </tr>
                 <tbody id="salesHistory">
-                <?php foreach ($rows as $row) { ?>
-                    <?php if ($row['payment_sl'] == "เงินสด") { ?>
-                        <tr>
-                            <th><?= dateTimeDisplay($row['payment_dt']) ?></th>
-                            <th><?= ShowTime($row['payment_dt']) ?></th>
-                            <th>
-                                <a href="./service/PDF/template/receipt.php?id=<?= $row['sales_list_id'] ?>"><img src="./src/images/print.png" class="g" width="25"></a></th>
-                            <th><?= number_format($row['all_quantity']) ?></th>
-                            <th><?= number_format($row['all_price']) ?></th>
-                            <th><?= $row['payment_sl'] ?></th>
-                        </tr>
-                    <?php } else if ($row['payment_sl'] == "โอนผ่านบัญชีธนาคาร") { ?>
-                        <tr>
-                            <th><?= dateTimeDisplay($row['payment_dt']) ?></th>
-                            <th><?= ShowTime($row['payment_dt']) ?></th>
-                            <th>
-                                <a href="./service/PDF/template/receipt.php?id=<?= $row['sales_list_id'] ?>"><img src="./src/images/print.png" class="g" width="25"></a></th>
-                            <th><?= number_format($row['all_quantity']) ?></th>
-                            <th><?= number_format($row['all_price']) ?></th>
-                            <th><?= $row['payment_sl'] ?></th>
-                        </tr>
-                    <?php } ?>
+                <?php foreach ($all as $row){ if (!isset($row['outstanding'])||$row['outstanding'] != "1") { ?>
+                    <tr>
+                        <th><?= dateTimeDisplay($row['payment_dt']) ?></th>
+                        <th><?= ShowTime($row['payment_dt']) ?></th>
+                        <th>
+                            <a href="<?= $row['payment_sl'] != 'ผ่อนชำระ' ? './service/PDF/template/receipt.php?id=' . $row['sales_list_id'] : './service/PDF/template/invoice2.php?id=' . $row['sales_list_id'] ?>"><img src="./src/images/print.png" class="g" width="25"></a></th>
+                        <th><?= number_format($row['all_quantity']) ?></th>
+                        <th><?= number_format($row['all_price']) ?></th>
+                        <th><?= $row['payment_sl'] ?></th>
+                    </tr>
                 <?php } ?>
-                <?php foreach ($rowc as $rowq) { ?>
-                    <?php if ($rowq['payment_sl'] == "ผ่อนชำระ" && $rowq['outstanding'] == "0") { ?>
-                        <tr>
-                            <th><?= dateTimeDisplay($rowq['payment_dt']) ?></th>
-                            <th><?= ShowTime($rowq['payment_dt']) ?></th>
-                            <th>
-                                <a href="./service/PDF/template/invoice2.php?id=<?= $rowq['sales_list_id'] ?>"><img src="./src/images/print.png" class="g" width="25"></a></th>
-                            <th><?= number_format($rowq['all_quantity']) ?></th>
-                            <th><?= number_format($rowq['all_price']) ?></th>
-                            <th><?= $rowq['payment_sl'] ?></th>
-                        </tr>
-                    <?php } ?>
                 <?php } ?>
                 </tbody>
             </table>

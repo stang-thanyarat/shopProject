@@ -322,6 +322,19 @@ class Contract
         }
     }
 
+    public function getTimeOut(){
+        try{
+            $sql = "SELECT * FROM contract_tb WHERE date_due < CURRENT_TIMESTAMP AND promise_status = 0";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        }catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
+    }
+
     public function updatestatus($q,$id)
     {
         try {

@@ -57,7 +57,7 @@ function getRole()
 }
 
 
-function logout()
+function logout($clear=false)
 {
 
     if (!isset($_SESSION['vat'])) {
@@ -116,4 +116,7 @@ function logout()
     $_SESSION['shop_name'] =$name;
     $_SESSION['interest'] = $interest;
     $_SESSION['interest_month'] = $interest_month;
+    if($clear){
+        $_SESSION['error']  = "กรุณาเข้าสู่ระบบในฐานะเจ้าของร้านก่อนใช้งานฟังก์ชันนี้";
+    }
 }

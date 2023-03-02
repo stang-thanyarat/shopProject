@@ -315,20 +315,6 @@ class Product
     }
 
 
-    /*public function cutStock($id, $amount) //อันตราย
-    {
-        try{
-            $sql = "UPDATE product_tb SET product_rm_unit = product_rm_unit - $amount WHERE product_id = $id";
-            $servername = "localhost";
-            $username = "root";
-            $username = "";
-            $database = "shop_pj";
-            mysqli_query( mysqli_connect( $servername, $username, $username,$database),$sql);
-        } catch (Exception $e) {
-            http_response_code(500);
-            echo strval($e);
-        }
-    }*/
 
     public function cutStock($q,$id)
     {
