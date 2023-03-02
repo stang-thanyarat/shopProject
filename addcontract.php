@@ -25,7 +25,7 @@ function getFullRole($role)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/addcontract.css" />
-    
+
 </head>
 
 <?php include_once('nav.php');
@@ -122,21 +122,21 @@ if (isset($_GET['cardID'])) {
                     <div class="col lastc">นามสกุล : <input type="text" name="customer_lastname" value="<?= $lastname ?>" id="customer_lastname" class="bb" required />
                         <div class="g">*</div>
                     </div>
-                    <div class="col idcard">รหัสบัตรประชาชน : <input type="text" name="customer_img" value="<?= $cardId ?>" id="customer_img" class="bb" onkeyup="autoTab(this)"  required />
+                    <div class="col idcard">รหัสบัตรประชาชน : <input type="text" name="customer_img" value="<?= $cardId ?>" id="customer_img" class="bb" onkeyup="autoTab(this)" required />
                         <div class="h">*</div>
                     </div>
                 </div>
                 <div class="row xxx">ซึ่งต่อไปในหนังสือสัญญานี้เรียกว่าผู้ซื้อฝ่ายหนึ่งทั้งสองฝ่ายตกลงทำสัญญาซื้อขายทรัพย์สินมีดังข้อความต่อไปนี้
                 </div>
                 <div class="col ct">
-                    ข้อ 1 ผู้ขายได้ขาย : 
-                        <textarea id="product_detail" class="bb" name="product_detail" cols="50" rows="5" style="vertical-align:top;" readonly></textarea>
+                    ข้อ 1 ผู้ขายได้ขาย :
+                    <textarea id="product_detail" class="bb" name="product_detail" cols="50" rows="5" style="vertical-align:top;" readonly></textarea>
                 </div>
-                <div class="row-1 xxx">ให้แก่ผู้ซื้อเป็นจำนวนเงิน <input type="text" name="baht" id="baht" class="baht" readonly/> บาท <input type="text" name="stang" id="stang" class="stang" readonly/> สตางค์ (&nbsp;<input type="text" name="stangt" id="stangt" class="stangt" readonly/>&nbsp;)
+                <div class="row-1 xxx">ให้แก่ผู้ซื้อเป็นจำนวนเงิน <input type="text" name="baht" id="baht" class="baht" readonly /> บาท <input type="text" name="stang" id="stang" class="stang" readonly /> สตางค์ (&nbsp;<input type="text" name="stangt" id="stangt" class="stangt" readonly />&nbsp;)
                 </div>
                 <div class="col-11 xxx">และยอมส่งมอบทรัพย์สินที่ขายให้แก่ผู้ซื้อวันที่&nbsp;<span>&nbsp;<input type="date" value="<?= date('Y-m-d') ?>" name="date_send" id="date_send" required></span>
                     และผู้ขายได้รับราคาดังกล่าวแล้วไปจากผู้ซื้อเสร็จแล้วตั้งแต่วันที่<span class="z">*</span>&nbsp;<span>&nbsp;<input type="date" value="<?= date('Y-m-d') ?>" id="price_send" name="price_send"></span></div>
-                    
+
                 <div class="row xxx">ข้อ 2 ผู้ขายยอมสัญญาว่า
                     ทรัพย์สินซ่งผู้ขายนำมาขายให้แก่ผู้ซื้อนี้เป็นทรัพย์สินของผู้ขายคนเดียว และไม่เคยนำไปขาย จำนำ
                     หรือทำสัญญาผูกพันธ์ใด ๆ แก่ผู้ใดเลย

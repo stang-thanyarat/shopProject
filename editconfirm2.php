@@ -109,11 +109,11 @@ for ($k = 0; $k < count($op); $k++) {
                     <div class="row">
                         <div class="col datebill">
                             วันที่วางบิล : &nbsp;
-                            <?= toDay($o['datebill']); ?>
+                            <b><?= toDay($o['datebill']); ?></b>
                         </div>
                         <div class="col">
                             &nbsp;&nbsp;วันที่รับของ : &nbsp;
-                            <?= toDay($o['datereceive']); ?>
+                            <b><?= toDay($o['datereceive']); ?></b>
                         </div>
                     </div>
                 </div>
@@ -158,9 +158,9 @@ for ($k = 0; $k < count($op); $k++) {
                                 <tr id="rr<?= $i ?>">
                                     <th class="index-table-product"><?= $i + 1 ?></th>
                                     <th id="text<?= $b['product_id'] ?>"><?= $b['product_name'] ?></th>
-                                    <th><?= $b['order_pr'] ?></th>
-                                    <th><?= $b['order_amt'] ?></th>
-                                    <th><?= $b['order_amt'] * $b['order_pr'] ?></th>
+                                    <th><?= number_format($b['order_pr']) ?></th>
+                                    <th><?= number_format($b['order_amt']) ?></th>
+                                    <th><?= number_format($b['order_amt'] * $b['order_pr']) ?></th>
                                     <th></th>
                                     <th>
                                         <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(<?= $i ?>)"></button>
@@ -179,7 +179,6 @@ for ($k = 0; $k < count($op); $k++) {
                                 <th width="5%">ลำดับ</th>
                                 <th width="45%">รายการ</th>
                                 <th width="40%">ราคา</th>
-                                <th width="10%"><img src="./src/images/edit.png" width="25"></th>
                             </tr>
                         </thead>
                         <tbody id="list-priceother">
@@ -188,9 +187,7 @@ for ($k = 0; $k < count($op); $k++) {
                                 <tr id="rr<?= $k ?>">
                                     <th class="index-table-price"><?= $k + 1 ?></th>
                                     <th><?= $b['listother'] ?></th>
-                                    <th><?= $b['priceother'] ?></th>
-                                    <th>
-                                    </th>
+                                    <th><?= number_format($b['priceother']) ?></th>
                                 </tr>
                             <?php $k++;
                             } ?>
@@ -367,24 +364,6 @@ for ($k = 0; $k < count($op); $k++) {
                 </div>
                 <div class="modal-footer">
                     <button type="button" onclick="delrow()" class="btn btn-primary1">ตกลง</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ลบรายการอื่นๆ -->
-    <div class="modal fade" id="exampleModalother" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">ลบรายการ</h5>
-                    <button type="button" id="closedelrow2" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body1">
-                    <h3>ยืนยันที่จะลบ</h3>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" onclick="delrow2()" class="btn btn-primary1">ตกลง</button>
                 </div>
             </div>
         </div>

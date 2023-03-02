@@ -18,7 +18,7 @@
     margin-top: 3.5rem;
 }
 
-.tb{
+.tb {
     margin-top: 2rem;
     margin-left: 4rem;
     margin-bottom: 6rem;
@@ -42,17 +42,17 @@ th {
     height: 50px;
 }
 
-.date{
+.date {
     text-align: end;
     margin-left: 2rem;
 }
 
-.category{
+.category {
     text-align: start;
     margin-left: 1rem;
 }
 
-.search{
+.search {
     text-align: start;
     margin-left: 0.5rem;
 }

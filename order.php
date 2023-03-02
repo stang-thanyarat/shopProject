@@ -28,7 +28,7 @@ function getFullRole($role)
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/order.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    
+
 </head>
 <?php
 include_once('nav.php');
@@ -70,9 +70,11 @@ if (isset($_GET['keyword']) && $_GET['keyword'] != "") {
                                 <th><?= dateTimeDisplay($row['datebill']) ?></th>
                                 <th id="text<?= $row['sell_id'] ?>"><?= $row['sell_name'] ?></th>
                                 <th>
-                                    <?php if ($row['order_status'] == 1) { ?><a type="button" class="bgs" href="./editconfirm2.php?id=<?= $row['order_id']; ?>"><font color=#A36627 style="text-decoration: none;">รอของ</font></a>
+                                    <?php if ($row['order_status'] == 1) { ?><a type="button" class="bgs" href="./editconfirm2.php?id=<?= $row['order_id']; ?>">
+                                            <font color=#A36627 style="text-decoration: none;">รอของ</font>
+                                        </a>
                                     <?php } else { ?>
-                                    สำเร็จ
+                                        สำเร็จ
                                     <?php } ?>
                                 </th>
                                 <th>

@@ -1,6 +1,6 @@
 $(document).ready(function () {
     localStorage.clear()
-    localStorage.setItem("tableBank", JSON.stringify({data: []}))
+    localStorage.setItem("tableBank", JSON.stringify({ data: [] }))
 });
 
 //บัตรประชาชน
@@ -40,7 +40,7 @@ function checkID(id) {
 
 //เบอร์โทรศัพท์
 function autoTab2(obj) {
-    var pattern =new String("___-_______");
+    var pattern = new String("___-_______");
     var pattern_ex = new String("-");
     var returnText = new String("");
     var obj_l = obj.value.length;

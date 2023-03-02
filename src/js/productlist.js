@@ -185,7 +185,7 @@ async function addToCart(id) {
                         } else if (p > 0 && p < q) {
                             Swal.showValidationMessage(`สินค้าไม่เพียงพอ`)
                         }
-                        return {q: q, id: id}
+                        return { q: q, id: id }
                     }
                 }).then((result) => {
                     const cart = JSON.parse(localStorage.getItem('cart'))
@@ -222,7 +222,7 @@ async function addToCart(id) {
                     } else if (p > 0 && p < q) {
                         Swal.showValidationMessage(`สินค้าไม่เพียงพอ`)
                     }
-                    return {q: q, id: id}
+                    return { q: q, id: id }
                 }
             }).then((result) => {
                 const cart = JSON.parse(localStorage.getItem('cart'))

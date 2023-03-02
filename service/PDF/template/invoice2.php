@@ -16,7 +16,7 @@ $data = $sales->fetchByPDFId($id);
 if (count($data) <= 0) {
   echo "Not found.";
   exit();
-}
+
 
 if (!isset($_SESSION)) {
   session_start();
@@ -42,8 +42,8 @@ foreach ($detail as $de) {
         <td width="140" class="setcenter">' . $c . '</td>
         <td width="517">&nbsp;   ' . $de['product_name'] . '</td>
         <td width="162" class="setcenter"> ' . number_format($de['sales_amt']) . '</td>
-        <td width="290" class="setright"> ' . number_format($de['price']) . '&nbsp;&nbsp;</td>
-        <td width="290" class="setright"> ' . number_format($de['sales_pr']) . '&nbsp;&nbsp;</td>
+        <td width="290" class="setright"> ' . number_format($de['price'], 2) . '&nbsp;&nbsp;</td>
+        <td width="290" class="setright"> ' . number_format($de['sales_pr'], 2) . '&nbsp;&nbsp;</td>
       </tr>';
   $c++;
   $p += $de['price'] * $de['sales_amt'];
@@ -159,7 +159,7 @@ h2{
       <tr>
         <td  colspan="3">หมายเหตุ :' . $data['contract_details'] . ' &nbsp;</td>
         <td width="290" class="setright">ยอดรวมสุทธิ :  &nbsp;</td>
-        <td width="238" class="setright">' . number_format($p) . ' &nbsp;</td>
+        <td width="238" class="setright">' . number_format($p, 2) . ' &nbsp;</td>
       </tr>
     </table>
    </td>

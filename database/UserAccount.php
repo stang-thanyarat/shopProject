@@ -170,31 +170,33 @@ class UserAccount
 
     public function search($keyword, $type = null)  // sql ผิดอยู่
     {
-      try{
-          $userData = $this->fetchAddEmployee();
-          $data = [];
-          foreach ($userData as $user) {
-              if (strpos($user['employee_firstname'], $keyword) !== false
-                  || strpos($user['employee_lastname'], $keyword) !== false) {
-                  if (is_null($type)) {
-                      $data[] = $user;
-                  } else {
-                      if (strpos($user['account_user_type'], $type) !== false) {
-                          $data[] = $user;
-                      }
-                  }
-              }
-          }
-          return $data;
-      }catch (Exception $e) {
-          http_response_code(500);
-          return [];
-      }
+        try {
+            $userData = $this->fetchAddEmployee();
+            $data = [];
+            foreach ($userData as $user) {
+                if (
+                    strpos($user['employee_firstname'], $keyword) !== false
+                    || strpos($user['employee_lastname'], $keyword) !== false
+                ) {
+                    if (is_null($type)) {
+                        $data[] = $user;
+                    } else {
+                        if (strpos($user['account_user_type'], $type) !== false) {
+                            $data[] = $user;
+                        }
+                    }
+                }
+            }
+            return $data;
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
     }
 
     public function findByType($type)
     {
-        try{
+        try {
             $userData = $this->fetchAddEmployee();
             $data = [];
             foreach ($userData as $user) {
@@ -203,7 +205,7 @@ class UserAccount
                 }
             }
             return $data;
-        }catch (Exception $e) {
+        } catch (Exception $e) {
             http_response_code(500);
             return [];
         }
@@ -253,8 +255,7 @@ class UserAccount
                 http_response_code(500);
                 echo strval($e);
             }
-        }
-        else {
+        } else {
             try {
                 $sql = "SET FOREIGN_KEY_CHECKS=0";
                 $stmt = $this->conn->prepare($sql);
@@ -279,6 +280,5 @@ class UserAccount
                 echo strval($e);
             }
         }
-
     }
 }

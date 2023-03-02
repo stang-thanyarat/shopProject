@@ -26,7 +26,7 @@ function getFullRole($role)
     <link rel="stylesheet" href="./src/css/editseller.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    
+
 </head>
 <?php
 include_once('nav.php');
@@ -139,10 +139,10 @@ for ($i = 0; $i < count($banks); $i++) {
                     </div>
                     <div class="col channel">
                         <label for="seller_channel">ช่องทางการติดต่ออื่นๆ :</label>
-                        <textarea name="seller_channel" id="seller_channel" cols="22" rows="2" class="cc" style="vertical-align:top;" ><?= $e['seller_channel']; ?></textarea>
+                        <textarea name="seller_channel" id="seller_channel" cols="22" rows="2" class="cc" style="vertical-align:top;"><?= $e['seller_channel']; ?></textarea>
                     </div>
                 </div>
-                
+
                 <div class="row">
                     <div class="col leftfile">
                         บัตรประชาชน : <input type="file" accept="image/*" name="seller_card_id" id="seller_card_id" class="bb">
@@ -326,5 +326,8 @@ for ($i = 0; $i < count($banks); $i++) {
 </script>
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
 <script src="./src/js/editseller.js"></script>
-<script>window.onload = () =>document.querySelector('.btn-close > span').remove()</script>
+<script>
+    window.onload = () => document.querySelector('.btn-close > span').remove()
+</script>
+
 </html>

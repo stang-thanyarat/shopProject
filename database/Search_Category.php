@@ -12,7 +12,7 @@ class Search_Category
 
     public function fetchAll()
     {
-        try{
+        try {
             $sql = "SELECT SC.*,C.category_name FROM search_category_tb SC,category_tb C WHERE SC.category_id = C.category_id ";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
@@ -22,7 +22,7 @@ class Search_Category
             } else {
                 return $result;
             }
-        }catch (Exception $e) {
+        } catch (Exception $e) {
             http_response_code(500);
             echo strval($e);
         }
@@ -30,28 +30,26 @@ class Search_Category
 
     public function insert($data)
     {
-       try{
-           $sql = "INSERT INTO search_category_tb(category_id) VALUES (?)";
-           $stmt = $this->conn->prepare($sql);
-           $stmt->bindParam(1, $data['category_id'], PDO::PARAM_INT);
-           $stmt->execute();
-       }catch (Exception $e) {
-           http_response_code(500);
-           echo strval($e);
-       }
+        try {
+            $sql = "INSERT INTO search_category_tb(category_id) VALUES (?)";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $data['category_id'], PDO::PARAM_INT);
+            $stmt->execute();
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
     }
 
     public function reset()
     {
-        try{
+        try {
             $sql = "SET FOREIGN_KEY_CHECKS=0; TRUNCATE TABLE search_category_tb;";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-        }catch (Exception $e) {
+        } catch (Exception $e) {
             http_response_code(500);
             echo strval($e);
         }
     }
 }
-
-

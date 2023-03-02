@@ -71,7 +71,7 @@ input:checked+.slider:before {
     --bs-gutter-x: 0;
 }
 
-.main{
+.main {
     margin-top: 5rem;
     margin-left: 4rem;
 }
@@ -150,16 +150,16 @@ select {
     background-color: white;
 }
 
-.c{
+.c {
     margin-left: 37rem;
     font-size: 16pt;
 }
 
-.b{
-    margin-left:-4rem;
+.b {
+    margin-left: -4rem;
 }
 
-.a{
+.a {
     margin-top: 0rem;
     margin-left: -0.5rem;
 }

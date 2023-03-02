@@ -109,7 +109,7 @@ async function loopInsert() {
             redirect: 'follow'
         };
         await fetch("controller/Product.php", requestOptions)
-        if(!!e.stock_id){
+        if (!!e.stock_id) {
             var formdata2 = new FormData();
             formdata2.append("q", e.quantity);
             formdata2.append("stock_id", e.stock_id);
@@ -166,12 +166,12 @@ $("#form1").submit(async function (event) {
             method: 'POST',
             body: formdata1
         })
-            Swal.fire({
-                icon: 'success',
-                text: 'บันทึกข้อมูลเสร็จสิ้น',
-            }).then(() => {
-                localStorage.clear()
-                window.location = './contracthistory.php'
-            })
+        Swal.fire({
+            icon: 'success',
+            text: 'บันทึกข้อมูลเสร็จสิ้น',
+        }).then(() => {
+            localStorage.clear()
+            window.location = './contracthistory.php'
+        })
     }
 });

@@ -111,7 +111,7 @@ function getDate2(date2) {
 function getInterest2(interest2) {
     interest_2 = interest2
 }
-$("#index").ready(function (){
+$("#index").ready(function () {
 });
 
 $(document).ready(function () {
@@ -237,7 +237,7 @@ $("#form1").submit(async function (event) {
             text: 'บันทึกข้อมูลเสร็จสิ้น',
         })
     })
-    setTimeout(function(){ location.reload(); }, 1000);
+    setTimeout(function () { location.reload(); }, 1000);
 });
 
 /*

@@ -132,22 +132,22 @@ border: 0px;
   </tr>
   <tr bgcolor="#FBEDD8">
     <td width="70%" stlye="">รวม สินทรัพย์</div>
-    <td align="right" width="20%">' . number_format($_POST['BG1'] + ($_POST['cash2']) + abs($_POST['DB'])) . '</td>
+    <td align="right" width="20%">' . number_format(($_POST['BG1'] + ($_POST['cash2']) + abs($_POST['DB'])), 2) . '</td>
     <td width="20%">บาท</td>
   </tr>
   <tr bgcolor="#FFF8ED">
   <td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;สินค้าที่พร้อมขาย</div>
-  <td align="right" width="20%">' . number_format($_POST['BG1']) . '</td>
+  <td align="right" width="20%">' . number_format($_POST['BG1'], 2) . '</td>
   <td width="20%">บาท</td>
 </tr>
 <tr bgcolor="#FBEDD8">
   <td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เงินที่ได้รับแล้ว</div>
-  <td align="right" width="20%">' . number_format($_POST['cash2'] + $_POST['DB']) . '</td>
+  <td align="right" width="20%">' . number_format(($_POST['cash2'] + $_POST['DB']), 2) . '</td>
   <td width="20%">บาท</td>
 </tr>
 <tr bgcolor="#FFF8ED">
 <td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เงินที่ยังไม่ได้รับ</div>
-<td align="right" width="20%">' . number_format($_POST['credit2'] - $_POST['DB']) . '</td>
+<td align="right" width="20%">' . number_format(($_POST['credit2'] - $_POST['DB']), 2) . '</td>
 <td width="20%">บาท</td>
 </tr>
 
@@ -159,22 +159,22 @@ border: 0px;
   </tr>
   <tr  bgcolor="#FBEDD8">
     <td  width="70%">รวม หนี้สิน+ทุน &nbsp;</td>
-    <td align="right" width="20%">' . number_format($_POST['BG3']) . '</td>
+    <td align="right" width="20%">' . number_format($_POST['BG3'], 2) . '</td>
     <td width="20%">บาท</td>
   </tr>
   <tr bgcolor="#FFF8ED">
 <td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ทุน </div>
-<td align="right" width="20%">' . number_format($_POST['complete']) . '</td>
+<td align="right" width="20%">' . number_format($_POST['complete'], 2) . '</td>
 <td width="20%">บาท</td>
 </tr>
 <tr bgcolor="#FBEDD8">
 <td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; หนี้สิน(เงินสด)   </div>
-<td align="right" width="20%">' . number_format($_POST['cash']) . '</td>
+<td align="right" width="20%">' . number_format($_POST['cash'], 2) . '</td>
 <td width="20%">บาท</td>
 </tr>
 <tr bgcolor="#FFF8ED">
 <td width="70%" stlye="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; หนี้สิน(เครดิต)  </div>
-<td align="right" width="20%">' . number_format($_POST['credit']) . '</td>
+<td align="right" width="20%">' . number_format($_POST['credit'], 2) . '</td>
 <td width="20%">บาท</td>
 </tr>
 </table>

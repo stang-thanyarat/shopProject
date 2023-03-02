@@ -156,7 +156,7 @@ h2{
       <tr>
         <td  colspan="3">หมายเหตุ :' . $data['contract_details'] . ' &nbsp;</td>
         <td width="290" class="setright">ยอดรวมสุทธิ :  &nbsp;</td>
-        <td width="238" class="setright">' . number_format($p) . ' &nbsp;</td>
+        <td width="238" class="setright">' . number_format($p, 2) . ' &nbsp;</td>
       </tr>
     </table>
    </td>

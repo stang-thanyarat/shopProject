@@ -227,7 +227,6 @@ class Product
             $like = "%$keyword%";
             if (is_null($id)) {
                 $sql = "SELECT C.*,P.* FROM category_tb C,product_tb P WHERE C.category_id = P.category_id AND P.product_name LIKE ? ORDER BY P.product_name ASC";
-
             } else {
                 $sql = "SELECT C.*,P.* FROM category_tb C,product_tb P WHERE C.category_id = ? AND P.product_name LIKE ? ORDER BY P.product_name ASC";
             }
@@ -316,7 +315,7 @@ class Product
 
 
 
-    public function cutStock($q,$id)
+    public function cutStock($q, $id)
     {
         try {
             $sql = "SET FOREIGN_KEY_CHECKS=0";
@@ -527,5 +526,4 @@ class Product
             echo strval($e);
         }
     }
-
 }

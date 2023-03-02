@@ -9,14 +9,14 @@ function check_email(elm) {
 //password
 function check_num(elm) {
     var regex_num = /^\s*\S+(\s?\S)*\s*$/
-    if (elm.value.length < 6 || elm.value.length > 15&&!elm.value.match(regex_num)) {
+    if (elm.value.length < 6 || elm.value.length > 15 && !elm.value.match(regex_num)) {
         alert("จำนวนตัวอักษรหรือตัวเลขอยู่ช่วง 6-15 ตัวเท่านั้น");
     }
 }
 
-async function readEmail(){
+async function readEmail() {
     const id = document.getElementById('employee_id').value
-    const employee = await(await fetch(`./controller/LoadEmail.php?id=${id}`)).json()
+    const employee = await (await fetch(`./controller/LoadEmail.php?id=${id}`)).json()
     const email = employee.employee_email
     document.getElementById('account_username').value = email
 }

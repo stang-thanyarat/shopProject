@@ -18,5 +18,3 @@ return "$day
 }
 $inputdate= "2022-12-30";
 echo ThDate($inputdate); // แสดงวันที่ 
- 
-?>

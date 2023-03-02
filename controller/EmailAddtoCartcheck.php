@@ -6,4 +6,3 @@ if($_GET['email']){
 }else {
     echo "Page Not found.";
 }
-?>

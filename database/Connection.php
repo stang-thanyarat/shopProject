@@ -1,16 +1,26 @@
 <?php
 function Connection()
 {
+    /*เซิร์ฟ shop_pj ทดสอบด้วย xampp*/
     $servername = "localhost";
     $username = "root";
     $password = "";
     $database = "shop_pj";
 
+    /*เซิร์ฟ หลัก*/
     /* $servername = "localhost";
      $username = "elnvento_AgrStore";
      $password = "@grSt0re6502";
-     $database = "elnvento_AgrStore";
-    $servername = "localhost";
+     $database = "elnvento_AgrStore";*/
+
+    /*เซิร์ฟ รอง*/
+    /*$servername = "localhost";
+    $username = "root";
+    $password = "shopproject";
+    $database = "shop_pj";*/
+
+    /*เซิร์ฟ ฟรี*/
+    /*$servername = "localhost";
      $username = "id20383590_root";
      $password = "Admin-argo-1";
      $database = "id20383590_shopproject";*/

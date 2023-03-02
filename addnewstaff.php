@@ -25,7 +25,7 @@ function getFullRole($role)
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/addnewstaff.css" />
     <link rel="stylesheet" href="./node_modules/sweetalert2/dist/sweetalert2.min.css" />
-    
+
 </head>
 <?php include_once('nav.php'); ?>
 
@@ -289,6 +289,8 @@ function getFullRole($role)
 <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="./node_modules//sweetalert2/dist/sweetalert2.min.js"></script>
 <script src="./src/js/addnewstaff.js"></script>
-<script>window.onload = () =>document.querySelector('.btn-close > span').remove()</script>
+<script>
+    window.onload = () => document.querySelector('.btn-close > span').remove()
+</script>
 
 </html>
