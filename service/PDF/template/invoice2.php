@@ -16,6 +16,22 @@ $data = $sales->fetchByPDFId($id);
 if (count($data) <= 0) {
   echo "Not found.";
   exit();
+
+
+if (!isset($_SESSION)) {
+  session_start();
+}
+if (!isset($_SESSION['shop_name'])) {
+  $_SESSION['shop_name'] = "ร้านวรเชษฐ์เกษตรภัณฑ์";
+}
+if (!isset($_SESSION['address'])) {
+  $_SESSION['address'] = 'xxxxxxxxx';
+}
+if (!isset($_SESSION['vat_no'])) {
+  $_SESSION['vat_no'] = "xxxxxxxxxxxxx";
+}
+if (!isset($_SESSION['tel'])) {
+  $_SESSION['tel'] = "xxxxxxxx";
 }
 $detail = $salesDetail->fetchBySalesId($data['sales_list_id']);
 $list1 = '';
@@ -88,20 +104,20 @@ h2{
 <body>
 <table  width="1000" border="0">
   <tr class="setcenter">
-    <td height="41" colspan="2" class="setcenter"><h2>ร้านวรเชษฐ์เกษตรภัณฑ์</h2></td>
+    <td height="41" colspan="2" class="setcenter"><h2>' . $_SESSION['shop_name'] . '</h2></td>
 </tr>
 <tr class="setcenter">
     <td colspan="2">&nbsp;</td>
 </tr>
    <tr class="setcenter">
-    <td height="21" colspan="2" class="setcenter">ที่อยู่ : 100/1 ม.6 ต.บ้านป้อม อ.เมือง จ.อยุธยา 13000
+    <td height="21" colspan="2" class="setcenter">ที่อยู่ : ' . $_SESSION['address'] . '
 </td>
   </tr>
    <tr class="setcenter">
-    <td colspan="2" class="setcenter">เลขประจำตัวผู้เสียภาษี : &nbsp; </td>
+    <td colspan="2" class="setcenter">เลขประจำตัวผู้เสียภาษี : ' . $_SESSION['vat_no'] . ' </td>
   </tr>
    <tr class="setcenter">
-    <td colspan="2" class="setcenter">เบอร์โทรติดต่อ : 035-801059 , 083-9108289</td>
+    <td colspan="2" class="setcenter">เบอร์โทรติดต่อ : ' . $_SESSION['tel'] . '</td>
   </tr>
   <tr class="setcenter">
     <td colspan="2">&nbsp;</td>

@@ -178,8 +178,10 @@ class Stock
         $sql = "SELECT * FROM stock_tb WHERE product_id = $id";
         $q = mysqli_query($conn,$sql);
         $result = [];
-        while ($r=mysqli_fetch_assoc($q)){
-            $result[]=$r;
+        if($q){
+            while ($r=mysqli_fetch_assoc($q)){
+                $result[]=$r;
+            }
         }
         return $result;
     }

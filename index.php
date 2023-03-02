@@ -7,11 +7,9 @@ if (!isset($_SESSION)) {
 function getFullRole($role)
 {
     if ($role == "E") {
-        echo "<script> out(); </script>";
         return 'พนักงาน';
     }
     if ($role == "L") {
-        echo "<script> out(); </script>";
         return 'เจ้าของร้าน';
     }
     if ($role == "A") {
@@ -20,7 +18,7 @@ function getFullRole($role)
 }
 
 if (!isset($_SESSION['shop_name'])) {
-    $_SESSION['shop_name'] = "วรเชษฐ์เกษตรภัณฑ์";
+    $_SESSION['shop_name'] = "ร้านวรเชษฐ์เกษตรภัณฑ์";
 }
 
 ?>

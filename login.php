@@ -3,7 +3,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 if (!isset($_SESSION['shop_name'])) {
-    $_SESSION['shop_name'] = "วรเชษฐ์เกษตรภัณฑ์";
+    $_SESSION['shop_name'] = "ร้านวรเชษฐ์เกษตรภัณฑ์";
 }
 
 ?>
@@ -33,12 +33,10 @@ if (!isset($_SESSION['shop_name'])) {
             </div>
         </div>
         <div class="BgRight col-md-6">
-
-            <form action="./controller/Login.php" method="post" id="login">
+            <form action="./controller/LogIn.php" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="table" value="useraccount" />
                 <input type="hidden" name="form_action" value="login" />
                 <?php
-
                 if (isset($_SESSION['error'])) {
                 ?>
                     <div class="alert alert-danger" role="alert">
@@ -57,7 +55,7 @@ if (!isset($_SESSION['shop_name'])) {
                     <i class="bi bi-eye-slash" id="togglePassword"></i>
                 </div>
                 <div class="BTN">
-                    <input name="btLogin_click()" class="field button" type="submit" value="Login" />
+                    <input name="btLogin_click()" class="field button" type="submit" value="login" />
                 </div>
             </form>
         </div>

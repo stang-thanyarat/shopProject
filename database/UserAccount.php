@@ -151,7 +151,7 @@ class UserAccount
     public function fetchByEmail($email)
     {
         try {
-            $sql = "SELECT * FROM user_account_tb WHERE account_username=?";
+            $sql = "SELECT * FROM user_account_tb WHERE account_username = ?";
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $email, PDO::PARAM_STR);
             $stmt->execute();

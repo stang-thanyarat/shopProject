@@ -1,4 +1,10 @@
 <?php
+if (!isset($_SESSION)) {
+  session_start();
+}
+if (!isset($_SESSION['shop_name'])) {
+  $_SESSION['shop_name'] = "ร้านวรเชษฐ์เกษตรภัณฑ์";
+}
 require_once '../vendor/autoload.php';
 if (!isset($_POST['complete']) || !isset($_POST['cash']) || !isset($_POST['cash2']) || !isset($_POST['credit2']) || !isset($_POST['credit']) || !isset($_POST['DB']) || !isset($_POST['BG1']) || !isset($_POST['BG2']) || !isset($_POST['BG3']) || !isset($_POST['firstdate']) || !isset($_POST['lastdate'])) {
   echo "Not found.";
@@ -113,7 +119,7 @@ border: 0px;
   </tr>
   <tr>
     <td class="setcenter" colspan="3">
-      <h2 >ร้านวรเชษฐ์เกษตรภัณฑ์</h2>
+      <h2 >' . $_SESSION['shop_name'] . '</h2>
       </td>
   </tr>
   <tr>

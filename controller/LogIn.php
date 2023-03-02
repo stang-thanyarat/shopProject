@@ -2,14 +2,14 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-include_once '../database/UserAccount.php';
 include_once 'Redirection.php';
+include_once '../database/UserAccount.php';
 include_once '../database/Employee.php';
 $useraccount = new UserAccount();
 $employee = new Employee();
 if (isset($_POST)) {
-    if ($_POST['table'] === 'useraccount') {
-        if ($_POST['form_action'] === 'login') {
+    if ($_POST['table'] == 'useraccount') {
+        if ($_POST['form_action'] == 'login') {
             $user = $useraccount->fetchByEmail($_POST['email']);
             if (count($user) > 0) {
                 $user = $user[0];
