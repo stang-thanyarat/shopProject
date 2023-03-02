@@ -4,6 +4,12 @@ include_once '../../../database/Contract.php';
 include_once '../../bahtText.php';
 include_once '../../datetimeDisplay.php';
 $Contract = new Contract();
+if (!isset($_SESSION)) {
+    session_start();
+}
+if (!isset($_SESSION['shop_name'])) {
+    $_SESSION['shop_name'] = "ร้านวรเชษฐ์เกษตรภัณฑ์";
+}
 if(!isset($_GET['id'])){
   echo "Not found.";
   exit();
@@ -76,7 +82,7 @@ h2{
 <body>
 <table  width="1000" border="0">
   <tr class="setcenter">
-    <td colspan="2" class="setcenter"><h2>ร้านวรเชษฐ์เกษตรภัณฑ์</h2></td>
+    <td colspan="2" class="setcenter"><h2>'.$_SESSION['shop_name'].'</h2></td>
   </tr>
   <tr class="setcenter" >
     <td colspan="2" class="setcenter"><h2>สัญญาซื้อขาย</h2></td>
@@ -221,5 +227,3 @@ h2{
 
 $mpdf->WriteHTML($html);
 $mpdf->Output($output, 'I');
-
-?>

@@ -102,8 +102,9 @@ include_once('nav.php');
                         <div class="row">
                             <div class="col receivecash"> เงินที่รับมา :<span style="color: red; ">&nbsp*</span> <input type="text" id="receivecash" class=" re" required /> &nbspบาท </div>
                         </div>
-                        <div class="row">
-                            <div class="col change"> เงินทอน :&nbsp&nbsp&nbsp <label id="change" class="inbox1"></label> &nbsp&nbspบาท </div>
+                        <div class="row fo">
+                            <div class="col change"> เงินทอน :&nbsp&nbsp&nbsp </div><label id="change" class="col mt"></label><div class="col inbox1">บาท </div> 
+                            
                         </div>
                     </div>
                     <div class="modal-footer"> <button type="submit" id="pay_C" class="btn btn-primary1">ตกลง</button> </div>

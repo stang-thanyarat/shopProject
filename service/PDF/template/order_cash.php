@@ -20,6 +20,13 @@ if (count($data) <= 0) {
     echo "Not found.";
     exit();
 }
+
+if (!isset($_SESSION)) {
+    session_start();
+}
+if (!isset($_SESSION['shop_name'])) {
+    $_SESSION['shop_name'] = "ร้านวรเชษฐ์เกษตรภัณฑ์";
+}
 $defaultConfig = (new Mpdf\Config\ConfigVariables())->getDefaults();
 $fontDirs = $defaultConfig['fontDir'];
 $defaultFontConfig = (new Mpdf\Config\FontVariables())->getDefaults();
@@ -99,7 +106,7 @@ font-size: 28pt;
 <body>
 <table  width="1000" border="0">
   <tr >
-    <td colspan="2" class="setcenter"><h2>ร้านวรเชษฐ์เกษตรภัณฑ์</h2></td>
+    <td colspan="2" class="setcenter"><h2>'.$_SESSION['shop_name'].'</h2></td>
   </tr>
   <tr >
     <td colspan="2" class="setcenter"><h2 >ใบสั่งซื้อ</h2></td>
@@ -158,6 +165,3 @@ font-size: 28pt;
 
 $mpdf->WriteHTML($html);
 $mpdf->Output($output, 'I');
-
-
-?>

@@ -206,7 +206,7 @@ input:checked+.slider:before {
 
 .inbox {
     width: 50%;
-    margin-left: 2rem
+    margin-left: 0.5rem
 }
 
 .inboxx {
@@ -303,4 +303,8 @@ input:checked+.slider:before {
 
 .exchange {
     margin-left: 0rem;
+}
+
+.bb{
+    margin-left: 1.5rem;
 }

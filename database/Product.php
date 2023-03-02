@@ -48,6 +48,44 @@ class Product
         }
     }
 
+    public function fetchcate($id)
+    {
+        try {
+            $sql = "SELECT P.*,C.* FROM product_tb P,category_tb C WHERE P.category_id = C.category_id AND P.product_id=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
+    }
+
+    public function fetchsell($id)
+    {
+        try {
+            $sql = "SELECT P.*,S.* FROM product_tb P,sell_tb S WHERE P.sell_id = S.sell_id AND P.product_id=?";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            echo strval($e);
+        }
+    }
+
     public function fetchByCategoryName($id)
     {
         try {
@@ -277,20 +315,6 @@ class Product
     }
 
 
-    /*public function cutStock($id, $amount) //อันตราย
-    {
-        try{
-            $sql = "UPDATE product_tb SET product_rm_unit = product_rm_unit - $amount WHERE product_id = $id";
-            $servername = "localhost";
-            $username = "root";
-            $username = "";
-            $database = "shop_pj";
-            mysqli_query( mysqli_connect( $servername, $username, $username,$database),$sql);
-        } catch (Exception $e) {
-            http_response_code(500);
-            echo strval($e);
-        }
-    }*/
 
     public function cutStock($q,$id)
     {

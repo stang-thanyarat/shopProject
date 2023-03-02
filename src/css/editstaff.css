@@ -36,15 +36,11 @@
 }
 
 .bb {
-    margin-left: 2rem;
+    margin-left: 1rem;
 }
 
 .cc {
-    margin-left: 1.4rem
-}
-
-.margin {
-    margin-left: 2rem;
+    margin-left: 0.3rem
 }
 
 .leftmodel {
@@ -68,12 +64,6 @@
     margin-top: 1rem;
 }
 
-.q {
-    color: red;
-    margin-left: 6.5rem;
-    margin-top: -1.8rem;
-}
-
 .b {
     color: red;
     margin-left: 5.8rem;
@@ -93,7 +83,7 @@
 }
 
 .leftlastname {
-    margin-right: 3.7rem;
+    margin-right: 4rem;
     margin-top: 1rem;
 }
 
@@ -108,23 +98,13 @@
     margin-top: 1rem;
 }
 
-.e {
-    color: red;
-    margin-left: 7.8rem;
-    margin-top: -1.8rem;
-}
-
 .leftbirthday {
     margin-left: 3.3rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
-.f {
-    color: red;
-    margin-left: 3.5rem;
-    margin-top: -1.8rem;
-}
+
 
 .leftaddress {
     margin-left: 10.2rem;
