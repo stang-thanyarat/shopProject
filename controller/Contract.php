@@ -35,7 +35,6 @@ if (isset($_POST)) {
             $contract->updatestatus($_POST['promise_status'], $_POST['contract_code']);
         }
     }
-
 } else {
     echo "Page Not found.";
 }

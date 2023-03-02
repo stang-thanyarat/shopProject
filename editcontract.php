@@ -25,7 +25,7 @@ function getFullRole($role)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/editcontract.css" />
-    
+
 </head>
 <?php include_once('nav.php');
 include_once "database/Contract.php";
@@ -58,7 +58,7 @@ $laber = $contract->fetchByemployee($_GET['id']);
                     </div>
                 </div>
                 <div class="row-3 xx">ข้าพเจ้า : <b class="bb" id="employee_id"><?= $laber['employee_prefix'] ?><?= $laber['employee_firstname'] ?>&nbsp&nbsp<?= $laber['employee_lastname'] ?></b>
-                &nbsp; &nbsp; &nbsp; ซึ่งต่อไปในหนังสือสัญญานี้เรียกว่าผู้ขายฝ่ายหนึ่งกับ
+                    &nbsp; &nbsp; &nbsp; ซึ่งต่อไปในหนังสือสัญญานี้เรียกว่าผู้ขายฝ่ายหนึ่งกับ
                 </div>
                 <div class="row">
                     <div class="col customerp">ข้าพเจ้า : <b class="bb"><?= $c['customer_prefix']; ?></b>
@@ -83,7 +83,7 @@ $laber = $contract->fetchByemployee($_GET['id']);
                 <div class="row-1 xxx">ให้แก่ผู้ซื้อเป็นจำนวนเงิน <b class="baht"><?= $c['baht']; ?></b> บาท <b class="stang"><?= $c['baht']; ?></b> สตางค์ (&nbsp;<b class="stangt"><?= $c['stangt']; ?></b>&nbsp;)
                 </div>
                 <div class="col-11 xxx">และยอมส่งมอบทรัพย์สินที่ขายให้แก่ผู้ซื้อวันที่&nbsp;<b><?= dateTimeDisplay($c['date_send']) ?></b>
-                    และผู้ขายได้รับราคาดังกล่าวแล้วไปจากผู้ซื้อเสร็จแล้วตั้งแต่วันที่ <b><?= dateTimeDisplay($c['price_send'])?></b>
+                    และผู้ขายได้รับราคาดังกล่าวแล้วไปจากผู้ซื้อเสร็จแล้วตั้งแต่วันที่ <b><?= dateTimeDisplay($c['price_send']) ?></b>
                 </div>
 
                 <div class="row xxx">ข้อ 2 ผู้ขายยอมสัญญาว่า
@@ -92,7 +92,7 @@ $laber = $contract->fetchByemployee($_GET['id']);
                 </div>
                 <div class="col ctc">
                     ข้อ 3 : <span style="color: red; ">&nbsp*&nbsp&nbsp&nbsp&nbsp</span>
-                        <textarea name="contract_details" id="contract_details" cols="50" rows="5" style="vertical-align:top;"><?= $c['contract_details']; ?></textarea>
+                    <textarea name="contract_details" id="contract_details" cols="50" rows="5" style="vertical-align:top;"><?= $c['contract_details']; ?></textarea>
                 </div>
                 <div class="row xxx">ข้อ 4 ผู้ขายและผู้ซื้อได้ทราบข้อความในสัญญานี้ดีแล้ว
                     จึงได้ลงลายมือชื่อไว้ในสัญญานี้เป็นหลักฐาน

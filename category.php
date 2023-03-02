@@ -25,7 +25,7 @@ function getFullRole($role)
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/category.css" />
     <link rel="stylesheet" href="./node_modules/sweetalert2/dist/sweetalert2.min.css" />
-    
+
 </head>
 <?php
 include_once('nav.php');
@@ -65,8 +65,8 @@ $rows = $category->fetchAll();
                         <tr>
                             <th><?= $i ?></th>
                             <th id="text<?= $row['category_id'] ?>"><?= $row['category_name'] ?></th>
-                            <th ><?= number_format($category->getCount($row['category_id'], false)) ?></th>
-                            <th ><?= number_format($category->getCount($row['category_id'], true)) ?></th>
+                            <th><?= number_format($category->getCount($row['category_id'], false)) ?></th>
+                            <th><?= number_format($category->getCount($row['category_id'], true)) ?></th>
                             <th>
                                 <button type="button" class="bgs" name="btDelete_click()" onclick="del(<?= $row['category_id'] ?>)"><img src="./src/images/icon-delete.png" width="25"></button>
                                 <button type="button" class="bgs" name="btEdit_click()" onclick="edit(<?= $row['category_id'] ?>)"><img src="./src/images/icon-pencil.png" width="25"></button>

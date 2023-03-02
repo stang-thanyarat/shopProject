@@ -23,8 +23,8 @@ function getFullRole($role)
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./src/css/changeproduct.css"/>
-    
+    <link rel="stylesheet" href="./src/css/changeproduct.css" />
+
 </head>
 <?php
 if (!isset($_SESSION)) {
@@ -39,31 +39,32 @@ if (isset($_POST['day_change'])) {
 include_once('nav.php'); ?>
 
 <body>
-<form action="changeproduct.php" method="post">
-    <div class="row">
-        <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
-        <div class="col-11">
-            <div class="row main">
-                <h1>ตั้งค่าการเปลี่ยนสินค้า</h1>
-                <table class="main col-10">
-                    <tr>
-                        <th>ระยะเวลาที่รับเปลี่ยนสินค้า &nbsp<input type="text" name="day_change" id="day_change" style="width: 3%; text-align: right;" value="<?= $_SESSION['day_change']; ?> " >
-                            &nbsp วัน
-                        </th>
-                    </tr>
-                </table>
-                <div class="row btn-g">
-                    <!--<div class="col-2">
+    <form action="changeproduct.php" method="post" id="form1" name="form1">
+        <div class="row">
+            <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
+            <div class="col-11">
+                <div class="row main">
+                    <h1>ตั้งค่าการเปลี่ยนสินค้า</h1>
+                    <table class="main col-10">
+                        <tr>
+                            <th>ระยะเวลาที่รับเปลี่ยนสินค้า &nbsp<input type="text" name="day_change" id="day_change" style="width: 3%; text-align: right;" value="<?= $_SESSION['day_change']; ?> ">
+                                &nbsp วัน
+                            </th>
+                        </tr>
+                    </table>
+                    <div class="row btn-g">
+                        <!--<div class="col-2">
                         <button type="reset" class="btn-c reset" >ยกเลิก</button>
                     </div>-->
-                    <div class="col-2">
-                        <input type="submit" class="btn-c submit" value="บันทึก"/>
+                        <div class="col-2">
+                            <button type="button" class="btn-c submit" onclick="Submit()" value="บันทึก">บันทึก</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</form>
+    </form>
 </body>
+<script src="./src/js/changeproduct.js"></script>
 
 </html>

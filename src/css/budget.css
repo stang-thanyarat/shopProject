@@ -6,13 +6,14 @@
 
 }
 
-body{
+body {
     background: white;
 }
 
-.content{
+.content {
     background: white;
 }
+
 * {
     font-family: 'IBM Plex Sans Thai', sans-serif;
     font-size: 16pt;
@@ -29,17 +30,17 @@ body{
     margin-top: 3.5rem;
 }
 
-.mam{
+.mam {
     font-size: 18pt;
     margin-top: 0.5rem;
     margin-left: 17rem;
 }
 
-.mamm{
+.mamm {
     margin-left: 17.9rem;
 }
 
-.kk{
+.kk {
     margin-left: 36.5rem;
 }
 
@@ -104,11 +105,12 @@ table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 60%;
-    
+
 }
 
-td, th {
-    border: 0px solid ;
+td,
+th {
+    border: 0px solid;
     text-align: left;
     padding: 8px;
 
@@ -121,4 +123,3 @@ tr:nth-child(odd) {
 tr:nth-child(even) {
     background-color: #FFF8ED;
 }
-

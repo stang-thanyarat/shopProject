@@ -106,7 +106,7 @@ for ($k = 0; $k < count($op); $k++) {
                         </div>
                         <div class="col">
                             <!--วันที่รับของล่าสุด : &nbsp;<?= toDay($o['datereceive']); ?>-->
-                            วันที่รับของที่เปลี่ยน : &nbsp;<input id="datereceive" name="datereceive" type="date" step="1" value="<?= $o['datereceive']; ?>" >
+                            วันที่รับของที่เปลี่ยน : &nbsp;<input id="datereceive" name="datereceive" type="date" step="1" value="<?= $o['datereceive']; ?>">
                         </div>
                     </div>
                 </div>
@@ -124,15 +124,15 @@ for ($k = 0; $k < count($op); $k++) {
                     <div class="col j payment_sl">
                         วิธีการชำระเงิน : &nbsp;
                         <select name="payment_sl" id="payment_sl" class="inbox" style="background-color: #D4DDC6;" value="<?= $o['payment_sl']; ?>">
-                                <option value="all" selected hidden>เลือกวิธีการชำระ</option>
-                                <option value="เงินสด" <?= $o['payment_sl'] == "เงินสด" ? "selected" : '' ?>>เงินสด</option>
-                                <option value="เครดิต" <?= $o['payment_sl'] == "เครดิต" ? "selected" : '' ?>>เครดิต</option>
-                            </select>
+                            <option value="all" selected hidden>เลือกวิธีการชำระ</option>
+                            <option value="เงินสด" <?= $o['payment_sl'] == "เงินสด" ? "selected" : '' ?>>เงินสด</option>
+                            <option value="เครดิต" <?= $o['payment_sl'] == "เครดิต" ? "selected" : '' ?>>เครดิต</option>
+                        </select>
                     </div>
                     <div class="col payment">
                         &nbsp;&nbsp;&nbsp;&nbsp;วันที่ชำระเงิน : &nbsp;&nbsp;
                         <!--<?= toDay($o['payment_dt']); ?>-->
-                         &nbsp;&nbsp;<input id="payment_dt" name="payment_dt" type="date" step="1" value="<?= $o['payment_dt']; ?>">
+                        &nbsp;&nbsp;<input id="payment_dt" name="payment_dt" type="date" step="1" value="<?= $o['payment_dt']; ?>">
                     </div>
                 </div>
                 <div id="creditupload">
@@ -172,9 +172,9 @@ for ($k = 0; $k < count($op); $k++) {
                                 <tr id="rr<?= $i ?>">
                                     <th class="index-table-product"><?= $i + 1 ?></th>
                                     <th id="text<?= $b['product_id'] ?>"><?= $b['product_name'] ?></th>
-                                    <th><?= $b['order_pr'] ?></th>
-                                    <th><?= $b['order_amt'] ?></th>
-                                    <th><?= $b['order_amt'] * $b['order_pr'] ?></th>
+                                    <th><?= number_format($b['order_pr']) ?></th>
+                                    <th><?= number_format($b['order_amt']) ?></th>
+                                    <th><?= number_format($b['order_amt'] * $b['order_pr']) ?></th>
                                     <th>
                                         <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(<?= $i ?>)"></button>
                                         <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(<?= $i ?>)"></button>
@@ -201,13 +201,14 @@ for ($k = 0; $k < count($op); $k++) {
                             </tr>
                         </thead>
                         <tbody id="list-priceother">
-                            <?php $k = 0; foreach ($op as $b) { ?>
+                            <?php $k = 0;
+                            foreach ($op as $b) { ?>
                                 <tr id="rr<?= $k ?>">
                                     <th class="index-table-price"><?= $k + 1 ?></th>
-                                    <th ><?= $b['listother'] ?></th>
-                                    <th ><?= $b['priceother'] ?></th>
-                                    <th > <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModalother" onclick="saveIndexDel1(<?= $i ?>)"><img src="./src/images/icon-delete.png" width="25" ></button>
-                                    <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm4"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit1(<?= $i ?>)"></button>
+                                    <th><?= $b['listother'] ?></th>
+                                    <th><?= number_format($b['priceother']) ?></th>
+                                    <th> <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModalother" onclick="saveIndexDel1(<?= $i ?>)"><img src="./src/images/icon-delete.png" width="25"></button>
+                                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm4"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit1(<?= $i ?>)"></button>
                                     </th>
                                 </tr>
                             <?php $k++;
@@ -285,7 +286,7 @@ for ($k = 0; $k < count($op); $k++) {
                     <div class="modal-body">
                         <div class="col-12 r">
                             <div> ชื่อสินค้า &nbsp;&nbsp;:&nbsp;&nbsp;
-                                <select class="" id="editproduct_id" name="editproduct_id" style="background-color: #D4DDC6;">
+                                <select id="editproduct_id" name="editproduct_id" style="background-color: #D4DDC6; width:20%;">
                                     <?php foreach ($products as $p) {  ?>
                                         <option value="<?= $p['product_id'] ?>" <?= $_GET['id'] == $p['product_id'] ? "selected" : "" ?>><?= $p['product_name'] ?>
                                             &nbsp;<?= $p['brand'] ?>&nbsp;&nbsp;<?= $p['model'] ?></option>
@@ -346,10 +347,10 @@ for ($k = 0; $k < count($op); $k++) {
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div style="text-align: center;">รายการ: &nbsp;<input type="text" name="editlistother" id="editlistother" required /><br>
+                        <div class="listother">รายการ: &nbsp;<input type="text" name="editlistother" id="editlistother" required /><br>
                             <p></p>
                         </div>
-                        <div style="text-align: center;">ราคา: &nbsp;<input type="text" name="editpriceother" id="editpriceother" required />
+                        <div class="priceother">ราคา: &nbsp;<input type="text" name="editpriceother" id="editpriceother" required />
                             <p></p>
                         </div>
 
@@ -408,7 +409,6 @@ for ($k = 0; $k < count($op); $k++) {
             data: [<?php echo $json1; ?>]
         }))
     });
-
 </script>
 <script src="./src/js/confirm.js"></script>
 

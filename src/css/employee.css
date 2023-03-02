@@ -85,7 +85,7 @@ input:checked+.slider:before {
     margin-left: 50rem;
 }
 
-.w{
+.w {
     margin-right: -4rem;
 }
 
@@ -152,6 +152,7 @@ select {
     background: transparent;
     border: 0px;
     margin-left: -2rem;
+    margin-top: -0.4rem;
 }
 
 .w {

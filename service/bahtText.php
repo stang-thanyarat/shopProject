@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 function bahtText(float $amount): string
@@ -9,10 +10,10 @@ function bahtText(float $amount): string
     $satang = convert($fraction);
 
     $output = $amount < 0 ? 'ลบ' : '';
-    $output .= $baht ? $baht.'บาท' : '';
-    $output .= $satang ? $satang.'สตางค์' : 'ถ้วน';
+    $output .= $baht ? $baht . 'บาท' : '';
+    $output .= $satang ? $satang . 'สตางค์' : 'ถ้วน';
 
-    return $baht.$satang === '' ? 'ศูนย์บาทถ้วน' : $output;
+    return $baht . $satang === '' ? 'ศูนย์บาทถ้วน' : $output;
 }
 
 function convert(string $number): string
@@ -25,11 +26,11 @@ function convert(string $number): string
 
     foreach (str_split(strrev($number)) as $place => $value) {
         if ($place % 6 === 0 && $place > 0) {
-            $output = $places[6].$output;
+            $output = $places[6] . $output;
         }
 
         if ($value !== '0') {
-            $output = $values[$value].$places[$place % 6].$output;
+            $output = $values[$value] . $places[$place % 6] . $output;
         }
     }
 

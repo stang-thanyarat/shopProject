@@ -43,7 +43,7 @@ function setUI(data) {
         <th>${element.model}</th>
         <th>${element.product_dlt_unit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
         <th>${element.product_rm_unit.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
-        <th>${element.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") }</th>
+        <th>${element.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</th>
         <th><img src="${element.product_img}" width="200" height="200"></th>
         <th>
             <label class="switch">
@@ -67,12 +67,12 @@ async function setStatus(id, val) {
     if (!val) {
         const status = $("#S" + id).is(':checked');
         fetch(`./controller/SetProductStatus.php?status=${status}&id=${id}`).then(() => {
-            setTimeout(()=>window.location.reload(),1000)
+            setTimeout(() => window.location.reload(), 1000)
         })
     }
     fetch(`./controller/SetProductStatus.php?status=${val == 0 ? false : true}&id=${id}`)
         .then(() => {
-            setTimeout(()=>window.location.reload(),1000)
+            setTimeout(() => window.location.reload(), 1000)
         })
 }
 
@@ -107,7 +107,7 @@ function del(id) {
                     icon: 'success',
                     timer: 3000
                 }
-            ).then(()=>{
+            ).then(() => {
                 location.reload()
             })
         }

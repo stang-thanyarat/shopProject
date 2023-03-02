@@ -52,9 +52,9 @@ foreach ($data as $row) {
   $r .= '<tr>
   <td width="140" class="setcenter">' . $c . '</td>
   <td width="426">&nbsp; ' . $row['product_name'] . '</td>
-  <td width="162" class="setcenter">' . number_format($row['sales_amt'] ). '</td>
-  <td width="304" class="setright"> ' . number_format($row['price'] ). ' &nbsp;</td>
-  <td width="238" class="setright"> ' . number_format($row['price'] * $row['sales_amt'] ). ' &nbsp;</td>
+  <td width="162" class="setcenter">' . number_format($row['sales_amt']) . '</td>
+  <td width="304" class="setright"> ' . number_format($row['price'], 2) . ' &nbsp;</td>
+  <td width="238" class="setright"> ' . number_format($row['price'] * $row['sales_amt'], 2) . ' &nbsp;</td>
 </tr>';
   $c++;
   $p += $row['price'] * $row['sales_amt'];
@@ -133,7 +133,7 @@ h2{
       <tr>
       <td  colspan="3">หมายเหตุ : </td>
       <td width="304" class="setright">ยอดรวมสุทธิ : &nbsp;</td>
-      <td width="238" class="setright">' . number_format($p). ' &nbsp;</td>
+      <td width="238" class="setright">' . number_format($p, 2) . ' &nbsp;</td>
     </tr>
    </table>
       </td>
@@ -150,4 +150,3 @@ h2{
 
 $mpdf->WriteHTML($html);
 $mpdf->Output($output, 'I');
-

@@ -115,9 +115,8 @@ if (isset($_POST)) {
             $_POST['product_img2'] = str_replace("-", "", $_POST['product_img2']);
             $product->insert($_POST);
             Redirection("/productresult.php");
-        }
-        else if($_POST['form_action'] == 'cut'){
-            $product->cutStock($_POST['q'],$_POST['product_id']);
+        } else if ($_POST['form_action'] == 'cut') {
+            $product->cutStock($_POST['q'], $_POST['product_id']);
         }
     }
 } else {

@@ -26,7 +26,7 @@ function getFullRole($role)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/budget.css" />
-    
+
 </head>
 <?php
 include_once('nav.php');
@@ -42,8 +42,7 @@ if (!isset($_GET['firstdate']) && (!isset($_GET['lastdate']))) {
     $c = (array)$budget->fetchBetweenOrder2();
     $p = (array)$budget->fetchBetweenProduct();
     $d = (array)$budget->fetchBetweenDebt2();
-}
-else if (isset($_GET['firstdate']) && (isset($_GET['lastdate']))) {
+} else if (isset($_GET['firstdate']) && (isset($_GET['lastdate']))) {
     $firstdate = $_GET['firstdate'];
     $lastdate = $_GET['lastdate'];
     $firstdate_text = $_GET['firstdate'];
@@ -88,14 +87,14 @@ else if (isset($_GET['firstdate']) && (isset($_GET['lastdate']))) {
                                 <tr>
                                     <th width='10%'></th>
                                     <th width='50%'>รวม สินทรัพย์</th>
-                                    <th width='25%' style="text-align: end;"><?= number_format($p['BG1'] )?></th>
+                                    <th width='25%' style="text-align: end;"><?= number_format($p['BG1']) ?></th>
                                     <th width='10%'>บาท</th>
 
                                 </tr>
                                 <tr>
                                     <th></th>
                                     <th>&nbsp&nbsp&nbsp&nbspสินค้าที่พร้อมขาย</th>
-                                    <th style="text-align: end;"><?= number_format($p['BG1'] - ($b['BG2']) ) ?></th>
+                                    <th style="text-align: end;"><?= number_format($p['BG1'] - ($b['BG2'])) ?></th>
                                     <th>บาท</th>
                                 </tr>
                                 <tr>
@@ -107,7 +106,7 @@ else if (isset($_GET['firstdate']) && (isset($_GET['lastdate']))) {
                                 <tr>
                                     <th></th>
                                     <th>&nbsp&nbsp&nbsp&nbspเงินที่ยังไม่ได้รับ</th>
-                                    <th style="text-align: end;"><?= number_format( abs($b['credit2'] - $d['DB'])) ?></th>
+                                    <th style="text-align: end;"><?= number_format(abs($b['credit2'] - $d['DB'])) ?></th>
                                     <th>บาท</th>
                                 </tr>
 

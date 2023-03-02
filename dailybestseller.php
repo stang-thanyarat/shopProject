@@ -25,7 +25,7 @@ function getFullRole($role)
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/dailybestseller.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    
+
 </head>
 <?php
 include_once('nav.php');
@@ -49,7 +49,7 @@ $c = $category->fetchAll();
             <div class="row d-flex justify-content-end" style="margin-right: 3rem; margin-top: 1rem">
                 <div class="col-4 date">
                     <label for="expires"></label>
-                    <input type="date" style="height: 100%" value="<?= date('Y-m-d') ?>" name="date" id="date" name="expires"/>
+                    <input type="date" style="height: 100%" value="<?= date('Y-m-d') ?>" name="date" id="date" name="expires" />
                 </div>
                 <div class="col-3 category">
                     <form>
@@ -69,19 +69,19 @@ $c = $category->fetchAll();
             </div>
             <div class="dailybestsellerTable">
                 <h3 style="text-align: center; margin-top: 9rem;margin-bottom: 9rem;" id="no-let">ไม่มีรายการสินค้าขายดีประจำวัน</h3>
-            <table class="col-11" id="tb-let" style="display: none;">
-                <thead>
-                    <tr>
-                        <th width="10%">ลำดับ</th>
-                        <th width="20%">รูปภาพ</th>
-                        <th width="25%">ชื่อสินค้า</th>
-                        <th width="20%">ราคา</th>
-                        <th width="15%">คงเหลือ</th>
-                        <th width="10%">จำนวนที่ขาย</th>
-                    </tr>
-                <tbody id="dailybestsellerTable"></tbody>
-            </table>
-        </div>
+                <table class="col-11" id="tb-let" style="display: none;">
+                    <thead>
+                        <tr>
+                            <th width="10%">ลำดับ</th>
+                            <th width="20%">รูปภาพ</th>
+                            <th width="25%">ชื่อสินค้า</th>
+                            <th width="20%">ราคา</th>
+                            <th width="15%">คงเหลือ</th>
+                            <th width="10%">จำนวนที่ขาย</th>
+                        </tr>
+                    <tbody id="dailybestsellerTable"></tbody>
+                </table>
+            </div>
         </div>
     </div>
 </body>

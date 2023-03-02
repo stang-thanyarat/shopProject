@@ -47,7 +47,7 @@ $labers = $employee->fetchLabers();
 ?>
 
 <body>
-    <form action="contractsetting.php" method="post">
+    <form action="contractsetting.php" method="post" id="form1" name="form1">
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">
@@ -102,7 +102,7 @@ $labers = $employee->fetchLabers();
                         <button type="button" class="btn-c reset" onclick="javascript:window.location='index.php';">ยกเลิก</button>
                     </div>
                     <div class="col-2">
-                        <input type="submit" class="btn-c submit" value="บันทึก" />
+                        <button type="button" class="btn-c submit" onclick="Submit()" value="บันทึก">บันทึก</button>
                     </div>
                 </div>
             </div>

@@ -5,40 +5,44 @@
     font-size: 16pt;
 }
 
-.main{
+.main {
     margin-top: 5rem;
     margin-left: 4rem;
     margin-bottom: 1rem;
     width: 90%;
 }
 
-.Nbar{
+.Nbar {
     margin-top: 3.5rem;
 }
-.row{
+
+.row {
     --bs-gutter-x: 0rem;
 }
-.g{
+
+.g {
     width: 130px;
     border: 0in;
     background-color: #ABBE99;
     margin-top: -1rem;
 }
-.t{
+
+.t {
     background-color: #ABBE99;
     height: 45px;
     width: 100%;
-   
+
 }
 
-.m{
+.m {
     margin-left: 3rem;
 }
-.s{
+
+.s {
     background-color: #fff;
     border: 0in;
 }
-.q{
+
+.q {
     margin-top: 1rem;
 }
-

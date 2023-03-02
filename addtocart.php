@@ -81,15 +81,15 @@ include_once('nav.php');
         </div>
     </div>
 
-<!-- ยืนยันการซื้อแบบเงินสด -->
-<div class="modal fade bd-example-modal-sm3 cash-form" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form action="controller/Sales.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
-        <input type="hidden" value="sales" name="table" />
-        <input type="hidden" value="insert" name="form_action" />
-        <input type="hidden" id="payment_sl" name="payment_sl" value="เงินสด" />
-        <input type="hidden" id="employee_id" name="employee_id" value="<?=$_SESSION['employee_id']?>">
-        <input type="hidden" name="all_quantity" class="inbox all_quantity" />
-        <input type="hidden" name="all_price" class="inbox all_price" />
+    <!-- ยืนยันการซื้อแบบเงินสด -->
+    <div class="modal fade bd-example-modal-sm3 cash-form" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <form action="controller/Sales.php" name="form1" id="form1" method="POST" enctype="multipart/form-data">
+            <input type="hidden" value="sales" name="table" />
+            <input type="hidden" value="insert" name="form_action" />
+            <input type="hidden" id="payment_sl" name="payment_sl" value="เงินสด" />
+            <input type="hidden" id="employee_id" name="employee_id" value="<?= $_SESSION['employee_id'] ?>">
+            <input type="hidden" name="all_quantity" class="inbox all_quantity" />
+            <input type="hidden" name="all_price" class="inbox all_price" />
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -103,8 +103,9 @@ include_once('nav.php');
                             <div class="col receivecash"> เงินที่รับมา :<span style="color: red; ">&nbsp*</span> <input type="text" id="receivecash" class=" re" required /> &nbspบาท </div>
                         </div>
                         <div class="row fo">
-                            <div class="col change"> เงินทอน :&nbsp&nbsp&nbsp </div><label id="change" class="col mt"></label><div class="col inbox1">บาท </div> 
-                            
+                            <div class="col change"> เงินทอน : </div><label id="change" class="col mt"></label>
+                            <div class="col inbox1">บาท </div>
+
                         </div>
                     </div>
                     <div class="modal-footer"> <button type="submit" id="pay_C" class="btn btn-primary1">ตกลง</button> </div>
@@ -120,8 +121,8 @@ include_once('nav.php');
             <input type="hidden" value="insert" name="form_action" />
             <input type="hidden" id="payment_sl" name="payment_sl" value="โอนผ่านบัญชีธนาคาร" />
             <input type="hidden" id="employee_id" name="employee_id" value="<?= $_SESSION['employee_id'] ?>">
-            <input type="hidden" name="all_quantity" class="inbox all_quantity"/>
-            <input type="hidden" name="all_price" class="inbox all_price"/>
+            <input type="hidden" name="all_quantity" class="inbox all_quantity" />
+            <input type="hidden" name="all_price" class="inbox all_price" />
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -136,7 +137,7 @@ include_once('nav.php');
                         </div>
                         <div class="row">
                             <div class="col notice">
-                            <h6><span style="color: red; ">&nbsp*</span>ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h6>
+                                <h6><span style="color: red; ">&nbsp*</span>ประเภทไฟล์ที่ยอมรับ: .jpg, .jpeg, .png ขนาดไฟล์ไม่เกิน 8 MB</h6>
                             </div>
                         </div>
                         <div class="row">
@@ -217,6 +218,11 @@ include_once('nav.php');
 </body>
 <script src="./src/js/addtocart.js"></script>
 <script>
+    function convertToDateThai(date) {
+        var month_th = ["", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"];
+        return result = date.getDate() + " " + month_th[(date.getMonth() + 1)] + " " + (date.getFullYear() + 543);
+    }
+
     var input = document.getElementById("keyword");
     input.addEventListener("keypress", function(event) {
         if (event.key === "Enter") {

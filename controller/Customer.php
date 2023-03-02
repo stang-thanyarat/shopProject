@@ -14,6 +14,6 @@ if (isset($_POST)) {
             $customer->insert($_POST);
         }
     }
-}else{
+} else {
     echo "Page Not found.";
 }

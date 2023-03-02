@@ -10,7 +10,8 @@ if (!isset($_SESSION['shop_name'])) {
 <!DOCTYPE html>
 <html lang="en">
 <title>เข้าสู่ระบบ</title>
-<link rel="icon" type="image/png" href="./src/images/892917.ico"/><link rel="stylesheet" href="./src/css/bar.css">
+<link rel="icon" type="image/png" href="./src/images/892917.ico" />
+<link rel="stylesheet" href="./src/css/bar.css">
 
 <head>
     <meta charset="UTF-8">
@@ -20,7 +21,7 @@ if (!isset($_SESSION['shop_name'])) {
     <link type="text/css" href="./src/css/login.css" rel='stylesheet' />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
 
-    
+
 </head>
 
 <body>
@@ -28,7 +29,7 @@ if (!isset($_SESSION['shop_name'])) {
         <div class="BgLeft col-md-6">
             <div class="wrap d-md-flex inLeft no-gutter">
                 <img src="./src/images/icon-head.png" class="icon" width="150" />
-                <h3 class="head"><?=$_SESSION['shop_name']?></h3>
+                <h3 class="head"><?= $_SESSION['shop_name'] ?></h3>
             </div>
         </div>
         <div class="BgRight col-md-6">

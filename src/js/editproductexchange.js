@@ -41,30 +41,30 @@ $(document).ready(function () {
     e.currentTarget.submit();
 })*/
 
-function phonePattern(obj){
-    const mobile = [8,9,6]
-    const phone = [2,3,5,7,4]
-    if(mobile.includes(Number(obj.value[1]))){
+function phonePattern(obj) {
+    const mobile = [8, 9, 6]
+    const phone = [2, 3, 5, 7, 4]
+    if (mobile.includes(Number(obj.value[1]))) {
         return new String("___-_______")
-    }else if(phone.includes(Number(obj.value[1]))){
+    } else if (phone.includes(Number(obj.value[1]))) {
         return new String("__-_______")
-    }else{
+    } else {
         return null
     }
 }
 
 function autoTab2(obj) {
-    if(obj.value[0]!=0){
+    if (obj.value[0] != 0) {
         obj.value = ''
         return
     }
-    if(obj.value.length<=1){
+    if (obj.value.length <= 1) {
         return
     }
     var pattern = null
-    if(phonePattern(obj)){
+    if (phonePattern(obj)) {
         pattern = phonePattern(obj)
-    }else{
+    } else {
         obj.value = obj.value[0]
         return
     }
@@ -84,21 +84,21 @@ function autoTab2(obj) {
 }
 
 $("#form1").submit(async function (event) {
-        event.preventDefault();
-        let response = await fetch('controller/ProductExchange.php', {
-            method: 'POST',
-            body: new FormData(document.form1)
-        });
-        console.log(response);
+    event.preventDefault();
+    let response = await fetch('controller/ProductExchange.php', {
+        method: 'POST',
+        body: new FormData(document.form1)
+    });
+    console.log(response);
 
-        if (!response.ok) {
-            console.log(response);
-        } else {
-            await Swal.fire({
-                icon: 'success',
-                text: 'บันทึกข้อมูลเสร็จสิ้น',
-                timer: 3000
-            })
-            window.location.assign("productexchangehistory.php");
-        }
+    if (!response.ok) {
+        console.log(response);
+    } else {
+        await Swal.fire({
+            icon: 'success',
+            text: 'บันทึกข้อมูลเสร็จสิ้น',
+            timer: 3000
+        })
+        window.location.assign("productexchangehistory.php");
+    }
 });

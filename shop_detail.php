@@ -24,7 +24,7 @@ function getFullRole($role)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/vat.css" />
-    
+
 </head>
 <?php
 if (!isset($_SESSION)) {
@@ -51,35 +51,36 @@ if (isset($_POST['tel'])) {
 include_once('nav.php'); ?>
 
 <body>
-<form method="post" action="shop_detail.php">
-    <div class="row">
-        <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
-        <div class="col-11">
-            <div class="row main">
-                <h1>ตั้งค่าข้อมูลร้านค้า</h1>
-                <table class="main col-10">
-                    <tr>
-                        <th>ที่อยู่ : &nbsp<input type="text" name="address" id="address" value="<?= $_SESSION['address']; ?>"> &nbsp </th>
-                    </tr>
-                    <tr>
-                        <th>เลขประจำตัวผู้เสียภาษี : &nbsp<input type="text" name="vat_no" id="vat_no" value="<?= $_SESSION['vat_no']; ?>" style=" margin-right: 8rem;" > &nbsp </th>
-                    </tr>
-                    <tr>
-                        <th>เบอร์โทรติดต่อ : &nbsp<input type="text" name="tel" id="tel" value="<?= $_SESSION['tel']; ?>" style=" margin-right: 5rem;" > &nbsp </th>
-                    </tr>
-                </table>
-                <div class="row btn-g">
-                    <div class="col-2">
-                        <!--<button type="reset" class="btn-c reset">ยกเลิก</button>-->
-                    </div>
-                    <div class="col-2">
-                        <input type="submit" class="btn-c submit" value="บันทึก" />
+    <form method="post" action="shop_detail.php" id="form1" name="form1">
+        <div class="row">
+            <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
+            <div class="col-11">
+                <div class="row main">
+                    <h1>ตั้งค่าข้อมูลร้านค้า</h1>
+                    <table class="main col-10">
+                        <tr>
+                            <th>ที่อยู่ : &nbsp<input type="text" name="address" id="address" value="<?= $_SESSION['address']; ?>"> &nbsp </th>
+                        </tr>
+                        <tr>
+                            <th>เลขประจำตัวผู้เสียภาษี : &nbsp<input type="text" name="vat_no" id="vat_no" value="<?= $_SESSION['vat_no']; ?>" style=" margin-right: 8rem;"> &nbsp </th>
+                        </tr>
+                        <tr>
+                            <th>เบอร์โทรติดต่อ : &nbsp<input type="text" name="tel" id="tel" value="<?= $_SESSION['tel']; ?>" style=" margin-right: 5rem;"> &nbsp </th>
+                        </tr>
+                    </table>
+                    <div class="row btn-g">
+                        <div class="col-2">
+                            <!--<button type="reset" class="btn-c reset">ยกเลิก</button>-->
+                        </div>
+                        <div class="col-2">
+                            <button type="button" class="btn-c submit" onclick="Submit()" value="บันทึก">บันทึก</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</form>
+    </form>
 </body>
+<script src="./src/js/shop_detail.js"></script>
 
 </html>

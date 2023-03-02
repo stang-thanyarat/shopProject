@@ -56,21 +56,21 @@
 }
 
 @media only screen and (max-width: 824px) {
-    .main{
+    .main {
         margin-left: 150px;
         margin-top: -5px !important;
     }
 }
 
 @media only screen and (max-width: 400px) {
-    .main{
+    .main {
         margin-left: 200px;
         margin-top: -5px !important;
     }
 }
 
 @media only screen and (max-width: 375px) {
-    .a{
+    .a {
         width: 200%;
     }
 }

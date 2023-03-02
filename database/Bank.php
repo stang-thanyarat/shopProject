@@ -13,10 +13,10 @@ class Bank
             $sql = "SELECT * FROM bank_tb";
             $stmt = $this->conn->prepare($sql);
             $stmt->execute();
-            $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
-            if(!$result){
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if (!$result) {
                 return [];
-            }else{
+            } else {
                 return $result;
             }
         } catch (Exception $e) {
@@ -32,10 +32,10 @@ class Bank
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
-            $result = $stmt->fetch( PDO::FETCH_ASSOC);
-            if(!$result){
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            if (!$result) {
                 return [];
-            }else{
+            } else {
                 return $result;
             }
         } catch (Exception $e) {
@@ -51,10 +51,10 @@ class Bank
             $stmt = $this->conn->prepare($sql);
             $stmt->bindParam(1, $id, PDO::PARAM_INT);
             $stmt->execute();
-            $result = $stmt->fetchAll( PDO::FETCH_ASSOC);
-            if(!$result){
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if (!$result) {
                 return [];
-            }else{
+            } else {
                 return $result;
             }
         } catch (Exception $e) {

@@ -13,6 +13,6 @@ if (isset($_POST)) {
             $otherprice->insert($_POST);
         }
     }
-}else{
+} else {
     echo "Page Not found.";
 }

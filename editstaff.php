@@ -26,13 +26,13 @@ function getFullRole($role)
     <link rel="stylesheet" href="./src/css/editstaff.css" />
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    
+
 </head>
 <?php
 include_once('nav.php');
 include_once('database/Employee.php');
 include_once('database/Employeebank.php');
-include_once ('./service/datetimeDisplay.php');
+include_once('./service/datetimeDisplay.php');
 $employee = new Employee();
 $e = $employee->fetchById($_GET['id']);
 $employeeBank = new Employeebank();
@@ -60,7 +60,7 @@ for ($i = 0; $i < count($banks); $i++) {
         <input type="hidden" name="bank" value="" id="bank" />
         <input type="hidden" name="table" value="employee" />
         <input type="hidden" name="form_action" value="update" />
-        <input type="hidden" value="<?= $_GET['id'] ?>" name="employee_id" id="employee_id"/>
+        <input type="hidden" value="<?= $_GET['id'] ?>" name="employee_id" id="employee_id" />
         <div class="row">
             <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
             <div class="col-11">

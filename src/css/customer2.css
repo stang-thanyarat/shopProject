@@ -9,7 +9,7 @@
     --bs-gutter-x: 0rem;
 }
 
-.z{
+.z {
     display: flex;
     justify-content: flex-end;
 }
@@ -55,52 +55,52 @@
     margin-top: -3rem;
 }
 
-.col-2{
+.col-2 {
     width: fit-content;
     margin-left: 2rem;
     margin-right: 4rem;
 }
 
 @media only screen and (max-width: 375px) {
-    .a{
+    .a {
         width: 250%;
     }
 }
 
 
 @media only screen and (max-width: 665px) {
-    .carousel{
+    .carousel {
         position: absolute;
         left: 200px;
         margin-left: 6rem;
     }
 
-    .col-7{
+    .col-7 {
         margin-top: 270px;
     }
 
 }
 
 @media only screen and (max-width: 665px) {
-    .carousel{
+    .carousel {
         margin-left: 4rem;
     }
 }
 
 @media only screen and (max-width: 465px) {
-    .carousel{
+    .carousel {
         margin-left: 2.7rem;
     }
 }
 
 @media only screen and (max-width: 465px) {
-    .carousel{
+    .carousel {
         margin-left: 2.3rem;
     }
 }
 
 @media only screen and (max-width: 464px) {
-    .carousel{
+    .carousel {
         margin-left: -1rem;
     }
 }

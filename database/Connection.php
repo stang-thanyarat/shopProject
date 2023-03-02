@@ -1,5 +1,6 @@
 <?php
-function Connection(){
+function Connection()
+{
 
     $servername = "localhost";
     $username = "root";
@@ -15,4 +16,3 @@ function Connection(){
         throw new Exception("Connection failed: " . $e->getMessage());
     }
 }
-

@@ -1,7 +1,5 @@
-function validateForm()
-{
-    if(document.getElementById('namecustomer').value == "")
-    {
+function validateForm() {
+    if (document.getElementById('namecustomer').value == "") {
         alert('กรุณากรอกข้อมูล');
         return false;
     }
@@ -9,12 +7,12 @@ function validateForm()
 
 //บัตรประชาชน
 
-function checkID(id)
-{
-    if(id.length != 13) return false;
-    for(i=0, sum=0; i < 12; i++)
-        sum += parseFloat(id.charAt(i))*(13-i); if((11-sum%11)%10!=parseFloat(id.charAt(12)))
-    return false; return true;}
+function checkID(id) {
+    if (id.length != 13) return false;
+    for (i = 0, sum = 0; i < 12; i++)
+        sum += parseFloat(id.charAt(i)) * (13 - i); if ((11 - sum % 11) % 10 != parseFloat(id.charAt(12)))
+        return false; return true;
+}
 
 $("#form1").submit(async function (event) {
     event.preventDefault();

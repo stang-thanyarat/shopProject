@@ -47,7 +47,7 @@ $c = $category->fetchAll();
                     <h1>สินค้าหมดอายุ</h1>
                 </div>
             </div>
-            <div class="row" >
+            <div class="row">
                 <div class="col-6 date">
                     <label for="expires within">หมดอายุภายใน :</label>
                     <label for="expires"></label>
@@ -99,9 +99,6 @@ $c = $category->fetchAll();
         var month_th = ["", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม"];
         return result = date.getDate() + " " + month_th[(date.getMonth() + 1)] + " " + (date.getFullYear() + 543);
     }
-
-    var date = convertToDateThai(new Date("2022-06-15"));
-    console.log(date);
 
     var input1 = document.getElementById("date");
     input1.addEventListener("keypress", function(event) {

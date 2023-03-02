@@ -24,7 +24,7 @@ function getFullRole($role)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/vat.css" />
-    
+
 </head>
 <?php
 if (!isset($_SESSION)) {
@@ -32,7 +32,7 @@ if (!isset($_SESSION)) {
 }
 if (!isset($_SESSION['shop_name'])) {
     $name = "ร้าน ABC";
-}else{
+} else {
     $name =  $_SESSION['shop_name'];
 }
 if (isset($_POST['shop_name'])) {
@@ -41,29 +41,29 @@ if (isset($_POST['shop_name'])) {
 include_once('nav.php'); ?>
 
 <body>
-<form method="post" action="name.php">
-    <div class="row">
-        <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
-        <div class="col-11">
-            <div class="row main">
-                <h1>ตั้งค่าชื่อร้าน</h1>
-                <table class="main col-10">
-                    <tr>
-                        <th>ชื่อร้าน &nbsp<input type="text" name="shop_name" id="shop_name" value="<?= $name;?>" required></th>
-                    </tr>
-                </table>
-                <div class="row btn-g">
-                    <div class="col-2">
-                        <!--<button type="reset" class="btn-c reset">ยกเลิก</button>-->
-                    </div>
-                    <div class="col-2">
-                        <input type="submit" class="btn-c submit" value="บันทึก" />
+    <form method="post" action="name.php">
+        <div class="row">
+            <div class="col-1 Nbar min-vh-100"><?php include_once('bar.php'); ?></div>
+            <div class="col-11">
+                <div class="row main">
+                    <h1>ตั้งค่าชื่อร้าน</h1>
+                    <table class="main col-10">
+                        <tr>
+                            <th>ชื่อร้าน &nbsp<input type="text" name="shop_name" id="shop_name" value="<?= $name; ?>" required></th>
+                        </tr>
+                    </table>
+                    <div class="row btn-g">
+                        <div class="col-2">
+                            <!--<button type="reset" class="btn-c reset">ยกเลิก</button>-->
+                        </div>
+                        <div class="col-2">
+                            <input type="submit" class="btn-c submit" value="บันทึก" />
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</form>
+    </form>
 </body>
 
 </html>

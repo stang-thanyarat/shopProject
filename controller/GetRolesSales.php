@@ -7,5 +7,3 @@ if (!isset($_SESSION['role'])) {
 } else {
     echo $_SESSION['role'];
 }
-?>
-

@@ -118,7 +118,7 @@ select {
     width: 100%;
 }
 
-.bgs{
+.bgs {
     border: 0ch;
     background-color: #fff;
 }
@@ -199,7 +199,7 @@ select {
 
 }
 
-.topic{
+.topic {
     margin-left: 4rem;
 }
 
@@ -209,8 +209,9 @@ select {
     margin-top: 2rem;
     margin-bottom: 4rem;
 }
-.btn-primary1{
-    
+
+.btn-primary1 {
+
     background-color: #7C904E;
     color: #fff;
     border: 0in;
@@ -221,32 +222,39 @@ select {
     font-size: 16pt;
     width: 20%;
 }
+
 .inbox {
     margin-left: 2rem;
 }
-.addproducttypename{
+
+.addproducttypename {
     font-size: 16pt;
 }
-.addallproducttype{
+
+.addallproducttype {
     font-size: 16pt;
     margin-top: 1rem;
     margin-left: 0.49rem;
 }
-.addsellproducttype{
+
+.addsellproducttype {
     font-size: 16pt;
     margin-top: 1rem;
     margin-left: 1.4rem;
     margin-bottom: 2rem;
 }
-.leftproducttype{
+
+.leftproducttype {
     font-size: 16pt;
 }
-.leftallproducttype{
+
+.leftallproducttype {
     font-size: 16pt;
     margin-top: 1rem;
     margin-left: 0.49rem;
 }
-.leftsellproducttype{
+
+.leftsellproducttype {
     font-size: 16pt;
     margin-top: 1rem;
     margin-left: 1.4rem;

@@ -36,7 +36,7 @@ class Employee
 
     public function fetchWithOutUserId()
     {
-        try{
+        try {
             $employees = $this->fetchAll();
             $users = (new UserAccount())->fetchAll();
             $data = [];
@@ -75,7 +75,7 @@ class Employee
 
     public function searchByName($keyword)
     {
-        try{
+        try {
             $like = "%" . $keyword . "%";
             $sql = "SELECT * FROM employee_tb WHERE employee_firstname LIKE ? OR employee_lastname LIKE ?";
             $stmt = $this->conn->prepare($sql);
@@ -96,29 +96,29 @@ class Employee
 
     public function search($keyword, $id = null)
     {
-       try{
-           $like = "%" . $keyword . "%";
-           $sql = "SELECT * FROM user_account_tb LEFT JOIN employee_tb ON user_account_tb.employee_id = user_account_tb.employee_id
+        try {
+            $like = "%" . $keyword . "%";
+            $sql = "SELECT * FROM user_account_tb LEFT JOIN employee_tb ON user_account_tb.employee_id = user_account_tb.employee_id
         WHERE employee_firstname LIKE ? OR employee_lastname LIKE ?";
-           if (!is_null($id)) {
-               $sql .= " AND user_account_tb.account_user_type=?";
-           }
-           $stmt = $this->conn->prepare($sql);
-           $stmt->bindParam(1, $like, PDO::PARAM_STR);
-           if (!is_null($id)) {
-               $stmt->bindParam(2, $id, PDO::PARAM_INT);
-           }
-           $stmt->execute();
-           $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-           if (!$result) {
-               return [];
-           } else {
-               return $result;
-           }
-       } catch (Exception $e) {
-           http_response_code(500);
-           return [];
-       }
+            if (!is_null($id)) {
+                $sql .= " AND user_account_tb.account_user_type=?";
+            }
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $like, PDO::PARAM_STR);
+            if (!is_null($id)) {
+                $stmt->bindParam(2, $id, PDO::PARAM_INT);
+            }
+            $stmt->execute();
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
     }
 
     public function updateStatus($status, $id)

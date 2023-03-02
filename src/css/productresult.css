@@ -25,14 +25,15 @@
 }
 
 
-.main{
+.main {
     margin-top: 5rem;
     margin-left: 4rem;
 }
 
-.Nbar{
+.Nbar {
     margin-top: 3.5rem;
 }
+
 table,
 td,
 th {
@@ -51,13 +52,15 @@ table {
 th {
     height: 50px;
 }
-.btnd{
+
+.btnd {
     background-color: #F8E4C8;
     border-radius: 25px;
     width: 70%;
     height: 100%;
 }
-.BTNC{
+
+.BTNC {
     background-color: #7C904E;
     color: #000;
     border-radius: 25px;
@@ -69,18 +72,19 @@ th {
 
 }
 
-.s{
+.s {
     background: transparent;
     border: 0px;
     margin-left: -2rem;
 }
 
-.BTNP{
+.BTNP {
     background-color: #fff;
     color: #A36627;
     border: 0in;
-    
+
 }
+
 .btn-d {
     border-radius: 25px 25px 25px 25px;
 }
@@ -105,6 +109,7 @@ th {
 .slider.round:before {
     border-radius: 50%;
 }
+
 .slider {
     position: absolute;
     cursor: pointer;
@@ -144,71 +149,75 @@ input:checked+.slider:before {
 }
 
 
-.modal-header{
+.modal-header {
     background-color: #7C904E;
     height: 50px;
 }
-.modal-title{
+
+.modal-title {
     color: #fff;
 }
-.modal-body1{
-   text-align: center;
-   height: 70px;
-   margin-top: 3rem;
+
+.modal-body1 {
+    text-align: center;
+    height: 70px;
+    margin-top: 3rem;
 }
 
-.row{
+.row {
     --bs-gutter-x: 0rem;
 }
 
-.u{
+.u {
     width: 100px;
 }
-.h{
+
+.h {
     margin-left: 6rem;
 }
-.t{
+
+.t {
     background-color: #ABBE99;
     height: 45px;
     width: 100%;
-   
+
 }
 
-.g{
+.g {
     background-color: #D4DDC6;
     margin-left: 1rem;
     height: 100%;
     width: 60%;
 }
 
-.producttable{
+.producttable {
     margin-top: 2rem;
     margin-left: 4rem;
     margin-bottom: 4rem;
 }
 
-.z{
+.z {
     font-size: 16pt;
     margin-left: 45rem;
 
 }
 
-.y{
+.y {
     font-size: 16pt;
     margin-left: -3rem;
 }
 
-.x{
+.x {
     font-size: 16pt;
     margin-left: -2rem;
 }
 
-.modal-title2{
-    color:white;
+.modal-title2 {
+    color: white;
 }
 
-.btn-primary1{
-    
+.btn-primary1 {
+
     background-color: #7C904E;
     color: #fff;
     border: 0in;

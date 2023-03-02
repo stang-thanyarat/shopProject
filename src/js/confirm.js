@@ -11,7 +11,7 @@ $("#addproduct").submit(function (event) {
     event.preventDefault();
     let tableObj = JSON.parse(localStorage.getItem("tableProduct"))
     const i = tableObj.data.length
-    if ($('#product_id').val() === "" || $('#order_pr').val() === "" || $('#order_amt').val() === "" ) {
+    if ($('#product_id').val() === "" || $('#order_pr').val() === "" || $('#order_amt').val() === "") {
         $('#addtable').blur()
         return
     }
@@ -227,11 +227,11 @@ $("#payment_sl").change(function () {
     }
 });
 
-let ALLPrice  = 0;
-let A  = 0;
-function getAllprice(){
-    ALLPrice  = 0
-    A  = 0
+let ALLPrice = 0;
+let A = 0;
+function getAllprice() {
+    ALLPrice = 0
+    A = 0
     let tableObj = (JSON.parse(localStorage.getItem("tableProduct"))).data
     for (const element of tableObj) {
         A += Number(element.amount)
@@ -292,7 +292,7 @@ async function loopother() {
 //ตรวจสอบพร้อมส่งข้อมูล
 $("#form1").submit(async function (event) {
     event.preventDefault();
-    if ($("#sell_id").val() == "all" ) {
+    if ($("#sell_id").val() == "all") {
         Swal.fire({
             icon: 'warning',
             title: 'คำเตือน',
@@ -301,7 +301,7 @@ $("#form1").submit(async function (event) {
         })
         return
     }
-    if ($("#payment_sl").val() == "all" ) {
+    if ($("#payment_sl").val() == "all") {
         Swal.fire({
             icon: 'warning',
             title: 'คำเตือน',
