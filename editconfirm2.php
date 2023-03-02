@@ -109,11 +109,11 @@ for ($k = 0; $k < count($op); $k++) {
                     <div class="row">
                         <div class="col datebill">
                             วันที่วางบิล : &nbsp;
-                            <?= toDay($o['datebill']); ?>
+                            <b><?= toDay($o['datebill']); ?></b>
                         </div>
                         <div class="col">
                             &nbsp;&nbsp;วันที่รับของ : &nbsp;
-                            <?= toDay($o['datereceive']); ?>
+                            <b><?= toDay($o['datereceive']); ?></b>
                         </div>
                     </div>
                 </div>

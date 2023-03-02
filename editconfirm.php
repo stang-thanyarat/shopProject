@@ -242,7 +242,7 @@ for ($k = 0; $k < count($op); $k++) {
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">เพิ่มสินค้า</h5>
-                        <button type="button" class="close" id="addclose" data-bs-dismiss="modal" aria-label="Close">
+                        <button type="button" class="btn-close" id="addclose" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -279,7 +279,7 @@ for ($k = 0; $k < count($op); $k++) {
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">แก้ไขสินค้า</h5>
-                        <button type="button" class="close" id="editclose" data-bs-dismiss="modal" aria-label="Close">
+                        <button type="button" class="btn-close" id="editclose" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -315,7 +315,7 @@ for ($k = 0; $k < count($op); $k++) {
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">เพิ่มค่าใช้จ่ายอื่นๆ</h5>
-                        <button type="button" id="addcloseother" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <button type="button" id="addcloseother" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -342,7 +342,7 @@ for ($k = 0; $k < count($op); $k++) {
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">แก้ไขค่าใช้จ่ายอื่นๆ</h5>
-                        <button type="button" id="editaddcloseother" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <button type="button" id="editaddcloseother" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -409,6 +409,9 @@ for ($k = 0; $k < count($op); $k++) {
             data: [<?php echo $json1; ?>]
         }))
     });
+</script>
+<script>
+    window.onload = () => document.querySelector('.btn-close > span').remove()
 </script>
 <script src="./src/js/confirm.js"></script>
 
