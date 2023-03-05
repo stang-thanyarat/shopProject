@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addtocart.php" beforeDir="false" afterPath="$PROJECT_DIR$/addtocart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bar.php" beforeDir="false" afterPath="$PROJECT_DIR$/bar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/ProductExchange.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/ProductExchange.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/editconfirm2.php" beforeDir="false" afterPath="$PROJECT_DIR$/editconfirm2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/employee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/expiredproduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/expiredproduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/productresult.php" beforeDir="false" afterPath="$PROJECT_DIR$/productresult.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/employee.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/employee.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/addtocart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/addtocart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/confirm2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/confirm2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracthistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/contracthistory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/addseller.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,6 +134,7 @@
       <workItem from="1676795177999" duration="16203000" />
       <workItem from="1677512302493" duration="1412000" />
       <workItem from="1677646179649" duration="6775000" />
+      <workItem from="1678025563113" duration="644000" />
     </task>
     <servers />
   </component>
