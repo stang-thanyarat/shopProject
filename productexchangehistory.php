@@ -63,9 +63,8 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                         </form>
                     </div>
                 </div>
-                <div class="d-flex justify-content-end">
                     <?php if (count($rows) > 0) { ?>
-                        <table class="col-11  pdrtb">
+                        <table class="pdrtb" >
                             <thead>
                                 <tr>
                                     <th width=18%>วันที่เปลี่ยนสินค้า</th>
@@ -84,7 +83,7 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                                         <th id="text<?= $row['product_id'] ?>"><?= $row['product_name'] ?></th>
                                         <th><?= number_format($row['exchange_amount']) ?></th>
                                         <th><?php if ($row['exchange_status'] == 1) { ?>
-                                                <a type='button' onclick="wait(<?= $row['product_exchange_id']; ?>)">
+                                                <a type='button' name="btWait_Click()" onclick="wait(<?= $row['product_exchange_id']; ?>)">
                                                     <font color=#A36627>รอของ</font>
                                                 </a>
                                             <?php } else { ?>
@@ -104,7 +103,6 @@ if (isset($_GET['start']) && isset($_GET['end']) && $_GET['start'] != '' && $_GE
                     <?php } else {
                         echo '<div class="d-flex justify-content-center"><h3 style="margin-top: 9rem; margin-bottom: 9rem;">ไม่พบข้อมูล</h3></div>';
                     } ?>
-                </div>
             </div>
         </div>
     </form>

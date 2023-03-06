@@ -136,8 +136,8 @@ async function addToCart(id) {
     let l = 0;
     let expireList = await (await fetch('./controller/GetExpireProduct.php?product_id=' + id)).json()
     if (!(!expireList || expireList.length <= 0)) {
-        let exdate = ''
-        let k = 0
+        let exdate = '';
+        let k = 0;
         for (let e of expireList) {
             if (getDiff(e.exp_date) <= 0) {
                 exdate += `<option value="${e.stock_id}" ${k == 0 ? "selected" : ""}>${convertToDateThai(new Date(e.exp_date))}</option>
