@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34fca63c-48b9-446c-bd74-0082c26846fa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addtocart.php" beforeDir="false" afterPath="$PROJECT_DIR$/addtocart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/budget.php" beforeDir="false" afterPath="$PROJECT_DIR$/budget.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Budget.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Budget.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/Stock.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/Stock.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/editconfirm2.php" beforeDir="false" afterPath="$PROJECT_DIR$/editconfirm2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/productexchangehistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/productexchangehistory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/manageUserAccounts.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/manageuseraccounts.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/productexchangehistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/productexchangehistory.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/confirm2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/confirm2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/costprice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/costprice.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/costprice2.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/costprice2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/notification_amt.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/notification_amt.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/js/productlist.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/productlist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contracthistory.php" beforeDir="false" afterPath="$PROJECT_DIR$/contracthistory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/css/addseller.css" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,16 +68,6 @@
       <recent name="C:\xampp\htdocs\shopProject\service\PDF\template" />
       <recent name="C:\xampp\htdocs\shopProject\controller" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="OrderKeyword.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/controller/OrderKeyword.php">
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="PHP Script.OrderKeyword.php" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -156,6 +134,7 @@
       <workItem from="1676795177999" duration="16203000" />
       <workItem from="1677512302493" duration="1412000" />
       <workItem from="1677646179649" duration="6775000" />
+      <workItem from="1678025563113" duration="644000" />
     </task>
     <servers />
   </component>
