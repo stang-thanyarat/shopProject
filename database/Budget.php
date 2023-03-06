@@ -39,7 +39,7 @@ class Budget
             }
             $cash2 = 0;
             foreach ($result as $rowsss) {
-                if ($rowsss['payment_sl_sales'] == 'เงินสด') {
+                if ($rowsss['payment_sl_sales'] != 'ผ่อนชำระ') {
                     $cash2 += $rowsss['all_price'];
                 }
             }
@@ -83,7 +83,7 @@ class Budget
             }
             $cash2 = 0;
             foreach ($result as $rowss) {
-                if ($rowss['payment_sl_sales'] == 'เงินสด') {
+                if ($rowss['payment_sl_sales'] != 'ผ่อนชำระ') {
                     $cash2 += $rowss['all_price'];
                 }
             }

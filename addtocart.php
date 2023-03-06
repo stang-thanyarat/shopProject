@@ -209,7 +209,7 @@ include_once('nav.php');
                         <span id="salestocontracttable"></span>
                     </div>
                     <div class="modal-footer">
-                        <a id="next-add" href="#" class="btn btn-primary1">ถัดไป</a>
+                        <a name="btAddContact_Click()" id="next-add" href="#" class="btn btn-primary1">ถัดไป</a>
                     </div>
                 </div>
             </div>

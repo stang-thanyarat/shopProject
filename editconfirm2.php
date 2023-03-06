@@ -101,7 +101,7 @@ for ($k = 0; $k < count($op); $k++) {
                     <div class="col-8 d-flex justify-content-end" style="margin-top: 1rem;">
                         <div class="col-8" style="text-align: end;">
                             <b style="font-size: 20pt;">สถานะใบสั่งซื้อ &nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;</b>
-                            <input style="transform:scale(2);" name="order_status" id="order_status" type="checkbox"> &nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 20pt;">สำเร็จแล้ว</span>
+                            <input style="transform:scale(2);" name="order_status" id="order_status" type="checkbox" required> &nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size: 20pt;">สำเร็จแล้ว</span>
                         </div>
                     </div>
                 </div>

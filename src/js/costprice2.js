@@ -1,6 +1,6 @@
 $("#product_id").change(async function () {
     if ($("#product_id").val() !== "all") {
-        let url = `./controller/Costprice3.php?product_id=${$("#product_id").val()}`
+        let url = `./controller/CostPrice3.php?product_id=${$("#product_id").val()}`
         const n = await (await fetch(url)).json()
         set(n)
     }
@@ -53,7 +53,7 @@ $("#search").click(async function () {
         })
         return
     } else if ($("#product_id").val() !== "all" && $("#start").val() !== "" && $("#end").val() !== "") {
-        let url = `./controller/Costprice2.php?product_id=${$("#product_id").val()}&start=${$("#start").val()}&end=${$("#end").val()}`
+        let url = `./controller/CostPrice2.php?product_id=${$("#product_id").val()}&start=${$("#start").val()}&end=${$("#end").val()}`
         const product = await (await fetch(url)).json()
         setUI(product)
     }

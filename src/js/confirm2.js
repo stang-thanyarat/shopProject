@@ -1,3 +1,81 @@
+//เพิ่มสินค้า
+$("#addproduct").submit(function (event) {
+    event.preventDefault();
+    let tableObj = JSON.parse(localStorage.getItem("tableProduct"))
+    const i = tableObj.data.length
+    if ($('#product_id').val() === "" || $('#order_pr').val() === "" || $('#order_amt').val() === "") {
+        $('#addtable').blur()
+        return
+    }
+    $('#list-product').append(`<tr id="rr${i + 1}">
+                    <th class="index-table-product">${i + 1}</th>
+                    <th>${$('#product_name').val() || $("#product_id option:selected").text()}</th>
+                    <th>${Number($('#order_pr').val())}</th>
+                    <th>${Number($('#order_amt').val())}</th>
+                    <th>${Number($('#order_pr').val()) * Number($('#order_amt').val())}</th>
+                    <th>
+                        <button type="button" class="btn1 " data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(${i})"></button>
+                        <button type="button" class="btn1" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
+                    </th>
+                </tr>`)
+    $('#addclose').click()
+    tableObj.data.push({
+        list: Number($('#product_id').val()),
+        price: Number($('#order_pr').val()),
+        amount: Number($('#order_amt').val()),
+        allPrice: Number($('#order_pr').val()) * Number($('#order_amt').val()),
+        id: Number(-1),
+    })
+    localStorage.setItem("tableProduct", JSON.stringify(tableObj))
+    $('#product_id').val("")
+    $('#order_pr').val("")
+    $('#order_amt').val("")
+    getAllprice()
+
+});
+
+//กำหนดแถวที่จะลบ
+function saveIndexDel(i) {
+    localStorage.setItem('deleteIndex', i)
+}
+
+//กำหนดแถวที่จะแก้ไข พร้อมข้อมูลเริ่มต้น
+function saveIndexEdit(i) {
+    localStorage.setItem('editIndex', i)
+    let rows = (JSON.parse(localStorage.getItem("tableProduct"))).data
+    $('#editproduct_id').val(rows[i].list)
+    $('#editorder_pr').val(rows[i].price)
+    $('#editorder_amt').val(rows[i].amount)
+    $('#editall_price_odr').val(rows[i].allPrice)
+}
+
+//ลบแถวสินค้า
+function delrow() {
+    let tableObj = JSON.parse(localStorage.getItem("tableProduct"))
+    const index = localStorage.getItem('deleteIndex')
+    let rows = tableObj.data
+    rows.splice(index, 1)
+    $('#list-product').html("")
+    rows.forEach((e, i) => {
+        $('#list-product').append(`<tr id="rr${i + 1}">
+                    <th class="index-table-product">${i + 1}</th>
+                    <th>${Number(e.list)}</th>
+                    <th>${Number(e.price)}</th>
+                    <th>${Number(e.amount)}</th>
+                     <th>${Number(e.price) * Number(e.amount)}</th>
+                    <th>
+                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target="#exampleModal"><img src="./src/images/icon-delete.png" width="25" onclick="saveIndexDel(${i})"></button>
+                        <button type="button" class="bgs" data-bs-toggle="modal" data-bs-target=".bd-example-modal-xl"><img src="./src/images/icon-pencil.png" width="25" onclick="saveIndexEdit(${i})"></button>
+                    </th>
+                </tr>`)
+    });
+    tableObj.data = rows
+    localStorage.setItem("tableProduct", JSON.stringify(tableObj))
+    localStorage.removeItem('deleteIndex')
+    $('#closedelrow').click()
+    getAllprice()
+}
+
 //แก้ไขสินค้า
 $("#editaddproduct").submit(function (event) {
     event.preventDefault();
@@ -70,19 +148,21 @@ async function loopexp() {
     let lastID = await (await fetch('controller/GetLastIdOrder.php')).text()
     let rows = (JSON.parse(localStorage.getItem("tableProduct"))).data
     for (let d of rows) {
-        var formdata = new FormData();
-        formdata.append("order_id", $("#order_id").val());
-        formdata.append("product_id", Number(d.list));
-        formdata.append("amount_exp", Number(d.amount));
-        formdata.append("exp_date", d.expdate);
-        formdata.append("form_action", "insert");
-        formdata.append("table", "stock");
-        var requestOptions = {
-            method: 'POST',
-            body: formdata,
-            redirect: 'follow'
-        };
-        await fetch("controller/Stock.php", requestOptions)
+        if(d.expdate != "" ) {
+            var formdata = new FormData();
+            formdata.append("order_id", $("#order_id").val());
+            formdata.append("product_id", Number(d.list));
+            formdata.append("amount_exp", Number(d.amount));
+            formdata.append("exp_date", d.expdate);
+            formdata.append("form_action", "insert");
+            formdata.append("table", "stock");
+            var requestOptions = {
+                method: 'POST',
+                body: formdata,
+                redirect: 'follow'
+            };
+            await fetch("controller/Stock.php", requestOptions)
+        }
     }
 }
 
@@ -119,7 +199,7 @@ function checkboxClick(event) {
 //ตรวจสอบพร้อมส่งข้อมูล
 $("#form1").submit(async function (event) {
     event.preventDefault();
-    if ($("#order_status").val() == "empty") {
+    if (!($("#order_status").val())) {
         Swal.fire({
             icon: 'warning',
             title: 'คำเตือน',

@@ -13,95 +13,95 @@ class Stock
 
     public function fetchAll()
     {
-       try{
-           $sql = "SELECT S.*,P.*,O.* FROM stock_tb S,product_tb P, order_tb O WHERE S.product_id =  P.product_id AND S.order_id = O.order_id ORDER BY S.exp_date DESC";
-           $stmt = $this -> conn -> prepare($sql);
-           $stmt->execute();
-           $result = $stmt ->fetchAll();
-           if (!$result) {
-               return [];
-           } else {
-               return $result;
-           }
-       } catch (Exception $e) {
-           http_response_code(500);
-           return [];
-       }
+        try{
+            $sql = "SELECT S.*,P.*,O.* FROM stock_tb S,product_tb P, order_tb O WHERE S.product_id =  P.product_id AND S.order_id = O.order_id ORDER BY S.exp_date DESC";
+            $stmt = $this -> conn -> prepare($sql);
+            $stmt->execute();
+            $result = $stmt ->fetchAll();
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
     }
 
     public function fetchAllDate($date)
     {
-       try{
-           $sql = "SELECT S.*,P.*,O.* FROM stock_tb S,product_tb P, order_tb O WHERE S.product_id =  P.product_id AND S.order_id = O.order_id AND S.exp_date LIKE ? ORDER BY S.exp_date DESC";
-           $stmt = $this->conn->prepare($sql);
-           $like = "%$date%";
-           $stmt->bindParam(1, $like, PDO::PARAM_STR);
-           $stmt->execute();
-           $result = $stmt->fetchAll();
-           if (!$result) {
-               return [];
-           } else {
-               return $result;
-           }
-       } catch (Exception $e) {
-           http_response_code(500);
-           return [];
-       }
+        try{
+            $sql = "SELECT S.*,P.*,O.* FROM stock_tb S,product_tb P, order_tb O WHERE S.product_id =  P.product_id AND S.order_id = O.order_id AND S.exp_date LIKE ? ORDER BY S.exp_date DESC";
+            $stmt = $this->conn->prepare($sql);
+            $like = "%$date%";
+            $stmt->bindParam(1, $like, PDO::PARAM_STR);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
     }
 
     public function fetchAllCondition($date,$id,$keyword)
     {
-    try{
-        $sql = "SELECT S.*,P.*,O.* FROM stock_tb S,product_tb P, order_tb O WHERE S.product_id =  P.product_id AND S.order_id = O.order_id AND P.category_id = ?
+        try{
+            $sql = "SELECT S.*,P.*,O.* FROM stock_tb S,product_tb P, order_tb O WHERE S.product_id =  P.product_id AND S.order_id = O.order_id AND P.category_id = ?
                 AND S.exp_date LIKE ? AND P.product_name LIKE ? ORDER BY S.exp_date DESC   ";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(1, $id, PDO::PARAM_INT);
-        $like = "%$date%";
-        $stmt->bindParam(2, $like, PDO::PARAM_STR);
-        $like2 = "%$keyword%";
-        $stmt->bindParam(3, $like2, PDO::PARAM_STR);
-        $stmt->execute();
-        $result = $stmt->fetchAll();
-        if (!$result) {
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $like = "%$date%";
+            $stmt->bindParam(2, $like, PDO::PARAM_STR);
+            $like2 = "%$keyword%";
+            $stmt->bindParam(3, $like2, PDO::PARAM_STR);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
             return [];
-        } else {
-            return $result;
         }
-    } catch (Exception $e) {
-        http_response_code(500);
-        return [];
-    }
     }
 
     public function searchsales($keyword, $id = null)
     {
-       try{
-           $like = "%$keyword%";
-           if (is_null($id)) {
-               $sql = "SELECT S.*,P.*,O.* FROM stock_tb S,product_tb P, order_tb O WHERE S.product_id =  P.product_id AND S.order_id = O.order_id AND P.product_name LIKE ?";
+        try{
+            $like = "%$keyword%";
+            if (is_null($id)) {
+                $sql = "SELECT S.*,P.*,O.* FROM stock_tb S,product_tb P, order_tb O WHERE S.product_id =  P.product_id AND S.order_id = O.order_id AND P.product_name LIKE ?";
 
-           } else {
-               $sql = "SELECT S.*,P.*,O.* FROM stock_tb S,product_tb P, order_tb O WHERE S.product_id =  P.product_id AND S.order_id = O.order_id AND P.category_id = ?  AND P.product_name LIKE ? ";
-           }
-           $sql .= ' ORDER BY S.exp_date DESC' ;
-           $stmt = $this->conn->prepare($sql);
-           if (is_null($id)) {
-               $stmt->bindParam(1, $like, PDO::PARAM_STR);
-           } else {
-               $stmt->bindParam(1, $id, PDO::PARAM_INT);
-               $stmt->bindParam(2, $like, PDO::PARAM_STR);
-           }
-           $stmt->execute();
-           $result = $stmt->fetchAll();
-           if (!$result) {
-               return [];
-           } else {
-               return $result;
-           }
-       } catch (Exception $e) {
-           http_response_code(500);
-           return [];
-       }
+            } else {
+                $sql = "SELECT S.*,P.*,O.* FROM stock_tb S,product_tb P, order_tb O WHERE S.product_id =  P.product_id AND S.order_id = O.order_id AND P.category_id = ?  AND P.product_name LIKE ? ";
+            }
+            $sql .= ' ORDER BY S.exp_date DESC' ;
+            $stmt = $this->conn->prepare($sql);
+            if (is_null($id)) {
+                $stmt->bindParam(1, $like, PDO::PARAM_STR);
+            } else {
+                $stmt->bindParam(1, $id, PDO::PARAM_INT);
+                $stmt->bindParam(2, $like, PDO::PARAM_STR);
+            }
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
     }
 
     public function fetchAllDateAndKeyword($date,$keyword)
@@ -129,23 +129,23 @@ class Stock
 
     public function fetchAllDateAndId($date,$id)
     {
-       try{
-           $sql = "SELECT S.*,P.*,O.* FROM stock_tb S,product_tb P, order_tb O WHERE S.product_id =  P.product_id AND S.order_id = O.order_id AND P.category_id = ? AND S.exp_date LIKE ? ORDER BY S.exp_date DESC ";
-           $stmt = $this->conn->prepare($sql);
-           $stmt->bindParam(1, $id, PDO::PARAM_INT);
-           $like = "%$date%";
-           $stmt->bindParam(2, $like, PDO::PARAM_STR);
-           $stmt->execute();
-           $result = $stmt->fetchAll();
-           if (!$result) {
-               return [];
-           } else {
-               return $result;
-           }
-       } catch (Exception $e) {
-           http_response_code(500);
-           return [];
-       }
+        try{
+            $sql = "SELECT S.*,P.*,O.* FROM stock_tb S,product_tb P, order_tb O WHERE S.product_id =  P.product_id AND S.order_id = O.order_id AND P.category_id = ? AND S.exp_date LIKE ? ORDER BY S.exp_date DESC ";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindParam(1, $id, PDO::PARAM_INT);
+            $like = "%$date%";
+            $stmt->bindParam(2, $like, PDO::PARAM_STR);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            if (!$result) {
+                return [];
+            } else {
+                return $result;
+            }
+        } catch (Exception $e) {
+            http_response_code(500);
+            return [];
+        }
     }
 
     public function fetchById($id)
@@ -184,6 +184,25 @@ class Stock
             }
         }
         return $result;
+
+        /*เซิร์ฟ หลัก*/
+        /*$servername = "localhost";
+        $username = "elnvento_AgrStore";
+        $password = "grSt0re6502";
+        $database = "elnvento_AgrStore";*/
+
+        /*เซิร์ฟ รอง*/
+        /*$servername = "localhost";
+        $username = "root";
+        $password = "shopproject";
+        $database = "shop_pj";*/
+
+        /*เซิร์ฟ  ทดสอบ*/
+        /*$servername = "localhost";
+        $username = "root";
+        $password = "";
+        $database = "shop_pj";*/
+
     }
 
     public function cut($q,$id)

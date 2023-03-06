@@ -172,6 +172,30 @@ if (!isset($_GET['firstdate']) && (!isset($_GET['lastdate']))) {
             );
             $('body').append(form);
             $(form).submit();
+        } else if ($('#firstdate').val() && $('#firstdate').val() == "" && $('#lastdate').val() && $('#lastdate').val() == "") {
+            Swal.fire({
+                icon: 'warning',
+                title: 'คำเตือน',
+                text: 'กรุณาเลือกวันที่',
+                timer: 3000
+            })
+            return
+        } else if ($('#firstdate').val() && $('#firstdate').val() == "" && $('#lastdate').val() && $('#lastdate').val() != "") {
+            Swal.fire({
+                icon: 'warning',
+                title: 'คำเตือน',
+                text: 'กรุณาเลือกช่วงแรกของวันที่',
+                timer: 3000
+            })
+            return
+        } else if ($('#firstdate').val() && $('#firstdate').val() != "" && $('#lastdate').val() && $('#lastdate').val() == "") {
+            Swal.fire({
+                icon: 'warning',
+                title: 'คำเตือน',
+                text: 'กรุณาเลือกช่วงสุดท้ายของวันที่',
+                timer: 3000
+            })
+            return
         }
     }
 </script>
