@@ -16,7 +16,7 @@ $data = $sales->fetchByPDFId($id);
 if (count($data) <= 0) {
   echo "Not found.";
   exit();
-
+}
 
 if (!isset($_SESSION)) {
   session_start();

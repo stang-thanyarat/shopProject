@@ -33,7 +33,6 @@ function getFullRole($role)
 include_once('nav.php');
 include_once "./database/Contract.php";
 include_once './service/datetimeDisplay.php';
-include_once './service/datetimeDisplay.php';
 $contract =  new Contract();
 if (isset($_GET['keyword'])) {
     $rows = $contract->searchByName($_GET['keyword']);
